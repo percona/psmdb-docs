@@ -1,0 +1,12 @@
+.. rn:: 3.0.5-rc7
+
+====================================
+Percona Server for MongoDB 3.0.5-rc7
+====================================
+
+Percona is glad to announce the release of Percona Server for MongoDB on September 16th, 2015. Downloads are available `here <https://www.percona.com/downloads/percona-server-for-mongodb>`_ and from the :ref:`Percona Software Repositories <installation>`.
+
+New Features
+============
+
+
