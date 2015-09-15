@@ -10,8 +10,6 @@ Supported Releases:
 
 * Debian:
 
- * 6.0 (squeeze)
- * 7.0 (wheezy)
  * 8.0 (jessie)
 
 * Ubuntu:
@@ -23,7 +21,6 @@ Supported Releases:
 
 Supported Platforms:
 
- * x86
  * x86_64 (also known as ``amd64``)
 
 What's in each DEB package?

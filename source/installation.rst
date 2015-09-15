@@ -4,10 +4,9 @@
 Installing |Percona Server for MongoDB| 5.6
 ===========================================
 
-This page provides the information on how to you can install |Percona Server|. Following options are available: 
+This page provides the information on how to you can install |Percona Server| for MongoDB. Following options are available: 
 
-* :ref:`installing_from_binaries` (recommended)
-* Installing |Percona Server| from Downloaded `:ref:`rpm <standalone_rpm>` or :ref:`apt <standalone_deb>` Packages
+* :ref:`installing_from_binaries` 
 
 Before installing, you might want to read the :ref:`release_notes_index`.
 
