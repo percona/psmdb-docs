@@ -1,8 +1,8 @@
 .. _yum_repo:
 
-===========================================================================
- Installing |Percona Server| MongoDB on Red Hat Enterprise Linux and CentOS
-===========================================================================
+===============================================================================
+ Installing |Percona Server for MongoDB| on Red Hat Enterprise Linux and CentOS
+===============================================================================
 
 Ready-to-use packages are available from the |Percona| software repositories and the `download page <http://www.percona.com/downloads/Percona-Server-for-MongoDB/>`_. The |Percona| :program:`yum` repository supports popular *RPM*-based operating systems, including the *Amazon Linux AMI*.
 
@@ -29,7 +29,7 @@ Supported Platforms:
 What's in each RPM package?
 ===========================
 
-Each of the |Percona Server| RPM packages have a particular purpose.
+Each of the |Percona Server for MongoDB| RPM packages have a particular purpose.
 
 The ``Percona-Server-server-56`` package contains the server itself (the ``mysqld`` binary).
 
@@ -45,7 +45,7 @@ The ``Percona-Server-shared-compat`` package includes shared libraries for softw
 
 The ``Percona-Server-test-56`` package includes the test suite for |Percona Server|.
 
-Installing |Percona Server| for MongoDB from Percona ``yum`` repository
+Installing |Percona Server for MongoDB| from Percona ``yum`` repository
 =======================================================================
 
 1. Install the Percona repository 

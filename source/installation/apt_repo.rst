@@ -1,7 +1,7 @@
 .. _apt_repo:
 
 ====================================================
-Installing |Percona Server| on *Debian* and *Ubuntu*
+Installing |Percona Server for MongoDB| on *Debian* and *Ubuntu*
 ====================================================
 
 Ready-to-use packages are available from the |Percona Server| software repositories and the `download page <http://www.percona.com/downloads/Percona-Server-5.6/>`_.
@@ -42,7 +42,7 @@ The ``percona-server-mongodb-tools`` package contains Mongo tools for high-perfo
 The ``percona-server-mongodb-dbg`` package contains debug symbols for the server.
 
                    
-Installing |Percona Server| from Percona ``apt`` repository
+Installing |Percona Server for MongoDB| from Percona ``apt`` repository
 ===========================================================
 
 1. Import the public key for the package management system
@@ -104,14 +104,14 @@ In some cases you might need to "pin" the selected packages to avoid the upgrade
 For more information about the pinning you can check the official `debian wiki <http://wiki.debian.org/AptPreferences>`_.
 
 
-Running |Percona Server| for MongoDB
+Running |Percona Server for MongoDB|
 ====================================
 
-|Percona Server| for MongoDB stores the data files in :file:`/var/lib/mongodb/` by default. You can find the configuration file that is used to manage |Percona Server| in :file:`/etc/mongod.conf`. 
+|Percona Server for MongoDB| stores the data files in :file:`/var/lib/mongodb/` by default. You can find the configuration file that is used to manage |Percona Server for MongoDB| in :file:`/etc/mongod.conf`. 
 
 1. Starting the service
 
-   |Percona Server| for MongoDB is started automatically after it gets installed unless it encounters errors during the installation process. You can also manually start it by running: 
+   |Percona Server for MongoDB| is started automatically after it gets installed unless it encounters errors during the installation process. You can also manually start it by running: 
 
    .. code-block:: bash
 
@@ -145,12 +145,12 @@ Running |Percona Server| for MongoDB
 
   *Debian* 8.0 (jessie) and *Ubuntu* 15.04 (vivid) come with `systemd <http://freedesktop.org/wiki/Software/systemd/>`_ as the default system and service manager so you can invoke all the above commands with ``sytemctl`` instead of ``service``. Currently both are supported.
      
-Uninstalling |Percona Server| for MongoDB
+Uninstalling |Percona Server for MongoDB|
 =========================================
 
-To uninstall |Percona Server| for MongoDB you'll need to remove all the installed packages. Removing packages with :command:`apt-get remove` will leave the configuration and data files. Removing the packages with :command:`apt-get purge` will remove all the packages with configuration files and data files (all the databases). Depending on your needs you can choose which command better suits you.
+To uninstall |Percona Server for MongoDB| you'll need to remove all the installed packages. Removing packages with :command:`apt-get remove` will leave the configuration and data files. Removing the packages with :command:`apt-get purge` will remove all the packages with configuration files and data files (all the databases). Depending on your needs you can choose which command better suits you.
 
-1. Stop the |Percona Server| for MongoDB service
+1. Stop the |Percona Server for MongoDB| service
 
    .. code-block:: bash
 
