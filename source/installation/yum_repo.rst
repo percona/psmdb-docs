@@ -17,33 +17,28 @@ Supported Releases:
 
  * *CentOS* 7 and *RHEL* 7
 
- * *Amazon Linux AMI* (works the same as *CentOS* 6)
-
 The *CentOS* repositories should work well with *Red Hat Enterprise Linux* too, provided that :program:`yum` is installed on the server.
 
 Supported Platforms:
 
- * x86
  * x86_64 (also known as ``amd64``)
 
 What's in each RPM package?
 ===========================
 
-Each of the |Percona Server| RPM packages have a particular purpose.
+Each of the |Percona Server| for MongoDB RPM packages have a particular purpose.
 
-The ``Percona-Server-server-56`` package contains the server itself (the ``mysqld`` binary).
+The ``Percona-Server-MongoDB`` meta package will install the ``mongo`` shell, import/export tools, other client utilities, server software, default configuration, and init.d scripts.
 
-The ``Percona-Server-56-debuginfo`` package contains debug symbols for the server.
+The ``Percona-Server-MongoDB-debuginfo`` package contains debug symbols and information for the server package. 
 
-The ``Percona-Server-client-56`` package contains the command line client.
+The ``Percona-Server-MongoDB-server`` package contains Percona Server for MongoDB server software, default configuration files and service management scripts.
 
-The ``Percona-Server-devel-56`` package contains the header files needed to compile software using the client library.
+The ``Percona-Server-MongoDB-shell`` package contains the Percona Server for MongoDB shell. 
 
-The ``Percona-Server-shared-56`` package includes the client shared library.
+The ``Percona-Server-MongoDB-mongos`` package contains ``mongos`` - the Percona Server for MongoDB sharded cluster query router.
 
-The ``Percona-Server-shared-compat`` package includes shared libraries for software compiled against old versions of the client library. Following libraries are included in this package: ``libmysqlclient.so.12``, ``libmysqlclient.so.14``, ``libmysqlclient.so.15``, and ``libmysqlclient.so.16``.
-
-The ``Percona-Server-test-56`` package includes the test suite for |Percona Server|.
+The ``Percona-Server-MongoDB-tools`` package contains Mongo tools for high-performance MongoDB fork from Percona.
 
 Installing |Percona Server| for MongoDB from Percona ``yum`` repository
 =======================================================================
@@ -87,11 +82,12 @@ Installing |Percona Server| for MongoDB from Percona ``yum`` repository
    .. code-block:: bash
 
      ...
-     percona-server-mongodb.x86_64               3.0.5-beta1.el6              @percona-release-x86_64
-     percona-server-mongodb-mongos.x86_64        3.0.5-beta1.el6              @percona-release-x86_64
-     percona-server-mongodb-server.x86_64        3.0.5-beta1.el6              @percona-release-x86_64
-     percona-server-mongodb-shell.x86_64         3.0.5-beta1.el6              @percona-release-x86_64
-     percona-server-mongodb-tools.x86_64         3.0.5-beta1.el6              @percona-release-x86_64
+     Percona-Server-MongoDB.x86_64               3.0.5-rel0.7rc.el6           percona-release-x86_64
+     Percona-Server-MongoDB-debuginfo.x86_64     3.0.5-rel0.7rc.el6           percona-release-x86_64
+     Percona-Server-MongoDB-mongos.x86_64        3.0.5-rel0.7rc.el6           percona-release-x86_64
+     Percona-Server-MongoDB-server.x86_64        3.0.5-rel0.7rc.el6           percona-release-x86_64
+     Percona-Server-MongoDB-shell.x86_64         3.0.5-rel0.7rc.el6           percona-release-x86_64
+     Percona-Server-MongoDB-tools.x86_64         3.0.5-rel0.7rc.el6           percona-release-x86_64
      ...
 
 3. Install the packages
@@ -100,7 +96,7 @@ Installing |Percona Server| for MongoDB from Percona ``yum`` repository
 
    .. code-block:: bash
 
-     yum install Percona-Server-server-56
+     yum install Percona-Server-MongoDB
 
 Percona `yum` Testing repository
 --------------------------------
@@ -108,67 +104,18 @@ Percona `yum` Testing repository
 Percona offers pre-release builds from our testing repository. To subscribe to the testing repository, you'll need to enable the testing repository in :file:`/etc/yum.repos.d/percona-release.repo`. To do so, set both ``percona-testing-$basearch`` and ``percona-testing-noarch`` to ``enabled = 1`` (Note that there are 3 sections in this file: release, testing and experimental - in this case it is the second section that requires updating). **NOTE:** You'll need to install the Percona repository first (ref above) if this hasn't been done already.
 
 
-.. _standalone_rpm:
+Running |Percona Server| for MongoDB
+====================================
 
-Installing |Percona Server| using downloaded rpm packages
-=========================================================
-
-1. Download the packages of the desired series for your architecture from the `download page <http://www.percona.com/downloads/Percona-Server-5.6/>`_. The easiest way is to download bundle which contains all the packages. Following example will download |Percona Server| 5.6.25-73.1 release packages for *CentOS* 6:
-
-   .. code-block:: bash
- 
-     wget https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.25-73.1/binary/redhat/6/x86_64/Percona-Server-5.6.25-73.1-r07b797f-el6-x86_64-bundle.tar 
-
-2. You should then unpack the bundle to get the packages:
-
-   .. code-block:: bash
-
-     tar xvf Percona-Server-5.6.25-73.1-r07b797f-el6-x86_64-bundle.tar
-    
-   After you unpack the bundle you should see the following packages:  
-
-   .. code-block:: bash
-
-     $ ls *.rpm
-
-     Percona-Server-56-debuginfo-5.6.25-rel73.1.el6.x86_64.rpm
-     Percona-Server-client-56-5.6.25-rel73.1.el6.x86_64.rpm
-     Percona-Server-devel-56-5.6.25-rel73.1.el6.x86_64.rpm
-     Percona-Server-server-56-5.6.25-rel73.1.el6.x86_64.rpm
-     Percona-Server-shared-56-5.6.25-rel73.1.el6.x86_64.rpm
-     Percona-Server-test-56-5.6.25-rel73.1.el6.x86_64.rpm
-
-
-3. Now you can install |Percona Server| by running:
-
-   .. code-block:: bash
-
-     rpm -ivh Percona-Server-server-56-5.6.25-rel73.1.el6.x86_64.rpm \
-     Percona-Server-client-56-5.6.25-rel73.1.el6.x86_64.rpm \
-     Percona-Server-shared-56-5.6.25-rel73.1.el6.x86_64.rpm
-
-This will install only packages required to run the |Percona Server|. To install all the packages (for debugging, testing, etc.) you should run:
-
-   .. code-block:: bash
-
-     rpm -ivh *.rpm
-
-.. note::
-
-  When installing packages manually like this, you'll need to make sure to resolve all the dependencies and install missing packages yourself.
-
-Running |Percona Server|
-========================
-
-|Percona Server| stores the data files in :file:`/var/lib/mysql/` by default. You can find the configuration file that is used to manage |Percona Server| in :file:`/etc/my.cnf`. 
+|Percona Server| for MongoDB stores the data files in :file:`/var/lib/mongodb/` by default. You can find the configuration file that is used to manage |Percona Server| in :file:`/etc/mongod.cnf`. 
 
 1. Starting the service
 
-   |Percona Server| isn't started automatically on *RHEL* and *CentOS* after it gets installed. You should start it by running:
+   |Percona Server| for MongoDB isn't started automatically on *RHEL* and *CentOS* after it gets installed. You should start it by running:
 
    .. code-block:: bash
 
-     service mysql start
+     service mongod start
 
 2. Confirming that service is running
 
@@ -176,7 +123,7 @@ Running |Percona Server|
 
    .. code-block:: bash
 
-     service mysql status
+     service mongod status
 
 3. Stopping the service
 
@@ -184,7 +131,7 @@ Running |Percona Server|
 
    .. code-block:: bash
 
-     service mysql stop
+     service mongod stop
 
 4. Restarting the service
 
@@ -192,35 +139,35 @@ Running |Percona Server|
 
    .. code-block:: bash
 
-     service mysql restart
+     service mongod restart
 
 .. note::
 
   *RHEL* 7 and *CentOS* 7 come with `systemd <http://freedesktop.org/wiki/Software/systemd/>`_ as the default system and service manager so you can invoke all the above commands with ``sytemctl`` instead of ``service``. Currently both are supported.
 
-Uninstalling |Percona Server|
-=============================
+Uninstalling |Percona Server| for MongoDB
+=========================================
 
-To completely uninstall |Percona Server| you'll need to remove all the installed packages and data files.
+To completely uninstall |Percona Server| for MongoDB you'll need to remove all the installed packages and data files.
 
-1.  Stop the |Percona Server| service
+1.  Stop the |Percona Server| for MongDB service
 
     .. code-block:: bash
 
-     service mysql stop
+     service mongod stop
 
 2. Remove the packages 
 
    .. code-block:: bash
 
-    yum remove Percona-Server*
+    yum remove Percona-Server-MongoDB*
 
 3. Remove the data and configuration files
 
    .. code-block:: bash
 
-     rm -rf /var/lib/mysql
-     rm -f /etc/my.cnf
+     rm -rf /var/lib/mongodb
+     rm -f /etc/mongod.cnf
 
 .. warning:: 
 
