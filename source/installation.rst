@@ -12,8 +12,8 @@ Before installing, you might want to read the :ref:`release_notes_index`.
 
 .. _installing_from_binaries:
 
-Installing |Percona Server| from Repositories
-=============================================
+Installing |Percona Server for MongoDB| from Repositories
+=========================================================
 
 |Percona| provides repositories for :program:`yum` (``RPM`` packages for *Red Hat*, *CentOS* and *Amazon Linux AMI*) and :program:`apt` (:file:`.deb` packages for *Ubuntu* and *Debian*) for software such as |Percona Server|, |Percona XtraBackup|, and *Percona Toolkit*. This makes it easy to install and update your software and its dependencies through your operating system's package manager. This is the recommend way of installing where possible.
 
