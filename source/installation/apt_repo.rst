@@ -1,17 +1,15 @@
 .. _apt_repo:
 
-====================================================
+================================================================
 Installing |Percona Server for MongoDB| on *Debian* and *Ubuntu*
-====================================================
+================================================================
 
-Ready-to-use packages are available from the |Percona Server| software repositories and the `download page <http://www.percona.com/downloads/Percona-Server-5.6/>`_.
+Ready-to-use packages are available from the |Percona Server for MongoDB| software repositories and the `download page <http://www.percona.com/downloads/Percona-Server-for-MongoDB/LATEST/>`_.
 
 Supported Releases:
 
 * Debian:
 
- * 6.0 (squeeze)
- * 7.0 (wheezy)
  * 8.0 (jessie)
 
 * Ubuntu:
@@ -23,7 +21,6 @@ Supported Releases:
 
 Supported Platforms:
 
- * x86
  * x86_64 (also known as ``amd64``)
 
 What's in each DEB package?
@@ -43,7 +40,7 @@ The ``percona-server-mongodb-dbg`` package contains debug symbols for the server
 
                    
 Installing |Percona Server for MongoDB| from Percona ``apt`` repository
-===========================================================
+=======================================================================
 
 1. Import the public key for the package management system
 

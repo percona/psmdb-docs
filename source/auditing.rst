@@ -1,4 +1,3 @@
-
 .. _auditing:
 
 ========
@@ -18,7 +17,8 @@ Building
 By default, when building Percona Server for MongoDB from source, audit functionality is neither compiled with, nor linked into, the final binary executable. To enable auditing, execute SCons with the ``--audit`` option:
 
 .. code-block:: bash
-    $ scons <other options> --audit <targets>
+
+  $ scons <other options> --audit <targets>
 
 Activation and Configuration
 ============================

@@ -18,12 +18,12 @@ MongoDB Tools
 
 The MongoDB command-line tools (``mongodump``, ``mongorestore``, ``mongoimport``, ``mongoexport``, etc) have been rewritten in `Go <http://golang.org/>`_ and are no longer included in this repository.
 
-The source for the tools is now available at `https://github.com/mongodb/mongo-tools`_.
+The source for the tools is now available at `Github <https://github.com/mongodb/mongo-tools>`_.
 
 SCons
 -----
 
-For detailed information about building, please see the build manual at `http://www.mongodb.org/about/contributors/tutorial/build-mongodb-from-source/`_
+For detailed information about building, please see the `build manual <http://www.mongodb.org/about/contributors/tutorial/build-mongodb-from-source/>`_
 
 If you want to build everything (mongod, mongo, tests, etc):
 
@@ -43,7 +43,7 @@ To install:
 
     $ scons --prefix=/opt/mongo install
 
-Please note that prebuilt binaries are available at `http://www.mongodb.org/downloads`_ and may be the easiest way to get started.
+Please note that prebuilt binaries are available from `MongoDB Downloads <http://www.mongodb.org/downloads>`_ and may be the easiest way to get started.
 
 SCons Targets
 -------------
@@ -57,7 +57,7 @@ SCons Targets
 Windows
 -------
 
-See the Windows build manual at `http://www.mongodb.org/about/contributors/tutorial/build-mongodb-from-source/#windows-specific-instructions`_
+See the `Windows build manual <http://www.mongodb.org/about/contributors/tutorial/build-mongodb-from-source/#windows-specific-instructions>`_
 
 Build requirements:
 
@@ -65,7 +65,7 @@ Build requirements:
 * Python 2.7, ActiveState ActivePython 2.7.x Community Edition for Windows is recommended
 * SCons
 
-Or download a prebuilt binary for Windows at `www.mongodb.org`_.
+Or download a prebuilt binary for Windows from `MongoDB <www.mongodb.org>`_.
 
 Debian/Ubuntu
 -------------

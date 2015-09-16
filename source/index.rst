@@ -33,6 +33,7 @@ Installation
    :glob:
 
    installation
+   upgrading_guide_mongodb_psmdb
    building
 
 Features

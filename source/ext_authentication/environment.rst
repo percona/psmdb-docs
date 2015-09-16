@@ -1,4 +1,3 @@
-
 .. _environment:
 
 =========================
@@ -94,5 +93,5 @@ Both the client and server must be linked with ``libsasl2.so``.  This just means
   $ cd percona-server-mongodb
   $ git checkout v3.0
   $ scons --use-sasl-client -j8 mongo mongod
-```
+
 Once configured, the ``mongo`` binaries can be built, installed, and packaged as usual.  Note that ``libsasl2`` is NOT statically linked, so any user planning on running either the client or server binaries will need the SASL library installed in the same place it was installed at build time.

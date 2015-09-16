@@ -7,7 +7,7 @@ External Authentication
 
 This section describes how to create a one-machine installation of all the components necessary for testing LDAP authentication in MongoDB.
 
-.. todtree::
+.. toctree::
    :maxdepth: 1
    :glob:
 
@@ -57,6 +57,10 @@ When running the ``mongo`` client, a user can authenticate against a given datab
 
   $ db.getSiblingDB("$external").auth({ mechanism:"PLAIN", user:"christian", pwd:"secret", digestPassword:false})
 
-.. see-also::
 
-  * SASL documentation: `http://cyrusimap.web.cmu.edu/docs/cyrus-sasl/2.1.25/`_
+See Also
+--------
+
+* `SASL documentation: <http://cyrusimap.web.cmu.edu/docs/cyrus-sasl/2.1.25/>`_
+
+
