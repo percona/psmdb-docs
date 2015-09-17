@@ -1,8 +1,8 @@
 .. _upgrading_guide_mongodb_psmdb:
 
-=================================================
-Replacing MongoDB with Percona Server for MongoDB
-=================================================
+======================================================================
+Upgrading from MongoDB Community Edition to Percona Server for MongoDB
+======================================================================
 
 In-place upgrades are those which are done using the existing data in the server. Generally speaking, this is stopping the server, removing the old packages, installing the new server and starting it with the same data files. While they may not be suitable for high-complexity environments, they may be adequate for many scenarios.
 
@@ -11,8 +11,8 @@ In-place upgrades are those which are done using the existing data in the server
   Before starting the upgrade process it's recommended that you perform a full backup (if you don't have one already). 
 
 
-Replacing MongoDB on CentOS/RHEL
-================================
+Upgrading from MongoDB Community to Percona Server for MongoDB on CentOS/RHEL
+=============================================================================
 
 1) Stop the mongod process:
 
@@ -42,8 +42,8 @@ Replacing MongoDB on CentOS/RHEL
 
 4) You can now proceed with steps described in :ref:`yum_repo`.
 
-Replacing MongoDB on Debian/Ubuntu
-==================================
+Upgrading from MongoDB Community to Percona Server for MongoDB on Debian/Ubuntu
+===============================================================================
 
 1) Stop the mongod process:
 
@@ -67,7 +67,7 @@ Replacing MongoDB on Debian/Ubuntu
 
 .. code-block:: bash
 
-   $ apt-get remove ongodb-org mongodb-org-mongos mongodb-org-server \ 
+   $ apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \ 
    mongodb-org-shell mongodb-org-tools
 
 4) You can now proceed with steps described in :ref:`apt_repo`.
