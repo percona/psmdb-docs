@@ -14,7 +14,6 @@ Supported Releases:
 
 * Ubuntu:
 
- * 12.04LTS (precise)
  * 14.04LTS (trusty)
  * 14.10 (utopic)
  * 15.04 (vivid)
