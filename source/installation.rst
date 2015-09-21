@@ -7,6 +7,7 @@ Installing |Percona Server for MongoDB| 5.6
 This page provides the information on how to you can install |Percona Server| for MongoDB. Following options are available: 
 
 * :ref:`installing_from_binaries` 
+* :ref:`installing_from_tarball`
 
 Before installing, you might want to read the :ref:`release_notes_index`.
 
@@ -25,3 +26,20 @@ Following guides describe the installation process for using the official Percon
 
    installation/apt_repo 
    installation/yum_repo 
+
+.. _installing_from_tarball:
+
+Installing |Percona Server for MongoDB| from Binary Tarballs
+============================================================
+
+You can download the binary tarballs from the **Linux - Generic** `section <https://www.percona.com/downloads/percona-server-for-mongodb/>`_ on the download page.
+
+Fetch and extract the correct binary tarball. For example for Debian Jessie:
+
+.. code-block:: bash
+
+  $ wget https://www.percona.com/downloads/percona-server-for-mongodb/percona-server-for-mongodb-3.0.5/binary/debian/jessie/x86_64/percona-server-mongodb-3.0.5-rel0.7rc-r42b00da-jessie-x86_64-bundle.tar
+  $ tar xfz percona-server-mongodb-3.0.5-rel0.7rc-jessie-x86_64.tar.gz
+
+
+
