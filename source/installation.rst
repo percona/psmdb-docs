@@ -32,14 +32,24 @@ Following guides describe the installation process for using the official Percon
 Installing |Percona Server for MongoDB| from Binary Tarballs
 ============================================================
 
-You can download the binary tarballs from the **Linux - Generic** `section <https://www.percona.com/downloads/percona-server-for-mongodb/>`_ on the download page.
+You can download the binary tarballs from the `Percona Server for MongoDB download page <https://www.percona.com/downloads/percona-server-for-mongodb/>`_.
 
-Fetch and extract the correct binary tarball. For example for Debian Jessie:
+1. Fetch and extract the correct binary tarball. For example, for Debian Jessie:
 
-.. code-block:: bash
+  .. code-block:: bash
+    
+    $ wget https://www.percona.com/downloads/percona-server-for-mongodb/percona-server-for-mongodb-3.0.5/binary/debian/jessie/x86_64/percona-server-mongodb-3.0.5-rel0.7rc-r42b00da-jessie-x86_64-bundle.tar
+    $ tar xfz percona-server-mongodb-3.0.5-rel0.7rc-r42b00da-jessie-x86_64-bundle.tar
 
-  $ wget https://www.percona.com/downloads/percona-server-for-mongodb/percona-server-for-mongodb-3.0.5/binary/debian/jessie/x86_64/percona-server-mongodb-3.0.5-rel0.7rc-r42b00da-jessie-x86_64-bundle.tar
-  $ tar xfz percona-server-mongodb-3.0.5-rel0.7rc-jessie-x86_64.tar.gz
+2. Copy the extracted binaries to the target directory:
+   
+   .. code-block:: bash
 
+     $ mkdir psmdb
+     $ cp -r -n percona-server-mongodb-3.0.5-rel0.7rc-r42b00da-jessie-x86_64-bundle/ psmdb
 
+3. Add the location of the binaries to the ``PATH`` variable:
+   
+   .. code-block:: bash
 
+     $ export PATH psmdb/bin:$PATH
