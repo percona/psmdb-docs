@@ -27,6 +27,9 @@ Following guides describe the installation process for using the official Percon
    installation/apt_repo 
    installation/yum_repo 
 
+.. note:: MongoDB creates user that belongs to two groups, which is a potential security risk. This is fixed in |Percona Server for MongoDB|: user is included only to the ``mongod`` group. To avoid problems with current MongoDB setups, existing user group membership is not changed when you migrate to |Percona Server for MongoDB|. Instead, a new ``mongod`` user is created during installation, and it belongs to the ``mongod`` group.
+
+
 .. _installing_from_tarball:
 
 Installing |Percona Server for MongoDB| from Binary Tarballs
@@ -53,3 +56,10 @@ You can download the binary tarballs from the `Percona Server for MongoDB downlo
    .. code-block:: bash
 
      $ export PATH psmdb/bin:$PATH
+
+4. Create the default data directory:
+
+   .. code-block:: bash
+
+     $ mkdir -p /data/db
+
