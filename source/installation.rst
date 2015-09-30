@@ -1,7 +1,7 @@
 .. _installation:
 
 ===========================================
-Installing |Percona Server for MongoDB| 5.6
+Installing |Percona Server for MongoDB| 3.0
 ===========================================
 
 This page provides the information on how to you can install |Percona Server| for MongoDB. Following options are available: 
