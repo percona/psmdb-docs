@@ -11,6 +11,8 @@ This page provides the information on how to you can install |Percona Server| fo
 
 Before installing, you might want to read the :ref:`release_notes_index`.
 
+.. note:: If you want to use |Percona Server for MongoDB| in a Docker container, refer to the following example procedure for building a Docker image with MongoDB: `https://docs.docker.com/examples/mongodb/`_.
+
 .. _installing_from_binaries:
 
 Installing |Percona Server for MongoDB| from Repositories
@@ -27,7 +29,7 @@ Following guides describe the installation process for using the official Percon
    installation/apt_repo 
    installation/yum_repo 
 
-.. note:: MongoDB creates user that belongs to two groups, which is a potential security risk. This is fixed in |Percona Server for MongoDB|: user is included only to the ``mongod`` group. To avoid problems with current MongoDB setups, existing user group membership is not changed when you migrate to |Percona Server for MongoDB|. Instead, a new ``mongod`` user is created during installation, and it belongs to the ``mongod`` group.
+.. note:: MongoDB creates a user that belongs to two groups, which is a potential security risk. This is fixed in |Percona Server for MongoDB|: user is included only in the ``mongod`` group. To avoid problems with current MongoDB setups, existing user group membership is not changed when you migrate to |Percona Server for MongoDB|. Instead, a new ``mongod`` user is created during installation, and it belongs to the ``mongod`` group.
 
 
 .. _installing_from_tarball:
