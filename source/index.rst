@@ -36,6 +36,7 @@ Features
    :maxdepth: 1
    :glob:
 
+   perconaft
    ext_authentication/index
    auditing
 
