@@ -27,6 +27,7 @@ Installation
 
    installation
    upgrading_guide_mongodb_psmdb
+   upgrading_guide_tokumx_psmdb
    building
 
 Features
