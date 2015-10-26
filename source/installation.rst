@@ -31,6 +31,7 @@ Following guides describe the installation process for using the official Percon
 
 .. note:: MongoDB creates a user that belongs to two groups, which is a potential security risk. This is fixed in |Percona Server for MongoDB|: user is included only in the ``mongod`` group. To avoid problems with current MongoDB setups, existing user group membership is not changed when you migrate to |Percona Server for MongoDB|. Instead, a new ``mongod`` user is created during installation, and it belongs to the ``mongod`` group.
 
+.. note:: By default, |Percona Server for MongoDB| starts with the MMAPv1 storage engine (standard engine in MongoDB). If you want to leverage the PerconaFT storage engine, start ``mongod`` with the ``--storageEngine=PerconaFT`` option. For more information, see :ref:`perconaft`.
 
 .. _installing_from_tarball:
 
@@ -65,3 +66,4 @@ You can download the binary tarballs from the `Percona Server for MongoDB downlo
 
      $ mkdir -p /data/db
 
+By default, |Percona Server for MongoDB| starts with the MMAPv1 storage engine (standard engine in MongoDB). If you want to leverage the PerconaFT storage engine, start ``mongod`` with the ``--storageEngine=PerconaFT`` option. For more information, see :ref:`perconaft`.
