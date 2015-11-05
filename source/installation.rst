@@ -11,7 +11,7 @@ This page provides the information on how to you can install |Percona Server| fo
 
 Before installing, you might want to read the :ref:`release_notes_index`.
 
-.. note:: If you want to use |Percona Server for MongoDB| in a Docker container, refer to the following example procedure for building a Docker image with MongoDB: `https://docs.docker.com/examples/mongodb/`_.
+.. note:: If you want to use |Percona Server for MongoDB| in a Docker container, refer to the following example procedure for building a Docker image with MongoDB: https://docs.docker.com/examples/mongodb/.
 
 .. _installing_from_binaries:
 
