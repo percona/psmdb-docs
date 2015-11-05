@@ -103,7 +103,8 @@ Features
    :glob:
 
    perconaft
-   ext_authentication/index
+   toku-backup
+   ext-auth
    auditing
 
 Reference

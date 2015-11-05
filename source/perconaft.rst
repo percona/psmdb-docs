@@ -1,3 +1,4 @@
+.. _perconaft:
 
 ===============
 Using PerconaFT
