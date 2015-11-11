@@ -87,13 +87,12 @@ The table below shows a comparison between |Percona Server for MongoDB|, |TokuMX
 Installation
 ============
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :glob:
 
    installation
    upgrading_guide_mongodb_psmdb
    upgrading_guide_tokumx_psmdb
-   building
 
 Features
 ========

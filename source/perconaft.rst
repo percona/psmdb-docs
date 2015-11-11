@@ -4,7 +4,9 @@
 Using PerconaFT
 ===============
 
-PerconaFT is a storage engine based on the Fractal Tree Index model, which is optimized for fast disk I/O. The storage engine is available in |Percona Server for MongoDB| along with the standard MongoDB engines (MMAPv1 and WiredTiger), as well as RocksDB.
+PerconaFT is a storage engine based on the Fractal Tree Index model, which is optimized for fast disk I/O. The Fractal Tree data structure contains buffers to temporarily store insertions. When a buffer is full, it is flushed to children nodes. This ensures that an I/O operation performs a lot of useful work when messages reach leaves on disk, instead of just a small write per I/O.
+
+The PerconaFT storage engine is available in |Percona Server for MongoDB| along with the standard MongoDB engines (MMAPv1 and WiredTiger), as well as RocksDB.
 
 PerconaFT is supported on 64-bit CentOS, should work on other 64-bit linux distributions, and may work on OS X 10.8 and FreeBSD. PerconaFT is not supported on 32-bit systems.
 
