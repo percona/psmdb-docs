@@ -21,69 +21,69 @@ The table below shows a comparison between |Percona Server for MongoDB|, |TokuMX
      - MongoDB 3.0
      - TokuMX
      - MongoDB 2.4
-   * - *Audit Logging*
-     - YES
-     - NO [1]_
-     - YES
-     - NO
-   * - *Hot Backup*
-     - YES
-     - NO
-     - YES
-     - NO
-   * - *External SASL Authentication*
-     - YES
-     - NO [1]_
-     - NO
-     - NO
-   * - *High Compression*
-     - YES
-     - NO
-     - YES
-     - NO
-   * - *Reduced SSD Wear*
-     - YES
-     - NO
-     - YES
-     - NO
-   * - *Zero Maintenance Downtime*
-     - YES
-     - NO
-     - YES
-     - NO
-   * - *Fully ACID and MVCC compliant*
-     - NO
-     - NO
-     - YES
-     - NO
-   * - *Clustering Key Support*
-     - NO
-     - NO
-     - YES
-     - NO
-   * - *Sharding with Clustering Keys*
-     - NO
-     - NO
-     - YES
-     - NO
-   * - *Point-in-time Recovery*
-     - NO
-     - NO [1]_
-     - YES
-     - NO [1]_
-   * - *Geospatial Indexes*
-     - YES
-     - YES
-     - YES
-     - NO
-   * - *Text Search*
-     - YES
-     - YES
-     - NO
-     - NO
+   * - :ref:`Audit Logging <auditing>`
+     - **YES**
+     - *NO* [1]_
+     - **YES**
+     - *NO*
+   * - :ref:`Hot Backup <toku-backup>`
+     - **YES**
+     - *NO*
+     - **YES**
+     - *NO*
+   * - :ref:`External SASL Authentication <ext-auth>`
+     - **YES**
+     - *NO* [1]_
+     - *NO*
+     - *NO*
+   * - High Compression
+     - **YES**
+     - *NO*
+     - **YES**
+     - *NO*
+   * - Reduced SSD Wear
+     - **YES**
+     - *NO*
+     - **YES**
+     - *NO*
+   * - Zero Maintenance Downtime
+     - **YES**
+     - *NO*
+     - **YES**
+     - *NO*
+   * - Fully ACID and MVCC compliant
+     - *NO*
+     - *NO*
+     - **YES**
+     - *NO*
+   * - Clustering Key Support
+     - *NO*
+     - *NO*
+     - **YES**
+     - *NO*
+   * - Sharding with Clustering Keys
+     - *NO*
+     - *NO*
+     - **YES**
+     - *NO*
+   * - Point-in-time Recovery
+     - *NO*
+     - *NO* [1]_
+     - **YES**
+     - *NO* [1]_
+   * - Geospatial Indexes
+     - **YES**
+     - **YES**
+     - **YES**
+     - *NO*
+   * - Text Search
+     - **YES**
+     - **YES**
+     - *NO*
+     - *NO*
 
 .. [1] Available in MongoDB Enterprise Edition.
-   
+
 Installation
 ============
 .. toctree::
