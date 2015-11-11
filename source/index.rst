@@ -26,7 +26,7 @@ The table below shows a comparison between |Percona Server for MongoDB|, |TokuMX
      - *NO* [1]_
      - **YES**
      - *NO*
-   * - :ref:`Hot Backup <toku-backup>`
+   * - :ref:`Hot Backup <toku_backup>`
      - **YES**
      - *NO*
      - **YES**
