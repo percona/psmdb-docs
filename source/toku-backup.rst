@@ -4,7 +4,18 @@
 Percona TokuBackup
 ==================
 
-Percona |TokuBackup| is an open-source hot backup utility for |MongoDB| servers running the |PerconaFT| storage engine (including |Percona Server for MongoDB|). It creates a physical data backup on a running server without performance degradation or capacity planning, and provides a more recent backup than a file system level snapshot.
+Percona |TokuBackup| is an open-source hot backup utility for |MongoDB| servers running the |PerconaFT| storage engine (including |Percona Server for MongoDB|). It creates a physical data backup on a running server without performance degradation or capacity planning, and provides a more recent backup than a snapshot at the file system level.
+
+.. note:: TokuBackup is an experimental feature, not available in the current release. However, you can test it if you install |Percona Server for MongoDB| from Percona's experimental repository. **Continue only if you understand the risks of running unstable software.**
+
+  For distributions based on Debian, follow :ref:`apt_repo` and add ``experimental`` at the end of the repository definition. For example, if you are running Ubuntu 14.04 (Trusty Tahr), use the following lines:
+
+  .. code-block:: none
+
+    deb http://repo.percona.com/apt VERSION main experimental
+    deb-src http://repo.percona.com/apt VERSION main experimental
+
+  For distributions based on Red Hat, follow :ref:`yum_repo` and enable the experimental repository in :file:`/etc/yum.repos.d/percona-release.repo`. In the ``experimental`` section, set ``percona-experimental-$basearch`` and ``percona-experimental-noarch`` to ``enabled = 1``.
 
 .. contents::
    :local:
