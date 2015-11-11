@@ -122,6 +122,10 @@ rst_prolog = '''
 
 .. |MongoDB|  replace:: *MongoDB*
 
+.. |TokuBackup| replace:: *TokuBackup*
+
+.. |PerconaFT| replace:: *PerconaFT*
+
 '''
 
 # A list of ignored prefixes for module index sorting.

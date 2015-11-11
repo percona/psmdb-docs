@@ -102,6 +102,7 @@ Features
    :glob:
 
    perconaft
+   toku-backup
    ext-auth
    auditing
 
