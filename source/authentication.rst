@@ -68,6 +68,8 @@ The following components are required:
 * ``libsasl2`` version 2.1.25 or later.
 * ``saslauthd``: SASL Authentication Daemon (distinct from ``libsasl2``).
 
+The following steps will help you configure your environment:
+
 .. contents::
    :local:
 
@@ -94,13 +96,13 @@ A simple LDAP configuration file can have the following contents:
 
 There are other entries in the :file:`slapd.conf` file that are important for successfully starting the LDAP service. OpenLDAP installations have a sample :file:`slapd.conf` file that has the above and other required entries, such as ``include``, ``pidfile``, and ``argsfile``.
 
-Add Users to LDAP
------------------
+Adding Users to LDAP
+--------------------
 
 OpenLDAP comes with a few programs to communicate with the LDAP daemon/service. For example, to add new users to the LDAP database, you can use ``ldapadd`` or ``ldapmodify``, with an associated ``.ldif`` file
 
-Configure saslauthd
--------------------
+Configuring saslauthd
+---------------------
 
 These are the typical settings required for ``saslauthd`` to connect to a local OpenLDAP service (the server address MUST match the OpenLDAP installation):
 
@@ -143,8 +145,8 @@ Verify that the ``saslauthd`` service can authenticate against the users created
 
 This should return ``0:OK "Success"``. If it doesn't, then either the user name and password are not in the LDAP service, or ``sasaluthd`` is not configured properly.
 
-Configure libsasl2
-------------------
+Configuring libsasl2
+--------------------
 
 The SASL library used by ``mongod`` must also be configured properly via a configuration file:
 
@@ -159,8 +161,8 @@ The first two entries (``pwcheck_method`` and ``saslauthd_path``) are required f
 
 The file **must** be named ``mongodb.conf`` and placed in a directory where ``libsasl2`` can find and read it.  ``libsasl2`` is hard-coded to look in certain directories at build time. This location may be different depending on the installation method.
 
-Configure mongod Server
------------------------
+Configuring mongod Server
+-------------------------
 
 External authentication is enabled the same way as local authentication.  Simply start the server with the ``--auth`` option:
 

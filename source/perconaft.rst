@@ -11,7 +11,7 @@ The PerconaFT storage engine is available in Percona Server for MongoDB along wi
 Using PerconaFT
 ===============
 
-.. attention:: PerconaFT is not supported on 32-bit systems.
+.. note:: PerconaFT is not supported on 32-bit systems.
 
 By default, Percona Server for MongoDB runs with MMAPv1. To enable PerconaFT:
 

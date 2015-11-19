@@ -4,7 +4,7 @@
 Installing Percona Server for MongoDB 
 =====================================
 
-.. attention:: Percona Server for MongoDB is currently available only as a *release candidate*.
+.. note:: Percona Server for MongoDB is currently available only as a *release candidate*.
 
    For more information, see the :ref:`release notes <3.0.5-rc7>`.
 

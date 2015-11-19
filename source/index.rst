@@ -9,13 +9,13 @@
 Percona Server for MongoDB Documentation
 ========================================
 
-.. attention:: Percona Server for MongoDB is currently available only as a *release candidate*.
+.. note:: Percona Server for MongoDB is currently available only as a *release candidate*.
 
    For more information, see the :ref:`release notes <3.0.5-rc7>`.
 
-|Percona Server for MongoDB| is a free, enhanced, fully compatible, open source, drop-in replacement for MongoDB 3.0 Community Edition with enterprise-grade features. It requires no changes to |MongoDB| applications or code.
+Percona Server for MongoDB is a free, enhanced, fully compatible, open source, drop-in replacement for MongoDB 3.0 Community Edition with enterprise-grade features. It requires no changes to MongoDB applications or code.
 
-|Percona Server for MongoDB| provides:
+Percona Server for MongoDB provides:
 
 * MongoDB's original `MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ storage engine as the default, and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_ as an alternative
 * Optional `MongoRocks <http://rocksdb.org>`_ and :ref:`PerconaFT <perconaft>` storage engines
@@ -23,12 +23,12 @@ Percona Server for MongoDB Documentation
 * :ref:`External SASL authentication <ext-auth>` using OpenLDAP or Active Directory
 * :ref:`Audit logging <audit-log>` to track and query database interactions of users or applications
 
-To understand how |Percona Server for MongoDB| compares to some of its alternatives, see :ref:`this feature comparison <compare>`.
+To understand how Percona Server for MongoDB compares to some of its alternatives, see :ref:`this feature comparison <compare>`.
 
 .. toctree::
    :hidden:
 
-   comparison
+   Feature Comparison <comparison>
 
 Installation
 ============
