@@ -1,4 +1,4 @@
-.. _auditing:
+.. _audit-log:
 
 ========
 Auditing

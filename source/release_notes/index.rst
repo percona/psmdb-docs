@@ -1,7 +1,7 @@
-.. _release_notes_index:
+.. _rel_notes:
 
 ========================================
-Percona Server for MongoDB Release notes
+Percona Server for MongoDB Release Notes
 ========================================
 
 .. toctree::

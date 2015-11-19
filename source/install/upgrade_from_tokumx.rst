@@ -69,24 +69,9 @@ You can download those files from `GitHub <https://github.com/dbpercona/tokumx2_
          tokumx-enterprise-server-2.0.2-1.el6.x86_64 \ 
          tokumx-enterprise-2.0.2-1.el6.x86_64
 
-8. Install |Percona Server for MongoDB| as described in :ref:`installation`.
+8. Install |Percona Server for MongoDB| as described in :ref:`this installation guide <install>`.
 
-  If you are using a Debian or Ubuntu based distribution:
-
-  .. code-block:: bash
-
-     $ apt-get install -y \
-       percona-server-mongodb-server \
-       percona-server-mongodb-shell \
-       percona-server-mongodb-tools
-
-  If you are using a Red Hat or CentOS based distribution:
- 
-  .. code-block:: bash
-
-     $ yum install -y Percona-Server-MongoDB
- 
-10. Stop the ``mongod`` service, configure the ``storageEngine`` parameter to run PerconaFT and disable ``--auth`` in :file:`/etc/mongod.conf`:
+9. Stop the ``mongod`` service, configure the ``storageEngine`` parameter to run PerconaFT and disable ``--auth`` in :file:`/etc/mongod.conf`:
 
   .. code-block:: bash
 
@@ -95,31 +80,31 @@ You can download those files from `GitHub <https://github.com/dbpercona/tokumx2_
      $ sed -i'' s/^#storageEngine=PerconaFT/storageEngine=PerconaFT/ /etc/mongod.conf
      $ sed -i'' s/^auth/#auth/ /etc/mongod.conf
 
-11. Start the ``mongod`` server:
+10. Start the ``mongod`` server:
 
   .. code-block:: bash
 
      $ service mongod start
 
-12. Restore the collections without indexes:
+11. Restore the collections without indexes:
 
   .. code-block:: bash
 
      $ mongorestore --noIndexRestore /your/dump/path
 
-13. Restore the indexes (this may take a while). This step will remove clustering options to the collections before inserting.
+12. Restore the indexes (this may take a while). This step will remove clustering options to the collections before inserting.
 
   .. code-block:: bash
 
      $ ./psmdb_restore_indexes.js --eval " data='/your/dump/path/tokumxIndexes.json' "
 
-14. Run the :file:`allDbStats.js` script to record database state after migration:
+13. Run the :file:`allDbStats.js` script to record database state after migration:
 
   .. code-block:: bash
 
      $ mongo ./allDbStats.js > ~/allDbStats.after.out
 
-15. Restart the ``mongod`` server with authentication:
+14. Restart the ``mongod`` server with authentication:
 
   .. code-block:: bash
 

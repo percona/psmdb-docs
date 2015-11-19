@@ -5,115 +5,61 @@
 
 .. _dochome:
 
-============================================
- Percona Server for MongoDB - Documentation
-============================================
+========================================
+Percona Server for MongoDB Documentation
+========================================
 
-|Percona Server for MongoDB| is a highly scalable, zero-maintenance downtime database supporting the |MongoDB| v3.0 protocol and drivers. It extends |MongoDB| with RocksDB and PerconaFT storage engines, as well as features like external authentication and audit logging. |Percona Server for MongoDB| requires no changes to |MongoDB| applications or code.
+.. attention:: Percona Server for MongoDB is currently available only as a *release candidate*.
 
-The table below shows a comparison between |Percona Server for MongoDB|, |TokuMX|, and corresponding versions of |MongoDB| community edition. This comparison assumes that the PerconaFT storage engine is used for |Percona Server for MongoDB| and |TokuMX|, and features are compared against |MongoDB| running with MMAPv1.
+   For more information, see the :ref:`release notes <3.0.5-rc7>`.
 
-.. list-table::
-   :header-rows: 1
+|Percona Server for MongoDB| is a free, enhanced, fully compatible, open source, drop-in replacement for MongoDB 3.0 Community Edition with enterprise-grade features. It requires no changes to |MongoDB| applications or code.
 
-   * - 
-     - PSMDB
-     - MongoDB 3.0
-     - TokuMX
-     - MongoDB 2.4
-   * - :ref:`Audit Logging <auditing>`
-     - **YES**
-     - *NO* [1]_
-     - **YES**
-     - *NO*
-   * - :ref:`Hot Backup <toku_backup>`
-     - **YES**
-     - *NO*
-     - **YES**
-     - *NO*
-   * - :ref:`External SASL Authentication <ext-auth>`
-     - **YES**
-     - *NO* [1]_
-     - *NO*
-     - *NO*
-   * - High Compression
-     - **YES**
-     - *NO*
-     - **YES**
-     - *NO*
-   * - Reduced SSD Wear
-     - **YES**
-     - *NO*
-     - **YES**
-     - *NO*
-   * - Zero Maintenance Downtime
-     - **YES**
-     - *NO*
-     - **YES**
-     - *NO*
-   * - Fully ACID and MVCC compliant
-     - *NO*
-     - *NO*
-     - **YES**
-     - *NO*
-   * - Clustering Key Support
-     - *NO*
-     - *NO*
-     - **YES**
-     - *NO*
-   * - Sharding with Clustering Keys
-     - *NO*
-     - *NO*
-     - **YES**
-     - *NO*
-   * - Point-in-time Recovery
-     - *NO*
-     - *NO* [1]_
-     - **YES**
-     - *NO* [1]_
-   * - Geospatial Indexes
-     - **YES**
-     - **YES**
-     - **YES**
-     - *NO*
-   * - Text Search
-     - **YES**
-     - **YES**
-     - *NO*
-     - *NO*
+|Percona Server for MongoDB| provides:
 
-.. [1] Available in MongoDB Enterprise Edition.
+* MongoDB's original `MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ storage engine as the default, and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_ as an alternative
+* Optional `MongoRocks <http://rocksdb.org>`_ and :ref:`PerconaFT <perconaft>` storage engines
+* :ref:`Percona TokuBackup <toku-backup>` for creating dynamic backups while data remains fully accessible and writable (*hot backup*)
+* :ref:`External SASL authentication <ext-auth>` using OpenLDAP or Active Directory
+* :ref:`Audit logging <audit-log>` to track and query database interactions of users or applications
+
+To understand how |Percona Server for MongoDB| compares to some of its alternatives, see :ref:`this feature comparison <compare>`.
+
+.. toctree::
+   :hidden:
+
+   comparison
 
 Installation
 ============
-.. toctree::
-   :maxdepth: 1
-   :glob:
 
-   installation
-   upgrading_guide_mongodb_psmdb
-   upgrading_guide_tokumx_psmdb
+.. toctree::
+   :maxdepth: 2
+   :includehidden:
+   :titlesonly:
+
+   install/index
+   Upgrading from MongoDB Community Edition <install/upgrade_from_mongodb>
+   Upgrading from Percona TokuMX <install/upgrade_from_tokumx>
 
 Features
 ========
 
 .. toctree::
    :maxdepth: 1
-   :glob:
 
    perconaft
    toku-backup
-   ext-auth
-   auditing
+   authentication
+   audit-logging
 
 Reference
 =========
 
 .. toctree::
    :maxdepth: 1
-   :glob:
 
-   release_notes/release_notes_index
+   Release Notes <release_notes/index>
    glossary
    copyright
    trademark-policy

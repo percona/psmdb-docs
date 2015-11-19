@@ -21,6 +21,7 @@ The following components are necessary for external authentication to work:
 * **SASL Library**: Used by the MongoDB client and server to create data necessary for the authentication mechanism.
 
 .. image:: psmdb-ext-auth.png
+   :align: center
 
 An authentication session uses the following sequence:
 
@@ -59,7 +60,7 @@ When running the ``mongo`` client, a user can authenticate against a given datab
 Environment Setup and Configuration
 ===================================
 
-.. note:: This section describes an example configuration suitable only to test out the external authentication functionality in a non-production environment. Use common sense to adapt these guidelines to your production.
+This section describes an example configuration suitable only to test out the external authentication functionality in a non-production environment. Use common sense to adapt these guidelines to your production.
 
 The following components are required:
 
@@ -93,10 +94,10 @@ A simple LDAP configuration file can have the following contents:
 
 There are other entries in the :file:`slapd.conf` file that are important for successfully starting the LDAP service. OpenLDAP installations have a sample :file:`slapd.conf` file that has the above and other required entries, such as ``include``, ``pidfile``, and ``argsfile``.
 
-Enter users into LDAP service
------------------------------
+Add Users to LDAP
+-----------------
 
-OpenLDAP comes with a few programs to communicate with the LDAP daemon/service. For example, to enter new entries into the LDAP database, you c use ``ldapadd`` or ``ldapmodify``, with an associated ``.ldif`` file
+OpenLDAP comes with a few programs to communicate with the LDAP daemon/service. For example, to add new users to the LDAP database, you can use ``ldapadd`` or ``ldapmodify``, with an associated ``.ldif`` file
 
 Configure saslauthd
 -------------------
