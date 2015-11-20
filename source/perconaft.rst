@@ -6,7 +6,7 @@ PerconaFT Storage Engine
 
 PerconaFT is a storage engine based on the Fractal Tree Index model, which is optimized for fast disk I/O. The Fractal Tree data structure contains buffers to temporarily store insertions. When a buffer is full, it is flushed to children nodes. This ensures that an I/O operation performs a lot of useful work when messages reach leaves on disk, instead of just a small write per I/O.
 
-The PerconaFT storage engine is available in Percona Server for MongoDB along with the standard MongoDB engines (`MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_) and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_), as well as `MongoRocks <http://rocksdb.org>`_.
+The PerconaFT storage engine is available in Percona Server for MongoDB along with the standard MongoDB engines (`MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_), as well as `MongoRocks <http://rocksdb.org>`_.
 
 Using PerconaFT
 ===============
@@ -41,7 +41,7 @@ By default, Percona Server for MongoDB runs with MMAPv1. To enable PerconaFT:
          dbPath: data/dir/for/perconaft
          engine: PerconaFT
 
-.. attention:: Transparent huge pages is a feature in newer Linux kernel versions that causes problems for the memory usage tracking calculations in PerconaFT and can lead to memory overcommit. If you have this feature enabled, PerconaFT will not start, and you should turn it off. If you want to run with transparent hugepages on, you can set an environment variable ``TOKU_HUGE_PAGES_OK=1``, but only do this for testing, and only with a small cache size.
+.. warning:: Transparent huge pages is a feature in newer Linux kernel versions that causes problems for the memory usage tracking calculations in PerconaFT and can lead to memory overcommit. If you have this feature enabled, PerconaFT will not start, and you should turn it off. If you want to run with transparent hugepages on, you can set an environment variable ``TOKU_HUGE_PAGES_OK=1``, but only do this for testing, and only with a small cache size.
 
 Storage Engine Comparison
 =========================

@@ -14,6 +14,8 @@ You can download those files from `GitHub <https://github.com/dbpercona/tokumx2_
 
 .. warning:: Before starting the upgrade process, it is recommended that you perform a full backup.
 
+To performa the upgrade:
+
 1. Restart the TokuMX server without the ``--auth`` parameter:
 
   .. code-block:: bash
@@ -69,7 +71,7 @@ You can download those files from `GitHub <https://github.com/dbpercona/tokumx2_
          tokumx-enterprise-server-2.0.2-1.el6.x86_64 \ 
          tokumx-enterprise-2.0.2-1.el6.x86_64
 
-8. Install |Percona Server for MongoDB| as described in :ref:`this installation guide <install>`.
+8. Install |Percona Server for MongoDB| as described in the :ref:`Installation Guide <install>`.
 
 9. Stop the ``mongod`` service, configure the ``storageEngine`` parameter to run PerconaFT and disable ``--auth`` in :file:`/etc/mongod.conf`:
 

@@ -48,7 +48,7 @@ Installing from Percona Repository
 
       Complete!
 
-   .. note:: Red Hat Enterprise Linux / CentOS 5 do not support installing packages directly from the remote location. Download the Percona repository package first and install it manually using :program:`rpm`:
+   .. note:: Red Hat Enterprise Linux and CentOS 5 do not support installing packages directly from the remote location. Download the Percona repository package first and install it manually using :program:`rpm`:
 
       .. code-block:: bash
 

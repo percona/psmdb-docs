@@ -101,7 +101,7 @@ To create a secondary using |TokuBackup|, move the backup files to the new machi
 
 .. warning:: In order to find the oplog position in common between the new secondary and the existing members of the set, the oplog must be present in the backup. Therefore, when initially creating a replica set from a single server, it is necessary to run ``rs.initiate()`` first before taking a backup for the new secondary.
 
-.. tip:: To minimize impact on a running application, it is recommended to use a backup of an existing secondary to create a new secondary, rather than backing up the primary.
+.. note:: To minimize impact on a running application, it is recommended to use a backup of an existing secondary to create a new secondary, rather than backing up the primary.
 
 Sharding
 --------

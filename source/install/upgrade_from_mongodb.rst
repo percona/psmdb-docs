@@ -12,6 +12,8 @@ In-place upgrades are those which are done using the existing data in the server
 
   Before starting the upgrade process it's recommended that you perform a full backup (if you don't have one already). 
 
+The upgrade process depends on the distribution you are using:
+
 .. contents::
    :local:
 
