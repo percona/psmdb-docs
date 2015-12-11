@@ -4,13 +4,7 @@
 Percona TokuBackup
 ==================
 
-Percona |TokuBackup| is an open-source hot backup utility for |MongoDB| servers running the |PerconaFT| storage engine (including |Percona Server for MongoDB|). It creates a physical data backup on a running server without performance degradation or capacity planning, and provides a more recent backup than a snapshot at the file system level.
-
-.. note:: TokuBackup is an experimental feature, not available in the current release. However, you can test it if you install |Percona Server for MongoDB| from Percona's experimental repository. **Continue only if you understand the risks of running unstable software.**
-
-   For Debian-based distributions, :ref:`edit the apt repository definition file <apt-testing-repo>`.
-
-   For RPM-based distributions, :ref:`edit the yum repository configuration file <yum-testing-repo>`.
+Percona TokuBackup is an integrated open-source hot backup system for |MongoDB| servers running the :ref:`PerconaFT <perconaft>` storage engine (including |Percona Server for MongoDB|). It creates a physical data backup on a running server without performance degradation or capacity planning, and provides a more recent backup than a snapshot at the file system level.
 
 .. contents::
    :local:
