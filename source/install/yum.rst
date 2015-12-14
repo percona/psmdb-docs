@@ -106,6 +106,16 @@ If you want to install the latest experimental builds, set ``enabled=1`` for the
 Using Percona Server for MongoDB
 ================================
 
+.. warning:: If you have SELinux security module installed, it will conflict with Percona Server for MongoDB. There are several options to deal with this:
+
+   * Remove the SELinux packages or not install them at all. This is not recommended, because it may violate security.
+
+   * Disable SELinux by setting ``SELINUX`` in :file:`/etc/selinux/config` to ``disabled``. This change takes effect after you reboot.
+
+   * Run SELinux in permissive mode by setting ``SELINUX`` in :file:`/etc/selinux/config` to ``permissive``. This change takes effect after you reboot.
+
+     You can also enforce permissive mode at runtime using the ``setenforce 0`` command. However, this will not affect the configuration after a reboot.
+
 |Percona Server for MongoDB| stores data files in :file:`/var/lib/mongodb/` by default. The configuration file is :file:`/etc/mongod.conf`. 
 
 1. Starting the service
