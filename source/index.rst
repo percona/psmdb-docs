@@ -9,11 +9,7 @@
 Percona Server for MongoDB Documentation
 ========================================
 
-.. note:: Percona Server for MongoDB is currently available only as a *release candidate*.
-
-   For more information, see the :ref:`3.0.5-rc7`.
-
-Percona Server for MongoDB is a free, enhanced, fully compatible, open source, drop-in replacement for MongoDB 3.0 Community Edition with enterprise-grade features. It requires no changes to MongoDB applications or code.
+|Percona Server for MongoDB| is a free, enhanced, fully compatible, open source, drop-in replacement for MongoDB 3.0 Community Edition with enterprise-grade features. It requires no changes to MongoDB applications or code.
 
 Percona Server for MongoDB provides:
 
