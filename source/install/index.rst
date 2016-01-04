@@ -8,8 +8,8 @@ Installing Percona Server for MongoDB
 
 * Debian 8 ("jessie")
 * Ubuntu 14.04 LTS (Trusty Tahr)
-* Ubuntu 14.10 (Utopic Unicorn)
 * Ubuntu 15.04 (Vivid Vervet)
+* Ubuntu 15.10 (Wily Werewolf)
 * Red Hat Enterprise Linux / CentOS 5
 * Red Hat Enterprise Linux / CentOS 6
 * Red Hat Enterprise Linux / CentOS 7

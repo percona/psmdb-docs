@@ -1,0 +1,16 @@
+.. _3.0.8-1.2:
+
+====================================
+Percona Server for MongoDB 3.0.8-1.2
+====================================
+
+Percona is glad to announce the release of Percona Server for MongoDB 3.0.8 on January 4, 2016. Downloads are available `here <https://www.percona.com/downloads/percona-server-for-mongodb>`_ and from the :ref:`Percona Software Repositories <install>`.
+
+Percona Server for MongoDB is a highly scalable, zero-maintenance downtime database supporting the MongoDB v3.0 protocol and drivers. The latest release is based on `MongoDB 3.0.8 <http://docs.mongodb.org/manual/release-notes/3.0/#dec-15-2015>`_, extending MongoDB with `MongoRocks <http://rocksdb.org>`_ and :ref:`PerconaFT <perconaft>` storage engines, as well as several enterprise features. Percona Server for MongoDB requires no changes to MongoDB applications or code.
+
+New Features
+============
+
+* Added support for Ubuntu 15.10 (Wily Werewolf).
+
+* Contains all changes and fixes from `MongoDB 3.0.8 <http://docs.mongodb.org/manual/release-notes/3.0/#dec-15-2015>`_
