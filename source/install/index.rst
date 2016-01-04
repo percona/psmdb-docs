@@ -4,11 +4,7 @@
 Installing Percona Server for MongoDB 
 =====================================
 
-.. note:: Percona Server for MongoDB is currently available only as a *release candidate*.
-
-   For more information, see the :ref:`3.0.5-rc7`.
-
-Percona Server for MongoDB supports most 64-bit Linux distributions. Percona provides packages for popular DEB-based and RPM-based distributions:
+|Percona Server for MongoDB| supports most 64-bit Linux distributions. Percona provides packages for popular DEB-based and RPM-based distributions:
 
 * Debian 8 ("jessie")
 * Ubuntu 14.04 LTS (Trusty Tahr)

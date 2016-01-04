@@ -36,29 +36,19 @@ Package Contents
 Installing from Repositories
 ============================
 
-1. Import the public key for the package management system.
-
-   Debian and Ubuntu packages from Percona are signed with Percona's GPG key. Before using the repository, you should add the key to :program:`apt`.
+1. Fetch the repository packages from Percona web:
 
    .. code-block:: bash
 
-      $ sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 1C4CBDCDCD2EFD2A
+     $ wget https://repo.percona.com/apt/percona-release_0.1-3.$(lsb_release -sc)_all.deb
 
-   .. note:: If you receive timeouts when using ``keys.gnupg.net``, try fetching the key from ``keyserver.ubuntu.com``. 
-
-2. Create the :program:`apt` source list for Percona's repository.
-
-   You can create the source list using the following command:
+2. Install the downloaded package with :program:`dpkg`. To do that, run the following commands as root or with :program:`sudo`:
 
    .. code-block:: bash
 
-      $ echo "deb http://repo.percona.com/apt "$(lsb_release -sc)" main" | sudo tee /etc/apt/sources.list.d/percona.list
+     $ sudo dpkg -i percona-release_0.1-3.$(lsb_release -sc)_all.deb
 
-   Additionally you can enable the source package repository using the following command:
-
-   .. code-block:: bash 
-
-     $ echo "deb-src http://repo.percona.com/apt "$(lsb_release -sc)" main" | sudo tee -a /etc/apt/sources.list.d/percona.list
+   Once you install this package the Percona repositories should be added. You can check the repository setup in the :file:`/etc/apt/sources.list.d/percona-release.list` file.
 
 3. Update the local cache:
 
@@ -77,7 +67,7 @@ Installing from Repositories
 Testing and Experimental Repositories
 -------------------------------------
 
-Percona offers pre-release builds from the testing repo, and early-stage development builds from the experimental repo. To enable them, add either ``testing`` or ``experimental`` at the end of the Percona repository definition in your repository file (by default, :file:`/etc/apt/sources.list.d/percona.list`).
+Percona offers pre-release builds from the testing repo, and early-stage development builds from the experimental repo. To enable them, add either ``testing`` or ``experimental`` at the end of the Percona repository definition in your repository file (by default, :file:`/etc/apt/sources.list.d/percona-release.list`).
 
 For example, if you are running Debian 8 ("jessie") and want to install the latest testing builds, the definitions should look like this: ::
 
