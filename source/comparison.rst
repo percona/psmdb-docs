@@ -20,7 +20,7 @@ The following table shows which storage engines are available.
    * - 
      - PSMDB
      - MongoDB 3.0
-     - TokuMX*
+     - TokuMX [#n-1]_
      - MongoDB 2.4
    * - `MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_
      - YES
@@ -32,7 +32,7 @@ The following table shows which storage engines are available.
      - YES
      - NO
      - NO
-   * - `MongoRocks <http://rocksdb.org>`_
+   * - `MongoRocks <http://rocksdb.org>`_ [#n-2]_
      - YES
      - NO
      - NO
@@ -43,7 +43,7 @@ The following table shows which storage engines are available.
      - NO
      - NO
 
-\* TokuMX uses a proprietary storage engine similar to :ref:`PerconaFT <perconaft>`
+.. [#n-1] TokuMX uses a proprietary storage engine similar to :ref:`PerconaFT <perconaft>`
 
 Feature Comparison
 ==================
@@ -59,21 +59,21 @@ The table below provides a comparison of important features to help you evaluate
    * - 
      - PSMDB
      - MongoDB 3.0
-     - TokuMX*
+     - TokuMX [#n-3]_
      - MongoDB 2.4
    * - :ref:`Hot Backup <toku-backup>`
-     - YES*
+     - YES [#n-3]_
      - NO
      - YES
      - NO
    * - :ref:`Audit Logging <audit-log>`
      - YES
-     - NO**
+     - NO [#n-4]_
      - YES
      - NO
    * - :ref:`External SASL Authentication <ext-auth>`
      - YES
-     - NO**
+     - NO [#n-4]_
      - NO
      - NO
    * - Geospatial Indexes
@@ -103,11 +103,14 @@ The table below provides a comparison of important features to help you evaluate
      - NO
    * - Point-in-time Recovery
      - NO
-     - NO**
+     - NO [#n-4]_
      - YES
-     - NO**
+     - NO [#n-4]_
 
-\* Requires :ref:`PerconaFT <perconaft>`
 
-\** Available in MongoDB Enterprise Edition.
 
+.. rubric:: Footnotes
+
+.. [#n-2] This feature is curently considered *Experimental*
+.. [#n-3] Requires :ref:`PerconaFT <perconaft>`
+.. [#n-4] Available in MongoDB Enterprise Edition.
