@@ -14,7 +14,7 @@ Percona Server for MongoDB Documentation
 Percona Server for MongoDB provides:
 
 * MongoDB's original `MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ storage engine as the default, and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_ as an alternative
-* Optional `MongoRocks <http://rocksdb.org>`_ and :ref:`PerconaFT <perconaft>` storage engines
+* Optional :ref:`PerconaFT <perconaft>` and `MongoRocks <http://rocksdb.org>`_ [#n-1]_ storage engines
 * :ref:`Percona TokuBackup <toku-backup>` for creating dynamic backups while data remains fully accessible and writable (*hot backup*)
 * :ref:`External SASL authentication <ext-auth>` using OpenLDAP or Active Directory
 * :ref:`Audit logging <audit-log>` to track and query database interactions of users or applications
@@ -63,3 +63,6 @@ Reference
    copyright
    trademark-policy
 
+.. rubric:: Footnotes
+
+.. [#n-1] This feature is currently considered *Experimental*

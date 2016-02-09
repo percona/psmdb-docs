@@ -14,7 +14,7 @@ Architectural Overview
 
 |TokuBackup| copies the data in the ``dbpath`` (and ``logDir`` if different) to a backup directory. The following subsystems are used to complete the backup:
 
-* One component copies files directly, in the background. This component’s I/O consumption can be controlled with the ``backupThrottle`` command.
+* One component copies files directly, in the background. This component's I/O consumption can be controlled with the ``backupThrottle`` command.
 
 * The other component ensures consistency between the original database files and the backup copy, even while there are read and write workloads occuring in the database. This is possible because |TokuBackup| is essentially a shim between the ``mongod`` process and the operating system. It intercepts all relvant file system calls, and creates some state in the memory that mirrors the same state in the file system.
 
@@ -89,7 +89,7 @@ A great use case for |TokuBackup| is creating new secondaries in a replica set.
 
 The normal initial sync procedure can use normal queries that need to decompress and deserialize data on disk, and then marshall it and send it across the network, then on the secondary, it needs to be indexed, serialized, and compressed all over again. This is a slow process, and furthermore it poisons the cache of the machine being synced from with data that may be irrelevant to the application.
 
-Instead, a hot backup can be used to initialize a replica set secondary. This is both faster and less intrusive to application queries and the sync source server’s cache.
+Instead, a hot backup can be used to initialize a replica set secondary. This is both faster and less intrusive to application queries and the sync source server's cache.
 
 To create a secondary using |TokuBackup|, move the backup files to the new machine, start the server with the ``--replSet`` option and additionally with ``--fastsync``, then use ``rs.add()`` on the primary to add the new secondary. After the secondary has been added, you should remove the ``--fastsync`` option for future server startups.
 
