@@ -6,7 +6,39 @@ PerconaFT Storage Engine
 
 PerconaFT is a storage engine based on the Fractal Tree Index model, which is optimized for fast disk I/O. The Fractal Tree data structure contains buffers to temporarily store insertions. When a buffer is full, it is flushed to children nodes. This ensures that an I/O operation performs a lot of useful work when messages reach leaves on disk, instead of just a small write per I/O.
 
-The PerconaFT storage engine is available in Percona Server for MongoDB along with the standard MongoDB engines (`MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_), as well as `MongoRocks <http://rocksdb.org>`_ [#n-1]_.
+The PerconaFT storage engine is available in Percona Server for MongoDB along with the standard MongoDB engines (`MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_), as well as `MongoRocks <http://rocksdb.org>`_ [#n-1]_. To help you decide which is better for you, the table below lists features available in various storage engines:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+
+   * -
+     - MMAPv1
+     - WiredTiger
+     - MongoRocks [#n-1]_
+     - PerconaFT
+   * - Available in MongoDB
+     - YES
+     - YES
+     - NO
+     - NO
+   * - Document-level locking
+     - NO
+     - YES
+     - YES
+     - YES
+   * - High compression
+     - NO
+     - YES
+     - YES
+     - YES
+   * - Fast insertions
+     - NO
+     - NO
+     - YES
+     - YES
+
+.. [#n-1] MongoRocks is currently considered *experimental*
 
 Using PerconaFT
 ===============
@@ -43,41 +75,7 @@ By default, Percona Server for MongoDB runs with MMAPv1. To enable PerconaFT:
 
 .. warning:: Transparent huge pages is a feature in newer Linux kernel versions that causes problems for the memory usage tracking calculations in PerconaFT and can lead to memory overcommit. If you have this feature enabled, PerconaFT will not start, and you should turn it off. If you want to run with transparent hugepages on, you can set an environment variable ``TOKU_HUGE_PAGES_OK=1``, but only do this for testing, and only with a small cache size.
 
-Storage Engine Comparison
-=========================
+Using Other Storage Engines
+===========================
 
-|Percona Server for MongoDB| includes several storage engines, which have a different set of features and advantages over one another. To help you decide which is better for you, the table below lists features available in various storage engines:
-
-.. list-table::
-   :header-rows: 1
-   :stub-columns: 1
-
-   * -
-     - MMAPv1
-     - WiredTiger
-     - MongoRocks [#n-1]_
-     - PerconaFT
-   * - Available in MongoDB
-     - YES
-     - YES
-     - NO
-     - NO
-   * - Document-level locking
-     - NO
-     - YES
-     - YES
-     - YES
-   * - High compression
-     - NO
-     - YES
-     - YES
-     - YES
-   * - Fast insertions
-     - NO
-     - NO
-     - YES
-     - YES
-
-.. rubric:: Footnotes
-
-.. [#n-1] This feature is currently considered *Experimental*
+|Percona Server for MongoDB| includes several storage engines, which have a different set of features and advantages over one another. You can switch between storage engines using the ``--storageEngine`` option. Also specify the ``--dbpath`` option to a separate data directory for every storage engine you use.
