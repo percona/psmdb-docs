@@ -59,7 +59,7 @@ The table below provides a comparison of important features to help you evaluate
    * - 
      - PSMDB
      - MongoDB 3.0
-     - TokuMX*
+     - TokuMX
      - MongoDB 2.4
    * - :ref:`Hot Backup <toku-backup>`
      - YES*
@@ -101,13 +101,13 @@ The table below provides a comparison of important features to help you evaluate
      - NO
      - YES
      - NO
-   * - Point-in-time Recovery
+   * - Automated Point-in-time Recovery
      - NO
      - NO**
      - YES
      - NO**
 
-\* Requires :ref:`PerconaFT <perconaft>`
+\* :ref:`TokuBackup <toku-backup>` requires :ref:`PerconaFT <perconaft>`. However, MongoRocks engine also has hot backup functionality.
 
 \** Available in MongoDB Enterprise Edition.
 
