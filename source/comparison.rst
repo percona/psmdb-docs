@@ -45,6 +45,8 @@ The following table shows which storage engines are available.
 
 .. [#n-1] TokuMX uses a proprietary storage engine similar to :ref:`PerconaFT <perconaft>`
 
+.. [#n-2] MongoRocks engine is currently considered experimental
+
 Feature Comparison
 ==================
 
@@ -59,7 +61,7 @@ The table below provides a comparison of important features to help you evaluate
    * - 
      - PSMDB
      - MongoDB 3.0
-     - TokuMX [#n-3]_
+     - TokuMX
      - MongoDB 2.4
    * - :ref:`Hot Backup <toku-backup>`
      - YES [#n-3]_
@@ -107,10 +109,6 @@ The table below provides a comparison of important features to help you evaluate
      - YES
      - NO [#n-4]_
 
+.. [#n-3] You can use :ref:`TokuBackup <toku-backup>` when running under :ref:`PerconaFT <perconaft>` or use hot backup functionality available in the MongoRocks storage engine
 
-
-.. rubric:: Footnotes
-
-.. [#n-2] This feature is curently considered *Experimental*
-.. [#n-3] Requires :ref:`PerconaFT <perconaft>`
-.. [#n-4] Available in MongoDB Enterprise Edition.
+.. [#n-4] Available in MongoDB Enterprise Edition
