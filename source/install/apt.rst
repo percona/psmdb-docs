@@ -42,13 +42,13 @@ Installing from Repositories
 
      $ wget https://repo.percona.com/apt/percona-release_0.1-3.$(lsb_release -sc)_all.deb
 
-2. Install the downloaded package with :program:`dpkg`. To do that, run the following commands as root or with :program:`sudo`:
+2. Install the downloaded package with :program:`dpkg`. To do that, run the following command as root or with :program:`sudo`:
 
    .. code-block:: bash
 
      $ sudo dpkg -i percona-release_0.1-3.$(lsb_release -sc)_all.deb
 
-   Once you install this package the Percona repositories should be added. You can check the repository setup in the :file:`/etc/apt/sources.list.d/percona-release.list` file.
+   Once you install this package, the Percona repositories should be added. You can check the repository configuration in the :file:`/etc/apt/sources.list.d/percona-release.list` file.
 
 3. Update the local cache:
 
@@ -82,7 +82,7 @@ If you are running Ubuntu 14.04 LTS (Trusty Tahr) and want to install the latest
 Pinning the Packages
 --------------------
 
-If you want to pin your packages to avoid upgrades, make a new file :file:`/etc/apt/preferences.d/00percona.pref` and add the following lines to it: :: 
+If you want to pin your packages to avoid upgrades, create a new file :file:`/etc/apt/preferences.d/00percona.pref` and add the following lines to it: :: 
 
   Package: *
   Pin: release o=Percona Development Team
@@ -94,7 +94,7 @@ For more information about pinning, refer to the official `Debian Wiki <http://w
 Using Percona Server for MongoDB
 ================================
 
-|Percona Server for MongoDB| stores data files in :file:`/var/lib/mongodb/` by default. The configuration file is :file:`/etc/mongod.conf`. 
+By default, |Percona Server for MongoDB| stores data files in :file:`/var/lib/mongodb/` and configuration parameters in :file:`/etc/mongod.conf`. 
 
 1. Starting the service
 
@@ -130,13 +130,7 @@ Using Percona Server for MongoDB
 
 .. note:: Debian 8 ("jessie") and Ubuntu 15.04 (Vivid Vervet) come with `systemd <http://freedesktop.org/wiki/Software/systemd/>`_ as the default system and service manager. You can invoke all the above commands with ``sytemctl`` instead of ``service``. Currently both are supported.
 
-.. note:: By default, |Percona Server for MongoDB| starts with the MMAPv1 storage engine (standard engine in MongoDB). If you want to leverage the advantages of PerconaFT, specify the ``--storageEngine=PerconaFT`` option:
-
-   .. code-block:: bash
-
-      $ mongod --storageEngine=PerconaFT.
-
-   For more information, see :ref:`perconaft`.
+.. note:: By default, |Percona Server for MongoDB| starts with the MMAPv1 storage engine (standard engine in MongoDB). If you want to run with PerconaFT, specify the ``--storageEngine=PerconaFT`` option on the command line when running ``mongod``, or set the ``storage.engine`` option in the configuration file. For more information, see :ref:`switch-storage-engines`.
     
 Uninstalling Percona Server for MongoDB
 =======================================

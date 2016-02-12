@@ -73,14 +73,15 @@ To performa the upgrade:
 
 8. Install |Percona Server for MongoDB| as described in the :ref:`Installation Guide <install>`.
 
-9. Stop the ``mongod`` service, configure the ``storageEngine`` parameter to run PerconaFT and disable ``--auth`` in :file:`/etc/mongod.conf`:
+9. Stop the ``mongod`` service, configure the ``storage.engine`` parameter to run PerconaFT and disable ``--auth`` in :file:`/etc/mongod.conf`:
 
   .. code-block:: bash
 
      $ service mongod stop
-     $ sed -i'' s/^storageEngine/#storageEngine/ /etc/mongod.conf
-     $ sed -i'' s/^#storageEngine=PerconaFT/storageEngine=PerconaFT/ /etc/mongod.conf
+     $ sed -i '/engine: \*PerconaFT/s/#//g' /etc/mongod.conf
      $ sed -i'' s/^auth/#auth/ /etc/mongod.conf
+
+  For more information about configuring the storage engine, see :ref:`switch-storage-engines`.
 
 10. Start the ``mongod`` server:
 

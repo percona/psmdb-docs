@@ -20,6 +20,8 @@ The following components are necessary for external authentication to work:
 * **SASL Daemon**: Used as a MongoDB server-local proxy for the remote LDAP service.
 * **SASL Library**: Used by the MongoDB client and server to create data necessary for the authentication mechanism.
 
+The following image illustrates this architecture:
+
 .. image:: psmdb-ext-auth.png
    :align: center
 
