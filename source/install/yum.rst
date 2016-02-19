@@ -152,14 +152,8 @@ Using Percona Server for MongoDB
 
 .. note:: Red Hat Enterprise Linux / CentOS 7 come with `systemd <http://freedesktop.org/wiki/Software/systemd/>`_ as the default system and service manager. You can invoke all the above commands with ``sytemctl`` instead of ``service``. Currently both are supported.
 
-.. note:: By default, |Percona Server for MongoDB| starts with the MMAPv1 storage engine (standard engine in MongoDB). If you want to leverage the advantages of PerconaFT, specify the ``--storageEngine=PerconaFT`` option:
+.. note:: By default, |Percona Server for MongoDB| starts with the MMAPv1 storage engine (standard engine in MongoDB). If you want to run with PerconaFT, specify the ``--storageEngine=PerconaFT`` option on the command line when running ``mongod``, or set the ``storage.engine`` option in the configuration file. For more information, see :ref:`switch-storage-engines`.
 
-   .. code-block:: bash
-
-      $ mongod --storageEngine=PerconaFT.
-
-   For more information, see :ref:`perconaft`.
- 
 Uninstalling Percona Server for MongoDB
 =======================================
 

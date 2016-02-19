@@ -34,10 +34,5 @@ You can find links to the binary tarballs from the `Percona Server for MongoDB d
 
 5. Make sure that you have read and write permissions for the data directory and run ``mongod``.
 
-   .. note:: By default, |Percona Server for MongoDB| starts with the MMAPv1 storage engine (standard engine in MongoDB). If you want to leverage the advantages of PerconaFT, specify the ``--storageEngine=PerconaFT`` option:
+   .. note:: By default, |Percona Server for MongoDB| starts with the MMAPv1 storage engine (standard engine in MongoDB). If you want to run with PerconaFT, specify the ``--storageEngine=PerconaFT`` option on the command line when running ``mongod``, or set the ``storage.engine`` option in the configuration file. For more information, see :ref:`switch-storage-engines`.
 
-      .. code-block:: bash
-
-         $ mongod --storageEngine=PerconaFT.
-
-      For more information, see :ref:`perconaft`.
