@@ -4,12 +4,12 @@
 Percona Server for MongoDB Feature Comparison
 =============================================
 
-Percona Server for MongoDB is based on MongoDB 3.0, and it is the successor to Percona TokuMX, which is based on MongoDB 2.4. The tables in this section will help you evaluate the differences.
+Percona Server for MongoDB is based on MongoDB 3.2, and it is the successor to Percona TokuMX, which is based on MongoDB 2.4. The tables in this section will help you evaluate the differences.
 
 Storage Engines
 ===============
 
-One of the biggest features introduced by MongoDB 3.0 and available in Percona Server for MongoDB is the pluggable storage engine API. This enables you to select from a variety of storage engines depending on your needs. Previous MongoDB versions (before 3.0) and Percona TokuMX can run with only one default storage engine.
+One of the biggest features introduced by MongoDB 3.2 and available in Percona Server for MongoDB is the pluggable storage engine API. This enables you to select from a variety of storage engines depending on your needs. Previous MongoDB versions (before 3.0) and Percona TokuMX can run with only one default storage engine.
 
 The following table shows which storage engines are available.
 
