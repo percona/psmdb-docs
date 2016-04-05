@@ -6,6 +6,10 @@ PerconaFT Storage Engine
 
 PerconaFT is a storage engine based on the Fractal Tree Index model, which is optimized for fast disk I/O. The Fractal Tree data structure contains buffers to temporarily store insertions. When a buffer is full, it is flushed to children nodes. This ensures that an I/O operation performs a lot of useful work when messages reach leaves on disk, instead of just a small write per I/O.
 
+.. contents::
+  :local:
+  :depth: 1
+
 The PerconaFT storage engine is available in Percona Server for MongoDB along with the standard MongoDB engines (`MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_), as well as `MongoRocks <http://rocksdb.org>`_.
 
 .. note:: MongoRocks is currently considered experimental.
@@ -51,10 +55,6 @@ To help you decide which is better for you, the table below lists features avail
 
 .. warning:: Transparent huge pages is a feature in newer Linux kernel versions that causes problems for the memory usage tracking calculations in PerconaFT and can lead to memory overcommit. If you have this feature enabled, PerconaFT will not start, and you should turn it off. If you want to run with transparent huge pages on, you can set an environment variable ``TOKU_HUGE_PAGES_OK=1``, but only do this for testing, and only with a small cache size.
 
-.. contents::
-  :local:
-  :depth: 1
-
 .. _switch-storage-engines:
 
 Switching Storage Engines
@@ -93,124 +93,170 @@ Data created by one storage engine is not compatible with other storage engines,
      $ service mongod start
      $ mongorestore <dumpDir>
 
-PerconaFT Options
-=================
+.. _configure-perconaft:
 
-When running with the PerconaFT storage engine, you can configure the following options:
+Configuring PerconaFT
+=====================
+
+You can configure the PerconaFT storage engine using either command-line options or corresponding parameters in the :file:`/etc/mongod.conf` file. The configuration file is formatted in YAML. For example:
+
+.. code-block:: none
+
+ storage:
+   engine: PerconaFT
+   PerconaFT:
+     engineOptions:
+       cacheSize: 53687091200
+       journalCommitInterval: 100
+     collectionOptions:
+       compression: zlib
+     indexOptions:
+       compression: zlib
+
+Setting parameters in the previous example configuration file is the same as starting the ``mongod`` daemon with the following options:
+
+.. code-block:: bash
+
+ $ mongod --storageEngine PerconaFT \
+   --PerconaFTEngineCacheSize 53687091200 \
+   --PerconaFTEngineJournalCommitInterval 100 \
+   --PerconaFTCollectionCompression zlib \
+   --PerconaFTIndexCompression zlib
+
+The following options are available (with corresponding YAML configuration file parameters):
 
 .. option:: --PerconaFTCollectionCompression
 
-   :Default: zlib
-   :Values: none, zlib, lzma, quicklz
+   :Config: ``storage.PerconaFT.collectionOptions.compression``
+   :Default: ``zlib``
+   :Values: ``none``, ``zlib``, ``lzma``, ``quicklz``
 
-   Specify the PerconaFT collection compression method.
+   Specifies the PerconaFT collection compression method.
 
 .. option:: --PerconaFTCollectionFanout
 
-   :Default: 16
+   :Config: ``storage.PerconaFT.collectionOptions.fanout``
+   :Default: ``16``
 
-   Specify the PerconaFT collection fanout.
+   Specifies the PerconaFT collection fanout.
 
 .. option:: --PerconaFTCollectionPageSize
 
-   :Default: 4 MB
+   :Config: ``storage.PerconaFT.collectionOptions.pageSize``
+   :Default: ``4194304`` (4 MiB)
 
-   Specify the PerconaFT collection page size in bytes.
+   Specifies the PerconaFT collection page size in bytes.
 
 .. option:: --PerconaFTCollectionReadPageSize
 
-   :Default: 64 KB
+   :Config: ``storage.PerconaFT.collectionOptions.readPageSize``
+   :Default: ``65536`` (64 KiB)
 
-   Specify the PerconaFT collection read page size in bytes.
+   Specifies the PerconaFT collection read page size in bytes.
 
 .. option:: --PerconaFTEngineCacheSize
 
-   :Default: 0
+   :Config: ``storage.PerconaFT.engineOptions.cacheSize``
+   :Default: ``0``
 
-   Specify the PerconaFT storage engine cache size in bytes.
+   Specifies the PerconaFT storage engine cache size in bytes.
 
 .. option:: --PerconaFTEngineCleanerIterations
 
-   :Default: 5
+   :Config: ``storage.PerconaFT.engineOptions.cleanerIterations``
+   :Default: ``5``
 
-   Specify the number of PerconaFT storage engine cleaner iterations.
+   Specifies the number of PerconaFT storage engine cleaner iterations.
 
 .. option:: --PerconaFTEngineCleanerPeriod
 
-   :Default: 2
+   :Config: ``storage.PerconaFT.engineOptions.cleanerPeriod``
+   :Default: ``2``
 
-   Specify the PerconaFT storage engine cleaner period in seconds.
+   Specifies the PerconaFT storage engine cleaner period in seconds.
 
 .. option:: --PerconaFTEngineCompressBuffersBeforeEviction
 
-   :Default: false
+   :Config: ``storage.PerconaFT.engineOptions.compressBuffersBeforeEviction``
+   :Default: ``false``
 
-   Specify whether the PerconaFT storage engine should compress buffers before eviction.
+   Specifies whether the PerconaFT storage engine should compress buffers before eviction.
  
 .. option:: --PerconaFTEngineDirectio
 
-   :Default: false
+   :Config: ``storage.PerconaFT.engineOptions.directio``
+   :Default: ``false``
 
-   Specify whether the PerconaFT storage engine should use Direct I/O.
+   Specifies whether the PerconaFT storage engine should use Direct I/O.
 
 .. option:: --PerconaFTEngineFsRedzone
 
-   :Default: 5
+   :Config: ``storage.PerconaFT.engineOptions.fsRedzone``
+   :Default: ``5``
 
-   Specify the PerconaFT storage engine filesystem redzone.
+   Specifies the PerconaFT storage engine filesystem redzone.
 
 .. option:: --PerconaFTEngineJournalCommitInterval
 
-   :Default: 100
+   :Config: ``storage.PerconaFT.engineOptions.journalCommitInterval``
+   :Default: ``100``
 
-   Specify the PerconaFT storage engine journal commit interval in milliseconds.
+   Specifies the PerconaFT storage engine journal commit interval in milliseconds.
 
 .. option:: --PerconaFTEngineLockTimeout
 
-   :Default: 100
+   :Config: ``storage.PerconaFT.engineOptions.lockTimeout``
+   :Default: ``100``
 
-   Specify the PerconaFT storage engine lock wait timeout in milliseconds.
+   Specifies the PerconaFT storage engine lock wait timeout in milliseconds.
 
 .. option:: --PerconaFTEngineLocktreeMaxMemory
 
-   :Default: 0
+   :Config: ``storage.PerconaFT.engineOptions.locktreeMaxMemory``
+   :Default: ``0``
 
-   Specify the PerconaFT storage engine locktree size in bytes.
+   Specifies the PerconaFT storage engine locktree size in bytes.
 
 .. option:: --PerconaFTEngineLogDir
 
+   :Config: ``storage.PerconaFT.engineOptions.logDir``
    :Default: 
 
-   Specify the directory for the PerconaFT storage engine transaction log.
+   Specifies the directory for the PerconaFT storage engine transaction log.
 
 .. option:: --PerconaFTEngineNumCachetableBucketMutexes
 
-   :Default: 1 048 576
+   :Config: ``storage.PerconaFT.engineOptions.numCachetableBucketMutexes``
+   :Default: ``1048576``
 
-   Specify the number of PerconaFT storage engine num cachetable bucket mutexes.
+   Specifies the number of PerconaFT storage engine num cachetable bucket mutexes.
 
 .. option:: --PerconaFTIndexCompression
 
-   :Default: zlib
-   :Values: none, zlib, lzma, quicklz
+   :Config: ``storage.PerconaFT.indexOptions.compression``
+   :Default: ``zlib``
+   :Values: ``none``, ``zlib``, ``lzma``, ``quicklz``
 
-   Specify the PerconaFT index compression method.
+   Specifies the PerconaFT index compression method.
 
 .. option:: ---PerconaFTIndexFanout
 
-   :Default: 16
+   :Config: ``storage.PerconaFT.indexOptions.fanout``
+   :Default: ``16``
 
-   Specify the PerconaFT index fanout.
+   Specifies the PerconaFT index fanout.
 
 .. option:: --PerconaFTIndexPageSize
 
-   :Default: 4 MB
+   :Config: ``storage.PerconaFT.indexOptions.pageSize``
+   :Default: ``4194304`` (4 MiB)
 
-   Specify the PerconaFT index page size in bytes.
+   Specifies the PerconaFT index page size in bytes.
 
 .. option:: --PerconaFTIndexReadPageSize
 
-   :Default: 64 KB
+   :Config: ``storage.PerconaFT.indexOptions.readPageSize``
+   :Default: ``65536`` (64 KiB)
 
-   Specify the PerconaFT index read page size in bytes.
+   Specifies the PerconaFT index read page size in bytes.
 
