@@ -116,48 +116,69 @@ Using Percona Server for MongoDB
 
      You can also enforce permissive mode at runtime using the ``setenforce 0`` command. However, this will not affect the configuration after a reboot.
 
-|Percona Server for MongoDB| stores data files in :file:`/var/lib/mongodb/` by default. The configuration file is :file:`/etc/mongod.conf`. 
+|Percona Server for MongoDB| stores data files in :file:`/var/lib/mongodb/` by default. The configuration file is :file:`/etc/mongod.conf`.
 
-1. Starting the service
+Percona Server for MongoDB runs as a service named ``mongod``.
 
-   |Percona Server for MongoDB| is not started automatically after installation. Start it manually using the following command:
+Starting the service
+--------------------
 
-   .. code-block:: bash
+|Percona Server for MongoDB| is not started automatically after installation. Start it manually using the following command:
 
-      $ sudo service mongod start
+.. code-block:: bash
 
-2. Confirming that service is running 
+   $ sudo service mongod start
 
-   Check the service status using the following command:  
+Confirming that service is running
+----------------------------------
 
-   .. code-block:: bash
+Check the service status using the following command:  
 
-      $ sudo service mongod status
+.. code-block:: bash
 
-3. Stopping the service
+   $ sudo service mongod status
 
-   Stop the service using the following command:
+Stopping the service
+--------------------
 
-   .. code-block:: bash
+Stop the service using the following command:
 
-      $ sudo service mongod stop
+.. code-block:: bash
 
-4. Restarting the service 
+   $ sudo service mongod stop
 
-   Restart the service using the following command:
+Restarting the service
+----------------------
 
-   .. code-block:: bash
+Restart the service using the following command:
 
-      $ sudo service mongod restart
+.. code-block:: bash
+
+   $ sudo service mongod restart
 
 .. note:: Red Hat Enterprise Linux / CentOS 7 come with `systemd <http://freedesktop.org/wiki/Software/systemd/>`_ as the default system and service manager. You can invoke all the above commands with ``sytemctl`` instead of ``service``. Currently both are supported.
 
 .. note:: By default, |Percona Server for MongoDB| starts with the MMAPv1 storage engine (standard engine in MongoDB). If you want to run with PerconaFT, specify the ``--storageEngine=PerconaFT`` option on the command line when running ``mongod``, or set the ``storage.engine`` option in the configuration file. For more information, see :ref:`switch-storage-engines`.
 
+Running after reboot
+--------------------
+
+The ``mongod`` service is not automatically started after you reboot the system. For RHEL or CentOS versions 5 and 6, you can use the ``chkconfig`` utility to enable auto-start as follows:
+
+.. code-block:: bash
+
+   $ chkconfig --add mongod
+
+For RHEL or CentOS version 7, you can use the ``systemctl`` utility as follows:
+
+.. code-block:: bash
+
+   $ systemctl enable mongod
+
 Uninstalling Percona Server for MongoDB
 =======================================
 
-To completely uninstall Percona Server for MongoDB you'll need to remove all the installed packages and data files.
+To completely uninstall Percona Server for MongoDB you'll need to remove all the installed packages and data files:
 
 1.  Stop the Percona Server for MongDB service
 
