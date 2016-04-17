@@ -1,8 +1,3 @@
-.. Percona Server for MongoDB documentation master file, created by
-   sphinx-quickstart on Sat Sep 12 09:11:52 2015.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 .. _dochome:
 
 ========================================
@@ -13,7 +8,7 @@ Percona Server for MongoDB Documentation
 
 Percona Server for MongoDB provides:
 
-* MongoDB's original `MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ storage engine as the default, and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_ as an alternative
+* MongoDB's original `MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ storage engine, and the default `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_ engine
 * Optional :ref:`PerconaFT <perconaft>` and `MongoRocks <http://rocksdb.org>`_ storage engines
 * :ref:`Percona TokuBackup <toku-backup>` for creating dynamic backups while data remains fully accessible and writable (*hot backup*)
 * :ref:`External SASL authentication <ext-auth>` using OpenLDAP or Active Directory

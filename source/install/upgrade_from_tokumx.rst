@@ -4,7 +4,9 @@
 Upgrading from Percona TokuMX to Percona Server for MongoDB
 ===========================================================
 
-This guide describes how to upgrade existing |TokuMX| instance to |Percona Server for MongoDB|. The following JavaScript files are required to perform the upgrade:
+This guide describes how to upgrade existing |TokuMX| instance to |Percona Server for MongoDB|. The same process should work when upgrading from MongoDB prior to version 3.0 (such as, 2.4 and 2.6).
+
+The following JavaScript files are required to perform the upgrade:
 
 * :file:`allDbStats.js`
 * :file:`tokumx_dump_indexes.js`
