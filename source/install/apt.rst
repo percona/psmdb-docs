@@ -21,17 +21,17 @@ The packages are available in the official Percona software repositories and on 
 Package Contents
 ================
 
-:``percona-server-mongodb``: Installs the ``mongo`` shell, import/export tools, other client utilities, server software, default configuration, and init.d scripts.
+:``percona-server-mongodb-32``: Installs the ``mongo`` shell, import/export tools, other client utilities, server software, default configuration, and init.d scripts.
 
-:``percona-server-mongodb-server``: Contains the ``mongod`` server, default configuration files and init.d scripts.
+:``percona-server-mongodb-32-server``: Contains the ``mongod`` server, default configuration files and init.d scripts.
 
-:``percona-server-mongodb-shell``: Contains the ``mongo`` shell.
+:``percona-server-mongodb-32-shell``: Contains the ``mongo`` shell.
 
-:``percona-server-mongodb-mongos``: Contains the ``mongos`` sharded cluster query router.
+:``percona-server-mongodb-32-mongos``: Contains the ``mongos`` sharded cluster query router.
 
-:``percona-server-mongodb-tools``: Contains Mongo tools for high-performance MongoDB fork from Percona.
+:``percona-server-mongodb-32-tools``: Contains Mongo tools for high-performance MongoDB fork from Percona.
 
-:``percona-server-mongodb-dbg``: Contains debug symbols for the server.
+:``percona-server-mongodb-32-dbg``: Contains debug symbols for the server.
 
 Installing from Repositories
 ============================
@@ -60,7 +60,7 @@ Installing from Repositories
 
    .. code-block:: bash
 
-     $ sudo apt-get install percona-server-mongodb
+     $ sudo apt-get install percona-server-mongodb-32
 
 .. _apt-testing-repo:
 
