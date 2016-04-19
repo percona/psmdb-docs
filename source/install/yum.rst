@@ -20,17 +20,17 @@ The packages are available in the official Percona software repositories and on 
 Package Contents
 ================
 
-:``percona-server-mongodb``: Installs the ``mongo`` shell, import/export tools, other client utilities, server software, default configuration, and init.d scripts.
+:``Percona-Server-MongoDB-32``: Installs the ``mongo`` shell, import/export tools, other client utilities, server software, default configuration, and init.d scripts.
 
-:``percona-server-mongodb-server``: Contains the ``mongod`` server, default configuration files and init.d scripts.
+:``Percona-Server-MongoDB-32-server``: Contains the ``mongod`` server, default configuration files and init.d scripts.
 
-:``percona-server-mongodb-shell``: Contains the ``mongo`` shell.
+:``Percona-Server-MongoDB-32-shell``: Contains the ``mongo`` shell.
 
-:``percona-server-mongodb-mongos``: Contains the ``mongos`` sharded cluster query router.
+:``Percona-Server-MongoDB-32-mongos``: Contains the ``mongos`` sharded cluster query router.
 
-:``percona-server-mongodb-tools``: Contains Mongo tools for high-performance MongoDB fork from Percona.
+:``Percona-Server-MongoDB-32-tools``: Contains Mongo tools for high-performance MongoDB fork from Percona.
 
-:``percona-server-mongodb-dbg``: Contains debug symbols for the server.
+:``Percona-Server-MongoDB-32-debuginfo``: Contains debug symbols for the server.
 
 Installing from Percona Repository
 ==================================
@@ -66,19 +66,19 @@ Installing from Percona Repository
    .. code-block:: bash
 
       ...
-      Percona-Server-MongoDB.x86_64               3.0.5-rel0.7rc.el6           percona-release-x86_64
-      Percona-Server-MongoDB-debuginfo.x86_64     3.0.5-rel0.7rc.el6           percona-release-x86_64
-      Percona-Server-MongoDB-mongos.x86_64        3.0.5-rel0.7rc.el6           percona-release-x86_64
-      Percona-Server-MongoDB-server.x86_64        3.0.5-rel0.7rc.el6           percona-release-x86_64
-      Percona-Server-MongoDB-shell.x86_64         3.0.5-rel0.7rc.el6           percona-release-x86_64
-      Percona-Server-MongoDB-tools.x86_64         3.0.5-rel0.7rc.el6           percona-release-x86_64
+      Percona-Server-MongoDB-32.x86_64               3.2.4-1.0rc2.el7           percona-release-x86_64
+      Percona-Server-MongoDB-32-debuginfo.x86_64     3.2.4-1.0rc2.el7           percona-release-x86_64
+      Percona-Server-MongoDB-32-mongos.x86_64        3.2.4-1.0rc2.el7           percona-release-x86_64
+      Percona-Server-MongoDB-32-server.x86_64        3.2.4-1.0rc2.el7           percona-release-x86_64
+      Percona-Server-MongoDB-32-shell.x86_64         3.2.4-1.0rc2.el7           percona-release-x86_64
+      Percona-Server-MongoDB-32-tools.x86_64         3.2.4-1.0rc2.el7           percona-release-x86_64
       ...
 
 3. Install the |Percona Server for MongoDB| packages:
 
    .. code-block:: bash
 
-      $ sudo yum install Percona-Server-MongoDB
+      $ sudo yum install Percona-Server-MongoDB-32
 
 .. _yum-testing-repo:
 
