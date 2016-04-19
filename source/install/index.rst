@@ -23,7 +23,7 @@ It is recommended to install Percona Server for MongoDB from official Percona re
 
 If you want more control, you can :ref:`install Percona Server for MongoDB from binary tarballs <tarball>`.
 
-If you are currently using MongoDB 3.0, see :ref:`Upgrading from MongoDB <upgrade_from_mongodb>`.
+If you are currently using MongoDB 3.0 or 3.2, see :ref:`Upgrading from MongoDB <upgrade_from_mongodb>`.
 
 If you are currently using Percona TokuMX, see :ref:`Upgrading from Percona TokuMX <upgrade_from_tokumx>`.
 

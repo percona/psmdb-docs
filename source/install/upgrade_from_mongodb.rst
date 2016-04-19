@@ -6,7 +6,9 @@ Upgrading from MongoDB Community Edition to Percona Server for MongoDB
 
 .. note:: MongoDB creates a user that belongs to two groups, which is a potential security risk. This is fixed in |Percona Server for MongoDB|: user is included only in the ``mongod`` group. To avoid problems with current MongoDB setups, existing user group membership is not changed when you migrate to |Percona Server for MongoDB|. Instead, a new ``mongod`` user is created during installation, and it belongs to the ``mongod`` group.
 
-In-place upgrades are those which are done using the existing data in the server. Generally speaking, this is stopping the server, removing the old packages, installing the new server and starting it with the same data files. While they may not be suitable for high-complexity environments, they may be adequate for many scenarios.
+An in-place upgrade is done with existing data in the server. Generally speaking, this is stopping the server, removing the old packages, installing the new server and starting it with the same data files. While an in-place upgrade may not be suitable for high-complexity environments, it shoud work in most cases.
+
+Upgrading from an earlier version of Percona Server for MongoDB (for example, from 3.0) is the same as upgrading from MongoDB 3.0 or 3.2.
 
 .. warning:: 
 
