@@ -25,6 +25,9 @@ Percona Server for MongoDB requires no changes to MongoDB applications or code.
    that can be recommended for production.
 
 This release includes all changes from `MongoDB 3.0.11
-<http://docs.mongodb.org/manual/release-notes/3.0/#mar-31-2016>`_,
-there are no additional improvements or new features
-on top of those upstream fixes.
+<http://docs.mongodb.org/manual/release-notes/3.0/#mar-31-2016>`_.
+Additionally, the following fixes were made:
+
+* Fixed memory over-allocation
+
+* :jirabug:`PSMDB-56`: Additional fixes related to this previously fixed bug.
