@@ -8,8 +8,8 @@ Percona provides :file:`.deb` packages for 64-bit versions of the following dist
 
 * Debian 8 ("jessie")
 * Ubuntu 14.04 LTS (Trusty Tahr)
-* Ubuntu 15.04 (Vivid Vervet)
 * Ubuntu 15.10 (Wily Werewolf)
+* Ubuntu 16.04 LTS (Xenial Xerus)
 
 .. note:: |Percona Server for MongoDB| should work on other DEB-based distributions, but it is tested only on platforms listed above.
 
