@@ -6,6 +6,9 @@ Percona TokuBackup
 
 Percona TokuBackup is an integrated open-source hot backup system for |MongoDB| servers running the :ref:`PerconaFT <perconaft>` storage engine (including |Percona Server for MongoDB|). It creates a physical data backup on a running server without performance degradation or capacity planning, and provides a more recent backup than a snapshot at the file system level.
 
+.. note:: PerconaFT has been deprecated
+   and will be removed in future releases.
+
 .. contents::
    :local:
 

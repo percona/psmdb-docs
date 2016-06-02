@@ -12,7 +12,8 @@ PerconaFT is a storage engine based on the Fractal Tree Index model, which is op
 
 The PerconaFT storage engine is available in Percona Server for MongoDB along with the standard MongoDB engines (`MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_), as well as `MongoRocks <http://rocksdb.org>`_.
 
-.. note:: MongoRocks is currently considered experimental.
+.. note:: PerconaFT has been deprecated
+   and will be removed in future releases.
 
 To help you decide which is better for you, the table below lists features available in various storage engines:
 
