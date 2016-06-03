@@ -12,7 +12,7 @@ Percona provides :file:`.rpm` packages for 64-bit versions of the following dist
 
 .. note:: |Percona Server for MongoDB| should work on other RPM-based distributions (for example, Amazon Linux AMI and Oracle Linux), but it is tested only on platforms listed above.
 
-The packages are available in the official Percona software repositories and on the `download page <http://www.percona.com/downloads/Percona-Server-MongoDB-3.2/LATEST/>`_. It is recommended to intall |Percona Server for MongoDB| from the official repository using :command:`yum`.
+The packages are available in the official Percona software repositories and on the `download page <http://www.percona.com/downloads/percona-server-mongodb-3.2/>`_. It is recommended to intall |Percona Server for MongoDB| from the official repository using :command:`yum`.
 
 .. contents::
    :local:
