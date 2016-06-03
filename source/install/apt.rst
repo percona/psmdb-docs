@@ -13,7 +13,7 @@ Percona provides :file:`.deb` packages for 64-bit versions of the following dist
 
 .. note:: |Percona Server for MongoDB| should work on other DEB-based distributions, but it is tested only on platforms listed above.
 
-The packages are available in the official Percona software repositories and on the `download page <http://www.percona.com/downloads/Percona-Server-for-MongoDB-3.2/LATEST/>`_. It is recommended to intall |Percona Server for MongoDB| from repositories using :command:`apt`.
+The packages are available in the official Percona software repositories and on the `download page <http://www.percona.com/downloads/Percona-Server-MongoDB-3.2/LATEST/>`_. It is recommended to intall |Percona Server for MongoDB| from repositories using :command:`apt`.
 
 .. contents::
    :local:
