@@ -7,7 +7,7 @@ Percona Server for MongoDB 3.2.6-1.0
 Percona is glad to announce the release of
 Percona Server for MongoDB 3.2.6-1.0 on June 3, 2016.
 Downloads are available
-`here <https://www.percona.com/downloads/percona-server-for-mongodb>`_
+`here <https://www.percona.com/downloads/percona-server-for-mongodb-3.2>`_
 and from the :ref:`Percona Software Repositories <install>`.
 
 Percona Server for MongoDB is a highly scalable,
