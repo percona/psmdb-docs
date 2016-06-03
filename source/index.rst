@@ -14,7 +14,8 @@ Percona Server for MongoDB provides:
 * :ref:`External SASL authentication <ext-auth>` using OpenLDAP or Active Directory
 * :ref:`Audit logging <audit-log>` to track and query database interactions of users or applications
 
-.. note:: MongoRocks is currently considered experimental.
+.. note:: PerconaFT has been deprecated
+   and will not be available in future releases.
 
 -----
 

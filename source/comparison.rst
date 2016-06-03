@@ -35,13 +35,13 @@ The following table shows which storage engines are available.
      - YES
      - YES
      - NO
-   * - `MongoRocks <http://rocksdb.org>`_ [#n-2]_
+   * - `MongoRocks <http://rocksdb.org>`_ 
      - YES
      - NO
      - YES
      - NO
      - NO
-   * - :ref:`PerconaFT <perconaft>`
+   * - :ref:`PerconaFT <perconaft>` [#n-2]_
      - YES
      - NO
      - YES
@@ -50,7 +50,8 @@ The following table shows which storage engines are available.
 
 .. [#n-1] TokuMX uses a proprietary storage engine similar to :ref:`PerconaFT <perconaft>`
 
-.. [#n-2] MongoRocks engine is currently considered experimental
+.. [#n-2] PerconaFT has been deprecated
+   and will be removed in future releases
 
 Feature Comparison
 ==================

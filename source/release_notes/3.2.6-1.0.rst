@@ -1,0 +1,40 @@
+.. _3.2.6-1.0:
+
+====================================
+Percona Server for MongoDB 3.2.6-1.0
+====================================
+
+Percona is glad to announce the release of
+Percona Server for MongoDB 3.2.6-1.0 on June 3, 2016.
+Downloads are available
+`here <https://www.percona.com/downloads/percona-server-for-mongodb>`_
+and from the :ref:`Percona Software Repositories <install>`.
+
+Percona Server for MongoDB is a highly scalable,
+zero-maintenance downtime database
+supporting the MongoDB v3.2 protocol and drivers.
+The latest release is based on
+`MongoDB 3.2.6
+<http://docs.mongodb.org/manual/release-notes/3.2/#apr-28-2016>`_,
+extending MongoDB with `MongoRocks <http://rocksdb.org>`_
+and :ref:`PerconaFT <perconaft>` storage engines,
+as well as several enterprise features.
+Percona Server for MongoDB requires no changes to MongoDB applications or code.
+
+.. note:: The PerconaFT storage engine has been deprecated
+   and will not be available in future releases.
+
+This release includes all changes from
+`MongoDB 3.2.6
+<http://docs.mongodb.org/manual/release-notes/3.2/#apr-28-2016>`_,
+as well as the following:
+
+* PerconaFT has been deprecated.
+  It is still available, but is no longer recommended for production use.
+  PerconaFT will be removed in future releases.
+
+* MongoRocks is no longer considered experimental
+  and is now recommended for production.
+
+.. note:: As of version 3.2, MongoDB uses WiredTiger
+   as the default storage engine, instead of MMAPv1.
