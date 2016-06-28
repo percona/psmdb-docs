@@ -49,8 +49,8 @@ To help you decide which is better for you, the table below lists features avail
    * - Hot Backup
      - NO
      - NO
-     - :ref:`YES <toku-backup>`
      - YES
+     - :ref:`YES <toku-backup>`
 
 .. note:: PerconaFT is not supported on 32-bit systems.
 
@@ -61,7 +61,7 @@ To help you decide which is better for you, the table below lists features avail
 Switching Storage Engines
 =========================
 
-By default, Percona Server for MongoDB runs with MMAPv1. You can select a storage engine using the ``--storageEngine`` command-line option when you start ``mongod``. Alternatively, you can set the ``storage.engine`` option in the configuration file (by default, :file:`/etc/mongod.conf`).
+As of version 3.2, Percona Server for MongoDB runs with WiredTiger by default. You can select a storage engine using the ``--storageEngine`` command-line option when you start ``mongod``. Alternatively, you can set the ``storage.engine`` option in the configuration file (by default, :file:`/etc/mongod.conf`).
 
 Data created by one storage engine is not compatible with other storage engines, because each one has its own data model. When changing the storage engine, you have to do one of the following:
 
