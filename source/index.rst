@@ -4,15 +4,22 @@
 Percona Server for MongoDB Documentation
 ========================================
 
-|Percona Server for MongoDB| is a free, enhanced, fully compatible, open source, drop-in replacement for MongoDB 3.2 Community Edition with enterprise-grade features. It requires no changes to MongoDB applications or code.
+|PSMDB| is a free, enhanced, fully compatible, open source, drop-in replacement
+for MongoDB 3.2 Community Edition with enterprise-grade features.
+It requires no changes to MongoDB applications or code.
 
-Percona Server for MongoDB provides:
+|PSMDB| provides the following features:
 
-* MongoDB's original `MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ storage engine, and the default `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_ engine
-* Optional :ref:`PerconaFT <perconaft>` and `MongoRocks <http://rocksdb.org>`_ storage engines
-* :ref:`Percona TokuBackup <toku-backup>` for creating dynamic backups while data remains fully accessible and writable (*hot backup*)
-* :ref:`External SASL authentication <ext-auth>` using OpenLDAP or Active Directory
-* :ref:`Audit logging <audit-log>` to track and query database interactions of users or applications
+* MongoDB's original `MMAPv1`_ storage engine,
+  and the default `WiredTiger`_ engine
+* Optional :ref:`PerconaFT <perconaft>`, :ref:`inmemory`,
+  and `MongoRocks`_ storage engines
+* :ref:`Percona TokuBackup <toku-backup>` for creating dynamic backups
+  while data remains fully accessible and writable (*hot backup*)
+* :ref:`External SASL authentication <ext-auth>`
+  using OpenLDAP or Active Directory
+* :ref:`Audit logging <audit-log>`
+  to track and query database interactions of users or applications
 
 .. note:: PerconaFT has been deprecated
    and will not be available in future releases.
@@ -45,6 +52,7 @@ Features
 .. toctree::
    :maxdepth: 1
 
+   inmemory
    perconaft
    toku-backup
    authentication
@@ -60,4 +68,8 @@ Reference
    glossary
    copyright
    trademark-policy
+
+.. _`MMAPv1`: https://docs.mongodb.org/manual/core/mmapv1/
+.. _`WiredTiger`: https://docs.mongodb.org/manual/core/wiredtiger/
+.. _`MongoRocks`: http://rocksdb.org
 

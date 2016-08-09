@@ -1,0 +1,60 @@
+.. _3.2.8-2.0:
+
+====================================
+Percona Server for MongoDB 3.2.8-2.0
+====================================
+
+Percona is glad to announce the release of
+Percona Server for MongoDB 3.2.8-2.0 on August 11, 2016
+Downloads are available
+`here <https://www.percona.com/downloads/percona-server-mongodb-3.2>`_
+and from the :ref:`Percona Software Repositories <install>`.
+
+Percona Server for MongoDB is a highly scalable,
+zero-maintenance downtime database
+supporting the MongoDB v3.2 protocol and drivers.
+It extends MongoDB with `MongoRocks <http://rocksdb.org>`_,
+:ref:`inmemory`, and :ref:`PerconaFT <perconaft>` storage engines,
+as well as several enterprise features.
+Percona Server for MongoDB requires no changes to MongoDB applications or code.
+
+.. note:: The PerconaFT storage engine has been deprecated
+   and will not be available in future releases.
+
+This release is based on `MongoDB 3.2.8
+<http://docs.mongodb.org/manual/release-notes/3.2/#jul-12-2016>`_,
+and includes the following additional changes:
+
+**New Features**
+
+* Introducing the new :ref:`inmemory`,
+  which is based on a special configuration of WiredTiger
+  that stores data in memory instead of the disk.
+
+* The MongoRocks engine now supports
+  `LZ4 compression <http://cyan4973.github.io/lz4/>`_.
+  This is an upstream feature of MongoRocks contributed by Percona.
+
+  To enable it, use the ``--rocksdbCompression`` option
+  when running |PSMDB| with the MongoRocks storage engine.
+  For example:
+
+  .. prompt:: bash
+
+     ./mongod --dbpath=./data --storageEngine=rocksdb --rocksdbCompression=lz4
+
+  For a high-compression variant of LZ4:
+
+  .. prompt:: bash
+
+     ./mongod --dbpath=./data --storageEngine=rocksdb --rocksdbCompression=lz4hc
+
+  .. note:: If you want to configure this permanently,
+     set the following parameters in the :file:`/etc/mongod.conf` file:
+
+     .. code-block:: none
+
+        storage:
+          engine: rocksdb
+          rocksdb:
+            compression: lz4
