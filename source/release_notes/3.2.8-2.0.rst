@@ -45,13 +45,13 @@ and includes the following additional changes:
   when running |PSMDB| with the MongoRocks storage engine.
   For example:
 
-  .. prompt:: bash
+  .. code-block:: bash
 
      ./mongod --dbpath=./data --storageEngine=rocksdb --rocksdbCompression=lz4
 
   For a high-compression variant of LZ4:
 
-  .. prompt:: bash
+  .. code-block:: bash
 
      ./mongod --dbpath=./data --storageEngine=rocksdb --rocksdbCompression=lz4hc
 

@@ -10,27 +10,27 @@ You can find links to the binary tarballs from the
 1. Fetch and extract the correct binary tarball.
    For example, if you are running Debian 8 ("jessie"):
 
-   .. prompt:: bash
+   .. code-block:: bash
     
       wget https://www.percona.com/redir/downloads/percona-server-mongodb-3.2/LATEST/binary/debian/jessie/x86_64/psmdb-3.2.6-1.0-r24-jessie-x86_64-bundle.tar
       tar xfz psmdb-3.2.6-1.0-r24-jessie-x86_64-bundle.tar
 
 2. Copy the extracted binaries to the target directory, for example:
    
-   .. prompt:: bash
+   .. code-block:: bash
 
       mkdir ~/psmdb
       cp -r -n psmdb-3.2.6-1.0-r24-jessie-x86_64-bundle/bin ~/psmdb/
 
 3. Add the location of the binaries to the ``PATH`` variable:
    
-   .. prompt:: bash
+   .. code-block:: bash
 
       export PATH psmdb/bin:$PATH
 
 4. Create the default data directory:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       mkdir -p /data/db
 

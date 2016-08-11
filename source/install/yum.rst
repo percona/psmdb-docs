@@ -51,7 +51,7 @@ Installing from Percona Repository
 
 1. Install the Percona repository package:
    
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo yum install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
 
@@ -67,14 +67,14 @@ Installing from Percona Repository
       Download the Percona repository package first
       and install it manually using :program:`rpm`:
 
-      .. prompt:: bash
+      .. code-block:: bash
 
          wget http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
          rpm -ivH percona-release-0.1-3.noarch.rpm
 
 2. Check that the packages are available:
    
-   .. prompt:: bash
+   .. code-block:: bash
 
       yum list | grep Percona-Server-MongoDB
 
@@ -93,7 +93,7 @@ Installing from Percona Repository
 
 3. Install the |PSMDB| packages:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo yum install Percona-Server-MongoDB-32
 
@@ -159,7 +159,7 @@ Starting the service
 |PSMDB| is not started automatically after installation.
 Start it manually using the following command:
 
-.. prompt:: bash
+.. code-block:: bash
 
    sudo service mongod start
 
@@ -168,7 +168,7 @@ Confirming that service is running
 
 Check the service status using the following command:  
 
-.. prompt:: bash
+.. code-block:: bash
 
    sudo service mongod status
 
@@ -177,7 +177,7 @@ Stopping the service
 
 Stop the service using the following command:
 
-.. prompt:: bash
+.. code-block:: bash
 
    sudo service mongod stop
 
@@ -186,7 +186,7 @@ Restarting the service
 
 Restart the service using the following command:
 
-.. prompt:: bash
+.. code-block:: bash
 
    sudo service mongod restart
 
@@ -203,13 +203,13 @@ The ``mongod`` service is not automatically started after you reboot the system.
 For RHEL or CentOS versions 5 and 6, you can use the ``chkconfig`` utility
 to enable auto-start as follows:
 
-.. prompt:: bash
+.. code-block:: bash
 
    chkconfig --add mongod
 
 For RHEL or CentOS version 7, you can use the ``systemctl`` utility as follows:
 
-.. prompt:: bash
+.. code-block:: bash
 
    systemctl enable mongod
 
@@ -221,19 +221,19 @@ you'll need to remove all the installed packages and data files:
 
 1. Stop the Percona Server for MongoDB service
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo service mongod stop
 
 2. Remove the packages 
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo yum remove Percona-Server-MongoDB*
 
 3. Remove the data and configuration files
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       rm -rf /var/lib/mongodb
       rm -f /etc/mongod.cnf

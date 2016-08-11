@@ -40,7 +40,7 @@ When changing the storage engine, you have to do one of the following:
   change to a different data directory with the ``--dbpath``
   command-line option:
 
-  .. prompt:: bash
+  .. code-block:: bash
 
      service mongod stop
      mongod --storageEngine inMemory --dbpath <newDataDir>
@@ -57,7 +57,7 @@ When changing the storage engine, you have to do one of the following:
   and do not have any valuable data in your database,
   clean out the default data directory and edit the configuration file:
 
-  .. prompt:: bash
+  .. code-block:: bash
 
      service mongod stop
      rm -rf /var/lib/mongodb/*
@@ -68,7 +68,7 @@ When changing the storage engine, you have to do one of the following:
   and make compatible with Percona Memory Engine,
   use the ``mongodump`` and ``mongorestore`` utilities:
 
-  .. prompt:: bash
+  .. code-block:: bash
 
      mongodump --out <dumpDir>
      service mongod stop
@@ -99,7 +99,7 @@ The configuration file is formatted in YAML. For example:
 Setting parameters in the previous example configuration file
 is the same as starting the ``mongod`` daemon with the following options:
 
-.. prompt:: bash
+.. code-block:: bash
 
  mongod --storageEngine=inMemory \
    --inMemorySizeGB=140 \

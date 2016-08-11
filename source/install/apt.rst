@@ -50,14 +50,14 @@ Installing from Repositories
 
 1. Fetch the repository packages from Percona web:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       wget https://repo.percona.com/apt/percona-release_0.1-3.$(lsb_release -sc)_all.deb
 
 2. Install the downloaded package with :program:`dpkg`
    by running the following command as root or with :program:`sudo`:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo dpkg -i percona-release_0.1-3.$(lsb_release -sc)_all.deb
 
@@ -67,13 +67,13 @@ Installing from Repositories
 
 3. Update the local cache:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo apt-get update
 
 4. Install the server package:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo apt-get install percona-server-mongodb-32
 
@@ -129,7 +129,7 @@ and configuration parameters in :file:`/etc/mongod.conf`.
    unless it encounters errors during the installation process.
    You can also manually start it using the folowing command:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo service mongod start
 
@@ -137,7 +137,7 @@ and configuration parameters in :file:`/etc/mongod.conf`.
 
    Check the service status using the following command:  
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo service mongod status
 
@@ -145,7 +145,7 @@ and configuration parameters in :file:`/etc/mongod.conf`.
 
    Stop the service using the following command:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo service mongod stop
 
@@ -153,7 +153,7 @@ and configuration parameters in :file:`/etc/mongod.conf`.
 
    Restart the service using the following command: 
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo service mongod restart
 
@@ -176,7 +176,7 @@ Depending on your needs you can choose which command better suits you.
 
 1. Stop the server:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       sudo service mongod stop 
 
@@ -184,13 +184,13 @@ Depending on your needs you can choose which command better suits you.
    
    * If you want to leave configuration and data files:
 
-     .. prompt:: bash
+     .. code-block:: bash
 
         sudo apt-get remove percona-server-mongodb*
 
    * If you want to delete configuration and data files as well as the packages:
 
-     .. prompt:: bash
+     .. code-block:: bash
 
         sudo apt-get purge percona-server-mongodb*
 

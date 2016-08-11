@@ -35,7 +35,7 @@ Upgrading on Debian or Ubuntu
 
 1. Stop the mongod process:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       service mongod stop
 
@@ -53,7 +53,7 @@ Upgrading on Debian or Ubuntu
 
 3. Remove installed packages:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \ 
       mongodb-org-shell mongodb-org-tools
@@ -65,7 +65,7 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
 1. Stop the mongod process:
 
-   .. prompt:: bash 
+   .. code-block:: bash 
 
       service mongod stop
 
@@ -83,7 +83,7 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
 3. Remove installed packages:
 
-   .. prompt:: bash
+   .. code-block:: bash
 
       yum remove \
       mongodb-org-3.0.6-1.el6.x86_64 mongodb-org-server-3.0.6-1.el6.x86_64 \

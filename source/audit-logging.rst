@@ -24,7 +24,7 @@ when starting a ``mongod``  server instance.
   ``file``, ``syslog``, or ``console``.
   By default, it is saved to a log file.
 
-  .. prompt:: bash
+  .. code-block:: bash
 
      mongod --auditDestination=file
 
@@ -39,7 +39,7 @@ when starting a ``mongod``  server instance.
   then :file:`auditLog.json` file will be created
   in the server's configured log path.
 
-  .. prompt:: bash
+  .. code-block:: bash
 
      mongod --auditDestination=file --auditPath /var/log/psmdb/audit.json
 
@@ -62,7 +62,7 @@ when starting a ``mongod``  server instance.
      and also ``--auditPath`` must be specified.
      For example:
 
-     .. prompt:: bash
+     .. code-block:: bash
 
         mongod --auditDestination=file --auditFormat=BSON --auditPath /var/log/psmdb/audit.bson
 
@@ -81,7 +81,7 @@ when starting a ``mongod``  server instance.
   For example, to log only events from a user named *tim*,
   start the server with the following parameters:
 
-  .. prompt:: bash
+  .. code-block:: bash
 
      mongod \
     --auditDestination file \
