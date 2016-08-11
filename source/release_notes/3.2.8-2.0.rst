@@ -31,6 +31,12 @@ and includes the following additional changes:
   which is based on a special configuration of WiredTiger
   that stores data in memory instead of the disk.
 
+* ``--auditDestination`` can now be set to ``file``, ``syslog``, or ``console``.
+
+* ``--auditFormat`` can now be set to ``JSON`` or ``BSON``.
+
+  .. note:: For more information, see :ref:`audit-log`.
+
 * The MongoRocks engine now supports
   `LZ4 compression <http://cyan4973.github.io/lz4/>`_.
   This is an upstream feature of MongoRocks contributed by Percona.

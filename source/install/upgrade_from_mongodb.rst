@@ -85,7 +85,7 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
    .. prompt:: bash
 
-      $ yum remove \
+      yum remove \
       mongodb-org-3.0.6-1.el6.x86_64 mongodb-org-server-3.0.6-1.el6.x86_64 \
       mongodb-org-shell-3.0.6-1.el6.x86_64 mongodb-org-mongos-3.0.6-1.el6.x86_64 \
       mongodb-org-tools-3.0.6-1.el6.x86_64

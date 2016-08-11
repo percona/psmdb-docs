@@ -219,11 +219,11 @@ Uninstalling Percona Server for MongoDB
 To completely uninstall Percona Server for MongoDB
 you'll need to remove all the installed packages and data files:
 
-1.  Stop the Percona Server for MongDB service
+1. Stop the Percona Server for MongoDB service
 
-    .. prompt:: bash
+   .. prompt:: bash
 
-       sudo service mongod stop
+      sudo service mongod stop
 
 2. Remove the packages 
 

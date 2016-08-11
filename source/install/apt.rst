@@ -9,8 +9,8 @@ of the following distributions:
 
 * Debian 8 ("jessie")
 * Ubuntu 14.04 LTS (Trusty Tahr)
-* Ubuntu 15.04 (Vivid Vervet)
 * Ubuntu 15.10 (Wily Werewolf)
+* Ubuntu 16.04 (Xenial Xerus)
 
 .. note:: |PSMDB| should work on other DEB-based distributions,
    but it is tested only on platforms listed above.
@@ -157,7 +157,7 @@ and configuration parameters in :file:`/etc/mongod.conf`.
 
       sudo service mongod restart
 
-.. note:: Debian 8 ("jessie") and Ubuntu 15.04 (Vivid Vervet)
+.. note:: Debian 8 ("jessie") and Ubuntu 16.04 (Xenial Xerus)
    come with `systemd <http://freedesktop.org/wiki/Software/systemd/>`_
    as the default system and service manager.
    You can invoke all the above commands with ``sytemctl``
