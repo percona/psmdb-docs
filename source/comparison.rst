@@ -4,12 +4,18 @@
 Percona Server for MongoDB Feature Comparison
 =============================================
 
-Percona Server for MongoDB is based on MongoDB 3.2, and it is the successor to Percona TokuMX, which is based on MongoDB 2.4. The tables in this section will help you evaluate the differences.
+|PSMDB| is based on MongoDB 3.2, and it is the successor to Percona TokuMX,
+which is based on MongoDB 2.4.
+The tables in this section will help you evaluate the differences.
 
 Storage Engines
 ===============
 
-Both MongoDB and Percona Server for MongoDB include a pluggable storage engine API. This enables you to select from a variety of storage engines depending on your needs. Previous MongoDB versions (before 3.0) and Percona TokuMX can run with only one default storage engine.
+Both MongoDB and |PSMDB| include a pluggable storage engine API.
+This enables you to select from a variety of storage engines
+depending on your needs.
+Previous MongoDB versions (before 3.0) and Percona TokuMX
+can run with only one default storage engine.
 
 The following table shows which storage engines are available.
 
@@ -23,19 +29,19 @@ The following table shows which storage engines are available.
      - PSMDB 3.0
      - MongoDB 3.0
      - TokuMX [#n-1]_
-   * - `MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_
+   * - `MMAPv1`_
      - YES
      - YES
-     - YES (default)
-     - YES (default)
+     - Default
+     - Default
      - NO
-   * - `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_
-     - YES (default)
-     - YES (default)
+   * - `WiredTiger`_
+     - Default
+     - Default
      - YES
      - YES
      - NO
-   * - `MongoRocks <http://rocksdb.org>`_ 
+   * - `MongoRocks`_ 
      - YES
      - NO
      - YES
@@ -45,6 +51,12 @@ The following table shows which storage engines are available.
      - YES
      - NO
      - YES
+     - NO
+     - NO
+   * - :ref:`inMemory <inmemory>`
+     - YES
+     - NO
+     - NO
      - NO
      - NO
 
@@ -128,3 +140,7 @@ The table below provides a comparison of important features to help you evaluate
 .. [#n-3] You can use :ref:`TokuBackup <toku-backup>` when running under :ref:`PerconaFT <perconaft>` or use hot backup functionality available in the MongoRocks storage engine
 
 .. [#n-4] Available in MongoDB Enterprise Edition
+
+.. _`MMAPv1`: https://docs.mongodb.org/manual/core/mmapv1/
+.. _`WiredTiger`: https://docs.mongodb.org/manual/core/wiredtiger/
+.. _`MongoRocks`: http://rocksdb.org
