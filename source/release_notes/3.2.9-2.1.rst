@@ -5,7 +5,7 @@ Percona Server for MongoDB 3.2.9-2.1
 ====================================
 
 Percona is glad to announce the release of
-Percona Server for MongoDB 3.2.9-2.1 on September 19, 2016
+Percona Server for MongoDB 3.2.9-2.1 on September 19, 2016.
 Downloads are available
 `here <https://www.percona.com/downloads/percona-server-mongodb-3.2>`_
 and from the :ref:`Percona Software Repositories <install>`.
