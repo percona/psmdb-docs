@@ -55,6 +55,9 @@ Features
    inmemory
    perconaft
    toku-backup
+   hot-backup
+   rate-limit
+   knobs
    authentication
    audit-logging
 
@@ -68,8 +71,4 @@ Reference
    glossary
    copyright
    trademark-policy
-
-.. _`MMAPv1`: https://docs.mongodb.org/manual/core/mmapv1/
-.. _`WiredTiger`: https://docs.mongodb.org/manual/core/wiredtiger/
-.. _`MongoRocks`: http://rocksdb.org
 

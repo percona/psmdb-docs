@@ -90,6 +90,12 @@ primary_domain = 'psdom'
 pygments_style = 'sphinx'
 
 rst_prolog = '''
+
+.. _`MMAPv1`: https://docs.mongodb.org/manual/core/mmapv1/
+.. _`WiredTiger`: https://docs.mongodb.org/manual/core/wiredtiger/
+.. _`MongoRocks`: http://rocksdb.org
+.. _`In-Memory`: https://docs.mongodb.com/v3.2/core/inmemory/
+
 .. |check|  replace:: ``|[[---CHECK---]]|``
 
 .. |xtrabackup|  replace:: :program:`xtrabackup`

@@ -1,0 +1,58 @@
+.. _3.2.10-3.0:
+
+=====================================
+Percona Server for MongoDB 3.2.10-3.0
+=====================================
+
+Percona is glad to announce the release of
+Percona Server for MongoDB 3.2.10-3.0 on October 27, 2016.
+Downloads are available
+`here <https://www.percona.com/downloads/percona-server-mongodb-3.2>`_
+and from the :ref:`Percona Software Repositories <install>`.
+
+Percona Server for MongoDB is a highly scalable,
+zero-maintenance downtime database
+supporting the MongoDB v3.2 protocol and drivers.
+It extends MongoDB with MongoRocks_,
+:ref:`inmemory`, and :ref:`PerconaFT <perconaft>` storage engines,
+as well as several enterprise features.
+Percona Server for MongoDB requires no changes to MongoDB applications or code.
+
+.. note:: The PerconaFT storage engine has been deprecated
+   and will not be available in future releases.
+
+This release is based on `MongoDB 3.2.10
+<http://docs.mongodb.org/manual/release-notes/3.2/#sep-30-2016>`_
+and includes the following additional new features and improvements.
+
+New Features
+============
+
+**Universal Hot Backup**
+
+  This release introduces an integrated hot backup
+  for the default WiredTiger_ and alternative MongoRocks_ engine.
+  It creates a physical data backup on a running server
+  without performance degradation.
+
+  For more information, see :ref:`hot-backup`.
+
+**Profiling Rate Limit**
+
+  Rate limiting enables to seed logged queries
+  and thus decrease the impact of profiling on database performance.
+
+  For more information, see :ref:`rate-limit`.
+
+**Percona Knobs**
+
+  This release includes several additional configuration file variables
+  with corresponding command-line options.
+
+  For more information, see :ref:`knobs`.
+
+Bug Fixes
+=========
+
+* Fixed crash when running out of WiredTiger cache under :ref:`inmemory`.
+
