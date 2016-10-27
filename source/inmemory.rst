@@ -32,7 +32,8 @@ using the ``--storageEngine`` command-line option when you start ``mongod``.
 Alternatively, you can set the ``storage.engine`` option
 in the configuration file (by default, :file:`/etc/mongod.conf`):
 
-Data created by one storage engine is not compatible with other storage engines,
+Data created by one storage engine
+is not compatible with other storage engines,
 because each one has its own data model.
 When changing the storage engine, you have to do one of the following:
 
@@ -88,7 +89,7 @@ You can configure the Percona Memory Engine using either command-line options
 or corresponding parameters in the :file:`/etc/mongod.conf` file.
 The configuration file is formatted in YAML. For example:
 
-.. code-block:: none
+.. code-block:: text
 
  storage:
    engine: inMemory

@@ -37,7 +37,7 @@ Upgrading on Debian or Ubuntu
 
    .. code-block:: bash
 
-      service mongod stop
+      $ service mongod stop
 
 2. Check for installed packages:
 
@@ -55,7 +55,7 @@ Upgrading on Debian or Ubuntu
 
    .. code-block:: bash
 
-      apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \ 
+      apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \
       mongodb-org-shell mongodb-org-tools
 
 4. Install Percona Server for MongoDB :ref:`using apt <apt>`.
@@ -65,18 +65,18 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
 1. Stop the mongod process:
 
-   .. code-block:: bash 
+   .. code-block:: bash
 
-      service mongod stop
+      $ service mongod stop
 
-2. Check for installed packages: 
+2. Check for installed packages:
 
    .. code-block:: bash
 
       $ rpm -qa | grep mongo
 
       mongodb-org-3.0.6-1.el6.x86_64
-      mongodb-org-server-3.0.6-1.el6.x86_64 
+      mongodb-org-server-3.0.6-1.el6.x86_64
       mongodb-org-shell-3.0.6-1.el6.x86_64
       mongodb-org-mongos-3.0.6-1.el6.x86_64
       mongodb-org-tools-3.0.6-1.el6.x86_64

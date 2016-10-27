@@ -16,8 +16,8 @@ of the following distributions:
    but it is tested only on platforms listed above.
 
 The packages are available in the official Percona software repositories
-and on the
-`download page <http://www.percona.com/downloads/percona-server-mongodb-3.2/>`_.
+and on the `download page
+<http://www.percona.com/downloads/percona-server-mongodb-3.2/>`_.
 It is recommended to intall |PSMDB| from repositories using :command:`apt`.
 
 .. contents::
@@ -31,7 +31,8 @@ Package Contents
  server software, default configuration, and init.d scripts.
 
 :``percona-server-mongodb-32-server``:
- Contains the ``mongod`` server, default configuration files and init.d scripts.
+ Contains the ``mongod`` server, default configuration files,
+ and init.d scripts.
 
 :``percona-server-mongodb-32-shell``:
  Contains the ``mongo`` shell.
@@ -52,14 +53,14 @@ Installing from Repositories
 
    .. code-block:: bash
 
-      wget https://repo.percona.com/apt/percona-release_0.1-3.$(lsb_release -sc)_all.deb
+      $ wget https://repo.percona.com/apt/percona-release_0.1-3.$(lsb_release -sc)_all.deb
 
 2. Install the downloaded package with :program:`dpkg`
    by running the following command as root or with :program:`sudo`:
 
    .. code-block:: bash
 
-      sudo dpkg -i percona-release_0.1-3.$(lsb_release -sc)_all.deb
+      $ sudo dpkg -i percona-release_0.1-3.$(lsb_release -sc)_all.deb
 
    Once you install this package, the Percona repositories should be added.
    You can check the repository configuration
@@ -69,13 +70,13 @@ Installing from Repositories
 
    .. code-block:: bash
 
-      sudo apt-get update
+      $ sudo apt-get update
 
 4. Install the server package:
 
    .. code-block:: bash
 
-      sudo apt-get install percona-server-mongodb-32
+      $ sudo apt-get install percona-server-mongodb-32
 
 .. _apt-testing-repo:
 
@@ -90,14 +91,14 @@ of the Percona repository definition in your repository file
 
 For example, if you are running Debian 8 ("jessie")
 and want to install the latest testing builds,
-the definitions should look like this: ::
+the definitions should look like this::
 
   deb http://repo.percona.com/apt jessie main testing
   deb-src http://repo.percona.com/apt jessie main testing
 
 If you are running Ubuntu 14.04 LTS (Trusty Tahr)
 and want to install the latest experimental builds,
-the definitions should look like this: ::
+the definitions should look like this::
 
   deb http://repo.percona.com/apt trusty main experimental
   deb-src http://repo.percona.com/apt trusty main experimental
@@ -107,7 +108,7 @@ Pinning the Packages
 
 If you want to pin your packages to avoid upgrades,
 create a new file :file:`/etc/apt/preferences.d/00percona.pref`
-and add the following lines to it: :: 
+and add the following lines to it::
 
   Package: *
   Pin: release o=Percona Development Team
@@ -116,12 +117,11 @@ and add the following lines to it: ::
 For more information about pinning,
 refer to the official `Debian Wiki <http://wiki.debian.org/AptPreferences>`_.
 
-
 Using Percona Server for MongoDB
 ================================
 
 By default, |PSMDB| stores data files in :file:`/var/lib/mongodb/`
-and configuration parameters in :file:`/etc/mongod.conf`. 
+and configuration parameters in :file:`/etc/mongod.conf`.
 
 1. Starting the service
 
@@ -131,15 +131,15 @@ and configuration parameters in :file:`/etc/mongod.conf`.
 
    .. code-block:: bash
 
-      sudo service mongod start
+      $ sudo service mongod start
 
-2. Confirming that service is running 
+2. Confirming that service is running
 
-   Check the service status using the following command:  
+   Check the service status using the following command:
 
    .. code-block:: bash
 
-      sudo service mongod status
+      $ sudo service mongod status
 
 3. Stopping the service
 
@@ -147,15 +147,15 @@ and configuration parameters in :file:`/etc/mongod.conf`.
 
    .. code-block:: bash
 
-      sudo service mongod stop
+      $ sudo service mongod stop
 
-4. Restarting the service 
+4. Restarting the service
 
-   Restart the service using the following command: 
+   Restart the service using the following command:
 
    .. code-block:: bash
 
-      sudo service mongod restart
+      $ sudo service mongod restart
 
 .. note:: Debian 8 ("jessie") and Ubuntu 16.04 (Xenial Xerus)
    come with `systemd <http://freedesktop.org/wiki/Software/systemd/>`_
@@ -178,19 +178,20 @@ Depending on your needs you can choose which command better suits you.
 
    .. code-block:: bash
 
-      sudo service mongod stop 
+      $ sudo service mongod stop
 
 2. Remove the packages.
-   
+
    * If you want to leave configuration and data files:
 
      .. code-block:: bash
 
-        sudo apt-get remove percona-server-mongodb*
+        $ sudo apt-get remove percona-server-mongodb*
 
-   * If you want to delete configuration and data files as well as the packages:
+   * If you want to delete configuration and data files
+     as well as the packages:
 
      .. code-block:: bash
 
-        sudo apt-get purge percona-server-mongodb*
+        $ sudo apt-get purge percona-server-mongodb*
 

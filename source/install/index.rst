@@ -1,7 +1,7 @@
 .. _install:
 
 =====================================
-Installing Percona Server for MongoDB 
+Installing Percona Server for MongoDB
 =====================================
 
 |PSMDB| supports most 64-bit Linux distributions.

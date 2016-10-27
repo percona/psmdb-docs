@@ -24,7 +24,7 @@ The MongoDB database profiler can operate in one of three modes:
 * ``2``: Collects profiling data for all database operations.
 
 Mode ``1`` ignores information about all *fast* queries,
-which may cause problems that you are trying to find.
+which may be the cause of problems that you are trying to find.
 Mode ``2`` provides a comprehensive picture of database performance,
 but may introduce unnecessary overhead.
 
