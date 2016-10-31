@@ -5,7 +5,7 @@ Percona Server for MongoDB 3.2.10-3.0
 =====================================
 
 Percona is glad to announce the release of
-Percona Server for MongoDB 3.2.10-3.0 on October 27, 2016.
+Percona Server for MongoDB 3.2.10-3.0 on October 31, 2016.
 Downloads are available
 `here <https://www.percona.com/downloads/percona-server-mongodb-3.2>`_
 and from the :ref:`Percona Software Repositories <install>`.
@@ -43,13 +43,6 @@ New Features
   and thus decrease the impact of profiling on database performance.
 
   For more information, see :ref:`rate-limit`.
-
-**Percona Knobs**
-
-  This release includes several additional configuration file variables
-  with corresponding command-line options.
-
-  For more information, see :ref:`knobs`.
 
 Bug Fixes
 =========

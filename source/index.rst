@@ -57,7 +57,6 @@ Features
    toku-backup
    hot-backup
    rate-limit
-   knobs
    authentication
    audit-logging
 
@@ -67,6 +66,7 @@ Reference
 .. toctree::
    :maxdepth: 1
 
+   Parameter Tuning <setParameter>
    Release Notes <release_notes/index>
    glossary
    copyright
