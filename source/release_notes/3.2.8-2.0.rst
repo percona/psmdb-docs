@@ -31,7 +31,8 @@ and includes the following additional changes:
   which is based on a special configuration of WiredTiger
   that stores data in memory instead of the disk.
 
-* ``--auditDestination`` can now be set to ``file``, ``syslog``, or ``console``.
+* ``--auditDestination`` can now be set to
+  ``file``, ``syslog``, or ``console``.
 
 * ``--auditFormat`` can now be set to ``JSON`` or ``BSON``.
 
@@ -58,7 +59,7 @@ and includes the following additional changes:
   .. note:: If you want to configure this permanently,
      set the following parameters in the :file:`/etc/mongod.conf` file:
 
-     .. code-block:: none
+     .. code-block:: text
 
         storage:
           engine: rocksdb

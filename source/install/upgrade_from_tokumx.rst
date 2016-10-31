@@ -4,7 +4,9 @@
 Upgrading from Percona TokuMX to Percona Server for MongoDB
 ===========================================================
 
-This guide describes how to upgrade existing |TokuMX| instance to |Percona Server for MongoDB|. The same process should work when upgrading from MongoDB prior to version 3.0 (such as, 2.4 and 2.6).
+This guide describes how to upgrade existing |TokuMX| instance to |PSMDB|.
+The same process should work when upgrading from MongoDB prior to version 3.0
+(such as, 2.4 and 2.6).
 
 The following JavaScript files are required to perform the upgrade:
 
@@ -12,9 +14,11 @@ The following JavaScript files are required to perform the upgrade:
 * :file:`tokumx_dump_indexes.js`
 * :file:`psmdb_restore_indexes.js`
 
-You can download those files from `GitHub <https://github.com/dbpercona/tokumx2_to_psmdb3_migration>`_.
+You can download those files from
+`GitHub <https://github.com/dbpercona/tokumx2_to_psmdb3_migration>`_.
 
-.. warning:: Before starting the upgrade process, it is recommended that you perform a full backup.
+.. warning:: Before starting the upgrade process,
+   it is recommended that you perform a full backup.
 
 To performa the upgrade:
 
@@ -26,7 +30,8 @@ To performa the upgrade:
      $ sed -i'' s/^auth/#auth/ /etc/tokumx.conf
      $ service tokumx start
 
-2. Run the :file:`allDbStats.js` script to record database state before migration:
+2. Run the :file:`allDbStats.js` script
+to record database state before migration:
 
   .. code-block:: bash
 
@@ -66,16 +71,18 @@ To performa the upgrade:
      $ dpkg -P --force-all `dpkg -l | grep tokumx | awk '{print $2}'`
 
   If you are using a Red Hat or CentOS based distribution:
- 
+
   .. code-block:: bash
 
      $ yum remove -y tokumx-enterprise-common-2.0.2-1.el6.x86_64 \
-         tokumx-enterprise-server-2.0.2-1.el6.x86_64 \ 
+         tokumx-enterprise-server-2.0.2-1.el6.x86_64 \
          tokumx-enterprise-2.0.2-1.el6.x86_64
 
-8. Install |Percona Server for MongoDB| as described in the :ref:`Installation Guide <install>`.
+8. Install |PSMDB| as described in the :ref:`Installation Guide <install>`.
 
-9. Stop the ``mongod`` service, configure the ``storage.engine`` parameter to run PerconaFT and disable ``--auth`` in :file:`/etc/mongod.conf`:
+9. Stop the ``mongod`` service,
+configure the ``storage.engine`` parameter to run PerconaFT,
+and disable ``--auth`` in :file:`/etc/mongod.conf`:
 
   .. code-block:: bash
 
@@ -83,7 +90,8 @@ To performa the upgrade:
      $ sed -i '/engine: \*PerconaFT/s/#//g' /etc/mongod.conf
      $ sed -i'' s/^auth/#auth/ /etc/mongod.conf
 
-  For more information about configuring the storage engine, see :ref:`switch-storage-engines`.
+  For more information about configuring the storage engine,
+  see :ref:`switch-storage-engines`.
 
 10. Start the ``mongod`` server:
 
@@ -97,13 +105,16 @@ To performa the upgrade:
 
      $ mongorestore --noIndexRestore /your/dump/path
 
-12. Restore the indexes (this may take a while). This step will remove clustering options to the collections before inserting.
+12. Restore the indexes (this may take a while).
+    This step will remove clustering options
+    to the collections before inserting.
 
   .. code-block:: bash
 
      $ ./psmdb_restore_indexes.js --eval " data='/your/dump/path/tokumxIndexes.json' "
 
-13. Run the :file:`allDbStats.js` script to record database state after migration:
+13. Run the :file:`allDbStats.js` script
+    to record database state after migration:
 
   .. code-block:: bash
 
@@ -116,3 +127,4 @@ To performa the upgrade:
      $ service mongod stop
      $ sed -i'' s/^i#auth/auth/ /etc/mongod.conf
      $ service mongod start
+

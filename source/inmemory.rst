@@ -32,7 +32,8 @@ using the ``--storageEngine`` command-line option when you start ``mongod``.
 Alternatively, you can set the ``storage.engine`` option
 in the configuration file (by default, :file:`/etc/mongod.conf`):
 
-Data created by one storage engine is not compatible with other storage engines,
+Data created by one storage engine
+is not compatible with other storage engines,
 because each one has its own data model.
 When changing the storage engine, you have to do one of the following:
 
@@ -88,13 +89,14 @@ You can configure the Percona Memory Engine using either command-line options
 or corresponding parameters in the :file:`/etc/mongod.conf` file.
 The configuration file is formatted in YAML. For example:
 
-.. code-block:: none
+.. code-block:: text
 
  storage:
    engine: inMemory
    inMemory:
-     SizeGB: 140
-     StatisticsLogDelaySecs: 0
+     engineConfig:
+       inMemorySizeGB: 140
+       statisticsLogDelaySecs: 0
 
 Setting parameters in the previous example configuration file
 is the same as starting the ``mongod`` daemon with the following options:
@@ -110,17 +112,16 @@ The following options are available
 
 .. option:: --inMemorySizeGB
 
-   :Config: ``storage.inMemory.SizeGB``
+   :Config: ``storage.inMemory.engineConfig.inMemorySizeGB``
    :Default: 60% of total memory minus 1024 MB, but not less than 256 MB
 
    Specifies the maximum memory in gigabytes to use for data.
 
 .. option:: --inMemoryStatisticsLogDelaySecs
 
-   :Config: ``storage.inMemory.StatisticsLogDelaySecs``
+   :Config: ``storage.inMemory.engineConfig.statisticsLogDelaySecs``
    :Default: 0
 
    Specifies the number of seconds between writes to statistics log.
-   If 0 is specified then statistics are not be logged.
-
+   If 0 is specified then statistics are not logged.
 

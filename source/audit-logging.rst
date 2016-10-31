@@ -5,7 +5,7 @@ Auditing
 ========
 
 Auditing allows administrators to track
-and log user activity on a MongoDB server. 
+and log user activity on a MongoDB server.
 With auditing enabled, the server will generate an audit log file.
 This file contains information about different user events
 including authentication, authorization failures, and so on.
@@ -54,7 +54,7 @@ when starting a ``mongod``  server instance.
 ``--auditFormat``
 
   This is the format of each audit event stored in the audit log.
-  The argument to this parameter can be either ``JSON`` or ``BSON``. 
+  The argument to this parameter can be either ``JSON`` or ``BSON``.
   The default value for this parameter is ``JSON``.
 
   .. note:: If you set it to ``BSON``,
@@ -72,7 +72,8 @@ when starting a ``mongod``  server instance.
   enabling the administrator to only capture a subset
   of all possible audit events.
 
-  This filter should be a JSON string that can be interpreted as a query object.
+  This filter should be a JSON string
+  that can be interpreted as a query object.
   Each audit log event that matches this query will be logged.
   Events which do not match this query will be ignored.
   If this parameter is not specified,

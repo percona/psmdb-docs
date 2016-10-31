@@ -4,18 +4,29 @@
 PerconaFT Storage Engine
 ========================
 
-PerconaFT is a storage engine based on the Fractal Tree Index model, which is optimized for fast disk I/O. The Fractal Tree data structure contains buffers to temporarily store insertions. When a buffer is full, it is flushed to children nodes. This ensures that an I/O operation performs a lot of useful work when messages reach leaves on disk, instead of just a small write per I/O.
+PerconaFT is a storage engine based on the Fractal Tree Index model,
+which is optimized for fast disk I/O.
+The Fractal Tree data structure contains buffers
+to temporarily store insertions.
+When a buffer is full, it is flushed to children nodes.
+This ensures that an I/O operation performs a lot of useful work
+when messages reach leaves on disk, instead of just a small write per I/O.
 
 .. contents::
   :local:
   :depth: 1
 
-The PerconaFT storage engine is available in Percona Server for MongoDB along with the standard MongoDB engines (`MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_ and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_), as well as `MongoRocks <http://rocksdb.org>`_.
+The PerconaFT storage engine is available in Percona Server for MongoDB
+along with the standard MongoDB engines
+(`MMAPv1 <https://docs.mongodb.org/manual/core/mmapv1/>`_
+and `WiredTiger <https://docs.mongodb.org/manual/core/wiredtiger/>`_),
+as well as `MongoRocks <http://rocksdb.org>`_.
 
 .. note:: PerconaFT has been deprecated
    and will be removed in future releases.
 
-To help you decide which is better for you, the table below lists features available in various storage engines:
+To help you decide which is better for you,
+the table below lists features available in various storage engines:
 
 .. list-table::
    :header-rows: 1
@@ -54,27 +65,45 @@ To help you decide which is better for you, the table below lists features avail
 
 .. note:: PerconaFT is not supported on 32-bit systems.
 
-.. warning:: Transparent huge pages is a feature in newer Linux kernel versions that causes problems for the memory usage tracking calculations in PerconaFT and can lead to memory overcommit. If you have this feature enabled, PerconaFT will not start, and you should turn it off. If you want to run with transparent huge pages on, you can set an environment variable ``TOKU_HUGE_PAGES_OK=1``, but only do this for testing, and only with a small cache size.
+.. warning:: Transparent huge pages is a feature in newer Linux kernel versions
+   that causes problems for the memory usage tracking calculations
+   in PerconaFT and can lead to memory overcommit.
+   If you have this feature enabled, PerconaFT will not start,
+   and you should turn it off.
+   If you want to run with transparent huge pages on,
+   you can set an environment variable ``TOKU_HUGE_PAGES_OK=1``,
+   but only do this for testing, and only with a small cache size.
 
 .. _switch-storage-engines:
 
 Switching Storage Engines
 =========================
 
-As of version 3.2, Percona Server for MongoDB runs with WiredTiger by default. You can select a storage engine using the ``--storageEngine`` command-line option when you start ``mongod``. Alternatively, you can set the ``storage.engine`` option in the configuration file (by default, :file:`/etc/mongod.conf`).
+As of version 3.2, Percona Server for MongoDB runs with WiredTiger by default.
+You can select a storage engine using the ``--storageEngine``
+command-line option when you start ``mongod``.
+Alternatively, you can set the ``storage.engine`` option
+in the configuration file (by default, :file:`/etc/mongod.conf`).
 
-Data created by one storage engine is not compatible with other storage engines, because each one has its own data model. When changing the storage engine, you have to do one of the following:
+Data created by one storage engine is not compatible
+with other storage engines, because each one has its own data model.
+When changing the storage engine, you have to do one of the following:
 
-* If you simply want to temporarily test a storage engine, change to a different data directory with the ``--dbpath`` command-line option:
+* If you simply want to temporarily test a storage engine,
+  change to a different data directory
+  with the ``--dbpath`` command-line option:
 
   .. code-block:: bash
 
      $ service mongod stop
      $ mongod --storageEngine PerconaFT --dbpath <dataDirForPerconaFT>
 
-  .. note:: Make sure that the user running ``mongod`` has read and write permissons for the new data directory.
+  .. note:: Make sure that the user running ``mongod``
+     has read and write permissons for the new data directory.
 
-* If you want to permanently switch to a different storage engine and do not have any valuable data in your database, clean out the default data directory and edit the configuration file:
+* If you want to permanently switch to a different storage engine
+  and do not have any valuable data in your database,
+  clean out the default data directory and edit the configuration file:
 
   .. code-block:: bash
 
@@ -83,7 +112,9 @@ Data created by one storage engine is not compatible with other storage engines,
      $ sed -i '/engine: \*PerconaFT/s/#//g' /etc/mongod.conf
      $ service mongod start
 
-* If there is data that you want to migrate and make compatible with the new storage engine, use the ``mongodump`` and ``mongorestore`` utilities:
+* If there is data that you want to migrate
+  and make compatible with the new storage engine,
+  use the ``mongodump`` and ``mongorestore`` utilities:
 
   .. code-block:: bash
 
@@ -99,9 +130,12 @@ Data created by one storage engine is not compatible with other storage engines,
 Configuring PerconaFT
 =====================
 
-You can configure the PerconaFT storage engine using either command-line options or corresponding parameters in the :file:`/etc/mongod.conf` file. The configuration file is formatted in YAML. For example:
+You can configure the PerconaFT storage engine
+using either command-line options
+or corresponding parameters in the :file:`/etc/mongod.conf` file.
+The configuration file is formatted in YAML. For example:
 
-.. code-block:: none
+.. code-block:: text
 
  storage:
    engine: PerconaFT
@@ -114,7 +148,8 @@ You can configure the PerconaFT storage engine using either command-line options
      indexOptions:
        compression: zlib
 
-Setting parameters in the previous example configuration file is the same as starting the ``mongod`` daemon with the following options:
+Setting parameters in the previous example configuration file
+is the same as starting the ``mongod`` daemon with the following options:
 
 .. code-block:: bash
 
@@ -124,7 +159,8 @@ Setting parameters in the previous example configuration file is the same as sta
    --PerconaFTCollectionCompression zlib \
    --PerconaFTIndexCompression zlib
 
-The following options are available (with corresponding YAML configuration file parameters):
+The following options are available
+(with corresponding YAML configuration file parameters):
 
 .. option:: --PerconaFTCollectionCompression
 
@@ -181,8 +217,9 @@ The following options are available (with corresponding YAML configuration file 
    :Config: ``storage.PerconaFT.engineOptions.compressBuffersBeforeEviction``
    :Default: ``false``
 
-   Specifies whether the PerconaFT storage engine should compress buffers before eviction.
- 
+   Specifies whether the PerconaFT storage engine
+   should compress buffers before eviction.
+
 .. option:: --PerconaFTEngineDirectio
 
    :Config: ``storage.PerconaFT.engineOptions.directio``
@@ -202,7 +239,8 @@ The following options are available (with corresponding YAML configuration file 
    :Config: ``storage.PerconaFT.engineOptions.journalCommitInterval``
    :Default: ``100``
 
-   Specifies the PerconaFT storage engine journal commit interval in milliseconds.
+   Specifies the PerconaFT storage engine
+   journal commit interval in milliseconds.
 
 .. option:: --PerconaFTEngineLockTimeout
 
@@ -221,7 +259,7 @@ The following options are available (with corresponding YAML configuration file 
 .. option:: --PerconaFTEngineLogDir
 
    :Config: ``storage.PerconaFT.engineOptions.logDir``
-   :Default: 
+   :Default:
 
    Specifies the directory for the PerconaFT storage engine transaction log.
 
@@ -230,7 +268,8 @@ The following options are available (with corresponding YAML configuration file 
    :Config: ``storage.PerconaFT.engineOptions.numCachetableBucketMutexes``
    :Default: ``1048576``
 
-   Specifies the number of PerconaFT storage engine num cachetable bucket mutexes.
+   Specifies the number of PerconaFT storage engine
+   num cachetable bucket mutexes.
 
 .. option:: --PerconaFTIndexCompression
 

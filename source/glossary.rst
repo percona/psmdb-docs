@@ -5,7 +5,7 @@
 .. glossary::
 
   ACID
-    Set of properties that guarantee database transactions are 
+    Set of properties that guarantee database transactions are
     processed reliably. Stands for :term:`Atomicity`,
     :term:`Consistency`, :term:`Isolation`, :term:`Durability`.
 

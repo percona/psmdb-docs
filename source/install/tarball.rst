@@ -11,19 +11,19 @@ You can find links to the binary tarballs from the
    For example, if you are running Debian 8 ("jessie"):
 
    .. code-block:: bash
-    
+
       wget https://www.percona.com/redir/downloads/percona-server-mongodb-3.2/LATEST/binary/debian/jessie/x86_64/psmdb-3.2.6-1.0-r24-jessie-x86_64-bundle.tar
       tar xfz psmdb-3.2.6-1.0-r24-jessie-x86_64-bundle.tar
 
 2. Copy the extracted binaries to the target directory, for example:
-   
+
    .. code-block:: bash
 
       mkdir ~/psmdb
       cp -r -n psmdb-3.2.6-1.0-r24-jessie-x86_64-bundle/bin ~/psmdb/
 
 3. Add the location of the binaries to the ``PATH`` variable:
-   
+
    .. code-block:: bash
 
       export PATH psmdb/bin:$PATH

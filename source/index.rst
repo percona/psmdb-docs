@@ -55,6 +55,8 @@ Features
    inmemory
    perconaft
    toku-backup
+   hot-backup
+   rate-limit
    authentication
    audit-logging
 
@@ -64,12 +66,9 @@ Reference
 .. toctree::
    :maxdepth: 1
 
+   Parameter Tuning <setParameter>
    Release Notes <release_notes/index>
    glossary
    copyright
    trademark-policy
-
-.. _`MMAPv1`: https://docs.mongodb.org/manual/core/mmapv1/
-.. _`WiredTiger`: https://docs.mongodb.org/manual/core/wiredtiger/
-.. _`MongoRocks`: http://rocksdb.org
 
