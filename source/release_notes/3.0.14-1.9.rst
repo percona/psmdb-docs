@@ -1,0 +1,31 @@
+.. _3.0.14-1.9:
+
+=====================================
+Percona Server for MongoDB 3.0.14-1.9
+=====================================
+
+Percona is glad to announce the release of
+Percona Server for MongoDB 3.0.14-1.9 on November 28, 2016.
+Downloads are available
+`here <https://www.percona.com/downloads/percona-server-for-mongodb>`_
+and from the :ref:`Percona Software Repositories <install>`.
+
+Percona Server for MongoDB is a highly scalable,
+zero-maintenance downtime database
+supporting the MongoDB v3.0 protocol and drivers.
+The latest release is based on `MongoDB 3.0.14
+<http://docs.mongodb.org/manual/release-notes/3.0/#nov-4-2016>`_,
+extending MongoDB with `MongoRocks <http://rocksdb.org>`_
+and :ref:`PerconaFT <perconaft>` storage engines,
+as well as several enterprise features.
+Percona Server for MongoDB requires no changes to MongoDB applications or code.
+
+.. note:: PerconaFT has been deprecated and will be removed in the future.
+
+This release includes all changes from
+`MongoDB 3.0.13
+<http://docs.mongodb.org/manual/release-notes/3.0/#oct-31-2016>`_
+and `MongoDB 3.0.14
+<http://docs.mongodb.org/manual/release-notes/3.0/#nov-4-2016>`_.
+No additional fixes or features were implemented.
+

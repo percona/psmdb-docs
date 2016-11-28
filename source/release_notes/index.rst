@@ -8,6 +8,7 @@ Percona Server for MongoDB Release Notes
    :maxdepth: 1
    :glob:
 
+   3.0.14-1.9
    3.0.12-1.8
    3.0.12-1.7
    3.0.11-1.6
