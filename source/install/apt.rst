@@ -8,8 +8,8 @@ Percona provides :file:`.deb` packages for 64-bit versions of the following dist
 
 * Debian 8 ("jessie")
 * Ubuntu 14.04 LTS (Trusty Tahr)
-* Ubuntu 15.10 (Wily Werewolf)
 * Ubuntu 16.04 LTS (Xenial Xerus)
+* Ubuntu 16.10 (Yakkety Yak)
 
 .. note:: |Percona Server for MongoDB| should work on other DEB-based distributions, but it is tested only on platforms listed above.
 
@@ -40,13 +40,13 @@ Installing from Repositories
 
    .. code-block:: bash
 
-     $ wget https://repo.percona.com/apt/percona-release_0.1-3.$(lsb_release -sc)_all.deb
+     $ wget https://repo.percona.com/apt/percona-release_0.1-4.$(lsb_release -sc)_all.deb
 
 2. Install the downloaded package with :program:`dpkg`. To do that, run the following command as root or with :program:`sudo`:
 
    .. code-block:: bash
 
-     $ sudo dpkg -i percona-release_0.1-3.$(lsb_release -sc)_all.deb
+     $ sudo dpkg -i percona-release_0.1-4.$(lsb_release -sc)_all.deb
 
    Once you install this package, the Percona repositories should be added. You can check the repository configuration in the :file:`/etc/apt/sources.list.d/percona-release.list` file.
 
@@ -128,7 +128,7 @@ By default, |Percona Server for MongoDB| stores data files in :file:`/var/lib/mo
 
       $ sudo service mongod restart
 
-.. note:: Debian 8 ("jessie") and Ubuntu 15.04 (Vivid Vervet) come with `systemd <http://freedesktop.org/wiki/Software/systemd/>`_ as the default system and service manager. You can invoke all the above commands with ``sytemctl`` instead of ``service``. Currently both are supported.
+.. note:: Debian 8 ("jessie") and Ubuntu 16.04 (Xenial Xerus) come with `systemd <http://freedesktop.org/wiki/Software/systemd/>`_ as the default system and service manager. You can invoke all the above commands with ``sytemctl`` instead of ``service``. Currently both are supported.
 
 .. note:: By default, |Percona Server for MongoDB| starts with the MMAPv1 storage engine (standard engine in MongoDB). If you want to run with PerconaFT, specify the ``--storageEngine=PerconaFT`` option on the command line when running ``mongod``, or set the ``storage.engine`` option in the configuration file. For more information, see :ref:`switch-storage-engines`.
     
