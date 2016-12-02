@@ -54,12 +54,12 @@ Installing from Percona Repository
 
    .. code-block:: bash
 
-      $ sudo yum install http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
+      $ sudo yum install http://www.percona.com/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm
 
    You should see the following if successful: ::
 
       Installed:
-        percona-release.noarch 0:0.1-3
+        percona-release.noarch 0:0.1-4
 
       Complete!
 
@@ -70,8 +70,8 @@ Installing from Percona Repository
 
       .. code-block:: bash
 
-         $ wget http://www.percona.com/downloads/percona-release/redhat/0.1-3/percona-release-0.1-3.noarch.rpm
-         $ rpm -ivH percona-release-0.1-3.noarch.rpm
+         $ wget http://www.percona.com/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm
+         $ rpm -ivH percona-release-0.1-4.noarch.rpm
 
 2. Check that the packages are available:
 
@@ -84,12 +84,12 @@ Installing from Percona Repository
    .. code-block:: text
 
       ...
-      Percona-Server-MongoDB-32.x86_64               3.2.4-1.0rc2.el7           percona-release-x86_64
-      Percona-Server-MongoDB-32-debuginfo.x86_64     3.2.4-1.0rc2.el7           percona-release-x86_64
-      Percona-Server-MongoDB-32-mongos.x86_64        3.2.4-1.0rc2.el7           percona-release-x86_64
-      Percona-Server-MongoDB-32-server.x86_64        3.2.4-1.0rc2.el7           percona-release-x86_64
-      Percona-Server-MongoDB-32-shell.x86_64         3.2.4-1.0rc2.el7           percona-release-x86_64
-      Percona-Server-MongoDB-32-tools.x86_64         3.2.4-1.0rc2.el7           percona-release-x86_64
+      Percona-Server-MongoDB-32.x86_64            3.2.10-3.0.el6               percona-release-x86_64
+      Percona-Server-MongoDB-32-debuginfo.x86_64  3.2.10-3.0.el6               percona-release-x86_64
+      Percona-Server-MongoDB-32-mongos.x86_64     3.2.10-3.0.el6               percona-release-x86_64
+      Percona-Server-MongoDB-32-server.x86_64     3.2.10-3.0.el6               percona-release-x86_64
+      Percona-Server-MongoDB-32-shell.x86_64      3.2.10-3.0.el6               percona-release-x86_64
+      Percona-Server-MongoDB-32-tools.x86_64      3.2.10-3.0.el6               percona-release-x86_64
       ...
 
 3. Install the |PSMDB| packages:
