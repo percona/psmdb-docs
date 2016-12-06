@@ -23,9 +23,15 @@ Percona Server for MongoDB requires no changes to MongoDB applications or code.
 
 This release is based on `MongoDB 3.2.11
 <http://docs.mongodb.org/manual/release-notes/3.2/#nov-18-2016>`_
-and includes the following fix related to PerconaFT:
+and includes the following additional fixes:
 
-* Fixed crash during shutdown of ``mongod``
+* Fixed hang during shutdown of ``mongod``
   when started with the ``--storageEngine=PerconaFT``
   and ``--nojournal`` options.
+
+* Added :ref:`hot-backup` to Ubuntu/Debian packages
+
+* Added support for Ubuntu 16.10 (Yakkety Yak)
+
+* Added binary tarballs for Ubuntu 16.04 LTS (Xenial Xerus)
 
