@@ -29,7 +29,7 @@ and includes the following additional fixes:
   when started with the ``--storageEngine=PerconaFT``
   and ``--nojournal`` options.
 
-* Added :ref:`hot-backup` to Ubuntu/Debian packages
+* :jirabug:`PSMDB-92`: Added :ref:`hot-backup` to Ubuntu/Debian packages
 
 * Added support for Ubuntu 16.10 (Yakkety Yak)
 
