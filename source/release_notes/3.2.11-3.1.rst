@@ -27,9 +27,12 @@ and includes the following additional fixes:
 
 * :jirabug:`PSMDB-93`: Fixed hang during shutdown of ``mongod``
   when started with the ``--storageEngine=PerconaFT``
-  and ``--nojournal`` options.
+  and ``--nojournal`` options
 
 * :jirabug:`PSMDB-92`: Added :ref:`hot-backup` to Ubuntu/Debian packages
+
+* :jirabug:`PSMDB-83`: Updated default configuration file
+  to include recommended settings templates for various storage engines
 
 * Added support for Ubuntu 16.10 (Yakkety Yak)
 
