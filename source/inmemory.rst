@@ -18,7 +18,7 @@ and ensure that the server does not shut down.
 The *Percona Memory Engine* is available in |PSMDB|
 along with the standard MongoDB engines
 (the original `MMAPv1`_ and the default `WiredTiger`_),
-as well as `MongoRocks`_ and :ref:`perconaft`.
+as well as `MongoRocks`_.
 
 .. note:: PerconaFT has been deprecated
    and will be removed in future releases.

@@ -20,7 +20,7 @@ You can download those files from
 .. warning:: Before starting the upgrade process,
    it is recommended that you perform a full backup.
 
-To performa the upgrade:
+To perform the upgrade:
 
 1. Restart the TokuMX server without the ``--auth`` parameter:
 
@@ -91,7 +91,7 @@ and disable ``--auth`` in :file:`/etc/mongod.conf`:
      $ sed -i'' s/^auth/#auth/ /etc/mongod.conf
 
   For more information about configuring the storage engine,
-  see :ref:`switch-storage-engines`.
+  see :ref:`switch_storage_engines`.
 
 10. Start the ``mongod`` server:
 

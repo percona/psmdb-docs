@@ -4,7 +4,7 @@
 Percona Server for MongoDB Feature Comparison
 =============================================
 
-|PSMDB| is based on MongoDB 3.2, and it is the successor to Percona TokuMX,
+|PSMDB| is based on MongoDB 3.4, and it is the successor to Percona TokuMX,
 which is based on MongoDB 2.4.
 
 Both MongoDB and |PSMDB| include a pluggable storage engine API.
@@ -28,7 +28,6 @@ The following table will help you evaluate the differences.
        * MMAPv1_
        * :ref:`inmemory`
        * MongoRocks_
-       * :ref:`PerconaFT <perconaft>` (deprecated)
      - * WiredTiger_ (default)
        * MMAPv1_
        * In-Memory_ (Enterprise only)
