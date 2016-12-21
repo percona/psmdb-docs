@@ -10,83 +10,107 @@ With auditing enabled, the server will generate an audit log file.
 This file contains information about different user events
 including authentication, authorization failures, and so on.
 
-The following server parameters control auditing.
-They are entered at the command line
-when starting a ``mongod``  server instance.
+To enable audit logging, specify where to send audit events
+using the :option:`--auditDestination`` option on the command line
+or the ``auditLog.destination`` variable in the configuration file.
 
-``--auditDestination``
+If you output events to a file, also specify the format of the file
+using the :option:`--auditFormat` option or the ``auditLog.format`` variable,
+and the path to the file using the :option:`--auditPath` option
+or the ``auditLog.path`` variable.
 
-  By default, audit logging is disabled.
-  Auditing and audit log generation are activated
-  when this parameter is present on the command line at server startup.
+To filter recorded events, use the :option:`--auditFilter` option
+or the ``auditLog.filter`` variable.
 
-  The argument to this parameter designates where the log output is directed:
-  ``file``, ``syslog``, or ``console``.
-  By default, it is saved to a log file.
+For example, to log only events from a user named *tim*
+and write them to a JSON file :file:`/var/log/psmdb/audit.json`,
+start the server with the following parameters:
 
-  .. code-block:: bash
+.. code-block:: bash
 
-     mongod --auditDestination=file
-
-  .. note:: Auditing remains active until shutdown,
-     it cannot be disabled dynamically at runtime.
-
-``--auditPath``
-
-  This is the fully qualified path to the file you want the server to create,
-  if you set ``--auditDestination`` to ``file``.
-  If this parameter is not specified,
-  then :file:`auditLog.json` file will be created
-  in the server's configured log path.
-
-  .. code-block:: bash
-
-     mongod --auditDestination=file --auditPath /var/log/psmdb/audit.json
-
-  If log path is not configured on the server,
-  then :file:`auditLog.json` will be created in the current directory
-  (from which ``mongod`` was started).
-
-  .. note:: This file will rotate in the same manner as the system log path,
-     either on server reboot or using the ``logRotate`` command.
-     The time of rotation will be added to the old file’s name.
-
-``--auditFormat``
-
-  This is the format of each audit event stored in the audit log.
-  The argument to this parameter can be either ``JSON`` or ``BSON``.
-  The default value for this parameter is ``JSON``.
-
-  .. note:: If you set it to ``BSON``,
-     then ``--auditDestination`` must be set to ``file``,
-     and also ``--auditPath`` must be specified.
-     For example:
-
-     .. code-block:: bash
-
-        mongod --auditDestination=file --auditFormat=BSON --auditPath /var/log/psmdb/audit.bson
-
-``--auditFilter``
-
-  This parameter specifies a filter to apply to incoming audit events,
-  enabling the administrator to only capture a subset
-  of all possible audit events.
-
-  This filter should be a JSON string
-  that can be interpreted as a query object.
-  Each audit log event that matches this query will be logged.
-  Events which do not match this query will be ignored.
-  If this parameter is not specified,
-  then all audit events are stored in the audit log.
-
-  For example, to log only events from a user named *tim*,
-  start the server with the following parameters:
-
-  .. code-block:: bash
-
-     mongod \
+   mongod \
+    --dbpath data/db
     --auditDestination file \
     --auditFormat JSON \
     --auditPath /var/log/psmdb/audit.json \
     --auditFilter '{ "users.user" : "tim" }'
+
+The options in the previous example can be used as variables
+in the MongoDB configuration file::
+
+ storage:
+   dbPath: data/db
+ auditLog:
+   destination: file
+   format: JSON
+   path: /var/log/psmdb/audit.json
+   filter: '{ "users.user" : "tim" }'
+
+.. note:: If you start the server with auditing enabled,
+   it cannot be disabled dynamically during runtime.
+
+Audit Options
+-------------
+
+The following options control audit logging:
+
+.. option:: --auditDestination
+
+   :Variable: ``auditLog.destination``
+   :Type: String
+
+   Enables auditing and specifies where to send audit events:
+
+   * ``console``: Output audit events to ``stdout``.
+
+   * ``file``: Output audit events to a file
+     specified by the :option:`--auditPath`` option
+     in a format specified by the :option:``--auditFormat`` option.
+
+   * ``syslog``: Output audit events to ``syslog``.
+
+.. option:: --auditFilter
+
+   :Variable: ``auditLog.filter``
+   :Type: String
+
+   Specifies a filter to apply to incoming audit events,
+   enabling the administrator to only capture a subset of them.
+   The value must be interpreted as a query object with the following syntax::
+
+     { <field1>: <expression1>, ... }
+
+   Audit log events that match this query will be logged.
+   Events that do not match this query will be ignored.
+
+.. option:: --auditFormat
+
+   :Variable: ``auditLog.format``
+   :Type: String
+
+   Specifies the format of the audit log file,
+   if you set the :option:`--auditDestination` option to ``file``.
+
+   The default value is ``JSON``.
+   Alternatively, you can set it to ``BSON``.
+
+.. option:: --auditPath
+
+   :Variable: ``auditLog.path``
+   :Type: String
+
+   Specifies the fully qualified path to the file
+   where audit log events are written,
+   if you set the :option:`--auditDestination` option to ``file``.
+
+   If this option is not specified,
+   then the :file:`auditLog.json` file is created
+   in the server's configured log path.
+   If log path is not configured on the server,
+   then the :file:`auditLog.json` file is created in the current directory
+   (from which ``mongod`` was started).
+
+   .. note:: This file will rotate in the same manner as the system log path,
+      either on server reboot or using the ``logRotate`` command.
+      The time of rotation will be added to the old file’s name.
 

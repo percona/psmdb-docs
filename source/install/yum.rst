@@ -17,7 +17,7 @@ of the following distributions:
 
 The packages are available in the official Percona software repositories
 and on the `download page
-<http://www.percona.com/downloads/percona-server-mongodb-3.2/>`_.
+<http://www.percona.com/downloads/percona-server-mongodb-3.4/>`_.
 It is recommended to intall |PSMDB| from the official repository
 using :command:`yum`.
 
@@ -27,24 +27,24 @@ using :command:`yum`.
 Package Contents
 ================
 
-:``Percona-Server-MongoDB-32``:
+:``Percona-Server-MongoDB-34``:
  Installs the ``mongo`` shell, import/export tools, other client utilities,
  server software, default configuration, and init.d scripts.
 
-:``Percona-Server-MongoDB-32-server``:
+:``Percona-Server-MongoDB-34-server``:
  Contains the ``mongod`` server, default configuration files,
  and init.d scripts.
 
-:``Percona-Server-MongoDB-32-shell``:
+:``Percona-Server-MongoDB-34-shell``:
  Contains the ``mongo`` shell.
 
-:``Percona-Server-MongoDB-32-mongos``:
+:``Percona-Server-MongoDB-34-mongos``:
  Contains the ``mongos`` sharded cluster query router.
 
-:``Percona-Server-MongoDB-32-tools``:
+:``Percona-Server-MongoDB-34-tools``:
  Contains Mongo tools for high-performance MongoDB fork from Percona.
 
-:``Percona-Server-MongoDB-32-debuginfo``:
+:``Percona-Server-MongoDB-34-debuginfo``:
  Contains debug symbols for the server.
 
 Installing from Percona Repository
@@ -73,30 +73,40 @@ Installing from Percona Repository
          $ wget http://www.percona.com/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm
          $ rpm -ivH percona-release-0.1-4.noarch.rpm
 
-2. Check that the packages are available:
+#. |PSMDB| 3.4 is in beta, so packages are in the testing repository.
+   To enable it, set ``enabled=1`` for the following entries
+   in the Percona repository configuration file
+   (:file:`/etc/yum.repos.d/percona-release.repo`)::
+
+    [percona-testing-$basearch]
+    [percona-testing-noarch]
+
+   For more information, see :ref:`yum-testing-repo`.
+
+#. Check that the packages are available:
 
    .. code-block:: bash
 
-      $ yum list | grep Percona-Server-MongoDB
+      $ yum list | grep Percona-Server-MongoDB-34
 
    You should see output similar to the following:
 
    .. code-block:: text
 
       ...
-      Percona-Server-MongoDB-32.x86_64            3.2.10-3.0.el6               percona-release-x86_64
-      Percona-Server-MongoDB-32-debuginfo.x86_64  3.2.10-3.0.el6               percona-release-x86_64
-      Percona-Server-MongoDB-32-mongos.x86_64     3.2.10-3.0.el6               percona-release-x86_64
-      Percona-Server-MongoDB-32-server.x86_64     3.2.10-3.0.el6               percona-release-x86_64
-      Percona-Server-MongoDB-32-shell.x86_64      3.2.10-3.0.el6               percona-release-x86_64
-      Percona-Server-MongoDB-32-tools.x86_64      3.2.10-3.0.el6               percona-release-x86_64
+      Percona-Server-MongoDB-34.x86_64            3.4.0-1.0beta.el7              percona-release-x86_64
+      Percona-Server-MongoDB-34-debuginfo.x86_64  3.4.0-1.0beta.el7              percona-release-x86_64
+      Percona-Server-MongoDB-34-mongos.x86_64     3.4.0-1.0beta.el7              percona-release-x86_64
+      Percona-Server-MongoDB-34-server.x86_64     3.4.0-1.0beta.el7              percona-release-x86_64
+      Percona-Server-MongoDB-34-shell.x86_64      3.4.0-1.0beta.el7              percona-release-x86_64
+      Percona-Server-MongoDB-34-tools.x86_64      3.4.0-1.0beta.el7              percona-release-x86_64
       ...
 
-3. Install the |PSMDB| packages:
+4. Install the |PSMDB| packages:
 
    .. code-block:: bash
 
-      $ sudo yum install Percona-Server-MongoDB-32
+      $ sudo yum install Percona-Server-MongoDB-34
 
 .. _yum-testing-repo:
 

@@ -3,14 +3,15 @@
 Switching Storage Engines
 =========================
 
-By default, Percona Server for MongoDB runs with WiredTiger. You can select a
-storage engine using the ``--storageEngine`` command-line option when you start
-``mongod``. Alternatively, you can set the ``storage.engine`` option in the
-configuration file (by default, :file:`/etc/mongod.conf`).
+By default, |PSMDB| runs with WiredTiger_.
+You can select a storage engine
+using the ``--storageEngine`` command-line option when you start ``mongod``.
+Alternatively, you can set the ``storage.engine`` option
+in the configuration file (by default, :file:`/etc/mongod.conf`).
 
-Data created by one storage engine is not compatible with other storage
-engines, because each one has its own data model. When changing the storage
-engine, you have to do one of the following:
+Data created by one storage engine is not compatible
+with other storage engines, because each one has its own data model.
+When changing the storage engine, you have to do one of the following:
 
 * If you simply want to temporarily test a storage engine, change to a
   different data directory with the ``--dbpath`` command-line option:
@@ -47,3 +48,4 @@ engine, you have to do one of the following:
     $ sed -i '/engine: \*rocksdb/s/#//g' /etc/mongod.conf
     $ service mongod start
     $ mongorestore <dumpDir>
+

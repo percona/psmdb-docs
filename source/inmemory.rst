@@ -20,16 +20,13 @@ along with the standard MongoDB engines
 (the original `MMAPv1`_ and the default `WiredTiger`_),
 as well as `MongoRocks`_.
 
-.. note:: PerconaFT has been deprecated
-   and will be removed in future releases.
-
 Using Percona Memory Engine
 ===========================
 
 As of version 3.2, |PSMDB| runs with `WiredTiger`_ by default.
 You can select a storage engine
 using the ``--storageEngine`` command-line option when you start ``mongod``.
-Alternatively, you can set the ``storage.engine`` option
+Alternatively, you can set the ``storage.engine`` variable
 in the configuration file (by default, :file:`/etc/mongod.conf`):
 
 Data created by one storage engine
@@ -37,14 +34,14 @@ is not compatible with other storage engines,
 because each one has its own data model.
 When changing the storage engine, you have to do one of the following:
 
-* If you simply want to temporarily test a Percona Memory Engine,
+* If you simply want to temporarily test Percona Memory Engine,
   change to a different data directory with the ``--dbpath``
   command-line option:
 
   .. code-block:: bash
 
-     service mongod stop
-     mongod --storageEngine inMemory --dbpath <newDataDir>
+     $ service mongod stop
+     $ mongod --storageEngine inMemory --dbpath <newDataDir>
 
   .. note:: Make sure that the user running ``mongod``
      has read and write permissons for the new data directory.
@@ -60,10 +57,10 @@ When changing the storage engine, you have to do one of the following:
 
   .. code-block:: bash
 
-     service mongod stop
-     rm -rf /var/lib/mongodb/*
-     sed -i '/engine: \*inMemory/s/#//g' /etc/mongod.conf
-     service mongod start
+     $ service mongod stop
+     $ rm -rf /var/lib/mongodb/*
+     $ sed -i '/engine: \*inMemory/s/#//g' /etc/mongod.conf
+     $ service mongod start
 
 * If there is data that you want to migrate
   and make compatible with Percona Memory Engine,
@@ -71,12 +68,12 @@ When changing the storage engine, you have to do one of the following:
 
   .. code-block:: bash
 
-     mongodump --out <dumpDir>
-     service mongod stop
-     rm -rf /var/lib/mongodb/*
-     sed -i '/engine: \*inMemory/s/#//g' /etc/mongod.conf
-     service mongod start
-     mongorestore <dumpDir>
+     $ mongodump --out <dumpDir>
+     $ service mongod stop
+     $ rm -rf /var/lib/mongodb/*
+     $ sed -i '/engine: \*inMemory/s/#//g' /etc/mongod.conf
+     $ service mongod start
+     $ mongorestore <dumpDir>
 
 .. _`MMAPv1`: https://docs.mongodb.org/manual/core/mmapv1/
 .. _`WiredTiger`: https://docs.mongodb.org/manual/core/wiredtiger/

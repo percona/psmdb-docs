@@ -8,18 +8,22 @@ Percona Server for MongoDB Documentation
 for MongoDB 3.4 Community Edition with enterprise-grade features.
 It requires no changes to MongoDB applications or code.
 
+.. note:: |PSMDB| 3.4 is currently in beta.
+   For the latest stable version, see `PSMDB 3.2 documentation
+   <https://www.percona.com/doc/percona-server-for-mongodb/LATEST/>`_.
+
 |PSMDB| provides the following features:
 
-* MongoDB's original `MMAPv1`_ storage engine,
-  and the default `WiredTiger`_ engine
-* Optional :ref:`inmemory` and `MongoRocks`_ storage engines
+* MongoDB's original MMAPv1_ storage engine,
+  and the default WiredTiger_ engine
+* Optional :ref:`inmemory` and MongoRocks_ storage engines
 * :ref:`External SASL authentication <ext-auth>`
   using OpenLDAP or Active Directory
 * :ref:`Audit logging <audit-log>`
   to track and query database interactions of users or applications
-
-.. note:: PerconaFT has been deprecated
-   and will not be available in future releases.
+* :ref:`hot-backup` for the default WiredTiger_
+  and alternative MongoRocks_ storage engine
+* :ref:`rate-limit` to decrease the impact of the profiler on performance
 
 -----
 
@@ -51,7 +55,6 @@ Features
    :maxdepth: 1
 
    inmemory
-   toku-backup
    hot-backup
    rate-limit
    authentication

@@ -17,7 +17,7 @@ of the following distributions:
 
 The packages are available in the official Percona software repositories
 and on the `download page
-<http://www.percona.com/downloads/percona-server-mongodb-3.2/>`_.
+<http://www.percona.com/downloads/percona-server-mongodb-3.4/>`_.
 It is recommended to intall |PSMDB| from repositories using :command:`apt`.
 
 .. contents::
@@ -26,24 +26,24 @@ It is recommended to intall |PSMDB| from repositories using :command:`apt`.
 Package Contents
 ================
 
-:``percona-server-mongodb-32``:
+:``percona-server-mongodb-34``:
  Installs the ``mongo`` shell, import/export tools, other client utilities,
  server software, default configuration, and init.d scripts.
 
-:``percona-server-mongodb-32-server``:
+:``percona-server-mongodb-34-server``:
  Contains the ``mongod`` server, default configuration files,
  and init.d scripts.
 
-:``percona-server-mongodb-32-shell``:
+:``percona-server-mongodb-34-shell``:
  Contains the ``mongo`` shell.
 
-:``percona-server-mongodb-32-mongos``:
+:``percona-server-mongodb-34-mongos``:
  Contains the ``mongos`` sharded cluster query router.
 
-:``percona-server-mongodb-32-tools``:
+:``percona-server-mongodb-34-tools``:
  Contains Mongo tools for high-performance MongoDB fork from Percona.
 
-:``percona-server-mongodb-32-dbg``:
+:``percona-server-mongodb-34-dbg``:
  Contains debug symbols for the server.
 
 Installing from Repositories
@@ -55,7 +55,7 @@ Installing from Repositories
 
       $ wget https://repo.percona.com/apt/percona-release_0.1-4.$(lsb_release -sc)_all.deb
 
-2. Install the downloaded package with :program:`dpkg`
+#. Install the downloaded package with :program:`dpkg`
    by running the following command as root or with :program:`sudo`:
 
    .. code-block:: bash
@@ -66,17 +66,22 @@ Installing from Repositories
    You can check the repository configuration
    in the :file:`/etc/apt/sources.list.d/percona-release.list` file.
 
-3. Update the local cache:
+#. |PSMDB| 3.4 is in beta, so packages are in the testing repository.
+   To enable it, add ``testing``
+   at the end of the Percona repository definition.
+   For more information, see :ref:`apt-testing-repo`.
+
+#. Update the local cache:
 
    .. code-block:: bash
 
       $ sudo apt-get update
 
-4. Install the server package:
+#. Install the server package:
 
    .. code-block:: bash
 
-      $ sudo apt-get install percona-server-mongodb-32
+      $ sudo apt-get install percona-server-mongodb-34
 
 .. _apt-testing-repo:
 
@@ -123,39 +128,39 @@ Using Percona Server for MongoDB
 By default, |PSMDB| stores data files in :file:`/var/lib/mongodb/`
 and configuration parameters in :file:`/etc/mongod.conf`.
 
-1. Starting the service
+* Starting the service
 
-   |PSMDB| is started automatically after installation
-   unless it encounters errors during the installation process.
-   You can also manually start it using the folowing command:
+  |PSMDB| is started automatically after installation
+  unless it encounters errors during the installation process.
+  You can also manually start it using the folowing command:
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      $ sudo service mongod start
+     $ sudo service mongod start
 
-2. Confirming that service is running
+* Confirming that service is running
 
-   Check the service status using the following command:
+  Check the service status using the following command:
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      $ sudo service mongod status
+     $ sudo service mongod status
 
-3. Stopping the service
+* Stopping the service
 
-   Stop the service using the following command:
+  Stop the service using the following command:
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      $ sudo service mongod stop
+     $ sudo service mongod stop
 
-4. Restarting the service
+* Restarting the service
 
-   Restart the service using the following command:
+  Restart the service using the following command:
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      $ sudo service mongod restart
+     $ sudo service mongod restart
 
 .. note:: Debian 8 ("jessie") and Ubuntu 16.04 (Xenial Xerus)
    come with `systemd <http://freedesktop.org/wiki/Software/systemd/>`_

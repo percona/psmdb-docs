@@ -19,8 +19,8 @@ installing the new server and starting it with the same data files.
 While an in-place upgrade may not be suitable for high-complexity environments,
 it should work in most cases.
 
-Upgrading from an earlier version of Percona Server for MongoDB
-(for example, from 3.0) is the same as upgrading from MongoDB 3.0 or 3.2.
+Upgrading from an earlier version of |PSMDB|
+is the same as upgrading from MongoDB.
 
 .. warning:: Before starting the upgrade process
    it is recommended to perform a full backup of your data.

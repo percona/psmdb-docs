@@ -12,6 +12,8 @@ This enables you to select from a variety of storage engines
 depending on your needs.
 Previous MongoDB versions (before 3.0) and Percona TokuMX
 can run with only one default storage engine.
+For more information about about using various storage engines,
+see :ref:`switch_storage_engines`.
 
 The following table will help you evaluate the differences.
 

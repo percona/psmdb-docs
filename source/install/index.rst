@@ -30,7 +30,7 @@ using the corresponding tool for your system:
 If you want more control, you can
 :ref:`install Percona Server for MongoDB from binary tarballs <tarball>`.
 
-If you are currently using MongoDB 3.0 or 3.2,
+If you are currently using MongoDB or previous versions of |PSMDB|,
 see :ref:`Upgrading from MongoDB <upgrade_from_mongodb>`.
 
 If you are currently using Percona TokuMX,
