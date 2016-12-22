@@ -32,9 +32,6 @@ If you want more control, you can
 If you are currently using MongoDB or previous versions of |PSMDB|,
 see :ref:`Upgrading from MongoDB <upgrade_from_mongodb>`.
 
-If you are currently using Percona TokuMX,
-see :ref:`Upgrading from Percona TokuMX <upgrade_from_tokumx>`.
-
 .. note:: If you want to use |PSMDB| in a Docker container,
    refer to the following example procedure for building a Docker image
    with MongoDB: https://docs.docker.com/examples/mongodb/
