@@ -1,8 +1,8 @@
 .. _mongorocks:
 
-========================
-MongoRocks Memory Engine
-========================
+==========
+MongoRocks
+==========
 
 *MongoRocks* is a storage engine for MongoDB
 based on the RocksDB_ key-value store optimized for fast storage.
