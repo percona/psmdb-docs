@@ -11,7 +11,6 @@ Percona provides packages for popular DEB-based and RPM-based distributions:
 * Ubuntu 14.04 LTS (Trusty Tahr)
 * Ubuntu 16.04 LTS (Xenial Xerus)
 * Ubuntu 16.10 (Yakkety Yak)
-* Red Hat Enterprise Linux / CentOS 5
 * Red Hat Enterprise Linux / CentOS 6
 * Red Hat Enterprise Linux / CentOS 7
 
