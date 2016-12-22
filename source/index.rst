@@ -16,13 +16,13 @@ It requires no changes to MongoDB applications or code.
 
 * MongoDB's original MMAPv1_ storage engine,
   and the default WiredTiger_ engine
-* Optional :ref:`inmemory` and MongoRocks_ storage engines
+* Optional :ref:`inmemory` and :ref:`mongorocks` storage engines
 * :ref:`External SASL authentication <ext-auth>`
   using OpenLDAP or Active Directory
 * :ref:`Audit logging <audit-log>`
   to track and query database interactions of users or applications
 * :ref:`hot-backup` for the default WiredTiger_
-  and alternative MongoRocks_ storage engine
+  and alternative :ref:`mongorocks` storage engine
 * :ref:`rate-limit` to decrease the impact of the profiler on performance
 
 -----
@@ -55,6 +55,7 @@ Features
    :maxdepth: 1
 
    inmemory
+   mongorocks
    hot-backup
    rate-limit
    authentication

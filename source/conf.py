@@ -93,7 +93,7 @@ rst_prolog = '''
 
 .. _`MMAPv1`: https://docs.mongodb.org/manual/core/mmapv1/
 .. _`WiredTiger`: https://docs.mongodb.org/manual/core/wiredtiger/
-.. _`MongoRocks`: http://rocksdb.org
+.. _`RocksDB`: http://rocksdb.org
 .. _`In-Memory`: https://docs.mongodb.com/v3.4/core/inmemory/
 
 .. |check|  replace:: ``|[[---CHECK---]]|``
