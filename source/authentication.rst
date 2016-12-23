@@ -36,7 +36,8 @@ The following image illustrates this architecture:
 An authentication session uses the following sequence:
 
 1. A ``mongo`` client connects to a running ``mongod`` instance.
-#. The client creates a special authentication request using the SASL library.
+#. The client creates a ``PLAIN`` authentication request
+   using the SASL library.
 #. The client then sends this SASL request to the server
    as a special Mongo command.
 #. The ``mongod`` server receives this SASL Message,

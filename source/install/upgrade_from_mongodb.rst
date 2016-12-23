@@ -92,3 +92,11 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
 4. Install Percona Server for MongoDB :ref:`using yum <yum>`.
 
+.. note:: When you remove old packages,
+   your existing configuration file is saved
+   as :file:`/etc/mongod.conf.rpmsave`.
+   If you want to use this configuration with the new version,
+   replace the default :file:`/etc/mongod.conf` file.
+   For example, existing data may not be compatible
+   with the default WiredTiger storage engine.
+
