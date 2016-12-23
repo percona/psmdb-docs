@@ -22,7 +22,7 @@ using the corresponding tool for your system:
   or CentOS
 
 .. note:: You can also `download packages
-   <https://www.percona.com/downloads/percona-server-mongodb/LATEST/>`_
+   <https://www.percona.com/downloads/percona-server-mongodb-3.4/>`_
    from the Percona website and install them manually
    using :command:`dpkg` or :command:`rpm`.
 
