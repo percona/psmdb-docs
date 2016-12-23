@@ -163,7 +163,8 @@ The following options are available
    :Default: ``true``
 
    Specifies whether to use advanced counters for *MongoRocks*.
-   Enabling them can affect write performance.
+   It is recommended to disable them if possible,
+   because they can affect write performance.
 
 .. option:: --rocksdbSingleDeleteIndex
 
@@ -172,5 +173,5 @@ The following options are available
    :Default: ``false``
 
    This is an experimental feature.
-   Enable is only if you know what you are doing.
+   Enable it only if you know what you are doing.
 

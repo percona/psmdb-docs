@@ -22,7 +22,7 @@ using the corresponding tool for your system:
   or CentOS
 
 .. note:: You can also `download packages
-   <https://www.percona.com/downloads/percona-server-mongodb/LATEST/>`_
+   <https://www.percona.com/downloads/percona-server-mongodb-3.4/>`_
    from the Percona website and install them manually
    using :command:`dpkg` or :command:`rpm`.
 
@@ -31,9 +31,6 @@ If you want more control, you can
 
 If you are currently using MongoDB or previous versions of |PSMDB|,
 see :ref:`Upgrading from MongoDB <upgrade_from_mongodb>`.
-
-If you are currently using Percona TokuMX,
-see :ref:`Upgrading from Percona TokuMX <upgrade_from_tokumx>`.
 
 .. note:: If you want to use |PSMDB| in a Docker container,
    refer to the following example procedure for building a Docker image

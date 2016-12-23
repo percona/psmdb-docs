@@ -35,7 +35,7 @@ The following table will help you evaluate the differences.
        * In-Memory_ (Enterprise only)
      - Built-in storage engine based on the Fractal Tree index
    * - :ref:`Hot Backup <hot-backup>`
-     - YES (for WiredTiger_ and :ref:`mongorocks`)
+     - YES for WiredTiger_ and :ref:`mongorocks`
      - NO
      - YES
    * - :ref:`Audit Logging <audit-log>`
@@ -58,9 +58,13 @@ The following table will help you evaluate the differences.
      - YES
      - YES
      - NO
-   * - ACID and MVCC compliant
+   * - ACID compliant
      - NO
      - NO
+     - YES
+   * - MVCC compliant
+     - YES for WiredTiger_, :ref:`inmemory`, and :ref:`mongorocks`
+     - YES for WiredTiger_ and In-Memory_
      - YES
    * - Clustering Key Support
      - NO

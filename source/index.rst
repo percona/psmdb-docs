@@ -46,7 +46,6 @@ Installation
 
    install/index
    Upgrading from MongoDB Community Edition <install/upgrade_from_mongodb>
-   Upgrading from Percona TokuMX <install/upgrade_from_tokumx>
 
 Features
 ========

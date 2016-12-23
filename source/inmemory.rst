@@ -110,7 +110,7 @@ The following options are available
 .. option:: --inMemorySizeGB
 
    :Config: ``storage.inMemory.engineConfig.inMemorySizeGB``
-   :Default: 60% of total memory minus 1024 MB, but not less than 256 MB
+   :Default: 50% of total memory minus 1024 MB, but not less than 256 MB
 
    Specifies the maximum memory in gigabytes to use for data.
 

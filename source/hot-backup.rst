@@ -7,7 +7,7 @@ Hot Backup
 |PSMDB| includes an integrated open-source hot backup system
 for the default WiredTiger_ and alternative :ref:`mongorocks` storage engine.
 It creates a physical data backup on a running server
-without performance degradation.
+without notable performance and operating degradation.
 
 To take a hot backup of the database in your current ``dbpath``,
 run the ``createBackup`` command as administrator on the ``admin`` database

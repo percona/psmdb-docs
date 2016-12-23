@@ -12,6 +12,9 @@ This release is based on `MongoDB 3.4.0
 <https://docs.mongodb.com/manual/release-notes/3.4/>`_
 and includes the following additional changes:
 
+* Red Hat Enterprise Linux 5 and derivatives (including CentOS 5)
+  are no longer supported.
+
 * :ref:`mongorocks` is now based on RocksDB 4.11
 
 * *PerconaFT* and *TokuBackup* were removed.
