@@ -58,13 +58,9 @@ The following table will help you evaluate the differences.
      - YES
      - YES
      - NO
-   * - ACID compliant
+   * - ACID and MVCC compliant
      - NO
      - NO
-     - YES
-   * - MVCC compliant
-     - YES for WiredTiger_, :ref:`inmemory`, and :ref:`mongorocks`
-     - YES for WiredTiger_ and In-Memory_
      - YES
    * - Clustering Key Support
      - NO
