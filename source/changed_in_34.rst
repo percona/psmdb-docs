@@ -4,6 +4,8 @@
 Changed in Percona Server for MongoDB 3.4
 =========================================
 
+The :ref:`mongorocks` storage engine is now based on RocksDB 4.11.2.
+
 The following features of |PSMDB| 3.2 are no longer available in version 3.4:
 
 * *PerconaFT* was removed from |PSMDB| 3.4.
