@@ -60,6 +60,7 @@ Features
    authentication
    audit-logging
    log-redaction
+   enable-auth
 
 Reference
 =========
