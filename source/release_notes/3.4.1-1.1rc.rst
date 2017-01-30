@@ -1,0 +1,22 @@
+.. _3.4.1-1.1rc:
+
+=====================================
+ |PSMDB| 3.4.1-1.1 Release Candidate
+=====================================
+
+:Date: January 30, 2016
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
+:Installation: :ref:`install`
+
+This release candidate is based on `MongoDB 3.4.1
+<https://docs.mongodb.com/manual/release-notes/3.4/#dec-20-2016>`_
+and includes the following additional changes:
+
+* Implemented :ref:`log-redaction` to mask sensitive data
+
+* Included a script for automatic authentication setup
+  (:file:`/usr/bin/percona-server-mongodb-enable-auth.sh`)
+
+* Changed default value for ``storage.rocksdb.counters``
+  (:option:`rocksdbCounters`) from ``false`` to ``true``
+
