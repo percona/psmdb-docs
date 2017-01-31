@@ -15,6 +15,8 @@ Then it restarts |PSMDB| with access control enabled.
 The ``dba`` user has full superuser privileges on the server.
 You can add other users with various roles depending on your needs.
 
+For usage information, run the script with the ``-h`` option.
+
 To enable access control manually:
 
 1. Add the following lines to the configuration file::

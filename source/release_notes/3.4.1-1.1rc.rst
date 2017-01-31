@@ -4,7 +4,7 @@
  |PSMDB| 3.4.1-1.1 Release Candidate
 =====================================
 
-:Date: January 30, 2016
+:Date: January 31, 2017
 :Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
 :Installation: :ref:`install`
 
@@ -19,4 +19,6 @@ and includes the following additional changes:
 
 * Changed default value for ``storage.rocksdb.counters``
   (:option:`rocksdbCounters`) from ``false`` to ``true``
+
+* Updated :ref:`mongorocks` to RocksDB version 4.13.5
 
