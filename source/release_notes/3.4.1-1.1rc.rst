@@ -22,3 +22,12 @@ and includes the following additional changes:
 
 * Updated :ref:`mongorocks` to RocksDB version 4.13.5
 
+Known Issues
+============
+
+The following tests related to RocksDB fail intermittently:
+
+* ``zbigMapReduce.js``
+* ``fsm_all_replication.js``
+* ``fsm_all_sharded_replication.js``
+* ``fsm_all_sharded_replication_with_balancer.js``
