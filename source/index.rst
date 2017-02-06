@@ -59,6 +59,8 @@ Features
    rate-limit
    authentication
    audit-logging
+   log-redaction
+   enable-auth
 
 Reference
 =========

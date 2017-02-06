@@ -88,7 +88,7 @@ as the default for running |PSMDB| with *MongoRocks*:
        compression: snappy
        maxWriteMBPerSec: 1024
        crashSafeCounters: false
-       counters: false
+       counters: true
        singleDeleteIndex: false
 
 Setting parameters in the previous example configuration file
@@ -101,7 +101,7 @@ is the same as starting the ``mongod`` daemon with the following options:
       --rocksdbCompression=snappy \
       --rocksdbMaxWriteMBPerSec=1024 \
       --rocksdbCrashSafeCounters=false \
-      --rocksdbCounters=false \
+      --rocksdbCounters=true \
       --rocksdbSingleDeleteIndex=false
 
 The following options are available
@@ -163,8 +163,7 @@ The following options are available
    :Default: ``true``
 
    Specifies whether to use advanced counters for *MongoRocks*.
-   It is recommended to disable them if possible,
-   because they can affect write performance.
+   You can disable them to improve write performance.
 
 .. option:: --rocksdbSingleDeleteIndex
 
