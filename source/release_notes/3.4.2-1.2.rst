@@ -1,0 +1,24 @@
+.. _3.4.2-1.2rc:
+
+===================
+ |PSMDB| 3.4.2-1.2
+===================
+
+:Date: February 20, 2017
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
+:Installation: :ref:`install`
+
+This is the first general availability (GA) release in the 3.4 series.
+It is based on `MongoDB 3.4.2
+<https://docs.mongodb.com/manual/release-notes/3.4/#feb-1-2017>`_,
+includes all changes introduced in :ref:`3.4.0-1.0beta` and :ref:`3.4.1-1.1rc`,
+and the following additional changes:
+
+* :jirabug:`PSMDB-119`: Fixed the audit log message format
+  to comply with upstream MongoDB:
+
+  - Changed ``params`` document to ``param``
+  - Added ``roles`` document
+  - Fixed date and time format
+  - Changed ``host`` field to ``ip`` in the ``local`` and ``remote`` documents
+
