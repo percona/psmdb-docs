@@ -66,11 +66,6 @@ Installing from Repositories
    You can check the repository configuration
    in the :file:`/etc/apt/sources.list.d/percona-release.list` file.
 
-#. |PSMDB| 3.4 is in beta, so packages are in the testing repository.
-   To enable it, add ``testing``
-   at the end of the Percona repository definition.
-   For more information, see :ref:`apt-testing-repo`.
-
 #. Update the local cache:
 
    .. code-block:: bash
