@@ -62,16 +62,6 @@ Installing from Percona Repository
 
       Complete!
 
-#. |PSMDB| 3.4 is in beta, so packages are in the testing repository.
-   To enable it, set ``enabled=1`` for the following entries
-   in the Percona repository configuration file
-   (:file:`/etc/yum.repos.d/percona-release.repo`)::
-
-    [percona-testing-$basearch]
-    [percona-testing-noarch]
-
-   For more information, see :ref:`yum-testing-repo`.
-
 #. Check that the packages are available:
 
    .. code-block:: bash
