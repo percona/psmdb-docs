@@ -70,6 +70,7 @@ Reference
 
    switch_storage_engines
    Parameter Tuning <setParameter>
+   contact
    Release Notes <release_notes/index>
    glossary
    copyright

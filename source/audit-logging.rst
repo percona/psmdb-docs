@@ -11,11 +11,13 @@ This file contains information about different user events
 including authentication, authorization failures, and so on.
 
 To enable audit logging, specify where to send audit events
-using the :option:`--auditDestination`` option on the command line
+using the :option:`--auditDestination` option on the command line
 or the ``auditLog.destination`` variable in the configuration file.
 
-If you output events to a file, also specify the format of the file
-using the :option:`--auditFormat` option or the ``auditLog.format`` variable,
+If you want to output events to a file,
+also specify the format of the file
+using the :option:`--auditFormat` option
+or the ``auditLog.format`` variable,
 and the path to the file using the :option:`--auditPath` option
 or the ``auditLog.path`` variable.
 
@@ -50,7 +52,7 @@ in the MongoDB configuration file::
    it cannot be disabled dynamically during runtime.
 
 Audit Options
--------------
+=============
 
 The following options control audit logging:
 
@@ -83,6 +85,8 @@ The following options control audit logging:
    Audit log events that match this query will be logged.
    Events that do not match this query will be ignored.
 
+   For more information, see :ref:`audit-filter-examples`.
+
 .. option:: --auditFormat
 
    :Variable: ``auditLog.format``
@@ -113,4 +117,154 @@ The following options control audit logging:
    .. note:: This file will rotate in the same manner as the system log path,
       either on server reboot or using the ``logRotate`` command.
       The time of rotation will be added to the old file’s name.
+
+Audit Message Syntax
+====================
+
+Audit logging writes messages in JSON format with the following syntax::
+
+ {
+   atype: <String>,
+   ts : { "$date": <timestamp> },
+   local: { ip: <String>, port: <int> },
+   remote: { ip: <String>, port: <int> },
+   users : [ { user: <String>, db: <String> }, ... ],
+   roles: [ { role: <String>, db: <String> }, ... ],
+   param: <document>,
+   result: <int>
+ }
+
+:atype: Event type
+
+:ts: Date and UTC time of the event
+
+:local: Local IP address and port number of the instance
+
+:remote: Remote IP address and port number
+ of the incoming connection associated with the event
+
+:users: Users associated with the event
+
+:roles: Roles granted to the user
+
+:param: Details of the event associated with the specific type
+
+:result: Exit code (``0`` for success)
+
+.. _audit-filter-examples:
+
+Audit Filter Examples
+=====================
+
+The following examples demostrate the flexibility of audit log filters.
+
+.. contents::
+   :local:
+
+Basic Filtering
+---------------
+
+For example, you can log actions only from user *john* on all databases:
+
+* Command line::
+
+   --auditDestination file --auditFilter '{ "users.user": "john" }'
+
+* Config file::
+
+   auditLog:
+     destination: file
+     filter: '{ "users.user": "john" }'
+
+Standard Query Selectors
+------------------------
+
+You can use query selectors,
+such as ``$eq``, ``$in``, ``$gt``, ``$lt``, ``$ne``, and others
+to log multiple event types.
+
+For example, to log only the ``dropCollection`` and ``dropDatabase`` events:
+
+* Command line::
+
+   --auditDestination file --auditFilter '{ atype: { $in: [ "dropCollection", "dropDatabase" ] } }'
+
+* Config file::
+
+   auditLog:
+     destination: file
+     filter: '{ atype: { $in: [ "dropCollection", "dropDatabase" ] } }'
+
+Regular Expressions
+-------------------
+
+Another way to specify multiple event types is using regular expressions.
+
+For example, to filter all ``drop`` operations:
+
+* Command line::
+
+   --auditDestination file --auditFilter '{ "atype" : /^drop.*/ }'
+
+* Config file::
+
+   auditLog:
+     destination: file
+     filter: '{ "atype" : /^drop.*/ }'
+
+Read and Write Operations
+-------------------------
+
+By default, operations with successful authorization are not logged,
+so for this filter to work, enable ``auditAuthorizationSuccess`` parameter,
+as described in :ref:`auditAuthorizationSuccess`.
+
+For example, to filter read and write operations
+on all the collections in the ``test`` database:
+
+.. note:: The dot (``.``) after the database name in the regular expression
+   must be escaped with two backslashes (``\\``).
+
+* Command line::
+
+   --setParameter auditAuthorizationSuccess=true --auditDestination file --auditFilter '{ atype: "authCheck", "param.command": { $in: [ "find", "insert", "delete", "update", "findandmodify" ] }, "param.ns": /^test\\./ } }'
+
+* Config file::
+
+   auditLog:
+     destination: file
+     filter: '{ atype: "authCheck", "param.command": { $in: [ "find", "insert", "delete", "update", "findandmodify" ] }, "param.ns": /^test\\./ } }'
+
+   setParameter: { auditAuthorizationSuccess: true }
+
+.. _auditAuthorizationSuccess:
+
+Enabling Auditing of Authorization Success
+==========================================
+
+By default, only authorization failures for the ``authCheck`` action
+are logged by the audit system.
+To enable logging of authorization successes,
+set the ``auditAuthorizationSuccess`` parameter to ``true``.
+
+.. note:: Enabling this parameter is required
+   if you want to filter CRUD operations in the audit log,
+   because CRUD operations are logged under ``authCheck`` action.
+
+You can enable it on a running server using the following command::
+
+ db.adminCommand( { setParameter: 1, auditAuthorizationSuccess: true } )
+
+To enable it on the command line, use the following option
+when running ``mongod`` or ``mongos`` process::
+
+ --setParameter auditAuthorizationSuccess=true
+
+You can also add it to the configuration file as follows::
+
+ setParameter:
+   auditAuthorizationSuccess: true
+
+.. warning:: Enabling ``auditAuthorizationSuccess`` can impact performance
+   compared to logging only authorization failures.
 
