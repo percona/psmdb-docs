@@ -14,8 +14,7 @@ It is based on `MongoDB 3.4.2
 includes all changes introduced in :ref:`3.4.0-1.0beta` and :ref:`3.4.1-1.1rc`,
 and the following additional changes:
 
-* :jirabug:`PSMDB-119`: Fixed the audit log message format
-  to comply with upstream MongoDB:
+* Fixed the audit log message format to comply with upstream MongoDB:
 
   - Changed ``params`` document to ``param``
   - Added ``roles`` document
