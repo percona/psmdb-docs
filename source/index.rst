@@ -8,10 +8,6 @@ Percona Server for MongoDB Documentation
 for MongoDB 3.4 Community Edition with enterprise-grade features.
 It requires no changes to MongoDB applications or code.
 
-.. note:: |PSMDB| 3.4 is currently in beta.
-   For the latest stable version, see `PSMDB 3.2 documentation
-   <https://www.percona.com/doc/percona-server-for-mongodb/LATEST/>`_.
-
 |PSMDB| provides the following features:
 
 * MongoDB's original MMAPv1_ storage engine,
