@@ -34,13 +34,11 @@ and includes the following additional fixes:
 * :jirabug:`PSMDB-91`: Deprecated ``audit`` configuration section
   and added ``auditLog`` instead
 
-* :jirabug:`PSMDB-94`: Fixed ``audit_create_database`` test
-
 * :jirabug:`PSMDB-95`: Fixed version dependencies for subpackages
   so that all corresponding packages get updated accordingly
 
 * :jirabug:`PSMDB-96`: Excluded :file:`diagnostic.data` directory
-  from backup
+  when using :ref:`toku-backup` with :ref:`perconaft`
 
 * :jirabug:`PSMDB-98`: Improved :ref:`hot-backup` to create destination
   folder if it does not exist
@@ -54,11 +52,11 @@ and includes the following additional fixes:
 * :jirabug:`PSMDB-107`: Fixed behavior when creating the
   :ref:`audit log file <audit-log>`
 
-* :jirabug:`PSMDB-111`: Refactored ``external_auth`` tests
-
 * :jirabug:`PSMDB-123`: Fixed the creation of proper subdirectories
   inside the backup destination directory
 
 * :jirabug:`PSMDB-126`: Added index and collection name
   to duplicate key error message
+
+* Fixed a number of other small issues and bugs
 
