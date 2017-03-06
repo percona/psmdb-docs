@@ -90,3 +90,33 @@ when starting a ``mongod``  server instance.
     --auditPath /var/log/psmdb/audit.json \
     --auditFilter '{ "users.user" : "tim" }'
 
+.. _auditAuthorizationSuccess:
+
+Enabling Auditing of Authorization Success
+==========================================
+
+By default, only authorization failures for the ``authCheck`` action
+are logged by the audit system.
+To enable logging of authorization successes,
+set the ``auditAuthorizationSuccess`` parameter to ``true``.
+
+.. note:: Enabling this parameter is required
+   if you want to filter CRUD operations in the audit log,
+   because CRUD operations are logged under ``authCheck`` action.
+
+You can enable it on a running server using the following command::
+
+ db.adminCommand( { setParameter: 1, auditAuthorizationSuccess: true } )
+
+To enable it on the command line, use the following option
+when running ``mongod`` or ``mongos`` process::
+
+ --setParameter auditAuthorizationSuccess=true
+
+You can also add it to the configuration file as follows::
+
+ setParameter:
+   auditAuthorizationSuccess: true
+
+.. warning:: Enabling ``auditAuthorizationSuccess`` can impact performance
+   compared to logging only authorization failures.
