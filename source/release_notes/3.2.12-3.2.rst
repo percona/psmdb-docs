@@ -58,5 +58,7 @@ and includes the following additional fixes:
 * :jirabug:`PSMDB-126`: Added index and collection name
   to duplicate key error message
 
+* Fixed startup scripts for Ubuntu 14.04.5 LTS (Trusty Tahr)
+
 * Fixed a number of other small issues and bugs
 
