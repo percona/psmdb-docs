@@ -1,0 +1,64 @@
+.. _3.2.12-3.2:
+
+=====================================
+Percona Server for MongoDB 3.2.12-3.2
+=====================================
+
+Percona is glad to announce the release of
+Percona Server for MongoDB 3.2.12-3.2 on March 9, 2017.
+Downloads are available
+`here <https://www.percona.com/downloads/percona-server-mongodb-3.2>`_
+and from the :ref:`Percona Software Repositories <install>`.
+
+Percona Server for MongoDB is a highly scalable,
+zero-maintenance downtime database
+supporting the MongoDB v3.2 protocol and drivers.
+It extends MongoDB with MongoRocks_,
+:ref:`inmemory`, and :ref:`PerconaFT <perconaft>` storage engines,
+as well as several enterprise features.
+Percona Server for MongoDB requires no changes to MongoDB applications or code.
+
+.. note:: The PerconaFT storage engine has been deprecated
+   and will not be available in future releases.
+
+This release is based on `MongoDB 3.2.12
+<http://docs.mongodb.org/manual/release-notes/3.2/#feb-1-2017>`_
+and includes the following additional fixes:
+
+* :jirabug:`PSMDB-17`: Changed welcome message in the shell
+  to mention |PSMDB| instead of *MongoDB*
+
+* :jirabug:`PSMDB-90`: Added error message for storage engines
+  that do not support :ref:`hot-backup`
+
+* :jirabug:`PSMDB-91`: Deprecated ``audit`` configuration section
+  and added ``auditLog`` instead
+
+* :jirabug:`PSMDB-95`: Fixed version dependencies for subpackages
+  so that all corresponding packages get updated accordingly
+
+* :jirabug:`PSMDB-96`: Excluded :file:`diagnostic.data` directory
+  when using :ref:`toku-backup` with :ref:`perconaft`
+
+* :jirabug:`PSMDB-98`: Improved :ref:`hot-backup` to create destination
+  folder if it does not exist
+
+* :jirabug:`PSMDB-101`: Implemented the ``auditAuthorizationSuccess``
+  parameter to :ref:`enable auditing of authorization success <auditAuthorizationSuccess>`
+
+* :jirabug:`PSMDB-104`: Updated links in client shell output
+  to point to |PSMDB| documentation and forum
+
+* :jirabug:`PSMDB-107`: Fixed behavior when creating the
+  :ref:`audit log file <audit-log>`
+
+* :jirabug:`PSMDB-123`: Fixed the creation of proper subdirectories
+  inside the backup destination directory
+
+* :jirabug:`PSMDB-126`: Added index and collection name
+  to duplicate key error message
+
+* Fixed startup scripts for Ubuntu 14.04.5 LTS (Trusty Tahr)
+
+* Fixed a number of other small issues and bugs
+
