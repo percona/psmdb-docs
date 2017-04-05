@@ -4,7 +4,7 @@
  |PSMDB| 3.4.3-1.3
 ===================
 
-:Date: April 5, 2017
+:Date: April 6, 2017
 :Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
 :Installation: :ref:`install`
 
@@ -18,4 +18,3 @@ and includes the following additional changes:
 * :jirabug:`PSMDB-126`: Added index and collection names
   to duplicate key error message.
 
-* Fixed package names to include full version.
