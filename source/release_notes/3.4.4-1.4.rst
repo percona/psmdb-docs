@@ -1,0 +1,25 @@
+.. _3.4.4-1.4:
+
+===================
+ |PSMDB| 3.4.4-1.4
+===================
+
+:Date: May 9, 2017
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
+:Installation: :ref:`install`
+
+This release is based on `MongoDB 3.4.4
+<https://docs.mongodb.com/manual/release-notes/3.4/#apr-21-2017>`_,
+and includes the following additional changes:
+
+* :jirabug:`PSMDB-122`: Added the ``percona-server-mongodb-enable-auth.sh``
+  script to :ref:`binary tarball <tarball>`.
+
+* :jirabug:`PSMDB-127`: Fixed compaction algorithm for *MongoRocks*.
+
+* :jirabug:`PSMDB-133`: Added the ``wiredTigerCheckpointSizeMB`` variable,
+  set to ``1000`` in the configration template for *WiredTiger*.
+  Valid values are 32 to 2048 (2GB), with the latter being default.
+
+* :jirabug:`PSMDB-138`: Implemented fix for *MongoRocks*.
+
