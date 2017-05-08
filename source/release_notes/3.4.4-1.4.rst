@@ -22,5 +22,6 @@ and includes the following additional changes:
   set to ``1000`` in the configration template for *WiredTiger*.
   Valid values are 32 to 2048 (2GB), with the latter being default.
 
-* :jirabug:`PSMDB-138`: Implemented fix for *MongoRocks*.
+* :jirabug:`PSMDB-138`: Implemented `SERVER-23418
+  <https://jira.mongodb.org/browse/SERVER-23418>`_ for *MongoRocks*.
 
