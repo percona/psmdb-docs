@@ -15,7 +15,8 @@ and includes the following additional changes:
 * :jirabug:`PSMDB-122`: Added the ``percona-server-mongodb-enable-auth.sh``
   script to :ref:`binary tarball <tarball>`.
 
-* :jirabug:`PSMDB-127`: Fixed compaction algorithm for *MongoRocks*.
+* :jirabug:`PSMDB-127`: Fixed cleanup of deleted documents and indexes
+  for *MongoRocks*.
 
 * :jirabug:`PSMDB-133`: Added the ``wiredTigerCheckpointSizeMB`` variable,
   set to ``1000`` in the configration template for *WiredTiger*.
