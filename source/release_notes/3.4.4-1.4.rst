@@ -17,6 +17,9 @@ and includes the following additional changes:
 
 * :jirabug:`PSMDB-127`: Fixed cleanup of deleted documents and indexes
   for *MongoRocks*.
+  When you upgrade to this release,
+  deferred compaction may occur and cause database size
+  to decrease significantly.
 
 * :jirabug:`PSMDB-133`: Added the ``wiredTigerCheckpointSizeMB`` variable,
   set to ``1000`` in the configration template for *WiredTiger*.
