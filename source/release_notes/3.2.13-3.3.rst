@@ -1,0 +1,39 @@
+.. _3.2.13-3.3:
+
+=====================================
+Percona Server for MongoDB 3.2.13-3.3
+=====================================
+
+Percona is glad to announce the release of
+Percona Server for MongoDB 3.2.13-3.3 on May 15, 2017.
+Downloads are available
+`here <https://www.percona.com/downloads/percona-server-mongodb-3.2>`_
+and from the :ref:`Percona Software Repositories <install>`.
+
+Percona Server for MongoDB is a highly scalable,
+zero-maintenance downtime database
+supporting the MongoDB v3.2 protocol and drivers.
+It extends MongoDB with MongoRocks_,
+:ref:`inmemory`, and :ref:`PerconaFT <perconaft>` storage engines,
+as well as several enterprise features.
+Percona Server for MongoDB requires no changes to MongoDB applications or code.
+
+.. note:: The PerconaFT storage engine has been deprecated
+   and will not be available in future releases.
+
+This release is based on `MongoDB 3.2.13
+<http://docs.mongodb.org/manual/release-notes/3.2/#may-1-2017>`_
+and includes the following additional fixes:
+
+* :jirabug:`PSMDB-127`: Fixed cleanup of deleted documents and indexes
+  for *MongoRocks*.
+  When you upgrade to this release,
+  deferred compaction may occur and cause database size
+  to decrease significantly.
+
+* :jirabug:`PSMDB-133`: Added the ``wiredTigerCheckpointSizeMB`` variable,
+  set to ``1000`` in the configration template for *WiredTiger*.
+  Valid values are 32 to 2048 (2GB), with the latter being default.
+
+* :jirabug:`PSMDB-138`: Implemented `SERVER-23418
+  <https://jira.mongodb.org/browse/SERVER-23418>`_ for *MongoRocks*.
