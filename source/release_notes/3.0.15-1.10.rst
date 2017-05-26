@@ -1,0 +1,17 @@
+.. _3.0.15-1.10:
+
+======================================
+Percona Server for MongoDB 3.0.15-1.10
+======================================
+
+:Date: May 26, 2017
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.0/
+:Installation: :ref:`install`
+
+This release is based on `MongoDB 3.0.15
+<https://docs.mongodb.com/manual/release-notes/3.0/#may-15-2017>`_,
+and includes the following additional change:
+
+* Implemented `SERVER-27493
+  <https://jira.mongodb.org/browse/SERVER-27493>`_ for *MongoRocks*.
+
