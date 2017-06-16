@@ -111,7 +111,7 @@ The following options are available
 
    :Variable: ``storage.rocksdb.cacheSizeGB``
    :Type: Integer
-   :Default: 50% of physical memory
+   :Default: 30% of physical memory
 
    Specifies the amount of memory (in gigabytes) to allocate for block cache.
    Block cache is used to store uncompressed pages.
