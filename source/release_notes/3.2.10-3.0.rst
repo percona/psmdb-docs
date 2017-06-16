@@ -13,7 +13,7 @@ and from the :ref:`Percona Software Repositories <install>`.
 Percona Server for MongoDB is a highly scalable,
 zero-maintenance downtime database
 supporting the MongoDB v3.2 protocol and drivers.
-It extends MongoDB with MongoRocks_,
+It extends MongoDB with :ref:`mongorocks`,
 :ref:`inmemory`, and :ref:`PerconaFT <perconaft>` storage engines,
 as well as several enterprise features.
 Percona Server for MongoDB requires no changes to MongoDB applications or code.
@@ -31,7 +31,7 @@ New Features
 **Universal Hot Backup**
 
   This release introduces an integrated hot backup
-  for the default WiredTiger_ and alternative MongoRocks_ engine.
+  for the default WiredTiger_ and alternative :ref:`mongorocks` engine.
   It creates a physical data backup on a running server
   without performance degradation.
 

@@ -13,7 +13,7 @@ It requires no changes to MongoDB applications or code.
 * MongoDB's original `MMAPv1`_ storage engine,
   and the default `WiredTiger`_ engine
 * Optional :ref:`PerconaFT <perconaft>`, :ref:`inmemory`,
-  and `MongoRocks`_ storage engines
+  and :ref:`mongorocks` storage engines
 * :ref:`Percona TokuBackup <toku-backup>` for creating dynamic backups
   while data remains fully accessible and writable (*hot backup*)
 * :ref:`External SASL authentication <ext-auth>`
@@ -52,6 +52,7 @@ Features
 .. toctree::
    :maxdepth: 1
 
+   mongorocks
    inmemory
    perconaft
    toku-backup
@@ -66,6 +67,7 @@ Reference
 .. toctree::
    :maxdepth: 1
 
+   switch_storage_engines
    Parameter Tuning <setParameter>
    Release Notes <release_notes/index>
    glossary

@@ -5,7 +5,7 @@ Hot Backup
 ==========
 
 |PSMDB| includes an integrated open-source hot backup system
-for the default WiredTiger_ and alternative MongoRocks_ storage engine.
+for the default WiredTiger_ and alternative :ref:`mongorocks` storage engine.
 It creates a physical data backup on a running server
 without performance degradation.
 

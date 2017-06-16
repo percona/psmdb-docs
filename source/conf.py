@@ -93,7 +93,7 @@ rst_prolog = '''
 
 .. _`MMAPv1`: https://docs.mongodb.org/manual/core/mmapv1/
 .. _`WiredTiger`: https://docs.mongodb.org/manual/core/wiredtiger/
-.. _`MongoRocks`: http://rocksdb.org
+.. _`RocksDB`: http://rocksdb.org
 .. _`In-Memory`: https://docs.mongodb.com/v3.2/core/inmemory/
 
 .. |check|  replace:: ``|[[---CHECK---]]|``
@@ -246,6 +246,7 @@ latex_logo = 'percona-logo.jpg'
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
 #latex_use_parts = False
+latex_toplevel_sectioning = 'part'
 
 # If true, show page references after internal links.
 #latex_show_pagerefs = False
