@@ -21,47 +21,34 @@ The MongoDB database profiler can operate in one of three modes:
   By default, queries that take more than 100 milliseconds to execute
   are considered *slow*.
 
-* ``2``: Collects profiling data for all database operations.
+* ``2``: Collects profiling data for all database operations. 
 
-Mode ``1`` ignores information about all *fast* queries,
+Mode ``1`` ignores all *fast* queries,
 which may be the cause of problems that you are trying to find.
 Mode ``2`` provides a comprehensive picture of database performance,
 but may introduce unnecessary overhead.
 
-With rate limiting you can run the profiler in mode ``2``
+With rate limiting you can collect profiling data for all database operations
 and reduce overhead by sampling queries.
-Slow queries ignore rate limiting and are always profiled.
+Slow queries ignore rate limiting and are always collected by the profiler.
 
 Enabling the Rate Limit
 =======================
 
 To enable rate limiting, set the profiler mode to ``2``
 and specify the value of the rate limit.
-Optionally, you can also change the default threshold for slow queries.
+Optionally, you can also change the default threshold for slow queries,
+which will not be sampled by rate limiting.
 
 For example, to set the rate limit to ``100``
 (profile every 100th *fast* query)
 and the slow query threshold to ``200``
-(profile all queries slower than 200 milliseconds)
-for the entire ``mongod`` instance,
-add the following settings to the MongoDB configuration file
-(by default, :file:`/etc/mongod.conf`)::
+(profile all queries slower than 200 milliseconds),
+run the ``mongod`` instance as follows::
 
- operationProfiling:
-   mode: 2
-   slowOpThresholdMs: 200
-   rateLimit: 100
+ $ mongod --profile 2 --slowms 200 --rateLimit 100
 
-.. note:: For development and testing purposes,
-   you can pass the following options when starting the ``mongod`` process
-   without changing the configuration file settings:
-
-   .. code-block:: bash
-
-      $ mongod --profile 2 --slowms 200 --rateLimit 100
-
-To enable rate limiting along with setting the profiler mode
-and the slow query threshold at runtime,
+To do the same at runtime,
 use the ``profile`` command.
 It returns the *previous* settings
 and ``"ok" : 1`` indicates that the operation was successful::
@@ -81,6 +68,19 @@ use the ``profilingRateLimit`` parameter on the ``admin`` database::
  { "was" : 1, "ok" : 1 }
  > db.getSiblingDB('admin').runCommand( { getParameter: 1, "profilingRateLimit": 1 } );
  { "profilingRateLimit" : 100, "ok" : 1 }
+
+If you want rate limiting to persist when you restart ``mongod``,
+set the corresponding variables in the MongoDB configuration file
+(by default, :file:`/etc/mongod.conf`)::
+
+ operationProfiling:
+   mode: all
+   slowOpThresholdMs: 200
+   rateLimit: 100
+
+.. note:: The value of the ``operationProfiling.mode`` variable is a string,
+   which you can set to either ``off``, ``slowOp``, or ``all``,
+   corresponding to profiling modes ``0``, ``1``, and ``2``.
 
 Profiler Collection Extension
 =============================
