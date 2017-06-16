@@ -91,5 +91,5 @@ The following hints may help you:
   * 256 MB
 
 * The default maximum internal cache size that :ref:`mongorocks` uses
-  is 50% of RAM.
+  is 30% of RAM.
 
