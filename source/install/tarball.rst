@@ -26,7 +26,7 @@ You can find links to the binary tarballs from the
 
    .. code-block:: bash
 
-      export PATH psmdb/bin:$PATH
+      export PATH ~/psmdb/bin:$PATH
 
 4. Create the default data directory:
 
@@ -36,5 +36,4 @@ You can find links to the binary tarballs from the
 
 5. Make sure that you have read and write permissions for the data directory
    and run ``mongod``.
-
 
