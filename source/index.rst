@@ -42,6 +42,7 @@ Installation
 
    install/index
    Upgrading from MongoDB Community Edition <install/upgrade_from_mongodb>
+   Upgrading from Version 3.2 <install/upgrade_from_32>
 
 Features
 ========
