@@ -15,12 +15,6 @@ of the following distributions:
    (for example, Amazon Linux AMI and Oracle Linux),
    but it is tested only on platforms listed above.
 
-The packages are available in the official Percona software repositories
-and on the `download page
-<http://www.percona.com/downloads/percona-server-mongodb-3.2/>`_.
-It is recommended to intall |PSMDB| from the official repository
-using :command:`yum`.
-
 .. contents::
    :local:
 
@@ -50,83 +44,18 @@ Package Contents
 Installing from Percona Repository
 ==================================
 
-1. Install the Percona repository package:
+It is recommended to intall |PSMDB| from official Percona repositories:
+
+1. Configure Percona repositories as described in
+   `Percona Software Repositories Documentation
+   <https://www.percona.com/doc/percona-repo-config/index.html>`_.
+
+#. Install the required |PSMDB| package using :command:`yum`.
+   For example, to install the full package, run the following:
 
    .. code-block:: bash
 
-      $ sudo yum install http://www.percona.com/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm
-
-   You should see the following if successful: ::
-
-      Installed:
-        percona-release.noarch 0:0.1-4
-
-      Complete!
-
-   .. note:: Red Hat Enterprise Linux and CentOS 5
-      do not support installing packages directly from the remote location.
-      Download the Percona repository package first
-      and install it manually using :program:`rpm`:
-
-      .. code-block:: bash
-
-         $ wget http://www.percona.com/downloads/percona-release/redhat/0.1-4/percona-release-0.1-4.noarch.rpm
-         $ rpm -ivH percona-release-0.1-4.noarch.rpm
-
-2. Check that the packages are available:
-
-   .. code-block:: bash
-
-      $ yum list | grep Percona-Server-MongoDB
-
-   You should see output similar to the following:
-
-   .. code-block:: text
-
-      ...
-      Percona-Server-MongoDB-32.x86_64            3.2.10-3.0.el6               percona-release-x86_64
-      Percona-Server-MongoDB-32-debuginfo.x86_64  3.2.10-3.0.el6               percona-release-x86_64
-      Percona-Server-MongoDB-32-mongos.x86_64     3.2.10-3.0.el6               percona-release-x86_64
-      Percona-Server-MongoDB-32-server.x86_64     3.2.10-3.0.el6               percona-release-x86_64
-      Percona-Server-MongoDB-32-shell.x86_64      3.2.10-3.0.el6               percona-release-x86_64
-      Percona-Server-MongoDB-32-tools.x86_64      3.2.10-3.0.el6               percona-release-x86_64
-      ...
-
-3. Install the |PSMDB| packages:
-
-   .. code-block:: bash
-
-      $ sudo yum install Percona-Server-MongoDB-32
-
-.. _yum-testing-repo:
-
-Testing and Experimental Repositories
--------------------------------------
-
-Percona offers pre-release builds from the testing repo,
-and early-stage development builds from the experimental repo.
-You can enable either one in the Percona repository configuration file
-:file:`/etc/yum.repos.d/percona-release.repo`.
-There are three sections in this file,
-for configuring corresponding repositories:
-
-* stable release
-* testing
-* experimental
-
-The latter two repositories are disabled by default.
-
-If you want to install the latest testing builds,
-set ``enabled=1`` for the following entries: ::
-
-  [percona-testing-$basearch]
-  [percona-testing-noarch]
-
-If you want to install the latest experimental builds,
-set ``enabled=1`` for the following entries: ::
-
-  [percona-experimental-$basearch]
-  [percona-experimental-noarch]
+      $ sudo yum install Percona-Server-MongoDB-3
 
 Using Percona Server for MongoDB
 ================================
@@ -154,48 +83,42 @@ Using Percona Server for MongoDB
 The configuration file is :file:`/etc/mongod.conf`.
 It runs as a service named ``mongod``.
 
-Starting the service
---------------------
+* **Starting the service**
 
-|PSMDB| is not started automatically after installation.
-Start it manually using the following command:
+  |PSMDB| is not started automatically after installation.
+  Start it manually using the following command:
 
-.. code-block:: bash
+  .. code-block:: bash
 
-   $ sudo service mongod start
+     $ sudo service mongod start
 
-Confirming that service is running
-----------------------------------
+* **Confirming that service is running**
 
-Check the service status using the following command:
+  Check the service status using the following command:
 
-.. code-block:: bash
+  .. code-block:: bash
 
-   $ sudo service mongod status
+     $ sudo service mongod status
 
-Stopping the service
---------------------
+* **Stopping the service**
 
-Stop the service using the following command:
+  Stop the service using the following command:
 
-.. code-block:: bash
+  .. code-block:: bash
 
-   $ sudo service mongod stop
+     $ sudo service mongod stop
 
-Restarting the service
-----------------------
+* **Restarting the service**
 
-Restart the service using the following command:
+  Restart the service using the following command:
 
-.. code-block:: bash
+  .. code-block:: bash
 
-   $ sudo service mongod restart
+     $ sudo service mongod restart
 
-.. note:: Red Hat Enterprise Linux and CentOS 7 come with
-   `systemd <http://freedesktop.org/wiki/Software/systemd/>`_
-   as the default system and service manager.
-   You can invoke all the above commands with ``sytemctl``
-   instead of ``service``. Currently both are supported.
+.. note:: On Red Hat Enterprise Linux and CentOS 7
+   you can also invoke all the above commands with ``sytemctl``
+   instead of ``service``.
 
 Running after reboot
 --------------------

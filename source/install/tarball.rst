@@ -26,7 +26,7 @@ You can find links to the binary tarballs from the
 
    .. code-block:: bash
 
-      export PATH psmdb/bin:$PATH
+      export PATH ~/psmdb/bin:$PATH
 
 4. Create the default data directory:
 
