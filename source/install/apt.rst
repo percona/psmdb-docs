@@ -1,4 +1,4 @@
-pt:
+.. _apt:
 
 ==========================================================
 Installing Percona Server for MongoDB on Debian and Ubuntu

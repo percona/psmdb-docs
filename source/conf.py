@@ -116,6 +116,8 @@ rst_prolog = '''
 
 .. |Percona Server for MongoDB|  replace:: *Percona Server  for MongoDB*
 
+.. |PSMDB| replace:: *Percona Server for MongoDB*
+
 .. |Percona|  replace:: *Percona*
 
 .. |MySQL|  replace:: *MySQL*
