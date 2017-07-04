@@ -55,7 +55,7 @@ It is recommended to intall |PSMDB| from official Percona repositories:
 
    .. code-block:: bash
 
-      $ sudo yum install Percona-Server-MongoDB-3
+      $ sudo yum install Percona-Server-MongoDB-32
 
 Using Percona Server for MongoDB
 ================================
