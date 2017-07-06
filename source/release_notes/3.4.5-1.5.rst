@@ -1,0 +1,25 @@
+.. _3.4.5-1.5:
+
+===================
+ |PSMDB| 3.4.5-1.5
+===================
+
+:Date: July 7, 2017
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
+:Installation: :ref:`install`
+
+This release is based on `MongoDB 3.4.5
+<https://docs.mongodb.com/manual/release-notes/3.4/#jun-14-2017>`_,
+and includes the following additional changes:
+
+New Features
+============
+
+* :jirabug:`PSMDB-135`: Exposed :ref:`mongorocks` engine details
+  in the ``serverStatus`` command output.
+
+Bugs Fixed
+==========
+
+* :jirabug:`PSMDB-67`: Fixed ``mongod`` service status messages.
+
