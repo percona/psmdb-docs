@@ -1,8 +1,8 @@
 .. _dochome:
 
-========================================
-Percona Server for MongoDB Documentation
-========================================
+==================================================
+Percona Server for MongoDB |version| Documentation
+==================================================
 
 |PSMDB| is a free, enhanced, fully compatible, open source, drop-in replacement
 for MongoDB 3.4 Community Edition with enterprise-grade features.
