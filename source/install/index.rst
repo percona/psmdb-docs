@@ -14,6 +14,7 @@ Percona provides packages for the following systems:
    * - Supported Distributions
      - Instructions
    * - * Debian 8 ("jessie")
+       * Debian 9 ("stretch")
        * Ubuntu 14.04 LTS (Trusty Tahr)
        * Ubuntu 16.04 LTS (Xenial Xerus)
        * Ubuntu 16.10 (Yakkety Yak)

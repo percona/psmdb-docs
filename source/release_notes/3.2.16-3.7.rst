@@ -1,0 +1,31 @@
+.. _3.2.16-3.7:
+
+=====================================
+Percona Server for MongoDB 3.2.16-3.7
+=====================================
+
+Percona is glad to announce the release of
+|PSMDB| 3.2.16-3.7 on September 27, 2017.
+Downloads are available
+`here <https://www.percona.com/downloads/percona-server-mongodb-3.2>`_
+and from the :ref:`Percona Software Repositories <install>`.
+
+|PSMDB| is a highly scalable,
+zero-maintenance downtime database
+supporting the MongoDB v3.2 protocol and drivers.
+It extends MongoDB with :ref:`mongorocks`,
+:ref:`inmemory`, and :ref:`PerconaFT <perconaft>` storage engines,
+as well as several enterprise features.
+Percona Server for MongoDB requires no changes to MongoDB applications or code.
+
+.. note:: The PerconaFT storage engine has been deprecated
+   and will not be available in future releases.
+
+This release is based on `MongoDB 3.2.16
+<http://docs.mongodb.org/manual/release-notes/3.2/#jul-27-2017>`_
+and includes the following additional changes:
+
+* :jirabug:`PSMDB-164`: Fixed :ref:`mongorocks` failure to repair
+  if database metadata is inconsistent with dropped collections and indexes.
+
+* Added packages for Debian 9 ("stretch").
