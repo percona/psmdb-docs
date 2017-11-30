@@ -1,0 +1,24 @@
+.. _3.4.10-2.10:
+
+===================
+|PSMDB| 3.4.10-2.10
+===================
+
+:Date: November 30, 2017
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
+:Installation: :ref:`install`
+
+|PSMDB| is a highly scalable,
+zero-maintenance downtime database
+supporting the MongoDB v3.4 protocol and drivers.
+It extends MongoDB with :ref:`inmemory` and :ref:`mongorocks` storage engine,
+as well as several enterprise features.
+|PSMDB| requires no changes to MongoDB applications or code.
+
+This release is based on `MongoDB 3.4.10
+<https://docs.mongodb.com/manual/release-notes/3.4/#oct-31-2017>`_,
+and includes the following additional change:
+
+* ``oplog`` searches have been optimized in :ref:`mongorocks`, this should
+  also increase overall performance.
+
