@@ -1,14 +1,14 @@
-.. _upgrade_from_32:
+.. _upgrade_from_34:
 
 =================================
-Upgrading from |PSMDB| 3.2 to 3.4
+Upgrading from |PSMDB| 3.4 to 3.6
 =================================
 
-To upgrade |PSMDB| to version 3.4, you must be running version 3.2.
+To upgrade |PSMDB| to version 3.6, you must be running version 3.4.
 Upgrades from earlier versions are not supported.
 
-For information about changes in |PSMDB| 3.4 compared to 3.2,
-see :ref:`changed_in_34`.
+For information about changes in |PSMDB| 3.6 compared to 3.4,
+see :ref:`changed_in_36`.
 
 Before upgrading your production |PSMDB| deployments,
 test all your applications in a testing environment
@@ -40,13 +40,13 @@ Upgrading on Debian or Ubuntu
 
     sudo service mongod stop
 
-#. Remove |PSMDB| 3.2 packages::
+#. Remove |PSMDB| 3.4 packages::
 
-    sudo apt-get remove percona-server-mongodb-32*
+    sudo apt-get remove percona-server-mongodb-34*
 
-#. Install |PSMDB| 3.4 packages::
+#. Install |PSMDB| 3.6 packages::
 
-    sudo apt-get install percona-server-mongodb-34
+    sudo apt-get install percona-server-mongodb-36
 
 #. Start the ``mongod`` instance::
 
@@ -61,13 +61,13 @@ Upgrading on RHEL and CentOS
 
     sudo service mongod stop
 
-#. Remove |PSMDB| 3.2 packages::
+#. Remove |PSMDB| 3.4 packages::
 
-    sudo yum remove Percona-Server-MongoDB-32*
+    sudo yum remove Percona-Server-MongoDB-34*
 
-#. Install |PSMDB| 3.4 packages::
+#. Install |PSMDB| 3.6 packages::
 
-    sudo yum install Percona-Server-MongoDB-34
+    sudo yum install Percona-Server-MongoDB-36
 
 #. Start the ``mongod`` instance::
 

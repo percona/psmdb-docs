@@ -17,7 +17,6 @@ Percona provides packages for the following systems:
        * Debian 9 ("stretch")
        * Ubuntu 14.04 LTS (Trusty Tahr)
        * Ubuntu 16.04 LTS (Xenial Xerus)
-       * Ubuntu 16.10 (Yakkety Yak)
        * Ubuntu 17.04 (Zesty Zapus)
        * Ubuntu 17.10 (Artful Aardvark)
      - :ref:`Install on Debian or Ubuntu <apt>`
@@ -33,7 +32,7 @@ Alternative Install Instructions
 ================================
 
 You can also `download packages from the Percona website
-<https://www.percona.com/downloads/percona-server-mongodb-3.4/>`_
+<https://www.percona.com/downloads/percona-server-mongodb-3.6/>`_
 and install them manually using :command:`dpkg` or :command:`rpm`.
 
 .. note:: In this case, you will have to manually make sure
@@ -54,7 +53,7 @@ If you are currently using MongoDB,
 see :ref:`Upgrading from MongoDB <upgrade_from_mongodb>`.
 
 If you are running an earlier version of |PSMDB|,
-see :ref:`Upgrading from Version 3.2 <upgrade_from_32>`.
+see :ref:`Upgrading from Version 3.4 <upgrade_from_34>`.
 
 .. toctree::
    :hidden:

@@ -5,7 +5,7 @@ Percona Server for MongoDB |version| Documentation
 ==================================================
 
 |PSMDB| is a free, enhanced, fully compatible, open source, drop-in replacement
-for MongoDB 3.4 Community Edition with enterprise-grade features.
+for MongoDB 3.6 Community Edition with enterprise-grade features.
 It requires no changes to MongoDB applications or code.
 
 |PSMDB| provides the following features:
@@ -23,6 +23,11 @@ It requires no changes to MongoDB applications or code.
 
 -----
 
+.. note::
+
+  This version is currenlty considered *BETA* quality and it's not inteded to
+  be run in production.
+
 Introduction
 ============
 
@@ -30,7 +35,7 @@ Introduction
    :maxdepth: 1
 
    Feature Comparison <comparison>
-   changed_in_34
+   changed_in_36
 
 Installation
 ============
@@ -42,7 +47,7 @@ Installation
 
    install/index
    Upgrading from MongoDB Community Edition <install/upgrade_from_mongodb>
-   Upgrading from Version 3.2 <install/upgrade_from_32>
+   Upgrading from Version 3.4 <install/upgrade_from_34>
 
 Features
 ========

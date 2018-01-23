@@ -4,7 +4,7 @@
 Percona Server for MongoDB Feature Comparison
 =============================================
 
-|PSMDB| is based on MongoDB 3.4, and it is the successor to Percona TokuMX,
+|PSMDB| is based on MongoDB 3.6, and it is the successor to Percona TokuMX,
 which is based on MongoDB 2.4.
 
 Both MongoDB and |PSMDB| include a pluggable storage engine API.

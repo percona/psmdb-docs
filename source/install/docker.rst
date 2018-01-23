@@ -18,12 +18,12 @@ For more information about using Docker, see the `Docker Docs`_.
 .. note:: By default, Docker will pull the image from Docker Hub
    if it is not available locally.
 
-To run the latest |PSMDB| 3.4 in a Docker container, use the following command::
+To run the latest |PSMDB| 3.6 in a Docker container, use the following command::
 
  docker run -d \
   --name psmdb \
   --restart always \
-  percona/percona-server-mongodb:3.4
+  percona/percona-server-mongodb:3.6
 
 The previous command does the following:
 
@@ -42,7 +42,7 @@ The previous command does the following:
   will start the container on startup
   and restart it if the container exits.
 
-* ``percona/percona-server-mongodb:3.4`` is the name and version tag
+* ``percona/percona-server-mongodb:3.6`` is the name and version tag
   of the image to derive the container from.
 
   For full list of tags,

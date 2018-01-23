@@ -5,7 +5,7 @@ Installing Percona Server for MongoDB from Binary Tarball
 =========================================================
 
 You can find links to the binary tarballs from the
-`Percona Server for MongoDB download page <https://www.percona.com/downloads/percona-server-mongodb-3.4/>`_.
+`Percona Server for MongoDB download page <https://www.percona.com/downloads/percona-server-mongodb-3.6/>`_.
 
 1. Fetch and extract the correct binary tarball.
    For example, if you are running Debian 8 ("jessie"):

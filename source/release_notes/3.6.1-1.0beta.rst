@@ -1,0 +1,24 @@
+.. _3.6.1-1.0beta:
+
+======================
+|PSMDB| 3.6.1-1.0 Beta
+======================
+
+:Date: January 23, 2018
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.6/
+:Installation: :ref:`install`
+
+This release is based on `MongoDB 3.6.1
+<https://docs.mongodb.com/manual/release-notes/3.6/#dec-26-2017>`_
+and doesn't include any additional changes.
+
+.. note::
+
+  This version is considered *BETA* quality and it's not inteded to
+  be run in production.
+
+Known Issues
+------------
+
+* :jirabug:`PSMDB-184` - MongoRocks reindexing collection or repairing database
+  causes query to return ``0`` or null in read concern majority.
