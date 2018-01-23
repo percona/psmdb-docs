@@ -8,14 +8,25 @@
 :Download: http://www.percona.com/downloads/percona-server-mongodb-3.6/
 :Installation: :ref:`install`
 
-This release is based on `MongoDB 3.6.1
-<https://docs.mongodb.com/manual/release-notes/3.6/#dec-26-2017>`_
-and doesn't include any additional changes.
-
 .. note::
 
   This version is considered *BETA* quality and it's not inteded to
   be run in production.
+
+This release is based on `MongoDB 3.6.1
+<https://docs.mongodb.com/manual/release-notes/3.6/#dec-26-2017>`_
+and provides the following features:
+
+* MongoDB's original MMAPv1_ storage engine,
+  and the default WiredTiger_ engine
+* Optional :ref:`inmemory` and :ref:`mongorocks` storage engines
+* :ref:`External SASL authentication <ext-auth>`
+  using OpenLDAP or Active Directory
+* :ref:`Audit logging <audit-log>`
+  to track and query database interactions of users or applications
+* :ref:`hot-backup` for the default WiredTiger_
+  and alternative :ref:`mongorocks` storage engine
+* :ref:`rate-limit` to decrease the impact of the profiler on performance
 
 Known Issues
 ------------
