@@ -7,9 +7,6 @@ Upgrading from |PSMDB| 3.4 to 3.6
 To upgrade |PSMDB| to version 3.6, you must be running version 3.4.
 Upgrades from earlier versions are not supported.
 
-For information about changes in |PSMDB| 3.6 compared to 3.4,
-see :ref:`changed_in_36`.
-
 Before upgrading your production |PSMDB| deployments,
 test all your applications in a testing environment
 to make sure they are compatible with the new version.
