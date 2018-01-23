@@ -10,7 +10,7 @@
 
 .. note::
 
-  This version is considered *BETA* quality and it's not inteded to
+  This version is considered *BETA* quality and it's not intended to
   be used in production.
 
 This release is based on `MongoDB 3.6.1
