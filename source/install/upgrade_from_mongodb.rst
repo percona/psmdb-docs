@@ -42,11 +42,11 @@ Upgrading on Debian or Ubuntu
 
       $ dpkg -l | grep mongod
 
-      ii  mongodb-org                              3.0.6                         amd64        MongoDB open source document-oriented database system (metapackage)
-      ii  mongodb-org-mongos                       3.0.6                         amd64        MongoDB sharded cluster query router
-      ii  mongodb-org-server                       3.0.6                         amd64        MongoDB database server
-      ii  mongodb-org-shell                        3.0.6                         amd64        MongoDB shell client
-      ii  mongodb-org-tools                        3.0.6                         amd64        MongoDB tools
+      ii  mongodb-org                    3.6.2                              amd64        MongoDB open source document-oriented database system (metapackage)
+      ii  mongodb-org-mongos             3.6.2                              amd64        MongoDB sharded cluster query router
+      ii  mongodb-org-server             3.6.2                              amd64        MongoDB database server
+      ii  mongodb-org-shell              3.6.2                              amd64        MongoDB shell client
+      ii  mongodb-org-tools              3.6.2                              amd64        MongoDB tools
 
 3. Remove installed packages:
 
@@ -72,20 +72,20 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
       $ rpm -qa | grep mongo
 
-      mongodb-org-3.0.6-1.el6.x86_64
-      mongodb-org-server-3.0.6-1.el6.x86_64
-      mongodb-org-shell-3.0.6-1.el6.x86_64
-      mongodb-org-mongos-3.0.6-1.el6.x86_64
-      mongodb-org-tools-3.0.6-1.el6.x86_64
+      mongodb-org-mongos-3.6.2-1.el6.x86_64
+      mongodb-org-shell-3.6.2-1.el6.x86_64
+      mongodb-org-server-3.6.2-1.el6.x86_64
+      mongodb-org-tools-3.6.2-1.el6.x86_64
+      mongodb-org-3.6.2-1.el6.x86_64
 
 3. Remove installed packages:
 
    .. code-block:: bash
 
       yum remove \
-      mongodb-org-3.0.6-1.el6.x86_64 mongodb-org-server-3.0.6-1.el6.x86_64 \
-      mongodb-org-shell-3.0.6-1.el6.x86_64 mongodb-org-mongos-3.0.6-1.el6.x86_64 \
-      mongodb-org-tools-3.0.6-1.el6.x86_64
+      mongodb-org-mongos-3.6.2-1.el6.x86_64 mongodb-org-shell-3.6.2-1.el6.x86_64 \
+      mongodb-org-server-3.6.2-1.el6.x86_64 mongodb-org-tools-3.6.2-1.el6.x86_64 \
+      mongodb-org-3.6.2-1.el6.x86_64
 
 4. Install Percona Server for MongoDB :ref:`using yum <yum>`.
 
