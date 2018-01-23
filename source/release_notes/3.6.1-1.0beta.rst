@@ -22,3 +22,8 @@ Known Issues
 
 * :jirabug:`PSMDB-184` - MongoRocks reindexing collection or repairing database
   causes query to return ``0`` or null in read concern majority.
+
+* MongoDB has its own notion of time, including an expected commit order for
+  transactions that may be inconsistent with the order assigned by MongoRocks,
+  this can cause server to crash in replica sets, and majority reads in highly
+  concurrent environments.
