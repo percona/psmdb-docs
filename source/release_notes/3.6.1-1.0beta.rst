@@ -11,7 +11,7 @@
 .. note::
 
   This version is considered *BETA* quality and it's not inteded to
-  be run in production.
+  be used in production.
 
 This release is based on `MongoDB 3.6.1
 <https://docs.mongodb.com/manual/release-notes/3.6/#dec-26-2017>`_

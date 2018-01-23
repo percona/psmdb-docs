@@ -26,7 +26,7 @@ It requires no changes to MongoDB applications or code.
 .. note::
 
   This version is currenlty considered *BETA* quality and it's not inteded to
-  be run in production.
+  be used in production.
 
 Introduction
 ============
