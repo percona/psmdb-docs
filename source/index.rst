@@ -35,7 +35,6 @@ Introduction
    :maxdepth: 1
 
    Feature Comparison <comparison>
-   changed_in_36
 
 Installation
 ============
