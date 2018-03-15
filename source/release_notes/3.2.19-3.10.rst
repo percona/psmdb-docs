@@ -1,0 +1,46 @@
+.. _3.2.19-3.10:
+
+======================================
+Percona Server for MongoDB 3.2.19-3.10
+======================================
+
+Percona is glad to announce the release of
+|PSMDB| 3.2.19-3.10 on March 16, 2018.
+Downloads are available
+`here <https://www.percona.com/downloads/percona-server-mongodb-3.2>`_
+and from the :ref:`Percona Software Repositories <install>`.
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is
+a fully-compatible, drop-in replacement for MongoDB 3.2 Community Edition.
+It supports MongoDB 3.2 protocols and drivers.
+
+|PSMDB| extends MongoDB Community Edition functionality by including the
+:ref:`inmemory` and :ref:`mongorocks` storage engines, as well as several
+enterprise-grade features.
+|PSMDB| requires no changes to MongoDB applications or code.
+
+This release is based on `MongoDB 3.2.19
+<https://docs.mongodb.com/manual/release-notes/3.2/#feb-6-2018>`_
+and includes the following additional change:
+
+* :jirabug:`PSMDB-191`: Fixed a bug in :ref:`mongorocks` engine initialization
+  code which caused wrong initialization of ``_maxPrefix`` value. This could
+  lead to reuse of dropped prefix and to accidental removal of data from the
+  collection using reused prefix.
+
+  In some specific conditions data records could disappear at arbitrary moment
+  of time from the collections or indexes created after server restart.
+
+  This could happen as the result of the following sequence of events:
+   1. User deletes one or more indexes or collections. These should be the ones
+      using maximum existing prefixes values.
+   2. User shuts down the server before :ref:`mongorocks` compaction thread
+      executes compactions of deleted ranges.
+   3. User restarts the server and creates new collections. Due to the bug
+      those new collections and their indexes may get the same prefix
+      values which were deleted and not yet compacted. User inserts some
+      data into the new collections.
+   4. After the server restart :ref:`mongorocks` compaction thread continues
+      executing compactions of the deleted ranges and this process may
+      eventually delete data from the collections sharing prefixes with
+      deleted ranges.
