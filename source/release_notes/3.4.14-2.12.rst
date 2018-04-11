@@ -1,0 +1,23 @@
+.. _3.4.14-2.12:
+
+====================
+ |PSMDB| 3.4.14-2.12
+====================
+
+:Date: April 12, 2018
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
+:Installation: :ref:`install`
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is
+a fully-compatible, drop-in replacement for MongoDB 3.4 Community Edition.
+It supports MongoDB 3.4 protocols and drivers.
+
+|PSMDB| extends  Community Edition functionality by including the
+:ref:`inmemory` and :ref:`mongorocks` storage engines, as well as several
+enterprise-grade features.
+|PSMDB| requires no changes to MongoDB applications or code.
+
+This release is based on `MongoDB 3.4.14
+<https://docs.mongodb.com/manual/release-notes/3.4/#march-20-2018>`_,
+and does not include any additional changes.
+
