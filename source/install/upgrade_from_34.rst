@@ -4,6 +4,12 @@
 Upgrading from |PSMDB| 3.4 to 3.6
 =================================
 
+.. important:: **MongoRocks is deprecated in Percona Server for MongoDB 3.6.**
+   If you are using |PSMDB| 3.4 with MongoRocks, and you wish to upgrade to
+   version 3.6, please read the note at the top of the MongoRocks page before
+   upgrading:
+   https://www.percona.com/doc/percona-server-for-mongodb/3.6/mongorocks.html
+
 To upgrade |PSMDB| to version 3.6, you must be running version 3.4.
 Upgrades from earlier versions are not supported.
 

@@ -4,6 +4,44 @@
 MongoRocks
 ==========
 
+.. important:: **MongoRocks is deprecated in |PSMDB| 3.6.**
+
+MongoRocks is deprecated in |PSMDB| 3.6 and it will be fully removed in the
+next major version of |PSMDB|. Feature compatibility version is set to 3.4 when
+using |PSMDB| 3.6 with MongoRocks, so 3.6 features, such as retryable writes
+and causal consistency, cannot be used. Additionally, read concern majority may
+produce unreliable results.
+
+If you are using MongoRocks with |PSMDB| 3.4 or older, we strongly encourage
+you to migrate from MongoRocks to WiredTiger before upgrading to |PSMDB| 3.6.
+Instructions on how to change storage engines are located in this Percona blog
+post: https://www.percona.com/blog/2017/03/07/how-to-change-mongodb-storage-engines-without-downtime/.
+
+If you install |PSMDB| 3.6 with the RocksDB storage engine, you will receive
+the following error message when trying to start mongod:
+
+.. code-block:: text
+
+  [ERROR] There are known issues with MongoDB 3.6 and MongoRocks. To learn about these issues and how to enable MongoRocks with Percona Server for MongoDB 3.6, please read https://www.percona.com/doc/percona-server-for-mongodb/3.6/mongorocks.html, terminating
+
+.. note:: changing feature compatibility version to 3.6 when using MongoRocks
+   will produce the following error: ``storage engine does not support
+   upgrading featureCompatibilityVersion to 3.6``
+
+To continue using |PSMDB| 3.6 with MongoRocks, use one of the following two
+methods:
+
+
+    Add ``--useDeprecatedMongoRocks`` to ``mongod`` startup options
+    Update the config file with the following parameter:
+
+.. code-block:: text
+
+      storage:
+      engine: rocksdb
+      useDeprecatedMongoRocks: true
+
+
 *MongoRocks* is a storage engine for MongoDB
 based on the RocksDB_ key-value store optimized for fast storage.
 It is developed by Facebook and designed to handle write-intensive workloads.
@@ -21,10 +59,12 @@ Using MongoRocks
 ================
 
 As of version 3.2, |PSMDB| runs with `WiredTiger`_ by default.
-You can select a storage engine
-using the ``--storageEngine`` command-line option when you start ``mongod``.
-Alternatively, you can set the ``storage.engine`` variable
-in the configuration file (by default, :file:`/etc/mongod.conf`):
+If you still would like to use the deprecated *MongoRocks* storage
+engine, please use the ``--storageEngine rocksdb`` command-line option
+accompanied by ``--useDeprecatedMongoRocks`` when you start
+``mongod``. Alternatively, you can set the ``storage.engine`` and
+``useDeprecatedMongoRocks`` variables in the configuration file (by
+default, :file:`/etc/mongod.conf`) as shown below.
 
 Data created by one storage engine
 is not compatible with other storage engines,
@@ -38,10 +78,10 @@ When changing the storage engine, you have to do one of the following:
   .. code-block:: bash
 
      $ service mongod stop
-     $ mongod --storageEngine rocksdb --dbpath <newDataDir>
+     $ mongod --storageEngine rocksdb --useDeprecatedMongoRocks --dbpath <newDataDir>
 
   .. note:: Make sure that the user running ``mongod``
-     has read and write permissons for the new data directory.
+     has read and write permissions for the new data directory.
 
 * If you want to permanently switch to *MongoRocks*
   and do not have any valuable data in your database,
@@ -83,6 +123,7 @@ as the default for running |PSMDB| with *MongoRocks*:
 
    storage:
      engine: rocksdb
+     useDeprecatedMongoRocks: true
      rocksdb:
        cacheSizeGB: 1
        compression: snappy
@@ -97,6 +138,7 @@ is the same as starting the ``mongod`` daemon with the following options:
 .. code-block:: bash
 
     mongod --storageEngine=rocksdb \
+      --useDeprecatedMongoRocks \
       --rocksdbCacheSizeGB=1 \
       --rocksdbCompression=snappy \
       --rocksdbMaxWriteMBPerSec=1024 \
