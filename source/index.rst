@@ -5,9 +5,9 @@
 
 .. _dochome:
 
-========================================
-Percona Server for MongoDB Documentation
-========================================
+==================================================
+Percona Server for MongoDB |version| Documentation
+==================================================
 
 |Percona Server for MongoDB| is a free, enhanced, fully compatible, open source, drop-in replacement for MongoDB 3.0 Community Edition with enterprise-grade features. It requires no changes to MongoDB applications or code.
 
