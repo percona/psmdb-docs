@@ -4,7 +4,7 @@
 MongoRocks
 ==========
 
-.. important:: **MongoRocks is deprecated in |PSMDB| 3.6.**
+.. important:: **MongoRocks is deprecated in Percona Server for MongoDB 3.6.**
 
 MongoRocks is deprecated in |PSMDB| 3.6 and it will be fully removed in the
 next major version of |PSMDB|. Feature compatibility version is set to 3.4 when
