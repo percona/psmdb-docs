@@ -25,7 +25,7 @@ and provides the following additional changes:
   set to record Action type events specified with the ``$in`` expression.
 
 * :jirabug:`PSMDB-207`: a premature initialization of the feature compatibility
-  version in global parameters was fixed for the |RocksDB| storage engine.
+  version in global parameters was fixed for the RocksDB storage engine.
 
 * :jirabug:`PSMDB-209`: CentOS 6 and CentOS 7 RPM packages contained config
   file with a wrong link to the online Percona Memory Engine documentation.
