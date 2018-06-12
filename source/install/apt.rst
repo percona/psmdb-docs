@@ -14,6 +14,7 @@ of the following distributions:
 * Ubuntu 16.10 (Yakkety Yak)
 * Ubuntu 17.04 (Zesty Zapus)
 * Ubuntu 17.10 (Artful Aardvark)
+* Ubuntu 18.04 LTS (Bionic Beaver)
 
 .. note:: |PSMDB| should work on other DEB-based distributions,
    but it is tested only on platforms listed above.
