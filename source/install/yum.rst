@@ -20,24 +20,24 @@ of the following distributions:
 Package Contents
 ================
 
-:``Percona-Server-MongoDB-34``:
+:``Percona-Server-MongoDB-36``:
  Installs the ``mongo`` shell, import/export tools, other client utilities,
  server software, default configuration, and init.d scripts.
 
-:``Percona-Server-MongoDB-34-server``:
+:``Percona-Server-MongoDB-36-server``:
  Contains the ``mongod`` server, default configuration files,
  and init.d scripts.
 
-:``Percona-Server-MongoDB-34-shell``:
+:``Percona-Server-MongoDB-36-shell``:
  Contains the ``mongo`` shell.
 
-:``Percona-Server-MongoDB-34-mongos``:
+:``Percona-Server-MongoDB-36-mongos``:
  Contains the ``mongos`` sharded cluster query router.
 
-:``Percona-Server-MongoDB-34-tools``:
+:``Percona-Server-MongoDB-36-tools``:
  Contains Mongo tools for high-performance MongoDB fork from Percona.
 
-:``Percona-Server-MongoDB-34-debuginfo``:
+:``Percona-Server-MongoDB-36-debuginfo``:
  Contains debug symbols for the server.
 
 Installing from Percona Repositories
