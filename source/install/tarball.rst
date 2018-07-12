@@ -12,15 +12,15 @@ You can find links to the binary tarballs from the
 
    .. code-block:: bash
 
-      wget https://www.percona.com/redir/downloads/percona-server-mongodb-3.2/LATEST/binary/debian/jessie/x86_64/psmdb-3.2.6-1.0-r24-jessie-x86_64-bundle.tar
-      tar xfz psmdb-3.2.6-1.0-r24-jessie-x86_64-bundle.tar
+      wget https://www.percona.com/downloads/percona-server-mongodb-3.6/percona-server-mongodb-3.6.5-1.3/binary/debian/jessie/x86_64/percona-server-mongodb-3.6.5-1.3-ra1cb178-jessie-x86_64-bundle.tar
+      tar xfz percona-server-mongodb-3.6.5-1.3-ra1cb178-jessie-x86_64-bundle.tar
 
 2. Copy the extracted binaries to the target directory, for example:
 
    .. code-block:: bash
 
       mkdir ~/psmdb
-      cp -r -n psmdb-3.2.6-1.0-r24-jessie-x86_64-bundle/bin ~/psmdb/
+      cp -r -n percona-server-mongodb-3.6.5-1.3-ra1cb178-jessie-x86_64-bundle/bin ~/psmdb/
 
 3. Add the location of the binaries to the ``PATH`` variable:
 
