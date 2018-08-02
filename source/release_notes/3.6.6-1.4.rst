@@ -19,7 +19,4 @@ Also it includes :ref:`mongorocks` storage engine, which is now deprecated.
 
 This release is based on `MongoDB 3.6.6 
 <https://docs.mongodb.com/manual/release-notes/3.6/#jul-10-2018>`_
-and provides the following additional changes:
-
-* :jirabug:`PSMDB-232`: |PSMDB| was crashing if got out of memory in case when
-  replicaset was initiated with :ref:`inmemory` storage engine.
+and does not include any additional changes.
