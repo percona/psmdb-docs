@@ -57,6 +57,7 @@ Features
    audit-logging
    log-redaction
    enable-auth
+   data_at_rest_encryption
 
 Reference
 =========
