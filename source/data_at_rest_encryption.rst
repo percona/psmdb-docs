@@ -14,22 +14,21 @@ files can be decrypted and read by parties with the decryption key.
        https://docs.mongodb.com/manual/core/security-encryption-at-rest/#encryption-at-rest
 
 .. rubric:: Differences from Upstream
-       
+
 The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
-|feature| in |mongodb| with the following differences:
+|feature| in |mongodb|. In the current release of |PSMDB|, the |feature| does
+not include support for |abbr.kmip|, |vault| or |amazon-aws| key management
+services.
 
-- The |feature| in |PSMDB| will not include support for |abbr.kmip|.
-- There are new configuration options to support |vault| and |amazon-aws| key
-  management service.
+.. important:: 
 
-|abbr.kmip| is not supported because there is no open source solution for
-|abbr.kmip| so far.
+   This feature is considered **BETA** quality. Do not use the |feature| in
+   production environment.
 
-.. rubric:: Configuration options
+.. rubric:: Important Configuration Options
 
-In addition to the configuration options provided by the
-upstream solution, |PSMDB| supports the encryptionCipherMode option where you
-choose one of the following cipher modes:
+|PSMDB| supports the ``encryptionCipherMode`` option where you choose one of the
+following cipher modes:
 
 - |mode.cbc|
 - |mode.gcm|
@@ -40,7 +39,12 @@ demonstrates how to apply the |mode.gcm| cipher mode when starting the
 
 .. code-block:: bash
 
-   $ mongod --encryptCipherMode AES256-GCM
+   $ mongod ... --encryptionCipherMode AES256-GCM
+
+.. seealso::
+
+   |mongodb| Documentation: encryptionCipherMode Option
+      https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-encryptionciphermode
 
 |PSMDB| also supports the options exposed by the upstream solution: 
 
@@ -49,14 +53,21 @@ demonstrates how to apply the |mode.gcm| cipher mode when starting the
 
 .. code-block:: bash
 
-   $ mongod --enableEncryption --encryptionKeyFile <fileName>
+   $ mongod ... --enableEncryption --encryptionKeyFile <fileName>
   
-The key file must contain 32 bytes; each byte encoded in base64. You can generate a random
-key and save it to a file by usiing the |openssl| command:
+The key file must contain a 32 character string encoded in base64. You can generate a random
+key and save it to a file by using the |openssl| command:
 
 .. code-block:: bash
 
    $ openssl rand -base64 32 > mongodb-keyfile
+
+Then, as the owner of the ``mongod`` process, update the file permissions: only
+the owner should be able to read and modify this file:
+
+.. code-block:: bash
+
+   $ chmod 600 mongodb-keyfile
 
 .. seealso::
 
@@ -66,7 +77,7 @@ key and save it to a file by usiing the |openssl| command:
 All these options can be specified in the configuration file:
 
 .. code-block:: yaml
-		
+
    security:
       enableEncryption: <boolean>
       encryptionCipherMode: <string>
@@ -81,7 +92,7 @@ All these options can be specified in the configuration file:
 .. |mongodb-enterprise| replace:: MongoDB Enterprise
 .. |mongodb| replace:: MongoDB
 .. |feature| replace:: data encryption at rest
-.. |abbr.kmip| replace:: :abbr:`KMIP (Key Management Interoperability Protocol`
+.. |abbr.kmip| replace:: :abbr:`KMIP (Key Management Interoperability Protocol)`
 .. |vault| replace:: HashiCorp Vault
 .. |amazon-aws| replace:: Amazon AWS
 .. |mode.cbc| replace:: AES256-CBC
