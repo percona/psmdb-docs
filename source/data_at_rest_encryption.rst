@@ -22,7 +22,7 @@ services.
 
 .. important:: 
 
-   This feature is considered **BETA** quality. Do not use the |feature| in
+   This feature is considered **BETA** quality. Do not use the |feature| in a
    production environment.
 
 .. rubric:: Important Configuration Options
