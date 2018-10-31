@@ -8,6 +8,11 @@
 :Download: http://www.percona.com/downloads/percona-server-mongodb-3.6/
 :Installation: :ref:`install`
 
+Percona announces the release of Percona Server for MongoDB |version|
+on October 31, 2018. Download the latest version from the `Percona
+website < >`_ or the `Percona Software Repositories
+<https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_.
+
 |PSMDB| is an enhanced, open source, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB 3.6 Community Edition.  It
 supports MongoDB 3.6 protocols and drivers.
@@ -17,18 +22,19 @@ storage engine, as well as several enterprise-grade features.  Also, it includes
 :ref:`mongorocks` storage engine, which is now deprecated.  |PSMDB| requires no
 changes to MongoDB applications or code.
 
-This release is based on `MongoDB 3.6.8
-<https://docs.mongodb.com/manual/release-notes/3.6/#sep-19-2018>`_ and
-introduces data at rest encryption for the WiredTiger storage engine. Data at
+This release introduces data at rest encryption for the WiredTiger storage engine. Data at
 rest encryption for WiredTiger in |PSMDB| is compatible with the upstream
 implementation. In this release of |PSMDB|, this feature is of **BETA** quality
 and should not be used in a production environment.
 
-Note that `MongoDB 3.6.8
-<https://docs.mongodb.com/manual/release-notes/3.6/#sep-19-2018>`_ is
-still distributed under the GNU AGPLv3 license. Starting October 16,
-`MongoDB uses the Server Side Public License (SSPL)
-<https://www.mongodb.com/community/licensing>`_.
+Note that |PSMDB| 3.6.8-2.0 is based on `MongoDB 3.6.8
+<https://docs.mongodb.com/manual/release-notes/3.6/#sep-19-2018>`_
+which is distributed under the GNU AGPLv3 license. Subsequent releases
+of |PSMDB| will change its license to `SSPL (Server Side Public
+License) <https://www.mongodb.com/community/licensing>`_ when we move
+to the SSPL codebase released by |mongodb|. For more information, see
+`Percona Statement on MongoDB Community Server License Change
+<https://www.percona.com/blog/2018/10/18/percona-statement-on-mongodb-community-server-license-change/>`_.
 
 This release also contains a fix for bug :jirabug:`PSMDB-238`
 
