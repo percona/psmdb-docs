@@ -10,7 +10,7 @@
 
 Percona announces the release of Percona Server for MongoDB |version|
 on October 31, 2018. Download the latest version from the `Percona
-website < >`_ or the `Percona Software Repositories
+website <https://www.percona.com/downloads/percona-server-mongodb-3.6/>`_ or the `Percona Software Repositories
 <https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_.
 
 |PSMDB| is an enhanced, open source, and highly-scalable database that is a
