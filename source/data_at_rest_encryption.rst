@@ -15,10 +15,10 @@ files can be decrypted and read by parties with the decryption key.
 
 .. rubric:: Differences from Upstream
 
-The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
-|feature| in |mongodb|. In the current release of |PSMDB|, the |feature| does
-not include support for |abbr.kmip|, |vault| or |amazon-aws| key management
-services.
+The |feature| in |PSMDB| is introduced in version 3.6. It uses the same options
+as |feature| in |mongodb|. However, you cannot use data from
+|mongodb-enterprise|. The |feature| does not include support for |abbr.kmip|,
+|vault| or |amazon-aws| key management services.
 
 .. important:: 
 
