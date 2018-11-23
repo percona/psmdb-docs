@@ -41,6 +41,7 @@ Improvements
 
 .. rubric:: Other improvements
 
-- :jirabug:`238`: ``audit_drop_database.js`` test occasionally fails with ``MMAPv1``
+- :jirabug:`PSMDB-238`: ``audit_drop_database.js`` test occasionally fails with ``MMAPv1``
+
 
 .. |release| replace:: 3.4.18-2.16
