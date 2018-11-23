@@ -38,9 +38,6 @@ Improvements
 
 - :jirabug:`PSMDB-247`: Now, ``AuditLog`` formats are listed in the output of
   ``mongod --help`` and ``mongos --help`` commands
-- :jirabug:`BLD-1152`: The installation of new versions of PSMDB could fail on
-  Debian based systems, as the apt package manager did not correctly check for
-  already installed MongoDB clients.
 
 .. rubric:: Other improvements
 
