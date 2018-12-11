@@ -1,0 +1,6 @@
+.. _Percona website:  https://www.percona.com/downloads/percona-server-mongodb-4.0/
+.. _Percona software repositories: https://www.percona.com/doc/percona-server-for-mongodb/4.0/install/index.html
+.. _`MMAPv1`: https://docs.mongodb.org/manual/core/mmapv1/
+.. _`WiredTiger`: https://docs.mongodb.org/manual/core/wiredtiger/
+.. _`MongoRocks`: http://rocksdb.org
+.. _`Docker Docs`: https://docs.docker.com/

@@ -4,8 +4,11 @@
 Data at Rest Encryption
 ================================================================================
 
+:Availability: In |PSMDB| 4.0, this feature is in the *General Availability*
+               state and is ready for use in a production environment.
+
 Data at rest encryption for the WiredTiger storage engine in |mongodb| was
-introduced in |mongodb-enterprise| version 3.2. to ensure that encrypted data
+introduced in |mongodb-enterprise| version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
 
 .. seealso::
@@ -15,15 +18,10 @@ files can be decrypted and read by parties with the decryption key.
 
 .. rubric:: Differences from Upstream
 
-The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
+The |feature| in |PSMDB| was introduced in version 3.6 to be compatible with
 |feature| in |mongodb|. In the current release of |PSMDB|, the |feature| does
 not include support for |abbr.kmip|, |vault| or |amazon-aws| key management
 services.
-
-.. important:: 
-
-   This feature is considered **BETA** quality. Do not use the |feature| in a
-   production environment.
 
 .. rubric:: Important Configuration Options
 

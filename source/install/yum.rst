@@ -18,50 +18,55 @@ of the following distributions:
    :local:
 
 Package Contents
-================
+================================================================================
 
-:``Percona-Server-MongoDB-36``:
- Installs the ``mongo`` shell, import/export tools, other client utilities,
- server software, default configuration, and init.d scripts.
+.. list-table::
+   :widths: 25 75
 
-:``Percona-Server-MongoDB-36-server``:
- Contains the ``mongod`` server, default configuration files,
- and init.d scripts.
-
-:``Percona-Server-MongoDB-36-shell``:
- Contains the ``mongo`` shell.
-
-:``Percona-Server-MongoDB-36-mongos``:
- Contains the ``mongos`` sharded cluster query router.
-
-:``Percona-Server-MongoDB-36-tools``:
- Contains Mongo tools for high-performance MongoDB fork from Percona.
-
-:``Percona-Server-MongoDB-36-debuginfo``:
- Contains debug symbols for the server.
+   * - Package
+     - Contains
+   * - percona-server-mongodb-40
+     - The ``mongo`` shell, import/export tools, other client
+       utilities, server software, default configuration, and init.d scripts.
+   * - percona-server-mongodb-40-server
+     - The :program:`mongod` server, default configuration files, and :dir:`init.d`
+       scripts
+   * - percona-server-mongodb-40-shell
+     - The ``mongo`` shell
+   * - percona-server-mongodb-40-mongos
+     - The ``mongos`` sharded cluster query router
+   * - percona-server-mongodb-40-tools
+     - Mongo tools for high-performance MongoDB fork from Percona
+   * - percona-server-mongodb-40-dbg
+     - Debug symbols for the server
 
 Installing from Percona Repositories
-====================================
+================================================================================
 
 It is recommended to intall |PSMDB| from official Percona repositories:
 
-1. Configure Percona repositories as described in
-   `Percona Software Repositories Documentation
-   <https://www.percona.com/doc/percona-repo-config/index.html>`_.
+|tip.run-all.root|
 
-#. Install the required |PSMDB| package using :command:`yum`.
-   For example, to install the full package, run the following:
+1. Install the Percona repository: :bash:`yum install https://repo.percona.com/centos/7/RPMS/noarch/percona-release-0.1-8.noarch.rpm`
 
-   .. code-block:: bash
+   .. admonition:: Example of Output
 
-      $ sudo yum install Percona-Server-MongoDB-34
+      .. code-block:: bash
+
+	 Retrieving http://www.percona.com/downloads/percona-release/redhat/0.1-6/percona-release-0.1-8.noarch.rpm
+	 Preparing...                ########################################### [100%]
+         1:percona-release        ########################################### [100%]
+
+#. Enable the repository: :bash:`percona-release enable-only tools release`
+#. Install the packages: :bash:`yum install percona-server-mongodb-40`
+
 
 Using Percona Server for MongoDB
-================================
+================================================================================
 
-.. warning:: If you have SELinux security module installed,
-   it will conflict with Percona Server for MongoDB.
-   There are several options to deal with this:
+.. warning:: If you have SELinux security module installed, it will
+   conflict with Percona Server for MongoDB.  There are several
+   options to deal with this:
 
    * Remove the SELinux packages.
      This is not recommended, because it may violate security.
@@ -78,48 +83,29 @@ Using Percona Server for MongoDB
      using the ``setenforce 0`` command.
      However, this will not affect the configuration after a reboot.
 
-|PSMDB| stores data files in :file:`/var/lib/mongodb/` by default.
+|PSMDB| stores data files in :dir:`/var/lib/mongodb/` by default.
 The configuration file is :file:`/etc/mongod.conf`.
 
-* **Starting the service**
-
+Starting the service
   |PSMDB| is not started automatically after installation.
-  Start it manually using the following command:
+  Start it manually using the following command: |service.mongod.start|
 
-  .. code-block:: bash
+Confirming that service is running
+  Check the service status using the following command: |service.mongod.status|
 
-     $ sudo service mongod start
+Stopping the service
+  Stop the service using the following command: |service.mongod.stop|
 
-* **Confirming that service is running**
+Restarting the service
+  Restart the service using the following command: |service.mongod.restart|
 
-  Check the service status using the following command:
+.. note::
 
-  .. code-block:: bash
-
-     $ sudo service mongod status
-
-* **Stopping the service**
-
-  Stop the service using the following command:
-
-  .. code-block:: bash
-
-     $ sudo service mongod stop
-
-* **Restarting the service**
-
-  Restart the service using the following command:
-
-  .. code-block:: bash
-
-     $ sudo service mongod restart
-
-.. note:: On Red Hat Enterprise Linux and CentOS 7
-   you can also invoke all the above commands with ``sytemctl``
-   instead of ``service``.
+   On Red Hat Enterprise Linux and CentOS 7 you can also invoke all
+   the above commands with ``sytemctl`` instead of ``service``.
 
 Running after reboot
---------------------
+--------------------------------------------------------------------------------
 
 The ``mongod`` service is not automatically started
 after you reboot the system.
@@ -131,30 +117,18 @@ to enable auto-start as follows:
 
    $ chkconfig --add mongod
 
-For RHEL or CentOS version 7, you can use the ``systemctl`` utility as follows:
-
-.. code-block:: bash
-
-   $ systemctl enable mongod
+For RHEL or CentOS version 7, you can use the ``systemctl`` utility: |systemctl.enable.mongod|
 
 Uninstalling Percona Server for MongoDB
-=======================================
+================================================================================
 
 To completely uninstall Percona Server for MongoDB
 you'll need to remove all the installed packages and data files:
 
-1. Stop the Percona Server for MongoDB service:
+|tip.run-all.root|
 
-   .. code-block:: bash
-
-      $ sudo service mongod stop
-
-#. Remove the packages:
-
-   .. code-block:: bash
-
-      $ sudo yum remove Percona-Server-MongoDB*
-
+1. Stop the Percona Server for MongoDB service: |service.mongod.stop|
+#. Remove the packages: |yum.remove.percona-server-mongodb|
 #. Remove the data and configuration files:
 
    .. code-block:: bash
@@ -162,9 +136,10 @@ you'll need to remove all the installed packages and data files:
       $ rm -rf /var/lib/mongodb
       $ rm -f /etc/mongod.cnf
 
-.. warning:: This will remove all the packages
-   and delete all the data files (databases, tables, logs, etc.).
-   You might want to back up your data before doing this
+.. warning::
+
+   This will remove all the packages and delete all the data files (databases,
+   tables, logs, etc.).  You might want to back up your data before doing this
    in case you need the data later.
 
 .. rubric:: Footnotes
@@ -186,3 +161,6 @@ you'll need to remove all the installed packages and data files:
    <http://www.percona.com/products/mysql-support>`_
    if you require further information on this.
 
+
+.. include:: ../.res/replace.txt
+.. include:: ../.res/replace.program.txt
