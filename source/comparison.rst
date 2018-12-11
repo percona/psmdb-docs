@@ -29,13 +29,12 @@ The following table will help you evaluate the differences.
      - * WiredTiger_ (default)
        * MMAPv1_
        * :ref:`inmemory`
-       * :ref:`mongorocks`
      - * WiredTiger_ (default)
        * MMAPv1_
        * In-Memory_ (Enterprise only)
      - Built-in storage engine based on the Fractal Tree index
    * - :ref:`Hot Backup <hot-backup>`
-     - YES for WiredTiger_ and :ref:`mongorocks`
+     - YES for WiredTiger_
      - NO
      - YES
    * - :ref:`Audit Logging <audit-log>`

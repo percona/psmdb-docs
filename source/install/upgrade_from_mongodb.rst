@@ -1,26 +1,28 @@
 .. _upgrade_from_mongodb:
 
-======================================================================
-Upgrading from MongoDB Community Edition to Percona Server for MongoDB
-======================================================================
+================================================================================
+Upgrading from |mongodb-ce|
+================================================================================
 
-.. note:: MongoDB creates a user that belongs to two groups,
-   which is a potential security risk.
-   This is fixed in |PSMDB|: user is included only in the ``mongod`` group.
-   To avoid problems with current MongoDB setups,
-   existing user group membership is not changed
-   when you migrate to |PSMDB|.
-   Instead, a new ``mongod`` user is created during installation,
-   and it belongs to the ``mongod`` group.
+.. note::
 
-An in-place upgrade is done with existing data in the server.
-Generally speaking, this is stopping the server, removing the old packages,
-installing the new server and starting it with the same data files.
-While an in-place upgrade may not be suitable for high-complexity environments,
-it should work in most cases.
+   MongoDB creates a user that belongs to two groups, which is a potential
+   security risk.  This is fixed in |PSMDB|: user is included only in the
+   ``mongod`` group.  To avoid problems with current MongoDB setups, existing
+   user group membership is not changed when you migrate to |PSMDB|.  Instead, a
+   new ``mongod`` user is created during installation, and it belongs to the
+   ``mongod`` group.
 
-.. warning:: Before starting the upgrade process
-   it is recommended to perform a full backup of your data.
+An in-place upgrade is done with existing data in the server.  Generally
+speaking, this is stopping the server, removing the old packages, installing the
+new server and starting it with the same data files.  While an in-place upgrade
+may not be suitable for high-complexity environments, it should work in most
+cases.
+
+.. warning::
+
+   Before starting the upgrade process it is recommended to perform a full
+   backup of your data.
 
 The upgrade process depends on the distribution you are using:
 
@@ -28,49 +30,40 @@ The upgrade process depends on the distribution you are using:
    :local:
 
 Upgrading on Debian or Ubuntu
-=============================
+================================================================================
 
-1. Stop the mongod process:
+|tip.run-all.root|
 
-   .. code-block:: bash
+1. Stop the mongod process: :bash:`service mongod stop`
 
-      $ service mongod stop
+2. Check for installed packages: :bash:`dpkg -l | grep mongod`
 
-2. Check for installed packages:
+   .. code-block:: guess
 
-   .. code-block:: bash
+      ii  mongodb-org            3.6.2    amd64      MongoDB open source document-oriented database system (metapackage)
+      ii  mongodb-org-mongos     3.6.2    amd64      MongoDB sharded cluster query router
+      ii  mongodb-org-server     3.6.2    amd64      MongoDB database server
+      ii  mongodb-org-shell      3.6.2    amd64      MongoDB shell client
+      ii  mongodb-org-tools      3.6.2    amd64      MongoDB tools
 
-      $ dpkg -l | grep mongod
-
-      ii  mongodb-org                    3.6.2                              amd64        MongoDB open source document-oriented database system (metapackage)
-      ii  mongodb-org-mongos             3.6.2                              amd64        MongoDB sharded cluster query router
-      ii  mongodb-org-server             3.6.2                              amd64        MongoDB database server
-      ii  mongodb-org-shell              3.6.2                              amd64        MongoDB shell client
-      ii  mongodb-org-tools              3.6.2                              amd64        MongoDB tools
-
-3. Remove installed packages:
+3. Remove the installed packages:
 
    .. code-block:: bash
 
-      apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \
-      mongodb-org-shell mongodb-org-tools
+      $ apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \
+      $ mongodb-org-shell mongodb-org-tools
 
-4. Install Percona Server for MongoDB :ref:`using apt <apt>`.
+4. Install |PSMDB| :ref:`using apt <apt>`.
 
 Upgrading on Red Hat Enterprise Linux or CentOS
-===============================================
+================================================================================
 
-1. Stop the mongod process:
+|tip.run-all.root|
 
-   .. code-block:: bash
-
-      $ service mongod stop
-
-2. Check for installed packages:
+1. Stop the mongod process: :bash:`service mongod stop`
+#. Check for installed packages: :bash:`rpm -qa | grep mongo`
 
    .. code-block:: bash
-
-      $ rpm -qa | grep mongo
 
       mongodb-org-mongos-3.6.2-1.el6.x86_64
       mongodb-org-shell-3.6.2-1.el6.x86_64
@@ -78,7 +71,7 @@ Upgrading on Red Hat Enterprise Linux or CentOS
       mongodb-org-tools-3.6.2-1.el6.x86_64
       mongodb-org-3.6.2-1.el6.x86_64
 
-3. Remove installed packages:
+3. Remove the installed packages:
 
    .. code-block:: bash
 
@@ -89,11 +82,12 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
 4. Install Percona Server for MongoDB :ref:`using yum <yum>`.
 
-.. note:: When you remove old packages,
-   your existing configuration file is saved
-   as :file:`/etc/mongod.conf.rpmsave`.
-   If you want to use this configuration with the new version,
-   replace the default :file:`/etc/mongod.conf` file.
-   For example, existing data may not be compatible
-   with the default WiredTiger storage engine.
+.. note::
 
+   When you remove old packages, your existing configuration file is saved as
+   :file:`/etc/mongod.conf.rpmsave`.  If you want to use this configuration with
+   the new version, replace the default :file:`/etc/mongod.conf` file.  For
+   example, existing data may not be compatible with the default WiredTiger
+   storage engine.
+
+.. include:: ../.res/replace.txt
