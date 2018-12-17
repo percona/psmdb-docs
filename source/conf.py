@@ -143,7 +143,7 @@ rst_prolog = '''
 
 '''
 
-extlinks = {'psmdb-bug': ('https://jira.percona.com/browse/PSMDB-%s', 'PSMDB'),
+extlinks = {'psmdb-bug': ('https://jira.percona.com/browse/PSMDB-%s', 'PSMDB-'),
             'jirabug': ('https://jira.percona.com/browse/%s', '#')
 }
 

@@ -25,19 +25,19 @@ Package Contents
 
    * - Package
      - Contains
-   * - percona-server-mongodb-40
+   * - percona-server-mongodb
      - The ``mongo`` shell, import/export tools, other client
        utilities, server software, default configuration, and init.d scripts.
-   * - percona-server-mongodb-40-server
+   * - percona-server-mongodb-server
      - The :program:`mongod` server, default configuration files, and :dir:`init.d`
        scripts
-   * - percona-server-mongodb-40-shell
+   * - percona-server-mongodb-shell
      - The ``mongo`` shell
-   * - percona-server-mongodb-40-mongos
+   * - percona-server-mongodb-mongos
      - The ``mongos`` sharded cluster query router
-   * - percona-server-mongodb-40-tools
+   * - percona-server-mongodb-tools
      - Mongo tools for high-performance MongoDB fork from Percona
-   * - percona-server-mongodb-40-dbg
+   * - percona-server-mongodb-dbg
      - Debug symbols for the server
 
 Installing from Percona Repositories
@@ -47,18 +47,18 @@ It is recommended to intall |PSMDB| from official Percona repositories:
 
 |tip.run-all.root|
 
-1. Install the Percona repository: :bash:`yum install https://repo.percona.com/centos/7/RPMS/noarch/percona-release-0.1-8.noarch.rpm`
+1. Install the Percona repository: :bash:`yum install https://repo.percona.com/centos/7/RPMS/noarch/percona-release-latest.noarch.rpm`
 
    .. admonition:: Example of Output
 
       .. code-block:: bash
 
-	 Retrieving http://www.percona.com/downloads/percona-release/redhat/0.1-6/percona-release-0.1-8.noarch.rpm
+	 Retrieving http://www.percona.com/downloads/percona-release/redhat/latest/percona-release-latest.noarch.rpm
 	 Preparing...                ########################################### [100%]
          1:percona-release        ########################################### [100%]
 
-#. Enable the repository: :bash:`percona-release enable-only tools release`
-#. Install the packages: :bash:`yum install percona-server-mongodb-40`
+#. Enable the repository: :bash:`percona-release enable psmdb-40 release`
+#. Install the packages: :bash:`yum install percona-server-mongodb`
 
 
 Using Percona Server for MongoDB

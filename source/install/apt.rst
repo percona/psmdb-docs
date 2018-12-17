@@ -11,9 +11,6 @@ of the following distributions:
 * Debian 9 (stretch)
 * Ubuntu 14.04 LTS (Trusty Tahr)
 * Ubuntu 16.04 LTS (Xenial Xerus)
-* Ubuntu 16.10 (Yakkety Yak)
-* Ubuntu 17.04 (Zesty Zapus)
-* Ubuntu 17.10 (Artful Aardvark)
 * Ubuntu 18.04 LTS (Bionic Beaver)
 
 .. note:: |PSMDB| should work on other DEB-based distributions,
@@ -30,19 +27,19 @@ Package Contents
 
    * - Package
      - Contains
-   * - percona-server-mongodb-40
+   * - percona-server-mongodb
      - The ``mongo`` shell, import/export tools, other client
        utilities, server software, default configuration, and init.d scripts.
-   * - percona-server-mongodb-40-server
+   * - percona-server-mongodb-server
      - The :program:`mongod` server, default configuration files, and :dir:`init.d`
        scripts
-   * - percona-server-mongodb-40-shell
+   * - percona-server-mongodb-shell
      - The ``mongo`` shell
-   * - percona-server-mongodb-40-mongos
+   * - percona-server-mongodb-mongos
      - The ``mongos`` sharded cluster query router
-   * - percona-server-mongodb-40-tools
+   * - percona-server-mongodb-tools
      - Mongo tools for high-performance MongoDB fork from Percona
-   * - percona-server-mongodb-40-dbg
+   * - percona-server-mongodb-dbg
      - Debug symbols for the server
 
 Installing from Percona Repositories
@@ -52,15 +49,15 @@ It is recommended to install |PSMDB| from official Percona repositories:
 
 |tip.run-all.root|
 
-1. Fetch the repository packages from Percona web: :bash:`wget https://repo.percona.com/apt/percona-release_0.1-8.$(lsb_release -sc)_all.deb`
+1. Fetch the repository packages from Percona web: :bash:`wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb`
 #. Install the downloaded package with :program:`dpkg`: :bash:`dpkg -i
-   percona-release_0.1-8.$(lsb_release -sc)_all.deb` Once you install this
+   percona-release_latest.$(lsb_release -sc)_all.deb` Once you install this
    package the |Percona| repositories should be added. You can check the
    repository setup in the :file:`/etc/apt/sources.list.d/percona-release.list`
    file.
-#. Enable the repository: :bash:`percona-release enable-only tools release`
+#. Enable the repository: :bash:`percona-release enable psmdb-40 release`
 #. Remember to update the local cache: |apt.update|
-#. Install the |PSMDB| package: :bash:`apt install percona-server-mongodb-40`
+#. Install the |PSMDB| package: :bash:`apt install percona-server-mongodb`
 
 Using Percona Server for MongoDB
 ================================================================================

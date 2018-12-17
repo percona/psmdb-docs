@@ -40,7 +40,7 @@ When changing the storage engine, you have to do one of the following:
 
      $ service mongod stop
      $ rm -rf /var/lib/mongodb/*
-     $ sed -i '/engine: \*inmemory/s/#//g' /etc/mongod.conf
+     $ sed -i '/engine: .*inMemory/s/#//g' /etc/mongod.conf 
      $ service mongod start
 
 - If there is data that you want to migrate and make compatible with the new
@@ -51,7 +51,7 @@ When changing the storage engine, you have to do one of the following:
      $ mongodump --out <dumpDir>
      $ service mongod stop
      $ rm -rf /var/lib/mongodb/*
-     $ sed -i '/engine: \*inmemory/s/#//g' /etc/mongod.conf
+     $ sed -i '/engine: .*inMemory/s/#//g' /etc/mongod.conf
      $ service mongod start
      $ mongorestore <dumpDir>
 

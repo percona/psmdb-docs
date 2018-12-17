@@ -15,9 +15,8 @@ Percona provides packages for the following systems:
      - Instructions
    * - * Debian 8 ("jessie")
        * Debian 9 ("stretch")
+       * Ubuntu 14.04 LTS (Trusty Tahr)
        * Ubuntu 16.04 (Xenial Xerus)
-       * Ubuntu 17.04 (Zesty Zapus)
-       * Ubuntu 17.10 (Artful Aardvark)
        * Ubuntu 18.04 LTS (Bionic Beaver)
      - :ref:`Install on Debian or Ubuntu <apt>`
    * - * Red Hat Enterprise Linux / CentOS 6

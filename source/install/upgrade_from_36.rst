@@ -35,7 +35,7 @@ Upgrading on Debian or Ubuntu
 
 1. Stop the ``mongod`` instance: :bash:`service mongod stop`
 #. Remove |PSMDB| |prev-version| packages: :bash:`apt-get remove percona-server-mongodb-36*`
-#. Install |PSMDB| |version| packages: :bash:`sudo apt-get install percona-server-mongodb-40`
+#. Install |PSMDB| |version| packages: :bash:`sudo apt-get install percona-server-mongodb`
 #. Start the ``mongod`` instance: :bash:`service mongod start`
 
 For more information, see :ref:`apt`.
@@ -46,7 +46,7 @@ Upgrading on RHEL and CentOS
 |tip.run-all.root|
 
 1. Stop the ``mongod`` instance: :bash:`sudo service mongod stop`
-#. Install |PSMDB| |version| packages: :bash:`yum install Percona-Server-MongoDB-40`
+#. Install |PSMDB| |version| packages: :bash:`yum install percona-server-mongodb`
 #. Start the ``mongod`` instance:: :bash:`service mongod start`
 
 For more information, see :ref:`yum`.

@@ -1,0 +1,11 @@
+.. important:: 
+
+   Before you start the upgrading, update the |mongodb| configuration file
+   (:file:`/etc/mongod.conf`) to contain the following settings.  Otherwise the
+   |mongod| service will not be able to start.
+
+   .. code-block:: yaml
+
+      processManagement:
+         fork: true
+         pidFilePath: /var/run/mongod.pid

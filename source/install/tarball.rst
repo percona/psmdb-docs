@@ -21,7 +21,7 @@ You can find links to the binary tarballs from the `Percona website`_
    .. code-block:: bash
 
       mkdir ~/psmdb
-      cp -r -n percona-server-mongodb-3.6.5-1.3-ra1cb178-jessie-x86_64-bundle/bin ~/psmdb/
+      cp -r -n percona-server-mongodb-4.0.4-1-ra1cb178-jessie-x86_64-bundle/bin ~/psmdb/
 
 #. Add the location of the binaries to the ``PATH`` variable: :bash:`export PATH ~/psmdb/bin:$PATH`
 #. Create the default data directory: :bash:`mkdir -p /data/db`

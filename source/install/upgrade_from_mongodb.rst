@@ -34,9 +34,11 @@ Upgrading on Debian or Ubuntu
 
 |tip.run-all.root|
 
+.. include:: ../.res/text/important.mongod-conf.txt
+
 1. Stop the mongod process: |service.mongod.stop|
 
-2. Check for installed packages: :bash:`dpkg -l | grep mongod`
+#. Check for installed packages: :bash:`dpkg -l | grep mongod`
 
    .. admonition:: Output
 
@@ -48,19 +50,21 @@ Upgrading on Debian or Ubuntu
 	 ii  mongodb-org-shell      4.0.4    amd64      MongoDB shell client
 	 ii  mongodb-org-tools      4.0.4    amd64      MongoDB tools
 
-3. Remove the installed packages:
+#. Remove the installed packages:
 
    .. code-block:: bash
 
       $ apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \
       $ mongodb-org-shell mongodb-org-tools
 
-4. Install |PSMDB| :ref:`using apt <apt>`.
+#. Install |PSMDB| :ref:`using apt <apt>`.
 
 Upgrading on Red Hat Enterprise Linux or CentOS
 ================================================================================
 
 |tip.run-all.root|
+
+.. include:: ../.res/text/important.mongod-conf.txt
 
 1. Stop the mongod process: |service.mongod.stop|
 #. Check for installed packages: :bash:`rpm -qa | grep mongo`
