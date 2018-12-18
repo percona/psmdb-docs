@@ -1,0 +1,80 @@
+.. _4.0.4-1:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+:Date: |date|
+:Download: `Percona website`_
+:Installation: :ref:`install`
+
+Percona announces the GA release of |PSMDB| |release| on |date|. Download the
+latest version from the `Percona website`_ or the `Percona software repositories`_.
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for |mongodb-ce|.  It supports |mongodb|
+4.0 protocols and drivers.
+
+|PSMDB| extends the functionality of the |mongodb-ce| by including the
+:ref:`inmemory` storage engine, :ref:`encrypted WiredTiger storage engine
+<psmdb.data-at-rest-encryption>`, :ref:`audit logging <audit-log>`, :ref:`SASL
+authentication <ext-auth>`, :ref:`hot backups <hot-backup>`, and :ref:`enhanced
+query profiling <rate-limit>`. |PSMDB| requires no changes to |mongodb|
+applications or code.
+
+This release `includes all features
+<https://docs.mongodb.com/manual/release-notes/4.0>`_ of |mongodb-ce|
+4.0. Most notable among these are:
+
+- `Multi-Document ACID transactions
+  <https://docs.mongodb.com/manual/release-notes/4.0/#multi-document-transactions>`_
+- `Type conversion through the new aggregation operators
+  <https://docs.mongodb.com/manual/release-notes/4.0/#new-type-conversion-operators>`_
+- `Enhancements to the Change Streams support
+  <https://docs.mongodb.com/manual/release-notes/4.0/#database-and-deployment-change-streams>`_
+
+Note that the `MMAPv1 storage engine is deprecated
+<https://docs.mongodb.com/manual/release-notes/4.0/#deprecate-mmapv1>`_
+in |mongodb-ce| 4.0.
+
+In |PSMDB| |release|, *data at rest encryption* is considered **BETA**
+quality. Do not use this feature in a production environment.
+
+
+ 
+Bugs Fixed
+================================================================================
+
+- :psmdb-bug:`235`: In some cases, hot backup did not back up the
+  :dir:`keydb` directory; |mongod| could crash after restore.
+- :psmdb-bug:`233`: When starting |PSMDB| with WiredTiger
+  encryption options but using a different storage engine, the server started
+  normally and produced no warnings that these options had been ignored
+- :psmdb-bug:`239`: The WiredTiger encryption was not disabled when using the
+  `Percona Memory Engine
+  <https://www.percona.com/doc/percona-server-for-mongodb/4.0/inmemory.html#inmemory>`_
+  storage engine.
+- :psmdb-bug:`241`: WiredTiger per database encryption keys were not
+  purged when the database was deleted
+- :psmdb-bug:`243`: A log message was added to indicate that the
+  server is running with encryption
+- :psmdb-bug:`245`: KeyDB’s WiredTiger logs were not properly rotated
+  without restarting the server.
+- :psmdb-bug:`266`: When running the server with the `directoryperdb`
+  option, the user could add arbitrary collections to the ``keydb``
+  directory which is designated for data encryption.
+
+.. important::
+
+   Due to the fix of bug :psmdb-bug:`266`, it is not possible to downgrade from
+   release |release| to 3.6.8-2.0 of |PSMDB| *if using data at rest encryption*
+   (it will be possible to downgrade to |PSMDB| 3.6 as soon as :psmdb-bug:`266`
+   is ported to that version).
+
+.. |release| replace:: 4.0.4-1
+.. |date| replace:: December 18, 2018
+.. |mongodb-ce| replace:: MongoDB 4.0 Community Edition
+.. |mongodb| replace:: MongoDB
+
+.. include:: ../.res/url.txt
+.. include:: ../.res/replace.program.txt

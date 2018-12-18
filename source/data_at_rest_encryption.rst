@@ -4,9 +4,20 @@
 Data at Rest Encryption
 ================================================================================
 
+:Availability: This feature is considered **BETA** quality. Do not use
+	       the *data at rest encryption* in a production environment.
+
 Data at rest encryption for the WiredTiger storage engine in |mongodb| was
-introduced in |mongodb-enterprise| version 3.2. to ensure that encrypted data
+introduced in |mongodb-enterprise| version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
+
+.. important:: Limitations
+
+   |feature| in |PSMDB| will not encrypt data backups created by
+   ``mongodump`` or ``mongoexport`` utilities, AuditLog, general log
+   and diagnostic data.  :ref:`Hot backups <hot-backup>`, however, are
+   encrypted.
+
 
 .. seealso::
 
@@ -15,15 +26,11 @@ files can be decrypted and read by parties with the decryption key.
 
 .. rubric:: Differences from Upstream
 
-The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
-|feature| in |mongodb|. In the current release of |PSMDB|, the |feature| does
-not include support for |abbr.kmip|, |vault| or |amazon-aws| key management
-services.
-
-.. important:: 
-
-   This feature is considered **BETA** quality. Do not use the |feature| in a
-   production environment.
+Although the |feature| in |PSMDB| accepts similar options as
+|mongodb-enterprise| with |feature|, the |PSMDB| binary is not a drop-in
+replacement of |mongod| from |mongodb-enterprise|. In the current release of
+|PSMDB|, the |feature| does not include support for |abbr.kmip|, |vault| or
+|amazon-aws| key management services.
 
 .. rubric:: Important Configuration Options
 
@@ -97,3 +104,6 @@ All these options can be specified in the configuration file:
 .. |amazon-aws| replace:: Amazon AWS
 .. |mode.cbc| replace:: AES256-CBC
 .. |mode.gcm| replace:: AES256-GCM
+
+.. include:: .res/replace.program.txt
+

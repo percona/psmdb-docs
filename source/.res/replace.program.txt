@@ -1,0 +1,13 @@
+
+.. |apt.purge.percona-server-mongodb| replace:: :bash:`apt purge percona-server-mongodb*`
+.. |apt.purge| replace:: :program:`apt purge`
+.. |apt.remove.percona-server-mongodb| replace:: :bash:`apt remove percona-server-mongodb*`
+.. |apt.remove| replace:: :program:`apt remove`
+.. |apt.update| replace:: :bash:`apt update`
+.. |mongod| replace:: :program:`mongod`
+.. |service.mongod.restart| replace:: :bash:`service mongod restart`
+.. |service.mongod.start| replace:: :bash:`service mongod start`
+.. |service.mongod.status| replace:: :bash:`service mongod status`
+.. |service.mongod.stop| replace:: :bash:`service mongod stop`
+.. |systemctl.enable.mongod| replace:: :bash:`systemctl enable mongod`
+.. |yum.remove.percona-server-mongodb| replace:: :bash:`yum remove percona-server-mongodb*`
