@@ -46,14 +46,14 @@ Installing from Percona Repositories
 It is recommended to intall |PSMDB| from official Percona repositories:
 
 |tip.run-all.root|
-
-1. Install the Percona repository: :bash:`yum install https://repo.percona.com/centos/7/RPMS/noarch/percona-release-latest.noarch.rpm`
+                                                      
+1. Install the Percona repository: :bash:`yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm`
 
    .. admonition:: Example of Output
 
       .. code-block:: bash
 
-	 Retrieving http://www.percona.com/downloads/percona-release/redhat/latest/percona-release-latest.noarch.rpm
+	 Retrieving https://repo.percona.com/yum/percona-release-latest.noarch.rpm
 	 Preparing...                ########################################### [100%]
          1:percona-release        ########################################### [100%]
 
