@@ -107,6 +107,11 @@ is the same as starting the ``mongod`` daemon with the following options:
    --inMemorySizeGB=140 \
    --inMemoryStatisticsLogDelaySecs=0
 
+.. seealso::
+
+   YAML Specification
+      https://yaml.org/spec/1.2/spec.html
+
 The following options are available
 (with corresponding YAML configuration file parameters):
 
