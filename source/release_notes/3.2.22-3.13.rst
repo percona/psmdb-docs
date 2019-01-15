@@ -1,0 +1,25 @@
+.. _3.2.22-3.13:
+
+================================================================================
+Percona Server for MongoDB |release|
+================================================================================
+
+Percona is glad to announce the release of Percona Server for MongoDB |release|
+on |date|.  Downloads are available `here
+<https://www.percona.com/downloads/percona-server-mongodb-3.2>`_ and from the
+:ref:`Percona Software Repositories <install>`.
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 3.2 Community Edition.  It
+supports MongoDB 3.2 protocols and drivers.
+
+|PSMDB| extends the functionality of MongoDB Community Edition by including the
+:ref:`inmemory` storage engine, as well as several enterprise-grade features.
+|PSMDB| requires no changes to |MongoDB| applications or code.
+
+This release is based on `MongoDB 3.2.22
+<https://docs.mongodb.com/manual/release-notes/3.2/#dec-28-2018>`_.  There are
+no additional improvements or new features on top of those upstream fixes.
+
+.. |release| replace:: 3.2.22-3.13
+.. |date| replace:: January, 16 2019
