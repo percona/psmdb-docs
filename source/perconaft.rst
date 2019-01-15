@@ -159,6 +159,11 @@ is the same as starting the ``mongod`` daemon with the following options:
    --PerconaFTCollectionCompression zlib \
    --PerconaFTIndexCompression zlib
 
+.. seealso::
+
+   YAML Specification
+      https://yaml.org/spec/1.2/spec.html
+
 The following options are available
 (with corresponding YAML configuration file parameters):
 
