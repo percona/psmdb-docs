@@ -47,7 +47,11 @@ It is recommended to intall |PSMDB| from official Percona repositories:
 
 |tip.run-all.root|
                                                       
-1. Install the Percona repository: :bash:`yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm`
+1. Install the Percona repository:
+
+   .. code-block:: bash
+
+      $ sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
 
    .. admonition:: Example of Output
 
@@ -59,6 +63,11 @@ It is recommended to intall |PSMDB| from official Percona repositories:
 
 #. Enable the repository: :bash:`percona-release enable psmdb-40 release`
 #. Install the packages: :bash:`yum install percona-server-mongodb`
+
+.. seealso::
+
+   More information about how to use the ``percona-release`` tool
+      https://www.percona.com/doc/percona-repo-config/index.html
 
 
 Using Percona Server for MongoDB
