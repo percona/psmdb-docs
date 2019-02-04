@@ -20,6 +20,7 @@ Percona provides packages for the following systems:
        * Ubuntu 17.04 (Zesty Zapus)
        * Ubuntu 17.10 (Artful Aardvark)
        * Ubuntu 18.04 LTS (Bionic Beaver)
+       * Ubuntu 18.10 (Cosmic Cuttlefish)
      - :ref:`Install on Debian or Ubuntu <apt>`
    * - * Red Hat Enterprise Linux / CentOS 6
        * Red Hat Enterprise Linux / CentOS 7
