@@ -20,10 +20,30 @@ The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
 not include support for |abbr.kmip|, |vault| or |amazon-aws| key management
 services.
 
-.. important:: 
+.. rubric:: Encrypting Rollback Files
 
-   This feature is considered **BETA** quality. Do not use the |feature| in a
-   production environment.
+Starting from version 3.6, |PSMDB| also encrypts rollback files when data at
+rest encryption is enabled. To inspect the contents of these files, use
+|perconadecrypt|. This is a tool that you run from the command line as follows:
+
+.. code-block:: bash
+
+   $ perconadecrypt --encryptionKeyFile FILE  --inputPath FILE --outputPath FILE [--encryptionCipherMode MODE]
+
+When decrypting, the cipher mode must match the cipher mode which was used for
+the encryption. By default, the |opt.encryption-cipher-mode| option uses the
+|mode.cbc| mode.
+
+.. admonition:: Parameters of |perconadecrypt|
+
+   ========================  ==================================================================================
+   Option                    Purpose
+   ========================  ==================================================================================
+   --encryptionKeyFile       The path to the encryption key file
+   --encryptionCipherMode    The cipher mode for decryption. The supported values are |mode.cbc| or |mode.gcm|
+   --inputPath               The path to the encrypted rollback file
+   --outputPath              The path to save the decrypted rollback file
+   ========================  ==================================================================================
 
 .. rubric:: Important Configuration Options
 
@@ -87,6 +107,8 @@ All these options can be specified in the configuration file:
 
    |mongodb| Documentation: How to set options in a configuration file
       https://docs.mongodb.com/manual/reference/configuration-options/index.html#configuration-file
+
+
   
 .. |openssl| replace:: :program:`openssl`
 .. |mongodb-enterprise| replace:: MongoDB Enterprise
@@ -97,3 +119,5 @@ All these options can be specified in the configuration file:
 .. |amazon-aws| replace:: Amazon AWS
 .. |mode.cbc| replace:: AES256-CBC
 .. |mode.gcm| replace:: AES256-GCM
+.. |perconadecrypt| :replace:: :program:`perconadecrypt`
+.. |opt.encryption-cipher-mode| :replace:: ``--encryptionCipherMode``
