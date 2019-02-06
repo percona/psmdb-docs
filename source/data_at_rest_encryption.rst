@@ -119,5 +119,5 @@ All these options can be specified in the configuration file:
 .. |amazon-aws| replace:: Amazon AWS
 .. |mode.cbc| replace:: AES256-CBC
 .. |mode.gcm| replace:: AES256-GCM
-.. |perconadecrypt| :replace:: :program:`perconadecrypt`
-.. |opt.encryption-cipher-mode| :replace:: ``--encryptionCipherMode``
+.. |perconadecrypt| replace:: :program:`perconadecrypt`
+.. |opt.encryption-cipher-mode| replace:: ``--encryptionCipherMode``
