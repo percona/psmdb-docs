@@ -12,8 +12,8 @@ a collection setting the ``default_language`` parameter to **ngram**:
 
    mongo > db.collection.createIndex({name:"text"}, {default_language: "ngram"})
 
-The |ngram| search engine uses the following token delimiter characters that are not
-used do not count as word characters in human languages:
+The |ngram| search engine uses the following token delimiter
+characters that do not count as word characters in human languages:
 
 - Horizontal tab
 - Vertical tab
