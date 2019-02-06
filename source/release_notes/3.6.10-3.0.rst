@@ -31,7 +31,7 @@ the rollback files. You can decrypt and examine the contents of the rollback
 files using the new :program:`perconadecrypt` command line tool.
 
 In this release, |PSMDB| supports the Ngram full text search engine. Thanks to
-Sunguck Lee (sunguck.lee@gmail.com) for this contribution. To enable Ngram full
+*@SunguckLee on github* for this contribution. To enable Ngram full
 text search, create an index passing **ngram** to the ``default_language``
 parameter.
 
@@ -45,7 +45,7 @@ New Features
 - :jirabug:`PSMDB-276`: :program:`perconadecrypt` tool is now available for
   decrypting the encrypted rollback files.
 - :jirabug:`PSMDB-250`: The Ngram full text search engine has been added to
-  |PSMDB|. Thanks to Sunguck Lee (sunguck.lee@gmail.com)
+  |PSMDB|. Thanks to *@SunguckLee on github*
 
 Bugs Fixed
 ================================================================================
