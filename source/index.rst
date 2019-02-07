@@ -56,6 +56,7 @@ Features
    log-redaction
    enable-auth
    data_at_rest_encryption
+   ngram-full-text-search
 
 Reference
 ================================================================================
