@@ -72,7 +72,7 @@ Bugs Fixed
 Other bugs fixed: :psmdb-bug:`247`
 
 .. |release| replace:: 4.0.5-2
-.. |date| replace:: February 11, 2019
+.. |date| replace:: February 18, 2019
 .. |mongodb-ce| replace:: MongoDB 4.0 Community Edition
 .. |mongodb| replace:: MongoDB
 .. |thanks| replace:: Thanks to Sunguck Lee `(@SunguckLee) <https://github.com/SunguckLee>`__ for this contribution
