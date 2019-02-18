@@ -4,9 +4,6 @@
 Data at Rest Encryption
 ================================================================================
 
-:Availability: This feature is considered **BETA** quality. Do not use
-	       the *data at rest encryption* in a production environment.
-
 Data at rest encryption for the WiredTiger storage engine in |mongodb| was
 introduced in |mongodb-enterprise| version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
@@ -31,6 +28,33 @@ Although the |feature| in |PSMDB| accepts similar options as
 replacement of |mongod| from |mongodb-enterprise|. In the current release of
 |PSMDB|, the |feature| does not include support for |abbr.kmip|, |vault| or
 |amazon-aws| key management services.
+
+
+.. rubric:: Encrypting Rollback Files
+
+Starting from version 3.6, |PSMDB| also encrypts rollback files when data at
+rest encryption is enabled. To inspect the contents of these files, use
+|perconadecrypt|. This is a tool that you run from the command line as follows:
+
+.. code-block:: bash
+
+   $ perconadecrypt --encryptionKeyFile FILE  --inputPath FILE --outputPath FILE [--encryptionCipherMode MODE]
+
+When decrypting, the cipher mode must match the cipher mode which was used for
+the encryption. By default, the |opt.encryption-cipher-mode| option uses the
+|mode.cbc| mode.
+
+.. admonition:: Parameters of |perconadecrypt|
+
+   ========================  ==================================================================================
+   Option                    Purpose
+   ========================  ==================================================================================
+   --encryptionKeyFile       The path to the encryption key file
+   --encryptionCipherMode    The cipher mode for decryption. The supported values are |mode.cbc| or |mode.gcm|
+   --inputPath               The path to the encrypted rollback file
+   --outputPath              The path to save the decrypted rollback file
+   ========================  ==================================================================================
+
 
 .. rubric:: Important Configuration Options
 
@@ -104,6 +128,8 @@ All these options can be specified in the configuration file:
 .. |amazon-aws| replace:: Amazon AWS
 .. |mode.cbc| replace:: AES256-CBC
 .. |mode.gcm| replace:: AES256-GCM
+.. |perconadecrypt| replace:: ``perconadecrypt``
+.. |opt.encryption-cipher-mode| replace:: :option:`--encryptionCipherMode`
 
 .. include:: .res/replace.program.txt
 
