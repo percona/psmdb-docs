@@ -1,0 +1,60 @@
+.. _3.4.19-2.17:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+:Date: |date|
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
+:Installation: :ref:`install`
+
+Percona announces the release of Percona Server for MongoDB |release| on
+|date|. Download the latest version from the Percona web site or the
+Percona Software Repositories.
+
+Percona Server for MongoDB 3.4 is an enhanced, open source, and highly-scalable
+database that is a fully-compatible, drop-in replacement for MongoDB 3.4
+Community Edition. It supports MongoDB 3.4 protocols and drivers.
+
+|PSMDB| extends MongoDB Community Edition functionality by including
+the Percona Memory Engine and MongoRocks storage engines, as well as
+several enterprise-grade features:
+
+- `External Authentication <https://www.percona.com/doc/percona-server-for-mongodb/3.4/authentication.html>`_
+- `Audit Logging <https://www.percona.com/doc/percona-server-for-mongodb/3.4/audit-logging.html>`_
+- `Profiling Rate Limiting <https://www.percona.com/doc/percona-server-for-mongodb/3.4/rate-limit.html>`_
+- `Hot Backup <https://www.percona.com/doc/percona-server-for-mongodb/3.4/hot-backup.html>`_
+- `Log Redaction <https://www.percona.com/doc/percona-server-for-mongodb/3.4/log-redaction.html>`_
+
+Percona Server for MongoDB requires no changes to MongoDB applications or
+code. This release is based on `MongoDB 3.4.19
+<https://docs.mongodb.com/manual/release-notes/3.4/#jan-28-2019>`_.
+
+In this release, |PSMDB| supports the ``ngram`` full-text search engine. Thanks
+to Sunguck Lee `(@SunguckLee) <https://github.com/SunguckLee>`__ for this
+contribution. To enable the ngram full-text search engine, create an index
+passing ngram to the default_language parameter:
+
+.. code-block:: guess
+		
+   mongo > db.collection.createIndex({name:"text"}, {default_language: "ngram"})
+
+There are the following improvements and bug fixes in this release:
+
+Improvements
+================================================================================
+
+- :jirabug:`250`: The ``ngram`` full-text search engine has been added to
+  |PSMDB|. Thanks to Sunguck Lee (`@SunguckLee
+  <https://github.com/SunguckLee>`__) for this contribution.
+
+Bugs Fixed
+================================================================================
+
+- :jirabug:`272`: mongos could crash when running the ``createBackup`` command.
+
+Other bugs fixed: :jirabug:`247`
+
+
+.. |date| replace:: February 19, 2019
+.. |release| replace:: 3.4.19-2.17
