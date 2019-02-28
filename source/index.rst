@@ -8,7 +8,7 @@ Percona Server for MongoDB |version| Documentation
 for MongoDB |version| Community Edition with enterprise-grade features.
 It requires no changes to MongoDB applications or code.
 
-.. tip::
+.. hint::
 
    To see which version of |PSMDB| you are using check the value of the
    ``psmdbVersion`` key in the output of the ``buildInfo`` database command. If
