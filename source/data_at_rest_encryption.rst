@@ -83,11 +83,20 @@ key and save it to a file by using the |openssl| command:
    $ openssl rand -base64 32 > mongodb-keyfile
 
 Then, as the owner of the ``mongod`` process, update the file permissions: only
-the owner should be able to read and modify this file:
+the owner should be able to read and modify this file. The effective permissions
+specified with the ``chmod`` command can either be **600** (only the owner may
+read and modify the file) or **400** (only the owner may read the file.)
 
 .. code-block:: bash
 
    $ chmod 600 mongodb-keyfile
+
+If ``mongod`` is started with the ``--relaxPermChecks`` option and the key file
+is owned by ``root`` then ``mongod`` can read the file based on the
+group bit set accordingly. The effective key file permissions in this
+case are either **440** (both the owner and the group can only read the file) or
+**640** (only the owner can read and the change the file, the group can only
+read the file).
 
 .. seealso::
 
@@ -102,6 +111,7 @@ All these options can be specified in the configuration file:
       enableEncryption: <boolean>
       encryptionCipherMode: <string>
       encryptionKeyFile: <string>
+      relaxPermChecks: <boolean>
 
 .. seealso::
 
