@@ -8,6 +8,18 @@ Percona Server for MongoDB |version| Documentation
 for MongoDB 3.4 Community Edition with enterprise-grade features.
 It requires no changes to MongoDB applications or code.
 
+.. hint::
+
+   To see which version of |PSMDB| you are using check the value of
+   the ``psmdbVersion`` key in the output of the ``buildInfo``
+   database command. If this key does not exist |PSMDB| is not
+   installed on the server.
+
+   .. seealso:: 
+
+      |MongoDB| Documentation: ``buildInfo`` Database Command
+	 https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo
+
 |PSMDB| provides the following features:
 
 * MongoDB's original MMAPv1_ storage engine,
