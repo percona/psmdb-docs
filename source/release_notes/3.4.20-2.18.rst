@@ -1,0 +1,45 @@
+.. _3.4.20-2.18:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+:Date: |date|
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
+:Installation: :ref:`install`
+
+|Percona| announces the release of |PSMDB| |release| on
+|date|. Download the latest version from the |Percona| web site or the
+Percona Software Repositories.
+
+|PSMDB| 3.4 is an enhanced, open source, and highly-scalable
+database that is a fully-compatible, drop-in replacement for MongoDB 3.4
+Community Edition. It supports |MongoDB| 3.4 protocols and drivers.
+
+|PSMDB| extends MongoDB Community Edition functionality by including
+the Percona Memory Engine and MongoRocks storage engines, as well as
+several enterprise-grade features:
+
+- `External Authentication <https://www.percona.com/doc/percona-server-for-mongodb/3.4/authentication.html>`_
+- `Audit Logging <https://www.percona.com/doc/percona-server-for-mongodb/3.4/audit-logging.html>`_
+- `Profiling Rate Limiting <https://www.percona.com/doc/percona-server-for-mongodb/3.4/rate-limit.html>`_
+- `Hot Backup <https://www.percona.com/doc/percona-server-for-mongodb/3.4/hot-backup.html>`_
+- `Log Redaction <https://www.percona.com/doc/percona-server-for-mongodb/3.4/log-redaction.html>`_
+
+|PSMDB| requires no changes to MongoDB applications or
+code. This release is based on `MongoDB 3.4.20
+<https://docs.mongodb.com/manual/release-notes/3.4/#mar-13-2019>`_.
+
+Release |release| :ref:`extends the buildInfo command with the psmdbVersion key
+<dochome>` to report the version of |PSMDB|. If this key exists then |PSMDB| is
+installed on the server. This key not available from |MongoDB|.
+
+Improvements
+================================================================================
+
+- :jirabug:`PSMDB-216`: The database command ``buildInfo`` provides the
+  ``psmdbVersion`` key to report the version of |PSMDB|. If this key exists then
+  |PSMDB| is installed on the server. This key is not available from |MongoDB|.
+
+.. |date| replace:: March 29, 2019
+.. |release| replace:: 3.4.20-2.18
