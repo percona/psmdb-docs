@@ -30,5 +30,5 @@ Bugs Fixed
 
 - :jirabug:`PSMDB-343`: Building from sources could fail with `openssl` version 1.1.1.
 
-.. |date| replace:: March 15, 2019
+.. |date| replace:: May 3, 2019
 .. |release| replace:: 3.6.12-3.2
