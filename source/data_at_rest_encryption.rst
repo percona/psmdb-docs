@@ -17,8 +17,48 @@ files can be decrypted and read by parties with the decryption key.
 
 The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
 |feature| in |mongodb|. In the current release of |PSMDB|, the |feature| does
-not include support for |abbr.kmip|, |vault| or |amazon-aws| key management
+not include support for |abbr.kmip|, or |amazon-aws| key management
 services.
+
+.. rubric:: |vault| Integration
+
+Starting from version 4.0, |PSMDB| provides |vault| integration.
+
+.. admonition:: |vault| Parameters
+
+.. list-table::
+      :widths: auto
+      :header-rows: 1
+
+      * - command line
+        - config file
+        - Type
+      * - vaultServerName
+        - security.vault.ServerName
+        - string
+      * - vaultPort
+        - security.vault.port
+        - int
+      * - vaultTokenFile
+        - security.vault.secret
+        - string
+      * - vaultSecret
+        - security.vault.secret
+        - string
+      * - vaultRotateMasterKey
+        - security.vault.vaultrotateMasterKey
+        - switch
+      * - vaultServerCAFile
+        - security.vault.serverCAFile
+        - string
+      * - vaultDisableTLSForTesting
+        - security.vault.disableTLSForTesting
+        - switch
+
+The vault token file consists of the raw vault token and does not include any additional strings or parameters.
+
+On start server tries to read the master key from the Vault. If the configured secret does not exist, Vault responds with HTTP 404 error. During the first run of the |PSMDB| the process generates a secure key and writes the key to the vault. 
+
 
 .. rubric:: Encrypting Rollback Files
 
@@ -66,7 +106,7 @@ demonstrates how to apply the |mode.gcm| cipher mode when starting the
    |mongodb| Documentation: encryptionCipherMode Option
       https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-encryptionciphermode
 
-|PSMDB| also supports the options exposed by the upstream solution: 
+|PSMDB| also supports the options exposed by the upstream solution:
 
 - ``--enableEncryption`` to enable data at rest encryption
 - ``--encryptionKeyFile`` to specify the path to a file that contains the encryption key
@@ -74,7 +114,7 @@ demonstrates how to apply the |mode.gcm| cipher mode when starting the
 .. code-block:: bash
 
    $ mongod ... --enableEncryption --encryptionKeyFile <fileName>
-  
+
 The key file must contain a 32 character string encoded in base64. You can generate a random
 key and save it to a file by using the |openssl| command:
 
@@ -119,7 +159,8 @@ All these options can be specified in the configuration file:
       https://docs.mongodb.com/manual/reference/configuration-options/index.html#configuration-file
 
 
-  
+
+
 .. |openssl| replace:: :program:`openssl`
 .. |mongodb-enterprise| replace:: MongoDB Enterprise
 .. |mongodb| replace:: MongoDB
