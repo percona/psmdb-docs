@@ -8,14 +8,6 @@ Data at rest encryption for the WiredTiger storage engine in |mongodb| was
 introduced in |mongodb-enterprise| version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
 
-.. important:: Limitations
-
-   |feature| in |PSMDB| will not encrypt data backups created by
-   ``mongodump`` or ``mongoexport`` utilities, AuditLog, general log
-   and diagnostic data.  :ref:`Hot backups <hot-backup>`, however, are
-   encrypted.
-
-
 .. seealso::
 
    |mongodb| Documentation: Encryption at Rest
@@ -23,11 +15,49 @@ files can be decrypted and read by parties with the decryption key.
 
 .. rubric:: Differences from Upstream
 
-Although the |feature| in |PSMDB| accepts similar options as
-|mongodb-enterprise| with |feature|, the |PSMDB| binary is not a drop-in
-replacement of |mongod| from |mongodb-enterprise|. In the current release of
-|PSMDB|, the |feature| does not include support for |abbr.kmip|, |vault| or
-|amazon-aws| key management services.
+The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
+|feature| interface in |mongodb|. In the current release of |PSMDB|, the |feature| does
+not include support for |abbr.kmip|, or |amazon-aws| key management
+services.
+
+.. rubric:: |vault| Integration
+
+Starting from version 4.0.10, |PSMDB| provides |vault| integration.
+
+.. admonition:: |vault| Parameters
+
+.. list-table::
+      :widths: auto
+      :header-rows: 1
+
+      * - command line
+        - config file
+        - Type
+      * - vaultServerName
+        - security.vault.ServerName
+        - string
+      * - vaultPort
+        - security.vault.port
+        - int
+      * - vaultTokenFile
+        - security.vault.secret
+        - string
+      * - vaultSecret
+        - security.vault.secret
+        - string
+      * - vaultRotateMasterKey
+        - security.vault.vaultrotateMasterKey
+        - switch
+      * - vaultServerCAFile
+        - security.vault.serverCAFile
+        - string
+      * - vaultDisableTLSForTesting
+        - security.vault.disableTLSForTesting
+        - switch
+
+The vault token file consists of the raw vault token and does not include any additional strings or parameters.
+
+On start server tries to read the master key from the Vault. If the configured secret does not exist, Vault responds with HTTP 404 error. During the first run of the |PSMDB| the process generates a secure key and writes the key to the vault.
 
 
 .. rubric:: Encrypting Rollback Files
@@ -55,7 +85,6 @@ the encryption. By default, the |opt.encryption-cipher-mode| option uses the
    --outputPath              The path to save the decrypted rollback file
    ========================  ==================================================================================
 
-
 .. rubric:: Important Configuration Options
 
 |PSMDB| supports the ``encryptionCipherMode`` option where you choose one of the
@@ -77,7 +106,7 @@ demonstrates how to apply the |mode.gcm| cipher mode when starting the
    |mongodb| Documentation: encryptionCipherMode Option
       https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-encryptionciphermode
 
-|PSMDB| also supports the options exposed by the upstream solution: 
+|PSMDB| also supports the options exposed by the upstream solution:
 
 - ``--enableEncryption`` to enable data at rest encryption
 - ``--encryptionKeyFile`` to specify the path to a file that contains the encryption key
@@ -85,7 +114,7 @@ demonstrates how to apply the |mode.gcm| cipher mode when starting the
 .. code-block:: bash
 
    $ mongod ... --enableEncryption --encryptionKeyFile <fileName>
-  
+
 The key file must contain a 32 character string encoded in base64. You can generate a random
 key and save it to a file by using the |openssl| command:
 
@@ -130,7 +159,7 @@ All these options can be specified in the configuration file:
       https://docs.mongodb.com/manual/reference/configuration-options/index.html#configuration-file
 
 
-  
+.. |PSMDB| replace:: Percona Server for MongoDB
 .. |openssl| replace:: :program:`openssl`
 .. |mongodb-enterprise| replace:: MongoDB Enterprise
 .. |mongodb| replace:: MongoDB
@@ -140,8 +169,5 @@ All these options can be specified in the configuration file:
 .. |amazon-aws| replace:: Amazon AWS
 .. |mode.cbc| replace:: AES256-CBC
 .. |mode.gcm| replace:: AES256-GCM
-.. |perconadecrypt| replace:: ``perconadecrypt``
-.. |opt.encryption-cipher-mode| replace:: :option:`--encryptionCipherMode`
-
-.. include:: .res/replace.program.txt
-
+.. |perconadecrypt| replace:: :program:`perconadecrypt`
+.. |opt.encryption-cipher-mode| replace:: ``--encryptionCipherMode``
