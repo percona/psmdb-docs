@@ -173,7 +173,7 @@ Rotating the master key process also re-encrypts the keystore using the new mast
 For a replica set, do the following steps:
   1. Rotate the master key for the secondary nodes one by one.
   2. Step down the primary and wait for another primary to be elected.
-  3. Rotate the master key for the previous primary node. 
+  3. Rotate the master key for the previous primary node.
 
 
 
