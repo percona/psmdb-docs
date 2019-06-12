@@ -162,6 +162,7 @@ All these options can be specified in the configuration file:
 
  .. admonition:: Key Rotation
 To rotate the keys for a single mongod instance, do the following:
+
   1. Stop mongod process
   2. Add ``--vaultRotateMasterKey`` to the command line options or ``security.vault.rotateMasterKey`` to the config file.
   3. Run the mongod process with the selected option, the process will perform the key rotation and exit.
@@ -171,6 +172,7 @@ To rotate the keys for a single mongod instance, do the following:
 Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the vault. The entire dataset is not re-encrypted.
 
 For a replica set, do the following steps:
+
   1. Rotate the master key for the secondary nodes one by one.
   2. Step down the primary and wait for another primary to be elected.
   3. Rotate the master key for the previous primary node.
