@@ -16,10 +16,11 @@ fully-compatible, drop-in replacement for |mongodb-ce|.  It supports |mongodb|
 4.0 protocols and drivers.
 
 |PSMDB| extends the functionality of the |mongodb-ce| by including the
-:ref:`inmemory` storage engine, :ref:`encrypted WiredTiger storage engine
-<psmdb.data-at-rest-encryption>`, :ref:`audit logging <audit-log>`, :ref:`SASL
-authentication <ext-auth>`, :ref:`hot backups <hot-backup>`, and :ref:`enhanced
-query profiling <rate-limit>`. |PSMDB| requires no changes to |mongodb|
+:ref:`inmemory` storage engine, :ref:`encrypted WiredTiger storage
+engine <psmdb.data-at-rest-encryption>`, :ref:`audit logging
+<audit-log>`, :ref:`External LDAP Authentication with SASL
+<ext-auth>`, :ref:`hot backups <hot-backup>`, and :ref:`enhanced query
+profiling <rate-limit>`. |PSMDB| requires no changes to |mongodb|
 applications or code.
 
 This release `includes all features
