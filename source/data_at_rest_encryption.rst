@@ -17,8 +17,40 @@ files can be decrypted and read by parties with the decryption key.
 
 The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
 |feature| in |mongodb|. In the current release of |PSMDB|, the |feature| does
-not include support for |abbr.kmip|, |vault| or |amazon-aws| key management
+not include support for |abbr.kmip|, or |amazon-aws| key management
 services.
+
+HashiCorp Vault Integration
+================================================================================
+
+Starting from version 3.6.13-3.3, |PSMDB| provides |vault| integration. We only
+support the HashiCorp Vault backend with KV Secrets Engine - Version 2 (API)
+with versioning enabled.
+
+.. seealso::
+
+   How to configure the KV Engine
+      https://www.vaultproject.io/api/secret/kv/kv-v2.html
+
+==========================  ====================================  ==========
+Command Line	            Config File                           Type
+==========================  ====================================  ==========
+vaultServerName	            security.vault.ServerName	          string
+vaultPort	            security.vault.port	                  int
+vaultTokenFile	            security.vault.secret	          string
+vaultSecret	            security.vault.secret	          string
+vaultRotateMasterKey	    security.vault.vaultrotateMasterKey	  switch
+vaultServerCAFile	    security.vault.serverCAFile	          string
+vaultDisableTLSForTesting   security.vault.disableTLSForTesting	  switch
+==========================  ====================================  ==========
+
+The vault token file consists of the raw vault token and does not include any
+additional strings or parameters.
+
+On start, the server tries to read the master key from the Vault. If the
+configured secret does not exist, Vault responds with the HTTP 404 error. During
+the first run of |PSMDB|, the process generates a secure key and writes the key
+to the vault.
 
 .. rubric:: Encrypting Rollback Files
 
@@ -118,8 +150,6 @@ All these options can be specified in the configuration file:
    |mongodb| Documentation: How to set options in a configuration file
       https://docs.mongodb.com/manual/reference/configuration-options/index.html#configuration-file
 
-
-  
 .. |openssl| replace:: :program:`openssl`
 .. |mongodb-enterprise| replace:: MongoDB Enterprise
 .. |mongodb| replace:: MongoDB

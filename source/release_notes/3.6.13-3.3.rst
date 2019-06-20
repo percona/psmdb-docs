@@ -1,0 +1,32 @@
+.. _3.6.13-3.3:
+
+================================================================================
+|PSMDB| |release|
+
+Percona announces the release of Percona Server for MongoDB |release|
+on |date|. Download the latest version from the `Percona website
+<https://www.percona.com/downloads/percona-server-mongodb-3.6/>`_ or
+the `Percona Software Repositories
+<https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_.
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 3.6 Community Edition.  It
+supports MongoDB 3.6 protocols and drivers.
+
+|PSMDB| extends Community Edition functionality by including the :ref:`inmemory`
+storage engine, as well as several enterprise-grade features.  Also, it includes
+:ref:`mongorocks` storage engine, which is now deprecated.  |PSMDB| requires no
+changes to MongoDB applications or code.
+
+|PSMDB| |release| introduces the support of HashiCorp Vault key
+management service. For more information, see
+:ref:`psmdb.data-at-rest-encryption` in the documentation of |PSMDB|.
+
+New Features
+================================================================================
+
+- :jirabug:`PSMDB-322`: HashiCorp Vault support
+
+
+.. |date| replace:: June 21, 2019
+.. |release| replace:: 3.6.13-3.3
