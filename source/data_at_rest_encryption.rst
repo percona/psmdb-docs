@@ -8,6 +8,12 @@ Data at rest encryption for the WiredTiger storage engine in |mongodb| was
 introduced in |mongodb-enterprise| version 3.2. to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
 
+Note that data at rest encryption is enabled when starting |PSMDB| by providing
+all essential encryption options. You cannot enable or disable encryption while
+the |PSMDB| server is already running. Nor can you change the effective
+encryption mode by simply restarting the server. Every time you restart the
+server, the encryption settings must be the same.
+
 .. seealso::
 
    |mongodb| Documentation: Encryption at Rest
@@ -15,46 +21,20 @@ files can be decrypted and read by parties with the decryption key.
 
 .. rubric:: Differences from Upstream
 
-The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
-|feature| in |mongodb|. In the current release of |PSMDB|, the |feature| does
-not include support for |abbr.kmip|, or |amazon-aws| key management
-services.
+The |feature| in |PSMDB| is introduced in version 3.6 (it was beta in 3.6.8-2.0
+and GA in 3.6.10-3.0) to be compatible with |feature| in |mongodb|. In the
+current release of |PSMDB|, the |feature| does not support |abbr.kmip|, or
+|amazon-aws| key management services. Starting from version 3.6.13-3.3, |PSMDB|
+provides |vault| integration (see the :ref:`psmdb.data-at-rest-encryption-vault`
+section for more information).
+  
+.. contents::
+   :local:
 
-HashiCorp Vault Integration
+Encrypting Rollback Files Using Encryption Key File
 ================================================================================
 
-Starting from version 3.6.13-3.3, |PSMDB| provides |vault| integration. We only
-support the HashiCorp Vault backend with KV Secrets Engine - Version 2 (API)
-with versioning enabled.
-
-.. seealso::
-
-   How to configure the KV Engine
-      https://www.vaultproject.io/api/secret/kv/kv-v2.html
-
-==========================  ====================================  ==========
-Command Line	            Config File                           Type
-==========================  ====================================  ==========
-vaultServerName	            security.vault.ServerName	          string
-vaultPort	            security.vault.port	                  int
-vaultTokenFile	            security.vault.secret	          string
-vaultSecret	            security.vault.secret	          string
-vaultRotateMasterKey	    security.vault.vaultrotateMasterKey	  switch
-vaultServerCAFile	    security.vault.serverCAFile	          string
-vaultDisableTLSForTesting   security.vault.disableTLSForTesting	  switch
-==========================  ====================================  ==========
-
-The vault token file consists of the raw vault token and does not include any
-additional strings or parameters.
-
-On start, the server tries to read the master key from the Vault. If the
-configured secret does not exist, Vault responds with the HTTP 404 error. During
-the first run of |PSMDB|, the process generates a secure key and writes the key
-to the vault.
-
-.. rubric:: Encrypting Rollback Files
-
-Starting from version 3.6, |PSMDB| also encrypts rollback files when data at
+Starting from version 3.6.10-3.0, |PSMDB| enables encrypting rollback files when data at
 rest encryption is enabled. To inspect the contents of these files, use
 |perconadecrypt|. This is a tool that you run from the command line as follows:
 
@@ -64,7 +44,8 @@ rest encryption is enabled. To inspect the contents of these files, use
 
 When decrypting, the cipher mode must match the cipher mode which was used for
 the encryption. By default, the |opt.encryption-cipher-mode| option uses the
-|mode.cbc| mode.
+|mode.cbc| mode. The |opt.encryption-cipher-mode| option is applicable to both
+keyfile and |vault| methods.
 
 .. admonition:: Parameters of |perconadecrypt|
 
@@ -77,10 +58,10 @@ the encryption. By default, the |opt.encryption-cipher-mode| option uses the
    --outputPath              The path to save the decrypted rollback file
    ========================  ==================================================================================
 
-.. rubric:: Important Configuration Options
+.. rubric:: Important Configuration Options When Using Key File Encryption
 
-|PSMDB| supports the ``encryptionCipherMode`` option where you choose one of the
-following cipher modes:
+With encryption key files, |PSMDB| supports the ``encryptionCipherMode`` option
+where you choose one of the following cipher modes:
 
 - |mode.cbc|
 - |mode.gcm|
@@ -100,7 +81,8 @@ demonstrates how to apply the |mode.gcm| cipher mode when starting the
 
 |PSMDB| also supports the options exposed by the upstream solution: 
 
-- ``--enableEncryption`` to enable data at rest encryption
+- ``--enableEncryption`` to enable data at rest encryption (applicable to both
+  keyfile and |vault| methods)
 - ``--encryptionKeyFile`` to specify the path to a file that contains the encryption key
 
 .. code-block:: bash
@@ -149,6 +131,54 @@ All these options can be specified in the configuration file:
 
    |mongodb| Documentation: How to set options in a configuration file
       https://docs.mongodb.com/manual/reference/configuration-options/index.html#configuration-file
+
+.. _psmdb.data-at-rest-encryption-vault:
+
+HashiCorp Vault Integration
+================================================================================
+
+Starting from version 3.6.13-3.3, |PSMDB| provides |vault| integration. We only
+support the |vault| backend with KV Secrets Engine - Version 2 (API)
+with versioning enabled.
+
+.. seealso::
+
+   How to configure the KV Engine
+      https://www.vaultproject.io/api/secret/kv/kv-v2.html
+
+==========================  ====================================  ==========
+Command Line	            Config File                           Type
+==========================  ====================================  ==========
+vaultServerName	            security.vault.ServerName	          string
+vaultPort	            security.vault.port	                  int
+vaultTokenFile	            security.vault.secret	          string
+vaultSecret	            security.vault.secret	          string
+vaultRotateMasterKey	    security.vault.vaultrotateMasterKey	  switch
+vaultServerCAFile	    security.vault.serverCAFile	          string
+vaultDisableTLSForTesting   security.vault.disableTLSForTesting	  switch
+==========================  ====================================  ==========
+
+The vault token file consists of the raw vault token and does not include any
+additional strings or parameters.
+
+On start, the server tries to read the master key from the Vault. If the
+configured secret does not exist, Vault responds with the HTTP 404 error. During
+the first run of |PSMDB|, the process generates a secure key and writes the key
+to the vault.
+
+Migrating from Key File Encryption to |vault| Encryption
+--------------------------------------------------------------------------------
+
+You can use either the |vault| integration feature or the key file
+encryption. If you have used the key file encryption and wish to migrate to  
+using |vault|, complete the following steps:
+
+1. Insert the key from keyfile into the |vault| server to the desired secret
+   path.
+#. Stop mongod.
+#. Add the startup options for |vault| integration for data at rest encryption.
+#. Remove the startup options for the key file encryption.
+#. Start the ``mongod`` service
 
 .. |openssl| replace:: :program:`openssl`
 .. |mongodb-enterprise| replace:: MongoDB Enterprise
