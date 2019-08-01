@@ -56,6 +56,15 @@ and ``"ok" : 1`` indicates that the operation was successful::
  > db.runCommand( { profile: 2, slowms: 200, ratelimit: 100 } );
  { "was" : 0, "slowms" : 100, "ratelimit" : 1, "ok" : 1 }
 
+.. important::
+
+   |MongoDB| uses the `sampleRate` parameter in place of ``rateLimit``.
+
+   .. seealso::
+
+      |MongoDB| Documentation: The `profile` command
+         https://docs.mongodb.com/manual/reference/command/profile/#profile
+ 
 To check the current settings, run ``profile: -1``::
 
  > db.runCommand( { profile: -1 } );

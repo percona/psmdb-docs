@@ -48,7 +48,7 @@ The following table will help you evaluate the differences.
      - NO
    * - :ref:`rate-limit`
      - YES
-     - NO
+     - YES [#]_ 
      - NO
    * - Geospatial Indexes
      - YES
@@ -76,3 +76,4 @@ The following table will help you evaluate the differences.
      - YES
 
 
+.. [#] via the `sampleRate <https://docs.mongodb.com/manual/reference/command/profile/#profile>`_ parameter.
