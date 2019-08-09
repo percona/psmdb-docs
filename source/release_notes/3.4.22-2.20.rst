@@ -25,10 +25,12 @@ enterprise-grade features:
 - `Hot Backup <https://www.percona.com/doc/percona-server-for-mongodb/3.4/hot-backup.html>`_
 - `Log Redaction <https://www.percona.com/doc/percona-server-for-mongodb/3.4/log-redaction.html>`_
 
-|PSMDB| requires no changes to MongoDB applications or code. This release is
-based on `MongoDB 3.4.22
-<https://docs.mongodb.com/manual/release-notes/3.4/#aug-6-2019>`_. In |PSMDB|
-|release| there are no additional improvements or new features on top of those
+|PSMDB| requires no changes to MongoDB applications or code. This
+release is based on `MongoDB 3.4.22
+<https://docs.mongodb.com/manual/release-notes/3.4/#aug-6-2019>`_
+which has addressed `CVE-2019-2386
+<https://jira.mongodb.org/browse/SERVER-38984>`_. In |PSMDB| |release|
+there are no additional improvements or new features on top of those
 upstream fixes.
 
 
