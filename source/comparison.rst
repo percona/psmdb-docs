@@ -4,7 +4,7 @@
 Percona Server for MongoDB Feature Comparison
 ================================================================================
 
-|PSMDB| 4.0 is based on MongoDB 4.0. |PSMDB| is the successor to Percona TokuMX,
+|PSMDB| |version| is based on MongoDB |version|. |PSMDB| is the successor to Percona TokuMX,
 which is based on MongoDB 2.4.
 
 Both MongoDB and |PSMDB| include a pluggable storage engine API.  This enables
@@ -25,10 +25,8 @@ The following table will help you evaluate the differences.
      - TokuMX
    * - Storage Engines
      - * WiredTiger_ (default)
-       * MMAPv1_
        * :ref:`inmemory`
      - * WiredTiger_ (default)
-       * MMAPv1_
        * In-Memory_ (Enterprise only)
      - Built-in storage engine based on the Fractal Tree index
    * - :ref:`Hot Backup <hot-backup>`
@@ -71,6 +69,5 @@ The following table will help you evaluate the differences.
      - NO
      - Enterprise only
      - YES
-
 
 .. [#] via the `sampleRate <https://docs.mongodb.com/manual/reference/command/profile/#profile>`_ parameter.
