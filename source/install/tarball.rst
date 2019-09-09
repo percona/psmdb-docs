@@ -11,17 +11,17 @@ You can find links to the binary tarballs from the `Percona website`_
 
    .. code-block:: bash
 
-      $ wget https://www.percona.com/downloads/percona-server-mongodb-4.2/\
-      percona-server-mongodb-4.2.0-1/binary/debian/bionic/x86_64/\
-      percona-server-mongodb-4.2.0-1-bionic-x86_64-bundle.tar
-      $ tar xfz percona-server-mongodb-4.2.0-1-bionic-x86_64-bundle.tar.gz
+      $ wget https://www.percona.com/downloads/percona-server-mongodb-4.0/\
+      percona-server-mongodb-4.0.4-1/binary/debian/jessie/x86_64/\
+      percona-server-mongodb-4.0.4-1-ra1cb178-jessie-x86_64-bundle.tar
+      $ tar xfz percona-server-mongodb-4.0.4-1-ra1cb178-jessie-x86_64-bundle.tar
 
 #. Copy the extracted binaries to the target directory, for example:
 
    .. code-block:: bash
 
       mkdir ~/psmdb
-      cp -r -n percona-server-mongodb-4.2.0-1-bionic-x86_64-bundle/bin ~/psmdb/
+      cp -r -n percona-server-mongodb-4.0.4-1-ra1cb178-jessie-x86_64-bundle/bin ~/psmdb/
 
 #. Add the location of the binaries to the ``PATH`` variable: :bash:`export PATH ~/psmdb/bin:$PATH`
 #. Create the default data directory: :bash:`mkdir -p /data/db`

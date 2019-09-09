@@ -5,7 +5,6 @@
 .. |apt.remove| replace:: :program:`apt remove`
 .. |apt.update| replace:: :bash:`apt update`
 .. |mongod| replace:: :program:`mongod`
-.. |percona-release| replace:: :program:`percona-release`
 .. |service.mongod.restart| replace:: :bash:`service mongod restart`
 .. |service.mongod.start| replace:: :bash:`service mongod start`
 .. |service.mongod.status| replace:: :bash:`service mongod status`

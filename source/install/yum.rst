@@ -43,13 +43,11 @@ Package Contents
 Installing from Percona Repositories
 ================================================================================
 
-It is recommended to install |PSMDB| from official |percona| repositories:
-
-.. include:: ../.res/text/important.percona-release.latest.txt
+It is recommended to intall |PSMDB| from official Percona repositories:
 
 |tip.run-all.root|
                                                       
-1. Install the Percona repository (|percona-release|):
+1. Install the Percona repository:
 
    .. code-block:: bash
 
