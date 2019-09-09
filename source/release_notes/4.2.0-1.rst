@@ -9,8 +9,7 @@ engineers have been hard at work to bring this to you less than a month after
 the launch of |mongodb-ce| 4.2.
 
 |psmdb| |release| includes all of the new features of the latest version of
-|mongodb-ce|, as well as providing our users with Enterprise-level `enhancements
-< https://www.percona.com/software/mongo-database/feature-comparison>`_ for
+|mongodb-ce|, as well as providing our users with Enterprise-level `enhancements <https://www.percona.com/software/mongo-database/feature-comparison>`_ for
 free.
 
 Download the latest version from the `Percona website`_ or the `Percona software
@@ -74,8 +73,7 @@ the new features of 4.2, and more! This makes it an attractive proposition for
 businesses looking to have a robust database software solution in place and make
 the most of their IT budget.
 
-Download `our product flyer
-https://learn.percona.com/hubfs/Datasheet/Percona_Server_For_MongoDB/Datasheet_Percona_Server_for_MongoDB.pdf`_
+Download `our product flyer <https://learn.percona.com/hubfs/Datasheet/Percona_Server_For_MongoDB/Datasheet_Percona_Server_for_MongoDB.pdf>`_
 for more information on |percona|’s commitment to |mongodb|.
 
 Please `contact us <https://www.percona.com/about-percona/contact>`_ if you
