@@ -35,6 +35,6 @@ The |ngram| full text search is slower than normal MongoDB full text search.
       - `Text indexes <https://docs.mongodb.com/manual/core/index-text/#index-feature-text>`_
       - `$text operator <https://docs.mongodb.com/manual/reference/operator/query/text/#op._S_text>`_
    More information about the implementation:
-      - https://github.com/percona/percona-server-mongodb/blob/v4.0/src/mongo/db/fts/ngram-tokenizer.md
+      - https://github.com/percona/percona-server-mongodb/blob/v4.2/src/mongo/db/fts/ngram-tokenizer.md
       
 .. |ngram| replace:: *ngram*
