@@ -4,9 +4,9 @@
 Switching Storage Engines
 ================================================================================
 
-By default, |PSMDB| runs with WiredTiger_.  There is also an optional
-:ref:`inmemory` storage engine to choose from. Each storage engine is designed
-for specific purposes and workloads.
+By default, |PSMDB| runs with WiredTiger_.  There is also the original MMAPv1_
+storage engine, as well as an optional :ref:`inmemory` storage engine to choose
+from. Each storage engine is designed for specific purposes and workloads.
 
 You can select a storage engine using the ``--storageEngine`` command-line
 option when you start ``mongod``.  Alternatively, you can set the
@@ -69,6 +69,14 @@ customizing the configuration.  The following hints may help you:
 
   - ``wiredTigerConcurrentReadTransactions``
   - ``wiredTigerConcurrentWriteTransactions``
+
+- On systems with more than roughly 24,000 collections running MMAPv1_,
+  increase the ``storage.mmapv1.nsSize`` variable.
+
+- Also for MMAPv1_ you can set ``storage.mmapv1.smallFiles`` to ``true`` to use
+  a smaller default file size, if you have a large number of databases that each
+  holds a small amount of data.
+
 
 - The default maximum internal cache size that WiredTiger_ uses
   is the larger of either:

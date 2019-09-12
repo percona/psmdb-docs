@@ -1,0 +1,54 @@
+.. _4.0.9-4:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+Percona announces the release of |PSMDB| |release| on |date|. Download the
+latest version from the `Percona website`_ or the `Percona software repositories`_.
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for |mongodb-ce|.  It supports |mongodb|
+4.0 protocols and drivers.
+
+|PSMDB| extends the functionality of the |mongodb-ce| by including the
+:ref:`inmemory` storage engine, :ref:`encrypted WiredTiger storage
+engine <psmdb.data-at-rest-encryption>`, :ref:`audit logging
+<audit-log>`, :ref:`External LDAP Authentication with SASL
+<ext-auth>`, :ref:`hot backups <hot-backup>`, and :ref:`enhanced query
+profiling <rate-limit>`. |PSMDB| requires no changes to |mongodb|
+applications or code.
+
+This release `includes all features
+<https://docs.mongodb.com/manual/release-notes/4.0>`_ of |mongodb-ce|
+4.0. Most notable among these are:
+
+- `Multi-Document ACID transactions
+  <https://docs.mongodb.com/manual/release-notes/4.0/#multi-document-transactions>`_
+- `Type conversion through the new aggregation operators
+  <https://docs.mongodb.com/manual/release-notes/4.0/#new-type-conversion-operators>`_
+- `Enhancements to the Change Streams support
+  <https://docs.mongodb.com/manual/release-notes/4.0/#database-and-deployment-change-streams>`_
+
+Note that the `MMAPv1 storage engine is deprecated
+<https://docs.mongodb.com/manual/release-notes/4.0/#deprecate-mmapv1>`_
+in |mongodb-ce| 4.0.
+
+|PSMDB| |release| is based on `MongoDB 4.0.9
+<https://docs.mongodb.com/manual/release-notes/4.0/#apr-16-2019>`_ and
+contains the following bug fixes:
+
+Bug Fixes
+================================================================================
+
+- :psmdb-bug:`PSMDB-343`: Building from sources could fail with
+  ``openssl`` version 1.1.1.
+
+.. |release| replace:: 4.0.9-4
+.. |date| replace:: April 17, 2019
+.. |mongodb-ce| replace:: MongoDB 4.0 Community Edition
+.. |mongodb| replace:: MongoDB
+
+.. include:: ../.res/url.txt
+.. include:: ../.res/replace.program.txt
+		       
