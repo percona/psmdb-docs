@@ -7,8 +7,9 @@ Installing Percona Server for MongoDB on Debian and Ubuntu
 Percona provides :file:`.deb` packages for 64-bit versions
 of the following distributions:
 
+* Debian 8 (jessie)
 * Debian 9 (stretch)
-* Debian 10 (buster)
+* Ubuntu 14.04 LTS (Trusty Tahr)
 * Ubuntu 16.04 LTS (Xenial Xerus)
 * Ubuntu 18.04 LTS (Bionic Beaver)
 
@@ -44,32 +45,19 @@ Package Contents
 Installing from Percona Repositories
 ================================================================================
 
-It is recommended to install |PSMDB| from official Percona repositories using
-the |percona-release| utility:
-
-.. include:: ../.res/text/important.percona-release.latest.txt
+It is recommended to install |PSMDB| from official Percona repositories:
 
 |tip.run-all.root|
 
-1. Fetch the repository packages from Percona web:
-
-   .. code-block:: bash
-
-      $ wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
-
-#. Install the downloaded package with :program:`dpkg`:
-
-   .. code-block:: bash
-
-      $ dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
-
-   Once you install this package the |Percona| repositories should be added. You
-   can check the repository setup in the
-   :file:`/etc/apt/sources.list.d/percona-release.list` file.
-#. Enable the repository: :bash:`percona-release enable psmdb-42 release`
+1. Fetch the repository packages from Percona web: :bash:`wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb`
+#. Install the downloaded package with :program:`dpkg`: :bash:`dpkg -i
+   percona-release_latest.$(lsb_release -sc)_all.deb` Once you install this
+   package the |Percona| repositories should be added. You can check the
+   repository setup in the :file:`/etc/apt/sources.list.d/percona-release.list`
+   file.
+#. Enable the repository: :bash:`percona-release enable psmdb-40 release`
 #. Remember to update the local cache: |apt.update|
 #. Install the |PSMDB| package: :bash:`apt install percona-server-mongodb`
-
 
 Using Percona Server for MongoDB
 ================================================================================

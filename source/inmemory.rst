@@ -13,8 +13,9 @@ memory to hold the data set, and ensure that the server does not shut down.
   :local:
   :depth: 1
 
-The *Percona Memory Engine* is available in |PSMDB| along with the default
-MongoDB engine `WiredTiger`_.
+The *Percona Memory Engine* is available in |PSMDB| along with the standard
+MongoDB engines (the original `MMAPv1`_ and the default `WiredTiger`_).
+
 
 Using Percona Memory Engine
 ================================================================================

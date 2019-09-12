@@ -1,7 +1,7 @@
 .. _upgrade_from_mongodb:
 
 ================================================================================
-Upgrading from |mongodb| |prev-version| Community Edition 
+Upgrading from |mongodb-ce|
 ================================================================================
 
 .. note::
