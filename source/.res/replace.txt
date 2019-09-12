@@ -1,6 +1,6 @@
 
 .. |docker| replace:: Docker
-.. |mongodb-ce| replace:: MongoDB 4.2 Community Edition
+.. |mongodb-ce| replace:: MongoDB 4.0 Community Edition
 .. |mongodb| replace:: MongoDB
 .. |percona| replace:: Percona
 .. |prev-version| replace:: 4.0

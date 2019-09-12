@@ -58,10 +58,6 @@ Starting from version 4.0.12-6, |PSMDB| enables uploading hot backups
 to an `Amazon S3 <https://aws.amazon.com/s3/>`_ or a compatible storage service,
 such as `MinIO <https://min.io/>`_.
 
-.. important::
-
-   
-
 This method requires that you provide the *bucket* field in the *s3* object:
 
 .. code-block:: text
