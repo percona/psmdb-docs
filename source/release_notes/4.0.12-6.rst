@@ -22,7 +22,8 @@ applications or code.
 |PSMDB| |release| enables uploading hot backups to an `Amazon S3
 <https://aws.amazon.com/s3/>`_ or a compatible storage service, such as `MinIO
 <https://min.io/>`_. In this release, this feature has the *EXPERIMENTAL*
-status. For more information, see the documentation of |PSMDB|.
+status. For more information, see the section
+:ref:`psmdb-hot-backup-remote-destination` in the |PSMDB| documentation.
 
 This release `includes all features
 <https://docs.mongodb.com/manual/release-notes/4.0>`_ of |mongodb-ce|. Most
