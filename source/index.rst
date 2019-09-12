@@ -21,8 +21,7 @@ It requires no changes to MongoDB applications or code.
 
 |PSMDB| provides the following features:
 
-- MongoDB's original MMAPv1_ storage engine, and the default
-  WiredTiger_ engine
+- MongoDB's default WiredTiger_ engine
 - Optional :ref:`inmemory` storage engine
 - :ref:`External SASL authentication <ext-auth>`
   using OpenLDAP or Active Directory
@@ -51,7 +50,7 @@ Installation
 
    install/index
    install/upgrade_from_mongodb
-   install/upgrade_from_36
+   install/upgrade_from_40
 
 Features
 ================================================================================
