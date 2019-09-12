@@ -1,0 +1,74 @@
+.. _4.0.12-6:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+Percona announces the release of |PSMDB| |release| on |date|. Download the
+latest version from the `Percona website`_ or the `Percona software repositories`_.
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for |mongodb-ce|.  It supports |mongodb|
+4.0 protocols and drivers.
+
+|PSMDB| extends the functionality of the |mongodb-ce| by including the
+:ref:`inmemory` storage engine, :ref:`encrypted WiredTiger storage
+engine <psmdb.data-at-rest-encryption>`, :ref:`audit logging
+<audit-log>`, :ref:`External LDAP Authentication with SASL
+<ext-auth>`, :ref:`hot backups <hot-backup>`, and :ref:`enhanced query
+profiling <rate-limit>`. |PSMDB| requires no changes to |mongodb|
+applications or code.
+
+|PSMDB| |release| enables uploading hot backups to an `Amazon S3
+<https://aws.amazon.com/s3/>`_ or a compatible storage service, such as `MinIO
+<https://min.io/>`_. In this release, this feature has the *EXPERIMENTAL*
+status. For more information, see the section
+:ref:`psmdb-hot-backup-remote-destination` in the |PSMDB| documentation.
+
+This release `includes all features
+<https://docs.mongodb.com/manual/release-notes/4.0>`_ of |mongodb-ce|. Most
+notable among these are:
+
+- `Multi-Document ACID transactions
+  <https://docs.mongodb.com/manual/release-notes/4.0/#multi-document-transactions>`_
+- `Type conversion through the new aggregation operators
+  <https://docs.mongodb.com/manual/release-notes/4.0/#new-type-conversion-operators>`_
+- `Enhancements to the Change Streams support
+  <https://docs.mongodb.com/manual/release-notes/4.0/#database-and-deployment-change-streams>`_
+
+Note that the `MMAPv1 storage engine is deprecated
+<https://docs.mongodb.com/manual/release-notes/4.0/#deprecate-mmapv1>`_
+in |mongodb-ce|.
+
+|PSMDB| |release| is based on `MongoDB 4.0.12
+<https://docs.mongodb.com/manual/release-notes/4.0/#aug-12-2019>`_.
+
+New Features
+================================================================================
+
+- :psmdb-bug:`371`: Hot backup streaming to a remote destination
+
+Bugs Fixed
+================================================================================
+
+- :psmdb-bug:`396`: Per database encryption keys were not removed on database
+  drop.
+- :psmdb-bug:`408`: In some cases, the encryption keydb instance was not
+  destroyed on the instance shutdown.
+- :psmdb-bug:`412`: |PSMDB| was not pulling the ECDHE ciphers from OpenSSL due
+  to upstream bug `SERVER-38141 <https://jira.mongodb.org/browse/SERVER-38141>`_
+
+Known Issues
+================================================================================
+
+- :psmdb-bug:`441`: Connectivity errors when making backups to GCP on
+  Debian 9 (stretch).
+
+.. |release| replace:: 4.0.12-6
+.. |date| replace:: September 12, 2019
+.. |mongodb-ce| replace:: MongoDB 4.0 Community Edition
+.. |mongodb| replace:: MongoDB
+.. |vault| replace:: HashiCorp Vault
+
+.. include:: ../.res/url.txt
+.. include:: ../.res/replace.program.txt
