@@ -1,4 +1,4 @@
-.. _upgrade_from_36:
+.. _upgrade_from_40:
 
 ================================================================================
 Upgrading from |PSMDB| |prev-version| to |version|
@@ -34,7 +34,7 @@ Upgrading on Debian or Ubuntu
 |tip.run-all.root|
 
 1. Stop the ``mongod`` instance: :bash:`service mongod stop`
-#. Remove |PSMDB| |prev-version| packages: :bash:`apt-get remove percona-server-mongodb-36*`
+#. Remove |PSMDB| |prev-version| packages: :bash:`apt-get remove percona-server-mongodb*`
 #. Install |PSMDB| |version| packages: :bash:`apt-get install percona-server-mongodb`
 #. Start the ``mongod`` instance: :bash:`service mongod start`
 
@@ -46,7 +46,7 @@ Upgrading on RHEL and CentOS
 |tip.run-all.root|
 
 1. Stop the ``mongod`` instance: :bash:`service mongod stop`
-#. Remove |PSMDB| |prev-version| packages: :bash:`yum remove Percona-Server-MongoDB-36*`
+#. Remove |PSMDB| |prev-version| packages: :bash:`yum remove percona-server-mongodb*`
 #. Install |PSMDB| |version| packages: :bash:`yum install percona-server-mongodb`
 #. Start the ``mongod`` instance:: :bash:`service mongod start`
 
