@@ -1,0 +1,41 @@
+.. _3.4.23-2.21:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+:Date: |date|
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
+:Installation: :ref:`install`
+
+|Percona| announces the release of |PSMDB| |release| on |date|. Download the
+latest version from the |Percona| web site or the Percona Software Repositories.
+
+|PSMDB| 3.4 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 3.4 Community Edition. It
+supports |MongoDB| 3.4 protocols and drivers.
+
+|PSMDB| extends MongoDB Community Edition functionality by including the Percona
+Memory Engine and MongoRocks storage engines, as well as several
+enterprise-grade features:
+
+- `External Authentication <https://www.percona.com/doc/percona-server-for-mongodb/3.4/authentication.html>`_
+- `Audit Logging <https://www.percona.com/doc/percona-server-for-mongodb/3.4/audit-logging.html>`_
+- `Profiling Rate Limiting <https://www.percona.com/doc/percona-server-for-mongodb/3.4/rate-limit.html>`_
+- `Hot Backup <https://www.percona.com/doc/percona-server-for-mongodb/3.4/hot-backup.html>`_
+- `Log Redaction <https://www.percona.com/doc/percona-server-for-mongodb/3.4/log-redaction.html>`_
+
+|PSMDB| requires no changes to MongoDB applications or code. This release is
+based on `MongoDB 3.4.23
+<https://docs.mongodb.com/manual/release-notes/3.4/#sep-16-2019>`_. In |PSMDB|
+|release|, the license of RPM and DEB packages has been changed from AGPLv3 to SSPL.
+
+Bugs Fixed
+================================================================================
+
+- :jirabug:`PSMDB-447`: The license for RPM and DEB packages has been changed
+  from AGPLv3 to SSPL. 
+
+
+.. |date| replace:: October 24, 2019
+.. |release| replace:: 3.4.23-2.21
