@@ -49,7 +49,7 @@ Bugs Fixed
 - :psmdb-bug:`447`: The license for RPM and DEB packages has been changed from AGPLv3 to SSPL.
 
 .. |release| replace:: 4.0.13-7
-.. |date| replace:: November 31, 2019
+.. |date| replace:: October 31, 2019
 .. |mongodb-ce| replace:: MongoDB 4.0 Community Edition
 .. |mongodb| replace:: MongoDB
 .. |vault| replace:: HashiCorp Vault
