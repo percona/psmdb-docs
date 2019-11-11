@@ -66,8 +66,8 @@ The following options control audit logging:
    * ``console``: Output audit events to ``stdout``.
 
    * ``file``: Output audit events to a file
-     specified by the :option:`--auditPath`` option
-     in a format specified by the :option:``--auditFormat`` option.
+     specified by the :option:`--auditPath` option
+     in a format specified by the :option:`--auditFormat` option.
 
    * ``syslog``: Output audit events to ``syslog``.
 
@@ -161,20 +161,22 @@ The following examples demostrate the flexibility of audit log filters.
 .. contents::
    :local:
 
-Basic Filtering
----------------
-
-For example, you can log actions only from user *john* on all databases:
-
-* Command line::
-
-   --auditDestination file --auditFilter '{ "users.user": "john" }'
-
-* Config file::
+.. code-block:: json
 
    auditLog:
-     destination: file
-     filter: '{ "users.user": "john" }'
+      destination: file
+         filter: '{atype: {$in: [
+            "authenticate", "authCheck", 
+            "renameCollection", "dropCollection", "dropDatabase", 
+            "createUser", "dropUser", "dropAllUsersFromDatabase", "updateuser", 
+            "grantRolesToUser", "revokeRolesFromUser", "createRole", "updateRole", 
+            "dropRole", "dropAllRolesFromDatabase", "grantRolesToRole", "revokeRolesFromRole", 
+            "grantPrivilegesToRole", "revokePrivilegesFromRole", 
+            "replSetReconfig",
+            "enableSharding", "shardCollection", "addShard", "removeShard", 
+            "shutdown", 
+            "applicationMessage"
+         ]}}'
 
 Standard Query Selectors
 ------------------------
@@ -244,12 +246,18 @@ Enabling Auditing of Authorization Success
 
 By default, only authorization failures for the ``authCheck`` action
 are logged by the audit system.
+
 To enable logging of authorization successes,
 set the ``auditAuthorizationSuccess`` parameter to ``true``.
 
-.. note:: Enabling this parameter is required
-   if you want to filter CRUD operations in the audit log,
-   because CRUD operations are logged under ``authCheck`` action.
+.. warning::
+
+   Enabling the ``auditAuthorizationSuccess`` parameter impacts
+   the performance compared to logging only authorization failures.
+
+The ``auditAuthorizationSuccess`` parameter should be required if you want to
+filter CRUD operations in the audit log, because CRUD operations are logged
+under ``authCheck`` action.
 
 You can enable it on a running server using the following command::
 
@@ -264,7 +272,3 @@ You can also add it to the configuration file as follows::
 
  setParameter:
    auditAuthorizationSuccess: true
-
-.. warning:: Enabling ``auditAuthorizationSuccess`` can impact performance
-   compared to logging only authorization failures.
-
