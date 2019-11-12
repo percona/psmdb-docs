@@ -245,19 +245,17 @@ Enabling Auditing of Authorization Success
 ==========================================
 
 By default, only authorization failures for the ``authCheck`` action
-are logged by the audit system.
+are logged by the audit system. ``authCheck`` is for authorization by
+role-based access control, it does not concern authentication at logins.
 
 To enable logging of authorization successes,
-set the ``auditAuthorizationSuccess`` parameter to ``true``.
+set the ``auditAuthorizationSuccess`` parameter to ``true``. Audit events 
+will then be triggered by every command, including CRUD ones.
 
 .. warning::
 
-   Enabling the ``auditAuthorizationSuccess`` parameter impacts
+   Enabling the ``auditAuthorizationSuccess`` parameter heavily impacts
    the performance compared to logging only authorization failures.
-
-The ``auditAuthorizationSuccess`` parameter should be required if you want to
-filter CRUD operations in the audit log, because CRUD operations are logged
-under ``authCheck`` action.
 
 You can enable it on a running server using the following command::
 
