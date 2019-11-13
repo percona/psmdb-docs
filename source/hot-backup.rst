@@ -28,8 +28,8 @@ with the error message, for example:
    > db.runCommand({createBackup: 1, backupDir: ""})
    { "ok" : 0, "errmsg" : "Destination path must be absolute" }
 
- Saving a Backup to a TAR Archive
- ================================================================================
+Saving a Backup to a TAR Archive
+================================================================================
  
 .. admonition:: Implementation details
  
