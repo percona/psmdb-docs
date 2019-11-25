@@ -1,0 +1,40 @@
+.. _3.6.15-3.5:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+Percona announces the release of Percona Server for MongoDB |release|
+on |date|. Download the latest version from the `Percona website
+<https://www.percona.com/downloads/percona-server-mongodb-3.6/>`_ or
+the `Percona Software Repositories
+<https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_.
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 3.6 Community Edition.  It
+supports MongoDB 3.6 protocols and drivers.
+
+|PSMDB| extends Community Edition functionality by including the :ref:`inmemory`
+storage engine, as well as several enterprise-grade features.  Also, it includes
+:ref:`mongorocks` storage engine, which is now deprecated.  |PSMDB| requires no
+changes to MongoDB applications or code.
+
+|PSMDB| |release| is based on `MongoDB 3.6.15
+<https://docs.mongodb.com/manual/release-notes/3.6/#nov-6-2019>`_.
+
+This release enables streaming hot backups to `Amazon S3
+<https://aws.amazon.com/s3/>`_ or a compatible storage, such as `MinIO
+<https://min.io/>`_. Note that this feature has the Experimental status and is
+not recommended to be used in a production environment.
+
+For more information about this feature, see the :ref:`hot-backup` section in
+our documentation.
+
+New Features
+================================================================================
+
+- :jirabug:`PSMDB-371`: Hot backup streaming to a remote destination
+  (Experimental).
+
+.. |date| replace:: November 26, 2019
+.. |release| replace:: 3.6.15-3.5
