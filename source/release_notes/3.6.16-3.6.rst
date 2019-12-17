@@ -1,0 +1,27 @@
+.. _3.6.16-3.6:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+Percona announces the release of Percona Server for MongoDB |release|
+on |date|. Download the latest version from the `Percona website
+<https://www.percona.com/downloads/percona-server-mongodb-3.6/>`_ or
+the `Percona Software Repositories
+<https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_.
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 3.6 Community Edition.  It
+supports MongoDB 3.6 protocols and drivers.
+
+|PSMDB| extends Community Edition functionality by including the :ref:`inmemory`
+storage engine, as well as several enterprise-grade features.  Also, it includes
+:ref:`mongorocks` storage engine, which is now deprecated.  |PSMDB| requires no
+changes to MongoDB applications or code.
+
+|PSMDB| |release| is based on `MongoDB 3.6.16
+<https://docs.mongodb.com/manual/release-notes/3.6/#dec-6-2019>`_.  and does not
+include any additional changes.
+
+.. |date| replace:: December 17, 2019
+.. |release| replace:: 3.6.16-3.6
