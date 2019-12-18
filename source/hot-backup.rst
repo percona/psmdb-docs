@@ -28,6 +28,24 @@ with the error message, for example:
    > db.runCommand({createBackup: 1, backupDir: ""})
    { "ok" : 0, "errmsg" : "Destination path must be absolute" }
 
+.. hint:: Restoring data from the backup
+
+   To restore your backup, you need to stop the ``mongod`` service, clean the data
+   directory and then copy the files from the backup directory to your data
+   directory. Finally, start the ``mongod`` service again.
+
+   .. code-block:: bash
+
+      $ # Stopping the mongod service
+      $ service mongod stop
+      $ # Clean the data directory (assuming /var/lib/mongodb/)
+      $ rm -rf /var/lib/mongodb/*
+      $ # Copy the files from the backup directory to the data directory
+      $ cp --recursive /my/backup/data/path /var/lib/mongodb/
+      $ # Starting the mongod service
+      $ service mongod start
+
+
 Saving a Backup to a TAR Archive
 ================================================================================
  
