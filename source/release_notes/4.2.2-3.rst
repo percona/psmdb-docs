@@ -1,0 +1,67 @@
+.. _4.2.2-3:
+
+================================================================================
+|psmdb| |release|
+================================================================================
+
+We are pleased to announce the launch of |psmdb| |release| on |date|. 
+
+|psmdb| |release| includes all of the new features of the latest version of
+|mongodb-ce|, as well as providing our users with Enterprise-level `enhancements
+<https://www.percona.com/software/mongo-database/feature-comparison>`_ for
+free.
+
+Download the latest version from the `Percona website`_ or the `Percona software
+repositories`_.
+
+|psmdb| is an enhanced, open source, and highly-scalable database that acts as a
+fully-compatible, drop-in replacement for |mongodb-ce|. It supports |mongodb|
+4.2 protocols and drivers.
+
+|psmdb| extends the functionality of the |mongodb-ce| by including the
+:ref:`inmemory` storage engine, :ref:`encrypted WiredTiger storage engine
+<psmdb.data-at-rest-encryption>`, :ref:`audit logging <audit-log>`,
+:ref:`external LDAP Authentication <ext-auth>`, :ref:`hot backups <hot-backup>`,
+and :ref:`enhanced query profiling <rate-limit>`. |psmdb| requires no changes to
+|mongodb| applications or code.
+
+|psmdb| |release| includes all of the features of |mongodb-ce|. The most notable
+among these are:
+
+- `Distributed transactions
+  <https://docs.mongodb.com/manual/release-notes/4.2/#distributed-transactions>`_
+  (or Multi-Document Transactions) to enable transactions on sharded clusters
+  and replica sets removing the transaction total size limit.
+- `Wildcard indexes
+  <https://docs.mongodb.com/manual/core/index-wildcard/index.html>`_ to have
+  indexes span sets of unknown or arbitrary fields.
+
+|mongodb-ce| `removes the MMAPv1 storage engine along with MMAPv1 specific
+configuration options, parameters and commands
+<https://docs.mongodb.com/manual/release-notes/4.2/#removed-mmapv1-storage-engine>`_. It
+also `removes a number of commands and methods not related to MMAPv1
+<https://docs.mongodb.com/manual/release-notes/4.2/#removed-commands-and-methods>`_.
+
+|psmdb| |release| is based on `MongoDB 4.2.2
+<https://docs.mongodb.com/manual/release-notes/4.2/#dec-9-2019`_.
+
+Bugs Fixed
+================================================================================
+
+- :psmdb-bug:`473`: The ``logApplicationMessage`` command failed even when it
+  was run by the user with extended privileges. The problem has been fixed to
+  allow running the ``logApplicationMessage`` command by any role that has the
+  `applicationMessage` privilege, such as `clusterManager` or `hostManager`.
+
+  .. code-block:: guess
+     
+     > db.runCommand({logApplicationMessage: 'find'});
+
+.. |release| replace:: 4.2.2-3
+.. |date| replace:: December 24, 2019
+
+.. include:: ../.res/url.txt
+.. include:: ../.res/replace.txt
+.. include:: ../.res/replace.program.txt
+
+
