@@ -43,7 +43,7 @@ also `removes a number of commands and methods not related to MMAPv1
 <https://docs.mongodb.com/manual/release-notes/4.2/#removed-commands-and-methods>`_.
 
 |psmdb| |release| is based on `MongoDB 4.2.2
-<https://docs.mongodb.com/manual/release-notes/4.2/#dec-9-2019`_.
+<https://docs.mongodb.com/manual/release-notes/4.2/#dec-9-2019>`_.
 
 Bugs Fixed
 ================================================================================
