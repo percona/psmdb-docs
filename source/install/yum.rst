@@ -63,7 +63,7 @@ It is recommended to install |PSMDB| from official |percona| repositories:
 	 Preparing...                ########################################### [100%]
          1:percona-release        ########################################### [100%]
 
-#. Enable the repository: :bash:`percona-release enable psmdb-40 release`
+#. Enable the repository: :bash:`percona-release enable psmdb-42 release`
 #. Install the packages: :bash:`yum install percona-server-mongodb`
 
 .. seealso::
