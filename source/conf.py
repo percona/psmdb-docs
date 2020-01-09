@@ -50,7 +50,7 @@ master_doc = 'index'
 # The short X.Y version.
 version = '4.0'
 # The full version, including alpha/beta/rc tags.
-release = ".".join([version, '13-7'])
+release = ".".join([version, '14-8'])
 
 
 # General information about the project.
