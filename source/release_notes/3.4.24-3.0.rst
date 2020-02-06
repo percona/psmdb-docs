@@ -1,0 +1,36 @@
+.. _3.4.24-3.0:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+:Date: |date|
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.4/
+:Installation: :ref:`install`
+
+|Percona| announces the release of |PSMDB| |release| on |date|. Download the
+latest version from the |Percona| web site or the Percona Software Repositories.
+
+|PSMDB| 3.4 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 3.4 Community Edition. It
+supports |MongoDB| 3.4 protocols and drivers.
+
+|PSMDB| extends MongoDB Community Edition functionality by including the Percona
+Memory Engine and MongoRocks storage engines, as well as several
+enterprise-grade features:
+
+- `External Authentication <https://www.percona.com/doc/percona-server-for-mongodb/3.4/authentication.html>`_
+- `Audit Logging <https://www.percona.com/doc/percona-server-for-mongodb/3.4/audit-logging.html>`_
+- `Profiling Rate Limiting <https://www.percona.com/doc/percona-server-for-mongodb/3.4/rate-limit.html>`_
+- `Hot Backup <https://www.percona.com/doc/percona-server-for-mongodb/3.4/hot-backup.html>`_
+- `Log Redaction <https://www.percona.com/doc/percona-server-for-mongodb/3.4/log-redaction.html>`_
+
+|PSMDB| requires no changes to MongoDB applications or code. This
+release is based on `MongoDB 3.4.24
+<https://docs.mongodb.com/manual/release-notes/3.4/#jan-27-2020>`_. In
+|PSMDB| |release| there are no additional improvements or new features
+on top of the changes in the upstream version.
+
+
+.. |date| replace:: February 6, 2020
+.. |release| replace:: 3.4.24-3.0
