@@ -27,11 +27,9 @@ enterprise-grade features:
 
 |PSMDB| requires no changes to MongoDB applications or code. This
 release is based on `MongoDB 3.4.24
-<https://docs.mongodb.com/manual/release-notes/3.4/#jan-27-2020>`_
-which has addressed `CVE-2019-2386
-<https://jira.mongodb.org/browse/SERVER-38984>`_. In |PSMDB| |release|
-there are no additional improvements or new features on top of those
-upstream fixes.
+<https://docs.mongodb.com/manual/release-notes/3.4/#jan-27-2020>`_. In
+|PSMDB| |release| there are no additional improvements or new features
+on top of the changes in the upstream version.
 
 
 .. |date| replace:: February 6, 2020
