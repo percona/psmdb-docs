@@ -36,6 +36,7 @@ with the error message, for example:
    directory. Finally, start the ``mongod`` service again.
 
    .. code-block:: bash
+
       $ # Stopping the mongod service
       $ service mongod stop
       $ # Clean the data directory (assuming /var/lib/mongodb/)
