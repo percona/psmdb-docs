@@ -35,6 +35,7 @@ with the error message, for example:
    directory. Finally, start the ``mongod`` service again.
 
    .. code-block:: bash
+
       $ # Stopping the mongod service
       $ service mongod stop
       $ # Clean the data directory (assuming /var/lib/mongodb/)
@@ -184,10 +185,7 @@ The following command creates a backup under the virtual path  "year2019/day42" 
 
    > db.runCommand({createBackup: 1,  s3: {bucket: "backup", path: "year2019/day42"}})
 
-
 .. seealso::
 
    AWS Documentation: Providing AWS Credentials
       https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/credentials.html
-
------
