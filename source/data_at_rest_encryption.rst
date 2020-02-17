@@ -29,43 +29,44 @@ Starting from version 4.0.10, |PSMDB| provides |vault| integration. We only supp
     How to configure the KV Engine:
     https://www.vaultproject.io/api/secret/kv/kv-v2.html
 
-
-
 .. admonition:: |vault| Parameters
 
-.. list-table::
-      :widths: auto
-      :header-rows: 1
+   .. list-table::
+         :widths: auto
+         :header-rows: 1
+   
+         * - command line
+           - config file
+           - Type
+         * - vaultServerName
+           - security.vault.ServerName
+           - string
+         * - vaultPort
+           - security.vault.port
+           - int
+         * - vaultTokenFile
+           - security.vault.secret
+           - string
+         * - vaultSecret
+           - security.vault.secret
+           - string
+         * - vaultRotateMasterKey
+           - security.vault.vaultrotateMasterKey
+           - switch
+         * - vaultServerCAFile
+           - security.vault.serverCAFile
+           - string
+         * - vaultDisableTLSForTesting
+           - security.vault.disableTLSForTesting
+           - switch
+    
+The vault token file consists of the raw vault token and does not include any
+additional strings or parameters.
 
-      * - command line
-        - config file
-        - Type
-      * - vaultServerName
-        - security.vault.ServerName
-        - string
-      * - vaultPort
-        - security.vault.port
-        - int
-      * - vaultTokenFile
-        - security.vault.secret
-        - string
-      * - vaultSecret
-        - security.vault.secret
-        - string
-      * - vaultRotateMasterKey
-        - security.vault.vaultrotateMasterKey
-        - switch
-      * - vaultServerCAFile
-        - security.vault.serverCAFile
-        - string
-      * - vaultDisableTLSForTesting
-        - security.vault.disableTLSForTesting
-        - switch
-
-The vault token file consists of the raw vault token and does not include any additional strings or parameters.
-
-On start server tries to read the master key from the Vault. If the configured secret does not exist, Vault responds with HTTP 404 error. During the first run of the |PSMDB| the process generates a secure key and writes the key to the vault.
-
+On start server tries to read the master key from the Vault. If the configured
+secret does not exist, Vault responds with HTTP 404 error. During the first run
+of the |PSMDB| the process generates a secure key and writes the key to the
+vault.
 
 .. rubric:: Encrypting Rollback Files
 
@@ -122,8 +123,8 @@ demonstrates how to apply the |mode.gcm| cipher mode when starting the
 
    $ mongod ... --enableEncryption --encryptionKeyFile <fileName>
 
-The key file must contain a 32 character string encoded in base64. You can generate a random
-key and save it to a file by using the |openssl| command:
+The key file must contain a 32 character string encoded in base64. You can
+generate a random key and save it to a file by using the |openssl| command:
 
 .. code-block:: bash
 
@@ -139,11 +140,10 @@ read and modify the file) or **400** (only the owner may read the file.)
    $ chmod 600 mongodb-keyfile
 
 If ``mongod`` is started with the ``--relaxPermChecks`` option and the key file
-is owned by ``root`` then ``mongod`` can read the file based on the
-group bit set accordingly. The effective key file permissions in this
-case are either **440** (both the owner and the group can only read the file) or
-**640** (only the owner can read and the change the file, the group can only
-read the file).
+is owned by ``root`` then ``mongod`` can read the file based on the group bit
+set accordingly. The effective key file permissions in this case are either
+**440** (both the owner and the group can only read the file) or **640** (only
+the owner can read and the change the file, the group can only read the file).
 
 .. seealso::
 
@@ -160,22 +160,27 @@ All these options can be specified in the configuration file:
       encryptionKeyFile: <string>
       relaxPermChecks: <boolean>
 
- .. admonition:: Key Rotation
-To rotate the keys for a single mongod instance, do the following:
+.. admonition:: Key Rotation
 
-  1. Stop mongod process
-  2. Add ``--vaultRotateMasterKey`` to the command line options or ``security.vault.rotateMasterKey`` to the config file.
-  3. Run the mongod process with the selected option, the process will perform the key rotation and exit.
-  4. Remove the selected option from the startup command or the config file.
-  5. Start mongod again.
+   To rotate the keys for a single mongod instance, do the following:
 
-Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the vault. The entire dataset is not re-encrypted.
+   1. Stop mongod process
+   #. Add ``--vaultRotateMasterKey`` to the command line options or
+      ``security.vault.rotateMasterKey`` to the config file.
+   #. Run the ``mongod`` process with the selected option, the process will
+      perform the key rotation and exit.
+   #. Remove the selected option from the startup command or the config file.
+   #. Start mongod again.
+
+Rotating the master key process also re-encrypts the keystore using the new
+master key. The new master key is stored in the vault. The entire dataset is not
+re-encrypted.
 
 For a replica set, do the following steps:
 
-  1. Rotate the master key for the secondary nodes one by one.
-  2. Step down the primary and wait for another primary to be elected.
-  3. Rotate the master key for the previous primary node.
+1. Rotate the master key for the secondary nodes one by one.
+2. Step down the primary and wait for another primary to be elected.
+3. Rotate the master key for the previous primary node.
 
 
 
@@ -184,8 +189,6 @@ For a replica set, do the following steps:
    |mongodb| Documentation: How to set options in a configuration file
       https://docs.mongodb.com/manual/reference/configuration-options/index.html#configuration-file
 
-
-.. |PSMDB| replace:: Percona Server for MongoDB
 .. |openssl| replace:: :program:`openssl`
 .. |mongodb-enterprise| replace:: MongoDB Enterprise
 .. |mongodb| replace:: MongoDB
