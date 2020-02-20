@@ -4,7 +4,7 @@
    If |percona-release| is already installed on the target system, make sure
    you are using the latest version of |percona-release|:
 
-   .. code-block::
+   .. code-block:: bash
 
       $ sudo apt update
       $ sudo apt upgrade

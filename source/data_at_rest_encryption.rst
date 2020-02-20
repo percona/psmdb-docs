@@ -33,35 +33,35 @@ Starting from version 4.0.10, |PSMDB| provides |vault| integration. We only supp
 
 .. admonition:: |vault| Parameters
 
-.. list-table::
-      :widths: auto
-      :header-rows: 1
-
-      * - command line
-        - config file
-        - Type
-      * - vaultServerName
-        - security.vault.ServerName
-        - string
-      * - vaultPort
-        - security.vault.port
-        - int
-      * - vaultTokenFile
-        - security.vault.secret
-        - string
-      * - vaultSecret
-        - security.vault.secret
-        - string
-      * - vaultRotateMasterKey
-        - security.vault.vaultrotateMasterKey
-        - switch
-      * - vaultServerCAFile
-        - security.vault.serverCAFile
-        - string
-      * - vaultDisableTLSForTesting
-        - security.vault.disableTLSForTesting
-        - switch
-
+   .. list-table::
+         :widths: auto
+         :header-rows: 1
+   
+         * - command line
+           - config file
+           - Type
+         * - vaultServerName
+           - security.vault.ServerName
+           - string
+         * - vaultPort
+           - security.vault.port
+           - int
+         * - vaultTokenFile
+           - security.vault.secret
+           - string
+         * - vaultSecret
+           - security.vault.secret
+           - string
+         * - vaultRotateMasterKey
+           - security.vault.vaultrotateMasterKey
+           - switch
+         * - vaultServerCAFile
+           - security.vault.serverCAFile
+           - string
+         * - vaultDisableTLSForTesting
+           - security.vault.disableTLSForTesting
+           - switch
+   
 The vault token file consists of the raw vault token and does not include any additional strings or parameters.
 
 On start server tries to read the master key from the Vault. If the configured secret does not exist, Vault responds with HTTP 404 error. During the first run of the |PSMDB| the process generates a secure key and writes the key to the vault.
@@ -161,21 +161,22 @@ All these options can be specified in the configuration file:
       relaxPermChecks: <boolean>
 
  .. admonition:: Key Rotation
-To rotate the keys for a single mongod instance, do the following:
 
-  1. Stop mongod process
-  2. Add ``--vaultRotateMasterKey`` to the command line options or ``security.vault.rotateMasterKey`` to the config file.
-  3. Run the mongod process with the selected option, the process will perform the key rotation and exit.
-  4. Remove the selected option from the startup command or the config file.
-  5. Start mongod again.
+    To rotate the keys for a single mongod instance, do the following:
+
+    1. Stop mongod process
+    #. Add ``--vaultRotateMasterKey`` to the command line options or ``security.vault.rotateMasterKey`` to the config file.
+    #. Run the mongod process with the selected option, the process will perform the key rotation and exit.
+    #. Remove the selected option from the startup command or the config file.
+    #. Start mongod again.
 
 Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the vault. The entire dataset is not re-encrypted.
 
 For a replica set, do the following steps:
 
-  1. Rotate the master key for the secondary nodes one by one.
-  2. Step down the primary and wait for another primary to be elected.
-  3. Rotate the master key for the previous primary node.
+1. Rotate the master key for the secondary nodes one by one.
+2. Step down the primary and wait for another primary to be elected.
+3. Rotate the master key for the previous primary node.
 
 
 
@@ -185,10 +186,8 @@ For a replica set, do the following steps:
       https://docs.mongodb.com/manual/reference/configuration-options/index.html#configuration-file
 
 
-.. |PSMDB| replace:: Percona Server for MongoDB
 .. |openssl| replace:: :program:`openssl`
 .. |mongodb-enterprise| replace:: MongoDB Enterprise
-.. |mongodb| replace:: MongoDB
 .. |feature| replace:: data encryption at rest
 .. |abbr.kmip| replace:: :abbr:`KMIP (Key Management Interoperability Protocol)`
 .. |vault| replace:: HashiCorp Vault
