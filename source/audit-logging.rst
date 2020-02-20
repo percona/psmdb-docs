@@ -161,7 +161,7 @@ The following examples demostrate the flexibility of audit log filters.
 .. contents::
    :local:
 
-.. code-block:: json
+.. code-block:: guess
 
    auditLog:
       destination: file
