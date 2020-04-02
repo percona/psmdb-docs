@@ -274,4 +274,4 @@ When everything is configured properly, you can use the :ref:`commands`.
       - `Authenticate and Authorize Users Using Active Directory via Native LDAP
 	<https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
 
-.. include:: .res/replace
+.. include:: .res/replace.txt
