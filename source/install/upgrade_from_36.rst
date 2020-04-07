@@ -18,7 +18,7 @@ data and configuration files are preserved) includes the following steps:
 1. Stop the :program:`mongod` instance
 #. Remove old packages
 #. Install new packages
-#. Start the :program`mongod` instance
+#. Start the :program:`mongod` instance
 
 It is recommended to upgrade |PSMDB| from official Percona repositories using
 the corresponding package manager for your system.  For more information, see
@@ -36,6 +36,7 @@ Upgrading on Debian or Ubuntu
 1. Stop the ``mongod`` instance: :bash:`service mongod stop`
 #. Remove |PSMDB| |prev-version| packages: :bash:`apt-get remove percona-server-mongodb-36*`
 #. Install |PSMDB| |version| packages: :bash:`apt-get install percona-server-mongodb`
+#. If you modified the configuration file and wish to use it with the new version, verify that the :file:`/etc/mongod.conf` file includes the correct options.  
 #. Start the ``mongod`` instance: :bash:`service mongod start`
 
 For more information, see :ref:`apt`.
@@ -50,6 +51,10 @@ Upgrading on RHEL and CentOS
 #. Install |PSMDB| |version| packages: :bash:`yum install percona-server-mongodb`
 #. Start the ``mongod`` instance:: :bash:`service mongod start`
 
+.. note::
+
+   When you remove old packages on Centos / RHEL, your modified configuration file is placed to :file:`/etc/mongod.conf.rpmsave`. To use your configuration with the new version, replace the default :file:`/etc/mongod.conf` file before you start the mongod service.
+   
 For more information, see :ref:`yum`.
 
 .. include:: ../.res/replace.txt
