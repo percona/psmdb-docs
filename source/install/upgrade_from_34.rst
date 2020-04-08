@@ -51,6 +51,8 @@ Upgrading on Debian or Ubuntu
 
     sudo apt-get install percona-server-mongodb-36
 
+#. If you modified the configuration file and wish to use it with the new version, verify that the :file:`/etc/mongod.conf` file includes the correct options.  
+
 #. Start the ``mongod`` instance::
 
     sudo service mongod start
@@ -76,5 +78,9 @@ Upgrading on RHEL and CentOS
 
     sudo service mongod start
 
+.. note::
+
+   When you remove old packages on Centos / RHEL, your modified configuration file is placed to :file:`/etc/mongod.conf.rpmsave`. To use your configuration with the new version, replace the default :file:`/etc/mongod.conf` file before you start the ``mongod`` service.
+   
 For more information, see :ref:`yum`.
 
