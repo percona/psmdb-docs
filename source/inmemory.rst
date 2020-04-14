@@ -25,49 +25,85 @@ storage engine using the ``--storageEngine`` command-line option when you start
 ``mongod``.  Alternatively, you can set the ``storage.engine`` variable in the
 configuration file (by default, :file:`/etc/mongod.conf`):
 
-Data created by one storage engine is not compatible with other storage engines,
-because each one has its own data model.  When changing the storage engine, you
-have to do one of the following:
+.. seealso::
 
-* If you simply want to temporarily test Percona Memory Engine, change
-  to a different data directory with the ``--dbpath`` command-line
-  option. Make sure that the user running |mongod| has read and write
+   |mongodb| Documentation: Configuration File Options
+      - `storage.engine Options
+        <https://docs.mongodb.com/manual/reference/configuration-options/#storage.engine>`_
+      - `storage.wiredTiger Options
+        <https://docs.mongodb.com/manual/reference/configuration-options/#storage-wiredtiger-options>`_
+      - `storage.inmemory Options
+        <https://docs.mongodb.com/manual/reference/configuration-options/#storage-inmemory-options>`_
+   
+
+Data files created by one storage engine are not compatible with other storage
+engines, because each one has its own data model.
+
+When changing the storage engine, the |mongod| node requires an empty ``dbPath``
+data directory when it is restarted. Though |inmemory| stores all data in memory,
+some metadata files, diagnostics logs and statistics metrics are still written to
+disk. 
+
+To change a storage engine, you have the following options:
+
+* If you simply want to temporarily test Percona Memory Engine, set a different
+  data directory for the ``dbPath`` variable in the configuration fle.
+  Make sure that the user running |mongod| has read and write
   permissons for the new data directory.
 
   .. code-block:: bash
 
      $ service mongod stop
-     $ mongod --storageEngine inMemory --dbpath <newDataDir>
+     $ # In the configuration file, set the inmemory
+     $ # value for the storage.engine variable
+     $ # Set the <newDataDir> for the dbPath variable
 
-  .. note::
-
-     Although *Percona Memory Engine* stores all data in memory,
-     some diagnostics and statistics are still written to disk.
-     This is controlled using
-     the :option:`--inMemoryStatisticsLogDelaySecs` option.
-
-* If you want to permanently switch to Percona Memory Engine and do not have any
-  valuable data in your database, clean out the default data directory and edit
-  the configuration file:
+* If you want to permanently switch to |inmemory| and do not have any
+  valuable data in your database, clean out the ``dbPath`` data directory
+  (by default, :file:`/var/lib/mongodb`) and edit the configuration file:
 
   .. code-block:: bash
 
      $ service mongod stop
-     $ rm -rf /var/lib/mongodb/*
-     $ sed -i '/engine: .*inMemory/s/#//g' /etc/mongod.conf
+     $ rm -rf <dbpathDataDir>
+     $ # Update the configuration file by setting the new
+     $ # value for the storage.engine variable
+     $ # set the engine-specific settings such as
+     $ # storage.inMemory.engineConfig.inMemorySizeGB
      $ service mongod start
+  
+* If there is data that you want to migrate and make compatible with |inmemory|, use the following methods:
 
-* If there is data that you want to migrate and make compatible with Percona
-  Memory Engine, use the ``mongodump`` and ``mongorestore`` utilities:
+  - for replicasets, use the "rolling restart" process. 
+    Switch to the |inmemory| on the secondary node. Clean out the ``dbPath`` data directory and edit the configuration file:
 
-  .. code-block:: bash
+    .. code-block:: bash
 
-     $ mongodump --out <dumpDir>
-     $ service mongod stop
-     $ rm -rf /var/lib/mongodb/*
-     $ sed -i '/engine: .*inMemory/s/#//g' /etc/mongod.conf
-     $ service mongod start
-     $ mongorestore <dumpDir>
+       $ service mongod stop
+       $ rm -rf <dbpathDataDir>
+       $ # Update the configuration file by setting the new
+       $ # value for the storage.engine variable
+       $ # set the engine-specific settings such as
+       $ # storage.inMemory.engineConfig.inMemorySizeGB
+       $ service mongod start
+
+    Wait for the node to rejoin with the other nodes and report the SECONDARY status.
+      
+    Repeat the procedure to switch the remaining nodes to |inmemory|.
+    
+  - for a standalone instance or a single-node replicaset, use the ``mongodump`` and ``mongorestore`` utilities:
+
+    .. code-block:: bash
+
+       $ mongodump --out <dumpDir>
+       $ service mongod stop
+       $ rm -rf <dbpathDataDir>
+       $ # Update the configuration file by setting the new
+       $ # value for the storage.engine variable
+       $ # set the engine-specific settings such as
+       $ # storage.inMemory.engineConfig.inMemorySizeGB
+       $ service mongod start
+       $ mongorestore <dumpDir>
 
 Configuring Percona Memory Engine
 ================================================================================
@@ -114,3 +150,4 @@ parameters):
 
 .. include:: .res/url.txt
 .. include:: .res/replace.program.txt
+.. include:: .res/replace.txt
