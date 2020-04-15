@@ -24,8 +24,32 @@ HashiCorp Vault Integration
 ================================================================================
 
 Starting from version 3.6.13-3.3, |PSMDB| provides |vault| integration. We only
-support the HashiCorp Vault backend with KV Secrets Engine - Version 2 (API)
+support the |vault| backend with KV Secrets Engine - Version 2 (API)
 with versioning enabled.
+
+Note that vault secrets path format must be:
+
+.. code-block:: text
+
+   <vault_secret_mount>/data/<custom_path>
+
+where:
+
+- ``<vault_secret_mount>`` is your Vault KV Secrets Engine;
+
+- ``data`` is the mandatory path prefix required by Version 2 API;
+
+- ``<custom_path>`` is your secrets path
+
+Example:
+
+.. code-block:: text
+
+   secret_v2/data/psmdb-test/rs1-27017
+
+.. note::
+
+   It is recommended to use different secret paths for every database node.
 
 .. seealso::
 
