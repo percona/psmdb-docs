@@ -27,7 +27,7 @@ Data files created by one storage engine are not compatible with other storage
 engines, because each one has its own data model.
 
 When changing the storage engine, the |mongod| node requires an empty ``dbPath``
-data directory when it is restrarted even when using :ref:`inmemory`.
+data directory when it is restarted even when using :ref:`inmemory`.
 Though in-memory storage engine stores all data in memory,
 some metadata files, diagnostics logs and statistics metrics are still
 written to disk. 
@@ -35,17 +35,17 @@ written to disk.
 Creating a new ``dbPath`` data directory for a different storage engine is the
 simplest solution. Yet when you switch between disk-using storage engines (e.g.
 from WiredTiger_ to :ref:`inmemory`), you may have to delete the old data if
-there is not enogh disk space for both. Doube-check that your backups are solid
+there is not enough disk space for both. Double-check that your backups are solid
 and/or the replicaset nodes are healthy to before you switch to the new storage
 engine.
 
 If there is data that you want to migrate and make compatible with the new
 storage engine, use the following methods:
 
-* for replicasets, use the "rolling restart" process. 
+* for replica sets, use the "rolling restart" process. 
 
   Switch to the new storage engine on the secondary node. Clean out the
-  ``dbPath`` data directory (by efault , :file: `/var/lib/mongodb`) and edit
+  ``dbPath`` data directory (by default , :file:`/var/lib/mongodb`) and edit
   the configuration file:
 
   .. code-block:: bash
@@ -58,7 +58,7 @@ storage engine, use the following methods:
      $ # storage.inMemory.engineConfig.inMemorySizeGB
      $ service mongod start
      
-  Wait for the node to rejoin with the other relicset members and report the
+  Wait for the node to rejoin with the other replica set members and report the
   SECONDARY status. 
 
   Repeat the procedure on the remaining nodes.
@@ -84,10 +84,10 @@ Data at Rest Encryption
 Using :ref:`psmdb.data-at-rest-encryption` means using the same ``storage.*``
 configuration options as for WiredTiger_. To change from normal to :ref:`psmdb.data-at-rest-encryption`
 mode or backward, you must clean up the ``dbPath`` data directory,
-just as if you change the storage engine. This is becase
+just as if you change the storage engine. This is because
 |mongod| cannot convert the data files to an encrypted format 'in place'. It
 must get the document data again either via the initial sync from another
-replica set member, or from imported backup dump.
+replica set member or from imported backup dump.
 
 .. $The ``storage.rocksdb.counters`` variable must be set to ``true``
 .. $if you are running :ref:`mongorocks`
