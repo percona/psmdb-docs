@@ -57,6 +57,7 @@ To change a storage engine, you have the following options:
      $ # In the configuration file, set the inmemory
      $ # value for the storage.engine variable
      $ # Set the <newDataDir> for the dbPath variable
+     $ service mongod start
 
 * If you want to permanently switch to |inmemory| and do not have any
   valuable data in your database, clean out the ``dbPath`` data directory
