@@ -12,3 +12,4 @@
 .. |ldap-authorization| replace:: :abbr:`LDAP (Lightweight Directory Access Protocol)` Authorization
 .. |ldap-authorization| replace:: LDAP Authorization
 .. |abbr.ldap| replace:: :abbr:`LDAP (Lightweight Directory Access Protocol)`
+.. |inmemory|:: Percona Memory Engine
