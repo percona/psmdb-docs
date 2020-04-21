@@ -80,7 +80,13 @@ Upgrading on RHEL and CentOS
 
 .. note::
 
-   When you remove old packages on Centos / RHEL, your modified configuration file is placed to :file:`/etc/mongod.conf.rpmsave`. To use your configuration with the new version, replace the default :file:`/etc/mongod.conf` file before you start the ``mongod`` service.
+   When you remove old packages on Centos / RHEL, your modified configuration file is placed to :file:`/etc/mongod.conf.rpmsave`. To use your configuration with the new version, do the following before you start the ``mongod`` service:
+   
+   - Replace the default :file:`/etc/mongod.conf` file,
+   - Check the permissions for the ``mongod`` user to custom paths for database and/or log files.
+   - Restore the permissions, if needed::
+       
+      chown -R mongod:mongod <dpPathDir> <logDir>
    
 For more information, see :ref:`yum`.
 
