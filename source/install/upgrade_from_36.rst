@@ -7,17 +7,18 @@ Upgrading from |PSMDB| |prev-version| to |version|
 :Availability: MongoRocks has been removed from |PSMDB| |version|
 
 To upgrade |PSMDB| to version |version|, you must be running version
-|prev-version| Upgrades from earlier versions are not supported.
+|prev-version|. Upgrades from earlier versions are not supported.
 
 Before upgrading your production |PSMDB| deployments, test all your applications
-in a testing environment to make sure they are compatible with the new version.
+in a testing environment to make sure they are compatible with the new version. For more information, see `Compatibility Changes in MongoDB 4.0 <https://docs.mongodb.com/manual/release-notes/4.0-compatibility/>`_
+	
 
 The general procedure for performing an in-place upgrade (where your existing
 data and configuration files are preserved) includes the following steps:
 
 1. Stop the :program:`mongod` instance
-#. Remove old packages
-#. Install new packages
+#. Enable |percona| repository for new version
+#. Install new packages. Old packages are automatically considered obsolete 	and removed
 #. Start the :program:`mongod` instance
 
 It is recommended to upgrade |PSMDB| from official Percona repositories using
@@ -33,28 +34,28 @@ Upgrading on Debian or Ubuntu
 
 |tip.run-all.root|
 
-1. Stop the ``mongod`` instance: :bash:`service mongod stop`
-#. Remove |PSMDB| |prev-version| packages: :bash:`apt-get remove percona-server-mongodb-36*`
-#. Install |PSMDB| |version| packages: :bash:`apt-get install percona-server-mongodb`
-#. If you modified the configuration file and wish to use it with the new version, verify that the :file:`/etc/mongod.conf` file includes the correct options.  
-#. Start the ``mongod`` instance: :bash:`service mongod start`
+1. Stop the ``mongod`` instance: :bash:`systemctl stop mongod`
+#. Enable  |percona| repository for |PSMDB| |version|: :bash:`percona-release enable psmdb-40`
+#. Update the local cache: :bash:`apt-get update`
+#. Install |PSMDB| |version| packages: :bash:`apt-get install percona-server-mongodb` 
+#. Start the ``mongod`` instance: :bash:`systemctl start mongod`
 
-For more information, see :ref:`apt`.
+For more information, see :ref:`apt`.   
+
+.. include:: ../.res/text/enable_features.txt     
 
 Upgrading on RHEL and CentOS
 ================================================================================
 
 |tip.run-all.root|
 
-1. Stop the ``mongod`` instance: :bash:`service mongod stop`
-#. Remove |PSMDB| |prev-version| packages: :bash:`yum remove Percona-Server-MongoDB-36*`
+1. Stop the ``mongod`` instance: :bash:`systemctl stop mongod`
+#. Enable  |percona| repository for |PSMDB| |version|: :bash:`percona-release enable psmdb-40`
 #. Install |PSMDB| |version| packages: :bash:`yum install percona-server-mongodb`
-#. Start the ``mongod`` instance:: :bash:`service mongod start`
-
-.. note::
-
-   When you remove old packages on Centos / RHEL, your modified configuration file is placed to :file:`/etc/mongod.conf.rpmsave`. To use your configuration with the new version, replace the default :file:`/etc/mongod.conf` file before you start the mongod service.
+#. Start the ``mongod`` instance:: :bash:`systemctl start mongod`
    
 For more information, see :ref:`yum`.
+
+.. include:: ../.res/text/enable_features.txt
 
 .. include:: ../.res/replace.txt

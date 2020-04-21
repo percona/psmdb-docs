@@ -1,0 +1,16 @@
+
+This starts |PSMDB| with the feature set of |prev-version| version. Assuming that your applications are compatible with the new version, enable |version| version features. Run the following command against the ``admin`` database:
+
+.. code-block:: guess
+
+   db.adminCommand( { setFeatureCompatibilityVersion: "4.0" } )
+
+.. seealso::
+
+   MongoDB Documentation:
+       * `Upgrade a Standalone <https://docs.mongodb.com/manual/release-notes/4.0-upgrade-standalone/>`_
+       * `Upgrade a Replica Set <https://docs.mongodb.com/manual/release-notes/4.0-upgrade-replica-set/>`_
+       * `Upgrade a Sharded Cluster <https://docs.mongodb.com/manual/release-notes/4.0-upgrade-sharded-cluster/>`_
+
+
+           
