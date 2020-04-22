@@ -47,8 +47,6 @@ Installing from Percona Repositories
 It is recommended to install |PSMDB| from official Percona repositories using
 the |percona-release| utility:
 
-.. include:: ../.res/text/important.percona-release.latest.txt
-
 |tip.run-all.root|
 
 1. Fetch the repository packages from Percona web:
@@ -98,7 +96,7 @@ Restarting the service
 .. note::
 
    On Debian 8, Ubuntu 16.04 and later versions you can also invoke all the
-   above commands with ``sytemctl`` instead of ``service``.
+   above commands with ``systemctl`` instead of ``service``.
 
 Uninstalling Percona Server for MongoDB
 ================================================================================
