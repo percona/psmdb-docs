@@ -45,8 +45,6 @@ Installing from Percona Repositories
 
 It is recommended to install |PSMDB| from official |percona| repositories:
 
-.. include:: ../.res/text/important.percona-release.latest.txt
-
 |tip.run-all.root|
                                                       
 1. Install the Percona repository (|percona-release|):
@@ -113,7 +111,7 @@ Restarting the service
 .. note::
 
    On Red Hat Enterprise Linux and CentOS 7 you can also invoke all
-   the above commands with ``sytemctl`` instead of ``service``.
+   the above commands with ``systemctl`` instead of ``service``.
 
 Running after reboot
 --------------------------------------------------------------------------------
