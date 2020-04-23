@@ -48,6 +48,22 @@ in the MongoDB configuration file::
    path: /var/log/psmdb/audit.json
    filter: '{ "users.user" : "tim" }'
 
+This example shows how to send audit events to the
+``syslog``. Specify the following parameters:
+
+.. code-block:: bash
+
+    mongod \
+    --dbpath data/db
+    --auditDestination syslog \
+
+Alternatively, you can edit the MongoDB configuration file::
+
+  storage:
+   dbPath: data/db
+  auditLog:
+   destination: syslog
+   
 .. note:: If you start the server with auditing enabled,
    it cannot be disabled dynamically during runtime.
 
@@ -156,7 +172,7 @@ Audit logging writes messages in JSON format with the following syntax::
 Audit Filter Examples
 =====================
 
-The following examples demostrate the flexibility of audit log filters.
+The following examples demonstrate the flexibility of audit log filters.
 
 .. contents::
    :local:
