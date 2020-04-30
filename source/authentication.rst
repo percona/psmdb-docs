@@ -12,10 +12,39 @@ External authentication allows the MongoDB server
 to verify the client's user name and password against a separate service,
 such as OpenLDAP or Active Directory.
 
+.. admonition:: Support for |ldap-authorization|
+
+   Starting from release 4.0.11-18, |psmdb| supports |ldap-authorization|.
+  
+   This feature has been supported in |mongodb-e| since its version 3.4.
+  
+   Note the following limitations of |ldap-authorization| in |psmdb|:
+  
+   - The |abbr.ldap| `connection pool and all related parameters are
+     not supported
+     <https://docs.mongodb.com/manual/core/security-ldap-external/#connection-pool>`_.
+   - The `ldapTimeoutMS
+     <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_
+     parameter is ignored.
+   - The `ldapUserCacheInvalidationInterval
+     <https://docs.mongodb.com/manual/reference/parameters/#param.ldapUserCacheInvalidationInterval>`_
+     parameter is ignored.
+   - The `--ldapServers
+     <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_
+     option may only contain a single server (|mongodb-e| accepts a
+     comma-separated list).
+ 
+   .. seealso::
+  
+      |mongodb| Documentation:
+         - `LDAP Authorization <https://docs.mongodb.com/manual/core/security-ldap-external/>`_	    
+         - `Authenticate and Authorize Users Using Active Directory via Native LDAP <https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
+
+
 .. contents::
    :local:
    :depth: 1
-
+   
 Overview
 ========
 
@@ -155,7 +184,7 @@ to connect to a local OpenLDAP service
 Note the LDAP password and bind domain name.
 This allows the ``saslauthd`` service to connect to the LDAP service as root.
 In production, this would not be the case;
-users should not store administrative passwords in unecrypted files.
+users should not store administrative passwords in unencrypted files.
 
 Microsoft Windows Active Directory
 **********************************
@@ -238,4 +267,7 @@ When everything is configured properly, you can use the :ref:`commands`.
 .. rubric:: See Also
 
 * `SASL documentation: <http://cyrusimap.web.cmu.edu/docs/cyrus-sasl/2.1.25/>`_
+
+
+.. include:: .res/replace.txt
 
