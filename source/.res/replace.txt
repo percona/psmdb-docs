@@ -1,6 +1,7 @@
 
 .. |docker| replace:: Docker
 .. |mongodb-ce| replace:: MongoDB 4.0 Community Edition
+.. |mongodb-e| replace:: MongoDB 4.0 Enterprise
 .. |mongodb| replace:: MongoDB
 .. |percona| replace:: Percona
 .. |prev-version| replace:: 3.6
@@ -9,3 +10,5 @@
 .. |tip.run-this.root| replace:: Run this command as root or by using the :program:`sudo` command
 .. |vault| replace:: HashiCorp Vault
 .. |inmemory| replace:: Percona Memory Engine
+.. |ldap-authorization| replace:: LDAP Authorization
+.. |abbr.ldap| replace:: :abbr:`LDAP (Lightweight Directory Access Protocol)`

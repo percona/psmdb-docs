@@ -50,7 +50,7 @@ master_doc = 'index'
 # The short X.Y version.
 version = '4.0'
 # The full version, including alpha/beta/rc tags.
-release = ".".join([version, '17-10'])
+release = ".".join([version, '18-11'])
 
 # General information about the project.
 product_name = 'Percona Server for MongoDB'
@@ -144,7 +144,7 @@ rst_prolog = '''
 '''
 
 extlinks = {'psmdb-bug': ('https://jira.percona.com/browse/PSMDB-%s', 'PSMDB-'),
-            'jirabug': ('https://jira.percona.com/browse/%s', '#')
+            'jirabug': ('https://jira.percona.com/browse/%s', '')
 }
 
 # A list of ignored prefixes for module index sorting.
