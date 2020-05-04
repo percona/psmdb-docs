@@ -18,7 +18,7 @@ Percona provides packages for the following systems:
        * Ubuntu 14.04 LTS (Trusty Tahr)
        * Ubuntu 16.04 (Xenial Xerus)
        * Ubuntu 18.04 LTS (Bionic Beaver)
-       * Ubuntu 18.10 (Cosmic Cuttlefish)
+       * Ubuntu 20.04 (Focal Fossa)
      - :ref:`Install on Debian or Ubuntu <apt>`
    * - * Red Hat Enterprise Linux / CentOS 6
        * Red Hat Enterprise Linux / CentOS 7

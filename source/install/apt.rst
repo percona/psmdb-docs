@@ -12,6 +12,7 @@ of the following distributions:
 * Ubuntu 14.04 LTS (Trusty Tahr)
 * Ubuntu 16.04 LTS (Xenial Xerus)
 * Ubuntu 18.04 LTS (Bionic Beaver)
+* Ubuntu 20.04 LTS (Focal Fossa)
 
 .. note:: |PSMDB| should work on other DEB-based distributions,
    but it is tested only on platforms listed above.
@@ -86,7 +87,7 @@ Restarting the service
 .. note::
 
    On Debian 8, Ubuntu 16.04 and later versions you can also invoke all the
-   above commands with ``sytemctl`` instead of ``service``.
+   above commands with ``systemctl`` instead of ``service``.
 
 Uninstalling Percona Server for MongoDB
 ================================================================================
