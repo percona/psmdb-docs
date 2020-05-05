@@ -10,14 +10,14 @@ against the MongoDB server user database before doing any work
 or reading any data from a ``mongod`` or ``mongos`` instance.
 External authentication allows the MongoDB server
 to verify the client's user name and password against a separate service,
-such as OpenLDAP or Active Directory.
+such as OpenLDAP, Kerberos or Active Directory.
 
 .. admonition:: Support for |ldap-authorization|
 
    Starting from release 4.2.5-5, |psmdb| supports |ldap-authorization|. This
    feature has been supported in |mongodb-e| since its version 3.4.
 
-   Note that the following limitations of |ldap-authorization| in |psmdb|:
+   Note the following limitations of |ldap-authorization| in |psmdb|:
 
    - The |abbr.ldap| `connection pool and all related parameters are not
      supported
@@ -184,7 +184,7 @@ to connect to a local OpenLDAP service
 Note the LDAP password and bind domain name.
 This allows the ``saslauthd`` service to connect to the LDAP service as root.
 In production, this would not be the case;
-users should not store administrative passwords in unecrypted files.
+users should not store administrative passwords in unencrypted files.
 
 Microsoft Windows Active Directory
 **********************************
@@ -274,4 +274,15 @@ When everything is configured properly, you can use the :ref:`commands`.
       - `Authenticate and Authorize Users Using Active Directory via Native LDAP
 	<https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
 
+	
+Kerberos Authentication
+==============================
+
+|psmdb| supports Kerberos authentication starting from release 4.2.6-6. It is implemented the same way as in |mongodb-e|.
+
+.. seealso::
+
+   |mongodb| Documentation:
+         - `Kerberos Authentication <https://docs.mongodb.com/manual/core/kerberos/>`_	 
+	
 .. include:: .res/replace.txt
