@@ -4,7 +4,7 @@
 *Percona Server for MongoDB* 4.2.6-6
 ================================================================================
 
-:Date: May 5, 2020
+:Date: May 7, 2020
 :Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.2/install/index.html>`_
 
 Percona Server for MongoDB 4.2.6-6 is an enhanced, open source, and highly-scalable database that is a
