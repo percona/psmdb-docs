@@ -4,7 +4,7 @@
 Running |PSMDB| in a Docker Container
 =====================================
 
-Docker images of |PSMDB| are hosted publicly on Decker Hub at
+Docker images of |PSMDB| are hosted publicly on Docker Hub at
 https://hub.docker.com/r/percona/percona-server-mongodb/.
 
 For more information about using Docker, see the `Docker Docs`_.
