@@ -103,5 +103,4 @@ replica set member or from imported backup dump.
 .. |mongod| replace:: ``mongod`` 
    
 .. include:: .res/replace.txt
-.. include:: .res/replace.program.txt	     
-.. include:: .res/url.txt
+
