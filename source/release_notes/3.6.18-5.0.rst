@@ -1,0 +1,46 @@
+.. _PSMDB-3.6.18-5.0:
+
+================================================================================
+*Percona Server for MongoDB* 3.6.18-5.0
+================================================================================
+
+:Date: May 19, 2020
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_
+
+Percona Server for MongoDB 3.6.18-5.0 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 3.6.18-5.0 Community Edition.
+It supports `MongoDB 3.6.18 <https://docs.mongodb.com/v3.6/release-notes/3.6/#may-1-2020>`_ protocols and drivers.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-165`: LDAP Authorization.  Starting from release |release|, |psmdb| supports |ldap-authorization|.
+  
+  This feature has been supported in |mongodb-e| since its version 3.4.
+  
+  Note the following limitations of |ldap-authorization| in |psmdb|:
+  
+  - The |abbr.ldap| `connection pool and all related parameters are
+    not supported
+    <https://docs.mongodb.com/manual/core/security-ldap-external/#connection-pool>`_.
+  - The `ldapTimeoutMS
+    <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_
+    parameter is ignored.
+  - The `ldapUserCacheInvalidationInterval
+    <https://docs.mongodb.com/manual/reference/parameters/#param.ldapUserCacheInvalidationInterval>`_
+    parameter is ignored.
+  - The `--ldapServers
+    <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_
+    option may only contain a single server (|mongodb-e| accepts a comma-separated list).
+  
+  See our documentation for more information about how :ref:`ext-auth` is supported in |psmdb|.
+  
+  .. seealso::
+  
+     |mongodb| Documentation:
+        - `LDAP Authorization <https://docs.mongodb.com/manual/core/security-ldap-external/>`_
+        - `Authenticate and Authorize Users Using Active Directory via Native LDAP <https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
+
+	   
+.. include:: ../.res/replace.txt
+
