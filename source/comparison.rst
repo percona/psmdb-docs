@@ -24,7 +24,7 @@ in MongoDB Enterprise Edition.
      - * Key server = Hashicorp Vault
        * Fully opensource
      - * Key server = KMIP
-       * (Enterprise only)
+       * Enterprise only
    * - :ref:`Hot Backup <hot-backup>`
      - YES (replicaset)
      - NO
