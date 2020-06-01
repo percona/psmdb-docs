@@ -46,7 +46,7 @@ in MongoDB Enterprise Edition.
      - YES
      - Enterprise only
    * - SNMP Monitoring
-     - No
+     - NO
      - Enterprise only
 
 Profiling Rate Limiting
