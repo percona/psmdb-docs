@@ -52,7 +52,7 @@ in MongoDB Enterprise Edition.
 Profiling Rate Limiting
 -----------------------
 
-Profiling Rate Limiting was added to PSMDB in v3.4 with --rateLimit argument. Since v3.6 MongoDB community (and Enterprise) reproduced this feature but called the option slowOpSampleRate_. Percona Server for MongoDB v3.6+ includes both. The two options have the same effect upon profiling and the database diagnostic log but the argument value is inverted: slowOpSampleRate = (1/rateLimit).
+Profiling Rate Limiting was added to |PSMDB| in v3.4 with ``--rateLimit`` argument. Since v3.6 MongoDB Community (and Enterprise) Edition reproduced this feature but called the option slowOpSampleRate_. |PSMDB| v3.6+ includes both. The two options have the same effect upon profiling and the database diagnostic log but the argument value is inverted: ``slowOpSampleRate`` = (1/``rateLimit``).
 
 For naming simplicity we recommend using --slowOpSampleRate argument. Eg. if you have used --rateLimit 50 please use --slowOpSampleRate 0.02 instead.
 
