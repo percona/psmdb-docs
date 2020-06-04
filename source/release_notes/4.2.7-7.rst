@@ -1,0 +1,26 @@
+.. _PSMDB-4.2.6-7:
+
+================================================================================
+*Percona Server for MongoDB* 4.2.7-7
+================================================================================
+
+:Date: June 4, 2020
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.2/install/index.html>`_
+
+Percona Server for MongoDB 4.2.7-7 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 4.2.7 Community Edition <https://docs.mongodb.com/manual/release-notes/4.2/#may-26-2020>`_.
+It supports MongoDB 4.2.7 protocols and drivers.
+
+New Features
+================================================================================
+
+* :jirabug:`PSMDB-587`: Add options to control the size of several WiredTiger hash arrays concerned with data handles and one for session cursor cache
+* :jirabug:`PSMDB-616`: Add "txn_checkpoint_prepare_time" and "txn_checkpoint_tree_helper_time" wiredTiger.transaction stats
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-600`: Fix leak of dhandle session_inuse counter in __evict_walk through 'error' early loop exit logic
+
+
