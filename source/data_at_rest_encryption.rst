@@ -59,9 +59,9 @@ Example:
 ==========================  ====================================  ==========
 Command Line	            Config File                           Type
 ==========================  ====================================  ==========
-vaultServerName	            security.vault.ServerName	          string
+vaultServerName	            security.vault.serverName	          string
 vaultPort	            security.vault.port	                  int
-vaultTokenFile	            security.vault.secret	          string
+vaultTokenFile	            security.vault.tokenFile	          string
 vaultSecret	            security.vault.secret	          string
 vaultRotateMasterKey	    security.vault.vaultrotateMasterKey	  switch
 vaultServerCAFile	    security.vault.serverCAFile	          string
