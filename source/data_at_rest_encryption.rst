@@ -64,13 +64,13 @@ Example:
            - config file
            - Type
          * - vaultServerName
-           - security.vault.ServerName
+           - security.vault.serverName
            - string
          * - vaultPort
            - security.vault.port
            - int
          * - vaultTokenFile
-           - security.vault.secret
+           - security.vault.tokenFile
            - string
          * - vaultSecret
            - security.vault.secret
