@@ -4,28 +4,12 @@
 Installing Percona Server for MongoDB
 =====================================
 
-|PSMDB| supports most 64-bit Linux distributions.
-Percona provides packages for the following systems:
+Percona provides installation packages of |PSMDB| for the most 64-bit Linux distributions. Find the full list of supported platforms on the `Percona Software and Platform Lifecycle <https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb>`_ page.
 
-.. list-table:: Linux distributions supported by |PSMDB|
-   :widths: 70 30
-   :header-rows: 1
+The recommended installation method is from |percona| repositories. Follow the links below for the installation instructions for your operating system.
 
-   * - Supported Distributions
-     - Instructions
-   * - * Debian 9 (stretch)
-       * Debian 10 (buster)
-       * Ubuntu 16.04 (Xenial Xerus)
-       * Ubuntu 18.04 LTS (Bionic Beaver)
-       * Ubuntu 20.04 (Focal Fossa)
-     - :ref:`Install on Debian or Ubuntu <apt>`
-   * - * Red Hat Enterprise Linux / CentOS 6
-       * Red Hat Enterprise Linux / CentOS 7
-     - :ref:`Install on RHEL or CentOS <yum>`
-
-.. note:: |PSMDB| should work on other Linus distributions
-   (for example, Amazon Linux AMI and Oracle Linux),
-   but it is tested only on platforms listed in the previous table.
+- :ref:`Install on Debian or Ubuntu <apt>`
+- :ref:`Install on RHEL or CentOS <yum>`
 
 Alternative Install Instructions
 ================================================================================
