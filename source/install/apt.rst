@@ -4,18 +4,8 @@
 Installing Percona Server for MongoDB on Debian and Ubuntu
 ==========================================================
 
-Percona provides :file:`.deb` packages for 64-bit versions
-of the following distributions:
-
-* Debian 8 (jessie)
-* Debian 9 (stretch)
-* Ubuntu 14.04 LTS (Trusty Tahr)
-* Ubuntu 16.04 LTS (Xenial Xerus)
-* Ubuntu 18.04 LTS (Bionic Beaver)
-* Ubuntu 20.04 LTS (Focal Fossa)
-
 .. note:: |PSMDB| should work on other DEB-based distributions,
-   but it is tested only on platforms listed above.
+   but it is tested only on platforms listed on the `Percona Software and Platform Lifecycle <https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb>`_ page.
 
 .. contents::
    :local:

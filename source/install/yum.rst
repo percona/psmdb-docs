@@ -4,15 +4,9 @@
 Installing Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS
 ============================================================================
 
-Percona provides :file:`.rpm` packages for 64-bit versions
-of the following distributions:
-
-* Red Hat Enterprise Linux / CentOS 6 [#f1]_
-* Red Hat Enterprise Linux / CentOS 7
-
 .. note:: |PSMDB| should work on other RPM-based distributions
    (for example, Amazon Linux AMI and Oracle Linux),
-   but it is tested only on platforms listed above.
+   but it is tested only on platforms listed on the `Percona Software and Platform Lifecycle <https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb>`_ page. [#f1]_
 
 .. contents::
    :local:
