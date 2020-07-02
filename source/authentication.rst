@@ -245,10 +245,10 @@ To enable external authenticaton, you must create a user with the **root** privi
 
 .. code-block:: text
 
-> use admin
-switched to db admin
-> db.createUser({"user": "admin", "pwd": "$3cr3tP4ssw0rd", "roles": ["root"]})
-Successfully added user: { "user" : "admin", "roles" : [ "root" ] }
+   > use admin
+   switched to db admin
+   > db.createUser({"user": "admin", "pwd": "$3cr3tP4ssw0rd", "roles": ["root"]})
+   Successfully added user: { "user" : "admin", "roles" : [ "root" ] }
 
 
 Edit the :file:`etc/mongod.conf` configuration file to enable the external authentication:
@@ -278,7 +278,7 @@ Use the following command to add an external user to the ``mongod`` server:
 
 .. code-block:: text
 
-  > db.getSiblingDB("$external").createUser( {user : christian, roles: [ {role: "read", db: "test"} ]} );
+   > db.getSiblingDB("$external").createUser( {user : "christian", roles: [ {role: "read", db: "test"} ]} );
 
 The previous example assumes that you have set up the server-wide
 admin user/role and have successfully authenticated as that user locally.

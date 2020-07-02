@@ -9,7 +9,6 @@
 .. |tip.run-all.root|  replace:: Run the following commands as root or by using the :program:`sudo` command
 .. |tip.run-this.root| replace:: Run this command as root or by using the :program:`sudo` command
 .. |vault| replace:: HashiCorp Vault
-.. |ldap-authorization| replace:: :abbr:`LDAP (Lightweight Directory Access Protocol)` Authorization
 .. |ldap-authorization| replace:: LDAP Authorization
 .. |abbr.ldap| replace:: :abbr:`LDAP (Lightweight Directory Access Protocol)`
 .. |inmemory| replace:: Percona Memory Engine
