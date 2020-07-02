@@ -306,29 +306,19 @@ Authentication and Authorization with Direct Binding to LDAP
 
 Starting from release 4.2.5-5, |psmdb| supports |ldap-authorization|.
   
-   This feature has been supported in |mongodb-e| since its version 3.4.
+This feature has been supported in |mongodb-e| since its version 3.4.
   
-   Note the following limitations of |ldap-authorization| in |psmdb|:
+Note the following limitations of |ldap-authorization| in |psmdb|:
   
-   - The |abbr.ldap| `connection pool and all related parameters are
-     not supported
-     <https://docs.mongodb.com/manual/core/security-ldap-external/#connection-pool>`_.
-   - The `ldapTimeoutMS
-     <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_
-     parameter is ignored.
-   - The `ldapUserCacheInvalidationInterval
-     <https://docs.mongodb.com/manual/reference/parameters/#param.ldapUserCacheInvalidationInterval>`_
-     parameter is ignored.
-   - The `--ldapServers
-     <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_
-     option may only contain a single server (|mongodb-e| accepts a
-     comma-separated list).
+- The |abbr.ldap| `connection pool and all related parameters are not supported <https://docs.mongodb.com/manual/core/security-ldap-external/#connection-pool>`_.
+- The `ldapTimeoutMS <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_ parameter is ignored.
+- The `--ldapServers <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_ option may only contain a single server (|mongodb-e| accepts a comma-separated list).
  
-   .. seealso::
+.. seealso::
   
-      |mongodb| Documentation:
-         - `LDAP Authorization <https://docs.mongodb.com/manual/core/security-ldap-external/>`_	    
-         - `Authenticate and Authorize Users Using Active Directory via Native LDAP <https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
+   |mongodb| Documentation:
+       - `LDAP Authorization <https://docs.mongodb.com/manual/core/security-ldap-external/>`_	    
+       - `Authenticate and Authorize Users Using Active Directory via Native LDAP <https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
 
 .. _kerberos-authentication:
 
