@@ -276,7 +276,7 @@ Use the following command to add an external user to the ``mongod`` server:
 
 .. code-block:: text
 
-  > db.getSiblingDB("$external").createUser( {user : christian, roles: [ {role: "read", db: "test"} ]} );
+  > db.getSiblingDB("$external").createUser( {user : "christian", roles: [ {role: "read", db: "test"} ]} );
 
 The previous example assumes that you have set up the server-wide
 admin user/role and have successfully authenticated as that user locally.
