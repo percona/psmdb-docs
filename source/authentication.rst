@@ -277,7 +277,7 @@ Use the following command to add an external user to the ``mongod`` server:
 
 .. code-block:: text
 
-  > db.getSiblingDB("$external").createUser( {user : christian, roles: [ {role: "read", db: "test"} ]} );
+  > db.getSiblingDB("$external").createUser( {user : "christian", roles: [ {role: "read", db: "test"} ]} );
 
 The previous example assumes that you have set up the server-wide
 admin user/role and have successfully authenticated as that user locally.
@@ -304,29 +304,21 @@ Authentication and Authorization with Direct Binding to LDAP
 
 Starting from release 4.0.18-11, |psmdb| supports |ldap-authorization|.
   
-   This feature has been supported in |mongodb-e| since its version 3.4.
+This feature has been supported in |mongodb-e| since its version 3.4.
   
-   Note the following limitations of |ldap-authorization| in |psmdb|:
+Note the following limitations of |ldap-authorization| in |psmdb|:
   
-   - The |abbr.ldap| `connection pool and all related parameters are
-     not supported
+- The |abbr.ldap| `connection pool and all related parameters are not supported
      <https://docs.mongodb.com/manual/core/security-ldap-external/#connection-pool>`_.
-   - The `ldapTimeoutMS
-     <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_
-     parameter is ignored.
-   - The `ldapUserCacheInvalidationInterval
-     <https://docs.mongodb.com/manual/reference/parameters/#param.ldapUserCacheInvalidationInterval>`_
-     parameter is ignored.
-   - The `--ldapServers
-     <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_
-     option may only contain a single server (|mongodb-e| accepts a
-     comma-separated list).
+- The `ldapTimeoutMS <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_ parameter is ignored.
+- The `ldapUserCacheInvalidationInterval <https://docs.mongodb.com/manual/reference/parameters/#param.ldapUserCacheInvalidationInterval>`_ parameter is ignored.
+- The `--ldapServers <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_ option may only contain a single server (|mongodb-e| accepts a comma-separated list).
  
-   .. seealso::
+.. seealso::
   
-      |mongodb| Documentation:
-         - `LDAP Authorization <https://docs.mongodb.com/manual/core/security-ldap-external/>`_	    
-         - `Authenticate and Authorize Users Using Active Directory via Native LDAP <https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
+   |mongodb| Documentation:
+       - `LDAP Authorization <https://docs.mongodb.com/manual/core/security-ldap-external/>`_	    
+       - `Authenticate and Authorize Users Using Active Directory via Native LDAP <https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
 
 .. _kerberos-authentication:
 
