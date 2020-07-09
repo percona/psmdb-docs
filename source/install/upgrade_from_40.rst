@@ -16,10 +16,10 @@ For more information, see `Compatibility Changes in MongoDB 4.2 <https://docs.mo
 The general procedure for performing an in-place upgrade (where your existing
 data and configuration files are preserved) includes the following steps:
 
-1. Stop the :program:`mongod` instance
+1. Stop the ``mongod`` instance
 #. Enable |percona| repository for |PSMDB| |version|
 #. Install new packages. Old packages are considered obsolete and automatically removed
-#. Start the :program:`mongod` instance
+#. Start the ``mongod`` instance
 
 It is recommended to upgrade |PSMDB| from official Percona repositories using
 the corresponding package manager for your system.  For more information, see
@@ -52,7 +52,7 @@ Upgrading on RHEL and CentOS
 1. Stop the ``mongod`` instance: :bash:`systemctl stop mongod`
 #. Enable |percona| repository for |PSMDB| |version|: :bash:`percona-release enable psmdb-42`
 #. Install |PSMDB| |version| packages: :bash:`yum install percona-server-mongodb`
-#. Start the ``mongod`` instance:: :bash:`systemctl start mongod`
+#. Start the ``mongod`` instance: :bash:`systemctl start mongod`
 
 For more information, see :ref:`yum`.
 
