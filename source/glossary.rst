@@ -40,4 +40,4 @@
      * no known performance regressions (without a damn good explanation).
 
   Rolling restart
-    A rolling restart (rolling upgrade) is shutting down and upgrading nodes one by one. The whole cluster remains operational and you achieve almost zero downtime during upgrade.
+    A rolling restart (rolling upgrade) is shutting down and upgrading nodes one by one. The whole cluster remains operational. There is no interruption to clients assuming the elections are short and all writes directed to the old primary use the retryWrite mechanism.
