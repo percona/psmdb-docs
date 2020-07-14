@@ -22,19 +22,26 @@ it should work in most cases.
 .. warning:: Before starting the upgrade process
    it is recommended to perform a full backup of your data.
 
-The upgrade process depends on the distribution you are using:
+The sections below describe an in-place upgrade of a standalone instance and a replica set. If using data-at-rest encryption please see an extra note at end.
 
 .. contents::
    :local:
 
-Upgrading on Debian or Ubuntu
-=============================
+.. _upgrade_standalone:   
 
-1. Stop the mongod process:
+Upgrading a standalone instance or a single-node replica set
+=============================================================
+
+The upgrade procedure depends on the distribution you are using:
+
+Upgrading on Debian or Ubuntu
+--------------------------------------------------------------------------------
+
+1. Stop the ``mongod`` service: 
 
    .. code-block:: bash
 
-      $ service mongod stop
+      systemctl stop mongod
 
 2. Check for installed packages:
 
@@ -52,21 +59,38 @@ Upgrading on Debian or Ubuntu
 
    .. code-block:: bash
 
-      apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \
-      mongodb-org-shell mongodb-org-tools
+      $ apt-get remove \
+      mongodb-org \
+      mongodb-org-mongos \
+      mongodb-org-server \
+      mongodb-org-shell \
+      mongodb-org-tools
 
-4. Install Percona Server for MongoDB :ref:`using apt <apt>`.
+#. Remove log files: 
+  
+   .. code-block:: bash
+  
+      rm -r /var/log/mongodb
+
+#. Install |PSMDB| :ref:`using apt <apt>`
+#. Verify that the configuration file includes the correct options. For example, |PSMDB| stores data files in :file:`/var/lib/mongodb` by default. If you used another ``dbPath`` data directory, edit the configuration file accordingly
+   
+#. Start the ``mongod`` service: 
+   
+   .. code-block:: bash
+   
+      systemctl start mongod
 
 Upgrading on Red Hat Enterprise Linux or CentOS
-===============================================
+--------------------------------------------------------------------------------
 
-1. Stop the mongod process:
+1. Stop the ``mongod`` service: 
 
    .. code-block:: bash
 
-      $ service mongod stop
+      systemctl stop mongod
 
-2. Check for installed packages:
+#. Check for installed packages:
 
    .. code-block:: bash
 
@@ -78,7 +102,7 @@ Upgrading on Red Hat Enterprise Linux or CentOS
       mongodb-org-tools-3.6.2-1.el6.x86_64
       mongodb-org-3.6.2-1.el6.x86_64
 
-3. Remove installed packages:
+3. Remove the installed packages:
 
    .. code-block:: bash
 
@@ -87,7 +111,18 @@ Upgrading on Red Hat Enterprise Linux or CentOS
       mongodb-org-server-3.6.2-1.el6.x86_64 mongodb-org-tools-3.6.2-1.el6.x86_64 \
       mongodb-org-3.6.2-1.el6.x86_64
 
-4. Install Percona Server for MongoDB :ref:`using yum <yum>`.
+#. Remove log files: 
+   
+   .. code-block:: bash
+   
+      rm -r /var/log/mongodb
+
+#. Install Percona Server for MongoDB :ref:`using yum <yum>`.
+#. Start the ``mongod`` service: 
+
+   .. code-block:: bash
+   
+      systemctl start mongod
 
 .. note:: When you remove old packages,
    your existing configuration file is saved
@@ -96,4 +131,47 @@ Upgrading on Red Hat Enterprise Linux or CentOS
    replace the default :file:`/etc/mongod.conf` file.
    For example, existing data may not be compatible
    with the default WiredTiger storage engine.
+
+Upgrading a replica set
+================================================================================
+
+The :term:`rolling restart <Rolling restart>` method allows upgrading a replica set from |mongodb-ce| to |PSMDB| with minimum downtime. You upgrade the nodes one by one while the whole cluster remains operational.   
+
+Upgrade some but not all replica set nodes  
+--------------------------------------------------------------------------------
+
+1. Upgrade a node in a replica set as described in :ref:`upgrade_standalone`. Use the instructions relevant to your operating system. 
+
+.. note::
+
+   It is better to upgrade the secondary node to avoid an extra election of the primary one. If you upgrade the primary node, run the :command:`rs.stepDown()` command before shutting it down.
+
+2. Wait for the node to rejoin with the replica set members, resync and report that it is in the SECONDARY status. 
+#. Optional: repeat the upgrade procedure on other (but not on all) nodes.
+
+Test the |PSMDB| node in the primary role before all nodes are upgraded
+--------------------------------------------------------------------------------
+
+This step is optional. Its purpose is to run a testing stage with the |PSMDB| node as primary whilst at least one of nodes still runs the old version. This will make rolling back a little quicker if you choose to do so.
+
+1. Use :command:`rs.stepDown()` on the current primary node to start an election of a new primary among nodes with |PSMDB| installed. If you have multiple nodes of the previous version, use :command:`rs.freeze()` on them to make sure one of |PSMDB| nodes becomes primary.
+ 
+Upgrade the last node(s)
+--------------------------------------------------------------------------------
+
+1. If any of the previous version nodes is the current primary node, step it down: :command:`rs.stepDown()`.
+2. Wait for the remaining nodes to elect a new primary. Run :command:`rs.status()` to verify that the former primary node reports as SECONDARY.
+#. Upgrade the node as described in :ref:`upgrade_standalone`.
+   
+.. seealso::
+
+   |mongodb| Documentation: Upgrade a Replica Set
+       https://docs.mongodb.com/manual/release-notes/3.6-upgrade-replica-set/
+
+.. note::
+
+   Steps to upgrade from |mongodb-ce| with data encryption enabled to |PSMDB| are different. ``mongod`` requires an empty ``dbPath`` data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the :ref:`switch_storage_engines` for more information on migration of encrypted data. `Contact us <https://www.percona.com/about-percona/contact#us>`_ for working at the detailed migration steps, if further assistance is needed.
+
+.. include:: ../.res/replace.txt
+
 
