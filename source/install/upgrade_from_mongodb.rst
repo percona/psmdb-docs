@@ -25,7 +25,7 @@ cases.
    Before starting the upgrade procedure, we recommend to perform a full
    backup of your data.
 
-The sections below describe an in-place upgrade of a standalone instance and a replica set without encryption. 
+The sections below describe an in-place upgrade of a standalone instance and a replica set. If using data-at-rest encryption please see extra note at end.
 
 .. contents::
    :local:
