@@ -62,6 +62,9 @@ log file printing too.
    * - Affects log file 
      - yes
      - no
+   * - Example value of option
+     - 0.02
+     - 50
      
 rateLimit is a better way to have continual profiling for monitoring or live
 analysis purposes. sampleRate requires setting slowOpsThresholdMs to zero if
