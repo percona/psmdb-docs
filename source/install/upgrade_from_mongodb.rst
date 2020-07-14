@@ -22,7 +22,7 @@ cases.
 
 .. warning::
 
-   Before starting the upgrade service, we recommend to perform a full
+   Before starting the upgrade procedure, we recommend to perform a full
    backup of your data.
 
 The sections below describe an in-place upgrade of a standalone instance and a replica set without encryption. 
@@ -35,7 +35,7 @@ The sections below describe an in-place upgrade of a standalone instance and a r
 Upgrading a standalone instance or a single-node replica set 
 ================================================================================
 
-The upgrade service depends on the distribution you are using:
+The upgrade procedure depends on the distribution you are using:
 
 Upgrading on Debian or Ubuntu
 --------------------------------------------------------------------------------
@@ -120,19 +120,31 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 Upgrading a replica set
 ================================================================================
 
-The :term:`rolling restart <Rolling restart>` method lets you upgrade your replica set to |PSMDB| with minimum downtime. You upgrade the nodes one by one while the whole cluster remains operational.   
+The :term:`rolling restart <Rolling restart>` method allows upgrading a replica set from |mongodb-ce| to |PSMDB| with minimum downtime. You upgrade the nodes one by one while the whole cluster remains operational.   
 
-Upgrade the replica set secondary nodes  
+Upgrade some but not all replica set nodes  
 --------------------------------------------------------------------------------
 
-1. Upgrade a secondary node in a replica set as described in :ref:`upgrade_standalone`. Use the instructions relevant to your operating system. 
-#. Wait for the node to rejoin with the replica set members and report the SECONDARY status. 
-#. Repeat the upgrade procedure on the remaining secondary nodes. 
-   
-Upgrade the primary node
+1. Upgrade a node in a replica set as described in :ref:`upgrade_standalone`. Use the instructions relevant to your operating system. 
+
+.. note::
+
+   It is better to upgrade the secondary node to avoid an extra election of the primary one. If you upgrade the primary node, run the :command:`rs.stepDown()` command before shutting it down.
+
+#. Wait for the node to rejoin with the replica set members, resync and report that it is in the SECONDARY status. 
+#. Optional: repeat the upgrade procedure on other (but not on all) nodes.
+
+Test the |PSMDB| node in the primary role before all nodes are upgraded
 --------------------------------------------------------------------------------
 
-1. Step down the primary node: :command:`rs.stepDown()`.
+This step is optional. Its purpose is to run a testing stage with the |PSMDB| node as primary whilst at least one of nodes still runs the old version. This will make rolling back a little quicker if you choose to do so.
+
+1. Use :command:`rs.stepDown()` on the current primary node to start an election of a new primary among nodes with |PSMDB| installed. If you have multiple nodes of the previous version, use :command:`rs.freeze()` on them to make sure one of |PSMDB| nodes becomes primary.
+ 
+Upgrade the last node(s)
+--------------------------------------------------------------------------------
+
+1. If any of the previous version nodes is the current primary node, step it down: :command:`rs.stepDown()`.
 2. Wait for the remaining nodes to elect a new primary. Run :command:`rs.status()` to verify that the former primary node reports as SECONDARY.
 #. Upgrade the node as described in :ref:`upgrade_standalone`.
    
@@ -148,4 +160,3 @@ Upgrade the primary node
 
 .. include:: ../.res/replace.txt
 .. include:: ../.res/replace.program.txt
-
