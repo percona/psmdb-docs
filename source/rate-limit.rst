@@ -32,13 +32,13 @@ With rate limiting you can collect profiling data for all database operations
 and reduce overhead by sampling queries.
 Slow queries ignore rate limiting and are always collected by the profiler.
 
-Comparing to "sampleRate" option
-================================
+Comparing to the ``sampleRate`` option
+=================================================
 
 The ``sampleRate`` option (= slowOpSampleRate_ config file option) is a similar
 concept to ``rateLimit``. But it works at different profile level, completely 
-ignores ops faster than ``slowOpsThresholdMs`` (a.k.a. ``slowMs``), and affects the 
-log file printing too. 
+ignores operations faster than ``slowOpsThresholdMs`` (a.k.a. ``slowMs``), and affects the 
+log file printing, too. 
 
 .. list-table::
    :header-rows: 1

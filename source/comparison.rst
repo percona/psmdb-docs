@@ -52,6 +52,6 @@ in MongoDB Enterprise Edition.
 Profiling Rate Limiting
 -----------------------
 
-Profiling Rate Limiting was added to |PSMDB| in v3.4 with ``--rateLimit`` argument. Since v3.6 MongoDB Community (and Enterprise) Edition includes a similar option slowOpSampleRate_. Please see rate-limit_ for more information.
+Profiling Rate Limiting was added to |PSMDB| in v3.4 with ``--rateLimit`` argument. Since v3.6 MongoDB Community (and Enterprise) Edition includes a similar option slowOpSampleRate_. Please see :ref:`rate-limit` for more information.
 
 .. _slowOpSampleRate: https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-slowopsamplerate
