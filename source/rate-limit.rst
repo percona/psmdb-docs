@@ -66,10 +66,10 @@ log file printing too.
      - 0.02
      - 50
      
-rateLimit is a better way to have continual profiling for monitoring or live
-analysis purposes. sampleRate requires setting slowOpsThresholdMs to zero if
-you wanted to sample all types of ops, and has an effect on the log file
-which may decrease or increase log volume.
+``rateLimit`` is a better way to have continuous profiling for monitoring or live
+analysis purposes. ``sampleRate`` requires setting slowOpsThresholdMs to zero if
+you want to sample all types of operations. ``sampleRate`` has an effect on the log file
+which may either decrease or increase the log volume.
 
 Enabling the Rate Limit
 =======================
