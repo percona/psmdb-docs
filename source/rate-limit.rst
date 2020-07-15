@@ -32,6 +32,45 @@ With rate limiting you can collect profiling data for all database operations
 and reduce overhead by sampling queries.
 Slow queries ignore rate limiting and are always collected by the profiler.
 
+Comparing to "sampleRate" option
+================================
+
+The ``sampleRate`` option (= slowOpSampleRate_ config file option) is a similar
+concept to ``rateLimit``. But it works at different profile level, completely 
+ignores ops faster than ``slowOpsThresholdMs`` (a.k.a. ``slowMs``), and affects the 
+log file printing too. 
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+
+   * -
+     - sampleRate
+     - rateLimit
+   * - Affects profiling level 1
+     - yes
+     - no
+   * - Affects profiling level 2
+     - no
+     - yes
+   * - Discards/filters slow ops 
+     - yes
+     - no
+   * - Discards/filters fast ops 
+     - no
+     - yes
+   * - Affects log file 
+     - yes
+     - no
+   * - Example value of option
+     - 0.02
+     - 50
+     
+``rateLimit`` is a better way to have continuous profiling for monitoring or live
+analysis purposes. ``sampleRate`` requires setting slowOpsThresholdMs to zero if
+you want to sample all types of operations. ``sampleRate`` has an effect on the log file
+which may either decrease or increase the log volume.
+
 Enabling the Rate Limit
 =======================
 
@@ -55,15 +94,6 @@ and ``"ok" : 1`` indicates that the operation was successful::
 
  > db.runCommand( { profile: 2, slowms: 200, ratelimit: 100 } );
  { "was" : 0, "slowms" : 100, "ratelimit" : 1, "ok" : 1 }
-
-.. important::
-
-   |MongoDB| uses the `sampleRate` parameter in place of ``rateLimit``.
-
-   .. seealso::
-
-      |MongoDB| Documentation: The `profile` command
-         https://docs.mongodb.com/manual/reference/command/profile/#profile
 
 To check the current settings, run ``profile: -1``::
 
@@ -99,3 +129,4 @@ includes an additional ``rateLimit`` field.
 This field always has the value of ``1`` for *slow* queries
 and the current rate limit value for *fast* queries.
 
+.. _slowOpSampleRate: https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-slowopsamplerate
