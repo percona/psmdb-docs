@@ -298,7 +298,15 @@ against a given database using the following command:
   
 .. _kerberos-authentication:
 
+Kerberos Authentication
+==============================
 
+|PSMDB| supports Kerberos authentication starting from release 3.6.19-7.0. It is implemented the same way as in |mongodb-e|.
+
+.. seealso::
+
+   |mongodb| Documentation:
+         - `Kerberos Authentication <https://docs.mongodb.com/manual/core/kerberos/>`_   
 
 .. _ldap-authorization:
 
@@ -317,9 +325,6 @@ Starting from release 3.6.18-5.0, |psmdb| supports |ldap-authorization|.
    - The `ldapTimeoutMS
      <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_
      parameter is ignored.
-   - The `ldapUserCacheInvalidationInterval
-     <https://docs.mongodb.com/manual/reference/parameters/#param.ldapUserCacheInvalidationInterval>`_
-     parameter is ignored.
    - The `--ldapServers
      <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_
      option may only contain a single server (|mongodb-e| accepts a
@@ -332,7 +337,6 @@ Starting from release 3.6.18-5.0, |psmdb| supports |ldap-authorization|.
          - `Authenticate and Authorize Users Using Active Directory via Native LDAP <https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
 
 .. |SASL| replace:: :abbr:`SASL (Simple Authentication and Security Layer)`
-.. |PSMDB| replace:: Percona Server for MongoDB
 
 
 .. include:: .res/replace.txt		     
