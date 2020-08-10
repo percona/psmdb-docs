@@ -1,21 +1,11 @@
 .. _compare:
 
-=============================================
+================================================================================
 Percona Server for MongoDB Feature Comparison
-=============================================
+================================================================================
 
-|PSMDB| is based on MongoDB 3.6, and it is the successor to Percona TokuMX,
-which is based on MongoDB 2.4.
-
-Both MongoDB and |PSMDB| include a pluggable storage engine API.
-This enables you to select from a variety of storage engines
-depending on your needs.
-Previous MongoDB versions (before 3.0) and Percona TokuMX
-can run with only one default storage engine.
-For more information about about using various storage engines,
-see :ref:`switch_storage_engines`.
-
-The following table will help you evaluate the differences.
+|PSMDB| |version| is based on MongoDB |version|. |PSMDB| extends |mongodb-ce| to include the functionality that is otherwise only available
+in |mongodb-e|.
 
 .. list-table::
    :header-rows: 1
@@ -24,56 +14,45 @@ The following table will help you evaluate the differences.
    * -
      - PSMDB
      - MongoDB
-     - TokuMX
    * - Storage Engines
      - * WiredTiger_ (default)
-       * MMAPv1_
        * :ref:`inmemory`
-       * :ref:`mongorocks`
      - * WiredTiger_ (default)
-       * MMAPv1_
        * In-Memory_ (Enterprise only)
-     - Built-in storage engine based on the Fractal Tree index
+   * - Encryption-at-Rest
+     - * Key server = Hashicorp Vault
+       * Fully opensource
+     - * Key server = KMIP
+       * Enterprise only
    * - :ref:`Hot Backup <hot-backup>`
-     - YES for WiredTiger_ and :ref:`mongorocks`
+     - YES (replicaset)
      - NO
+   * - LDAP Authentication
+     - * Simple LDAP Auth
+       * (legacy) :ref:`External SASL Authentication <ext-auth>`
+     - * Enterprise only
+       * Enterprise only
+   * - LDAP Authorization
      - YES
+     - Enterprise only
+   * - Kerberos Authentication
+     - YES
+     - Enterprise only
    * - :ref:`Audit Logging <audit-log>`
      - YES
      - Enterprise only
-     - YES
-   * - :ref:`External SASL Authentication <ext-auth>`
+   * - Log redaction
      - YES
      - Enterprise only
-     - NO
-   * - :ref:`rate-limit`
-     - YES
-     - YES [#]_ 
-     - NO
-   * - Geospatial Indexes
-     - YES
-     - YES
-     - YES
-   * - Text Search
-     - YES
-     - YES
-     - NO
-   * - ACID and MVCC compliant
-     - NO
-     - NO
-     - YES
-   * - Clustering Key Support
-     - NO
-     - NO
-     - YES
-   * - Sharding with Clustering Keys
-     - NO
-     - NO
-     - YES
-   * - Point-in-time Recovery
+   * - SNMP Monitoring
      - NO
      - Enterprise only
-     - YES
 
+Profiling Rate Limiting
+-----------------------
 
-.. [#] via the `sampleRate <https://docs.mongodb.com/manual/reference/command/profile/#profile>`_ parameter.
+Profiling Rate Limiting was added to |PSMDB| in v3.4 with ``--rateLimit`` argument. Since v3.6 MongoDB Community (and Enterprise) Edition includes a similar option slowOpSampleRate_. Please see :ref:`rate-limit` for more information.
+
+.. _slowOpSampleRate: https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-slowopsamplerate
+
+.. include:: .res/replace.txt
