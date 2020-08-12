@@ -12,7 +12,7 @@ run ``mongod`` with the ``--redactClientLogData`` option.
 .. note:: Metadata such as error or operation codes, line numbers,
    and source file names remain visible in the logs.
 
-Log redaction is important for comlying with security requirements,
+Log redaction is important for complying with security requirements,
 but it can make troubleshooting and diagnostics more difficult
 due to the lack of data related to the log event.
 For this reason, debug messages are not redacted

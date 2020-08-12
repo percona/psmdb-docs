@@ -57,7 +57,7 @@ the |percona-release| utility:
    Once you install this package the |Percona| repositories should be added. You
    can check the repository setup in the
    :file:`/etc/apt/sources.list.d/percona-release.list` file.
-#. Enable the repository: :bash:`percona-release enable psmdb-42 release`
+#. Enable the repository: :bash:`percona-release enable psmdb-44 release`
 #. Remember to update the local cache: |apt.update|
 #. Install the |PSMDB| package: :bash:`apt install percona-server-mongodb`
 
@@ -76,7 +76,7 @@ Starting the service
   You can also manually start it using the following command:
   |service.mongod.start|
 
-Confirming that service is running**
+Confirming that the service is running**
   Check the service status using the following command:
   |service.mongod.status|
 
@@ -86,10 +86,6 @@ Stopping the service
 Restarting the service
   Restart the service using the following command: |service.mongod.restart|
 
-.. note::
-
-   On Debian 8, Ubuntu 16.04 and later versions you can also invoke all the
-   above commands with ``systemctl`` instead of ``service``.
 
 Uninstalling Percona Server for MongoDB
 ================================================================================

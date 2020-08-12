@@ -37,7 +37,7 @@ Upgrade Instructions
 If you are currently using MongoDB, see :ref:`Upgrading from MongoDB
 <upgrade_from_mongodb>`.
 
-If you are running an earlier version of |PSMDB|, see :ref:`Upgrading from Version 4.0 <upgrade_from_40>`.
+If you are running an earlier version of |PSMDB|, see :ref:`Upgrading from Version 4.2 <upgrade_from_42>`.
 
 .. toctree::
    :hidden:

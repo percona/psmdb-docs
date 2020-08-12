@@ -23,7 +23,7 @@ option when you start ``mongod``.  Alternatively, you can set the
       - `storage.inmemory Options
         <https://docs.mongodb.com/manual/reference/configuration-options/#storage-inmemory-options>`_
 
-Data files created by one storage engine are not compatible with other storage
+Data files created by one storage engine are not compatible with the other storage
 engines, because each one has its own data model.
 
 When changing the storage engine, the |mongod| node requires an empty ``dbPath``
@@ -36,7 +36,7 @@ Creating a new ``dbPath`` data directory for a different storage engine is the
 simplest solution. Yet when you switch between disk-using storage engines (e.g.
 from WiredTiger_ to :ref:`inmemory`), you may have to delete the old data if
 there is not enough disk space for both. Double-check that your backups are solid
-and/or the replicaset nodes are healthy to before you switch to the new storage
+and/or the replica set nodes are healthy to before you switch to the new storage
 engine.
 
 If there is data that you want to migrate and make compatible with the new
@@ -63,7 +63,7 @@ storage engine, use the following methods:
 
   Repeat the procedure on the remaining nodes.
     
-* for a standalone instance or a single-node replicaset, use the
+* for a standalone instance or a single-node replica set, use the
   ``mongodump`` and ``mongorestore`` utilities:
 
   .. code-block:: bash
