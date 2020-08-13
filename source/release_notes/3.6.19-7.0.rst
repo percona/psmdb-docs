@@ -1,0 +1,28 @@
+.. _PSMDB-3.6.19-7.0:
+
+================================================================================
+*Percona Server for MongoDB* 3.6.19-7.0
+================================================================================
+
+:Date: August 13, 2020
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_
+
+Percona Server for MongoDB 3.6.19-7.0 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 3.6.19 Community Edition <https://docs.mongodb.com/manual/release-notes/3.6/#july-23-2020>`_.
+It supports MongoDB 3.6.19 protocols and drivers.
+
+New Features
+================================================================================
+
+* :jirabug:`PSMDB-582`: Added Kerberos authentication to Percona Server for MongoDB
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-671`: createBackup returns ok:1 for archived backup when there is no disk space available
+* :jirabug:`PSMDB-656`: LDAP - user's permissions remain intact after a user is removed from LDAP
+* :jirabug:`PSMDB-589`: Add ldapUserCacheInvalidationInterval parameter to periodically flush external user cache
+* :jirabug:`PSMDB-583`: Detect a connection loss to LDAP server and reconnect automatically
+
+
