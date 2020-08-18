@@ -48,9 +48,9 @@ master_doc = 'index'
 # built documents.
 
 # The short X.Y version.
-version = '4.2'
+version = '4.4'
 # The full version, including alpha/beta/rc tags.
-release = ".".join([version, '8-8'])
+release = ".".join([version, '0-1'])
 
 # General information about the project.
 product_name = 'Percona Server for MongoDB'
@@ -101,7 +101,7 @@ rst_prolog = '''
 .. _`MMAPv1`: https://docs.mongodb.org/manual/core/mmapv1/
 .. _`WiredTiger`: https://docs.mongodb.org/manual/core/wiredtiger/
 .. _`RocksDB`: http://rocksdb.org
-.. _`In-Memory`: https://docs.mongodb.com/v4.2/core/inmemory/
+.. _`In-Memory`: https://docs.mongodb.com/v4.4/core/inmemory/
 
 .. |check|  replace:: ``|[[---CHECK---]]|``
 
@@ -195,7 +195,7 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-		'**': ['localtoc.html', 'sourcelink.html'],
+		'**': ['localtoc.html', 'relations.html', 'sourcelink.html'],
 		'using/windows': ['windowssidebar.html'],
 				}
 

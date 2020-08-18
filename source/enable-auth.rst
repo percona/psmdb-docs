@@ -30,5 +30,6 @@ To enable access control manually:
 
 3. Restart the ``mongod`` service::
 
-    $ service mongod restart
+    $ systemctl restart mongod
 
+.. include:: .res/replace.program.txt

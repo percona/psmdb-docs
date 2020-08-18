@@ -6,9 +6,9 @@
 .. |apt.update| replace:: :bash:`apt update`
 .. |mongod| replace:: :program:`mongod`
 .. |percona-release| replace:: :program:`percona-release`
-.. |service.mongod.restart| replace:: :bash:`service mongod restart`
-.. |service.mongod.start| replace:: :bash:`service mongod start`
-.. |service.mongod.status| replace:: :bash:`service mongod status`
-.. |service.mongod.stop| replace:: :bash:`service mongod stop`
+.. |service.mongod.restart| replace:: :bash:`systemctl restart mongod`
+.. |service.mongod.start| replace:: :bash:`systemctl start mongod`
+.. |service.mongod.status| replace:: :bash:`systemctl status mongod`
+.. |service.mongod.stop| replace:: :bash:`systemctl stop mongod`
 .. |systemctl.enable.mongod| replace:: :bash:`systemctl enable mongod`
 .. |yum.remove.percona-server-mongodb| replace:: :bash:`yum remove percona-server-mongodb*`

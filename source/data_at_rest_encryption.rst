@@ -35,9 +35,7 @@ Note that vault secrets path format must be:
 where:
 
 - ``<vault_secret_mount>`` is your Vault KV Secrets Engine;
-
 - ``data`` is the mandatory path prefix required by Version 2 API;
-
 - ``<custom_path>`` is your secrets path
 
 Example:
@@ -52,9 +50,8 @@ Example:
 
 .. seealso::
 
-    How to configure the KV Engine:
-    https://www.vaultproject.io/api/secret/kv/kv-v2.html
-
+   How to configure the KV Engine:
+      https://www.vaultproject.io/api/secret/kv/kv-v2.html
 
 
 .. admonition:: |vault| Parameters
@@ -90,7 +87,7 @@ Example:
    
 The vault token file consists of the raw vault token and does not include any additional strings or parameters.
 
-On start server tries to read the master key from the Vault. If the configured secret does not exist, Vault responds with HTTP 404 error. During the first run of the |PSMDB| the process generates a secure key and writes the key to the vault.
+On start, the server tries to read the master key from the Vault. If the configured secret does not exist, Vault responds with HTTP 404 error. During the first run of the |PSMDB| the process generates a secure key and writes the key to the Vault.
 
 
 .. rubric:: Encrypting Rollback Files
@@ -157,19 +154,23 @@ key and save it to a file by using the |openssl| command:
 
 Then, as the owner of the ``mongod`` process, update the file permissions: only
 the owner should be able to read and modify this file. The effective permissions
-specified with the ``chmod`` command can either be **600** (only the owner may
-read and modify the file) or **400** (only the owner may read the file.)
+specified with the ``chmod`` command can be:
+
+- **600** - only the owner may read and modify the file, or 
+- **400** - only the owner may read the file.
 
 .. code-block:: bash
 
    $ chmod 600 mongodb-keyfile
 
 If ``mongod`` is started with the ``--relaxPermChecks`` option and the key file
-is owned by ``root`` then ``mongod`` can read the file based on the
+is owned by ``root``, then ``mongod`` can read the file based on the
 group bit set accordingly. The effective key file permissions in this
-case are either **440** (both the owner and the group can only read the file) or
-**640** (only the owner can read and the change the file, the group can only
-read the file).
+case are:
+
+- **440** - both the owner and the group can only read the file, or
+- **640** - only the owner can read and the change the file, the group can only
+  read the file.
 
 .. seealso::
 
@@ -186,15 +187,15 @@ All these options can be specified in the configuration file:
       encryptionKeyFile: <string>
       relaxPermChecks: <boolean>
 
- .. admonition:: Key Rotation
+.. admonition:: Key Rotation
 
-    To rotate the keys for a single mongod instance, do the following:
+   To rotate the keys for a single ``mongod`` instance, do the following:
 
-    1. Stop mongod process
-    #. Add ``--vaultRotateMasterKey`` to the command line options or ``security.vault.rotateMasterKey`` to the config file.
-    #. Run the mongod process with the selected option, the process will perform the key rotation and exit.
-    #. Remove the selected option from the startup command or the config file.
-    #. Start mongod again.
+   1. Stop ``mongod`` process
+   #. Add ``--vaultRotateMasterKey`` to the command line options or ``security.vault.rotateMasterKey`` to the config file.
+   #. Run the ``mongod`` process with the selected option, the process will perform the key rotation and exit.
+   #. Remove the selected option from the startup command or the config file.
+   #. Start ``mongod`` again.
 
 Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the vault. The entire dataset is not re-encrypted.
 

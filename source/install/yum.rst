@@ -55,7 +55,7 @@ It is recommended to install |PSMDB| from official |percona| repositories:
 	 Preparing...                ########################################### [100%]
          1:percona-release        ########################################### [100%]
 
-#. Enable the repository: :bash:`percona-release enable psmdb-42 release`
+#. Enable the repository: :bash:`percona-release enable psmdb-44 release`
 #. Install the packages: :bash:`yum install percona-server-mongodb`
 
 .. seealso::
@@ -102,10 +102,7 @@ Stopping the service
 Restarting the service
   Restart the service using the following command: |service.mongod.restart|
 
-.. note::
 
-   On Red Hat Enterprise Linux and CentOS 7 you can also invoke all
-   the above commands with ``systemctl`` instead of ``service``.
 
 Running after reboot
 --------------------------------------------------------------------------------

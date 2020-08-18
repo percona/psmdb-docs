@@ -4,27 +4,25 @@
 Installing Percona Server for MongoDB from Binary Tarball
 ================================================================================
 
-You can find links to the binary tarballs from the `Percona website`_
+You can find links to the binary tarballs under the *Generic Linux* menu item on the `Percona website`_
 
 1. Fetch and extract the correct binary tarball. For example, if you
-   are running Debian 8 ("jessie"):
+   are running Debian 10 ("buster"):
 
    .. code-block:: bash
 
-      $ wget https://www.percona.com/downloads/percona-server-mongodb-4.2/\
-      percona-server-mongodb-4.2.0-1/binary/debian/bionic/x86_64/\
-      percona-server-mongodb-4.2.0-1-bionic-x86_64-bundle.tar
-      $ tar xfz percona-server-mongodb-4.2.0-1-bionic-x86_64-bundle.tar.gz
+      $ wget https://www.percona.com/downloads/percona-server-mongodb-4.4/percona-server-mongodb-4.4.0-1/binary/tarball/percona-server-mongodb-4.4.0-1-buster-x86_64.tar.gz\
+      $ tar -xf percona-server-mongodb-4.4.0-1-buster-x86_64.tar.gz
 
-#. Copy the extracted binaries to the target directory, for example:
+#. Add the location of the binaries to the ``PATH`` variable: 
 
    .. code-block:: bash
 
-      mkdir ~/psmdb
-      cp -r -n percona-server-mongodb-4.2.0-1-bionic-x86_64-bundle/bin ~/psmdb/
+      $ export PATH=~/percona-server-mongodb-4.4.0-1/bin/:$PATH`
+#. Create the default data directory::
 
-#. Add the location of the binaries to the ``PATH`` variable: :bash:`export PATH ~/psmdb/bin:$PATH`
-#. Create the default data directory: :bash:`mkdir -p /data/db`
+   $ mkdir -p /data/db
+   
 #. Make sure that you have read and write permissions for the data
    directory and run |mongod|.
 

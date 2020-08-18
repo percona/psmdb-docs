@@ -49,7 +49,7 @@ An authentication session uses the following sequence:
 
 1. A ``mongo`` client connects to a running ``mongod`` instance.
 #. The client creates a ``PLAIN`` authentication request
-   using the SASL library.
+   using the |SASL| library.
 #. The client then sends this SASL request to the server
    as a special Mongo command.
 #. The ``mongod`` server receives this SASL Message,
@@ -79,7 +79,7 @@ The following components are required:
 
 * ``slapd``: OpenLDAP server.
 * ``libsasl2`` version 2.1.25 or later.
-* ``saslauthd``: SASL Authentication Daemon (distinct from ``libsasl2``).
+* ``saslauthd``: |SASL| Authentication Daemon (distinct from ``libsasl2``).
 
 The following steps will help you configure your environment:
 
@@ -234,14 +234,14 @@ The first two entries (``pwcheck_method`` and ``saslauthd_path``)
 are required for ``mongod`` to successfully use the ``saslauthd`` service.
 The ``log_level`` is optional but may help determine configuration errors.
 
-.. rubric:: See Also
+.. seealso::
 
-* `SASL documentation: <https://www.cyrusimap.org/sasl/index.html>`_
+   `SASL documentation: <https://www.cyrusimap.org/sasl/index.html>`_
   
-Configuring mongod Server
--------------------------
+Configuring ``mongod`` Server
+-----------------------------
 
-To enable external authenticaton, you must create a user with the **root** privileges in the ``admin`` database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:
+To enable external authentication, you must create a user with the **root** privileges in the ``admin`` database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:
 
 .. code-block:: text
 
@@ -265,7 +265,7 @@ Restart the ``mongod`` service:
 
 .. code-block:: bash
 
-  service mongod restart
+  systemctl restart mongod
 
 When everything is configured properly, you can use the :ref:`commands`.
 
@@ -303,8 +303,6 @@ against a given database using the following command:
 
 Authentication and Authorization with Direct Binding to LDAP
 ============================================================
-
-Starting from release 4.2.5-5, |psmdb| supports |ldap-authorization|.
   
 This feature has been supported in |mongodb-e| since its version 3.4.
   
@@ -325,7 +323,7 @@ Note the following limitations of |ldap-authorization| in |psmdb|:
 Kerberos Authentication
 ==============================
 
-|PSMDB| supports Kerberos authentication starting from release 4.2.6-6. It is implemented the same way as in |mongodb-e|.
+|PSMDB| supports Kerberos authentication starting from release 4.2.6-6. It is implemented the same way as in |mongodb| Enterprise.
 
 .. seealso::
 

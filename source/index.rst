@@ -50,7 +50,7 @@ Installation
 
    install/index
    install/upgrade_from_mongodb
-   install/upgrade_from_40
+   install/upgrade_from_42
 
 Features
 ================================================================================

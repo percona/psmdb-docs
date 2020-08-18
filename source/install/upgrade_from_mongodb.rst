@@ -45,7 +45,7 @@ Upgrading on Debian or Ubuntu
 .. include:: ../.res/text/important.mongod-conf.txt
 .. Is this warning still actual?
 
-1. Stop the ``mongod`` service: :bash:`systemctl stop mongod`
+1. Stop the ``mongod`` service: |service.mongod.stop|
 
 #. Check for installed packages: :bash:`dpkg -l | grep mongod`
 
@@ -53,11 +53,11 @@ Upgrading on Debian or Ubuntu
 
       .. code-block:: guess
 
-	 ii  mongodb-org            4.2.7    amd64      MongoDB open source document-oriented database system (metapackage)
-	 ii  mongodb-org-mongos     4.2.7    amd64      MongoDB sharded cluster query router
-	 ii  mongodb-org-server     4.2.7    amd64      MongoDB database server
-	 ii  mongodb-org-shell      4.2.7    amd64      MongoDB shell client
-	 ii  mongodb-org-tools      4.2.7    amd64      MongoDB tools
+	 ii  mongodb-org            4.4.0    amd64      MongoDB open source document-oriented database system (metapackage)
+	 ii  mongodb-org-mongos     4.4.0    amd64      MongoDB sharded cluster query router
+	 ii  mongodb-org-server     4.4.0    amd64      MongoDB database server
+	 ii  mongodb-org-shell      4.4.0    amd64      MongoDB shell client
+	 ii  mongodb-org-tools      4.4.0    amd64      MongoDB tools
 
 #. Remove the installed packages:
 
@@ -72,7 +72,7 @@ Upgrading on Debian or Ubuntu
    
 #. Verify that the configuration file includes the correct options. For example, |PSMDB| stores data files in :file:`/var/lib/mongodb` by default. If you used another ``dbPath`` data directory, edit the configuration file accordingly
    
-#. Start the ``mongod`` service: :bash:`systemctl start mongod`
+#. Start the ``mongod`` service: |service.mongod.start|
 
 Upgrading on Red Hat Enterprise Linux or CentOS
 --------------------------------------------------------------------------------
@@ -82,29 +82,29 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 .. include:: ../.res/text/important.mongod-conf.txt
 .. Is this warning still actual?
 
-1. Stop the ``mongod`` service: :bash:`systemctl stop mongod` 
+1. Stop the ``mongod`` service: |service.mongod.stop| 
 #. Check for installed packages: :bash:`rpm -qa | grep mongo`
 
    .. admonition:: Output
 
       .. code-block:: guess
 
-	 mongodb-org-mongos-4.2.7-1.el6.x86_64
-	 mongodb-org-shell-4.2.7-1.el6.x86_64
-	 mongodb-org-server-4.2.7-1.el6.x86_64
-	 mongodb-org-tools-4.2.7-1.el6.x86_64
-	 mongodb-org-4.2.7-1.el6.x86_64
+	 mongodb-org-mongos-4.4.0-1.el6.x86_64
+	 mongodb-org-shell-4.4.0-1.el6.x86_64
+	 mongodb-org-server-4.4.0-1.el6.x86_64
+	 mongodb-org-tools-4.4.0-1.el6.x86_64
+	 mongodb-org-4.4.0-1.el6.x86_64
 
 #. Remove the installed packages:
 
    .. code-block:: bash
 
       $ yum remove \
-      mongodb-org-mongos-4.2.7-1.el6.x86_64 \
-      mongodb-org-shell-4.2.7-1.el6.x86_64 \
-      mongodb-org-server-4.2.7-1.el6.x86_64 \
-      mongodb-org-tools-4.2.7-1.el6.x86_64 \
-      mongodb-org-4.2.7-1.el6.x86_64
+      mongodb-org-mongos-4.4.0-1.el6.x86_64 \
+      mongodb-org-shell-4.4.0-1.el6.x86_64 \
+      mongodb-org-server-4.4.0-1.el6.x86_64 \
+      mongodb-org-tools-4.4.0-1.el6.x86_64 \
+      mongodb-org-4.4.0-1.el6.x86_64
 
 #. Remove log files: :bash:`rm -r /var/log/mongodb`
 #. Install |PSMDB| :ref:`using yum <yum>`.
@@ -151,7 +151,7 @@ Upgrade the last node(s)
 .. seealso::
 
    |mongodb| Documentation: Upgrade a Replica Set
-       https://docs.mongodb.com/manual/release-notes/4.2-upgrade-replica-set/
+       https://docs.mongodb.com/manual/release-notes/4.4-upgrade-replica-set/
 
 .. note::
 
