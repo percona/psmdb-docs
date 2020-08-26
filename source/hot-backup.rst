@@ -8,16 +8,22 @@ Hot Backup
 WiredTiger_ storage engine.  It creates a physical data backup on a running
 server without notable performance and operating degradation.
 
-To take a hot backup of the database in your current ``dbpath``, run the
-``createBackup`` command as administrator on the ``admin`` database and specify
-the backup directory.
+To take a hot backup of the database in your current ``dbpath``, do the following:
 
-.. code-block:: text
+- Make sure to provide access to the backup directory for the ``mongod`` user.
 
-   > use admin
-   switched to db admin
-   > db.runCommand({createBackup: 1, backupDir: "/my/backup/data/path"})
-   { "ok" : 1 }
+  .. code-block:: bash
+
+     chown mongod:mongod <backupDir>
+
+- Run the ``createBackup`` command as administrator on the ``admin`` database and specify the backup directory. 
+
+  .. code-block:: text
+
+     > use admin
+     switched to db admin
+     > db.runCommand({createBackup: 1, backupDir: "/my/backup/data/path"})
+     { "ok" : 1 }
 
 If the backup was successful, you should receive an ``{ "ok" : 1 }`` object.
 If there was an error, you will receive a failing ``ok`` status
@@ -28,22 +34,24 @@ with the error message, for example:
    > db.runCommand({createBackup: 1, backupDir: ""})
    { "ok" : 0, "errmsg" : "Destination path must be absolute" }
 
-.. hint:: Restoring data from the backup
+.. rubric:: Restoring data from the backup
 
-   To restore your backup, you need to stop the ``mongod`` service, clean the data
-   directory and then copy the files from the backup directory to your data
-   directory. Finally, start the ``mongod`` service again.
+To restore your backup, you need to stop the ``mongod`` service, clean the data
+directory and then copy the files from the backup directory to your data
+directory. The ``mongod`` user requires access to those files; therefore, change their permissions. Finally, start the ``mongod`` service again.
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ # Stopping the mongod service
-      $ service mongod stop
-      $ # Clean the data directory (assuming /var/lib/mongodb/)
-      $ rm -rf /var/lib/mongodb/*
-      $ # Copy the files from the backup directory to the data directory
-      $ cp --recursive /my/backup/data/path /var/lib/mongodb/
-      $ # Starting the mongod service
-      $ service mongod start
+   $ # Stopping the mongod service
+   $ systemctl stop mongod
+   $ # Clean the data directory (assuming /var/lib/mongodb/)
+   $ rm -rf /var/lib/mongodb/*
+   $ # Copy the files from the backup directory to the data directory
+   $ cp -RT /my/backup/data/path /var/lib/mongodb/
+   $ # Granting access to the data files for the mongod user
+   $ chown -R mongod:mongod /var/lib/mongodb/
+   $ # Starting the mongod service
+   $ systemctl start mongod
 
 Saving a Backup to a TAR Archive
 ================================================================================
