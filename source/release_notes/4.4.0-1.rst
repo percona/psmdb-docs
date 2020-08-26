@@ -1,0 +1,24 @@
+.. _PSMDB-4.4.0-1:
+
+================================================================================
+*Percona Server for MongoDB* 4.4.0-1
+================================================================================
+
+:Date: August 26, 2020
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.4/install/index.html>`_
+
+Percona Server for MongoDB 4.4.0-1 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 4.4.0 Community Edition.
+It supports MongoDB 4.4.0 protocols and drivers. 
+
+This release includes `all features of MongoDB 4.4.0 Community Edition <https://docs.mongodb.com/manual/release-notes/4.4/#mongodb-4-4-released-july-30-2020>`_ and provides Enterprise-level `enhancements <https://www.percona.com/software/mongodb/feature-comparison>`_ for free. 
+
+.. seealso:: 
+
+   Percona Blog Post
+       - `MongoDB 4.4 Is Coming Out Soon - What Does the Code Tell Us? <https://www.percona.com/blog/2020/06/11/mongodb-4-4-coming-out-soon-what-does-the-code-tell-us/>`_
+
+|PSMDB| requires no changes to MongoDB applications or code and is available for download from `Percona website`_.
+
+.. include:: ../.res/replace.txt
+.. include:: ../.res/url.txt
