@@ -11,7 +11,12 @@ without notable performance and operating degradation.
 
 To take a hot backup of the database in your current ``dbpath``, do the following:
 
-- Make sure to provide access to the backup directory for the ``mongod`` user:: ``chown mongod:mongod <backupDir>``.
+- Make sure to provide access to the backup directory for the ``mongod`` user:
+
+  .. code-block:: bash
+   
+     $ chown mongod:mongod <backupDir>
+
 - Run the ``createBackup`` command as administrator on the ``admin`` database and specify the backup directory. 
 
   .. code-block:: text
@@ -47,7 +52,7 @@ directory. The ``mongod`` user requires access to those files; therefore, change
    $ # Granting access to the data files for the mongod user
    $ chown -R mongod:mongod /var/lib/mongodb/
    $ # Starting the mongod service
-      $ systemctl start mongod
+   $ systemctl start mongod
 
 .. _psmdb-hot-backup-remote-destination:
 
