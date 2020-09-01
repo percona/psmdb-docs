@@ -50,7 +50,7 @@ master_doc = 'index'
 # The short X.Y version.
 version = '4.0'
 # The full version, including alpha/beta/rc tags.
-release = ".".join([version, '19-12'])
+release = ".".join([version, '20-13'])
 
 # General information about the project.
 product_name = 'Percona Server for MongoDB'
@@ -195,7 +195,7 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-		'**': ['localtoc.html', 'sourcelink.html'],
+		'**': ['localtoc.html', 'sourcelink.html', 'relations.html'],
 		'using/windows': ['windowssidebar.html'],
 				}
 
