@@ -10,7 +10,12 @@ server without notable performance and operating degradation.
 
 To take a hot backup of the database in your current ``dbpath``, do the following:
 
-- Make sure to provide access to the backup directory for the ``mongod`` user:: `chown mongod:mongod <backupDir>`.
+- Make sure to provide access to the backup directory for the ``mongod`` user:
+
+  .. code-block:: bash
+ 
+     chown mongod:mongod <backupDir>
+
 - Run the ``createBackup`` command as administrator on the ``admin`` database and specify the backup directory. 
 
   .. code-block:: text
@@ -42,11 +47,11 @@ directory. The ``mongod`` user requires access to those files; therefore, change
    $ # Clean the data directory (assuming /var/lib/mongodb/)
    $ rm -rf /var/lib/mongodb/*
    $ # Copy the files from the backup directory to the data directory
-   $ cp --recursive /my/backup/data/path /var/lib/mongodb/
+   $ cp -RT /my/backup/data/path /var/lib/mongodb/
    $ # Granting access to the data files for the mongod user
    $ chown -R mongod:mongod /var/lib/mongodb/
    $ # Starting the mongod service
-      $ systemctl start mongod
+   $ systemctl start mongod
 
 
 Saving a Backup to a TAR Archive
@@ -54,7 +59,7 @@ Saving a Backup to a TAR Archive
  
 .. admonition:: Implementation details
  
-   This feature was implemented in |PSMDB| 4.2.1.1.
+   This feature was implemented in |PSMDB| 4.2.1-1.
  
  To save a backup in the format of *tar* archive, use the *archive* field to
  specify the destination path:
