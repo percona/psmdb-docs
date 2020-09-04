@@ -1,0 +1,14 @@
+.. code-block:: guess
+
+       Available Packages
+   percona-server-mongodb.x86_64    4.0.9-4.el8       psmdb-40-release-x86_64
+   percona-server-mongodb.x86_64    4.0.9-5.el8       psmdb-40-release-x86_64
+   percona-server-mongodb.x86_64    4.0.10-5.el8      psmdb-40-release-x86_64
+   percona-server-mongodb.x86_64    4.0.12-6.el8      psmdb-40-release-x86_64
+   percona-server-mongodb.x86_64    4.0.13-7.el8      psmdb-40-release-x86_64
+   percona-server-mongodb.x86_64    4.0.14-8.el8      psmdb-40-release-x86_64
+   percona-server-mongodb.x86_64    4.0.16-9.el8      psmdb-40-release-x86_64
+   percona-server-mongodb.x86_64    4.0.17-10.el8     psmdb-40-release-x86_64
+   percona-server-mongodb.x86_64    4.0.18-11.el8     psmdb-40-release-x86_64
+   percona-server-mongodb.x86_64    4.0.19-12.el8     psmdb-40-release-x86_64
+   percona-server-mongodb.x86_64    4.0.20-13.el8     psmdb-40-release-x86_64
