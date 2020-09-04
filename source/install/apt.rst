@@ -57,10 +57,37 @@ the |percona-release| utility:
    Once you install this package the |Percona| repositories should be added. You
    can check the repository setup in the
    :file:`/etc/apt/sources.list.d/percona-release.list` file.
+
 #. Enable the repository: :bash:`percona-release enable psmdb-44 release`
 #. Remember to update the local cache: |apt.update|
-#. Install the |PSMDB| package: :bash:`apt install percona-server-mongodb`
+   
+Install the latest version 
+--------------------------------------------------------------
 
+Run the following command to install the latest version of |PSMDB|: 
+
+.. code-block:: bash
+
+   $ sudo apt-get install percona-server-mongodb
+
+Install a specific version
+--------------------------------------------------------------
+
+1. List available versions:
+ 
+   .. code-block:: bash
+   
+      $ sudo apt-cache madison percona-server-mongodb
+
+   .. admonition:: Sample Output
+
+      .. include:: ../.res/text/apt-versions-list.txt
+
+2. Install a specific version packages. You must specify each package with the version number. For example, to install |PSMDB| 4.4.0-1, run the following command:
+   
+   .. code-block:: bash
+   
+      $ sudo apt-get install percona-server-mongodb=4.4.0-1.buster percona-server-mongodb-mongos=4.4.0-1.buster percona-server-mongodb-shell=4.4.0-1.buster percona-server-mongodb-server=4.4.0-1.buster percona-server-mongodb-tools=4.4.0-1.buster
 
 Using Percona Server for MongoDB
 ================================================================================
@@ -76,7 +103,7 @@ Starting the service
   You can also manually start it using the following command:
   |service.mongod.start|
 
-Confirming that the service is running**
+Confirming that the service is running
   Check the service status using the following command:
   |service.mongod.status|
 
@@ -85,7 +112,6 @@ Stopping the service
 
 Restarting the service
   Restart the service using the following command: |service.mongod.restart|
-
 
 Uninstalling Percona Server for MongoDB
 ================================================================================
