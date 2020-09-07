@@ -75,11 +75,6 @@ Saving a Backup to a TAR Archive
 Streaming Hot Backups to a Remote Destination
 ================================================================================
 
-.. admonition:: Implementation details
-
-   This feature was implemented in |PSMDB| 4.2.1-1. In this release,
-   this feature has the *EXPERIMENTAL* status.
-
 |PSMDB| enables uploading hot backups to an `Amazon S3
 <https://aws.amazon.com/s3/>`_ or a compatible storage service, such
 as `MinIO <https://min.io/>`_.
