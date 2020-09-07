@@ -59,13 +59,8 @@ directory. The ``mongod`` user requires access to those files; therefore, change
 Streaming Hot Backups to a Remote Destination
 ================================================================================
 
-.. admonition:: Implementation details
-
-   This feature was implemented in |PSMDB| 3.6.15-3.5. In this release, this
-   feature has the *EXPERIMENTAL* status.
-
-Starting from version 4.0.12-6, |PSMDB| enables uploading hot backups to an
-`Amazon S3 <https://aws.amazon.com/s3/>`_ or a compatible storage service, such
+|PSMDB| enables uploading hot backups to an `Amazon S3
+<https://aws.amazon.com/s3/>`_ or a compatible storage service, such
 as `MinIO <https://min.io/>`_.
 
 This method requires that you provide the *bucket* field in the *s3* object:
