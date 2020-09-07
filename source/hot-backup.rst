@@ -74,11 +74,6 @@ specify the destination path:
 Streaming Hot Backups to a Remote Destination
 ================================================================================
 
-.. admonition:: Implementation details
-
-   This feature was implemented in |PSMDB| 4.0.12-6. In this release,
-   this feature has the *EXPERIMENTAL* status.
-
 Starting from version 4.0.12-6, |PSMDB| enables uploading hot backups
 to an `Amazon S3 <https://aws.amazon.com/s3/>`_ or a compatible storage service,
 such as `MinIO <https://min.io/>`_.
