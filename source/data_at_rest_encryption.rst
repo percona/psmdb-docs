@@ -22,8 +22,8 @@ services.
 
 .. rubric:: |vault| Integration
 
-Starting from version 4.0.10, |PSMDB| provides |vault| integration. We only support the |vault|
-backend with KV Secrets Engine - Version 2 (API)
+|PSMDB| is integrated with |vault|. We only support the |vault|
+back end with KV Secrets Engine - Version 2 (API)
 with versioning enabled.
 
 Note that vault secrets path format must be:
