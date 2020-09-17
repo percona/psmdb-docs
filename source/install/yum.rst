@@ -37,19 +37,55 @@ Package Contents
 Installing from Percona Repositories
 ====================================
 
-It is recommended to intall |PSMDB| from official Percona repositories:
+It is recommended to install |PSMDB| from official Percona repositories
 
-1. Configure Percona repositories as described in
-   `Percona Software Repositories Documentation
-   <https://www.percona.com/doc/percona-repo-config/index.html>`_.
+Configure Percona repositories as described in `Percona Software Repositories Documentation <https://www.percona.com/doc/percona-repo-config/index.html>`_.
+
+Install the latest version
+---------------------------------------------
+
+Starting from |PSMDB| 3.6.19-7.0, the packages are located in the ``psmdb-36`` repository. To install the latest version of |PSMDB|, do the following:
+
+1. Enable the repository.
+   
+   .. code-block:: bash
+   
+      $ sudo percona-release enable psmdb-36 
 
 #. Install the required |PSMDB| package using :command:`yum`.
    For example, to install the full package, run the following:
 
    .. code-block:: bash
 
-      $ sudo yum install Percona-Server-MongoDB-34
+      $ sudo yum install Percona-Server-MongoDB-36
 
+Install a specific version
+-----------------------------------------------------
+
+Earlier versions of |PSMDB| are located in the ``original`` repository. To install a specific version:
+
+1. Enable the `original` repository: 
+
+   .. code-block:: bash
+   
+      $ sudo percona-release enable original
+
+#. List available packages: 
+   
+   .. code-block:: bash
+   
+      $ sudo yum list Percona-Server-MongoDB-36 --showduplicates
+
+   .. admonition:: Sample output 
+   
+      .. include:: ../.res/yum-repo-list.txt    
+
+#. Install a specific version packages. For example, to install |PSMDB| 3.6.17-4.0, use the following command: 
+
+   .. code-block:: bash
+   
+      $ sudo yum install Percona-Server-MongoDB-36-3.6.17-4.0.el8
+   
 Using Percona Server for MongoDB
 ================================
 
@@ -82,7 +118,7 @@ The configuration file is :file:`/etc/mongod.conf`.
 
   .. code-block:: bash
 
-     $ sudo service mongod start
+     $ sudo systemctl start mongod
 
 * **Confirming that service is running**
 
@@ -90,7 +126,7 @@ The configuration file is :file:`/etc/mongod.conf`.
 
   .. code-block:: bash
 
-     $ sudo service mongod status
+     $ sudo systemctl status mongod
 
 * **Stopping the service**
 
@@ -98,7 +134,7 @@ The configuration file is :file:`/etc/mongod.conf`.
 
   .. code-block:: bash
 
-     $ sudo service mongod stop
+     $ sudo systemctl stop mongod
 
 * **Restarting the service**
 
@@ -106,11 +142,7 @@ The configuration file is :file:`/etc/mongod.conf`.
 
   .. code-block:: bash
 
-     $ sudo service mongod restart
-
-.. note:: On Red Hat Enterprise Linux and CentOS 7
-   you can also invoke all the above commands with ``sytemctl``
-   instead of ``service``.
+     $ sudo systemctl restart mongod 
 
 Running after reboot
 --------------------
@@ -141,7 +173,7 @@ you'll need to remove all the installed packages and data files:
 
    .. code-block:: bash
 
-      $ sudo service mongod stop
+      $ sudo systemctl stop mongod
 
 #. Remove the packages:
 

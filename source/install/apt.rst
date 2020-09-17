@@ -36,18 +36,67 @@ Package Contents
 Installing from Percona Repositories
 ====================================
 
-It is recommended to install |PSMDB| from official Percona repositories:
+It is recommended to install |PSMDB| from official Percona repositories.  
 
-1. Configure Percona repositories as described in
-   `Percona Software Repositories Documentation
-   <https://www.percona.com/doc/percona-repo-config/index.html>`_.
+Configure Percona repositories as described in `Percona Software Repositories Documentation <https://www.percona.com/doc/percona-repo-config/index.html>`_.
+
+Install the latest version
+---------------------------------------------
+
+Starting from |PSMDB| 3.6.19-7.0, the packages are located in the ``psmdb-36`` repository. To install the latest version of |PSMDB|, do the following:
+
+1. Enable the repository.
+   
+   .. code-block:: bash
+   
+      $ sudo percona-release enable psmdb-36 
 
 #. Install the required |PSMDB| package using :command:`apt-get`.
    For example, to install the full package, run the following:
 
    .. code-block:: bash
 
-      $ sudo apt-get install percona-server-mongodb-34
+      $ sudo apt-get install percona-server-mongodb-36
+
+Install a specific version
+---------------------------------------------
+
+|PSMDB| versions earlier than 3.6.19-7.0 are available for download on the `Percona website <https://www.percona.com/downloads/percona-server-mongodb-3.6/>`_.
+
+1.  Select the desired version and your operating system from the drop-down menus. 
+#.  Download the package bundle. The permalink for download is generated for  you based on your selections in the format ``https://www.percona.com/downloads/percona-server-mongodb-3.6/<release_version>/binary/<OS>/<OS_version>/x86_64/<package_name>``. 
+
+    For example, to download |PSMDB| 3.6.14-3.4 for Debian Buster, use the following URL:
+
+    .. code-block:: bash
+    
+       $ wget https://www.percona.com/downloads/percona-server-mongodb-3.6/percona-server-mongodb-3.6.14-3.4/binary/debian/buster/x86_64/percona-server-mongodb-3.6.14-3.4-r0985495-buster-x86_64-bundle.tar
+
+#. Unpack the archive
+
+
+   .. code-block:: bash
+   
+      $ tar xfv percona-server-mongodb-3.6.14-3.4-r0985495-buster-x86_64-bundle.tar
+
+#. Install the packages
+   
+   .. code-block:: bash
+   
+      $ sudo dpkg -i percona-server-mongodb-36_3.6.14-3.4.buster_amd64.deb \
+        percona-server-mongodb-36-dbg_3.6.14-3.4.buster_amd64.deb \
+        percona-server-mongodb-36-mongos_3.6.14-3.4.buster_amd64.deb \
+        percona-server-mongodb-36-server_3.6.14-3.4.buster_amd64.deb \
+        percona-server-mongodb-36-shell_3.6.14-3.4.buster_amd64.deb \
+        percona-server-mongodb-36-tools_3.6.14-3.4.buster_amd64.deb
+
+   .. note::
+
+      If ``dpkg`` fails at this step due to missing dependencies, run ``apt`` as follows:
+
+      .. code-block:: bash
+
+         $ sudo apt-get install --fix-broken
 
 Using Percona Server for MongoDB
 ================================
@@ -63,15 +112,15 @@ and configuration parameters in :file:`/etc/mongod.conf`.
 
   .. code-block:: bash
 
-     $ sudo service mongod start
+     $ sudo systemctl start mongod
 
-* **Confirming that service is running**
+* **Confirming that the service is running**
 
   Check the service status using the following command:
 
   .. code-block:: bash
 
-     $ sudo service mongod status
+     $ sudo systemctl status mongod 
 
 * **Stopping the service**
 
@@ -79,7 +128,7 @@ and configuration parameters in :file:`/etc/mongod.conf`.
 
   .. code-block:: bash
 
-     $ sudo service mongod stop
+     $ sudo systemctl stop mongod
 
 * **Restarting the service**
 
@@ -87,11 +136,7 @@ and configuration parameters in :file:`/etc/mongod.conf`.
 
   .. code-block:: bash
 
-     $ sudo service mongod restart
-
-.. note:: On Debian 8, Ubuntu 16.04 and later versions
-   you can also invoke all the above commands with ``sytemctl``
-   instead of ``service``.
+     $ sudo systemctl restart mongod
 
 Uninstalling Percona Server for MongoDB
 =======================================
@@ -107,7 +152,7 @@ Depending on your needs you can choose which command better suits you.
 
    .. code-block:: bash
 
-      $ sudo service mongod stop
+      $ sudo systemctl stop mongod
 
 #. Remove the packages.
 
