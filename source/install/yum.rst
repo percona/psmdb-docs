@@ -56,14 +56,40 @@ It is recommended to intall |PSMDB| from official Percona repositories:
          1:percona-release        ########################################### [100%]
 
 #. Enable the repository: :bash:`percona-release enable psmdb-40 release`
-#. Install the packages: :bash:`yum install percona-server-mongodb`
 
 .. seealso::
 
    More information about how to use the ``percona-release`` tool
       https://www.percona.com/doc/percona-repo-config/index.html
 
+Install the latest version
+-------------------------------------------------------------------
 
+Install the packages: 
+
+.. code-block:: bash
+
+    $ sudo yum install percona-server-mongodb
+
+Install a specific version 
+-------------------------------------------------------------------
+
+1. List available versions:
+   
+   .. code-block:: bash 
+   
+      $ sudo yum list percona-server-mongodb --showduplicates
+
+   .. admonition:: Sample Output   
+
+      .. include:: ../.res/text/yum-versions-list.txt
+
+#. Install a specific version packages. For example, to install |PSMDB| 4.0.13-7, run the following command:
+   
+   .. code-block:: bash 
+   
+      $ sudo yum install percona-server-mongodb-4.0.13-7.el8
+      
 Using Percona Server for MongoDB
 ================================================================================
 

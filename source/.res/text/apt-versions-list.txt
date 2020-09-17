@@ -1,0 +1,12 @@
+.. code-block:: guess
+
+   percona-server-mongodb | 4.0.20-13.buster | http://repo.percona.com/psmdb-40/apt buster/main amd64 Packages
+   percona-server-mongodb | 4.0.19-12.buster | http://repo.percona.com/psmdb-40/apt buster/main amd64 Packages
+   percona-server-mongodb | 4.0.18-11.buster | http://repo.percona.com/psmdb-40/apt buster/main amd64 Packages
+   percona-server-mongodb | 4.0.17-10.buster | http://repo.percona.com/psmdb-40/apt buster/main amd64 Packages
+   percona-server-mongodb | 4.0.16-9.buster | http://repo.percona.com/psmdb-40/apt buster/main amd64 Packages
+   percona-server-mongodb |  4.0.20-13 | http://repo.percona.com/psmdb-40/apt buster/main Sources
+   percona-server-mongodb |  4.0.19-12 | http://repo.percona.com/psmdb-40/apt buster/main Sources
+   percona-server-mongodb |  4.0.18-11 | http://repo.percona.com/psmdb-40/apt buster/main Sources
+   percona-server-mongodb |   4.0.14-8 | http://repo.percona.com/psmdb-40/apt buster/main Sources
+   percona-server-mongodb |   4.0.13-7 | http://repo.percona.com/psmdb-40/apt buster/main Sources

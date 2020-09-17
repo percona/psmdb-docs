@@ -48,7 +48,34 @@ It is recommended to install |PSMDB| from official Percona repositories:
    file.
 #. Enable the repository: :bash:`percona-release enable psmdb-40 release`
 #. Remember to update the local cache: |apt.update|
-#. Install the |PSMDB| package: :bash:`apt install percona-server-mongodb`
+   
+Install the latest version 
+--------------------------------------------------------------
+
+Run the following command to install the latest version of |PSMDB|: 
+
+.. code-block:: bash
+
+   $ sudo apt-get install percona-server-mongodb
+
+Install a specific version
+--------------------------------------------------------------
+
+1. List available versions:
+ 
+   .. code-block:: bash
+   
+      $ sudo apt-cache madison percona-server-mongodb
+
+  .. admonition:: Sample Output
+
+     .. include:: ../.res/text/apt-versions-list.txt
+
+2. Install a specific version packages. You must specify each package with the version number. For example, to install |PSMDB| 4.0.16-9, run the following command:
+   
+   .. code-block:: bash
+   
+      $ sudo apt-get install percona-server-mongodb=4.0.16-9.buster percona-server-mongodb-mongos=4.0.16-9.buster percona-server-mongodb-shell=4.0.16-9.buster percona-server-mongodb-server=4.0.16-9.buster percona-server-mongodb-tools=4.0.16-9.buster
 
 Using Percona Server for MongoDB
 ================================================================================
