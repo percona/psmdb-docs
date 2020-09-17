@@ -87,7 +87,7 @@ Install a specific version
    
    .. code-block:: bash
    
-      $ sudo apt-get percona-server-mongodb=4.2.5-5.buster percona-server-mongodb-mongos=4.2.5-5.buster percona-server-mongodb-shell=4.2.5-5.buster percona-server-mongodb-server=4.2.5-5.buster percona-server-mongodb-tools=4.2.5-5.buster
+      $ sudo apt-get install percona-server-mongodb=4.2.5-5.buster percona-server-mongodb-mongos=4.2.5-5.buster percona-server-mongodb-shell=4.2.5-5.buster percona-server-mongodb-server=4.2.5-5.buster percona-server-mongodb-tools=4.2.5-5.buster
 
 Using Percona Server for MongoDB
 ================================================================================
