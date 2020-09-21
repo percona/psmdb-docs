@@ -63,7 +63,7 @@ vaultServerName	            security.vault.serverName	          string
 vaultPort	            security.vault.port	                  int
 vaultTokenFile	            security.vault.tokenFile	          string
 vaultSecret	            security.vault.secret	          string
-vaultRotateMasterKey	    security.vault.vaultrotateMasterKey	  switch
+vaultRotateMasterKey	    security.vault.rotateMasterKey	  switch
 vaultServerCAFile	    security.vault.serverCAFile	          string
 vaultDisableTLSForTesting   security.vault.disableTLSForTesting	  switch
 ==========================  ====================================  ==========
