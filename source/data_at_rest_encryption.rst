@@ -76,7 +76,7 @@ Example:
            - security.vault.secret
            - string
          * - vaultRotateMasterKey
-           - security.vault.vaultrotateMasterKey
+           - security.vault.rotateMasterKey
            - switch
          * - vaultServerCAFile
            - security.vault.serverCAFile
