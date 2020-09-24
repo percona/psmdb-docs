@@ -78,6 +78,7 @@ with versioning enabled.
 .. admonition:: |vault| Parameters
 
    .. list-table::
+
       :widths: 25 25 15 35
       :header-rows: 1
    

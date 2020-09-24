@@ -57,10 +57,37 @@ the |percona-release| utility:
    Once you install this package the |Percona| repositories should be added. You
    can check the repository setup in the
    :file:`/etc/apt/sources.list.d/percona-release.list` file.
+
 #. Enable the repository: :bash:`percona-release enable psmdb-42 release`
 #. Remember to update the local cache: |apt.update|
-#. Install the |PSMDB| package: :bash:`apt install percona-server-mongodb`
+   
+Install the latest version 
+--------------------------------------------------------------
 
+Run the following command to install the latest version of |PSMDB|: 
+
+.. code-block:: bash
+
+   $ sudo apt-get install percona-server-mongodb
+
+Install a specific version
+--------------------------------------------------------------
+
+1. List available versions:
+ 
+   .. code-block:: bash
+   
+      $ sudo apt-cache madison percona-server-mongodb
+
+   .. admonition:: Sample Output
+
+      .. include:: ../.res/text/apt-versions-list.txt
+
+2. Install a specific version packages. You must specify each package with the version number. For example, to install |PSMDB| 4.2.5-5, run the following command:
+   
+   .. code-block:: bash
+   
+      $ sudo apt-get install percona-server-mongodb=4.2.5-5.buster percona-server-mongodb-mongos=4.2.5-5.buster percona-server-mongodb-shell=4.2.5-5.buster percona-server-mongodb-server=4.2.5-5.buster percona-server-mongodb-tools=4.2.5-5.buster
 
 Using Percona Server for MongoDB
 ================================================================================
