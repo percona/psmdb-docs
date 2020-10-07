@@ -1,0 +1,21 @@
+.. _PSMDB-4.2.9-10:
+
+================================================================================
+*Percona Server for MongoDB* 4.2.9-10
+================================================================================
+
+:Date: October 9, 2020
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.2/install/index.html>`_
+
+Percona Server for MongoDB 4.2.9-10 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 4.2.9 Community Edition <https://docs.mongodb.com/manual/release-notes/4.2/#aug-21-2020>`_.
+It supports MongoDB 4.2.9-9 protocols and drivers.
+
+This release fixes security vulnerability `CVE-2020-26542 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-26542>`_.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-674`: Provide binary tarball with shared libs and glibc suffix
+
+
