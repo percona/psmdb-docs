@@ -78,7 +78,6 @@ with versioning enabled.
 .. admonition:: |vault| Parameters
 
    .. list-table::
-
       :widths: 25 25 15 35
       :header-rows: 1
    
@@ -142,6 +141,7 @@ with versioning enabled.
         - security.vault.disableTLSForTesting
         - switch
         - Disables secure connection to |vault| using SSL/TLS client certificates
+
 
 .. admonition:: Config file example
 
