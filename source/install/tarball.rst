@@ -4,27 +4,33 @@
 Installing Percona Server for MongoDB from Binary Tarball
 ================================================================================
 
-You can find links to the binary tarballs from the `Percona website`_
+You can find links to the binary tarball under the *Generic Linux* menu item on the `Percona website`_
+
+There are two tarballs available:
+
+- ``percona-server-mongodb-4.0.20-14-x86_64.glibc2.17.tar.gz`` is the general tarball, compatible with any operation system but for Centos 6.
+- ``percona-server-mongodb-4.0.20-14-x86_64.glibc2.12.tar.gz`` is the tarball for Centos 6.  
 
 1. Fetch and extract the correct binary tarball. For example, if you
-   are running Debian 8 ("jessie"):
+   are running Debian 10 ("buster"):
 
    .. code-block:: bash
 
-      $ wget https://www.percona.com/downloads/percona-server-mongodb-4.0/\
-      percona-server-mongodb-4.0.4-1/binary/debian/jessie/x86_64/\
-      percona-server-mongodb-4.0.4-1-ra1cb178-jessie-x86_64-bundle.tar
-      $ tar xfz percona-server-mongodb-4.0.4-1-ra1cb178-jessie-x86_64-bundle.tar
+      $ wget https://www.percona.com/downloads/percona-server-mongodb-4.0/percona-server-mongodb-4.0.20-14/binary/tarball/percona-server-mongodb-4.0.20-14-x86_64.glibc2.17.tar.gz\
+      $ tar -xf percona-server-mongodb-4.0.20-14-x86_64.glibc2.17.tar.gz
 
-#. Copy the extracted binaries to the target directory, for example:
+#. Add the location of the binaries to the ``PATH`` variable: 
+   
+   .. code-block:: bash
+   
+       export PATH=~/percona-server-mongodb-4.0.20-14/bin/:$PATH`
 
+#. Create the default data directory: 
+   
    .. code-block:: bash
 
-      mkdir ~/psmdb
-      cp -r -n percona-server-mongodb-4.0.4-1-ra1cb178-jessie-x86_64-bundle/bin ~/psmdb/
-
-#. Add the location of the binaries to the ``PATH`` variable: :bash:`export PATH ~/psmdb/bin:$PATH`
-#. Create the default data directory: :bash:`mkdir -p /data/db`
+      mkdir -p /data/db
+      
 #. Make sure that you have read and write permissions for the data
    directory and run |mongod|.
 
