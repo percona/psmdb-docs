@@ -36,22 +36,71 @@ with the error message, for example:
 
 .. rubric:: Restoring data from the backup
 
-To restore your backup, you need to stop the ``mongod`` service, clean the data
-directory and then copy the files from the backup directory to your data
-directory. The ``mongod`` user requires access to those files; therefore, change their permissions. Finally, start the ``mongod`` service again.
+The recommended way to restore your database from a backup is to restore it into a standalone node and then create a new replica set. 
 
-.. code-block:: bash
+.. note:: 
 
-   $ # Stopping the mongod service
-   $ systemctl stop mongod
-   $ # Clean the data directory (assuming /var/lib/mongodb/)
-   $ rm -rf /var/lib/mongodb/*
-   $ # Copy the files from the backup directory to the data directory
-   $ cp -RT /my/backup/data/path /var/lib/mongodb/
-   $ # Granting access to the data files for the mongod user
-   $ chown -R mongod:mongod /var/lib/mongodb/
-   $ # Starting the mongod service
-   $ systemctl start mongod
+   If you try to restore the node into the existing replica set and there is more recent data, the restored node detects that it is out of date with the other replica set members, deletes the data and makes an initial sync.
+
+
+The restore steps are the following:
+
+1.  Stop the ``mongod`` service:
+    
+    .. code-block:: bash
+    
+       systemctl stop mongod
+
+2.  Clean the data directory and then copy the files from the backup directory to your data directory. Assuming that the data directory is :file:`/var/lib/mongodb/`, use the following commands:
+    
+    .. code-block:: bash
+    
+       $ rm -rf /var/lib/mongodb/*
+       $ cp -RT <my_backup_data_path> /var/lib/mongodb/
+
+#.  Grant permissions to the data files for the ``mongod`` user
+
+    .. code-block:: bash
+    
+       $ chown -R mongod:mongod /var/lib/mongodb/
+
+#.  Make sure the replication is disabled in the config file and start the ``mongod`` service. 
+    
+    .. code-block:: bash
+    
+       systemctl start mongod
+
+#.  Connect to your standalone node via the mongo shell and drop the local database
+    
+    .. code-block:: bash
+    
+       $ mongo
+       $ use local
+       $ db.dropDatabase()
+
+#.  Restart the node with the replication enabled
+    
+    * Shut down the node. 
+    
+      .. code-block:: bash
+       
+         systemctl stop mongod
+
+    * Edit the configuration file and specify the ``replication.replSetname`` option
+    * Start the ``mongod`` node:
+      
+      .. code-block:: bash
+       
+         systemctl start mongod
+
+#.  Initiate a new replica set
+    
+    .. code-block:: bash
+    
+       # Start the mongo shell
+       $ mongo
+       # Initiate a new replica set
+       $ rs.initiate()
 
 
 Saving a Backup to a TAR Archive
