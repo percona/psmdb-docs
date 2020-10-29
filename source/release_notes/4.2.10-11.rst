@@ -1,0 +1,29 @@
+.. _PSMDB-4.2.10-11:
+
+================================================================================
+*Percona Server for MongoDB* 4.2.10-11
+================================================================================
+
+:Date: November 2, 2020
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.2/install/index.html>`_
+
+Percona Server for MongoDB 4.2.10-11 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 4.2.10 Community Edition <https://docs.mongodb.com/manual/release-notes/4.2/#oct-2-2020>`_.
+It supports MongoDB 4.2.10 protocols and drivers.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-711`: Improve audit log performance
+
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-712`: User can't be authorized via LDAP due to 'LDAP search failed with error: Referral'
+* :jirabug:`PSMDB-755`: Add ldapDebug, ldapFollowReferrals and ldapConnectionPoolSizePerHost server parameters
+* :jirabug:`PSMDB-715`: createBackup using AWS remote location fails with "EntityTooLarge"
+* :jirabug:`PSMDB-677`: ``mongosh`` cannot authenticate LDAP user
+
+
