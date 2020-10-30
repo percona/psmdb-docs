@@ -241,7 +241,7 @@ The ``log_level`` is optional but may help determine configuration errors.
 Configuring mongod Server
 -------------------------
 
-To enable external authenticaton, you must create a user with the **root** privileges in the ``admin`` database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:
+To enable external authentication, you must create a user with the **root** privileges in the ``admin`` database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:
 
 .. code-block:: text
 
@@ -306,19 +306,47 @@ Authentication and Authorization with Direct Binding to LDAP
 
 Starting from release 4.2.5-5, |psmdb| supports |ldap-authorization|.
   
-This feature has been supported in |mongodb-e| since its version 3.4.
+This feature has been supported in |mongodb-e| since its version 3.4. 
   
 Note the following limitations of |ldap-authorization| in |psmdb|:
   
-- The |abbr.ldap| `connection pool and all related parameters are not supported <https://docs.mongodb.com/manual/core/security-ldap-external/#connection-pool>`_.
 - The `ldapTimeoutMS <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_ parameter is ignored.
 - The `--ldapServers <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_ option may only contain a single server (|mongodb-e| accepts a comma-separated list).
- 
+  
+As of version 4.2.10-11, |psmdb| supports LDAP referrals. For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.
+
+To enable LDAP referrals, set the ``ldapFollowReferrals`` server parameter to ``true`` either using the ``setParameter`` command or editing the configuration file.
+
+.. code-block:: yaml
+
+   setParameter:
+      ldapFollowReferrals: true
+
+.. rubric:: Connection pool
+
+As of version 4.2.10-11, |PSMDB| always uses a connection pool to LDAP server to process authentication requests. The connection pool is enabled by default. The default connection pool size is 2 connections. 
+
+You can change the connection pool size either at the server startup or dynamically by specifying the value for the ``ldapConnectionPoolSizePerHost`` server parameter. 
+
+For example, to set the number of connections in the pool to 5, use the ``setParameter`` command: 
+
+.. code-block:: json
+
+   $ db.adminCommand( { setParameter: 1, ldapConnectionPoolSizePerHost: 5  } )
+
+Alternatively, edit the configuration file:
+
+.. code-block:: yaml
+
+   setParameter:
+     ldapConnectionPoolSizePerHost: 5
+
 .. seealso::
   
    |mongodb| Documentation:
        - `LDAP Authorization <https://docs.mongodb.com/manual/core/security-ldap-external/>`_	    
        - `Authenticate and Authorize Users Using Active Directory via Native LDAP <https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
+       - `LDAP referrals <https://ldapwiki.com/wiki/LDAP%20Referral>`_
 
 .. _kerberos-authentication:
 
