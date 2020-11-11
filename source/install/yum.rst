@@ -4,6 +4,8 @@
 Installing Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS
 ============================================================================
 
+Use this document to install |psmdb| on RPM-based distributions from Percona repositories. 
+
 .. note:: |PSMDB| should work on other RPM-based distributions
    (for example, Amazon Linux AMI and Oracle Linux),
    but it is tested only on platforms listed on the `Percona Software and Platform Lifecycle <https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb>`_ page. [#f1]_
@@ -34,14 +36,17 @@ Package Contents
    * - percona-server-mongodb-dbg
      - Debug symbols for the server
 
-Installing from Percona Repositories
+Installing from Percona repositories
 ================================================================================
 
-It is recommended to install |PSMDB| from official |percona| repositories:
+The preferable way to install |PSMDB| is from Percona repositories. Percona repositories are managed using the |percona-release| tool. 
+
+Configure Percona repository
+----------------------------
 
 |tip.run-all.root|
                                                       
-1. Install the Percona repository (|percona-release|):
+1. Install |percona-release|:
 
    .. code-block:: bash
 
@@ -63,10 +68,11 @@ It is recommended to install |PSMDB| from official |percona| repositories:
    More information about how to use the ``percona-release`` tool
       https://www.percona.com/doc/percona-repo-config/index.html
 
+
 Install the latest version
 -------------------------------------------------------------------
 
-Install the packages: 
+To install the latest version of |PSMDB|, use the following command:
 
 .. code-block:: bash
 
@@ -74,6 +80,8 @@ Install the packages:
 
 Install a specific version 
 -------------------------------------------------------------------
+
+To install a specific version of |PSMDB|, do the following:
 
 1. List available versions:
    
@@ -91,7 +99,7 @@ Install a specific version
    
       $ sudo yum install percona-server-mongodb-4.4.0-1.el8
       
-Using Percona Server for MongoDB
+Running Percona Server for MongoDB
 ================================================================================
 
 .. warning:: If you have SELinux security module installed, it will
@@ -118,18 +126,32 @@ The configuration file is :file:`/etc/mongod.conf`.
 
 Starting the service
   |PSMDB| is not started automatically after installation.
-  Start it manually using the following command: |service.mongod.start|
+  Start it manually using the following command: 
+
+  .. code-block:: bash
+  
+     $ sudo systemctl start mongod
 
 Confirming that service is running
   Check the service status using the following command: |service.mongod.status|
 
+  .. code-block:: bash
+  
+     $ sudo systemctl status mongod
+
 Stopping the service
   Stop the service using the following command: |service.mongod.stop|
+
+  .. code-block:: bash
+  
+     $ sudo systemctl stop mongod
 
 Restarting the service
   Restart the service using the following command: |service.mongod.restart|
 
-
+  .. code-block:: bash
+  
+     $ sudo systemctl restart mongod
 
 Running after reboot
 --------------------------------------------------------------------------------
@@ -142,9 +164,13 @@ to enable auto-start as follows:
 
 .. code-block:: bash
 
-   $ chkconfig --add mongod
+   $ sudo chkconfig --add mongod
 
-For RHEL or CentOS version 7, you can use the ``systemctl`` utility: |systemctl.enable.mongod|
+For RHEL or CentOS version 7, you can use the ``systemctl`` utility: 
+
+.. code-block:: bash
+
+   $ sudo systemctl enable mongod
 
 Uninstalling Percona Server for MongoDB
 ================================================================================
@@ -154,14 +180,24 @@ you'll need to remove all the installed packages and data files:
 
 |tip.run-all.root|
 
-1. Stop the Percona Server for MongoDB service: |service.mongod.stop|
-#. Remove the packages: |yum.remove.percona-server-mongodb|
+1. Stop the Percona Server for MongoDB service: 
+
+   .. code-block:: bash
+
+      $ sudo systemctl stop mongod
+
+#. Remove the packages: 
+   
+   .. code-block:: bash
+   
+      $ sudo yum remove percona-server-mongodb* 
+
 #. Remove the data and configuration files:
 
    .. code-block:: bash
 
-      $ rm -rf /var/lib/mongodb
-      $ rm -f /etc/mongod.cnf
+      $ sudo rm -rf /var/lib/mongodb
+      $ sudo rm -f /etc/mongod.conf
 
 .. warning::
 
