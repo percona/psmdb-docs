@@ -4,6 +4,8 @@
 Installing Percona Server for MongoDB on Debian and Ubuntu
 ==========================================================
 
+Use this document to install |PSMDB| from Percona repositories on DEB-based distributions.
+
 .. note:: |PSMDB| should work on other DEB-based distributions,
    but it is tested only on platforms listed on the `Percona Software and Platform Lifecycle <https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb>`_ page.
 
@@ -33,21 +35,38 @@ Package Contents
    * - percona-server-mongodb-dbg
      - Debug symbols for the server
 
-Installing from Percona Repositories
+Installing from Percona repositories
 ================================================================================
 
-It is recommended to install |PSMDB| from official Percona repositories:
+It is recommended to install |PSMDB| from official Percona repositories using
+the |percona-release| utility.
+
+Configure Percona repository
+-------------------------------------------------------------------
 
 |tip.run-all.root|
 
-1. Fetch the repository packages from Percona web: :bash:`wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb`
-#. Install the downloaded package with :program:`dpkg`: :bash:`dpkg -i
-   percona-release_latest.$(lsb_release -sc)_all.deb` Once you install this
-   package the |Percona| repositories should be added. You can check the
-   repository setup in the :file:`/etc/apt/sources.list.d/percona-release.list`
-   file.
+1. Fetch |percona-release| packages from Percona web:
+
+   .. code-block:: bash
+
+      $ wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
+
+#. Install the downloaded package with :program:`dpkg`:
+
+   .. code-block:: bash
+
+      $ dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
+
+   Once you install this package the |Percona| repositories should be added. You can check the repository setup in the
+   :file:`/etc/apt/sources.list.d/percona-release.list` file.
+
 #. Enable the repository: :bash:`percona-release enable psmdb-40 release`
-#. Remember to update the local cache: |apt.update|
+#. Remember to update the local cache: 
+
+   .. code-block:: bash
+   
+      $ apt-get update
    
 Install the latest version 
 --------------------------------------------------------------
@@ -60,6 +79,8 @@ Run the following command to install the latest version of |PSMDB|:
 
 Install a specific version
 --------------------------------------------------------------
+
+To install a specific version of |PSMDB|, do the following:
 
 1. List available versions:
  
@@ -77,7 +98,7 @@ Install a specific version
    
       $ sudo apt-get install percona-server-mongodb=4.0.16-9.buster percona-server-mongodb-mongos=4.0.16-9.buster percona-server-mongodb-shell=4.0.16-9.buster percona-server-mongodb-server=4.0.16-9.buster percona-server-mongodb-tools=4.0.16-9.buster
 
-Using Percona Server for MongoDB
+Running Percona Server for MongoDB
 ================================================================================
 
 By default, |PSMDB| stores data files in :file:`/var/lib/mongodb/`
@@ -89,22 +110,31 @@ Starting the service
   |PSMDB| is started automatically after installation
   unless it encounters errors during the installation process.
   You can also manually start it using the following command:
-  |service.mongod.start|
 
-Confirming that service is running**
+  .. code-block:: bash
+  
+     $ sudo systemctl start mongod
+
+Confirming that service is running
   Check the service status using the following command:
-  |service.mongod.status|
+
+  .. code-block:: bash
+  
+     $ sudo systemctl status mongod
 
 Stopping the service
-  Stop the service using the following command: |service.mongod.stop|
+  Stop the service using the following command: 
+
+  .. code-block:: bash
+  
+     $ sudo systemctl stop mongod
 
 Restarting the service
-  Restart the service using the following command: |service.mongod.restart|
+  Restart the service using the following command: 
 
-.. note::
-
-   On Debian 8, Ubuntu 16.04 and later versions you can also invoke all the
-   above commands with ``systemctl`` instead of ``service``.
+  .. code-block:: bash
+  
+     $ sudo systemctl restart mongod
 
 Uninstalling Percona Server for MongoDB
 ================================================================================
