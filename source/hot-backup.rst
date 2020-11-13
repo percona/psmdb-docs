@@ -9,6 +9,12 @@ for the default WiredTiger_ and alternative :ref:`mongorocks` storage engine.
 It creates a physical data backup on a running server
 without notable performance and operating degradation.
 
+.. contents::
+   :local:  
+
+Making a backup
+===============
+
 To take a hot backup of the database in your current ``dbpath``, do the following:
 
 - Make sure to provide access to the backup directory for the ``mongod`` user:
@@ -23,7 +29,7 @@ To take a hot backup of the database in your current ``dbpath``, do the followin
 
      > use admin
      switched to db admin
-     > db.runCommand({createBackup: 1, backupDir: "/my/backup/data/path"})
+     > db.runCommand({createBackup: 1, backupDir: <backup_data_path})
      { "ok" : 1 }
 
 If the backup was successful, you should receive an ``{ "ok" : 1 }`` object.
@@ -35,77 +41,9 @@ with the error message, for example:
    > db.runCommand({createBackup: 1, backupDir: ""})
    { "ok" : 0, "errmsg" : "Destination path must be absolute" }
 
-.. rubric:: Restoring data from the backup
-
-The recommended way to restore your database from a backup is to restore it into a standalone node and then create a new replica set. 
-
-.. note:: 
-
-   If you try to restore the node into the existing replica set and there is more recent data, the restored node detects that it is out of date with the other replica set members, deletes the data and makes an initial sync.
-
-
-The retore steps are the following:
-
-1.  Stop the ``mongod`` service:
-    
-    .. code-block:: bash
-    
-       systemctl stop mongod
-
-2.  Clean the data directory and then copy the files from the backup directory to your data directory. Assuming that the data directory is :file:`/var/lib/mongodb/`, use the following commands:
-    
-    .. code-block:: bash
-    
-       $ rm -rf /var/lib/mongodb/*
-       $ cp -RT <my_backup_data_path> /var/lib/mongodb/
-
-#.  Grant permissions to the data files for the mongod user
-
-    .. code-block:: bash
-    
-       $ chown -R mongod:mongod /var/lib/mongodb/
-
-#.  Make sure the replication is disabled in the config file and start the ``mongod`` service. 
-    
-    .. code-block:: bash
-    
-       systemctl start mongod
-
-#.  Connect to your standalone node via the mongo shell and drop the local database
-    
-    .. code-block:: bash
-    
-       $ mongo
-       $ use local
-       $ db.dropDatabase()
-
-#.  Restart the node with the replication enabled
-    
-    * Shut down the node. 
-    
-      .. code-block:: bash
-       
-         systemctl stop mongod
-
-    * Edit the configuration file and specify the ``replication.replSetname`` option
-    * Start the ``mongod`` node:
-      
-      .. code-block:: bash
-       
-         systemctl start mongod
-
-#.  Initiate a new replica set
-    
-    .. code-block:: bash
-    
-       # Start the mongo shell
-       $ mongo
-       # Initiate a new replica set
-       $ rs.initiate()
-
 .. _psmdb-hot-backup-remote-destination:
 
-Streaming Hot Backups to a Remote Destination
+Streaming hot backups to a remote destination
 ================================================================================
 
 |PSMDB| enables uploading hot backups to an `Amazon S3
@@ -118,7 +56,7 @@ This method requires that you provide the *bucket* field in the *s3* object:
 
    > use admin
    ...
-   > db.runCommand({createBackup: 1, s3: {bucket: "backup20190510", path: "some/optional/path"} })
+   > db.runCommand({createBackup: 1, s3: {bucket: "backup20190510", path: <some_optional_path>} })
 
 In addition to the mandatory *bucket* field, the *s3* object may contain the following fields:
 
@@ -195,17 +133,17 @@ the credentials configuration file. By default, it is :file:`~/.aws/credentials`
 Examples
 --------------------------------------------------------------------------------
 
-.. rubric:: Backup in Root of Bucket on Local Instance of MinIO Server
+**Backup in root of bucket on local instance of MinIO server**
 
 .. code-block:: text
 
-    > db.runCommand({createBackup: 1,  s3: {bucket: "backup20190901500", 
-    scheme: "HTTP",
-    endpoint: "127.0.0.1:9000",
-    useVirtualAddressing: false,
-    profile: "localminio"}})
+   > db.runCommand({createBackup: 1,  s3: {bucket: "backup20190901500", 
+   scheme: "HTTP",
+   endpoint: "127.0.0.1:9000",
+   useVirtualAddressing: false,
+   profile: "localminio"}})
 
-.. rubric:: Backup on MinIO Testing Server With Default Credentials Profile
+**Backup on MinIO testing server with the default credentials profile**
 
 The following command creates a backup under the virtual path  "year2019/day42" in the *backup* bucket:
 
@@ -216,7 +154,7 @@ The following command creates a backup under the virtual path  "year2019/day42" 
    endpoint: "sandbox.min.io:9000",
    useVirtualAddressing: false}})
 
-.. rubric:: Backup on AWS S3 Service Using Default Settings
+**Backup on AWS S3 service using default settings**
 
 .. code-block:: text
 
@@ -228,4 +166,96 @@ The following command creates a backup under the virtual path  "year2019/day42" 
    AWS Documentation: Providing AWS Credentials
       https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/credentials.html
 
+Restoring data from backup
+==========================
 
+.. rubric:: Restoring from backup on a standalone server
+
+To restore your database on a standalone server, stop the ``mongod`` service, clean out the data directory and copy files from the backup directory to the data directory. The ``mongod`` user requires access to those files to start the service. Therefore, make the ``mongod`` user the owner of the data directory and all files and subdirectories under it, and restart the ``mongod`` service.
+
+|tip.run-all.root|
+
+.. code-block:: bash
+
+   # Stop the mongod service
+   $ systemctl stop mongod
+   # Clean out the data directory
+   $ rm -rf /var/lib/mongodb/*
+   # Copy backup files
+   $ cp -RT <backup_data_path> /var/lib/mongodb/
+   # Grant permissions to data files for the mongod user
+   $ chown -R mongod:mongod /var/lib/mongodb/
+   # Start the mongod service
+   $ systemctl start mongod
+
+
+.. rubric:: Restoring from backup in a replica set
+
+The recommended way to restore the replica set from a backup is to restore it into a standalone node and then initiate it as the first member of a new replica set. 
+
+.. note:: 
+
+   If you try to restore the node into the existing replica set and there is more recent data, the restored node detects that it is out of date with the other replica set members, deletes the data and makes an initial sync.
+
+|tip.run-all.root|
+
+The restore steps are the following:
+
+1.  Stop the ``mongod`` service:
+    
+    .. code-block:: bash
+    
+       $ systemctl stop mongod
+
+2.  Clean the data directory and then copy the files from the backup directory to your data directory. Assuming that the data directory is :file:`/var/lib/mongodb/`, use the following commands:
+    
+    .. code-block:: bash
+    
+       $ rm -rf /var/lib/mongodb/*
+       $ cp -RT <backup_data_path> /var/lib/mongodb/
+
+#.  Grant permissions to the data files for the ``mongod`` user
+
+    .. code-block:: bash
+    
+       $ chown -R mongod:mongod /var/lib/mongodb/
+
+#.  Make sure the replication is disabled in the config file and start the ``mongod`` service. 
+    
+    .. code-block:: bash
+    
+       $ systemctl start mongod
+
+#.  Connect to your standalone node via the ``mongo`` shell and drop the local database
+    
+    .. code-block:: text
+    
+       > mongo
+       > use local
+       > db.dropDatabase()
+
+#.  Restart the node with the replication enabled
+    
+    * Shut down the node. 
+    
+      .. code-block:: bash
+       
+         $ systemctl stop mongod
+
+    * Edit the configuration file and specify the ``replication.replSetname`` option
+    * Start the ``mongod`` node:
+      
+      .. code-block:: bash
+       
+         $ systemctl start mongod
+
+#.  Initiate a new replica set
+    
+    .. code-block:: text
+    
+       # Start the mongo shell
+       > mongo
+       # Initiate a new replica set
+       > rs.initiate()
+
+.. include:: .res/replace.txt       
