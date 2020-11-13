@@ -8,6 +8,9 @@ Hot Backup
 WiredTiger_ storage engine.  It creates a physical data backup on a running
 server without notable performance and operating degradation.
 
+.. contents::
+   :local:  
+
 Making a backup
 ===============
 
@@ -25,7 +28,7 @@ To take a hot backup of the database in your current ``dbpath``, do the followin
 
      > use admin
      switched to db admin
-     > db.runCommand({createBackup: 1, backupDir: "/my/backup/data/path"})
+     > db.runCommand({createBackup: 1, backupDir: <backup_data_path})
      { "ok" : 1 }
 
 If the backup was successful, you should receive an ``{ "ok" : 1 }`` object.
@@ -51,7 +54,7 @@ specify the destination path:
 
    > use admin
    ...
-   > db.runCommand({createBackup: 1, archive: "path/to/archive.tar" })
+   > db.runCommand({createBackup: 1, archive: <path_to_archive>.tar })
 
 .. _psmdb-hot-backup-remote-destination:
 
@@ -68,7 +71,7 @@ This method requires that you provide the *bucket* field in the *s3* object:
 
    > use admin
    ...
-   > db.runCommand({createBackup: 1, s3: {bucket: "backup20190510", path: "some/optional/path"} })
+   > db.runCommand({createBackup: 1, s3: {bucket: "backup20190510", path: <some-optional-path>} })
 
 In addition to the mandatory *bucket* field, the *s3* object may contain the following fields:
 
@@ -143,17 +146,17 @@ the credentials configuration file. By default, it is :file:`~/.aws/credentials`
 
 .. rubric:: Examples
 
-Backup in root of bucket on local instance of MinIO server
+**Backup in root of bucket on local instance of MinIO server**
 
 .. code-block:: text
 
-    > db.runCommand({createBackup: 1,  s3: {bucket: "backup20190901500", 
-    scheme: "HTTP",
-    endpoint: "127.0.0.1:9000",
-    useVirtualAddressing: false,
-    profile: "localminio"}})
+   > db.runCommand({createBackup: 1,  s3: {bucket: "backup20190901500", 
+   scheme: "HTTP",
+   endpoint: "127.0.0.1:9000",
+   useVirtualAddressing: false,
+   profile: "localminio"}})
 
-Backup on MinIO testing server with default credentials profile
+**Backup on MinIO testing server with the default credentials profile**
 
 The following command creates a backup under the virtual path  "year2019/day42" in the *backup* bucket:
 
@@ -164,7 +167,7 @@ The following command creates a backup under the virtual path  "year2019/day42" 
    endpoint: "sandbox.min.io:9000",
    useVirtualAddressing: false}})
 
-Backup on AWS S3 service using default settings
+**Backup on AWS S3 service using default settings**
 
 .. code-block:: text
 
@@ -180,7 +183,7 @@ Restoring data from backup
 
 .. rubric:: Restoring from backup on a standalone server
 
-To restore your database on a standalone server, stop the ``mongod`` service, clean out the data directory and copy files from the backup directory to the data directory. The ``mongod`` user requires access to those files to start the service. Therefore, make the ``mongod`` user the owner of the data directory and restart the ``mongod`` service.
+To restore your database on a standalone server, stop the ``mongod`` service, clean out the data directory and copy files from the backup directory to the data directory. The ``mongod`` user requires access to those files to start the service. Therefore, make the ``mongod`` user the owner of the data directory and all files and subdirectories under it, and restart the ``mongod`` service.
 
 .. code-block:: bash
 
@@ -189,7 +192,7 @@ To restore your database on a standalone server, stop the ``mongod`` service, cl
    #Clean out the data directory
    $ rm -rf /var/lib/mongodb/*
    # Copy backup files
-   $ cp -RT <my_backup_data_path> /var/lib/mongodb/
+   $ cp -RT <backup_data_path> /var/lib/mongodb/
    #Grant permissions to data files for the mongod user
    $ chown -R mongod:mongod /var/lib/mongodb/
    #Start the mongod service
@@ -198,7 +201,7 @@ To restore your database on a standalone server, stop the ``mongod`` service, cl
 
 .. rubric:: Restoring from backup in a replica set
 
-The recommended way to restore the replica set from a backup is to restore it into a standalone node and then create a new replica set. 
+The recommended way to restore the replica set from a backup is to restore it into a standalone node and then initiate it as the first member of a new replica set. 
 
 .. note:: 
 
@@ -218,7 +221,7 @@ The restore steps are the following:
     .. code-block:: bash
     
        $ rm -rf /var/lib/mongodb/*
-       $ cp -RT <my_backup_data_path> /var/lib/mongodb/
+       $ cp -RT <backup_data_path> /var/lib/mongodb/
 
 #.  Grant permissions to the data files for the ``mongod`` user
 
@@ -232,7 +235,7 @@ The restore steps are the following:
     
        $ systemctl start mongod
 
-#.  Connect to your standalone node via the mongo shell and drop the local database
+#.  Connect to your standalone node via the ``mongo`` shell and drop the local database
     
     .. code-block:: bash
     
