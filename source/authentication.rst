@@ -309,7 +309,6 @@ This feature has been supported in |mongodb-e| since its version 3.4.
 Note the following limitations of |ldap-authorization| in |psmdb|:
   
 - The `ldapTimeoutMS <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_ parameter is ignored.
-- The `ldapUserCacheInvalidationInterval <https://docs.mongodb.com/manual/reference/parameters/#param.ldapUserCacheInvalidationInterval>`_ parameter is ignored.
 - The `--ldapServers <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_ option may only contain a single server (|mongodb-e| accepts a comma-separated list).
   
 As of version 4.0.21-15, |psmdb| supports LDAP referrals. For security reasons, LDAP referrals are disabled by default. Double-check that using referrals is safe before enabling them.
@@ -323,7 +322,7 @@ To enable LDAP referrals, set the ``ldapFollowReferrals`` server parameter to ``
 
 .. rubric:: Connection pool
 
-As of version 4.2.10-11, |PSMDB| always uses a connection pool to LDAP server to process authentication requests. The connection pool is enabled by default. The default connection pool size is 2 connections. 
+As of version 4.0.21-15, |PSMDB| always uses a connection pool to LDAP server to process authentication requests. The connection pool is enabled by default. The default connection pool size is 2 connections. 
 
 You can change the connection pool size either at the server startup or dynamically by specifying the value for the ``ldapConnectionPoolSizePerHost`` server parameter. 
 
