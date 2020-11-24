@@ -1,0 +1,28 @@
+.. _PSMDB-3.6.21-10.0:
+
+================================================================================
+*Percona Server for MongoDB* 3.6.21-10.0
+================================================================================
+
+:Date: November 26, 2020
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_
+
+Percona Server for MongoDB 3.6.21-10.0 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 3.6.21 Community Edition <https://docs.mongodb.com/manual/release-notes/3.6/#nov-16-2020>`_.
+It supports MongoDB 3.6.21 protocols and drivers.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-758`: Add mongobridge as part of percona-server-mongodb-server package
+
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-766`: Redirect openldap debug messages to mongodb log
+* :jirabug:`PSMDB-755`: Add ldapDebug, ldapFollowReferrals and ldapConnectionPoolSizePerHost server parameters
+* :jirabug:`PSMDB-544`: Binaries perconadecrypt and mongobridge do not have a version
+
+
