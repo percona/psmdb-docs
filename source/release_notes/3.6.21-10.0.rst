@@ -22,7 +22,5 @@ Bugs Fixed
 ================================================================================
 
 * :jirabug:`PSMDB-766`: Redirect openldap debug messages to mongodb log
-* :jirabug:`PSMDB-755`: Add ldapDebug, ldapFollowReferrals and ldapConnectionPoolSizePerHost server parameters
 * :jirabug:`PSMDB-544`: Binaries perconadecrypt and mongobridge do not have a version
-
 
