@@ -14,7 +14,9 @@ It supports MongoDB 3.6.21 protocols and drivers.
 Improvements
 ================================================================================
 
-* :jirabug:`PSMDB-758`: Add mongobridge as part of percona-server-mongodb-server package
+* :jirabug:`PSMDB-758`: Add mongobridge as a part of percona-server-mongodb-server package
+* :jirabug:`PSMDB-755`: Add ldapDebug, ldapFollowReferrals and ldapConnectionPoolSizePerHost server parameters
+* :jirabug:`PSMDB-376`: Update SAN recognition for IP addresses on OpenSSL
 
 
 
@@ -23,4 +25,3 @@ Bugs Fixed
 
 * :jirabug:`PSMDB-766`: Redirect openldap debug messages to mongodb log
 * :jirabug:`PSMDB-544`: Binaries perconadecrypt and mongobridge do not have a version
-
