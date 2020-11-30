@@ -304,14 +304,41 @@ against a given database using the following command:
 Authentication and Authorization with Direct Binding to LDAP
 ============================================================
   
-This feature has been supported in |mongodb-e| since its version 3.4.
+This feature has been supported in MongoDB Enterprise since its version 3.4.
   
 Note the following limitations of |ldap-authorization| in |psmdb|:
   
-- The |abbr.ldap| `connection pool and all related parameters are not supported <https://docs.mongodb.com/manual/core/security-ldap-external/#connection-pool>`_.
 - The `ldapTimeoutMS <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_ parameter is ignored.
 - The `--ldapServers <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_ option may only contain a single server (|mongodb-e| accepts a comma-separated list).
  
+As of version 4.4.2-4, |psmdb| supports LDAP referrals. For security reasons, LDAP referrals are disabled by default. Double-check that using referrals is safe before enabling them.
+
+To enable LDAP referrals, set the ``ldapFollowReferrals`` server parameter to ``true`` either using the ``setParameter`` command or editing the configuration file.
+
+.. code-block:: yaml
+
+   setParameter:
+      ldapFollowReferrals: true
+
+.. rubric:: Connection pool
+
+As of version 4.4.2-4, |PSMDB| always uses a connection pool to LDAP server to process authentication requests. The connection pool is enabled by default. The default connection pool size is 2 connections. 
+
+You can change the connection pool size either at the server startup or dynamically by specifying the value for the ``ldapConnectionPoolSizePerHost`` server parameter. 
+
+For example, to set the number of connections in the pool to 5, use the ``setParameter`` command: 
+
+.. code-block:: json
+
+   $ db.adminCommand( { setParameter: 1, ldapConnectionPoolSizePerHost: 5  } )
+
+Alternatively, edit the configuration file:
+
+.. code-block:: yaml
+
+   setParameter:
+     ldapConnectionPoolSizePerHost: 5
+
 .. seealso::
   
    |mongodb| Documentation:
