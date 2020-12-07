@@ -1,0 +1,27 @@
+.. _PSMDB-4.2.11-12:
+
+================================================================================
+*Percona Server for MongoDB* 4.2.11-12
+================================================================================
+
+:Date: December 7, 2020
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.2/install/index.html>`_
+
+Percona Server for MongoDB 4.2.11-12 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 4.2.11 Community Edition <https://docs.mongodb.com/manual/release-notes/4.2/#nov-18-2020>`_.
+It supports MongoDB 4.2.11 protocols and drivers.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-758`: Add mongobridge as a part of percona-server-mongodb-server package
+
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-766`: Redirect openldap debug messages to mongodb log
+* :jirabug:`PSMDB-544`: Binaries perconadecrypt and mongobridge do not have a version
+
+
