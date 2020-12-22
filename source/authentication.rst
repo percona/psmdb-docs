@@ -21,7 +21,7 @@ with the same credentials they use for their emails or workstations.
 
 .. _ldap-authentication-sasl:
    
-LDAP Authentication Using SASL
+LDAP authentication using SASL
 =====================================
 
 .. contents::
@@ -67,7 +67,7 @@ An authentication session uses the following sequence:
    to authenticate the client or reject the request.
 #. If successful, the client has authenticated and can proceed.
    
-Environment Setup and Configuration
+Environment setup and configuration
 ===================================
 
 This section describes an example configuration
@@ -102,44 +102,43 @@ Configuring ``saslauthd``
 
    .. code-block:: bash
 
-     sudo yum install -y cyrus-sasl cyrus-sasl-plain
+      $ sudo yum install -y cyrus-sasl cyrus-sasl-plain
  
    For *Debian and Ubuntu*:
 
    .. code-block:: bash
 
-     sudo apt-get install -y sasl2-bin
+      $ sudo apt-get install -y sasl2-bin
 		
 #. Configure SASL to use ``ldap`` as the  authentication mechanism.
 
    .. note:: Back up the original configuration file before making changes.
    
-
    For *RedHat/CentOS*, specify the ``ldap`` value for the :option:`--MECH` option using the following command:
 
    .. code-block:: bash
 
-     sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthd		
+      $ sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthd		
 
    Alternatively, you can edit the :file:`/etc/sysconfig/saslauthd` configuration file:
 
    .. code-block:: yaml
 
-     MECH=ldap		
+      MECH=ldap		
 
    For *Debian/Ubuntu*, use the following commands to enable the ``saslauthd`` to auto-run on startup and to set the ``ldap`` value for the :option:`--MECHANISMS` option:
 
    .. code-block:: bash
 
-     sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthdsudo sed -i -e s/^MECHANISMS="pam"/MECHANISMS="ldap"/g /etc/default/saslauthd 
-     sudo sed -i -e s/^START=no/START=yes/g /etc/default/saslauthd		
+      $ sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthdsudo sed -i -e s/^MECHANISMS="pam"/MECHANISMS="ldap"/g /etc/default/saslauthd 
+      $ sudo sed -i -e s/^START=no/START=yes/g /etc/default/saslauthd		
 
    Alternatively, you can edit the :file:`/etc/default/sysconfig/saslauthd` configuration file:
 
    .. code-block:: yaml
 
-     START=yes		
-     MECHANISMS="ldap"
+      START=yes		
+      MECHANISMS="ldap"
   
 
 #. Create the :file:`/etc/saslauthd.conf` configuration file and specify these settings required for ``saslauthd``
@@ -148,12 +147,12 @@ Configuring ``saslauthd``
 
    .. code-block:: text
 
-     ldap_servers: ldap://localhost
-     ldap_mech: PLAIN
-     ldap_search_base: dc=example,dc=com
-     ldap_filter: (cn=%u)
-     ldap_bind_dn: cn=admin,dc=example,dc=com
-     ldap_password: secret
+      ldap_servers: ldap://localhost
+      ldap_mech: PLAIN
+      ldap_search_base: dc=example,dc=com
+      ldap_filter: (cn=%u)
+      ldap_bind_dn: cn=admin,dc=example,dc=com
+      ldap_password: secret
 
    Note the LDAP password and bind domain name.
    This allows the ``saslauthd`` service to connect to the LDAP service as root.
@@ -171,12 +170,12 @@ to communicate with an Active Directory server:
 
 .. code-block:: text
 
-  ldap_servers: ldap://localhost
-  ldap_mech: PLAIN
-  ldap_search_base: CN=Users,DC=example,DC=com
-  ldap_filter: (sAMAccountName=%ucn=%u)
-  ldap_bind_dn: CN=ldapmgr,CN=Users,DC=<AD Domain>,DC=<AD TLD>
-  ldap_password: ld@pmgr_Pa55word
+   ldap_servers: ldap://localhost
+   ldap_mech: PLAIN
+   ldap_search_base: CN=Users,DC=example,DC=com
+   ldap_filter: (sAMAccountName=%ucn=%u)
+   ldap_bind_dn: CN=ldapmgr,CN=Users,DC=<AD Domain>,DC=<AD TLD>
+   ldap_password: ld@pmgr_Pa55word
 
 In order to determine and test the correct search base
 and filter for your Active Directory installation,
@@ -189,15 +188,15 @@ can be used to bind and search the LDAP-compatible directory.
 
    .. code-block:: bash
 
-     sudo chmod 755 /run/saslauthd
+      $ sudo chmod 755 /run/saslauthd
 
    Or add the ``mongod`` user to the ``sasl`` group:
 
    .. code-block:: bash
 
-     sudo usermod -a -G sasl mongod
+      $ sudo usermod -a -G sasl mongod
 
-Sanity Check
+Sanity check
 ------------
 
 Verify that the ``saslauthd`` service can authenticate
@@ -225,10 +224,10 @@ In the configuration file, specify the following:
 
 .. code-block:: text
 
-  pwcheck_method: saslauthd
-  saslauthd_path: /var/run/saslauthd/mux
-  log_level: 5
-  mech_list: plain
+   pwcheck_method: saslauthd
+   saslauthd_path: /var/run/saslauthd/mux
+   log_level: 5
+   mech_list: plain
 
 The first two entries (``pwcheck_method`` and ``saslauthd_path``)
 are required for ``mongod`` to successfully use the ``saslauthd`` service.
@@ -238,8 +237,8 @@ The ``log_level`` is optional but may help determine configuration errors.
 
 * `SASL documentation: <https://www.cyrusimap.org/sasl/index.html>`_
   
-Configuring mongod Server
--------------------------
+Configuring ``mongod`` server
+----------------------------------------
 
 To enable external authentication, you must create a user with the **root** privileges in the ``admin`` database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:
 
@@ -255,23 +254,23 @@ Edit the :file:`etc/mongod.conf` configuration file to enable the external authe
 
 .. code-block:: yaml
 
-  security:
-    authorization: enabled
+   security:
+     authorization: enabled
 
-  setParameter:
-    authenticationMechanisms: PLAIN,SCRAM-SHA-1
+   setParameter:
+     authenticationMechanisms: PLAIN,SCRAM-SHA-1
 
 Restart the ``mongod`` service:
 
 .. code-block:: bash
 
-  service mongod restart
+   $ sudo service mongod restart
 
 When everything is configured properly, you can use the :ref:`commands`.
 
 .. _commands:
 
-External Authentication Commands
+External authentication commands
 ================================
 
 Use the following command to add an external user to the ``mongod`` server:
@@ -292,7 +291,6 @@ against a given database using the following command:
 
   > db.getSiblingDB("$external").auth({ mechanism:"PLAIN", user:"christian", pwd:"secret", digestPassword:false})
 
-
 .. admonition:: Based on the material from **Percona Database Performance Blog**
 		
    This section is based on the blog post *Percona Server for MongoDB Authentication Using Active Directory* by *Doug Duncan*:
@@ -301,21 +299,16 @@ against a given database using the following command:
 
 .. _ldap-authorization:
 
-Authentication and Authorization with Direct Binding to LDAP
+Authentication and authorization with direct binding to LDAP
 ============================================================
 
 Starting from release 4.2.5-5, |psmdb| supports |ldap-authorization|.
   
 This feature has been supported in |mongodb-e| since its version 3.4. 
   
-Note the following limitations of |ldap-authorization| in |psmdb|:
-  
-- The `ldapTimeoutMS <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_ parameter is ignored.
-- The `--ldapServers <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_ option may only contain a single server (|mongodb-e| accepts a comma-separated list).
-  
-As of version 4.2.10-11, |psmdb| supports LDAP referrals. For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.
+As of version 4.2.10-11, |psmdb| supports LDAP referrals as defined in `RFC 4511 4.1.10 <https://www.rfc-editor.org/rfc/rfc4511.txt>`_. For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.
 
-To enable LDAP referrals, set the ``ldapFollowReferrals`` server parameter to ``true`` either using the ``setParameter`` command or editing the configuration file.
+To enable LDAP referrals, set the ``ldapFollowReferrals`` server parameter to ``true`` using the :ref:`setParameter <setParameter>` command or by editing the configuration file.
 
 .. code-block:: yaml
 
@@ -330,7 +323,7 @@ You can change the connection pool size either at the server startup or dynamica
 
 For example, to set the number of connections in the pool to 5, use the ``setParameter`` command: 
 
-.. code-block:: json
+.. code-block:: text
 
    $ db.adminCommand( { setParameter: 1, ldapConnectionPoolSizePerHost: 5  } )
 
@@ -341,12 +334,34 @@ Alternatively, edit the configuration file:
    setParameter:
      ldapConnectionPoolSizePerHost: 5
 
+.. rubric:: Support for multiple LDAP servers
+
+As of version 4.2.12-13, you can specify multiple LDAP servers for failover. |PSMDB| sends authentication requests to the first server defined in the list. When this server is down or unavailable, it sends requests to the next server  and so on. Note that |PSMDB| keeps sending requests to this server even after the unavailable server recovers.
+
+Specify the LDAP servers as a comma-separated list in the format ``<host>:<port>`` for the `--ldapServers <https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-ldapservers>`_ option. 
+
+You can define the option value at the server startup by editing the configuration file.
+
+.. code-block:: yaml
+
+   security:
+     authorization: "enabled"
+     ldap:
+       servers: "ldap1.example.net,ldap2.example.net"
+
+You can change ``ldapServers`` dynamically at runtime using the :ref:`setParameter <setParameter>`.
+
+.. code-block:: text
+
+   $ db.adminCommand( { setParameter: 1, ldapServers:"localhost,ldap1.example.net,ldap2.example.net"} )
+   { "was" : "ldap1.example.net,ldap2.example.net", "ok" : 1 }
+
 .. seealso::
   
-   |mongodb| Documentation:
+   - |mongodb| Documentation:
        - `LDAP Authorization <https://docs.mongodb.com/manual/core/security-ldap-external/>`_	    
        - `Authenticate and Authorize Users Using Active Directory via Native LDAP <https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
-       - `LDAP referrals <https://ldapwiki.com/wiki/LDAP%20Referral>`_
+   - `LDAP referrals <https://ldapwiki.com/wiki/LDAP%20Referral>`_
 
 .. _kerberos-authentication:
 
