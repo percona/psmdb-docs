@@ -17,8 +17,7 @@ Improvements
 * :jirabug:`PSMDB-745`: Add support for multiple LDAP servers for authentication
 * :jirabug:`PSMDB-761`: Add validateLDAPServerConfig config option
 * :jirabug:`PSMDB-758`: Add mongobridge as a part of percona-server-mongodb-server package
-* :jirabug:`PSMDB-376`: Update SAN recognition for IP addresses on OpenSSL
-
+* :jirabug:`PSMDB-376`: Add the support of IP addresses for SAN recognition in OpenSSL
 
 
 Bugs Fixed
