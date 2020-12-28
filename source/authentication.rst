@@ -20,7 +20,7 @@ such as OpenLDAP or Active Directory.
 
 .. _ldap-authentication-sasl:
    
-LDAP Authentication Using SASL
+LDAP authentication using SASL
 =====================================
 
 .. contents::
@@ -66,7 +66,7 @@ An authentication session uses the following sequence:
    to authenticate the client or reject the request.
 #. If successful, the client has authenticated and can proceed.
    
-Environment Setup and Configuration
+Environment setup and configuration
 ===================================
 
 This section describes an example configuration
@@ -196,7 +196,7 @@ can be used to bind and search the LDAP-compatible directory.
 
      sudo usermod -a -G sasl mongod
 
-Sanity Check
+Sanity check
 ------------
 
 Verify that the ``saslauthd`` service can authenticate
@@ -237,8 +237,8 @@ The ``log_level`` is optional but may help determine configuration errors.
 
 * `SASL documentation: <https://www.cyrusimap.org/sasl/index.html>`_
   
-Configuring mongod Server
--------------------------
+Configuring ``mongod`` server
+----------------------------------------
 
 To enable external authentication, you must create a user with the **root** privileges in the ``admin`` database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:
 
@@ -270,7 +270,7 @@ When everything is configured properly, you can use the :ref:`commands`.
 
 .. _commands:
 
-External Authentication Commands
+External authentication commands
 ================================
 
 Use the following command to add an external user to the ``mongod`` server:
@@ -299,21 +299,16 @@ against a given database using the following command:
 
 .. _ldap-authorization:
 
-Authentication and Authorization with Direct Binding to LDAP
+Authentication and authorization with direct binding to LDAP
 ============================================================
 
 As of version 4.0.18-11, |psmdb| supports |ldap-authorization|.
   
 This feature has been supported in |mongodb-e| since its version 3.4. 
   
-Note the following limitations of |ldap-authorization| in |psmdb|:
-  
-- The `ldapTimeoutMS <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldaptimeoutms>`_ parameter is ignored.
-- The `--ldapServers <https://docs.mongodb.com/manual/reference/program/mongoldap/#cmdoption-mongoldap-ldapservers>`_ option may only contain a single server (|mongodb-e| accepts a comma-separated list).
-  
 As of version 4.0.21-15, |psmdb| supports LDAP referrals. For security reasons, LDAP referrals are disabled by default. Double-check that using referrals is safe before enabling them.
 
-To enable LDAP referrals, set the ``ldapFollowReferrals`` server parameter to ``true`` either using the ``setParameter`` command or editing the configuration file.
+To enable LDAP referrals, set the ``ldapFollowReferrals`` server parameter to ``true`` using the :ref:`setParameter <setParameter>` command or by editing the configuration file.
 
 .. code-block:: yaml
 
@@ -339,12 +334,35 @@ Alternatively, edit the configuration file:
    setParameter:
      ldapConnectionPoolSizePerHost: 5
 
+.. rubric:: Support for multiple LDAP servers
+
+As of version 4.0.21-16, you can specify multiple LDAP servers for failover. |PSMDB| sends authentication requests to the first server defined in the list. When this server is down or unavailable, it sends requests to the next server  and so on. Note that |PSMDB| keeps sending requests to this server even after the unavailable server recovers.
+
+Specify the LDAP servers as a comma-separated list in the format ``<host>:<port>`` for the `--ldapServers <https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-ldapservers>`_ option. 
+
+You can define the option value at the server startup by editing the configuration file.
+
+.. code-block:: yaml
+
+   security:
+     authorization: "enabled"
+     ldap:
+       servers: "ldap1.example.net,ldap2.example.net"
+
+You can change ``ldapServers`` dynamically at runtime using the :ref:`setParameter <setParameter>`.
+
+.. code-block:: text
+
+   $ db.adminCommand( { setParameter: 1, ldapServers:"localhost,ldap1.example.net,ldap2.example.net"} )
+   { "was" : "ldap1.example.net,ldap2.example.net", "ok" : 1 }
+
 .. seealso::
   
-   |mongodb| Documentation:
+   - |mongodb| Documentation:
        - `LDAP Authorization <https://docs.mongodb.com/manual/core/security-ldap-external/>`_	    
        - `Authenticate and Authorize Users Using Active Directory via Native LDAP <https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
-       - `LDAP referrals <https://ldapwiki.com/wiki/LDAP%20Referral>`_
+    
+   - `LDAP referrals <https://ldapwiki.com/wiki/LDAP%20Referral>`_
 
 .. _kerberos-authentication:
 
