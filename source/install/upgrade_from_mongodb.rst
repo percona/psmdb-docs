@@ -4,6 +4,11 @@
 Upgrading from |mongodb-ce|
 ================================================================================
 
+An in-place upgrade is done with existing data in the server.  Generally
+speaking, this is stopping the server, removing the old packages, installing the
+new server and starting it with the same data files.  While an in-place upgrade
+may not be suitable for high-complexity environments, it should work in most
+cases.
 
 .. note::
 
@@ -14,36 +19,33 @@ Upgrading from |mongodb-ce|
    new ``mongod`` user is created during installation, and it belongs to the
    ``mongod`` group.
 
-An in-place upgrade is done with existing data in the server.  Generally
-speaking, this is stopping the server, removing the old packages, installing the
-new server and starting it with the same data files.  While an in-place upgrade
-may not be suitable for high-complexity environments, it should work in most
-cases.  
+This document describes an in-place upgrade of a ``mongod`` instance. If you are using data at rest encryption, refer to the :ref:`upgrade_encryption"` section. 
+
+.. contents::
+   :local: 
+
+Prerequisites
+==================
+
+Before you start the upgrade, update the |mongodb| configuration file
+(:file:`/etc/mongod.conf`) to contain the following settings.  Otherwise the
+|mongod| service will not be able to start.
+
+.. code-block:: yaml
+
+   processManagement:
+      fork: true
+      pidFilePath: /var/run/mongod.pid
 
 .. warning::
 
    Before starting the upgrade procedure, we recommend to perform a full
-   backup of your data.
-
-The sections below describe an in-place upgrade of a standalone instance and a replica set. If using data-at-rest encryption please see extra note at end.
-
-.. contents::
-   :local:
-
-.. _upgrade_standalone:   
-
-Upgrading a standalone instance or a single-node replica set 
-================================================================================
-
-The upgrade procedure depends on the distribution you are using:
+   backup of your data.  
 
 Upgrading on Debian or Ubuntu
---------------------------------------------------------------------------------
+=========================================
 
 |tip.run-all.root|
-
-.. include:: ../.res/text/important.mongod-conf.txt
-.. Is this warning still actual?
 
 1. Stop the ``mongod`` service: |service.mongod.stop|
 
@@ -75,12 +77,9 @@ Upgrading on Debian or Ubuntu
 #. Start the ``mongod`` service: |service.mongod.start|
 
 Upgrading on Red Hat Enterprise Linux or CentOS
---------------------------------------------------------------------------------
+====================================================
 
 |tip.run-all.root|
-
-.. include:: ../.res/text/important.mongod-conf.txt
-.. Is this warning still actual?
 
 1. Stop the ``mongod`` service: |service.mongod.stop| 
 #. Check for installed packages: :bash:`rpm -qa | grep mongo`
@@ -117,45 +116,18 @@ Upgrading on Red Hat Enterprise Linux or CentOS
    example, existing data may not be compatible with the default WiredTiger
    storage engine.
 
-Upgrading a replica set
-================================================================================
+To upgrade a replica set or a sharded cluster, use the :term:`rolling restart <Rolling restart>` method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational. 
 
-The :term:`rolling restart <Rolling restart>` method allows upgrading a replica set from |mongodb-ce| to |PSMDB| with minimum downtime. You upgrade the nodes one by one while the whole cluster remains operational.   
-
-Upgrade some but not all replica set nodes  
---------------------------------------------------------------------------------
-
-1. Upgrade a node in a replica set as described in :ref:`upgrade_standalone`. Use the instructions relevant to your operating system. 
-
-.. note::
-
-   It is better to upgrade the secondary node to avoid an extra election of the primary one. If you upgrade the primary node, run the :command:`rs.stepDown()` command before shutting it down.
-
-#. Wait for the node to rejoin with the replica set members, resync and report that it is in the SECONDARY status. 
-#. Optional: repeat the upgrade procedure on other (but not on all) nodes.
-
-Test the |PSMDB| node in the primary role before all nodes are upgraded
---------------------------------------------------------------------------------
-
-This step is optional. Its purpose is to run a testing stage with the |PSMDB| node as primary whilst at least one of nodes still runs the old version. This will make rolling back a little quicker if you choose to do so.
-
-1. Use :command:`rs.stepDown()` on the current primary node to start an election of a new primary among nodes with |PSMDB| installed. If you have multiple nodes of the previous version, use :command:`rs.freeze()` on them to make sure one of |PSMDB| nodes becomes primary.
- 
-Upgrade the last node(s)
---------------------------------------------------------------------------------
-
-1. If any of the previous version nodes is the current primary node, step it down: :command:`rs.stepDown()`.
-2. Wait for the remaining nodes to elect a new primary. Run :command:`rs.status()` to verify that the former primary node reports as SECONDARY.
-#. Upgrade the node as described in :ref:`upgrade_standalone`.
-   
 .. seealso::
 
-   |mongodb| Documentation: Upgrade a Replica Set
-       https://docs.mongodb.com/manual/release-notes/4.4-upgrade-replica-set/
+   |mongodb| Documentation: 
+      - `Upgrade a Replica Set <https://docs.mongodb.com/manual/release-notes/4.4-upgrade-replica-set/>`_
+      - `Upgrade a Sharded Cluster <https://docs.mongodb.com/manual/release-notes/4.4-upgrade-sharded-cluster/>`_
 
-.. note::
+Upgrading to |PSMDB| with data at rest encryption enabled
+=========================================================
 
-   Steps to upgrade from |mongodb-ce| with data encryption enabled to |PSMDB| are different. ``mongod`` requires an empty ``dbPath`` data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the :ref:`switch_storage_engines` for more information on migration of encrypted data. `Contact us <https://www.percona.com/about-percona/contact#us>`_ for working at the detailed migration steps, if further assistance is needed.
+Steps to upgrade from |mongodb-ce| with data encryption enabled to |PSMDB| are different. ``mongod`` requires an empty ``dbPath`` data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the :ref:`switch_storage_engines` for more information on migration of encrypted data. `Contact us <https://www.percona.com/about-percona/contact#us>`_ for working at the detailed migration steps, if further assistance is needed.
 
 
 .. include:: ../.res/replace.txt
