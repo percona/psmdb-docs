@@ -1,0 +1,27 @@
+.. _PSMDB-4.2.12-13:
+
+================================================================================
+*Percona Server for MongoDB* 4.2.12-13
+================================================================================
+
+:Date: February 3, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.2/install/index.html>`_
+
+Percona Server for MongoDB 4.2.12-13 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 4.2.12 Community Edition <https://docs.mongodb.com/manual/release-notes/4.2/#jan-22-2021>`_.
+It supports MongoDB 4.2.12 protocols and drivers.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-745`: Add support for multiple LDAP servers for authentication
+* :jirabug:`PSMDB-761`: Add ``validateLDAPServerConfig`` config option
+
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-788`: Fix LDAP rebind procedure to allow LDAP referrals to work with ldapBindMethod==sasl
+
+
