@@ -5,10 +5,9 @@ Upgrading from |mongodb-ce|
 ================================================================================
 
 An in-place upgrade is done with existing data in the server.  Generally
-speaking, this is stopping the server, removing the old packages, installing the
-new server and starting it with the same data files.  While an in-place upgrade
-may not be suitable for high-complexity environments, it should work in most
-cases.
+speaking, this is stopping the ``mongod`` service, removing the old packages, installing the
+new server and starting it with the same db data directory. An in-place upgrade
+is suitable for most environments, except the ones that use ephemeral storage and/or host addresses.
 
 .. note::
 
@@ -19,7 +18,7 @@ cases.
    new ``mongod`` user is created during installation, and it belongs to the
    ``mongod`` group.
 
-This document describes an in-place upgrade of a ``mongod`` instance. If you are using data at rest encryption, refer to the :ref:`upgrade_encryption"` section. 
+This document describes an in-place upgrade of a ``mongod`` instance. If you are using data at rest encryption, refer to the :ref:`upgrade_encryption` section. 
 
 .. contents::
    :local: 
@@ -28,8 +27,7 @@ Prerequisites
 ==================
 
 Before you start the upgrade, update the |mongodb| configuration file
-(:file:`/etc/mongod.conf`) to contain the following settings.  Otherwise the
-|mongod| service will not be able to start.
+(:file:`/etc/mongod.conf`) to contain the following settings.  
 
 .. code-block:: yaml
 
@@ -37,9 +35,11 @@ Before you start the upgrade, update the |mongodb| configuration file
       fork: true
       pidFilePath: /var/run/mongod.pid
 
+Troubleshooting tip: The ``pidFilePath`` setting in :file:`mongod.conf` must  match the ``PIDFile`` option in the ``systemd mongod`` service unit. Otherwise, the service will kill the ``mongod`` process after a timeout.
+
 .. warning::
 
-   Before starting the upgrade procedure, we recommend to perform a full
+   Before starting the upgrade, we recommend to perform a full
    backup of your data.  
 
 Upgrading on Debian or Ubuntu
@@ -123,6 +123,8 @@ To upgrade a replica set or a sharded cluster, use the :term:`rolling restart <R
    |mongodb| Documentation: 
       - `Upgrade a Replica Set <https://docs.mongodb.com/manual/release-notes/4.4-upgrade-replica-set/>`_
       - `Upgrade a Sharded Cluster <https://docs.mongodb.com/manual/release-notes/4.4-upgrade-sharded-cluster/>`_
+
+.. _upgrade_encryption:
 
 Upgrading to |PSMDB| with data at rest encryption enabled
 =========================================================
