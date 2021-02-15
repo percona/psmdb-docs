@@ -5,9 +5,9 @@ Additional text search algorithm - *ngram*
 ================================================================================
 
 The `ngram <https://en.wikipedia.org/wiki/N-gram>`_ text search algorithm is useful for searching text for a specific string
-of characters in a field of a collection. This feature is useful for such languages as Korean, Chinese, or Japanese. It
+of characters in a field of a collection. This feature can be used to find exact sub-string matches, which provides an alternative to parsing text from languages other than the list of European languages already supported by MongoDB Community's full text search engine. It
 may also turn out to be more convenient when working with the text where symbols
-like dash('-'), underscore('_'), or slash("/") are not token delimiters.
+like dash('-'), underscore('_'), or slash('/') are not token delimiters.
 
 Unlike native MongoDB full text search engine, *ngram* search algorithm uses only the following token delimiter
 characters that do not count as word characters in human languages:
@@ -30,13 +30,13 @@ a collection setting the ``default_language`` parameter to **ngram**:
 
    mongo > db.collection.createIndex({name:"text"}, {default_language: "ngram"})
 
-*ngram* search algorithm treats special characters like individual terms. Therefore, you don’t have to enclose the search string in escaped double quotes (``\"``) to query the text index. For example, to search for documents that contain the date ``2021-02-12``, specify the following:
+*ngram* search algorithm treats special characters like individual terms. Therefore, you don't have to enclose the search string in escaped double quotes (``\"``) to query the text index. For example, to search for documents that contain the date ``2021-02-12``, specify the following:
 
 .. code-block:: guess
 
    mongo > db.collection.find({ $text: { $search: "2021-02-12" } })
 
-However, both *ngram* and MongoDB native full text search treat words with the hyphen-minus ``-`` sign  in front of them as negated (e.g. “-coffee”)  and exclude such words from the search results. 
+However, both *ngram* and MongoDB native full text search treat words with the hyphen-minus ``-`` sign  in front of them as negated (e.g. "-coffee")  and exclude such words from the search results. 
 
 .. seealso::
 
@@ -47,4 +47,3 @@ However, both *ngram* and MongoDB native full text search treat words with the h
    More information about ngram implementation:
       - https://github.com/percona/percona-server-mongodb/blob/v3.6/src/mongo/db/fts/ngram-tokenizer.md
       
-
