@@ -1,0 +1,19 @@
+.. _PSMDB-3.6.22-12.0:
+
+================================================================================
+*Percona Server for MongoDB* 3.6.22-12.0
+================================================================================
+
+:Date: February 23, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_
+
+Percona Server for MongoDB 3.6.22-12.0 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 3.6.22 Community Edition <https://docs.mongodb.com/manual/release-notes/3.6/#feb-8-2021>`_.
+It supports MongoDB 3.6.22 protocols and drivers.
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-817`: LDAP ConnectionPoller always uses up CPU of one core (Thanks to user cleiton.domazak for reporting this issue)
+
+
