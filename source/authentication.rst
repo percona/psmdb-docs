@@ -341,6 +341,7 @@ Specify the LDAP servers as a comma-separated list in the format ``<host>:<port>
 You can define the option value at the server startup by editing the configuration file.
 
 .. code-block:: yaml
+
    security:
      authorization: "enabled"
      ldap:
