@@ -23,6 +23,7 @@ It requires no changes to MongoDB applications or code.
 
 - MongoDB's default WiredTiger_ engine
 - Optional :ref:`inmemory` storage engine
+- Optional :ref:`data_at_rest_encryption`
 - :ref:`External SASL authentication <ext-auth>`
   using OpenLDAP or Active Directory
 - :ref:`Audit logging <audit-log>`
