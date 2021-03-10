@@ -1,5 +1,7 @@
 # Percona Server for MongoDB documentation
 
+Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
+
 Welcome to Percona Server for MongoDB documentation!
 
 ## Overview
@@ -17,4 +19,11 @@ We welcome all contributors. For how to contribute to documentation, read the [C
  
 ## License
 
-Percona Server for MongoDB documentation is licensed under the [Creative Commons Attribution-ShareAlike 2.0 Generic](https://creativecommons.org/licenses/by-sa/2.0/) license.
+Percona Server for MongoDB documentation is licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by].
+
+[![CC BY 4.0][cc-by-image]][cc-by]
+
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
