@@ -1,0 +1,19 @@
+.. _PSMDB-4.2.13-14:
+
+================================================================================
+*Percona Server for MongoDB* 4.2.13-14
+================================================================================
+
+:Date: April 1, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.2/install/index.html>`_
+
+Percona Server for MongoDB 4.2.13-14 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 4.2.13 Community Edition <https://docs.mongodb.com/manual/release-notes/4.2/#mar-19-2021>`_.
+It supports MongoDB 4.2.13 protocols and drivers.
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-817`: LDAP ConnectionPoller always uses up CPU of one core (Thanks to Cleiton Domazak for reporting this issue)
+
+
