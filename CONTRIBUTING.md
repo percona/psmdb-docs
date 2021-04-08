@@ -46,7 +46,7 @@ The .rst files are in the ``source`` directory.
 	 - Select the **Create a new branch for this commit and start a pull request** option
 	 - Click **Propose changes**.
 
-4. GitHub creates a branch and a commit for your changes. It loads a new page on which you can open a pull request to Percona. The page shows the base branch - the one you offer your changes for, your commit message and a diff - a visual representation of your changes against the original page.  This allows you to make a last-minue review. When you are ready, click the **Create pull request** button.
+4. GitHub creates a branch and a commit for your changes. It loads a new page on which you can open a pull request to Percona. The page shows the base branch - the one you offer your changes for, your commit message and a diff - a visual representation of your changes against the original page.  This allows you to make a last-minute review. When you are ready, click the **Create pull request** button.
 5. Someone from our team reviews the pull request and if everything is correct, merges it into the documentation. Then it gets published on the site.
 
 ### Edit documentation locally
