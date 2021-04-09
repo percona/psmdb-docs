@@ -1,0 +1,11 @@
+.. _PSMDB-4.4.5-7:
+
+================================================================================
+*Percona Server for MongoDB* 4.4.5-7
+================================================================================
+
+:Date: April 19, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.4/install/index.html>`_
+
+Percona Server for MongoDB 4.4.5-7 is based on `MongoDB 4.4.5 Community Edition <https://docs.mongodb.com/manual/release-notes/4.4/#4.4.5---apr-8--2021>`_
+and does not include any additional changes.  
