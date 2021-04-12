@@ -37,6 +37,11 @@ help:
 clean:
 	-rm -rf $(BUILDDIR)/*
 
+netlify:
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) -D html_theme='sphinx_material' -D html_theme_options.repo_url='https://github.com/percona/percona-backup-mongodb' -D html_theme_options.repo_name='/percona/percona-backup-mongodb' -D html_theme_options.color_primary='orange' -D html_theme_options.color_accent='grey' -D html_theme_options.globaltoc_depth=2 -D html_theme_options.globaltoc_collapse='True' $(BUILDDIR)/html
+	@echo
+	@echo "Netlify build finished. The HTML pages are in $(BUILDDIR)/html."
+
 html:
 	@echo "Downloading percona-theme ..."
 	@wget -O percona-theme.tar.gz https://www.percona.com/docs/theme-1-4/percona-server-for-mongodb/
