@@ -7,7 +7,7 @@
 |PSMDB| includes several parameters that can be changed
 in one of the following ways:
 
-* The ``setParameter`` variables in the configuration file
+* The ``setParameter`` admonitions in the configuration file
   for persistent changes in production::
 
    setParameter:
@@ -41,51 +41,58 @@ in one of the following ways:
      > db.runCommand( { setParameter: 1, ttlMonitorEnabled: <int> } )
      > db.runCommand( { setParameter: 1, ttlMonitorSleepSecs: <int> } )
 
-.. variable:: cursorTimeoutMillis
+Parameters
+==============
 
-   :Value Type: *integer*
-   :Default: ``600000`` (ten minutes)
+cursorTimeoutMillis
+---------------------
 
-   Sets the duration of time after which idle query cursors
-   are removed from memory.
+:Value Type: *integer*
+:Default: ``600000`` (ten minutes)
 
-.. variable:: failIndexKeyTooLong
+Sets the duration of time after which idle query cursors
+are removed from memory.
 
-   :Value Type: *boolean*
-   :Default: ``true``
+failIndexKeyTooLong
+-----------------------
+:Value Type: *boolean*
+:Default: ``true``
 
-   Versions of MongoDB prior to 2.6 would insert and update documents
-   even if an index key was too long.
-   The documents would not be included in the index.
-   Newer versions of MongoDB ignore documents with long index key.
-   By setting this value to ``false``, the old behavior is enabled.
+Versions of MongoDB prior to 2.6 would insert and update documents
+even if an index key was too long.
+The documents would not be included in the index.
+Newer versions of MongoDB ignore documents with long index key.
+By setting this value to ``false``, the old behavior is enabled.
 
-.. variable:: internalQueryPlannerEnableIndexIntersection
+internalQueryPlannerEnableIndexIntersection
+----------------------------------------------
 
-   :Value Type: *boolean*
-   :Default: ``true``
+:Value Type: *boolean*
+:Default: ``true``
 
-   Due to changes introduced in MongoDB 2.6.4,
-   some queries that reference multiple indexed fields,
-   where one field matches no documents,
-   may choose a non-optimal single-index plan.
-   Setting this value to ``false`` will enable the old behavior
-   and select the index intersection plan.
+Due to changes introduced in MongoDB 2.6.4,
+some queries that reference multiple indexed fields,
+where one field matches no documents,
+may choose a non-optimal single-index plan.
+Setting this value to ``false`` will enable the old behavior
+and select the index intersection plan.
 
-.. variable:: ttlMonitorEnabled
+ttlMonitorEnabled
+==================
 
-   :Value Type: *boolean*
-   :Default: ``true``
+:Value Type: *boolean*
+:Default: ``true``
 
-   If this option is set to ``false``,
-   the worker thread that monitors TTL Indexes and removes old documents
-   will be disabled.
+If this option is set to ``false``,
+the worker thread that monitors TTL Indexes and removes old documents
+will be disabled.
 
-.. variable:: ttlMonitorSleepSecs
+ttlMonitorSleepSecs
+--------------------
 
-   :Value Type: *integer*
-   :Default: ``60`` (one minute)
+:Value Type: *integer*
+:Default: ``60`` (one minute)
 
-   Defines the number of seconds to wait
-   between checking TTL Indexes for old documents and removing them.
+Defines the number of seconds to wait
+between checking TTL Indexes for old documents and removing them.
 
