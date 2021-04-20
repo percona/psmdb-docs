@@ -78,7 +78,7 @@ Setting this value to ``false`` will enable the old behavior
 and select the index intersection plan.
 
 ttlMonitorEnabled
-==================
+----------------------
 
 :Value Type: *boolean*
 :Default: ``true``
