@@ -74,11 +74,8 @@ exclude_patterns = []
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
 
-<<<<<<< HEAD
-=======
 #primary_domain = 'psdom'
 
->>>>>>> 95ad41c... Testing Netlify deployment
 # If true, '()' will be appended to :func: etc. cross-reference text.
 #add_function_parentheses = True
 
@@ -198,7 +195,7 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-		'**': ['localtoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html', 'globaltoc.html'],
+		'**': ['localtoc.html', 'relations.html', 'sourcelink.html'],
 		'using/windows': ['windowssidebar.html'],
 				}
 
