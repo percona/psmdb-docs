@@ -1,0 +1,14 @@
+.. _PSMDB-4.0.24-19:
+
+================================================================================
+*Percona Server for MongoDB* 4.0.24-19
+================================================================================
+
+:Date: May 3, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.0/install/index.html>`_
+
+Percona Server for MongoDB 4.0.24-19 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 4.0.24 Community Edition <https://docs.mongodb.com/manual/release-notes/4.0/#4.0.24---apr-20--2021>`_.
+It supports MongoDB 4.0.24 protocols and drivers.
+
+This release is based on MongoDB 4.0.24 and does not include any additional changes.
