@@ -8,17 +8,12 @@ Data at rest encryption for the WiredTiger storage engine in |mongodb| was
 introduced in |mongodb-enterprise| version 3.2. to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
 
-.. seealso::
-
-   |mongodb| Documentation: Encryption at Rest
-       https://docs.mongodb.com/manual/core/security-encryption-at-rest/#encryption-at-rest
-
 .. rubric:: Differences from Upstream
 
 The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
 |feature| in |mongodb|. In the current release of |PSMDB|, the |feature| does
 not include support for |abbr.kmip|, or |amazon-aws| key management
-services.
+services. Instead, |PSMDB| is :ref:`integrated with HashiCorp Vault <vault>` for key management services. 
 
 Two types of keys are used for data at rest encryption:
 
@@ -58,6 +53,9 @@ demonstrates how to apply the |mode.gcm| cipher mode when starting the
 
    |mongodb| Documentation: encryptionCipherMode Option
       https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-encryptionciphermode
+
+
+.. _vault:
 
 |vault| Integration
 =================================================================
@@ -157,7 +155,8 @@ with versioning enabled.
 
  During the subsequent start, the server tries to read the master key from the vault. If the configured secret does not exist, vault responds with HTTP 404 error.
 
-.. rubric:: Key Rotation
+Key Rotation
+--------------
 
 Key rotation is replacing the old master key with a new one. This process helps to comply with regulatory requirements.
 
