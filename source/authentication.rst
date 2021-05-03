@@ -323,7 +323,7 @@ You can change the connection pool size either at the server startup or dynamica
 
 For example, to set the number of connections in the pool to 5, use the ``setParameter`` command: 
 
-.. code-block:: json
+.. code-block:: guess
 
    $ db.adminCommand( { setParameter: 1, ldapConnectionPoolSizePerHost: 5  } )
 
