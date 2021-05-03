@@ -13,7 +13,7 @@ files can be decrypted and read by parties with the decryption key.
 The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
 |feature| interface in |mongodb|. In the current release of |PSMDB|, the |feature| does
 not include support for |abbr.kmip|, or |amazon-aws| key management
-services. Instead, |PSMDB| is :ref:`integrated with Hashicorp Vault <vault>` for key management services. 
+services. Instead, |PSMDB| is :ref:`integrated with HashiCorp Vault <vault>` for key management services. 
 
 Two types of keys are used for data at rest encryption:
 
@@ -156,7 +156,8 @@ with versioning enabled.
 
  During the subsequent start, the server tries to read the master key from the vault. If the configured secret does not exist, vault responds with HTTP 404 error.
 
-.. rubric:: Key Rotation
+Key Rotation
+---------------
 
 Key rotation is replacing the old master key with a new one. This process helps to comply with regulatory requirements.
 
