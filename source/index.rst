@@ -4,7 +4,7 @@
 Percona Server for MongoDB |version| Documentation
 ================================================================================
 
-|PSMDB| is a free, enhanced, fully compatible, open source, drop-in replacement
+|PSMDB| is a free, enhanced, fully compatible, source available, drop-in replacement
 for MongoDB |version| Community Edition with enterprise-grade features.
 It requires no changes to MongoDB applications or code.
 
