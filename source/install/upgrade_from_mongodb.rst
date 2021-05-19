@@ -57,7 +57,7 @@ Upgrading on Debian or Ubuntu
 
       .. code-block:: guess
 
-	 ii  mongodb-org            4.2.7    amd64      MongoDB open source document-oriented database system (metapackage)
+	 ii  mongodb-org            4.2.7    amd64      MongoDB document-oriented database system (metapackage)
 	 ii  mongodb-org-mongos     4.2.7    amd64      MongoDB sharded cluster query router
 	 ii  mongodb-org-server     4.2.7    amd64      MongoDB database server
 	 ii  mongodb-org-shell      4.2.7    amd64      MongoDB shell client
