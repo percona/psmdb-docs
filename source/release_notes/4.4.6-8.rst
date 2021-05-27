@@ -1,0 +1,22 @@
+.. _PSMDB-4.4.6-8:
+
+================================================================================
+*Percona Server for MongoDB* 4.4.6-8
+================================================================================
+
+:Date: June 2, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.4/install/index.html>`_
+
+Percona Server for MongoDB 4.4.6-8 is an enhanced, source available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 4.4.6 Community Edition <https://docs.mongodb.com/manual/release-notes/4.4/#4.4.6---may-10--2021>`_.
+It supports MongoDB 4.4.6 protocols and drivers.
+
+New Features
+================================================================================
+
+* :jirabug:`PSMDB-802`: Create $backupCursor and $backupCursorExtend aggregation stages. (Tech Preview Feature [#]_)
+  
+
+.. [#] Tech Preview Features are not yet ready for enterprise use and are not included in support via SLA (Service License Agreement). They are included in this release so that users can provide feedback prior to the full release of the feature in a future release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA. 
+
+
