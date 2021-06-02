@@ -27,9 +27,9 @@ sys.path.append(os.path.abspath('ext'))
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.intersphinx', 'sphinx.ext.todo',
-              'sphinx.ext.coverage', 'sphinx.ext.ifconfig',
-              'sphinx.ext.extlinks', 'psdom']
+extensions = ['sphinx.ext.intersphinx', 'sphinx.ext.todo', 
+              'sphinx.ext.coverage', 'sphinx.ext.ifconfig', 
+              'sphinx.ext.extlinks']
 
 
 
@@ -74,8 +74,6 @@ exclude_patterns = []
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
-
-primary_domain = 'psdom'
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 #add_function_parentheses = True
