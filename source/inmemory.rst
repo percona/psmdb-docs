@@ -87,6 +87,7 @@ To change a storage engine, you have the following options:
        $ # set the engine-specific settings such as
        $ # storage.inMemory.engineConfig.inMemorySizeGB
        $ service mongod start
+    
     Wait for the node to rejoin with the other nodes and report the SECONDARY status.
 
     Repeat the procedure to switch the remaining nodes to |inmemory|.
