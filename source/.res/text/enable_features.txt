@@ -1,6 +1,6 @@
 This starts |PSMDB| with the feature set of |prev-version| version. Assuming that your applications are compatible with the new version, enable |version| version features. Run the following command against the ``admin`` database:
 
-.. code-block:: guess
+.. code-block:: text
 
    db.adminCommand( { setFeatureCompatibilityVersion: "4.2" } )
 

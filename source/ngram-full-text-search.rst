@@ -26,13 +26,13 @@ Usage
 To use *ngram*, create a text index on
 a collection setting the ``default_language`` parameter to **ngram**:
 
-.. code-block:: guess
+.. code-block:: bash
 
    mongo > db.collection.createIndex({name:"text"}, {default_language: "ngram"})
 
 *ngram* search algorithm treats special characters like individual terms. Therefore, you don't have to enclose the search string in escaped double quotes (``\"``) to query the text index. For example, to search for documents that contain the date ``2021-02-12``, specify the following:
 
-.. code-block:: guess
+.. code-block:: bash
 
    mongo > db.collection.find({ $text: { $search: "2021-02-12" } })
 
