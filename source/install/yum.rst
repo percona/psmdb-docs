@@ -123,34 +123,38 @@ Running Percona Server for MongoDB
 |PSMDB| stores data files in :dir:`/var/lib/mongodb/` by default.
 The configuration file is :file:`/etc/mongod.conf`.
 
-Starting the service
-  |PSMDB| is not started automatically after installation.
-  Start it manually using the following command: 
+**Starting the service**
 
-  .. code-block:: bash
+|PSMDB| is not started automatically after installation.
+Start it manually using the following command: 
+
+.. code-block:: bash
   
-     $ sudo systemctl start mongod
+   $ sudo systemctl start mongod
 
-Confirming that service is running
-  Check the service status using the following command: |service.mongod.status|
+**Confirming that service is running**
 
-  .. code-block:: bash
+Check the service status using the following command: |service.mongod.status|
+
+.. code-block:: bash
   
-     $ sudo systemctl status mongod
+   $ sudo systemctl status mongod
 
-Stopping the service
-  Stop the service using the following command: |service.mongod.stop|
+**Stopping the service**
 
-  .. code-block:: bash
+Stop the service using the following command: |service.mongod.stop|
+
+.. code-block:: bash
   
-     $ sudo systemctl stop mongod
+   $ sudo systemctl stop mongod
 
-Restarting the service
-  Restart the service using the following command: |service.mongod.restart|
+**Restarting the service**
 
-  .. code-block:: bash
+Restart the service using the following command: |service.mongod.restart|
+
+.. code-block:: bash
   
-     $ sudo systemctl restart mongod
+   $ sudo systemctl restart mongod
 
 Running after reboot
 --------------------------------------------------------------------------------
