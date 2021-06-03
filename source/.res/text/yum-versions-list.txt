@@ -1,4 +1,4 @@
-.. code-block:: guess
+.. code-block:: text
 
        Available Packages
    percona-server-mongodb.x86_64    4.0.9-4.el8       psmdb-40-release-x86_64
