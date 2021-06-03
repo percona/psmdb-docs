@@ -103,35 +103,39 @@ and configuration parameters in :file:`/etc/mongod.conf`.
 
 |tip.run-all.root|
 
-Starting the service
-  |PSMDB| is started automatically after installation
-  unless it encounters errors during the installation process.
-  You can also manually start it using the following command:
+**Starting the service**
 
-  .. code-block:: bash
+|PSMDB| is started automatically after installation unless it encounters errors during the installation process.
+
+You can also manually start it using the following command:
+
+.. code-block:: bash
   
-     $ sudo systemctl start mongod
+   $ sudo systemctl start mongod
 
-Confirming that the service is running
-  Check the service status using the following command:
+**Confirming that the service is running**
 
-  .. code-block:: bash
+Check the service status using the following command:
+
+.. code-block:: bash
   
-     $ sudo systemctl status mongod
+   $ sudo systemctl status mongod
 
-Stopping the service
-  Stop the service using the following command: 
+**Stopping the service**
 
-  .. code-block:: bash
+Stop the service using the following command: 
+
+.. code-block:: bash
   
-     $ sudo systemctl stop mongod
+   $ sudo systemctl stop mongod
 
-Restarting the service
-  Restart the service using the following command: 
+**Restarting the service**
 
-  .. code-block:: bash
+Restart the service using the following command: 
+
+.. code-block:: bash
   
-     $ sudo systemctl restart mongod
+   $ sudo systemctl restart mongod
 
 Uninstalling Percona Server for MongoDB
 ================================================================================

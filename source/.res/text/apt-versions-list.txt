@@ -1,4 +1,4 @@
-.. code-block:: guess
+.. code-block:: text
 
    percona-server-mongodb | 4.4.0-1.buster | http://repo.percona.com/psmdb-44/apt buster/main amd64 Packages
   

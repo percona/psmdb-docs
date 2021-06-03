@@ -53,7 +53,7 @@ Upgrading on Debian or Ubuntu
 
    .. admonition:: Output
 
-      .. code-block:: guess
+      .. code-block:: text
 
 	 ii  mongodb-org            4.4.0    amd64      MongoDB document-oriented database system (metapackage)
 	 ii  mongodb-org-mongos     4.4.0    amd64      MongoDB sharded cluster query router
@@ -86,7 +86,7 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
    .. admonition:: Output
 
-      .. code-block:: guess
+      .. code-block:: text
 
 	 mongodb-org-mongos-4.4.0-1.el6.x86_64
 	 mongodb-org-shell-4.4.0-1.el6.x86_64
