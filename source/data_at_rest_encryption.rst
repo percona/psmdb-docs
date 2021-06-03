@@ -218,6 +218,7 @@ case are:
 - **640** - only the owner can read and the change the file, the group can only
 read the files.
 
+
 .. seealso::
 
    |mongodb| Documentation: Configure Encryption

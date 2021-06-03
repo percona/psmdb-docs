@@ -114,7 +114,7 @@ Configuring ``saslauthd``
    .. note:: Back up the original configuration file before making changes.
    
 
-   For *RedHat/CentOS*, specify the ``ldap`` value for the :option:`--MECH` option using the following command:
+   For *RedHat/CentOS*, specify the ``ldap`` value for the ``--MECH`` option using the following command:
 
    .. code-block:: bash
 
@@ -126,7 +126,7 @@ Configuring ``saslauthd``
 
      MECH=ldap		
 
-   For *Debian/Ubuntu*, use the following commands to enable the ``saslauthd`` to auto-run on startup and to set the ``ldap`` value for the :option:`--MECHANISMS` option:
+   For *Debian/Ubuntu*, use the following commands to enable the ``saslauthd`` to auto-run on startup and to set the ``ldap`` value for the ``--MECHANISMS`` option:
 
    .. code-block:: bash
 
