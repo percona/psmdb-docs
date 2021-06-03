@@ -35,7 +35,7 @@ In this release, |PSMDB| supports the Ngram full text search engine. Thanks to
 text search, create an index passing **ngram** to the ``default_language``
 parameter.
 
-.. code-block:: guess
+.. code-block:: javascript
 
    mongo > db.collection.createIndex({name:"text"}, {default_language: "ngram"})
 

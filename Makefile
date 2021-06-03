@@ -37,11 +37,6 @@ help:
 clean:
 	-rm -rf $(BUILDDIR)/*
 
-#netlify:
-#	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) -D html_theme='sphinx_material' -D html_theme_options.repo_url='https://github.com/percona/psmdb-docs' -D html_theme_options.repo_name='/percona/psmdb-docs' -D html_theme_options.color_primary='orange' -D html_theme_options.color_accent='grey' -D html_theme_options.globaltoc_depth=2 -D html_theme_options.globaltoc_collapse='True' -D html_logo='_static/images/percona-logo.svg' -D html_favicon='_static/images/percona_favicon.ico' $(BUILDDIR)/html
-#	@echo
-#	@echo "Netlify build finished. The HTML pages are in $(BUILDDIR)/html."
-
 netlify:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) -c source/conf-netlify $(BUILDDIR)/html
 	@echo

@@ -6,6 +6,7 @@ sys.path.append(os.path.abspath("../"))
 from conf import *
 extensions.append('sphinx_gitstamp')
 extensions.append('sphinx_copybutton')
+html_sidebars['**']=['globaltoc.html', 'searchbox.html', 'localtoc.html', 'logo-text.html']
 html_theme = 'sphinx_material'
 html_theme_options = {
     'base_url': 'http://bashtage.github.io/sphinx-material/',
@@ -21,7 +22,7 @@ html_theme_options = {
         "4.0": "https://psmdb-docs-40.netlify.app/",
         "4.2": "https://psmdb-docs-42.netlify.app/",
         "4.4": "https://psmdb-docs-44.netlify.app/",
-        "Latest": "https://www.percona.com/doc/percona-server-for-mongodb/LATEST/index.html"
+        "Latest": "https://psmdb-docs-44.netlify.app/"
     },
 }
 html_logo = '../_static/images/percona-logo.svg'
