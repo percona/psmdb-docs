@@ -101,24 +101,12 @@ To install a specific version of |PSMDB|, do the following:
 Running Percona Server for MongoDB
 ================================================================================
 
-.. warning:: If you have SELinux security module installed, it will
-   conflict with Percona Server for MongoDB.  There are several
-   options to deal with this:
+.. note:: 
 
-   * Remove the SELinux packages.
-     This is not recommended, because it may violate security.
+   If you are using SELinux in enforcing mode, you must customize your SELinux user policies to allow access to certain ``/sys`` and ``/proc`` files for OS-level statistics. Also, you must customize directory and port access policies if you are using non-default locations.
 
-   * Disable SELinux by setting ``SELINUX``
-     in :file:`/etc/selinux/config` to ``disabled``.
-     This change takes effect after you reboot.
+   Please refer to `Configure SELinux <https://docs.mongodb.com/v4.2/tutorial/install-mongodb-on-red-hat/#configure-selinux>` section of MongoDB Documentation for policy configuration guidelines. 
 
-   * Run SELinux in permissive mode by setting ``SELINUX``
-     in :file:`/etc/selinux/config` to ``permissive``.
-     This change takes effect after you reboot.
-
-     You can also enforce permissive mode at runtime
-     using the ``setenforce 0`` command.
-     However, this will not affect the configuration after a reboot.
 
 |PSMDB| stores data files in :dir:`/var/lib/mongodb/` by default.
 The configuration file is :file:`/etc/mongod.conf`.
