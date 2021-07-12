@@ -9,9 +9,9 @@ Normally, a client needs to authenticate themselves
 against the MongoDB server user database before doing any work
 or reading any data from a ``mongod`` or ``mongos`` instance.
 External authentication allows the MongoDB server
-to verify the client's user name and password against a separate service,
-such as OpenLDAP or Active Directory. This allows users accessing the database
-with the same credentials they use for their emails or workstations.
+to verify the client's username and password against a separate service,
+such as OpenLDAP or Active Directory. This allows users to access the database
+with the same credentials that they use for their emails or workstations.
 
 |PSMDB| supports the following external authentication mechanisms:
 
@@ -52,7 +52,7 @@ An authentication session uses the following sequence:
    using the |SASL| library.
 #. The client then sends this SASL request to the server
    as a special Mongo command.
-#. The ``mongod`` server receives this SASL Message,
+#. The ``mongod`` server receives this SASL message,
    with its authentication request payload.
 #. The server then creates a SASL session scoped to this client,
    using its own reference to the SASL library.
@@ -73,7 +73,7 @@ Environment setup and configuration
 This section describes an example configuration
 suitable only to test out the external authentication functionality
 in a non-production environment.
-Use common sense to adapt these guidelines to your production.
+Use common sense to adapt these guidelines to your production environment.
 
 The following components are required:
 
@@ -90,7 +90,7 @@ The following steps will help you configure your environment:
 
 Before we move on to the configuration steps, we assume the following:
 
-1. You have the LDAP server up and running. The LDAP server is accessible to the server with the |PSMDB| installed.
+1. You have the LDAP server up and running. The LDAP server is accessible to the server with |PSMDB| installed.
 #. You must place these two servers behind a firewall as the communications between them will be in plain text. This is because the SASL mechanism of PLAIN can only be used when authenticating and credentials will be sent in plain text.
 #. You have ``sudo`` privilege to the server with the |PSMDB| installed.
 

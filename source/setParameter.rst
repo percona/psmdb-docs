@@ -32,7 +32,7 @@ in one of the following ways:
 * The ``setParameter`` command on the ``admin`` database
   to make changes at runtime:
 
-  .. code-block:: text
+  .. code-block:: javascript
 
      > db = db.getSiblingDB('admin')
      > db.runCommand( { setParameter: 1, cursorTimeoutMillis: <int> } )

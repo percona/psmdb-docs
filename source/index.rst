@@ -12,7 +12,7 @@ It requires no changes to MongoDB applications or code.
 
    To see which version of |PSMDB| you are using check the value of the
    ``psmdbVersion`` key in the output of the ``buildInfo`` database command. If
-   this key does not exist |PSMDB| is not installed on the server.
+   this key does not exist, |PSMDB| is not installed on the server.
 
    .. seealso::
 
@@ -22,8 +22,8 @@ It requires no changes to MongoDB applications or code.
 |PSMDB| provides the following features:
 
 - MongoDB's default WiredTiger_ engine
-- Optional :ref:`inmemory` storage engine
-- Optional :ref:`psmdb.data-at-rest-encryption`
+- :ref:`inmemory` storage engine
+- :ref:`psmdb.data-at-rest-encryption`
 - :ref:`External SASL authentication <ext-auth>`
   using OpenLDAP or Active Directory
 - :ref:`Audit logging <audit-log>`
@@ -51,7 +51,7 @@ Installation
 
    install/index
    install/upgrade_from_mongodb
-   install/upgrade_from_42
+   install/upgrade_from_44
 
 Features
 ================================================================================

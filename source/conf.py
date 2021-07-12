@@ -48,9 +48,9 @@ master_doc = 'index'
 # built documents.
 
 # The short X.Y version.
-version = '4.4'
+version = '5.0'
 # The full version, including alpha/beta/rc tags.
-release = ".".join([version, '6-8'])
+release = ".".join([version, '0-1'])
 
 # General information about the project.
 product_name = 'Percona Server for MongoDB'
@@ -105,41 +105,14 @@ rst_prolog = '''
 
 .. |check|  replace:: ``|[[---CHECK---]]|``
 
-.. |xtrabackup|  replace:: :program:`xtrabackup`
-
-.. |innobackupex|  replace:: :program:`innobackupex`
-
-.. |XtraDB|  replace:: *XtraDB*
-
-.. |TokuMXse|  replace:: *TokuMXse*
-
-.. |TokuMX|  replace:: *Percona TokuMX*
-
-.. |Percona TokuMX|  replace:: *Percona TokuMX*
-
-.. |Fractal Tree|  replace:: *Fractal Tree*
-
-.. |LSN|  replace:: *LSN*
-
-.. |Percona XtraBackup|  replace:: *Percona XtraBackup*
-
-.. |Percona Toolkit|  replace:: *Percona Toolkit*
-
-.. |Percona Server|  replace:: *Percona Server*
-
-.. |Percona Server for MongoDB|  replace:: *Percona Server  for MongoDB*
-
 .. |PSMDB| replace:: *Percona Server for MongoDB*
 
 .. |Percona|  replace:: *Percona*
 
-.. |MySQL|  replace:: *MySQL*
+.. |PBM|  replace:: *Percona Backup for MongoDB*
 
 .. |MongoDB|  replace:: *MongoDB*
 
-.. |TokuBackup| replace:: *TokuBackup*
-
-.. |PerconaFT| replace:: *PerconaFT*
 
 '''
 

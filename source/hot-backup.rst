@@ -48,10 +48,10 @@ Saving a backup to a TAR archive
  
    This feature was implemented in |PSMDB| 4.2.1-1.
  
- To save a backup in the format of *tar* archive, use the *archive* field to
- specify the destination path:
+To save a backup in the format of *tar* archive, use the *archive* field to
+specify the destination path:
  
-.. code-block:: text
+.. code-block:: javascript
  
    > use admin
    ...
@@ -68,7 +68,7 @@ as `MinIO <https://min.io/>`_.
 
 This method requires that you provide the *bucket* field in the *s3* object:
 
-.. code-block:: text
+.. code-block:: javascript
 
    > use admin
    ...

@@ -35,7 +35,7 @@ Before you start the upgrade, update the |mongodb| configuration file
       fork: true
       pidFilePath: /var/run/mongod.pid
 
-Troubleshooting tip: The ``pidFilePath`` setting in :file:`mongod.conf` must  match the ``PIDFile`` option in the ``systemd mongod`` service unit. Otherwise, the service will kill the ``mongod`` process after a timeout.
+**Troubleshooting tip**: The ``pidFilePath`` setting in :file:`mongod.conf` must  match the ``PIDFile`` option in the ``systemd mongod`` service unit. Otherwise, the service will kill the ``mongod`` process after a timeout.
 
 .. warning::
 
@@ -55,18 +55,22 @@ Upgrading on Debian or Ubuntu
 
       .. code-block:: text
 
-	 ii  mongodb-org            4.4.0    amd64      MongoDB document-oriented database system (metapackage)
-	 ii  mongodb-org-mongos     4.4.0    amd64      MongoDB sharded cluster query router
-	 ii  mongodb-org-server     4.4.0    amd64      MongoDB database server
-	 ii  mongodb-org-shell      4.4.0    amd64      MongoDB shell client
-	 ii  mongodb-org-tools      4.4.0    amd64      MongoDB tools
+          ii  mongodb-org                      5.0.1                       amd64        MongoDB open source document-oriented database system (metapackage)
+          ii  mongodb-org-database             5.0.1                       amd64        MongoDB open source document-oriented database system (metapackage)
+          ii  mongodb-org-database-tools-extra 5.0.1                       amd64        Extra MongoDB database tools
+          ii  mongodb-org-mongos               5.0.1                       amd64        MongoDB sharded cluster query router
+          ii  mongodb-org-server               5.0.1                       amd64        MongoDB database server
+          ii  mongodb-org-shell                5.0.1                       amd64        MongoDB shell client
+          ii  mongodb-org-tools                5.0.1                       amd64        MongoDB tools
+
+
 
 #. Remove the installed packages:
 
    .. code-block:: bash
 
       $ apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \
-      $ mongodb-org-shell mongodb-org-tools
+        mongodb-org-database mongodb-org-shell mongodb-org-tools
 
 #. Remove log files: :bash:`rm -r /var/log/mongodb`
 
@@ -88,22 +92,26 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
       .. code-block:: text
 
-	 mongodb-org-mongos-4.4.0-1.el6.x86_64
-	 mongodb-org-shell-4.4.0-1.el6.x86_64
-	 mongodb-org-server-4.4.0-1.el6.x86_64
-	 mongodb-org-tools-4.4.0-1.el6.x86_64
-	 mongodb-org-4.4.0-1.el6.x86_64
+         mongodb-org-shell-5.0.1-1.el8.x86_64
+         mongodb-org-database-5.0.0-1.el8.x86_64
+         mongodb-org-5.0.0-1.el8.x86_64
+         mongodb-database-tools-100.4.1-1.x86_64
+         mongodb-org-server-5.0.1-1.el8.x86_64
+         mongodb-org-mongos-5.0.1-1.el8.x86_64
+         mongodb-org-tools-5.0.0-1.el8.x86_64
 
 #. Remove the installed packages:
 
    .. code-block:: bash
 
       $ yum remove \
-      mongodb-org-mongos-4.4.0-1.el6.x86_64 \
-      mongodb-org-shell-4.4.0-1.el6.x86_64 \
-      mongodb-org-server-4.4.0-1.el6.x86_64 \
-      mongodb-org-tools-4.4.0-1.el6.x86_64 \
-      mongodb-org-4.4.0-1.el6.x86_64
+      mongodb-org-tools-5.0.0-1.el8.x86_64 \
+      mongodb-org-shell-5.0.1-1.el8.x86_64 \
+      mongodb-org-database-5.0.0-1.el8.x86_64 \
+      mongodb-org-5.0.0-1.el8.x86_64 \
+      mongodb-database-tools-100.4.1-1.x86_64 \
+      mongodb-org-server-5.0.1-1.el8.x86_64 \
+      mongodb-org-mongos-5.0.1-1.el8.x86_64 \
 
 #. Remove log files: :bash:`rm -r /var/log/mongodb`
 #. Install |PSMDB| :ref:`using yum <yum>`.
@@ -121,8 +129,8 @@ To upgrade a replica set or a sharded cluster, use the :term:`rolling restart <R
 .. seealso::
 
    |mongodb| Documentation: 
-      - `Upgrade a Replica Set <https://docs.mongodb.com/manual/release-notes/4.4-upgrade-replica-set/>`_
-      - `Upgrade a Sharded Cluster <https://docs.mongodb.com/manual/release-notes/4.4-upgrade-sharded-cluster/>`_
+      - `Upgrade a Replica Set <https://docs.mongodb.com/manual/release-notes/5.0-upgrade-replica-set/>`_
+      - `Upgrade a Sharded Cluster <https://docs.mongodb.com/manual/release-notes/5.0-upgrade-sharded-cluster/>`_
 
 .. _upgrade_encryption:
 
