@@ -4,16 +4,20 @@
 Data at Rest Encryption
 ================================================================================
 
+.. contents::
+   :local:
+
 Data at rest encryption for the WiredTiger storage engine in |mongodb| was
 introduced in |mongodb-enterprise| version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
 
-.. rubric:: Differences from Upstream
+ .. rubric:: Differences from Upstream
 
-The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
-|feature| interface in |mongodb|. In the current release of |PSMDB|, the |feature| does
-not include support for |abbr.kmip|, or |amazon-aws| key management
-services. Instead, |PSMDB| is :ref:`integrated with HashiCorp Vault <vault>` for key management services. 
+ The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
+ |feature| interface in |mongodb|. In the current release of |PSMDB|, the |feature| does
+ not include support for |abbr.kmip|, or |amazon-aws| key management
+ services. Instead, |PSMDB| is :ref:`integrated with HashiCorp Vault <vault>` for key management services. 
+
 
 Two types of keys are used for data at rest encryption:
 
@@ -31,8 +35,7 @@ Note that you can use only one of the key management options at a time. However,
 
    You can only enable data at rest encryption and provide all encryption settings on an empty database, when you start the ``mongod`` instance for the first time. You cannot enable or disable encryption while the |PSMDB| server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.
 
-.. contents::
-   :local:
+
 
 .. rubric:: Important Configuration Options
 
@@ -152,9 +155,44 @@ with versioning enabled.
           tokenFile: /home/user/path/token
           secret: secret/data/hello
 
- During the first run of the |PSMDB|, the process generates a secure key and writes the key to the vault. 
+During the first run of the |PSMDB|, the process generates a secure key and writes the key to the Vault. 
 
- During the subsequent start, the server tries to read the master key from the vault. If the configured secret does not exist, vault responds with HTTP 404 error.
+During the subsequent start, the server tries to read the master key from the vault. If the configured secret does not exist, Vault responds with HTTP 404 error.
+
+Namespaces
+----------
+
+Namespaces are isolated environments in Vault that allow for separate secret key and policy management. 
+
+You can use Vault namespaces with |PSMDB|. Specify the namespace(s) for the ``security.vault.secret`` option value as follows: 
+
+.. code-block:: bash
+
+   <namespace>/secret/data/<secret_path> 
+
+For example, the path to secret keys for namespace ``test`` on  the secrets engine ``secret`` will be ``test/secret/<my_secret_path>``.
+
+.. note::
+
+   You have the following options of how to target a particular namespace when configuring Vault:
+
+   1. Set the VAULT_NAMESPACE environment variable so that all subsequent commands are executed against that namespace. Use the following command to set the env variable for the namespace test:
+
+   .. code-block:: bash
+
+      $ export  VAULT_NAMESPACE=test
+
+   2. Provide the namespace for the ``-namespace`` flag in commands
+ 
+
+.. seealso::
+
+   |vault| Documentation: 
+
+   * Namespaces
+       https://www.vaultproject.io/docs/enterprise/namespaces
+   * Secure Multi-Tenancy with Namespaces
+       https://learn.hashicorp.com/tutorials/vault/namespaces
 
 Key Rotation
 ---------------

@@ -105,7 +105,7 @@ Running Percona Server for MongoDB
 
    If you are using SELinux in enforcing mode, you must customize your SELinux user policies to allow access to certain ``/sys`` and ``/proc`` files for OS-level statistics. Also, you must customize directory and port access policies if you are using non-default locations.
 
-   Please refer to `Configure SELinux <https://docs.mongodb.com/v4.2/tutorial/install-mongodb-on-red-hat/#configure-selinux>` section of MongoDB Documentation for policy configuration guidelines. 
+   Please refer to `Configure SELinux <https://docs.mongodb.com/v4.2/tutorial/install-mongodb-on-red-hat/#configure-selinux>`_ section of MongoDB Documentation for policy configuration guidelines. 
 
 
 |PSMDB| stores data files in :dir:`/var/lib/mongodb/` by default.
