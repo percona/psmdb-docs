@@ -24,22 +24,21 @@ To take a hot backup of the database in your current ``dbpath``, do the followin
 
 - Run the ``createBackup`` command as administrator on the ``admin`` database and specify the backup directory. 
 
-  .. code-block:: text
+  .. code-block:: javascript
 
      > use admin
      switched to db admin
-     > db.runCommand({createBackup: 1, backupDir: <backup_data_path})
+     > db.runCommand({createBackup: 1, backupDir: "<backup_data_path>"})
      { "ok" : 1 }
 
 If the backup was successful, you should receive an ``{ "ok" : 1 }`` object.
 If there was an error, you will receive a failing ``ok`` status
 with the error message, for example:
 
-.. code-block:: text
+.. code-block:: javascript
 
    > db.runCommand({createBackup: 1, backupDir: ""})
    { "ok" : 0, "errmsg" : "Destination path must be absolute" }
-
 
 Saving a backup to a TAR archive
 ================================================================================
@@ -48,14 +47,93 @@ Saving a backup to a TAR archive
  
    This feature was implemented in |PSMDB| 4.2.1-1.
  
- To save a backup in the format of *tar* archive, use the *archive* field to
- specify the destination path:
+To save a backup as a *tar* archive, use the *archive* field to
+specify the destination path:
  
-.. code-block:: text
+.. code-block:: javascript
  
    > use admin
    ...
    > db.runCommand({createBackup: 1, archive: <path_to_archive>.tar })
+
+View backup status
+==================
+
+As of version 4.4.8-9, you can view the backup status using the `$currentOp <https://docs.mongodb.com/manual/reference/operator/aggregation/currentOp/>`_ aggregation stage. You can also use the `currentOp <https://docs.mongodb.com/manual/reference/command/currentOp/#mongodb-dbcommand-dbcmd.currentOp>`_ command though it is considered legacy.
+
+Run the ``$currentOp`` against the ``admin`` database: 
+
+.. code-block:: javascript
+
+   db.getSiblingDB("admin").aggregate([
+      { $currentOp: {} }, 
+      { $match: {"command.createBackup": {$exists: true}} }
+   ])
+
+.. admonition:: Sample output
+
+   .. code-block:: javascript
+
+      {
+        "type" : "op",
+        "host" : "bionic:27017",
+        "desc" : "conn1251",
+        "connectionId" : 1251,
+        "client" : "127.0.0.1:52898",
+        "appName" : "MongoDB Shell",
+        "clientMetadata" : {
+            "application" : {
+                "name" : "MongoDB Shell"
+            },
+            "driver" : {
+                "name" : "MongoDB Internal Client",
+                "version" : "4.4.8-9"
+            },
+            "os" : {
+                "type" : "Linux",
+                "name" : "Ubuntu",
+                "architecture" : "x86_64",
+                "version" : "18.04"
+            }
+        },
+        "active" : true,
+        "currentOpTime" : "2021-08-12T11:39:57.675+0000",
+        "opid" : 222817,
+        "lsid" : {
+            "id" : UUID("6f8d06fc-842b-420c-a43f-495db7bd6d88"),
+            "uid" : BinData(0,"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=")
+        },
+        "secs_running" : NumberLong(1),
+        "microsecs_running" : NumberLong(1516769),
+        "op" : "command",
+        "ns" : "admin.$cmd",
+        "command" : {
+            "createBackup" : 1,
+            "backupDir" : "/tmp/mongo",
+            "lsid" : {
+                "id" : UUID("6f8d06fc-842b-420c-a43f-495db7bd6d88")
+            },
+            "$db" : "admin"
+        },
+        "msg" : "Hot Backup: copying data bytes Hot Backup: copying data bytes: 
+        971530240/1147213741 84%",
+        "progress" : {
+            "done" : 971530240,
+            "total" : 1147213741
+        },
+        "numYields" : 0,
+        "locks" : {
+            
+        },
+        "waitingForLock" : false,
+        "lockStats" : {
+            
+        },
+        "waitingForFlowControl" : false,
+        "flowControlStats" : {
+            
+        }
+      }
 
 .. _psmdb-hot-backup-remote-destination:
 
