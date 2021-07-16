@@ -180,7 +180,7 @@ For example, the path to secret keys for namespace ``test`` on  the secrets engi
 
       $ export  VAULT_NAMESPACE=test
 
-2. Provide the namespace for the ``-namespace`` flag in commands
+   2. Provide the namespace for the ``-namespace`` flag in commands
  
 
 .. seealso::
