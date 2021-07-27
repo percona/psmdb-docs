@@ -23,8 +23,8 @@ It requires no changes to MongoDB applications or code.
 
 - MongoDB's original MMAPv1_ storage engine, and the default
   WiredTiger_ engine
-- Optional :ref:`inmemory` storage engine
-- Optional :ref:`psmdb.data-at-rest-encryption`
+- :ref:`inmemory` storage engine
+- :ref:`psmdb.data-at-rest-encryption`
 - :ref:`External SASL authentication <ext-auth>`
   using OpenLDAP or Active Directory
 - :ref:`Audit logging <audit-log>`
