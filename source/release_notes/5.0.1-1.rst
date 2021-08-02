@@ -1,0 +1,16 @@
+.. _PSMDB-5.0.1-1:
+
+================================================================================
+*Percona Server for MongoDB* 5.0.1-1
+================================================================================
+
+:Date: August 5, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_
+
+Percona Server for MongoDB 5.0.1-1 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 5.0.1 Community Edition.
+It supports MongoDB 5.0.1 protocols and drivers.
+
+This release includes `all features of MongoDB 5.0.1 Community Edition <https://docs.mongodb.com/v5.0/release-notes/5.0/#5.0.1---jul-22--2021>`_ and provides :ref:`Enterprise-level enhancements <compare>` for free.
+
+Percona Server for MongoDB requires no changes to MongoDB applications or code and is available for `download from Percona website <https://www.percona.com/downloads/percona-server-mongodb-5.0/#>`_.
