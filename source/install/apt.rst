@@ -4,7 +4,7 @@
 Installing Percona Server for MongoDB on Debian and Ubuntu
 ==========================================================
 
-Use this document to install |PSMDB| from Percona repositories on DEB-based distributions.
+Use this document to install |PSMDB| from Percona repositories on DEB-based distributions such as Debian and Ubuntu.
 
 .. note:: |PSMDB| should work on other DEB-based distributions,
    but it is tested only on platforms listed on the `Percona Software and Platform Lifecycle <https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb>`_ page.
@@ -22,7 +22,7 @@ Package Contents
      - Contains
    * - percona-server-mongodb
      - The ``mongo`` shell, import/export tools, other client
-       utilities, server software, default configuration, and init.d scripts.
+       utilities, server software, default configuration, and :dir:`init.d` scripts.
    * - percona-server-mongodb-server
      - The :program:`mongod` server, default configuration files, and :dir:`init.d`
        scripts
@@ -58,11 +58,11 @@ Configure Percona repository
 
       $ dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
 
-   Once you install this package the |Percona| repositories should be added. You
+   Once you install ``percona-release``, the |Percona| repositories should be available. You
    can check the repository setup in the
    :file:`/etc/apt/sources.list.d/percona-release.list` file.
 
-#. Enable the repository: :bash:`percona-release enable psmdb-44 release`
+#. Enable the repository: :bash:`percona-release enable psmdb-50 release`
 #. Remember to update the local cache: |apt.update|
    
 Install the latest version 
@@ -89,11 +89,11 @@ To install a specific version of |PSMDB|, do the following:
 
       .. include:: ../.res/text/apt-versions-list.txt
 
-2. Install a specific version packages. You must specify each package with the version number. For example, to install |PSMDB| 4.4.0-1, run the following command:
+2. Install a specific version packages. You must specify each package with the version number. For example, to install |PSMDB| 5.0.1-1, run the following command:
    
    .. code-block:: bash
    
-      $ sudo apt-get install percona-server-mongodb=4.4.0-1.buster percona-server-mongodb-mongos=4.4.0-1.buster percona-server-mongodb-shell=4.4.0-1.buster percona-server-mongodb-server=4.4.0-1.buster percona-server-mongodb-tools=4.4.0-1.buster
+      $ sudo apt-get install percona-server-mongodb=5.0.1-1.buster percona-server-mongodb-mongos=5.0.1-1.buster percona-server-mongodb-shell=5.0.1-1.buster percona-server-mongodb-server=5.0.1-1.buster percona-server-mongodb-tools=5.0.1-1.buster
 
 Running Percona Server for MongoDB
 ================================================================================

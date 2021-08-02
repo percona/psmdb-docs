@@ -8,7 +8,7 @@ If you want to contact developers,
 use the `community forum <https://www.percona.com/forums/questions-discussions/percona-server-for-mongodb>`_.
 
 .. note:: Please search the forum for similar questions and discussions
-   before openning a new thread.
+   before opening a new thread.
 
    You will need to sign up for an account to post in the forum.
 

@@ -32,21 +32,37 @@ Though in-memory storage engine stores all data in memory,
 some metadata files, diagnostics logs and statistics metrics are still
 written to disk. 
 
+
 Creating a new ``dbPath`` data directory for a different storage engine is the
 simplest solution. Yet when you switch between disk-using storage engines (e.g.
 from WiredTiger_ to :ref:`inmemory`), you may have to delete the old data if
 there is not enough disk space for both. Double-check that your backups are solid
-and/or the replica set nodes are healthy to before you switch to the new storage
+and/or the replica set nodes are healthy before you switch to the new storage
 engine.
 
-If there is data that you want to migrate and make compatible with the new
-storage engine, use the following methods:
+.. _switching-storage-procedure:
 
-* for replica sets, use the "rolling restart" process. 
+Procedure
+-----------------
 
-  Switch to the new storage engine on the secondary node. Clean out the
-  ``dbPath`` data directory (by default , :file:`/var/lib/mongodb`) and edit
-  the configuration file:
+To change to a new storage engine, you have the following options:
+
+* If you simply want to temporarily test a new storage engine (e.g. Percona Memory Engine), set a different
+  data directory for the ``dbPath`` variable in the configuration file.
+  Make sure that the user running |mongod| has read and write
+  permissions for the new data directory.
+
+  .. code-block:: bash
+
+     $ service mongod stop
+     $ # In the configuration file, set the inmemory
+     $ # value for the storage.engine variable
+     $ # Set the <newDataDir> for the dbPath variable
+     $ service mongod start
+
+* If you want to permanently switch to a new storage engine and do not have any
+  valuable data in your database, clean out the ``dbPath`` data directory
+  (by default, :file:`/var/lib/mongodb`) and edit the configuration file:
 
   .. code-block:: bash
 
@@ -58,25 +74,41 @@ storage engine, use the following methods:
      $ # storage.inMemory.engineConfig.inMemorySizeGB
      $ service mongod start
      
-  Wait for the node to rejoin with the other replica set members and report the
-  SECONDARY status. 
+* If there is data that you want to migrate
+  and make compatible with the new storage engine,
+  use the following methods:
 
-  Repeat the procedure on the remaining nodes.
+  - for replica sets, use the "rolling restart" process. 
+    Switch to the new storage engine on the secondary node. Clean out the ``dbPath`` data directory and edit the configuration file:
+
+    .. code-block:: bash
+        
+       $ service mongod stop
+       $ rm -rf <dbpathDataDir>
+       $ # Update the configuration file by setting the new
+       $ # value for the storage.engine variable
+       $ # set the engine-specific settings such as
+       $ # storage.inMemory.engineConfig.inMemorySizeGB
+       $ service mongod start
     
-* for a standalone instance or a single-node replica set, use the
-  ``mongodump`` and ``mongorestore`` utilities:
+    Wait for the node to rejoin with the other nodes and report the SECONDARY status.
 
-  .. code-block:: bash
+    Repeat the procedure on the remaining nodes.
 
-     $ mongodump --out <dumpDir>
-     $ rm -rf <dbpathDataDir>
-     $ # Update the configuration file by setting the new
-     $ # value for the storage.engine variable
-     $ # set the engine-specific settings such as
-     $ # storage.wiredTiger.engineConfig.cacheSizeGB or
-     $ # storage.inMemory.engineConfig.inMemorySizeGB
-     $ service mongod start
-     $ mongorestore <dumpDir>
+  - for a standalone instance or a single-node replica set, use the ``mongodump`` and ``mongorestore`` utilities:
+
+    .. code-block:: bash
+        
+       $ mongodump --out <dumpDir>
+       $ service mongod stop
+       $ rm -rf <dbpathDataDir>
+       $ # Update the configuration file by setting the new
+       $ # value for the storage.engine variable
+       $ # set the engine-specific settings such as
+       $ # storage.inMemory.engineConfig.inMemorySizeGB
+       $ service mongod start
+       $ mongorestore <dumpDir>
+
  
 Data at Rest Encryption
 ================================================================================

@@ -22,7 +22,7 @@ in MongoDB Enterprise Edition.
        * In-Memory_ (Enterprise only)
    * - Encryption-at-Rest
      - * Key server = Hashicorp Vault
-       * Fully opensource
+       * Fully open source
      - * Key server = KMIP
        * Enterprise only
    * - :ref:`Hot Backup <hot-backup>`

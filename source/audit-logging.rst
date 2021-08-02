@@ -131,7 +131,7 @@ The following options control audit logging:
    (from which ``mongod`` was started).
 
    .. note:: This file will rotate in the same manner as the system log path,
-      either on server reboot or using the ``logRotate`` command.
+      either on server reboot or using the `logRotate <https://docs.mongodb.com/manual/reference/command/logRotate/>`_ command.
       The time of rotation will be added to the old file’s name.
 
 Audit Message Syntax

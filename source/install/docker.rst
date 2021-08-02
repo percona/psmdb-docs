@@ -24,7 +24,7 @@ To run the latest |PSMDB| |version| in a Docker container, use the following com
 .. code-block:: bash
 
    $ docker run -d --name psmdb --restart always \
-   percona/percona-server-mongodb:4.4
+   percona/percona-server-mongodb:5.0
 
 The previous command does the following:
 
@@ -43,7 +43,7 @@ The previous command does the following:
   will start the container on startup
   and restart it if the container exits.
 
-* ``percona/percona-server-mongodb:4.4`` is the name and version tag
+* ``percona/percona-server-mongodb:5.0`` is the name and version tag
   of the image to derive the container from.
 
 .. seealso::
