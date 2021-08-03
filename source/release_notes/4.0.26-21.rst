@@ -1,0 +1,27 @@
+.. _PSMDB-4.0.26-21:
+
+================================================================================
+*Percona Server for MongoDB* 4.0.26-21
+================================================================================
+
+:Date: August 9, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.0/install/index.html>`_
+
+Percona Server for MongoDB 4.0.26-21 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 4.0.26 Community Edition <https://docs.mongodb.com/manual/release-notes/4.0/#4.0.26---jul-23--2021>`_.
+It supports MongoDB 4.0.26 protocols and drivers.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-211`: Add status of hot backup
+
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-873`: Add missing runtime dependencies for LDAP authentication against active directory in RPM packages
+
+
+
