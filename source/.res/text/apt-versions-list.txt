@@ -1,4 +1,4 @@
 .. code-block:: text
 
-   percona-server-mongodb | 5.0.1-1.buster | http://repo.percona.com/psmdb-50/apt buster/main amd64 Packages
+   percona-server-mongodb | 5.0.2-1.buster | http://repo.percona.com/psmdb-50/apt buster/main amd64 Packages
   

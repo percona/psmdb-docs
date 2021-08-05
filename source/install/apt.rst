@@ -89,11 +89,11 @@ To install a specific version of |PSMDB|, do the following:
 
       .. include:: ../.res/text/apt-versions-list.txt
 
-2. Install a specific version packages. You must specify each package with the version number. For example, to install |PSMDB| 5.0.1-1, run the following command:
+2. Install a specific version packages. You must specify each package with the version number. For example, to install |PSMDB| 5.0.2-1, run the following command:
    
    .. code-block:: bash
    
-      $ sudo apt-get install percona-server-mongodb=5.0.1-1.buster percona-server-mongodb-mongos=5.0.1-1.buster percona-server-mongodb-shell=5.0.1-1.buster percona-server-mongodb-server=5.0.1-1.buster percona-server-mongodb-tools=5.0.1-1.buster
+      $ sudo apt-get install percona-server-mongodb=5.0.2-1.buster percona-server-mongodb-mongos=5.0.2-1.buster percona-server-mongodb-shell=5.0.2-1.buster percona-server-mongodb-server=5.0.2-1.buster percona-server-mongodb-tools=5.0.2-1.buster
 
 Running Percona Server for MongoDB
 ================================================================================

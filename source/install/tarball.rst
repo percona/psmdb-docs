@@ -12,14 +12,14 @@ You can find links to the binary tarballs under the *Generic Linux* menu item on
 
    .. code-block:: bash
 
-      $ wget https://www.percona.com/downloads/percona-server-mongodb-5.0/percona-server-mongodb-5.0.1-1/binary/tarball/percona-server-mongodb-5.0.1-1-x86_64.glibc2.17.tar.gz\
-      $ tar -xf percona-server-mongodb-5.0.1-1-x86_64.glibc2.17.tar.gz
+      $ wget https://www.percona.com/downloads/percona-server-mongodb-5.0/percona-server-mongodb-5.0.2-1/binary/tarball/percona-server-mongodb-5.0.2-1-x86_64.glibc2.17.tar.gz\
+      $ tar -xf percona-server-mongodb-5.0.2-1-x86_64.glibc2.17.tar.gz
 
 #. Add the location of the binaries to the ``PATH`` variable: 
 
    .. code-block:: bash
 
-      $ export PATH=~/percona-server-mongodb-5.0.1-1/bin/:$PATH
+      $ export PATH=~/percona-server-mongodb-5.0.2-1/bin/:$PATH
 
 #. Create the default data directory::
 

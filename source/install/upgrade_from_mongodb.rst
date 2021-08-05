@@ -55,13 +55,13 @@ Upgrading on Debian or Ubuntu
 
       .. code-block:: text
 
-          ii  mongodb-org                      5.0.1                       amd64        MongoDB open source document-oriented database system (metapackage)
-          ii  mongodb-org-database             5.0.1                       amd64        MongoDB open source document-oriented database system (metapackage)
-          ii  mongodb-org-database-tools-extra 5.0.1                       amd64        Extra MongoDB database tools
-          ii  mongodb-org-mongos               5.0.1                       amd64        MongoDB sharded cluster query router
-          ii  mongodb-org-server               5.0.1                       amd64        MongoDB database server
-          ii  mongodb-org-shell                5.0.1                       amd64        MongoDB shell client
-          ii  mongodb-org-tools                5.0.1                       amd64        MongoDB tools
+          ii  mongodb-org                      5.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
+          ii  mongodb-org-database             5.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
+          ii  mongodb-org-database-tools-extra 5.0.2                       amd64        Extra MongoDB database tools
+          ii  mongodb-org-mongos               5.0.2                       amd64        MongoDB sharded cluster query router
+          ii  mongodb-org-server               5.0.2                       amd64        MongoDB database server
+          ii  mongodb-org-shell                5.0.2                       amd64        MongoDB shell client
+          ii  mongodb-org-tools                5.0.2                       amd64        MongoDB tools
 
 
 
@@ -92,12 +92,12 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
       .. code-block:: text
 
-         mongodb-org-shell-5.0.1-1.el8.x86_64
+         mongodb-org-shell-5.0.2-1.el8.x86_64
          mongodb-org-database-5.0.0-1.el8.x86_64
          mongodb-org-5.0.0-1.el8.x86_64
          mongodb-database-tools-100.4.1-1.x86_64
-         mongodb-org-server-5.0.1-1.el8.x86_64
-         mongodb-org-mongos-5.0.1-1.el8.x86_64
+         mongodb-org-server-5.0.2-1.el8.x86_64
+         mongodb-org-mongos-5.0.2-1.el8.x86_64
          mongodb-org-tools-5.0.0-1.el8.x86_64
 
 #. Remove the installed packages:
@@ -106,12 +106,12 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
       $ yum remove \
       mongodb-org-tools-5.0.0-1.el8.x86_64 \
-      mongodb-org-shell-5.0.1-1.el8.x86_64 \
+      mongodb-org-shell-5.0.2-1.el8.x86_64 \
       mongodb-org-database-5.0.0-1.el8.x86_64 \
       mongodb-org-5.0.0-1.el8.x86_64 \
       mongodb-database-tools-100.4.1-1.x86_64 \
-      mongodb-org-server-5.0.1-1.el8.x86_64 \
-      mongodb-org-mongos-5.0.1-1.el8.x86_64 \
+      mongodb-org-server-5.0.2-1.el8.x86_64 \
+      mongodb-org-mongos-5.0.2-1.el8.x86_64 \
 
 #. Remove log files: :bash:`rm -r /var/log/mongodb`
 #. Install |PSMDB| :ref:`using yum <yum>`.
