@@ -7,6 +7,7 @@ Percona Server for MongoDB |version| Release Notes
 .. toctree::
    :maxdepth: 1
 
+   4.4.8-9
    4.4.6-8
    4.4.5-7
    4.4.4-6

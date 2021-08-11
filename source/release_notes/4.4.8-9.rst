@@ -1,0 +1,32 @@
+.. _PSMDB-4.4.8-9:
+
+================================================================================
+*Percona Server for MongoDB* 4.4.8-9
+================================================================================
+
+:Date: August 16, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.4/install/index.html>`_
+
+Percona Server for MongoDB 4.4.8-9 is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 4.4.8 Community Edition <https://docs.mongodb.com/manual/release-notes/4.4/#4.4.8---aug-4--2021>`_.
+It supports MongoDB 4.4.8 protocols and drivers.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-892`: Suppress excessive "Refreshed RWC defaults" log messages
+* :jirabug:`PSMDB-211`: Add status of hot backup
+* :jirabug:`PSMDB-824`: Improve log error message for simultaneous backups
+* :jirabug:`PSMDB-807`: Improve error message when createBackup is executed on fsyncLocked DB
+
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-210`: Hot backup should respect killOp() requests
+* :jirabug:`PSMDB-902`: audit log filter cannot use 'rateLimit' field
+* :jirabug:`PSMDB-876`: Profile limiting with rateLimit is broken
+* :jirabug:`PSMDB-873`: Add missing runtime dependencies for LDAP authentication against active directory in RPM packages
+
+
