@@ -7,6 +7,10 @@
 :Date: August 16, 2021
 :Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_
 
+.. note::
+
+   With a lot of new features and modifications introduced, we recommend using this release candidate in testing environments only.
+
 We are pleased to announce the release candidate of Percona Server for MongoDB 5.0.2-1. It is available for `download from Percona website <https://www.percona.com/downloads/percona-server-mongodb-5.0/#>`_ and for installation from `Percona Software Repositories <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_.
 
 Percona Server for MongoDB 5.0.2-1 is an enhanced, source-available, and highly-scalable database that is a
