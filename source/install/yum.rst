@@ -93,11 +93,11 @@ To install a specific version of |PSMDB|, do the following:
 
       .. include:: ../.res/text/yum-versions-list.txt
 
-#. Install a specific version packages. For example, to install |PSMDB| 5.0.1-1, run the following command:
+#. Install a specific version packages. For example, to install |PSMDB| 5.0.2-1, run the following command:
    
    .. code-block:: bash 
    
-      $ sudo yum install percona-server-mongodb-5.0.1-1.el8
+      $ sudo yum install percona-server-mongodb-5.0.2-1.el8
       
 Running Percona Server for MongoDB
 ================================================================================

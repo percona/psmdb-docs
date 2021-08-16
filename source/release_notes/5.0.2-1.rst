@@ -1,0 +1,29 @@
+.. _PSMDB-5.0.2-1:
+
+================================================================================
+*Percona Server for MongoDB* 5.0.2-1 (Release Candidate)
+================================================================================
+
+:Date: August 16, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_
+
+.. note::
+
+   With a lot of new features and modifications introduced, we recommend using this release candidate in testing environments only.
+
+We are pleased to announce the release candidate of Percona Server for MongoDB 5.0.2-1. It is available for `download from Percona website <https://www.percona.com/downloads/percona-server-mongodb-5.0/#>`_ and for installation from `Percona Software Repositories <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_.
+
+Percona Server for MongoDB 5.0.2-1 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 5.0.2 Community Edition. It includes `all features of MongoDB 5.0.2 Community Edition <https://docs.mongodb.com/v5.0/release-notes/5.0/#5.0.2---aug-06--2021>`_. The most notable among these are the following:
+
+- `Resharding <https://docs.mongodb.com/v5.0/release-notes/5.0/#resharding>`_ allows changing the shard key for a collection at runtime. Thereby, you optimize data distribution across a sharded cluster and improve performance.
+- `Time Series Collections <https://docs.mongodb.com/v5.0/release-notes/5.0/#time-series-collections>`_ are aimed for storing sequences of measurements over a period of time. These collections improve query efficiency, allow data analysis in real time and optimize disk usage.
+- `Resumable Index Builds <https://docs.mongodb.com/v5.0/release-notes/5.0/#interrupted-index-builds>`_ means that the index build for a collection continues if a primary node in a replica set is switched to another server or  when a server restarts. The build process is saved to disk and resumes from the saved position. This allows DBAs to perform maintenance and don't worry of losing the index build in the process.  
+- `Window operators <https://docs.mongodb.com/v5.0/release-notes/5.0/#window-operators>`_ allow operations on a specified span of documents known as window. `$setWindowFields <https://docs.mongodb.com/v5.0/reference/operator/aggregation/setWindowFields/#mongodb-pipeline-pipe.-setWindowFields>`_ is a new pipeline stage to operate with these documents.
+- `Versioned API <https://docs.mongodb.com/v5.0/reference/versioned-api/>`_ allows specifying which API version your application communicating with MongoDB runs against. Versioned API detaches the application's lifecycle from that of the database. As a result, you modify the application only to introduce new features instead of having to maintain compatibility with the new version of MongoDB.
+
+In addition, `new aggregation operators <https://docs.mongodb.com/v5.0/release-notes/5.0/#new-aggregation-operators>`_ such as ``$count``, ``$dateAdd``, ``$dateDiff``, ``$dateSubtract``, ``$sampleRate`` and ``$rand`` are available with this release.
+
+Percona Server for MongoDB 5.0.2-1 extends this feature set by providing :ref:`enterprise-level enhancements <compare>` for free. 
+
+Percona Server for MongoDB 5.0.2-1 fully supports MongoDB 5.0.2 Community Edition protocols and drivers and requires no changes to MongoDB applications or code. 
