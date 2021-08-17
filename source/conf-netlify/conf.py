@@ -22,7 +22,8 @@ html_theme_options = {
         "4.0": "https://psmdb-docs-40.netlify.app/",
         "4.2": "https://psmdb-docs-42.netlify.app/",
         "4.4": "https://psmdb-docs-44.netlify.app/",
-        "Latest": "https://psmdb-docs-44.netlify.app"
+        "5.0": "https://psmdb-docs-50.netlify.app/",
+        "Latest": "https://psmdb-docs-50.netlify.app/"
     },
 }
 html_logo = '../_static/images/percona-logo.svg'
