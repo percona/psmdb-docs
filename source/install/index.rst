@@ -39,6 +39,11 @@ If you are currently using MongoDB, see :ref:`Upgrading from MongoDB
 
 If you are running an earlier version of |PSMDB|, see :ref:`Upgrading from Version 4.2 <upgrade_from_42>`.
 
+Uninstall Instructions
+================================================================================
+
+To uninstall |PSMDB|, see :ref:`uninstall`.
+
 .. toctree::
    :hidden:
 
