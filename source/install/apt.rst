@@ -137,21 +137,5 @@ Restart the service using the following command:
   
    $ sudo systemctl restart mongod
 
-Uninstalling Percona Server for MongoDB
-================================================================================
-
-To uninstall |PSMDB|, remove all the installed packages. Removing packages with
-|apt.remove| will leave the configuration and data files. Removing the packages
-with |apt.purge| will remove all the packages with configuration files and data.
-Depending on your needs you can choose which command better suits you.
-
-|tip.run-all.root|
-
-1. Stop the |mongod| server: |service.mongod.stop|
-#. Remove the packages. There are two options. To keep the configuration and
-   data files, run |apt.remove.percona-server-mongodb|. If you want to delete
-   the configuration and data files as well as the packages, use |apt.purge|:
-   |apt.purge.percona-server-mongodb|
-
 .. include:: ../.res/replace.txt
 .. include:: ../.res/replace.program.txt
