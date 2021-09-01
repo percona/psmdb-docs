@@ -25,10 +25,12 @@ To contribute to documentation, learn about the following:
 - [Docker](https://docs.docker.com/get-docker/). It allows you to run Sphinx in a virtual environment instead of installing it and its dependencies on your machine.
 
 There are several active versions of the documentation. Each version has a branch in the repository named accordingly:
-- 3.6
+
+- 3.6 (EOL)
 - 4.0
 - 4.2
 - 4.4
+- 5.0
 
 The .rst files are in the ``source`` directory. 
 
@@ -74,7 +76,7 @@ git remote add upstream git@github.com:percona/psmdb-docs.git
 git fetch upstream
 git merge upstream/<branch>
 ```
-Make sure that your local branch and the branch you merge changes from are the same. So if you are on ``3.6`` branch, merge changes from ``upstream/3.6``.
+Make sure that your local branch and the branch you merge changes from are the same. So if you are on ``4.4`` branch, merge changes from ``upstream/4.4``.
 
 5. Create a separate branch for your changes
 
