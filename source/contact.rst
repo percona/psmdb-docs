@@ -13,7 +13,7 @@ use the `community forum <https://www.percona.com/forums/questions-discussions/p
    You will need to sign up for an account to post in the forum.
 
 If you want to explore source code and contribute to the project
-use the `GitHub repo <https://github.com/percona/percona-server-mongodb>`_.
+use the `GitHub repo <https://github.com/percona/percona-server-mongodb>`_ and the `Contributing guide <https://github.com/percona/percona-server-mongodb/blob/v5.0/CONTRIBUTING.rst>`_.
 
 .. note:: Search existing pull requests and recent commits
    for code that may fix what you are planning to suggest.

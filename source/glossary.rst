@@ -39,5 +39,8 @@
     * aid developers in ensuring merge requests build and test on all platforms,
     * no known performance regressions (without a damn good explanation).
 
+  Kerberos
+    Kerberos is an authentication protocol for client/server authentication without sending the passwords over an insecure network. Kerberos uses symmetric encryption in the form of tickets - small pieces of encrypted data used for authentication. A ticket is issued for the client and validated by the server.  
+
   Rolling restart
     A rolling restart (rolling upgrade) is shutting down and upgrading nodes one by one. The whole cluster remains operational. There is no interruption to clients assuming the elections are short and all writes directed to the old primary use the retryWrite mechanism.
