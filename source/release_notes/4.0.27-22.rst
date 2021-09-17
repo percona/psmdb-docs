@@ -1,0 +1,17 @@
+.. _PSMDB-4.0.27-22:
+
+================================================================================
+*Percona Server for MongoDB* 4.0.27-22
+================================================================================
+
+:Date: September 28, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.0/install/index.html>`_
+
+Percona Server for MongoDB 4.0.27-22 is an enhanced, source available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 4.0.27 Community Edition <https://docs.mongodb.com/manual/release-notes/4.0/#4.0.27---sep-13--2021>`_.
+It supports MongoDB 4.0.27 protocols and drivers.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-918`: Disable the deletion of the ``mongod`` user in RPM packages
