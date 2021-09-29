@@ -11,14 +11,9 @@ It requires no changes to MongoDB applications or code.
 .. hint::
 
    To see which version of |PSMDB| you are using check the value of the
-   ``psmdbVersion`` key in the output of the ``buildInfo`` database command. If
-   this key does not exist |PSMDB| is not installed on the server.
-
-   .. seealso::
-
-      MongoDB Documentation: ``buildInfo`` Database Command
-         https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo
-
+   ``psmdbVersion`` key in the output of the `buildInfo <https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo>`_ database command. If
+   this key does not exist, |PSMDB| is not installed on the server.
+        
 |PSMDB| provides the following features:
 
 - MongoDB's original MMAPv1_ storage engine, and the default
@@ -32,9 +27,11 @@ It requires no changes to MongoDB applications or code.
 - :ref:`hot-backup` for the default WiredTiger_
 - :ref:`rate-limit` to decrease the impact of the profiler on performance
 
+To learn more about the features, available in |PSMDB|, see :ref:`compare`
+
 --------------------------------------------------------------------------------
 
-Introduction
+About Percona Server for MongoDB
 ================================================================================
 
 .. toctree::
@@ -51,14 +48,14 @@ Installation
    :titlesonly:
 
    install/index
-   install/upgrade_from_mongodb
-   install/upgrade_from_36
 
 Features
 ================================================================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+   :includehidden:
+   :titlesonly:
 
    inmemory
    hot-backup
@@ -66,9 +63,30 @@ Features
    authentication
    audit-logging
    log-redaction
-   enable-auth
    data_at_rest_encryption
    ngram-full-text-search
+
+How to
+================================================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   Enable authentication <enable-auth>
+   Set up LDAP authentication using SASL <sasl-auth>
+   Switch storage engines <switch_storage_engines>
+   Tune parameters <setParameter>
+   Upgrade from MongoDB Community Edition <install/upgrade_from_mongodb>
+   Upgrade Percona Server for MongoDB from 3.6 to 4.0 <install/upgrade_from_36>
+   Uninstall Percona Server for MongoDB <install/uninstall>
+
+Release Notes
+================================================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   Release notes <release_notes/index>
 
 Reference
 ================================================================================
@@ -76,10 +94,7 @@ Reference
 .. toctree::
    :maxdepth: 1
 
-   switch_storage_engines
-   Parameter Tuning <setParameter>
    contact
-   Release Notes <release_notes/index>
    glossary
    copyright
    trademark-policy
