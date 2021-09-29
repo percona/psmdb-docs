@@ -53,7 +53,7 @@ Bugs Fixed
   allow running the ``logApplicationMessage`` command by any role that has the
   `applicationMessage` privilege, such as `clusterManager` or `hostManager`.
 
-  .. code-block:: guess
+  .. code-block:: javascript
      
      > db.runCommand({logApplicationMessage: 'find'});
 
