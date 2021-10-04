@@ -63,7 +63,7 @@ Features
    authentication
    audit-logging
    log-redaction
-   data_at_rest_encryption
+   data-at-rest-encryption
    ngram-full-text-search
 
 How to
@@ -74,10 +74,10 @@ How to
 
    Enable authentication <enable-auth>
    Set up LDAP authentication using SASL <sasl-auth>
-   Switch storage engines <switch_storage_engines>
-   Tune parameters <setParameter>
-   Upgrade from MongoDB Community Edition <install/upgrade_from_mongodb>
-   Upgrade Percona Server for MongoDB from 3.6 to 4.0 <install/upgrade_from_36>
+   Switch storage engines <switch-storage-engines>
+   Tune parameters <set-parameter>
+   Upgrade from MongoDB Community Edition <install/upgrade-from-mongodb>
+   Upgrade Percona Server for MongoDB from 3.6 to 4.0 <install/upgrade-from-36>
    Uninstall Percona Server for MongoDB <install/uninstall>
 
 Release Notes
