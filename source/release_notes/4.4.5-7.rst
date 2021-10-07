@@ -10,8 +10,19 @@
 
 .. warning::
 
-   This version is not recommended for production use due to a critical issue, `WT-7426 <https://jira.mongodb.org/browse/WT-7426>`_. The issue is fixed in `MongoDB 4.4.6 Community Edition <https://docs.mongodb.com/v5.0/release-notes/4.4/#4.4.6---may-10--2021>`_ and :ref:`PSMDB-4.4.6-8`.
+   This version is not recommended for production use due to the following critical issues:
+
+   * `WT-7426 <https://jira.mongodb.org/browse/WT-7426>`_,
+   * `WT-7984 <https://jira.mongodb.org/browse/WT-7984>`_ and 
+   * `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_. 
+     
+   The issue `WT-7426 <https://jira.mongodb.org/browse/WT-7426>`_ is fixed in `MongoDB 4.4.6 Community Edition <https://docs.mongodb.com/v5.0/release-notes/4.4/#4.4.6---may-10--2021>`_ and :ref:`PSMDB-4.4.6-8`.
+
+   `WT-7984 <https://jira.mongodb.org/browse/WT-7984>`_ and `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_ are fixed in `MongoDB 4.4.9 Community Edition  <https://docs.mongodb.com/manual/release-notes/4.4/#4.4.9---sep-21--2021>`_ and :ref:`PSMDB-4.4.9-10`.
    
+   We recommend you to upgrade to Percona Server for MongoDB 4.4.9-10 as soon as possible and run the `validate <https://docs.mongodb.com/manual/reference/command/validate/>`_ command on every collection on every replica set node.
+
+   Read more about the issues and post-upgrade steps in `WT-7984 <https://jira.mongodb.org/browse/WT-7984>`_ and `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_. 
 
 Percona Server for MongoDB 4.4.5-7 is based on `MongoDB 4.4.5 Community Edition <https://docs.mongodb.com/manual/release-notes/4.4/#4.4.5---apr-8--2021>`_
 and does not include any additional changes.  
