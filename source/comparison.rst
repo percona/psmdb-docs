@@ -4,7 +4,7 @@
 Percona Server for MongoDB Feature Comparison
 ================================================================================
 
-|PSMDB| |version| is based on MongoDB |version|. |PSMDB| extends MongoDB 
+|PSMDB| |version| is based on `MongoDB 4.2 <https://docs.mongodb.com/manual/introduction/>`_. |PSMDB| extends MongoDB 
 Community Edition to include the functionality that is otherwise only available
 in MongoDB Enterprise Edition.
 
@@ -26,7 +26,7 @@ in MongoDB Enterprise Edition.
      - * Key server = KMIP
        * Enterprise only
    * - :ref:`Hot Backup <hot-backup>`
-     - YES (replicaset)
+     - YES (replica set)
      - NO
    * - LDAP Authentication
      - * Simple LDAP Auth
@@ -52,6 +52,6 @@ in MongoDB Enterprise Edition.
 Profiling Rate Limiting
 -----------------------
 
-Profiling Rate Limiting was added to |PSMDB| in v3.4 with ``--rateLimit`` argument. Since v3.6 MongoDB Community (and Enterprise) Edition includes a similar option slowOpSampleRate_. Please see :ref:`rate-limit` for more information.
+Profiling Rate Limiting was added to |PSMDB| in v3.4 with the ``--rateLimit`` argument. Since v3.6, MongoDB Community (and Enterprise) Edition includes a similar option slowOpSampleRate_. Please see :ref:`rate-limit` for more information.
 
 .. _slowOpSampleRate: https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-slowopsamplerate
