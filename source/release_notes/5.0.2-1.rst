@@ -11,6 +11,14 @@
 
    With a lot of new features and modifications introduced, we recommend using this release candidate in testing environments only.
 
+.. warning::
+
+   Percona Server for MongoDB 5.0.2-1 is not recommended for production use due to the following critical issues: `WT-7984 <https://jira.mongodb.org/browse/WT-7984>`_ and `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_. These issues are fixed in MongoDB 5.0.3 Community Edition and :ref:`5.0.3-2`.
+
+   We recommend you to upgrade to Percona Server for MongoDB 5.0.3-2 and run the `validate <https://docs.mongodb.com/manual/reference/command/validate/>`_ command on every collection on every replica set node.
+
+   Read more about the post-upgrade steps in `WT-7984 <https://jira.mongodb.org/browse/WT-7984>`_ and `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_.
+
 We are pleased to announce the release candidate of Percona Server for MongoDB 5.0.2-1. It is available for `download from Percona website <https://www.percona.com/downloads/percona-server-mongodb-5.0/#>`_ and for installation from `Percona Software Repositories <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_.
 
 Percona Server for MongoDB 5.0.2-1 is an enhanced, source-available, and highly-scalable database that is a
