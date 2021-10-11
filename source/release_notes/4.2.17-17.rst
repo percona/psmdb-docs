@@ -1,0 +1,41 @@
+.. _PSMDB-4.2.17-17:
+
+================================================================================
+*Percona Server for MongoDB* 4.2.17-17
+================================================================================
+
+:Date: October 11, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.2/install/index.html>`_
+
+Percona Server for MongoDB 4.2.17-17 includes all features and bug fixes provided by MongoDB 4.2.16 Community Edition and by MongoDB 4.2.17 Community Edition.  
+It supports protocols and drivers of MongoDB Community Edition versions 4.2.16 and 4.2.17.
+
+
+Release Highlights
+=============================
+
+The changes and bug fixes introduced by MongoDB include the following:
+
+* The ``libsasl2`` dependencies are added for DEB-based operating systems to enable GSSAPI and Kerberos authentication to work out-of-the box after installing MongoDB (`SERVER-54729 <https://jira.mongodb.org/browse/SERVER-54729>`_)
+* The number of modify updates in WiredTiger is now limited to prevent performance issues (`WT-7776 <https://jira.mongodb.org/browse/WT-7776>`_)
+* Errors related to proxy connections receive new error codes so that they don't change the behavior of clients' drivers (`SERVER-50549 <https://jira.mongodb.org/browse/SERVER-50549>`_)
+* Pre-warming of connection pools in `mongos` tier (`SERVER-44152 <https://jira.mongodb.org/browse/SERVER-44152>`_)
+* Improvements to Secondary slowdowns or hangs (`SERVER-34938 <https://jira.mongodb.org/browse/SERVER-34938>`_)
+
+
+Find the full list of changes in the  `MongoDB 4.2.16 Community Edition <https://docs.mongodb.com/manual/release-notes/4.2/#4.2.16---sep-13--2021>`_ and `MongoDB 4.2.17 Community Edition <https://docs.mongodb.com/manual/release-notes/4.2/#4.2.17---sep-28--2021>`_ release notes.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-918`: Disable the ability to delete the ``mongod`` user in RPM packages during the re-installation of Percona Server for MongoDB. - This preserves the permissions to the MongoDB data directory for the ``mongod`` user since its user ID and group ID remain unchanged.
+
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-873`: RPM packages now include the ``cyrus-sasl`` modules to enable LDAP authentication via native LDAP against Active Directory
+
+
+
