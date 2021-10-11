@@ -4,14 +4,9 @@
 Percona Server for MongoDB Feature Comparison
 ================================================================================
 
-<<<<<<< HEAD
-|PSMDB| |version| is based on MongoDB |version|. |PSMDB| extends |mongodb-ce| to include the functionality that is otherwise only available
-in |mongodb-e|.
-=======
-|PSMDB| |version| is based on `MongoDB 5.0 <https://docs.mongodb.com/manual/introduction/>`_. |PSMDB| extends MongoDB 
+|PSMDB| |version| is based on `MongoDB 4.0 <https://docs.mongodb.com/manual/introduction/>`_. |PSMDB| extends MongoDB 
 Community Edition to include the functionality that is otherwise only available
 in MongoDB Enterprise Edition.
->>>>>>> ead67ee... PSMDB-916 Doc resructure
 
 .. list-table::
    :header-rows: 1
