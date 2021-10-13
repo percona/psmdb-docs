@@ -15,6 +15,7 @@ html_theme_options = {
     'repo_name': 'percona/psmdb-docs',
     'color_accent': 'grey',
     'color_primary': 'orange',
+    'google_analytics_account': 'UA-343802-3',
     'globaltoc_collapse': True,
     'version_dropdown': True,
     'version_dropdown_text': 'Versions',
