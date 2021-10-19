@@ -44,8 +44,6 @@ the |percona-release| utility.
 Configure Percona repository
 ----------------------------
 
-|tip.run-all.root|
-
 1. Fetch |percona-release| packages from Percona web:
 
    .. code-block:: bash
@@ -56,14 +54,23 @@ Configure Percona repository
 
    .. code-block:: bash
 
-      $ dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
+      $ sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
 
    Once you install this package the |Percona| repositories should be added. You
    can check the repository setup in the
    :file:`/etc/apt/sources.list.d/percona-release.list` file.
 
-#. Enable the repository: :bash:`percona-release enable psmdb-44 release`
-#. Remember to update the local cache: |apt.update|
+#. Enable the repository: 
+   
+   .. code-block:: bash
+   
+      $ sudo percona-release enable psmdb-44 release
+
+#. Remember to update the local cache: 
+   
+   .. code-block:: bash
+
+      $ sudo apt-get update
    
 Install the latest version 
 --------------------------------------------------------------
@@ -72,7 +79,7 @@ Run the following command to install the latest version of |PSMDB|:
 
 .. code-block:: bash
 
-   $ sudo apt-get install percona-server-mongodb
+   $ sudo apt install percona-server-mongodb
 
 Install a specific version
 --------------------------------------------------------------
@@ -93,15 +100,13 @@ To install a specific version of |PSMDB|, do the following:
    
    .. code-block:: bash
    
-      $ sudo apt-get install percona-server-mongodb=4.4.0-1.buster percona-server-mongodb-mongos=4.4.0-1.buster percona-server-mongodb-shell=4.4.0-1.buster percona-server-mongodb-server=4.4.0-1.buster percona-server-mongodb-tools=4.4.0-1.buster
+      $ sudo apt install percona-server-mongodb=4.4.0-1.buster percona-server-mongodb-mongos=4.4.0-1.buster percona-server-mongodb-shell=4.4.0-1.buster percona-server-mongodb-server=4.4.0-1.buster percona-server-mongodb-tools=4.4.0-1.buster
 
 Running Percona Server for MongoDB
 ================================================================================
 
 By default, |PSMDB| stores data files in :file:`/var/lib/mongodb/`
 and configuration parameters in :file:`/etc/mongod.conf`.
-
-|tip.run-all.root|
 
 **Starting the service**
 
