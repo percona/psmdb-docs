@@ -44,7 +44,6 @@ The preferred way to install |PSMDB| is from Percona repositories. Percona repos
 Configure Percona repository
 ----------------------------
 
-|tip.run-all.root|
                                                       
 1. Install |percona-release|:
 
@@ -163,38 +162,6 @@ For RHEL or CentOS version 7, you can use the ``systemctl`` utility:
 
    $ sudo systemctl enable mongod
 
-Uninstalling Percona Server for MongoDB
-================================================================================
-
-To completely uninstall Percona Server for MongoDB
-you'll need to remove all the installed packages and data files:
-
-|tip.run-all.root|
-
-1. Stop the Percona Server for MongoDB service: 
-
-   .. code-block:: bash
-
-      $ sudo systemctl stop mongod
-
-#. Remove the packages: 
-   
-   .. code-block:: bash
-   
-      $ sudo yum remove percona-server-mongodb* 
-
-#. Remove the data and configuration files:
-
-   .. code-block:: bash
-
-      $ sudo rm -rf /var/lib/mongodb
-      $ sudo rm -f /etc/mongod.conf
-
-.. warning::
-
-   This will remove all the packages and delete all the data files (databases,
-   tables, logs, etc.).  You might want to back up your data before doing this
-   in case you need the data later.
 
 .. rubric:: Footnotes
 
