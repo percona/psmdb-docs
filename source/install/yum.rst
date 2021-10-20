@@ -44,7 +44,6 @@ The preferable way to install |PSMDB| is from Percona repositories. Percona repo
 Configure Percona repository
 ----------------------------
 
-|tip.run-all.root|
                                                       
 1. Install |percona-release|:
 
@@ -112,34 +111,37 @@ Running Percona Server for MongoDB
 |PSMDB| stores data files in :dir:`/var/lib/mongodb/` by default.
 The configuration file is :file:`/etc/mongod.conf`.
 
-Starting the service
-  |PSMDB| is not started automatically after installation.
-  Start it manually using the following command: 
+**Starting the service**
 
-  .. code-block:: bash
+|PSMDB| is not started automatically after installation. Start it manually using the following command: 
+
+.. code-block:: bash
   
-     $ sudo systemctl start mongod
+   $ sudo systemctl start mongod
 
-Confirming that service is running
-  Check the service status using the following command: |service.mongod.status|
+**Confirming that service is running**
 
-  .. code-block:: bash
+Check the service status using the following command: |service.mongod.status|
+
+.. code-block:: bash
   
-     $ sudo systemctl status mongod
+   $ sudo systemctl status mongod
 
-Stopping the service
-  Stop the service using the following command: |service.mongod.stop|
+**Stopping the service**
 
-  .. code-block:: bash
+Stop the service using the following command: |service.mongod.stop|
+
+.. code-block:: bash
   
-     $ sudo systemctl stop mongod
+   $ sudo systemctl stop mongod
 
-Restarting the service
-  Restart the service using the following command: |service.mongod.restart|
+**Restarting the service**
 
-  .. code-block:: bash
+Restart the service using the following command: |service.mongod.restart|
+
+.. code-block:: bash
   
-     $ sudo systemctl restart mongod
+   $ sudo systemctl restart mongod
 
 Running after reboot
 --------------------------------------------------------------------------------
@@ -159,39 +161,6 @@ For RHEL or CentOS version 7, you can use the ``systemctl`` utility:
 .. code-block:: bash
 
    $ sudo systemctl enable mongod
-
-Uninstalling Percona Server for MongoDB
-================================================================================
-
-To completely uninstall Percona Server for MongoDB
-you'll need to remove all the installed packages and data files:
-
-|tip.run-all.root|
-
-1. Stop the Percona Server for MongoDB service: 
-
-   .. code-block:: bash
-
-      $ sudo systemctl stop mongod
-
-#. Remove the packages: 
-   
-   .. code-block:: bash
-   
-      $ sudo yum remove percona-server-mongodb* 
-
-#. Remove the data and configuration files:
-
-   .. code-block:: bash
-
-      $ sudo rm -rf /var/lib/mongodb
-      $ sudo rm -f /etc/mongod.conf
-
-.. warning::
-
-   This will remove all the packages and delete all the data files (databases,
-   tables, logs, etc.).  You might want to back up your data before doing this
-   in case you need the data later.
 
 .. rubric:: Footnotes
 
