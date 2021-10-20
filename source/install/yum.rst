@@ -43,9 +43,7 @@ Percona repositories are managed using the |percona-release| tool. So in order t
 
 Configure Percona repository
 ----------------------------
-
-|tip.run-all.root|
-                                                      
+                                          
 1. Install |percona-release|:
 
    .. code-block:: bash
@@ -60,7 +58,11 @@ Configure Percona repository
 	 Preparing...                ########################################### [100%]
          1:percona-release        ########################################### [100%]
 
-#. Enable the repository: :bash:`percona-release enable psmdb-50 release`
+#. Enable the repository: 
+
+   .. code-block:: bash
+
+      $ sudo percona-release enable psmdb-50 release
 
 
 .. seealso::
@@ -111,34 +113,37 @@ Running Percona Server for MongoDB
 |PSMDB| stores data files in :dir:`/var/lib/mongodb/` by default.
 The configuration file is :file:`/etc/mongod.conf`.
 
-Starting the service
-  |PSMDB| is not started automatically after installation.
-  Start it manually using the following command: 
+**Starting the service**
 
-  .. code-block:: bash
+|PSMDB| is not started automatically after installation. Start it manually using the following command: 
+
+.. code-block:: bash
   
-     $ sudo systemctl start mongod
+   $ sudo systemctl start mongod
 
-Confirming that service is running
-  Check the service status using the following command: |service.mongod.status|
-
-  .. code-block:: bash
+**Confirming that service is running**
   
-     $ sudo systemctl status mongod
+Check the service status using the following command: 
 
-Stopping the service
-  Stop the service using the following command: |service.mongod.stop|
-
-  .. code-block:: bash
+.. code-block:: bash
   
-     $ sudo systemctl stop mongod
+   $ sudo systemctl status mongod
 
-Restarting the service
-  Restart the service using the following command: |service.mongod.restart|
+**Stopping the service**
 
-  .. code-block:: bash
+Stop the service using the following command: 
+
+.. code-block:: bash
   
-     $ sudo systemctl restart mongod
+   $ sudo systemctl stop mongod
+
+**Restarting the service**
+
+Restart the service using the following command: 
+
+.. code-block:: bash
+  
+   $ sudo systemctl restart mongod
 
 Running after reboot
 --------------------------------------------------------------------------------
@@ -151,39 +156,6 @@ You can enable it using the ``systemctl`` utility:
 .. code-block:: bash
 
    $ sudo systemctl enable mongod
-
-Uninstalling Percona Server for MongoDB
-================================================================================
-
-To completely uninstall Percona Server for MongoDB
-you'll need to remove all the installed packages and data files. If you need the data, consider making a backup before uninstalling Percona Server for MongoDB:
-
-|tip.run-all.root|
-
-1. Stop the Percona Server for MongoDB service: 
-
-   .. code-block:: bash
-
-      $ sudo systemctl stop mongod
-
-#. Remove the packages: 
-   
-   .. code-block:: bash
-   
-      $ sudo yum remove percona-server-mongodb* 
-
-#. Remove the data and configuration files:
-
-   .. code-block:: bash
-
-      $ sudo rm -rf /var/lib/mongodb
-      $ sudo rm -f /etc/mongod.conf
-
-.. warning::
-
-   This will remove all the packages and delete all the data files (databases,
-   tables, logs, etc.).  You might want to back up your data before doing this
-   in case you need the data later.
 
 
 .. include:: ../.res/replace.txt

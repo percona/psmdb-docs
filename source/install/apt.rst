@@ -56,14 +56,24 @@ Configure Percona repository
 
    .. code-block:: bash
 
-      $ dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
+      $ sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
 
    Once you install ``percona-release``, the |Percona| repositories should be available. You
    can check the repository setup in the
    :file:`/etc/apt/sources.list.d/percona-release.list` file.
 
-#. Enable the repository: :bash:`percona-release enable psmdb-50 release`
-#. Remember to update the local cache: |apt.update|
+
+#. Enable the repository: 
+   
+   .. code-block:: bash
+   
+      $ sudo percona-release enable psmdb-50 release
+
+#. Remember to update the local cache: 
+   
+   .. code-block:: bash
+
+      $ sudo apt-get update
    
 Install the latest version 
 --------------------------------------------------------------
@@ -72,7 +82,7 @@ Run the following command to install the latest version of |PSMDB|:
 
 .. code-block:: bash
 
-   $ sudo apt-get install percona-server-mongodb
+   $ sudo apt install percona-server-mongodb
 
 Install a specific version
 --------------------------------------------------------------
@@ -100,8 +110,6 @@ Running Percona Server for MongoDB
 
 By default, |PSMDB| stores data files in :file:`/var/lib/mongodb/`
 and configuration parameters in :file:`/etc/mongod.conf`.
-
-|tip.run-all.root|
 
 **Starting the service**
 
