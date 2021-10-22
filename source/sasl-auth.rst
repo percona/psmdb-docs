@@ -51,7 +51,7 @@ Configuring ``saslauthd``
 
    .. code-block:: bash
 
-      $ sudo apt-get install -y sasl2-bin
+      $ sudo apt install -y sasl2-bin
 		
 #. Configure SASL to use ``ldap`` as the  authentication mechanism.
 
