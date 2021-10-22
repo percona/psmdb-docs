@@ -45,11 +45,17 @@ Troubleshooting tip: The ``pidFilePath`` setting in :file:`mongod.conf` must  ma
 Upgrading on Debian or Ubuntu
 =========================================
 
-|tip.run-all.root|
+1. Stop the ``mongod`` service: 
 
-1. Stop the ``mongod`` service: |service.mongod.stop|
+   .. code-block:: bash
 
-#. Check for installed packages: :bash:`dpkg -l | grep mongod`
+      $ sudo systemctl stop mongod
+
+#. Check for installed packages: 
+   
+   .. code-block:: bash
+
+      $ sudo dpkg -l | grep mongod
 
    .. admonition:: Output
 
@@ -65,24 +71,40 @@ Upgrading on Debian or Ubuntu
 
    .. code-block:: bash
 
-      $ apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \
+      $ apt remove mongodb-org mongodb-org-mongos mongodb-org-server \
       $ mongodb-org-shell mongodb-org-tools
 
-#. Remove log files: :bash:`rm -r /var/log/mongodb`
+#. Remove log files: 
+
+   .. code-block:: bash
+
+      $ sudo rm -r /var/log/mongodb
 
 #. Install |PSMDB| :ref:`using apt <apt>`
    
 #. Verify that the configuration file includes the correct options. For example, |PSMDB| stores data files in :file:`/var/lib/mongodb` by default. If you used another ``dbPath`` data directory, edit the configuration file accordingly
    
-#. Start the ``mongod`` service: |service.mongod.start|
+#. Start the ``mongod`` service: 
+
+   .. code-block:: bash
+
+      $ sudo systemctl start mongod
+
 
 Upgrading on Red Hat Enterprise Linux or CentOS
 ====================================================
 
-|tip.run-all.root|
+1. Stop the ``mongod`` service: 
+   
+   .. code-block:: bash
 
-1. Stop the ``mongod`` service: |service.mongod.stop| 
-#. Check for installed packages: :bash:`rpm -qa | grep mongo`
+      $ sudo systemctl stop mongod
+ 
+#. Check for installed packages: 
+
+   .. code-block:: bash
+
+      $ sudo rpm -qa | grep mongo
 
    .. admonition:: Output
 
@@ -105,7 +127,12 @@ Upgrading on Red Hat Enterprise Linux or CentOS
       mongodb-org-tools-4.4.0-1.el6.x86_64 \
       mongodb-org-4.4.0-1.el6.x86_64
 
-#. Remove log files: :bash:`rm -r /var/log/mongodb`
+#. Remove log files: 
+   
+   .. code-block:: bash
+
+      $ sudo rm -r /var/log/mongodb
+      
 #. Install |PSMDB| :ref:`using yum <yum>`.
 
 .. note::
@@ -115,6 +142,13 @@ Upgrading on Red Hat Enterprise Linux or CentOS
    the new version, replace the default :file:`/etc/mongod.conf` file.  For
    example, existing data may not be compatible with the default WiredTiger
    storage engine.
+
+# Start the ``mongod`` service:
+
+  .. code-block:: bash
+
+      $ sudo systemctl start mongod
+
 
 To upgrade a replica set or a sharded cluster, use the :term:`rolling restart <Rolling restart>` method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational. 
 
