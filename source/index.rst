@@ -76,8 +76,8 @@ How to
    Set up LDAP authentication using SASL <sasl-auth>
    Switch storage engines <switch-storage-engines>
    Tune parameters <set-parameter>
-   Upgrade from MongoDB Community Edition <install/upgrade-from-mongodb>
-   Upgrade Percona Server for MongoDB from 4.0 to 4.2 <install/upgrade-from-40>
+   Upgrade Percona Server for MongoDB <install/upgrade-from-mongodb>
+   Perform a major upgrade of Percona Server for MongoDB from 4.0 to 4.2 <install/upgrade-from-40>
    Uninstall Percona Server for MongoDB <install/uninstall>
 
 Release Notes
