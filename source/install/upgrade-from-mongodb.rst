@@ -82,7 +82,7 @@ Upgrading on Debian or Ubuntu
 
    .. code-block:: bash
 
-      $ apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \
+      $ apt remove mongodb-org mongodb-org-mongos mongodb-org-server \
       $ mongodb-org-shell mongodb-org-tools
 
 
@@ -101,7 +101,6 @@ Upgrading on Debian or Ubuntu
    .. code-block:: bash
 
       $ sudo systemctl mongod start
-
 
 Upgrading on Red Hat Enterprise Linux or CentOS
 --------------------------------------------------
@@ -139,7 +138,6 @@ Upgrading on Red Hat Enterprise Linux or CentOS
       mongodb-org-tools-4.4.0-1.el6.x86_64 \
       mongodb-org-4.4.0-1.el6.x86_64
 
-
 #. Remove log files: 
 
    .. code-block:: bash
@@ -147,11 +145,6 @@ Upgrading on Red Hat Enterprise Linux or CentOS
       $ sudo rm -r /var/log/mongodb
 
 #. Install Percona Server for MongoDB :ref:`using yum <yum>`.
-#. Start the ``mongod`` service: 
-   
-   .. code-block:: bash
-
-      $ sudo systemctl start mongod
 
 .. note::
 
@@ -160,6 +153,13 @@ Upgrading on Red Hat Enterprise Linux or CentOS
    the new version, replace the default :file:`/etc/mongod.conf` file.  For
    example, existing data may not be compatible with the default WiredTiger
    storage engine.
+
+# Start the ``mongod`` service:
+
+  .. code-block:: bash
+
+      $ sudo systemctl start mongod
+
 
 To upgrade a replica set or a sharded cluster, use the :term:`rolling restart <Rolling restart>` method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational. 
 

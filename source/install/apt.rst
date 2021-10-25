@@ -70,7 +70,7 @@ Configure Percona repository
    
    .. code-block:: bash
 
-      $ sudo apt-get update
+      $ sudo apt update
    
 Install the latest version 
 --------------------------------------------------------------
