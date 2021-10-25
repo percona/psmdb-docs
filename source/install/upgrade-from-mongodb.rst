@@ -82,7 +82,7 @@ Upgrading on Debian or Ubuntu
 
    .. code-block:: bash
 
-      $ apt-get remove \
+      $ apt remove \
       mongodb-org \
       mongodb-org-mongos \
       mongodb-org-server \
@@ -106,8 +106,6 @@ Upgrading on Debian or Ubuntu
 
 Upgrading on Red Hat Enterprise Linux or CentOS
 --------------------------------------------------
-
-|tip.run-all.root|
 
 1. Stop the ``mongod`` service: 
    
