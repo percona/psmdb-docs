@@ -86,9 +86,13 @@ Upgrading on Debian or Ubuntu
 
    .. code-block:: bash
 
-      $ apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \
-        mongodb-org-database mongodb-org-shell mongodb-org-tools
-
+      $ sudo apt remove \
+      mongodb-org \
+      mongodb-org-mongos \
+      mongodb-org-server \
+      mongodb-org-database \
+      mongodb-org-shell \
+      mongodb-org-tools
 
 #. Remove log files: 
 
@@ -138,7 +142,7 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
    .. code-block:: bash
 
-      $ yum remove \
+      $ sudo yum remove \
       mongodb-org-tools-5.0.0-1.el8.x86_64 \
       mongodb-org-shell-5.0.2-1.el8.x86_64 \
       mongodb-org-database-5.0.0-1.el8.x86_64 \
