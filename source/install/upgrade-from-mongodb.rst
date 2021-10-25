@@ -1,13 +1,24 @@
-.. _upgrade_from_mongodb:
+.. _upgrade_psmdb:
 
 ================================================================================
-Upgrading from |mongodb-ce|
+Upgrading |PSMDB|
 ================================================================================
 
 An in-place upgrade is done with existing data in the server.  Generally
 speaking, this is stopping the ``mongod`` service, removing the old packages, installing the
 new server and starting it with the same db data directory. An in-place upgrade
 is suitable for most environments, except the ones that use ephemeral storage and/or host addresses.
+
+This document provides upgrade instructions for the following use cases:
+
+* :ref:`upgrade_from_mongodb`;
+* :ref:`minor_upgrade`
+
+
+.. _upgrade_from_mongodb:
+
+Upgrading from |mongodb-ce|
+================================================================================
 
 .. note::
 
@@ -18,13 +29,13 @@ is suitable for most environments, except the ones that use ephemeral storage an
    new ``mongod`` user is created during installation, and it belongs to the
    ``mongod`` group.
 
-This document describes an in-place upgrade of a ``mongod`` instance. If you are using data at rest encryption, refer to the :ref:`upgrade_encryption` section. 
+This section describes an in-place upgrade of a ``mongod`` instance. If you are using data at rest encryption, refer to the :ref:`upgrade_encryption` section. 
 
 .. contents::
    :local: 
 
 Prerequisites
-==================
+-------------
 
 Before you start the upgrade, update the |mongodb| configuration file
 (:file:`/etc/mongod.conf`) to contain the following settings.  
@@ -43,7 +54,7 @@ Troubleshooting tip: The ``pidFilePath`` setting in :file:`mongod.conf` must  ma
    backup of your data.  
 
 Upgrading on Debian or Ubuntu
-=========================================
+---------------------------------------
 
 1. Stop the ``mongod`` service: 
 
@@ -74,36 +85,36 @@ Upgrading on Debian or Ubuntu
       $ apt remove mongodb-org mongodb-org-mongos mongodb-org-server \
       $ mongodb-org-shell mongodb-org-tools
 
+
 #. Remove log files: 
 
    .. code-block:: bash
 
       $ sudo rm -r /var/log/mongodb
 
-#. Install |PSMDB| :ref:`using apt <apt>`
-   
+#. Install |PSMDB| :ref:`using apt <apt>`.
+
 #. Verify that the configuration file includes the correct options. For example, |PSMDB| stores data files in :file:`/var/lib/mongodb` by default. If you used another ``dbPath`` data directory, edit the configuration file accordingly
    
 #. Start the ``mongod`` service: 
 
    .. code-block:: bash
 
-      $ sudo systemctl start mongod
-
+      $ sudo systemctl mongod start
 
 Upgrading on Red Hat Enterprise Linux or CentOS
-====================================================
+--------------------------------------------------
 
 1. Stop the ``mongod`` service: 
    
    .. code-block:: bash
 
       $ sudo systemctl stop mongod
- 
+
 #. Check for installed packages: 
-
+   
    .. code-block:: bash
-
+   
       $ sudo rpm -qa | grep mongo
 
    .. admonition:: Output
@@ -128,12 +139,12 @@ Upgrading on Red Hat Enterprise Linux or CentOS
       mongodb-org-4.4.0-1.el6.x86_64
 
 #. Remove log files: 
-   
+
    .. code-block:: bash
 
       $ sudo rm -r /var/log/mongodb
-      
-#. Install |PSMDB| :ref:`using yum <yum>`.
+
+#. Install Percona Server for MongoDB :ref:`using yum <yum>`.
 
 .. note::
 
@@ -157,6 +168,42 @@ To upgrade a replica set or a sharded cluster, use the :term:`rolling restart <R
    |mongodb| Documentation: 
       - `Upgrade a Replica Set <https://docs.mongodb.com/manual/release-notes/4.4-upgrade-replica-set/>`_
       - `Upgrade a Sharded Cluster <https://docs.mongodb.com/manual/release-notes/4.4-upgrade-sharded-cluster/>`_
+
+.. _minor_upgrade:
+
+Minor upgrade of |PSMDB|
+========================
+
+To upgrade |PSMDB| to the latest version, follow these steps:
+
+1. Stop the `mongod` service:
+   
+   .. code-block:: bash
+
+      $ sudo systemctl stop mongod
+
+#. Install the latest version packages. Use the command relevant to your operating system.
+
+   * On Debian and Ubuntu:
+      
+     .. code-block:: bash
+
+        $ sudo apt install percona-server-mongodb
+
+   * On Red Hat Enterprise Linux or CentOS:
+      
+     .. code-block:: bash
+
+        $ sudo yum install percona-server-mongodb
+
+#. Start the `mongod` service:
+   
+   .. code-block:: bash
+
+      $ sudo systemctl start mongod
+
+To upgrade a replica set or a sharded cluster, use the :term:`rolling restart <Rolling restart>` method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.
+
 
 .. _upgrade_encryption:
 
