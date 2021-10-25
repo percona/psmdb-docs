@@ -84,9 +84,11 @@ Upgrading on Debian or Ubuntu
 
    .. code-block:: bash
 
-      $ apt-get remove mongodb-org mongodb-org-mongos mongodb-org-server \
-      $ mongodb-org-shell mongodb-org-tools
-
+      $ sudo apt remove mongodb-org \ 
+      mongodb-org-mongos \
+      mongodb-org-server \
+      mongodb-org-shell \
+      mongodb-org-tools
 
 #. Remove log files: 
 
@@ -99,6 +101,7 @@ Upgrading on Debian or Ubuntu
 #. Verify that the configuration file includes the correct options. For example, |PSMDB| stores data files in :file:`/var/lib/mongodb` by default. If you used another ``dbPath`` data directory, edit the configuration file accordingly
    
 #. Start the ``mongod`` service: 
+
   
    .. code-block:: bash
 
@@ -112,11 +115,11 @@ Upgrading on Red Hat Enterprise Linux or CentOS
    .. code-block:: bash
 
       $ sudo systemctl stop mongod
-
+ 
 #. Check for installed packages: 
-   
+
    .. code-block:: bash
-   
+
       $ sudo rpm -qa | grep mongo
 
    .. admonition:: Output
@@ -133,7 +136,7 @@ Upgrading on Red Hat Enterprise Linux or CentOS
 
    .. code-block:: bash
 
-      $ yum remove \
+      $ sudo yum remove \
       mongodb-org-mongos-4.2.7-1.el6.x86_64 \
       mongodb-org-shell-4.2.7-1.el6.x86_64 \
       mongodb-org-server-4.2.7-1.el6.x86_64 \
@@ -204,7 +207,6 @@ To upgrade |PSMDB| to the latest version, follow these steps:
       $ sudo systemctl start mongod
 
 To upgrade a replica set or a sharded cluster, use the :term:`rolling restart <Rolling restart>` method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.
-
 
 .. _upgrade_encryption:
 
