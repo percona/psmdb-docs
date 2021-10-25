@@ -69,7 +69,7 @@ Configure Percona repository
    
    .. code-block:: bash
 
-      $ sudo apt-get update
+      $ sudo apt update
    
 Install the latest version 
 --------------------------------------------------------------
@@ -99,7 +99,7 @@ To install a specific version of |PSMDB|, do the following:
    
    .. code-block:: bash
    
-      $ sudo apt-get install percona-server-mongodb=4.0.16-9.buster percona-server-mongodb-mongos=4.0.16-9.buster percona-server-mongodb-shell=4.0.16-9.buster percona-server-mongodb-server=4.0.16-9.buster percona-server-mongodb-tools=4.0.16-9.buster
+      $ sudo apt install percona-server-mongodb=4.0.16-9.buster percona-server-mongodb-mongos=4.0.16-9.buster percona-server-mongodb-shell=4.0.16-9.buster percona-server-mongodb-server=4.0.16-9.buster percona-server-mongodb-tools=4.0.16-9.buster
 
 Running Percona Server for MongoDB
 ================================================================================
