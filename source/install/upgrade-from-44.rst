@@ -46,13 +46,13 @@ Upgrading on Debian or Ubuntu
 
    .. code-block:: bash
 
-      $ sudo apt-get update
+      $ sudo apt update
 
 #. Install |PSMDB| |version| packages: 
  
    .. code-block:: bash
    
-      $ sudo apt-get install percona-server-mongodb 
+      $ sudo apt install percona-server-mongodb 
 
 #. Start the ``mongod`` instance: 
 
