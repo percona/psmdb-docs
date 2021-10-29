@@ -1,3 +1,6 @@
+{%- set url_pdf = pathto('https://learn.percona.com/download-percona-server-mongodb-4-4-manual') %}
+
+
 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="{{ pathto(master_doc)|e }}" title="{{ docstitle|striptags|e }}" class="md-nav__button md-logo">
@@ -17,6 +20,6 @@
   {% endif %}
   {% include "globaltoc.html" %}
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-<a title="Download PDF Manual" onclick="_gaq.push(['b._trackEvent', 'Percona Server for MongoDB', 'Download', 'Download Manual Percona Server for MongoDB 4.4 ']);" href="https://learn.percona.com/download-percona-server-mongodb-4-4-manual" class="md-nav__link">Download PDF Manual <span class="glyphicon glyphicon-chevron-down"></span></a>
+<a title="Download PDF Manual" onclick="_gaq.push(['b._trackEvent', 'Percona Server for MongoDB', 'Download', 'Download Manual Percona Server for MongoDB {{version}} ']);" href="https://learn.percona.com/download-percona-server-mongodb-4-4-manual" class="md-nav__link">Download PDF Manual <span class="glyphicon glyphicon-chevron-down"></span></a>
   </label>
 </nav>
