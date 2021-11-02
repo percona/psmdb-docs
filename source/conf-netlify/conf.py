@@ -7,6 +7,7 @@ from conf import *
 extensions.append('sphinx_gitstamp')
 extensions.append('sphinx_copybutton')
 extensions.append('sphinx_tabs.tabs')
+
 html_sidebars['**']=['globaltoc.html', 'searchbox.html', 'localtoc.html', 'logo-text.html']
 html_theme = 'sphinx_material'
 html_theme_options = {
@@ -20,17 +21,24 @@ html_theme_options = {
     'version_dropdown': True,
     'version_dropdown_text': 'Versions',
     'version_info': {
-        "3.6": "https://psmdb-docs-36.netlify.app/",
-        "4.0": "https://psmdb-docs-40.netlify.app/",
-        "4.2": "https://psmdb-docs-42.netlify.app/",
-        "4.4": "https://psmdb-docs-44.netlify.app/",
-        "5.0": "https://psmdb-docs-50.netlify.app/",
-        "Latest": "https://psmdb-docs-50.netlify.app"
+        "3.6": "https://docs.percona.com/percona-server-for-mongodb/3.6/",
+        "4.0": "https://docs.percona.com/percona-server-for-mongodb/4.0/",
+        "4.2": "https://docs.percona.com/percona-server-for-mongodb/4.2/",
+        "4.4": "https://docs.percona.com/percona-server-for-mongodb/4.4/",
+        "5.0": "https://docs.percona.com/percona-server-for-mongodb/5.0/",
+        "Latest": "https://docs.percona.com/percona-server-for-mongodb/4.4/"
     },
 }
 html_logo = '../_static/images/percona-logo.svg'
 html_favicon = '../_static/images/percona_favicon.ico'
 pygments_style = 'emacs'
 gitstamp_fmt = "%b %d, %Y"
+# Specify the text pattern that won't be copied with the code block contents
 copybutton_prompt_text = '$'
+# Add any paths that contain templates here, relative to this directory.
+templates_path = ['../_static/_templates/theme']
+# Path to custom css files. These will override the default css attribute if they exist
+html_css_files = [
+    '../_static/css/material.css',
+]
 #html_last_updated_fmt = ''
