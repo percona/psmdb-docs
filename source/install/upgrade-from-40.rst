@@ -32,7 +32,12 @@ the corresponding package manager for your system.  For more information, see
 Upgrading on Debian or Ubuntu
 ================================================================================
 
-1. Stop the ``mongod`` instance: |service.mongod.stop|
+1. Stop the ``mongod`` instance: 
+   
+   .. code-block:: bash
+
+      $ sudo systemctl stop mongod
+      
 #. Enable |percona| repository for |PSMDB| |version|: 
 
    .. code-block:: bash
