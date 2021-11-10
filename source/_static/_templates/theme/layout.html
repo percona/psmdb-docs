@@ -14,6 +14,12 @@ _gaq.push(['_trackPageview']);
 
 {%- block relbar2 %}
 {% include "relbar2.html" %}
+<hr>
+<div class="md-content">
+  <article class="md-content__inner md-typeset" role="main">    
+   {%- if gitstamp %} <small> Last update: {{gitstamp}} </small> {%- endif %}
+   </article>
+</div>
 {%- endblock %}
 
 

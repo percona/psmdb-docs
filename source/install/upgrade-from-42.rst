@@ -27,37 +27,38 @@ the corresponding package manager for your system.  For more information, see
 
    Perform a full backup of your data and configuration files before upgrading.
 
-Upgrading on Debian or Ubuntu
-================================================================================
+.. tabs::
 
-1. Stop the ``mongod`` instance: |service.mongod.stop|
-#. Enable |percona| repository for |PSMDB| |version|: 
+   .. tab:: Upgrading on Debian or Ubuntu
 
-   .. code-block:: bash
+      1. Stop the ``mongod`` instance: |service.mongod.stop|
+      #. Enable |percona| repository for |PSMDB| |version|: 
 
-      $ sudo percona-release enable psmdb-44
+         .. code-block:: bash
 
-#. Update the local cache: 
-   
-   .. code-block:: bash
+            $ sudo percona-release enable psmdb-44
 
-      $ sudo apt update
+      #. Update the local cache: 
+         
+         .. code-block:: bash
 
-#. Install |PSMDB| |version| packages: 
+            $ sudo apt update
 
-   .. code-block:: bash
+      #. Install |PSMDB| |version| packages: 
 
-      $ sudo apt install percona-server-mongodb
+         .. code-block:: bash
 
-#. Start the ``mongod`` instance: 
+            $ sudo apt install percona-server-mongodb
 
-   .. code-block:: bash
+      #. Start the ``mongod`` instance: 
 
-      $ sudo systemctl start mongod
+         .. code-block:: bash
 
-For more information, see :ref:`apt`.
+            $ sudo systemctl start mongod
 
-.. include:: ../.res/text/enable_features.txt   
+      For more information, see :ref:`apt`.
+
+      .. include:: ../.res/text/enable_features.txt   
 
 Upgrading on RHEL and CentOS
 ================================================================================

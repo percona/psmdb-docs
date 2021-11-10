@@ -7,7 +7,6 @@ from conf import *
 extensions.append('sphinx_gitstamp')
 extensions.append('sphinx_copybutton')
 extensions.append('sphinx_tabs.tabs')
-extensions.append('tab_or_note')
 
 html_sidebars['**']=['globaltoc.html', 'searchbox.html', 'localtoc.html', 'logo-text.html']
 html_theme = 'sphinx_material'
