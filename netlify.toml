@@ -19,3 +19,10 @@
   # to deploy to AWS. This is relative to the base directory if one has been set,
   # or the root directory if a base has not been set.
   # functions = "functions/"
+
+  # Redirect rule to handle the latest label in URL
+[[redirects]]
+  from = "https://docs.percona.com/percona-server-for-mongodb/latest/*"
+  to = "https://docs.percona.com/percona-server-for-mongodb/4.4/:splat"
+  status = 200
+  force = false 
