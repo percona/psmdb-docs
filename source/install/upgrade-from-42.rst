@@ -1,6 +1,5 @@
 .. _upgrade_from_42:
 
-================================================================================
 Upgrading from |PSMDB| |prev-version| to |version|
 ================================================================================
 
@@ -31,7 +30,12 @@ the corresponding package manager for your system.  For more information, see
 
    .. tab:: Upgrading on Debian or Ubuntu
 
-      1. Stop the ``mongod`` instance: |service.mongod.stop|
+      1. Stop the ``mongod`` instance: 
+
+         .. code-block:: bash
+
+            $ sudo systemctl stop mongod
+
       #. Enable |percona| repository for |PSMDB| |version|: 
 
          .. code-block:: bash
@@ -58,41 +62,38 @@ the corresponding package manager for your system.  For more information, see
 
       For more information, see :ref:`apt`.
 
-      .. include:: ../.res/text/enable_features.txt   
+   .. tab:: Upgrading on RHEL and CentOS
 
-Upgrading on RHEL and CentOS
-================================================================================
+      
+      1. Stop the ``mongod`` instance: 
 
-|tip.run-all.root|
+         .. code-block:: bash
 
-1. Stop the ``mongod`` instance: 
+            $ sudo systemctl stop mongod
 
-   .. code-block:: bash
+      #. Enable |percona| repository for |PSMDB| |version|: 
 
-      $ sudo systemctl stop mongod
+         .. code-block:: bash
 
-#. Enable |percona| repository for |PSMDB| |version|: 
+            $ sudo percona-release enable psmdb-44
 
-   .. code-block:: bash
+      #. Install |PSMDB| |version| packages: 
+          
+         .. code-block::bash
 
-      $ sudo percona-release enable psmdb-44
-
-#. Install |PSMDB| |version| packages: 
-    
-   .. code-block::bash
-
-      $ sudo yum install percona-server-mongodb
+            $ sudo yum install percona-server-mongodb
 
 
-#. Start the ``mongod`` instance: 
+      #. Start the ``mongod`` instance: 
 
-   .. code-block:: bash
+         .. code-block:: bash
 
-      $ sudo systemctl start mongod
+            $ sudo systemctl start mongod
 
-For more information, see :ref:`yum`.
+      For more information, see :ref:`yum`.
 
 .. include:: ../.res/text/enable_features.txt   
+
 
 .. include:: ../.res/replace.txt
 .. include:: ../.res/replace.program.txt

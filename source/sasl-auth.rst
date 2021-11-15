@@ -37,51 +37,59 @@ Configuring ``saslauthd``
 ---------------------------------
 1. Install the SASL packages. Depending on your OS, use the following command:
 
-   For *RedHat and CentOS*:
+   .. tabs:: 
 
-   .. code-block:: bash
+      .. tab:: RedHat and CentOS
 
-      $ sudo yum install -y cyrus-sasl 
+         .. code-block:: bash
 
-   .. note::
+            $ sudo yum install -y cyrus-sasl 
 
-      For |PSMDB| versions earlier than 4.0.26-21,  4.4.8-9, 4.2.16-17, also install the ``cyrus-sasl-plain`` package.
- 
-   For *Debian and Ubuntu*:
+         .. note::
 
-   .. code-block:: bash
+            For |PSMDB| versions earlier than 4.0.26-21,  4.4.8-9, 4.2.16-17, also install the ``cyrus-sasl-plain`` package.
+         
+      .. tab:: Debian and Ubuntu
 
-      $ sudo apt install -y sasl2-bin
-		
+         .. code-block:: bash
+
+            $ sudo apt install -y sasl2-bin
+         
 #. Configure SASL to use ``ldap`` as the  authentication mechanism.
 
    .. note:: Back up the original configuration file before making changes.
    
-   For *RedHat/CentOS*, specify the ``ldap`` value for the ``--MECH`` option using the following command:
+   .. tabs:: 
 
-   .. code-block:: bash
+      .. tab:: RedHat and CentOS
 
-      $ sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthd		
+         Specify the ``ldap`` value for the ``--MECH`` option using the following command:
 
-   Alternatively, you can edit the :file:`/etc/sysconfig/saslauthd` configuration file:
+         .. code-block:: bash
 
-   .. code-block:: yaml
+            $ sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthd    
 
-      MECH=ldap		
+         Alternatively, you can edit the :file:`/etc/sysconfig/saslauthd` configuration file:
 
-   For *Debian/Ubuntu*, use the following commands to enable the ``saslauthd`` to auto-run on startup and to set the ``ldap`` value for the ``--MECHANISMS`` option:
+         .. code-block:: yaml
 
-   .. code-block:: bash
+            MECH=ldap      
 
-      $ sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthdsudo sed -i -e s/^MECHANISMS="pam"/MECHANISMS="ldap"/g /etc/default/saslauthd 
-      $ sudo sed -i -e s/^START=no/START=yes/g /etc/default/saslauthd		
+      .. tab:: Debian and Ubuntu
 
-   Alternatively, you can edit the :file:`/etc/default/sysconfig/saslauthd` configuration file:
+         Use the following commands to enable the ``saslauthd`` to auto-run on startup and to set the ``ldap`` value for the ``--MECHANISMS`` option:
 
-   .. code-block:: yaml
+         .. code-block:: bash
 
-      START=yes		
-      MECHANISMS="ldap"
+            $ sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthdsudo sed -i -e s/^MECHANISMS="pam"/MECHANISMS="ldap"/g /etc/default/saslauthd 
+            $ sudo sed -i -e s/^START=no/START=yes/g /etc/default/saslauthd      
+
+         Alternatively, you can edit the :file:`/etc/default/sysconfig/saslauthd` configuration file:
+
+         .. code-block:: yaml
+
+            START=yes      
+            MECHANISMS="ldap"
   
 #. Create the :file:`/etc/saslauthd.conf` configuration file and specify the settings that ``saslauthd`` requires to connect to a local LDAP service:
 
