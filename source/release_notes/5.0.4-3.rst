@@ -1,0 +1,27 @@
+.. _PSMDB-5.0.4-3:
+
+================================================================================
+*Percona Server for MongoDB* 5.0.4-3 (Release Candidate)
+================================================================================
+
+:Date: December 8, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_
+
+Percona Server for MongoDB 5.0.4-3 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 5.0.4 Community Edition.
+
+It is rebased on `MongoDB 5.0.4 Community Edition <https://docs.mongodb.com/manual/release-notes/ and supports MongoDB 5.0.4 protocols and drivers>`_ and supports MongoDB 5.0.4 protocols and drivers.
+
+.. note:: 
+
+   Due to many core changes to WiredTiger and the core server introduced to  facilitate new features such as resharding, time series collections, and API versioning, MongoDB 5.0.x is still unstable. We do not recommend using this release candidate for production environments. 
+
+Release Highlights
+==================
+
+The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:
+
+- Fixed delays in establishing egress connections on ``mongos`` due to delayed responses from ``libcrypto.so``
+- Allowed replication state changes to interrupt lock acquisition. This interruption fixes deadlocks that may occur when a primary node steps down with profiling enabled. 
+  
+Find the full list of changes in the `MongoDB 5.0.4 Community Edition release notes <https://docs.mongodb.com/manual/release-notes/5.0/#5.0.4---nov-15--2021>`_.
