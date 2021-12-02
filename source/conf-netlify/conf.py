@@ -26,7 +26,7 @@ html_theme_options = {
         "4.2": "https://docs.percona.com/percona-server-for-mongodb/4.2/",
         "4.4": "https://docs.percona.com/percona-server-for-mongodb/4.4/",
         "5.0": "https://docs.percona.com/percona-server-for-mongodb/5.0/",
-        "Latest stable": "https://docs.percona.com/percona-server-for-mongodb/4.4/"
+        "Latest stable": "https://docs.percona.com/percona-server-for-mongodb/latest/"
     },
 }
 html_logo = '../_static/images/percona-logo.svg'
