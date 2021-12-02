@@ -44,13 +44,13 @@ netlify:
 	@echo "Netlify build finished. The HTML pages are in $(BUILDDIR)/html."
 
 html:
-	@echo "Downloading percona-theme ..."
-	@wget -O percona-theme.tar.gz https://www.percona.com/docs/theme-1-4/percona-server-for-mongodb/
-	@echo "Extracting theme."
-	@tar -mzxf percona-theme.tar.gz
-	@rm -rf source/percona-theme
-	@mv percona-theme-1-4 source/percona-theme
-	@rm percona-theme.tar.gz
+#	@echo "Downloading percona-theme ..."
+#	@wget -O percona-theme.tar.gz https://www.percona.com/docs/theme-1-4/percona-server-for-mongodb/
+#	@echo "Extracting theme."
+#	@tar -mzxf percona-theme.tar.gz
+#	@rm -rf source/percona-theme
+#	@mv percona-theme-1-4 source/percona-theme
+#	@rm percona-theme.tar.gz
 	@echo "Building html doc"
 
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
