@@ -1,6 +1,5 @@
 .. _upgrade_from_40:
 
-================================================================================
 Upgrading from |PSMDB| |prev-version| to |version|
 ================================================================================
 
@@ -29,74 +28,73 @@ the corresponding package manager for your system.  For more information, see
 
    Perform a full backup of your data and configuration files before upgrading.
 
-Upgrading on Debian or Ubuntu
-================================================================================
+.. tabs::
 
-1. Stop the ``mongod`` instance: 
-   
-   .. code-block:: bash
+   .. tab:: Upgrading on Debian or Ubuntu
 
-      $ sudo systemctl stop mongod
+      1. Stop the ``mongod`` instance: 
+
+         .. code-block:: bash
+
+            $ sudo systemctl stop mongod
+
+      #. Enable |percona| repository for |PSMDB| |version|: 
+
+         .. code-block:: bash
+
+            $ sudo percona-release enable psmdb-42
+
+      #. Update the local cache: 
+         
+         .. code-block:: bash
+
+            $ sudo apt update
+
+      #. Install |PSMDB| |version| packages: 
+
+         .. code-block:: bash
+
+            $ sudo apt install percona-server-mongodb
+
+      #. Start the ``mongod`` instance: 
+
+         .. code-block:: bash
+
+            $ sudo systemctl start mongod
+
+      For more information, see :ref:`apt`.
+
+   .. tab:: Upgrading on RHEL and CentOS
+
       
-#. Enable |percona| repository for |PSMDB| |version|: 
+      1. Stop the ``mongod`` instance: 
 
-   .. code-block:: bash
+         .. code-block:: bash
 
-      $ sudo percona-release enable psmdb-42
+            $ sudo systemctl stop mongod
 
-#. Update the local cache: 
-   
-   .. code-block:: bash
+      #. Enable |percona| repository for |PSMDB| |version|: 
 
-      $ sudo apt update
+         .. code-block:: bash
 
-#. Install |PSMDB| |version| packages: 
+            $ sudo percona-release enable psmdb-42
 
-   .. code-block:: bash
+      #. Install |PSMDB| |version| packages: 
+          
+         .. code-block::bash
 
-      $ sudo apt install percona-server-mongodb
-
-#. Start the ``mongod`` instance: 
-
-   .. code-block:: bash
-
-      $ sudo systemctl start mongod
+            $ sudo yum install percona-server-mongodb
 
 
-For more information, see :ref:`apt`.
+      #. Start the ``mongod`` instance: 
 
-.. include:: ../.res/text/enable_features.txt   
+         .. code-block:: bash
 
-Upgrading on RHEL and CentOS
-================================================================================
+            $ sudo systemctl start mongod
 
-1. Stop the ``mongod`` instance: 
-
-   .. code-block:: bash
-
-      $ sudo systemctl stop mongod
-
-#. Enable |percona| repository for |PSMDB| |version|: 
-
-   .. code-block:: bash
-
-      $ sudo percona-release enable psmdb-42
-
-#. Install |PSMDB| |version| packages: 
-    
-   .. code-block::bash
-
-      $ sudo yum install percona-server-mongodb
-
-
-#. Start the ``mongod`` instance: 
-
-   .. code-block:: bash
-
-      $ sudo systemctl start mongod
-
-For more information, see :ref:`yum`.
+      For more information, see :ref:`yum`.
 
 .. include:: ../.res/text/enable_features.txt   
+
 
 .. include:: ../.res/replace.txt
