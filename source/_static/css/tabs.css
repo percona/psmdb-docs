@@ -1,9 +1,3 @@
-.md-relbar2__inner{
-    padding-top:0;
-    padding-bottom:0;
-    margin-bottom: 0;
-}
-
 .sphinx-tabs-tab {
   position: relative;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -18,3 +12,4 @@
   padding: 1rem 1.5rem;
   margin-bottom: 0;
 }
+
