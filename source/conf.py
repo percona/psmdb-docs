@@ -36,6 +36,7 @@ extensions = ['sphinx.ext.intersphinx', 'sphinx.ext.todo',
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
+
 # The suffix of source filenames.
 source_suffix = '.rst'
 
@@ -154,6 +155,10 @@ html_theme = 'percona-theme'
 # documentation.
 #html_theme_options = {}
 
+
+html_context = {
+   'edit_uri': 'edit/4.0/source'
+}
 # Add any paths that contain custom themes here, relative to this directory.
 html_theme_path = ['.', './percona-theme']
 
