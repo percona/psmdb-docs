@@ -1,6 +1,5 @@
-This starts |PSMDB| with the feature set of |prev-version| version. We recommend that you run the database in this state for some period to make sure that your applications are compatible with the new version of |PSMDB|.
 
-Assuming that your applications are compatible with the new version, enable |version| version features. Run the following command against the ``admin`` database:
+After the upgrade, |PSMDB| is started with the feature set of |prev-version| version. Assuming that your applications are compatible with the new version, enable |version| version features. Run the following command against the ``admin`` database:
 
 .. code-block:: text
 
