@@ -31,9 +31,6 @@ Upgrading from |mongodb-ce|
 
 This section describes an in-place upgrade of a ``mongod`` instance. If you are using data at rest encryption, refer to the :ref:`upgrade_encryption` section. 
 
-.. contents::
-   :local:
-
 Prerequisites
 -------------
 
@@ -53,113 +50,119 @@ Troubleshooting tip: The ``pidFilePath`` setting in :file:`mongod.conf` must  ma
    Before starting the upgrade, we recommend to perform a full
    backup of your data.  
 
-Upgrading on Debian or Ubuntu
----------------------------------------
+.. tabs::
 
-1. Stop the ``mongod`` service: 
+   .. tab:: Upgrading on Debian or Ubuntu
 
-   .. code-block:: bash
+      
+      1. Stop the ``mongod`` service: 
 
-      $ sudo systemctl stop mongod
+         .. code-block:: bash
 
-#. Check for installed packages: 
-   
-   .. code-block:: bash
+            $ sudo systemctl stop mongod
 
-      $ sudo dpkg -l | grep mongod
+      #. Check for installed packages: 
+         
+         .. code-block:: bash
 
-   .. admonition:: Output
+            $ sudo dpkg -l | grep mongod
 
-      .. code-block:: text
+         .. admonition:: Output
 
-	 ii  mongodb-org            4.0.4    amd64      MongoDB document-oriented database system (metapackage)
-	 ii  mongodb-org-mongos     4.0.4    amd64      MongoDB sharded cluster query router
-	 ii  mongodb-org-server     4.0.4    amd64      MongoDB database server
-	 ii  mongodb-org-shell      4.0.4    amd64      MongoDB shell client
-	 ii  mongodb-org-tools      4.0.4    amd64      MongoDB tools
+            .. code-block:: text
 
-#. Remove the installed packages:
+               ii  mongodb-org            4.0.4    amd64      MongoDB document-oriented database system (metapackage)
+               ii  mongodb-org-mongos     4.0.4    amd64      MongoDB sharded cluster query router
+               ii  mongodb-org-server     4.0.4    amd64      MongoDB database server
+               ii  mongodb-org-shell      4.0.4    amd64      MongoDB shell client
+               ii  mongodb-org-tools      4.0.4    amd64      MongoDB tools
 
-   .. code-block:: bash
 
-      $ apt remove \
-      mongodb-org \
-      mongodb-org-mongos \
-      mongodb-org-server \
-      mongodb-org-shell \
-      mongodb-org-tools
+      #. Remove the installed packages:
 
-#. Remove log files: 
+         .. code-block:: bash
 
-   .. code-block:: bash
+            $ sudo apt remove \
+              mongodb-org \
+              mongodb-org-mongos \
+              mongodb-org-server \
+              mongodb-org-shell \
+              mongodb-org-tools
 
-      $ sudo rm -r /var/log/mongodb
+      #. Remove log files: 
 
-#. Install |PSMDB| :ref:`using apt <apt>`.
-#. Verify that the configuration file includes the correct options. For example, |PSMDB| stores data files in :file:`/var/lib/mongodb` by default. If you used another ``dbPath`` data directory, edit the configuration file accordingly
-   
-#. Start the ``mongod`` service: 
-  
-   .. code-block:: bash
+         .. code-block:: bash
 
-      $ sudo systemctl start mongod
+            $ sudo rm -r /var/log/mongodb
 
-Upgrading on Red Hat Enterprise Linux or CentOS
---------------------------------------------------
 
-1. Stop the ``mongod`` service: 
-   
-   .. code-block:: bash
+      #. Install |PSMDB| :ref:`using apt <apt>`.
 
-      $ sudo systemctl stop mongod
+      #. Verify that the configuration file includes the correct options. For example, |PSMDB| stores data files in :file:`/var/lib/mongodb` by default. If you used another ``dbPath`` data directory, edit the configuration file accordingly
+         
+      #. Start the ``mongod`` service: 
 
-#. Check for installed packages: 
-   
-   .. code-block:: bash
-   
-      $ sudo rpm -qa | grep mongo
+         .. code-block:: bash
 
-   .. admonition:: Output
+            $ sudo systemctl mongod start
 
-      .. code-block:: text
+   .. tab:: Upgrading on RHEL or CentOS
+     
+      1. Stop the ``mongod`` service: 
+         
+         .. code-block:: bash
 
-	 mongodb-org-mongos-4.0.4-1.el6.x86_64
-	 mongodb-org-shell-4.0.4-1.el6.x86_64
-	 mongodb-org-server-4.0.4-1.el6.x86_64
-	 mongodb-org-tools-4.0.4-1.el6.x86_64
-	 mongodb-org-4.0.4-1.el6.x86_64
+            $ sudo systemctl stop mongod
 
-#. Remove the installed packages:
+      #. Check for installed packages: 
+         
+         .. code-block:: bash
+         
+            $ sudo rpm -qa | grep mongo
 
-   .. code-block:: bash
+         .. admonition:: Output
 
-      $ yum remove \
-      mongodb-org-mongos-4.0.4-1.el6.x86_64 \
-      mongodb-org-shell-4.0.4-1.el6.x86_64 \
-      mongodb-org-server-4.0.4-1.el6.x86_64 \
-      mongodb-org-tools-4.0.4-1.el6.x86_64 \
-      mongodb-org-4.0.4-1.el6.x86_64
+            .. code-block:: text
 
-#. Remove log files: 
+               mongodb-org-mongos-4.0.4-1.el6.x86_64
+               mongodb-org-shell-4.0.4-1.el6.x86_64
+               mongodb-org-server-4.0.4-1.el6.x86_64
+               mongodb-org-tools-4.0.4-1.el6.x86_64
+               mongodb-org-4.0.4-1.el6.x86_64
 
-   ..code-block::
+      #. Remove the installed packages:
 
-     $ sudo rm -r /var/log/mongodb
+         .. code-block:: bash
+            
+            $ sudo yum remove \
+            mongodb-org-mongos-4.0.4-1.el6.x86_64 \
+            mongodb-org-shell-4.0.4-1.el6.x86_64 \
+            mongodb-org-server-4.0.4-1.el6.x86_64 \
+            mongodb-org-tools-4.0.4-1.el6.x86_64 \
+            mongodb-org-4.0.4-1.el6.x86_64
 
-#. Install Percona Server for MongoDB :ref:`using yum <yum>`.
-#. Start the ``mongod`` service: 
-   
-   .. code-block:: bash
+      #. Remove log files: 
 
-      $ sudo systemctl start mongod
+         .. code-block:: bash
 
-.. note::
+            $ sudo rm -r /var/log/mongodb
 
-   When you remove old packages, your existing configuration file is saved as
-   :file:`/etc/mongod.conf.rpmsave`.  If you want to use this configuration with
-   the new version, replace the default :file:`/etc/mongod.conf` file.  For
-   example, existing data may not be compatible with the default WiredTiger
-   storage engine.
+      #. Install Percona Server for MongoDB :ref:`using yum <yum>`.
+
+      .. note::
+
+         When you remove old packages, your existing configuration file is saved as
+         :file:`/etc/mongod.conf.rpmsave`.  If you want to use this configuration with
+         the new version, replace the default :file:`/etc/mongod.conf` file.  For
+         example, existing data may not be compatible with the default WiredTiger
+         storage engine.
+
+      # Start the ``mongod`` service:
+
+        .. code-block:: bash
+
+            $ sudo systemctl start mongod
+
 
 To upgrade a replica set or a sharded cluster, use the :term:`rolling restart <Rolling restart>` method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.
 
@@ -184,17 +187,19 @@ To upgrade |PSMDB| to the latest version, follow these steps:
 
 #. Install the latest version packages. Use the command relevant to your operating system.
 
-   * On Debian and Ubuntu:
+   .. tabs:: 
+
+      .. tab:: On Debian and Ubuntu:
       
-     .. code-block:: bash
+         .. code-block:: bash
 
-        $ sudo apt install percona-server-mongodb
+            $ sudo apt install percona-server-mongodb
 
-   * On Red Hat Enterprise Linux or CentOS:
+      .. tab:: On Red Hat Enterprise Linux or CentOS:
       
-     .. code-block:: bash
+         .. code-block:: bash
 
-        $ sudo yum install percona-server-mongodb
+            $ sudo yum install percona-server-mongodb
 
 #. Start the `mongod` service:
    

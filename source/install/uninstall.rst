@@ -7,60 +7,64 @@ To completely remove |PSMDB| you need to remove all the installed packages, data
 
 Follow the instructions, relevant to your operating system:
 
-* :ref:`Uninstall on Debian and Ubuntu <apt-uninstall>`
-* :ref:`Uninstall on Red Hat Enterprise Linux and CentOS <yum-uninstall>`
-
 .. _apt-uninstall:
 
-Uninstall on Debian and Ubuntu
-==============================
+.. tabs:: 
 
-You can remove |PSMDB| packages with one of the following commands:
+   .. tab:: Uninstall on Debian and Ubuntu
 
-* |apt.remove| will only remove the packages and leave the configuration and data files. 
-* |apt.purge| will remove all the packages with configuration files and data.
+      You can remove |PSMDB| packages with one of the following commands:
 
-Choose which command better suits you depending on your needs.
+      * |apt.remove| will only remove the packages and leave the configuration and data files. 
+      * |apt.purge| will remove all the packages with configuration files and data.
 
-|tip.run-all.root|
+      Choose which command better suits you depending on your needs.
 
-1. Stop the |mongod| server: |service.mongod.stop|
-#. Remove the packages. There are two options. To keep the configuration and
-   data files, run |apt.remove.percona-server-mongodb|. If you want to delete
-   the configuration and data files as well as the packages, run
-   |apt.purge.percona-server-mongodb|
+      1. Stop the |mongod| server: 
+         
+         .. code-block:: bash 
 
-.. _yum-uninstall:
+            $ sudo systemctl stop mongod
 
-Uninstall on Red Hat Enterprise Linux and CentOS
-============================================================
+      #. Remove the packages. There are two options. 
+         
+         * To keep the configuration and data files, run:
 
-|tip.run-all.root|
+           .. code-block:: bash
 
-1. Stop the Percona Server for MongoDB service: 
+              $ sudo apt remove percona-server-mongodb* 
 
-   .. code-block:: bash
+         * To delete both the configuration and data files and the packages, run:
+            
+           .. code-block:: bash
 
-      $ sudo systemctl stop mongod
+              $ sudo apt purge percona-server-mongodb*
 
-#. Remove the packages: 
-   
-   .. code-block:: bash
-   
-      $ sudo yum remove percona-server-mongodb* 
 
-#. Remove the data and configuration files:
+   .. tab:: Uninstall on RHEL and CentOS
+      
+      1. Stop the Percona Server for MongoDB service: 
 
-   .. code-block:: bash
+         .. code-block:: bash
 
-      $ sudo rm -rf /var/lib/mongodb
-      $ sudo rm -f /etc/mongod.conf
+            $ sudo systemctl stop mongod
 
-.. warning::
+      #. Remove the packages: 
+         
+         .. code-block:: bash
+         
+            $ sudo yum remove percona-server-mongodb* 
 
-   This will remove all the packages and delete all the data files (databases,
-   tables, logs, etc.).  You might want to back up your data before doing this
-   in case you need the data later.
+      #. Remove the data and configuration files:
+
+         .. code-block:: bash
+
+            $ sudo rm -rf /var/lib/mongodb
+            $ sudo rm -f /etc/mongod.conf
+
+      .. warning::
+
+         This will remove all the packages and delete all the data files (databases, tables, logs, etc.).  You might want to back up your data before doing this in case you need the data later.
 
 .. include:: ../.res/replace.txt
 .. include:: ../.res/replace.program.txt
