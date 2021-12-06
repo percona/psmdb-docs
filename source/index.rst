@@ -74,7 +74,6 @@ How to
 
    Enable authentication <enable-auth>
    Set up LDAP authentication using SASL <sasl-auth>
-   Switch storage engines <switch-storage-engines>
    Tune parameters <set-parameter>
 
    Upgrade Percona Server for MongoDB <install/upgrade-from-mongodb>
