@@ -61,6 +61,7 @@ Features
    hot-backup
    rate-limit
    authentication
+   authorization
    audit-logging
    log-redaction
    data-at-rest-encryption
@@ -74,6 +75,7 @@ How to
 
    Enable authentication <enable-auth>
    Set up LDAP authentication using SASL <sasl-auth>
+   Set up LDAP authentication and authorization using NativeLDAP <ldap-setup>
    Switch storage engines <switch-storage-engines>
    Tune parameters <set-parameter>
    Upgrade Percona Server for MongoDB <install/upgrade-from-mongodb>
