@@ -29,7 +29,7 @@ The following steps will help you configure your environment:
 
 Before we move on to the configuration steps, we assume the following:
 
-1. You have the LDAP server up and running. The LDAP server is accessible to the server with |PSMDB| installed. This document focuses on OpenLDAP server. If you use Microsoft Windows Active Directory, refer to the :ref:`windows-ad` section for ``saslauthd`` configuration. 
+1. You have the LDAP server up and running and have configured users on it. The LDAP server is accessible to the server with |PSMDB| installed. This document focuses on OpenLDAP server. If you use Microsoft Windows Active Directory, refer to the :ref:`windows-ad` section for ``saslauthd`` configuration. 
 #. You must place these two servers behind a firewall as the communications between them will be in plain text. This is because the SASL mechanism of PLAIN can only be used when authenticating and credentials will be sent in plain text.
 #. You have ``sudo`` privilege to the server with the |PSMDB| installed.
 

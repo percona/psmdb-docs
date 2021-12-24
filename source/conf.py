@@ -261,7 +261,7 @@ latex_documents = [('index', ''.join(['-'.join(product_name.split()), '.tex']),
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = 'percona-logo.jpg'
+latex_logo = '_static/images/percona-logo.jpg'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.

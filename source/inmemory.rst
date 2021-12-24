@@ -128,7 +128,6 @@ To change a storage engine, you have the following options:
        $ # storage.inMemory.engineConfig.inMemorySizeGB
        $ service mongod start
        $ mongorestore <dumpDir>
->>>>>>> a12f0db... PSMDB-960 Remove obsolete page (#470) (#471)
 
 
 Configuring Percona Memory Engine
