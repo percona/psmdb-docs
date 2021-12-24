@@ -42,6 +42,16 @@ data directory when it is restarted. Though |inmemory| stores all data in memory
 some metadata files, diagnostics logs and statistics metrics are still written to
 disk. This is controlled using the :option:`--inMemoryStatisticsLogDelaySecs` option. 
 
+Creating a new ``dbPath`` data directory for a different storage engine is the
+simplest solution. Yet when you switch between disk-using storage engines (e.g.
+from WiredTiger_ to :ref:`inmemory`), you may have to delete the old data if
+there is not enough disk space for both. Double-check that your backups are solid
+and/or the replica set nodes are healthy before you switch to the new storage
+engine.
+
+Switching storage engines
+=========================
+
 To change a storage engine, you have the following options:
 
 * If you simply want to temporarily test Percona Memory Engine, set a different
