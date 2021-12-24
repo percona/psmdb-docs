@@ -2,22 +2,47 @@
 .. _ext-auth:
 
 =======================
-External Authentication
+Authentication
 =======================
 
-Normally, a client needs to authenticate themselves
+Authentication is the process of verifying a client's identity. Normally, a client needs to authenticate themselves
 against the MongoDB server user database before doing any work
-or reading any data from a ``mongod`` or ``mongos`` instance.
-External authentication allows the MongoDB server
-to verify the client's user name and password against a separate service,
-such as OpenLDAP or Active Directory. This allows users accessing the database
-with the same credentials they use for their emails or workstations.
+or reading any data from a ``mongod`` or ``mongos`` instance. 
 
-|PSMDB| supports the following external authentication mechanisms:
+By default, |PSMDB| provides a :abbr:`SCRAM (Salted Challenge Response Authentication Mechanism)` authentication mechanism where clients authenticate themselves by providing their user credentials.   
+In addition, you can integrate |PSMDB| with a separate service,
+such as OpenLDAP or Active Directory. This enables users to access the database
+with the same credentials they use for their emails or workstations. 
 
--  :ref:`ldap-authentication-sasl`
--  :ref:`ldap-authorization`   
--  :ref:`kerberos-authentication`
+
+You can use any of these authentication mechanisms supported in |PSMDB|:
+
+- :ref:`scram` (default)
+- :ref:`x509`
+- :ref:`ldap-authentication-sasl`
+- :ref:`kerberos-authentication`
+- :ref:`native-ldap`
+
+.. _scram:
+
+SCRAM
+=====
+:abbr:`SCRAM (Salted Challenge Response Authentication Mechanism)` is the default authentication mechanism. |PSMDB| verifies the credentials against the user's name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see :ref:`enable-auth`.
+
+.. _x509:
+
+x.509 certificate authentication
+================================
+
+This authentication mechanism enables a client to authenticate in |PSMDB| by providing an x.509 certificate instead of user credentials. Each certificate contains the ``subject`` field defined in the :abbr:`DN (Distinguished Name)` format. In |PSMDB|, each certificate has a corresponding user record in the ``$external`` database. When a user connects to the database, |PSMDB| matches the ``subject`` value against the usernames defined in the ``$external`` database. 
+
+For production use, we recommend using valid :abbr:`CA (Certified Authority)` certificates. For testing purposes, you can generate and use self-signed certificates.
+
+.. seealso::
+
+   MongoDB Documentation: `x.509 <https://docs.mongodb.com/manual/core/security-x.509/>`_
+
+   Percona Blog: `Setting up MongoDB with Member x509 auth and SSL + easy-rsa <https://www.percona.com/blog/2019/10/28/setting-up-mongodb-with-member-x509-auth-and-ssl-easy-rsa/>`_
 
 .. _ldap-authentication-sasl:
    
@@ -46,7 +71,7 @@ The following components are necessary for external authentication to work:
 
 The following image illustrates this architecture:
 
-.. image:: psmdb-ext-auth.png
+.. image:: _static/images/psmdb-ext-auth.png
    :align: center
 
 An authentication session uses the following sequence:
@@ -69,80 +94,9 @@ An authentication session uses the following sequence:
    through the SASL library, to ``mongod``.
 #. The ``mongod`` server uses this YES/NO response
    to authenticate the client or reject the request.
-#. If successful, the client has authenticated and can proceed.
-   
+#. If successful, the client has authenticated and can proceed.  
 
 For configuration instructions, refer to :ref:`sasl`.
-
-
-.. _ldap-authorization:
-
-Authentication and Authorization with Direct Binding to LDAP
-============================================================
-
-This feature has been supported in MongoDB Enterprise since its version 3.4. In |PSMDB| it is available as of version 4.2.5-6.
-
-This authentication method means that the ``mongod`` server communicates with the LDAP server directly to authenticate and authorize users. The authorization is done by matching the user groups defined on the LDAP server against the user roles defined in |PSMDB| and thus determine user permissions. If a user belongs to several groups they receive permissions associated with every group. 
-
-.. image:: _static/images/NativeLDAP-auth.png
- 
-As of version 4.4.2-4, |psmdb| supports LDAP referrals as defined in `RFC 4511 4.1.10 <https://www.rfc-editor.org/rfc/rfc4511.txt>`_. For security reasons, LDAP referrals are disabled by default. Double-check that using referrals is safe before enabling them.
-
-To enable LDAP referrals, set the ``ldapFollowReferrals`` server parameter to ``true`` either using the ``setParameter`` command or editing the configuration file.
-
-.. code-block:: yaml
-
-   setParameter:
-      ldapFollowReferrals: true
-
-.. rubric:: Connection pool
-
-As of version 4.4.2-4, |PSMDB| always uses a connection pool to LDAP server to process authentication requests. The connection pool is enabled by default. The default connection pool size is 2 connections. 
-
-You can change the connection pool size either at the server startup or dynamically by specifying the value for the ``ldapConnectionPoolSizePerHost`` server parameter. 
-
-For example, to set the number of connections in the pool to 5, use the ``setParameter`` command: 
-
-.. code-block:: text
-
-   $ db.adminCommand( { setParameter: 1, ldapConnectionPoolSizePerHost: 5  } )
-
-Alternatively, edit the configuration file:
-
-.. code-block:: yaml
-
-   setParameter:
-     ldapConnectionPoolSizePerHost: 5
-
-.. rubric:: Support for multiple LDAP servers
-
-As of version 4.4.3-5, you can specify multiple LDAP servers for failover. |PSMDB| sends authentication requests to the first server defined in the list. When this server is down or unavailable, it sends requests to the next server  and so on. Note that |PSMDB| keeps sending requests to this server even after the unavailable server recovers.
-
-Specify the LDAP servers as a comma-separated list in the format ``<host>:<port>`` for the `--ldapServers <https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-ldapservers>`_ option. 
-
-You can define the option value at the server startup by editing the configuration file.
-
-.. code-block:: yaml
-
-   security:
-     authorization: "enabled"
-     ldap:
-       servers: "ldap1.example.net,ldap2.example.net"
-
-You can change ``ldapServers`` dynamically at runtime using the :ref:`setParameter <setParameter>`.
-
-.. code-block:: text
-
-   $ db.adminCommand( { setParameter: 1, ldapServers:"localhost,ldap1.example.net,ldap2.example.net"} )
-   { "was" : "ldap1.example.net,ldap2.example.net", "ok" : 1 }
-
-.. seealso::
-  
-   |mongodb| Documentation:
-      - `LDAP Authorization <https://docs.mongodb.com/manual/core/security-ldap-external/>`_	    
-      - `Authenticate and Authorize Users Using Active Directory via Native LDAP <https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/>`_
-    
-    - `LDAP referrals <https://ldapwiki.com/wiki/LDAP%20Referral>`_
 
 .. _kerberos-authentication:
 
@@ -151,7 +105,7 @@ Kerberos Authentication
 
 |PSMDB| supports Kerberos authentication starting from release 4.2.6-6. 
 
-This authentication method involves the use of a Key Distribution Center (KDC) - a symmetric encryption component which operates with tickets. A ticket is a small amount of encrypted data which is used for authentication. It is issued for a user session and has a limited lifetime.
+This authentication mechanism involves the use of a Key Distribution Center (KDC) - a symmetric encryption component which operates with tickets. A ticket is a small amount of encrypted data which is used for authentication. It is issued for a user session and has a limited lifetime.
 
 The following diagram shows the authentication workflow: 
 
@@ -169,8 +123,7 @@ Kerberos authentication in |PSMDB| is implemented the same way as in |mongodb| E
 
 .. seealso::
 
-   |mongodb| Documentation:
-         - `Kerberos Authentication <https://docs.mongodb.com/manual/core/kerberos/>`_	 
+   |mongodb| Documentation: `Kerberos Authentication <https://docs.mongodb.com/manual/core/kerberos/>`_  
    
 
 .. |SASL| replace:: :abbr:`SASL (Simple Authentication and Security Layer)`
