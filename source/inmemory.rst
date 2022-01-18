@@ -49,6 +49,8 @@ there is not enough disk space for both. Double-check that your backups are soli
 and/or the replica set nodes are healthy before you switch to the new storage
 engine.
 
+.. _switch_storage_engines:
+
 Switching storage engines
 =========================
 
@@ -116,6 +118,16 @@ To change a storage engine, you have the following options:
        $ service mongod start
        $ mongorestore <dumpDir>
 
+Data at Rest Encryption
+-----------------------
+
+Using :ref:`psmdb.data-at-rest-encryption` means using the same ``storage.*``
+configuration options as for WiredTiger_. To change from normal to :ref:`psmdb.data-at-rest-encryption`
+mode or backward, you must clean up the ``dbPath`` data directory,
+just as if you change the storage engine. This is because
+|mongod| cannot convert the data files to an encrypted format 'in place'. It
+must get the document data again either via the initial sync from another
+replica set member, or from imported backup dump.
 
 Configuring Percona Memory Engine
 ================================================================================
