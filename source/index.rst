@@ -20,8 +20,7 @@ It requires no changes to MongoDB applications or code.
   WiredTiger_ engine
 - :ref:`inmemory` storage engine
 - :ref:`psmdb.data-at-rest-encryption`
-- :ref:`External SASL authentication <ext-auth>`
-  using OpenLDAP or Active Directory
+- :ref:`External authentication <ext-auth>`
 - :ref:`Audit logging <audit-log>`
   to track and query database interactions of users or applications
 - :ref:`hot-backup` for the default WiredTiger_
@@ -77,6 +76,7 @@ How to
    Set up LDAP authentication using SASL <sasl-auth>
    Set up LDAP authentication and authorization using NativeLDAP <ldap-setup>
    Switch storage engines <switch-storage-engines>
+   x509-ldap
    Tune parameters <set-parameter>
    Upgrade Percona Server for MongoDB <install/upgrade-from-mongodb>
    Perform a major upgrade of Percona Server for MongoDB from 3.6 to 4.0 <install/upgrade-from-36>
