@@ -38,6 +38,8 @@ This authentication mechanism enables a client to authenticate in |PSMDB| by pro
 
 For production use, we recommend using valid :abbr:`CA (Certified Authority)` certificates. For testing purposes, you can generate and use self-signed certificates.
 
+x.509 authentication is compatible with with :ref:`ldap-authorization` to enable you to control user access and operations in |PSMDB|. For configuration guidelines, refer to :ref:`ldap-x509`. 
+
 .. seealso::
 
    MongoDB Documentation: `x.509 <https://docs.mongodb.com/manual/core/security-x.509/>`_
