@@ -49,6 +49,8 @@ there is not enough disk space for both. Double-check that your backups are soli
 and/or the replica set nodes are healthy before you switch to the new storage
 engine.
 
+.. _switch_storage_engines:
+
 Switching storage engines
 =========================
 
