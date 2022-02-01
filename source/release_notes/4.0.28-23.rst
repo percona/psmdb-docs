@@ -1,0 +1,25 @@
+.. _PSMDB-4.0.28-23:
+
+================================================================================
+*Percona Server for MongoDB* 4.0.28-23
+================================================================================
+
+:Date: February 21, 2022
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.0/install/index.html>`_
+
+Percona Server for MongoDB 4.0.28 is an enhanced, source available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 4.0.28 Community Edition. It supports MongoDB 4.0.28 protocols and drivers.
+
+Release Highlights
+==================
+
+* `SERVER-62065 <https://jira.mongodb.org/browse/SERVER-62065>`_ - Added the ``repairShardedCollectionChunksHistory`` command to restore ``history`` fields for some chunks. This aims to fix broken snapshot reads and distributed transactions.
+* `SERVER-54064 <https://jira.mongodb.org/browse/SERVER-54064>`_ - Added periodic clean up of logical sessions cache on arbiters
+* `SERVER-45953 <https://jira.mongodb.org/browse/SERVER-45953>`_ - Exempted internal replication oplog readers from acquiring read tickets in order to avoid deadlocks
+  
+Find the full list of changes in the `MongoDB 4.0.28 Community Edition release notes <https://docs.mongodb.com/v4.0/release-notes/4.0/#january-31-2022>`_.
+  
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-950`: Fixed LDAP authentication using ``mongo`` CLI for Percona Server for MongoDB installed from a tarball.
