@@ -13,7 +13,7 @@
 
 .. warning::
 
-   Percona Server for MongoDB 5.0.2-1 is not recommended for production use due to the following critical issues: `WT-7984 <https://jira.mongodb.org/browse/WT-7984>`_ and `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_. These issues are fixed in MongoDB 5.0.3 Community Edition and :ref:`5.0.3-2`.
+   Percona Server for MongoDB 5.0.2-1 is not recommended for production use due to the following critical issues: `WT-7984 <https://jira.mongodb.org/browse/WT-7984>`_ and `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_. These issues are fixed in MongoDB 5.0.3 Community Edition and :ref:`PSMDB-5.0.3-2`.
 
    We recommend you to upgrade to Percona Server for MongoDB 5.0.3-2 and run the `validate <https://docs.mongodb.com/manual/reference/command/validate/>`_ command on every collection on every replica set node.
 

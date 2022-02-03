@@ -34,7 +34,6 @@ configuration file (by default, :file:`/etc/mongod.conf`):
       - `storage.inmemory Options
         <https://docs.mongodb.com/manual/reference/configuration-options/#storage-inmemory-options>`_
 
-<<<<<<< HEAD
 Changing storage engine
 -----------------------
 
@@ -46,7 +45,6 @@ If you have data files in your database and want to change to |inmemory|, consid
 
 For how to change a storage engine, refer to :ref:`Switching storage engines procedure <switching-storage-procedure>`
 
-=======
 Data files created by one storage engine are not compatible with other storage
 engines, because each one has its own data model.
 
