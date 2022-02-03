@@ -11,3 +11,4 @@ Percona Server for MongoDB |version| Release Notes
    5.0.3-2
    5.0.4-3  
    5.0.5-4
+   5.0.6-5
