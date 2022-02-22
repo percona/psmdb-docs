@@ -13,7 +13,7 @@ It requires no changes to MongoDB applications or code.
    To see which version of |PSMDB| you are using check the value of the
    ``psmdbVersion`` key in the output of the `buildInfo <https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo>`_ database command. If
    this key does not exist, |PSMDB| is not installed on the server.
-        
+
 
 |PSMDB| provides the following features:
 
