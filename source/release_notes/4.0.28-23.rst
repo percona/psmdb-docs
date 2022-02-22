@@ -4,7 +4,7 @@
 *Percona Server for MongoDB* 4.0.28-23
 ================================================================================
 
-:Date: February 21, 2022
+:Date: February 23, 2022
 :Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.0/install/index.html>`_
 
 Percona Server for MongoDB 4.0.28 is an enhanced, source available, and highly-scalable database that is a
@@ -19,7 +19,3 @@ Release Highlights
   
 Find the full list of changes in the `MongoDB 4.0.28 Community Edition release notes <https://docs.mongodb.com/v4.0/release-notes/4.0/#january-31-2022>`_.
   
-Bugs Fixed
-================================================================================
-
-* :jirabug:`PSMDB-950`: Fixed LDAP authentication using ``mongo`` CLI for Percona Server for MongoDB installed from a tarball.
