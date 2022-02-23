@@ -23,8 +23,14 @@ There are two tarballs available:
    
    .. code-block:: bash
    
-       export PATH=~/percona-server-mongodb-4.0.20-14/bin/:$PATH`
+      export PATH=~/percona-server-mongodb-4.0.20-14/bin/:$PATH`
 
+#. *For Debian and Ubuntu operating systems only*: Update the path to the SASL libraries using the following command:
+   
+   .. code-block:: bash
+
+      export SASL_PATH=/usr/lib/x86_64-linux-gnu/sasl2
+    
 #. Create the default data directory: 
    
    .. code-block:: bash
