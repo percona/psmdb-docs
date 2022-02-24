@@ -4,10 +4,14 @@
 Upgrading |PSMDB|
 ================================================================================
 
-An in-place upgrade is done with existing data in the server.  Generally
-speaking, this is stopping the ``mongod`` service, removing the old packages, installing the
-new server and starting it with the same db data directory. An in-place upgrade
-is suitable for most environments, except the ones that use ephemeral storage and/or host addresses.
+An in-place upgrade is done by keeping the existing data in the server. It involves changing out the MongoDB binaries. Generally speaking, the upgrade steps include:
+
+1. Stopping the ``mongod`` service 
+#. Removing the old binaries
+#. Installing the new server version binaries 
+#. Restarting the ``mongod`` service with the same ``dbpath`` data directory. 
+  
+An in-place upgrade is suitable for most environments except the ones that use ephemeral storage and/or host addresses. 
 
 This document provides upgrade instructions for the following use cases:
 
