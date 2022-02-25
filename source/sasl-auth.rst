@@ -207,6 +207,8 @@ The configuration consists of the following steps:
 * Creating a user with the **root** privileges. This user is required to log in to |PSMDB| after the external authentication is enabled.
 * Editing the configuration file to enable the external authentication
 
+.. _root-user:
+
 Create a root user
 **********************************
 
@@ -238,37 +240,43 @@ Restart the ``mongod`` service:
 
    $ sudo systemctl restart mongod
 
-When everything is configured properly, you can use the :ref:`commands`.
+Add an external user to |PSMDB|
+*************************************
 
-.. _commands:
+User authentication is done by mapping a user object on the LDAP server against a user created in the ``$external`` database. Thus, at this step, you create the user in the ``$external`` database and they inherit the roles and privileges. Note that the username must exactly match the name of the user object on the LDAP server.
 
-External Authentication Commands
-================================
+Connect to |PSMDB| and authenticate as :ref:`the root user <root-user>`.
 
-Use the following command to add an external user to the ``mongod`` server:
+.. code-block:: bash
 
-.. code-block:: text
+   $ mongo --host localhost --port 27017 -u admin -p '$3cr3tP4ssw0rd' --authenticationDatabase 'admin'
+
+Use the following command to add an external user to |PSMDB|:
+
+.. code-block:: javascript
 
    > db.getSiblingDB("$external").createUser( {user : "christian", roles: [ {role: "read", db: "test"} ]} );
 
-The previous example assumes that you have set up the server-wide
-admin user/role and have successfully authenticated as that user locally.
-
-.. note:: External users cannot have roles assigned in the admin database.
+Authenticate as an external user in |PSMDB|
+===============================================
 
 When running the ``mongo`` client, a user can authenticate
 against a given database using the following command:
 
-.. code-block:: text
+.. code-block:: javascript
 
    > db.getSiblingDB("$external").auth({ mechanism:"PLAIN", user:"christian", pwd:"secret", digestPassword:false})
 
+Alternatively, a user can authenticate while connecting to |PSMDB|:
+
+.. code-block:: bash
+
+   $ mongo --host localhost --port 27017 --authenticationMechanism PLAIN --authenticationDatabase \$external -u christian -p
 
 .. admonition:: Based on the material from **Percona Database Performance Blog**
 		
-   This section is based on the blog post *Percona Server for MongoDB Authentication Using Active Directory* by *Doug Duncan*:
-      https://www.percona.com/blog/2018/12/21/percona-server-for-mongodb-authentication-using-active-directory/
-  
+   This section is based on the blog post `Percona Server for MongoDB Authentication Using Active Directory <https://www.percona.com/blog/2018/12/21/percona-server-for-mongodb-authentication-using-active-directory/>`_ by *Doug Duncan*:
+   
 
 
 .. |SASL| replace:: :abbr:`SASL (Simple Authentication and Security Layer)`
