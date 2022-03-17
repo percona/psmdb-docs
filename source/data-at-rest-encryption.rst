@@ -15,8 +15,7 @@ files can be decrypted and read by parties with the decryption key.
 
  The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
  |feature| interface in |mongodb|. In the current release of |PSMDB|, the |feature| does
- not include support for |abbr.kmip|, or |amazon-aws| key management
- services. Instead, |PSMDB| is :ref:`integrated with HashiCorp Vault <vault>` for key management services. 
+ not include support for |amazon-aws| key management service. Instead, |PSMDB| is :ref:`integrated with HashiCorp Vault <vault>`. Starting with release 4.4.13-13, |PSMDB| supports the secure transfer of keys using :ref:`Key Management Interoperability Protocol (KMIP) <kmip>`. This allows users to store encryption keys in their favorite KMIP-compatible key manager. when they set up encryption at rest.
 
 
 Two types of keys are used for data at rest encryption:
@@ -26,7 +25,7 @@ Two types of keys are used for data at rest encryption:
 
 To manage the master key, use one of the supported key management options:
 
-- Integration with an external key server (recommended). |PSMDB| is :ref:`integrated with HashiCorp Vault <vault>` for this purpose. 
+- Integration with an external key server (recommended). |PSMDB| is :ref:`integrated with HashiCorp Vault <vault>` for this purpose and supports the secure transfer of keys using :ref:`Key Management Interoperability Protocol (KMIP) <kmip>`. 
 - :ref:`Local key management using a keyfile <keyfile>`.
 
 Note that you can use only one of the key management options at a time. However, you can switch from one management option to another (e.g. from a keyfile to |vault|). Refer to :ref:`psmdb.encryption-mode-switch` section for details.
