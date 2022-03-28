@@ -8,6 +8,10 @@ Hot Backup
 WiredTiger_ storage engine.  It creates a physical data backup on a running
 server without notable performance and operating degradation.
 
+.. note::
+
+   Hot backups are done on ``mongod`` servers independently, without synchronizing them across replica set members and shards in a cluster. To ensure data consistency during backups and restores, we recommend using `Percona Backup for MongoDB <https://docs.percona.com/percona-backup-mongodb/index.html>`_.
+
 .. contents::
    :local:  
 
@@ -30,6 +34,8 @@ To take a hot backup of the database in your current ``dbpath``, do the followin
      switched to db admin
      > db.runCommand({createBackup: 1, backupDir: <backup_data_path})
      { "ok" : 1 }
+
+The backup taken is the snapshot of the ``mongod`` server's ``dataDir`` at the moment of the ``createBackup`` command start.
 
 If the backup was successful, you should receive an ``{ "ok" : 1 }`` object.
 If there was an error, you will receive a failing ``ok`` status
