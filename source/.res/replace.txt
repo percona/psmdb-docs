@@ -12,3 +12,4 @@
 .. |ldap-authorization| replace:: LDAP Authorization
 .. |abbr.ldap| replace:: :abbr:`LDAP (Lightweight Directory Access Protocol)`
 .. |inmemory| replace:: Percona Memory Engine
+.. |PBM| replace:: Percona Backup for MongoDB 
