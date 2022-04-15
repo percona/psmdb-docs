@@ -1,4 +1,4 @@
-.. _upgrade_psmdb
+.. _upgrade_psmdb:
 
 *****************
 Upgrading |PSMDB|

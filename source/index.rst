@@ -77,6 +77,7 @@ How to
    Set up LDAP authentication and authorization using NativeLDAP <ldap-setup>
    Switch storage engines <switch-storage-engines>
    x509-ldap
+   Set up Kerberos authentication <kerberos>
    Tune parameters <set-parameter>
    Upgrade Percona Server for MongoDB <install/upgrade-from-mongodb>
    Perform a major upgrade of Percona Server for MongoDB from 3.6 to 4.0 <install/upgrade-from-36>
