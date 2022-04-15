@@ -77,6 +77,7 @@ How to
    Set up LDAP authentication using SASL <sasl-auth>
    Set up LDAP authentication and authorization using NativeLDAP <ldap-setup>
    x509-ldap
+   kerberos
    Tune parameters <set-parameter>
    Upgrade Percona Server for MongoDB <install/upgrade-from-mongodb>
    Perform a major upgrade of Percona Server for MongoDB from 4.0 to 4.2 <install/upgrade-from-40>
