@@ -15,7 +15,7 @@ KMIP enables the communication between a key management system and the database 
 .. admonition:: KMIP parameters
 
    .. list-table::
-      :widths: 25 25 15 35
+      :widths: auto
       :header-rows: 1
    
       * - Option
