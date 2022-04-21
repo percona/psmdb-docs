@@ -128,7 +128,7 @@ to communicate with an Active Directory server:
    ldap_servers: ldap://localhost
    ldap_mech: PLAIN
    ldap_search_base: CN=Users,DC=example,DC=com
-   ldap_filter: (sAMAccountName=%ucn=%u)
+   ldap_filter: (sAMAccountName=%u)
    ldap_bind_dn: CN=ldapmgr,CN=Users,DC=<AD Domain>,DC=<AD TLD>
    ldap_password: ld@pmgr_Pa55word
 
