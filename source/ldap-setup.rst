@@ -160,7 +160,7 @@ Note that you can use only the ``query`` or the ``substitution`` stage, the comb
                 transportSecurity: tls
                 authz:
                    queryTemplate: "dc=percona,dc=com??sub?(&(objectClass=groupOfNames)(member={USER}))"
-                userToDNMapping: 
+                userToDNMapping: >-
                       [
                         {
                           match: "([^@]+)@percona\\.com",
@@ -171,7 +171,7 @@ Note that you can use only the ``query`` or the ``substitution`` stage, the comb
             setParameter:
               authenticationMechanisms: "PLAIN"
 
-         The {USER} variable substitutes the username transformed during the userToDNMapping stage.
+         The ``{USER}`` variable substitutes the username transformed during the ``userToDNMapping`` stage.
 
          Modify the given example configuration to match your deployment.
 
@@ -200,7 +200,7 @@ Note that you can use only the ``query`` or the ``substitution`` stage, the comb
                 transportSecurity: tls
                 authz:
                    queryTemplate: "dc=percona,dc=com??sub?(&(objectClass=groupOfNames)(member={USER}))"
-                userToDNMapping: 
+                userToDNMapping: >-
                       [
                         {
                           match: "([^@]+)@percona\\.com",
@@ -294,7 +294,7 @@ Use one of the given |PSMDB| configurations for user authentication and authoriz
               servers: "ldap.example.com" 
               authz: 
                 queryTemplate: "DC=percona,DC=com??sub?(&(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))" 
-              userToDNMapping: 
+              userToDNMapping: >-
                     [
                       {
                         match: "([^@]+)@([^\\.]+)\\.percona\\.com",
@@ -327,7 +327,7 @@ Use one of the given |PSMDB| configurations for user authentication and authoriz
               servers: "ldap.example.com" 
               authz: 
                 queryTemplate: "DC=percona,DC=com??sub?(&(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))" 
-              userToDNMapping: 
+              userToDNMapping: >-
                     [
                       {
                         match: "(.+)",
