@@ -11,12 +11,11 @@ Data at rest encryption for the WiredTiger storage engine in |mongodb| was
 introduced in |mongodb-enterprise| version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
 
- .. rubric:: Differences from Upstream
+.. rubric:: Differences from Upstream
 
- The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
- |feature| interface in |mongodb|. In the current release of |PSMDB|, the |feature| does
- not include support for |amazon-aws| key management
- service. Instead, |PSMDB| is :ref:`integrated with HashiCorp Vault <vault>`. Starting with release 5.0.7-6, |PSMDB| supports the secure transfer of keys using :ref:`Key Management Interoperability Protocol (KMIP) <kmip>`. This allows users to store encryption keys in their favorite KMIP-compatible key manager when they set up encryption at rest. 
+The |feature| in |PSMDB| is introduced in version 3.6 to be compatible with
+|feature| interface in |mongodb|. In the current release of |PSMDB|, the |feature| does not include support for |amazon-aws| key management
+service. Instead, |PSMDB| is :ref:`integrated with HashiCorp Vault <vault>`. Starting with release 5.0.7-6, |PSMDB| supports the secure transfer of keys using :ref:`Key Management Interoperability Protocol (KMIP) <kmip>`. This allows users to store encryption keys in their favorite KMIP-compatible key manager when they set up encryption at rest. 
 
 Two types of keys are used for data at rest encryption:
 
