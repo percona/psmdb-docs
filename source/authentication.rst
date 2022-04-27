@@ -107,7 +107,14 @@ Kerberos Authentication
 
 |PSMDB| supports Kerberos authentication starting from release 4.2.6-6. 
 
-This authentication mechanism involves the use of a Key Distribution Center (KDC) - a symmetric encryption component which operates with tickets. A ticket is a small amount of encrypted data which is used for authentication. It is issued for a user session and has a limited lifetime.
+This authentication mechanism involves the use of a `Key Distribution Center (KDC)` - a symmetric encryption component which operates with tickets. A `ticket` is a small amount of encrypted data which is used for authentication. It is issued for a user session and has a limited lifetime.
+
+When using Kerberos authentication, you also operate with principals and realms.
+
+A `realm` is the logical network, similar to a domain, for all Kerberos nodes under the same master KDC.
+
+A `principal` is a user or a service which is known to Kerberos. A principal name is used for authentication in Kerberos. A service principal represents the service, e.g. ``mongodb``. A user principal represents the user. The user principal name corresponds to the username in the ``$external`` database in |PSMDB|.
+
 
 The following diagram shows the authentication workflow: 
 
