@@ -34,25 +34,24 @@ configuration file (by default, :file:`/etc/mongod.conf`):
       - `storage.inmemory Options
         <https://docs.mongodb.com/manual/reference/configuration-options/#storage-inmemory-options>`_
 
-Data files created by one storage engine are not compatible with other storage
-engines, because each one has its own data model.
-
-When changing the storage engine, the |mongod| node requires an empty ``dbPath``
-data directory when it is restarted. Though |inmemory| stores all data in memory,
-some metadata files, diagnostics logs and statistics metrics are still written to
-disk. This is controlled using the :option:`--inMemoryStatisticsLogDelaySecs` option. 
-
-Creating a new ``dbPath`` data directory for a different storage engine is the
-simplest solution. Yet when you switch between disk-using storage engines (e.g.
-from WiredTiger_ to :ref:`inmemory`), you may have to delete the old data if
-there is not enough disk space for both. Double-check that your backups are solid
-and/or the replica set nodes are healthy before you switch to the new storage
-engine.
-
 .. _switch_storage_engines:
 
 Switching storage engines
 =========================
+
+Considerations 
+-----------------------
+
+If you have data files in your database and want to change to |inmemory|, consider the following:
+
+* Data files created by one storage engine are not compatible with other engines, because each one has its own data model.
+
+* When changing the storage engine, the |mongod| node requires an empty ``dbPath`` data directory when it is restarted. Though |inmemory| stores all data in memory, some metadata files, diagnostics logs and statistics metrics are still written to disk. This is controlled with the :option:`--inMemoryStatisticsLogDelaySecs` option. 
+
+  Creating a new ``dbPath`` data directory for a different storage engine is the simplest solution. Yet when you switch between disk-using storage engines (e.g. from WiredTiger_ to :ref:`inmemory`), you may have to delete the old data if there is not enough disk space for both. Double-check that your backups are solid and/or the replica set nodes are healthy before you switch to the new storage engine.
+
+Procedure
+--------------
 
 To change a storage engine, you have the following options:
 
