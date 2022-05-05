@@ -1,0 +1,47 @@
+.. _PSMDB-5.0.8-7:
+
+================================================================================
+*Percona Server for MongoDB* 5.0.8-7
+================================================================================
+
+:Date: May 10, 2022
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_
+
+Percona Server for MongoDB 5.0.8-7 is an enhanced, source available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 5.0.8 Community Edition.
+It supports MongoDB 5.0.8 protocols and drivers.
+
+Release Highlights
+==================
+
+|PSMDB| now supports master key rotation for data encrypted using the  :ref:`Keys Management Interoperability Protocol (KMIP) <kmip>` protocol (tech preview feature). This improvement allows users to comply with regulatory standards for data security.
+
+Other improvements and bug fixes introduced by MongoDB and included in |PSMDB| are the following: 
+
+* `WT-8924 <https://jira.mongodb.org/browse/WT-8924>`_ - Fixed a bug that causes replication to stall on secondary replica set members in a sharded cluster handling cross-shard transactions. It is caused by WiredTger to erroneously return a write conflict when deciding if an update to a record is allowed. If MongoDB decides to retry the operation that caused the conflict in WiredTiger, it will enter an indefinite retry loop, and oplog application will stall on secondary nodes.
+
+  If this bug is hit, the secondary nodes will experience indefinite growth in replication lag. Restart the secondary nodes to resume replication.
+
+  This bug affects MongoDB 4.4.10 through 4.4.13 and 5.0.4 to 5.0.7.
+
+  Update to the latest version to avoid the secondary replication stall and lag issues.
+
+* `SERVER-63531 <https://jira.mongodb.org/browse/SERVER-63531>`_ - Fixed the issue with a ``commitQuorum`` incorrectly allowing non-voting ``buildIndexes:false`` nodes to be included in the commitQuorum count. It also fixed an error message relating to data-bearing nodes and quorum regarding to non-voting nodes.
+* `SERVER-63387 <https://jira.mongodb.org/browse/SERVER-63387>`_ - Fixed the order of backup blocks returned to the user to match the order retrieved from WiredTiger.
+* `SERVER-65261 <https://jira.mongodb.org/browse/SERVER-65261>`_ - Fixed the issue reporting an incorrect number of documents deleted from a capped collection when utilizing a collection scan to perform the delete action.
+  
+Find the full list of changes in the `MongoDB 5.0.8 Community Edition release notes <https://www.mongodb.com/docs/manual/release-notes/5.0/#5.0.8---april-25--2022>`_.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-1011`: Add KMIP master key rotation
+
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-1030`: Fix descriptions and mutual dependencies of KMIP related options for ``mongod`` and ``perconadecrypt``
+
+
