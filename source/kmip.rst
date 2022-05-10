@@ -12,6 +12,12 @@ KMIP enables the communication between a key management system and the database 
 * Streamlines encryption key management
 * Eliminates redundant key management processes
 
+Starting with release 5.0.8-7, the support for `master key rotation <https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation>`_ is added. This enables users to comply with data security regulations when using KMIP.
+
+.. note::
+
+   To make KMIP master key rotation, make sure that every ``mongod`` has a unique ``--kmipKeyIdentifier`` value. 
+
 .. admonition:: KMIP parameters
 
    .. list-table::
@@ -38,7 +44,10 @@ KMIP enables the communication between a key management system and the database 
         - The path to the KMIP client private key.
       * - --kmipKeyIdentifier
         - string
-        - The name of the KMIP key. If the key does not exist, the database server creates a key on the KMIP server with the specified identifier.
+        - Mandatory. The name of the KMIP key. If the key does not exist, the database server creates a key on the KMIP server with the specified identifier.
+      * - --kmipRotateMasterKey
+        - boolean
+        - Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 5.0.8-7. Requires the unique ``--kmipKeyIdentifier`` for every ``mongod`` node.
           
 .. admonition:: Config file example
 
