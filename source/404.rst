@@ -1,0 +1,6 @@
+:orphan:
+
+404 - Not Found
+************************
+
+We can't find the page you are looking for. Try using the Search or :ref:`return to the homepage <dochome>`.
