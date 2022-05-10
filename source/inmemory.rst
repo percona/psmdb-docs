@@ -24,6 +24,13 @@ storage engine using the ``--storageEngine`` command-line option when you start
 ``mongod``.  Alternatively, you can set the ``storage.engine`` variable in the
 configuration file (by default, :file:`/etc/mongod.conf`):
 
+.. code-block:: yaml
+
+   storage:
+     dbPath: <dataDir>
+     engine: inMemory
+
+
 .. seealso::
 
    |mongodb| Documentation: Configuration File Options
