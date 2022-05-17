@@ -7,6 +7,7 @@ Percona Server for MongoDB |version| Release Notes
 .. toctree::
    :maxdepth: 1
 
+   4.2.20-20
    Percona Server for MongoDB 4.2.19-19 (2022-03-29) <4.2.19-19> 
    Percona Server for MongoDB 4.2.18-18 (2022-01-19) <4.2.18-18> 
    Percona Server for MongoDB 4.2.17-17 (2021-10-11) <4.2.17-17> 
