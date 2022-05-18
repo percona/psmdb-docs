@@ -12,11 +12,6 @@ KMIP enables the communication between a key management system and the database 
 * Streamlines encryption key management
 * Eliminates redundant key management processes
 
-Starting with release 5.0.8-7, the support for `master key rotation <https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation>`_ is added. This enables users to comply with data security regulations when using KMIP.
-
-.. note::
-
-   To make KMIP master key rotation, make sure that every ``mongod`` has a unique ``--kmipKeyIdentifier`` value. 
 
 .. admonition:: KMIP parameters
 
@@ -48,18 +43,50 @@ Starting with release 5.0.8-7, the support for `master key rotation <https://www
       * - --kmipRotateMasterKey
         - boolean
         - Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 5.0.8-7. Requires the unique ``--kmipKeyIdentifier`` for every ``mongod`` node.
-          
-.. admonition:: Config file example
 
-   .. code-block:: yaml
+Key rotation
+================
 
-      security:
-        enableEncryption: true
-        kmip:
-          serverName: 128.0.0.2
-          port: 5696
-          clientCertificateFile: /path/client_certificate.pem
-          clientKeyFile: /path/client_key.pem
-          serverCAFile: /path/ca.pem
-          keyIdentifier: key_name
+Starting with release 5.0.8-7, the support for `master key rotation <https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation>`_ is added. This enables users to comply with data security regulations when using KMIP.
+
+.. note::
+
+   To make KMIP master key rotation, make sure that every ``mongod`` has a unique ``--kmipKeyIdentifier`` value.
+
+Configuration
+=============
+
+.. rubric:: Considerations
+
+Make sure you have obtained the root certificate, and the keypair for the KMIP server and the ``mongod`` client. For testing purposes you can use the `OpenSSL <https://www.openssl.org/>`_ to issue self-signed certificates. For production use we recommend you use the valid certificates issued by the key management appliance.
+
+
+To enable data-at-rest encryption in |PSMDB| using KMIP, edit the ``/etc/mongod.conf`` configuration file as follows:
+
+.. code-block:: yaml
+
+   security:
+     enableEncryption: true
+     kmip:
+       serverName: <kmip_server_name>
+       port: <kmip_port>
+       clientCertificateFile: </path/client_certificate.pem>
+       clientKeyFile: </path/client_key.pem>
+       serverCAFile: </path/ca.pem>
+       keyIdentifier: <key_name>
+
+
+Alternatively, you can start |PSMDB| using the command line as follows:
+
+.. code-block:: bash
+
+   $ mongod --enableEncryption \
+     --kmipServerName <kmip_servername> \
+     --kmipPort <kmip_port> \
+     --kmipServerCAFile <path_to_ca_file> \
+     --kmipClientCertificateFile <path_to_client_certificate> \
+     --kmipClientKeyFile <path_to_client_private_key> \
+     --kmipKeyIdentifier <kmip_identifier>
+
+
           
