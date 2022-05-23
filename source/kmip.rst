@@ -39,7 +39,19 @@ KMIP enables the communication between key management systems and the database s
       * - --kmipKeyIdentifier
         - string
         - The name of the KMIP key. If the key does not exist, the database server will create a key on the KMIP server with the specified identifier.
-          
+      * - --kmipRotateMasterKey
+        - boolean
+        - Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 4.2.20-20. Requires the unique ``--kmipKeyIdentifier`` for every ``mongod`` node.
+ 
+Key rotation
+============
+
+Starting with release 4.2.20-20, the support for master key rotation is added. This enables users to comply with data security regulations when using KMIP.
+
+.. note:: 
+
+   To make KMIP master key rotation, make sure that every ``mongod`` has a unique ``--kmipKeyIdentifier`` value.
+
 .. admonition:: Config file example
 
    .. code-block:: yaml
