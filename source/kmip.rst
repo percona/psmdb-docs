@@ -30,31 +30,58 @@ KMIP enables the communication between key management systems and the database s
      - The hostname or IP address of the KMIP server.
    * - ``--kmipPort``
      - number
-     - The port used to communicate with the KMIP server. 
+     - The port used to communicate with the KMIP server. When undefined, the default port 5696 is used.
    * - ``--kmipServerCAFile``
      - string
      - The path to the CA certificate file. CA file is used to validate secure client connection to the KMIP server.
    * - ``--kmipClientCertificateFile``
      - string
-     - The path to the client certificate file. The database server uses the client certificate file to authenticate the KMIP server.
-   * - ``--kmipClientKeyFile``
-     - string
-     - The path to the KMIP client private key.
+     - The path to the PEM file with the KMIP client private key and the certificate chain. The database server uses this PEM file to authenticate the KMIP server.
    * - ``--kmipKeyIdentifier``
      - string
-     - The name of the KMIP key. If the key does not exist, the database server creates a key on the KMIP server with the specified identifier.
+     - Mandatory. The name of the KMIP key. If the key does not exist, the database server creates a key on the KMIP server with the specified identifier.
+   * - ``kmipRotateMasterKey``
+     - boolean
+     - Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 4.4.14-14. Requires the unique ``--kmipKeyIdentifier`` for every ``mongod`` node.
        
-.. admonition:: Config file example
+Key rotation
+================
 
-   .. code-block:: yaml
+Starting with release 4.4.14-14, the support for `master key rotation <https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation>`_ is added. This enables users to comply with data security regulations when using KMIP.
 
-      security:
-        enableEncryption: true
-        kmip:
-          serverName: 128.0.0.2
-          port: 5696
-          clientCertificateFile: /path/client_certificate.pem
-          clientKeyFile: /path/client_key.pem
-          serverCAFile: /path/ca.pem
-          keyIdentifier: key_name
-          
+.. note::
+
+   To make KMIP master key rotation, make sure that every ``mongod`` has a unique ``--kmipKeyIdentifier`` value.
+
+Configuration
+=============
+
+.. rubric:: Considerations
+
+Make sure you have obtained the root certificate, and the keypair for the KMIP server and the ``mongod`` client. For testing purposes you can use the `OpenSSL <https://www.openssl.org/>`_ to issue self-signed certificates. For production use we recommend you use the valid certificates issued by the key management appliance.
+
+
+To enable data-at-rest encryption in |PSMDB| using KMIP, edit the ``/etc/mongod.conf`` configuration file as follows:
+
+.. code-block:: yaml
+
+   security:
+     enableEncryption: true
+     kmip:
+       serverName: <kmip_server_name>
+       port: 5696
+       clientCertificateFile: </path/client_certificate.pem>
+       serverCAFile: </path/ca.pem>
+       keyIdentifier: <key_name>
+
+
+Alternatively, you can start |PSMDB| using the command line as follows:
+
+.. code-block:: bash
+
+   $ mongod --enableEncryption \
+     --kmipServerName <kmip_servername> \
+     --kmipPort 5696 \
+     --kmipServerCAFile <path_to_ca_file> \
+     --kmipClientCertificateFile <path_to_client_certificate> \
+     --kmipKeyIdentifier <kmip_identifier>
