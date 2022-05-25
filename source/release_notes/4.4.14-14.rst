@@ -1,0 +1,48 @@
+.. _PSMDB-4.4.14-14:
+
+================================================================================
+*Percona Server for MongoDB* 4.4.14-14 (2022-05-26)
+================================================================================
+
+:Date: May 26, 2022
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.4/install/index.html>`_
+
+Percona Server for MongoDB 4.4.14-14 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 4.4.14 Community Edition.
+It supports MongoDB 4.4.14 protocols and drivers.
+
+
+Release Highlights
+==================
+|PSMDB| now supports the master key rotation for data encrypted using the  :ref:`Keys Management Interoperability Protocol (KMIP) <kmip>` protocol (tech preview feature). This improvement allows users to comply with regulatory standards for data security.
+
+Other improvements and bug fixes introduced by MongoDB and included in |PSMDB| are the following: 
+
+* `WT-8924 <https://jira.mongodb.org/browse/WT-8924>`_ - Fixed a bug that causes replication to stall on secondary replica set members in a sharded cluster handling cross-shard transactions. It is caused by WiredTger to erroneously return a write conflict when deciding if an update to a record is allowed. If MongoDB decides to retry the operation that caused the conflict in WiredTiger, it will enter an indefinite retry loop, and oplog application will stall on secondary nodes.
+
+  If this bug is hit, the secondary nodes will experience indefinite growth in replication lag. Restart the secondary nodes to resume replication.
+
+  This bug affects MongoDB 4.4.10 through 4.4.13 and 5.0.4 to 5.0.7.
+
+  Update to the latest version to avoid the secondary replication stall and lag issues.
+
+* `SERVER-60412 <https://jira.mongodb.org/browse/SERVER-60412>`_ - Check if the host has ``cgroups`` v2 enabled and read the memory limits according to that.
+* `SERVER-62229 <https://jira.mongodb.org/browse/SERVER-62229>`_ - Fix invariant by allowing applying index build abort entry when in ``recoverFromOplogAsStandalone`` mode
+* `SERVER-55429 <https://jira.mongodb.org/browse/SERVER-55429>`_ - Fixed the issue with blocked migrations by adding a timeout to migrations when waiting for range deletions on intersecting ranges 
+
+  
+Find the full list of changes in the `MongoDB 4.4.14 Community Edition Release notes <https://www.mongodb.com/docs/manual/release-notes/4.4/#4.4.14---may-9--2022>`_.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-1011`: Add KMIP master key rotation
+* :jirabug:`PSMDB-1043`: The ``kmipClientCertificateFile`` option now includes both the client private key and public certificate
+* :jirabug:`PSMDB-1044`: Make the ``kmipPort`` option not mandatory and assign the default value
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-979`: Rotate audit logs in the mode as defined in the configuration.
+* :jirabug:`PSMDB-1030`: Fix descriptions and mutual dependencies of KMIP related options for ``mongod`` and ``perconadecrypt``
