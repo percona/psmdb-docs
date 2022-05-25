@@ -12,10 +12,6 @@ KMIP enables the communication between key management systems and the database s
 * Streamlines encryption key management
 * Eliminates redundant key management processes
 
-.. note::
-
-   In the current release of |PSMDB|, master-key rotation is not supported.
-
 .. rubric:: KMIP parameters
 
 .. list-table::
