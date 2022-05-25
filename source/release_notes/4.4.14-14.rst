@@ -1,10 +1,10 @@
 .. _PSMDB-4.4.14-14:
 
 ================================================================================
-*Percona Server for MongoDB* 4.4.14-14 (2022-05-26)
+*Percona Server for MongoDB* 4.4.14-14 (2022-05-25)
 ================================================================================
 
-:Date: May 26, 2022
+:Date: May 25, 2022
 :Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.4/install/index.html>`_
 
 Percona Server for MongoDB 4.4.14-14 is an enhanced, source-available, and highly-scalable database that is a
