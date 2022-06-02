@@ -183,8 +183,8 @@ html_theme_options = {
     'version_dropdown': True,
     'version_dropdown_text': 'Versions',
     'version_info': {
-        "3.6": "https://docs.percona.com/percona-server-for-mongodb/3.6/",
-        "4.0": "https://docs.percona.com/percona-server-for-mongodb/4.0/",
+        "3.6 (EOL)": "https://docs.percona.com/percona-server-for-mongodb/3.6/",
+        "4.0 (EOL)": "https://docs.percona.com/percona-server-for-mongodb/4.0/",
         "4.2": "https://docs.percona.com/percona-server-for-mongodb/4.2/",
         "4.4": "https://docs.percona.com/percona-server-for-mongodb/4.4/",
         "5.0": "https://docs.percona.com/percona-server-for-mongodb/5.0/",
