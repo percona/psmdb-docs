@@ -12,6 +12,8 @@ KMIP enables the communication between key management systems and the database s
 * Streamlines encryption key management
 * Eliminates redundant key management processes
 
+Starting with version 4.2.21-21, you can specify multiple KMIP servers for failover. On startup, Percona Server for MongoDB connects to the servers in the order listed and selects the one with which the connection is successful.
+
 .. admonition:: KMIP parameters
 
    .. list-table::
@@ -23,7 +25,7 @@ KMIP enables the communication between key management systems and the database s
         - Description
       * - --kmipServerName
         - string
-        - The hostname or IP address of the KMIP server.
+        - The hostname or IP address of the KMIP server. As of version 4.2.21-21, multiple KMIP servers are supported as the comma-separated list, e.g. ``kmip1.example.com,kmip2.example.com``
       * - --kmipPort
         - number
         - The port used to communicate with the KMIP server. When undefined, the default port 5696 will be used.
@@ -39,11 +41,14 @@ KMIP enables the communication between key management systems and the database s
       * - --kmipRotateMasterKey
         - boolean
         - Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 4.2.20-20. Requires the unique ``--kmipKeyIdentifier`` for every ``mongod`` node.
-          
+      * - --kmipClientCertificatePassword
+        - string
+        - The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 4.2.21-21.
+
 Key rotation
 ================
 
-Starting with release 4.2.20-20, the support for `master key rotation <https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation>`_ is added. This enables users to comply with data security regulations when using KMIP.
+Starting with version 4.2.20-20, the support for `master key rotation <https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation>`_ is added. This enables users to comply with data security regulations when using KMIP.
 
 .. note::
 
