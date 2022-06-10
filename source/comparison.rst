@@ -21,29 +21,27 @@ in MongoDB Enterprise Edition.
      - * WiredTiger_ (default)
        * In-Memory_ (Enterprise only)
    * - Encryption-at-Rest
-     - * Key server = Hashicorp Vault
+     - * Key servers = :ref:`Hashicorp Vault <vault>`, :ref:`KMIP <kmip>`
        * Fully open source
      - * Key server = KMIP
        * Enterprise only
-   * - :ref:`Hot Backup <hot-backup>`
-     - YES (replica set)
+   * - Hot Backup 
+     - :ref:`YES <hot-backup>` (replica set)
      - NO
    * - LDAP Authentication
-     - * Simple LDAP Auth
-       * (legacy) :ref:`External SASL Authentication <ext-auth>`
+     - * (legacy) :ref:`ldap-authentication-sasl`
      - * Enterprise only
-       * Enterprise only
    * - LDAP Authorization
-     - YES
+     - :ref:`YES <ldap-authorization>`
      - Enterprise only
    * - Kerberos Authentication
-     - YES
+     - :ref:`YES <kerberos-authentication>`
      - Enterprise only
-   * - :ref:`Audit Logging <audit-log>`
-     - YES
+   * - Audit Logging 
+     - :ref:`YES <audit-log>`
      - Enterprise only
    * - Log redaction
-     - YES
+     - :ref:`YES <log-redaction>`
      - Enterprise only
    * - SNMP Monitoring
      - NO
