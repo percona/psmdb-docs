@@ -1,0 +1,39 @@
+.. _PSMDB-5.0.9-8:
+
+================================================================================
+*Percona Server for MongoDB* 5.0.9-8 (2022-06-20)
+================================================================================
+
+:Date: |date|
+:Installation: :ref:`install`
+
+Percona Server for MongoDB 5.0.9-8 is an enhanced, source available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 5.0.9 Community Edition.
+It supports MongoDB 5.0.9 protocols and drivers.
+
+Release Highlights
+==================
+
+* Support of :ref:`multiple KMIP servers <kmip>` adds failover to your data-at-rest encryption setup.
+* Allow users to set KMIP client certificate password through a flag to simplify the migration from MongoDB Enterprise to |PSMDB|. 
+* |PSMDB| is now available on Ubuntu 22.04 (Jammy Jellyfish).
+* Improvements to initial syncs from a secondary sync source.
+
+The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:
+
+* `SERVER-65137 <https://jira.mongodb.org/browse/SERVER-65137>`_ - Detect namespace changes when refreshing Collection after yielding to maintain data consistency and avoid stale catalogs.
+* `SERVER-64822 <https://jira.mongodb.org/browse/SERVER-64822>`_ - Fixed the issue with releasing the critical state too early when sharding an empty collection. This could result in unwanted writes to that collection.
+* `WT-9096 <https://jira.mongodb.org/browse/WT-9096>`_ - Fixed the wrong key/value returning during search near when the key doesn't exist
+* `SERVER-66041 <https://jira.mongodb.org/browse/SERVER-66041>`_ - Prevented shard imbalances due to chunk cloner disregarding oversized chunks that contain only 1 oversized document
+  
+Find the full list of changes in the `MongoDB 5.0.9 Community Edition release notes <https://www.mongodb.com/docs/manual/release-notes/5.0/#5.0.9---may-31--2022>`_.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-1045`: Add support for several KMIP servers 
+* :jirabug:`PSMDB-1043`: Remove the ``kmipClientKeyFile`` option and include both the client private key and public certificate in the file specified by the``kmipClientCertificateFile`` option. 
+* :jirabug:`PSMDB-1044`: Make the ``kmipPort`` option not mandatory and assign the default value
+* :jirabug:`PSMDB-1054`: Add the ability to specify the password for the KMIP client keys and certificates to simplify migration from MongoDB Enterprise.
+
+.. |date| replace:: June 20, 2022
