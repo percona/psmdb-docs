@@ -29,12 +29,13 @@ sys.path.append(os.path.abspath('ext'))
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = ['sphinx.ext.intersphinx', 'sphinx.ext.todo',
               'sphinx.ext.coverage', 'sphinx.ext.ifconfig',
-              'sphinx.ext.extlinks']
+              'sphinx.ext.extlinks','sphinx_gitstamp', 
+              'sphinx_copybutton', 'sphinx_tabs.tabs']
 
 
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ['_static/_templates/theme']
 
 
 # The suffix of source filenames.
@@ -48,7 +49,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Percona Server for MongoDB 3.6 documentation'
-copyright = u'Percona LLC and/or its affiliates 2015-2021'
+copyright = u'Percona LLC and/or its affiliates 2015-2022'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -68,6 +69,10 @@ release = '3.6.23-13.0'
 #today = ''
 # Else, today_fmt is used as the format for a strftime call.
 #today_fmt = '%B %d, %Y'
+gitstamp_fmt = "%b %d, %Y"
+
+# Specify the text pattern that won't be copied with the code block contents
+copybutton_prompt_text = '$'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -90,7 +95,7 @@ exclude_patterns = []
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'default'
+pygments_style = 'emacs'
 
 rst_prolog = '''
 
@@ -148,19 +153,37 @@ extlinks = {'jirabug': ('https://jira.percona.com/browse/%s', '')}
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'percona-theme'
+#html_theme = 'percona-theme'
+html_theme = 'sphinx_material'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
-
+html_theme_options = {
+    'base_url': 'http://bashtage.github.io/sphinx-material/',
+    'repo_url': 'https://github.com/percona/psmdb-docs',
+    'repo_name': 'percona/psmdb-docs',
+    'color_accent': 'grey',
+    'color_primary': 'orange',
+    'google_analytics_account': 'UA-343802-3',
+    'globaltoc_collapse': True,
+    'version_dropdown': True,
+    'version_dropdown_text': 'Versions',
+    'version_info': {
+        "3.6 (EOL)": "https://docs.percona.com/percona-server-for-mongodb/3.6/",
+        "4.0 (EOL)": "https://docs.percona.com/percona-server-for-mongodb/4.0/",
+        "4.2": "https://docs.percona.com/percona-server-for-mongodb/4.2/",
+        "4.4": "https://docs.percona.com/percona-server-for-mongodb/4.4/",
+        "5.0": "https://docs.percona.com/percona-server-for-mongodb/5.0/",
+        "Latest stable": "https://docs.percona.com/percona-server-for-mongodb/latest/"
+    },
+}
 
 html_context = {
-   'edit_uri': 'edit/4.0/source'
+   'edit_uri': 'edit/3.6/source'
 }
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = ['.', './percona-theme']
+#html_theme_path = ['.', './percona-theme']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -171,17 +194,21 @@ html_short_title = 'Percona Server for MongoDB 3.6 Documentation'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = 'percona-logo.jpg'
+html_logo = '_static/images/percona-logo.svg'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-#html_favicon = None
+html_favicon = '_static/images/percona_favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_css_files = [
+    'css/material.css',
+]
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -193,7 +220,7 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-		'**': ['localtoc.html', 'relations.html', 'sourcelink.html'],
+		'**': ['globaltoc.html', 'searchbox.html', 'localtoc.html', 'logo-text.html'],
 		'using/windows': ['windowssidebar.html'],
 				}
 

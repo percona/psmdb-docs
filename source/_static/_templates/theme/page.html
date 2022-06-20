@@ -1,0 +1,12 @@
+{%- extends "layout.html" %}
+{% block body %}
+  <div class="md-typeset" role="main">  
+  <div class="alert alert-warning">  
+    <p> This documentation is for the end of life version of Percona Server for MongoDB and is no longer supported. You may want to see the <a href="https://docs.percona.com/percona-server-for-mongodb/latest/">current</a> documentation.
+    </p>
+  </div>
+ </div>
+
+  {{ table_fix(body, pagename) }}
+{% endblock %}
+
