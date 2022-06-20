@@ -41,6 +41,9 @@ Starting with version 5.0.9-8, you can specify multiple KMIP servers for failove
       * - --kmipRotateMasterKey
         - boolean
         - Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 5.0.8-7. Requires the unique ``--kmipKeyIdentifier`` for every ``mongod`` node.
+      * - --kmipClientCertificatePassword
+        - string
+        - The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 5.0.9-8.
 
 Key rotation
 ================
