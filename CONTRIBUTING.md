@@ -27,10 +27,11 @@ To contribute to documentation, learn about the following:
 There are several active versions of the documentation. Each version has a branch in the repository named accordingly:
 
 - 3.6 (EOL)
-- 4.0
+- 4.0 (EOL)
 - 4.2
 - 4.4
 - 5.0
+- 6.0
 
 The .rst files are in the ``source`` directory. 
 

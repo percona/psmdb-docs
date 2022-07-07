@@ -203,7 +203,7 @@ To test the authentication, connect to |PSMDB| using the following command:
 
 .. code-block:: bash
 
-   $ mongo --host localhost --tls --tlsCAFile /var/lib/mongocerts/ca.crt --tlsCertificateKeyFile <path_to_client_certificate>/client.pem  --authenticationMechanism MONGODB-X509 --authenticationDatabase='$external'
+   $ mongosh --host localhost --tls --tlsCAFile /var/lib/mongocerts/ca.crt --tlsCertificateKeyFile <path_to_client_certificate>/client.pem  --authenticationMechanism MONGODB-X509 --authenticationDatabase='$external'
 
 The result should look like the following: 
 

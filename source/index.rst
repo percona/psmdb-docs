@@ -8,9 +8,9 @@ Percona Server for MongoDB |version| Documentation
 for MongoDB |version| Community Edition with enterprise-grade features.
 It requires no changes to MongoDB applications or code.
 
-.. hint::
+.. hint:: 
 
-   To see which version of |PSMDB| you are using check the value of the
+   To see which version of |PSMDB| you are using, check the value of the
    ``psmdbVersion`` key in the output of the `buildInfo <https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo>`_ database command. If
    this key does not exist, |PSMDB| is not installed on the server.
 
@@ -27,7 +27,7 @@ It requires no changes to MongoDB applications or code.
 - :ref:`hot-backup` for the default WiredTiger_
 - :ref:`rate-limit` to decrease the impact of the profiler on performance
 
-To learn more about the features, available in |PSMDB|, see :ref:`compare`
+Learn more in :ref:`compare`.
 
 --------------------------------------------------------------------------------
 
@@ -81,7 +81,7 @@ How to
    kerberos
    Tune parameters <set-parameter>
    Upgrade Percona Server for MongoDB <install/upgrade-from-mongodb>
-   Perform a major upgrade of Percona Server for MongoDB from 4.4 to 5.0 <install/upgrade-from-44>
+   Perform a major upgrade of Percona Server for MongoDB from 5.0 to 6.0 <install/upgrade-from-50>
    Uninstall Percona Server for MongoDB <install/uninstall>
 
 Release Notes

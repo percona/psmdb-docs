@@ -9,7 +9,7 @@ Percona provides installation packages of |PSMDB| for the most 64-bit Linux dist
 The recommended installation method is from |percona| repositories. Follow the links below for the installation instructions for your operating system.
 
 - :ref:`Install on Debian or Ubuntu <apt>`
-- :ref:`Install on RHEL or CentOS <yum>`
+- :ref:`Install on Red Hat Enterprise Linux or derivatives <yum>`
 
 Alternative Install Instructions
 ================================================================================
@@ -37,7 +37,7 @@ Upgrade Instructions
 If you are currently using MongoDB, see :ref:`Upgrading from MongoDB
 <upgrade_from_mongodb>`.
 
-If you are running an earlier version of |PSMDB|, see :ref:`Upgrading from Version 4.4 <upgrade_from_44>`.
+If you are running an earlier version of |PSMDB|, see :ref:`Upgrading from Version 5.0 <upgrade_from_50>`.
 
 Uninstall Instructions
 ================================================================================
@@ -48,8 +48,9 @@ To uninstall |PSMDB|, see :ref:`uninstall`.
    :hidden:
 
    Install on Debian or Ubuntu <apt>
-   Install on RHEL or CentOS <yum>
+   Install on RHEL or derivatives <yum>
    Install from Binary Tarball <tarball>
    Run in a Docker Container <docker>
 
 .. include:: ../.res/url.txt
+.. include:: ../.res/replace.txt

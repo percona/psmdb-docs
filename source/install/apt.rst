@@ -21,13 +21,13 @@ Package Contents
    * - Package
      - Contains
    * - percona-server-mongodb
-     - The ``mongo`` shell, import/export tools, other client
+     - The ``mongosh`` shell, import/export tools, other client
        utilities, server software, default configuration, and :dir:`init.d` scripts.
    * - percona-server-mongodb-server
      - The :program:`mongod` server, default configuration files, and :dir:`init.d`
        scripts
    * - percona-server-mongodb-shell
-     - The ``mongo`` shell
+     - The ``mongosh`` shell
    * - percona-server-mongodb-mongos
      - The ``mongos`` sharded cluster query router
    * - percona-server-mongodb-tools
@@ -58,8 +58,7 @@ Configure Percona repository
 
       $ sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
 
-   Once you install ``percona-release``, the |Percona| repositories should be available. You
-   can check the repository setup in the
+   Once you install ``percona-release``, the |Percona| repositories should be available. You can check the repository setup in the
    :file:`/etc/apt/sources.list.d/percona-release.list` file.
 
 
@@ -67,7 +66,7 @@ Configure Percona repository
    
    .. code-block:: bash
    
-      $ sudo percona-release enable psmdb-50 release
+      $ sudo percona-release enable psmdb-60 release
 
 #. Remember to update the local cache: 
    
@@ -97,13 +96,15 @@ To install a specific version of |PSMDB|, do the following:
 
    .. admonition:: Sample Output
 
-      .. include:: ../.res/text/apt-versions-list.txt
+      .. code-block:: text
 
-2. Install a specific version packages. You must specify each package with the version number. For example, to install |PSMDB| 5.0.2-1, run the following command:
+         percona-server-mongodb | 6.0.2-1.buster | http://repo.percona.com/psmdb-60/apt buster/main amd64 Packages
+        
+2. Install a specific version packages. You must specify each package with the version number. For example, to install |PSMDB| 6.0.2-1, run the following command:
    
    .. code-block:: bash
    
-      $ sudo apt install percona-server-mongodb=5.0.2-1.buster percona-server-mongodb-mongos=5.0.2-1.buster percona-server-mongodb-shell=5.0.2-1.buster percona-server-mongodb-server=5.0.2-1.buster percona-server-mongodb-tools=5.0.2-1.buster
+      $ sudo apt install percona-server-mongodb=6.0.2-1.buster percona-server-mongodb-mongos=6.0.2-1.buster percona-server-mongodb-shell=6.0.2-1.buster percona-server-mongodb-server=6.0.2-1.buster percona-server-mongodb-tools=6.0.2-1.buster
 
 Running Percona Server for MongoDB
 ================================================================================

@@ -1,4 +1,4 @@
-.. _upgrade_from_44:
+.. _upgrade_from_50:
 
 Upgrading from |PSMDB| |prev-version| to |version|
 ================================================================================
@@ -8,7 +8,7 @@ To upgrade |PSMDB| to version |version|, you must be running version
 
 Before upgrading your production |PSMDB| deployments, test all your applications
 in a testing environment to make sure they are compatible with the new version.
-For more information, see `Compatibility Changes in MongoDB 5.0 <https://docs.mongodb.com/manual/release-notes/5.0-compatibility/>`_
+For more information, see `Compatibility Changes in MongoDB 6.0 <https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/>`_
        
 The general procedure for performing an in-place upgrade (where your existing
 data and configuration files are preserved) includes the following steps:
@@ -18,7 +18,7 @@ data and configuration files are preserved) includes the following steps:
 #. Install new packages. Old packages are considered obsolete and automatically removed
 #. Start the ``mongod`` instance
 
-It is recommended to upgrade |PSMDB| from official |percona| repositories using the `percona-release <https://www.percona.com/doc/percona-repo-config/index.html>`_ tool and the corresponding package manager for your system.  For more information, see :ref:`install`.
+Similar to :ref:`installing Percona Server for MongoDB <install>` , we recommend upgrading it from official Percona repositories using the ``percona-release`` tool. `Install percona-release <https://docs.percona.com/percona-software-repositories/installing.html>`_ or `update <https://docs.percona.com/percona-software-repositories/updating.html>`_ it to the latest version.
 
 .. warning::
 
@@ -38,7 +38,7 @@ It is recommended to upgrade |PSMDB| from official |percona| repositories using 
 
          .. code-block:: bash
 
-            $ sudo percona-release enable psmdb-50
+            $ sudo percona-release enable psmdb-60
 
       #. Update the local cache: 
          
@@ -73,7 +73,7 @@ It is recommended to upgrade |PSMDB| from official |percona| repositories using 
 
          .. code-block:: bash
 
-            $ sudo percona-release enable psmdb-50
+            $ sudo percona-release enable psmdb-60
 
       #. Install |PSMDB| |version| packages: 
           

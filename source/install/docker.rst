@@ -24,7 +24,7 @@ To run the latest |PSMDB| |version| in a Docker container, use the following com
 .. code-block:: bash
 
    $ docker run -d --name psmdb --restart always \
-   percona/percona-server-mongodb:5.0
+   percona/percona-server-mongodb:6.0
 
 The previous command does the following:
 
@@ -43,7 +43,7 @@ The previous command does the following:
   will start the container on startup
   and restart it if the container exits.
 
-* ``percona/percona-server-mongodb:5.0`` is the name and version tag
+* ``percona/percona-server-mongodb:6.0`` is the name and version tag
   of the image to derive the container from.
 
 .. seealso::
@@ -65,7 +65,11 @@ Connecting with the Mongo Shell
 
 To start another container with the ``mongo`` shell
 that connects to your |PSMDB| container,
-run the following comand: :bash:`docker run -it --link psmdb --rm percona/percona-server-mongodb:mongo mongo -h psmdb`
+run the following command: 
+
+.. code-block:: bash 
+
+   $ docker run -it --link psmdb --rm percona/percona-server-mongodb:mongo mongo -h psmdb`
 
 .. include:: ../.res/replace.txt
 .. include:: ../.res/url.txt

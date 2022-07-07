@@ -45,10 +45,6 @@ Configuring ``saslauthd``
 
             $ sudo yum install -y cyrus-sasl 
 
-         .. note::
-
-            For |PSMDB| versions earlier than 4.0.26-21,  4.4.8-9, 4.2.16-17, also install the ``cyrus-sasl-plain`` package.
-         
       .. tab:: Debian and Ubuntu
 
          .. code-block:: bash
@@ -249,7 +245,7 @@ Connect to |PSMDB| and authenticate as :ref:`the root user <root-user>`.
 
 .. code-block:: bash
 
-   $ mongo --host localhost --port 27017 -u admin -p '$3cr3tP4ssw0rd' --authenticationDatabase 'admin'
+   $ mongosh --host localhost --port 27017 -u admin -p '$3cr3tP4ssw0rd' --authenticationDatabase 'admin'
 
 Use the following command to add an external user to |PSMDB|:
 
@@ -271,7 +267,7 @@ Alternatively, a user can authenticate while connecting to |PSMDB|:
 
 .. code-block:: bash
 
-   $ mongo --host localhost --port 27017 --authenticationMechanism PLAIN --authenticationDatabase \$external -u christian -p
+   $ mongosh --host localhost --port 27017 --authenticationMechanism PLAIN --authenticationDatabase \$external -u christian -p
 
 .. admonition:: Based on the material from **Percona Database Performance Blog**
 		

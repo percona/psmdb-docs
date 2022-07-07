@@ -32,7 +32,7 @@ The following example illustrates the connection to |PSMDB| from the ``mongo`` s
 
 .. code-block:: text
 
-   mongo -u "CN=alice,CN=Users,DC=engineering,DC=example,DC=com" -p --authenticationDatabase '$external' --authenticationMechanism PLAIN
+   mongosh -u "CN=alice,CN=Users,DC=engineering,DC=example,DC=com" -p --authenticationDatabase '$external' --authenticationMechanism PLAIN
 
 The following diagram illustrates the authentication and authorization flow:
 

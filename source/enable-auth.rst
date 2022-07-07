@@ -41,7 +41,7 @@ To enable access control manually:
 
 3. Restart the ``mongod`` service::
 
-    $ systemctl restart mongod
+    $ sudo systemctl restart mongod
 
 4. Connect to the database as the newly created user::
     

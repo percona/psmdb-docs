@@ -12,9 +12,6 @@ server without notable performance and operating degradation.
 
    Hot backups are done on ``mongod`` servers independently, without synchronizing them across replica set members and shards in a cluster. To ensure data consistency during backups and restores, we recommend using `Percona Backup for MongoDB <https://docs.percona.com/percona-backup-mongodb/index.html>`_.
 
-.. contents::
-   :local:  
-
 Making a backup
 ===============
 
@@ -138,8 +135,7 @@ Credentials
 If the user provides the *access key id* and the *secret access key* parameters,
 these are used as credentials.
 
-If the *access key id* parameter is not specified then the credentials are loaded from
-the credentials configuration file. By default, it is :file:`~/.aws/credentials`.
+If the *access key id* parameter is not specified then the credentials are loaded from the credentials configuration file. By default, it is :file:`~/.aws/credentials`.
 
 .. admonition:: An example of the credentials file
 
@@ -189,7 +185,7 @@ The following command creates a backup under the virtual path  "year2019/day42" 
 
 .. _hot-backup.restore:
 
-Restoring data from backup
+Restoring data from a backup
 ===============================
 
 .. rubric:: Restoring from backup on a standalone server
@@ -227,7 +223,7 @@ The restore steps are the following:
     
     .. code-block:: bash
     
-       $ systemctl stop mongod
+       $ sudo systemctl stop mongod
 
 2.  Clean the data directory and then copy the files from the backup directory to your data directory. Assuming that the data directory is :file:`/var/lib/mongodb/`, use the following commands:
     
@@ -246,13 +242,13 @@ The restore steps are the following:
     
     .. code-block:: bash
     
-       $ systemctl start mongod
+       $ sudo systemctl start mongod
 
 #.  Connect to your standalone node via the ``mongo`` shell and drop the local database
     
-    .. code-block:: text
+    .. code-block:: javascript
     
-       > mongo
+       > mongosh
        > use local
        > db.dropDatabase()
 
@@ -262,20 +258,21 @@ The restore steps are the following:
 
       .. code-block:: bash
        
-         $ systemctl stop mongod
+         $ sudo systemctl stop mongod
+
     * Edit the configuration file and specify the ``replication.replSetname`` option
     * Start the ``mongod`` node:
 
       .. code-block:: bash
        
-         $ systemctl start mongod
+         $ sudo systemctl start mongod
 
 #.  Initiate a new replica set
 
-    .. code-block:: text
+    .. code-block:: javascript
 
        # Start the mongo shell
-       > mongo
+       > mongosh
        # Initiate a new replica set
        > rs.initiate()
 

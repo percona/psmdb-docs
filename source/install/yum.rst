@@ -1,17 +1,14 @@
 .. _yum:
 
-============================================================================
-Installing Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS
-============================================================================
+=============================================================================================
+Installing Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
+=============================================================================================
 
-Use this document to install |psmdb| on RPM-based distributions such as Red Hat Enterprise Linux and CentOS from Percona repositories. 
+Use this document to install |psmdb| on RPM-based distributions such as Red Hat Enterprise Linux and derivatives from Percona repositories. 
 
 .. note:: |PSMDB| should work on other RPM-based distributions
    (for example, Amazon Linux AMI and Oracle Linux),
    but it is tested only on platforms listed on the `Percona Software and Platform Lifecycle <https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb>`_ page. 
-
-.. contents::
-   :local:
 
 Package Contents
 ================================================================================
@@ -22,13 +19,12 @@ Package Contents
    * - Package
      - Contains
    * - percona-server-mongodb
-     - The ``mongo`` shell, import/export tools, other client
+     - The ``mongosh`` shell, import/export tools, other client
        utilities, server software, default configuration, and :dir:`init.d` scripts.
    * - percona-server-mongodb-server
-     - The :program:`mongod` server, default configuration files, and :dir:`init.d`
-       scripts
+     - The :program:`mongod` server, default configuration files, and :dir:`init.d` scripts
    * - percona-server-mongodb-shell
-     - The ``mongo`` shell
+     - The ``mongosh`` shell
    * - percona-server-mongodb-mongos
      - The ``mongos`` sharded cluster query router
    * - percona-server-mongodb-tools
@@ -39,7 +35,7 @@ Package Contents
 Installing from Percona repositories
 ================================================================================
 
-Percona repositories are managed using the |percona-release| tool. So in order to install |PSMDB|, install |percona-release| first 
+Percona repositories are managed using the |percona-release| tool. So in order to install |PSMDB|, install |percona-release| first.
 
 Configure Percona repository
 ----------------------------
@@ -62,7 +58,7 @@ Configure Percona repository
 
    .. code-block:: bash
 
-      $ sudo percona-release enable psmdb-50 release
+      $ sudo percona-release enable psmdb-60 release
 
 
 .. seealso::
@@ -93,13 +89,18 @@ To install a specific version of |PSMDB|, do the following:
 
    .. admonition:: Sample Output   
 
-      .. include:: ../.res/text/yum-versions-list.txt
+      .. code-block:: text
 
-#. Install a specific version packages. For example, to install |PSMDB| 5.0.2-1, run the following command:
+             Available Packages
+         percona-server-mongodb.x86_64    6.0.2-1.el8       psmdb-60-release-x86_64
+
+
+
+#. Install a specific version packages. For example, to install |PSMDB| 6.0.1-1, run the following command:
    
    .. code-block:: bash 
    
-      $ sudo yum install percona-server-mongodb-5.0.2-1.el8
+      $ sudo yum install percona-server-mongodb-6.0.2-1.el8
       
 Running Percona Server for MongoDB
 ================================================================================
@@ -149,14 +150,17 @@ Running after reboot
 --------------------------------------------------------------------------------
 
 The ``mongod`` service is not automatically started
-after you reboot the system.
-
-You can enable it using the ``systemctl`` utility: 
+after you reboot the system. To make it start automatically after reboot, enable it using the ``systemctl`` utility: 
 
 .. code-block:: bash
 
    $ sudo systemctl enable mongod
 
+Then start the ``mongod`` service
+
+.. code-block:: bash
+  
+   $ sudo systemctl start mongod
 
 .. include:: ../.res/replace.txt
 .. include:: ../.res/replace.program.txt

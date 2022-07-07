@@ -18,7 +18,7 @@ Follow the instructions, relevant to your operating system:
       * |apt.remove| will only remove the packages and leave the configuration and data files. 
       * |apt.purge| will remove all the packages with configuration files and data.
 
-      Choose which command better suits you depending on your needs.
+      Use either command depending on your needs.
 
       1. Stop the |mongod| server: 
          
@@ -41,10 +41,10 @@ Follow the instructions, relevant to your operating system:
               $ sudo apt purge percona-server-mongodb*
 
 
-   .. tab:: Uninstall on RHEL and CentOS
+   .. tab:: Uninstall on RHEL and derivatives
 
       
-      1. Stop the Percona Server for MongoDB service: 
+      1. Stop the |mongod| service: 
 
          .. code-block:: bash
 
