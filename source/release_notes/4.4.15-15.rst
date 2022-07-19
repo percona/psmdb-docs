@@ -1,0 +1,40 @@
+.. _PSMDB-4.4.15-15:
+
+================================================================================
+Percona Server for MongoDB 4.4.15-15 (2022-07-19)
+================================================================================
+
+:Date: July 19, 2022
+:Installation: :ref:`install`
+
+Percona Server for MongoDB 4.4.15-15 is an enhanced, source available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 4.4.15 Community Edition.
+It supports MongoDB 4.4.15 protocols and drivers.
+
+Release Highlights
+==================
+
+* Support of :ref:`multiple KMIP servers <kmip>` adds failover to your data-at-rest encryption setup.
+* Allow users to set KMIP client certificate password through a flag to simplify the migration from MongoDB Enterprise to |PSMDB|. 
+
+Other improvements and bug fixes introduced by MongoDB and included in Percona Server for MongoDB are the following:
+
+* `SERVER-66433 <https://jira.mongodb.org/browse/SERVER-66433>`_ - Backported the check for user errors in case deadline on the migration destination manager is hit while waiting for a range to be cleared up. This prevents the balancer from getting blocked.
+* `SERVER-65821 <https://jira.mongodb.org/browse/SERVER-65821>`_ - Fixed the deadlock situation in cross shard transactions that could occur when the FCV (Feature Compatibility Version) was set after the "prepared" state of the transactions. That ended up with both the the `setFCV <https://www.mongodb.com/docs/manual/reference/command/setFeatureCompatibilityVersion/>`_ thread and the `TransactionCoordinator` hung. 
+* `SERVER-65131 <https://jira.mongodb.org/browse/SERVER-65131>`_ - This is a v6.0 backport fix to v4.4 that disables opportunistic read targeting (except for specified hedged reads) in order to prevent possible performance problems associated with uneven read distribution across the secondaries.
+* `SERVER-54900 <https://jira.mongodb.org/browse/SERVER-54900>`_ - Fixed an issue where competing/blocking network calls to the sync source could prevent selecting a new sync-source. This is resolved by canceling the ASIO session when SSL handshake times out.
+  
+Find the full list of changes in the `MongoDB 4.4.15 Community Edition Release notes <https://www.mongodb.com/docs/manual/release-notes/4.4/#4.4.15---jun-21--2022>`_.
+
+Supported versions
+==================
+
+Percona Server for MongoDB is now available on Ubuntu 22.04 (Jammy Jellyfish).
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-1045`: Add support for several KMIP servers 
+* :jirabug:`PSMDB-1054`: Add the ability to specify the password for the KMIP client keys and certificates to simplify migration from MongoDB Enterprise.
+
+
