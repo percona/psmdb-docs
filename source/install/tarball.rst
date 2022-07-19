@@ -8,22 +8,26 @@ You can find links to the binary tarballs under the *Generic Linux* menu item on
 
 There are two tarballs available:
 
-- ``percona-server-mongodb-4.4.1-2-x86_64.glibc2.17.tar.gz`` is the general tarball, compatible with any `supported operating system <https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb>`_ except CentOS 6.
-- ``percona-server-mongodb-4.4.1-2-x86_64.glibc2.12.tar.gz`` is the tarball for CentOS 6.  
+- ``percona-server-mongodb-<version>-x86_64.glibc2.17.tar.gz`` is the general tarball, compatible with any `supported operating system <https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb>`_ except Ubuntu 22.04.
+- ``percona-server-mongodb-<version>-x86_64.glibc2.35.tar.gz`` is the tarball for Ubuntu 22.04.  
+
+Procedure
+=========
 
 1. Fetch and extract the correct binary tarball. For example, if you
    are running Debian 10 ("buster"):
 
    .. code-block:: bash
 
-      $ wget https://www.percona.com/downloads/percona-server-mongodb-4.4/percona-server-mongodb-4.4.1-2/binary/tarball/percona-server-mongodb-4.4.1-2-x86_64.glibc2.17.tar.gz\
-      $ tar -xf percona-server-mongodb-4.4.1-2-x86_64.glibc2.17.tar.gz
+      $ wget https://downloads.percona.com/downloads/percona-server-mongodb-4.4/percona-server-mongodb-4.4.15-15/binary/tarball/percona-server-mongodb-4.4.15-15-x86_64.glibc2.17.tar.gz
+      $ tar -xf percona-server-mongodb-4.4.15-15-x86_64.glibc2.17.tar.gz
 
 #. Add the location of the binaries to the ``PATH`` variable: 
 
    .. code-block:: bash
 
-      $ export PATH=~/percona-server-mongodb-4.4.1-2/bin/:$PATH`
+      $ export PATH=~/percona-server-mongodb-4.4.15-15/bin/:$PATH
+
 #. Create the default data directory::
 
    $ mkdir -p /data/db
