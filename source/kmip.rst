@@ -12,6 +12,8 @@ KMIP enables the communication between key management systems and the database s
 * Streamlines encryption key management
 * Eliminates redundant key management processes
 
+Starting with version 4.4.15-15, you can specify multiple KMIP servers for failover. On startup, |PSMDB| connects to the servers in the order listed and selects the one with which the connection is successful.
+
 .. rubric:: KMIP parameters
 
 .. list-table::
@@ -23,7 +25,7 @@ KMIP enables the communication between key management systems and the database s
      - Description
    * - ``--kmipServerName``
      - string
-     - The hostname or IP address of the KMIP server.
+     - The hostname or IP address of the KMIP server. As of version 4.4.15-15, multiple KMIP servers are supported as the comma-separated list, e.g. ``kmip1.example.com,kmip2.example.com``
    * - ``--kmipPort``
      - number
      - The port used to communicate with the KMIP server. When undefined, the default port 5696 is used.
@@ -44,6 +46,7 @@ KMIP enables the communication between key management systems and the database s
      - The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 4.4.15-15.
 
        
+
 Key rotation
 ================
 
