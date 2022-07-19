@@ -39,6 +39,10 @@ KMIP enables the communication between key management systems and the database s
    * - ``kmipRotateMasterKey``
      - boolean
      - Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 4.4.14-14. Requires the unique ``--kmipKeyIdentifier`` for every ``mongod`` node.
+   * - ``--kmipClientCertificatePassword``
+     - string
+     - The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 4.4.15-15.
+
        
 Key rotation
 ================
