@@ -8,8 +8,11 @@ You can find links to the binary tarball under the *Generic Linux* menu item on 
 
 There are two tarballs available:
 
-- ``percona-server-mongodb-4.2.9-10-x86_64.glibc2.17.tar.gz`` is the general tarball, compatible with any `supported operating system <https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb>`_ except CentOS 6.
-- ``percona-server-mongodb-4.2.9-10-x86_64.glibc2.12.tar.gz`` is the tarball for CentOS 6.  
+- ``percona-server-mongodb-<version>-x86_64.glibc2.17.tar.gz`` is the general tarball, compatible with any `supported operating system <https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb>`_ except Ubuntu 22.04.
+- ``percona-server-mongodb-<version>-x86_64.glibc2.35.tar.gz`` is the tarball for Ubuntu 22.04.  
+
+Procedure
+=========
 
 1. Fetch and extract the correct binary tarball. For example, if you
    are running Debian 10 ("buster"):
@@ -23,7 +26,7 @@ There are two tarballs available:
    
    .. code-block:: bash
    
-      $ export PATH=~/percona-server-mongodb-4.2.9-10/bin/:$PATH`
+      $ export PATH=~/percona-server-mongodb-4.2.9-10/bin/:$PATH
 
 #. Create the default data directory:
 
