@@ -12,8 +12,7 @@ Assumptions
 1. The setup of an LDAP server is out of scope of this document. We assume that you are familiar with the LDAP server schema.
 2. You have the LDAP server up and running and it is accessible to the servers with Percona Server for MongoDB installed.
 3. This document primarily focuses on OpenLDAP used as the LDAP server and the examples are given based on the OpenLDAP format. If you are using Active Directory, refer to the :ref:`active-directory` section.
-4. You must place both |PSMDB| and the LDAP servers behind the firewall as the communications between them will be in plain text. 
-5. You have the ``sudo`` privilege to the server with the Percona Server for MongoDB installed. 
+4. You have the ``sudo`` privilege to the server with the Percona Server for MongoDB installed. 
 
 Prerequisites
 =============
