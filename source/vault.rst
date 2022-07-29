@@ -9,11 +9,9 @@ with versioning enabled.
 
 .. seealso::
 
-    Percona Blog: Using Vault to Store the Master Key for Data at Rest Encryption on |PSMDB|
-        https://www.percona.com/blog/2020/04/21/using-vault-to-store-the-master-key-for-data-at-rest-encryption-on-percona-server-for-mongodb/
+    Percona Blog: `Using Vault to Store the Master Key for Data at Rest Encryption on  Percona Server for MongoDB <https://www.percona.com/blog/2020/04/21/using-vault-to-store-the-master-key-for-data-at-rest-encryption-on-percona-server-for-mongodb/>`_
 
-    How to configure the KV Engine:
-        https://www.vaultproject.io/api/secret/kv/kv-v2.html
+    HashiCorp Vault Documentation: `How to configure the KV Engine <https://www.vaultproject.io/api/secret/kv/kv-v2.html>`_
 
 .. admonition:: |vault| Parameters
 
@@ -47,7 +45,9 @@ with versioning enabled.
       * - vaultSecret
         - security.vault.secret
         - string
-        - The path to the vault secret. Note that vault secrets path format must be:
+        - The path to the vault secret. Every replica set member must have its own distinct vault secret. It is recommended to use different secret paths for every database node.
+          
+          Note that vault secrets path format must be:
 
           .. code-block:: text
 
@@ -65,9 +65,7 @@ with versioning enabled.
 
              secret_v2/data/psmdb-test/rs1-27017
 
-          .. note::
-
-             It is recommended to use different secret paths for every database node.
+                 
            
       * - vaultRotateMasterKey
         - security.vault.rotateMasterKey
@@ -151,7 +149,10 @@ To rotate the keys for a single ``mongod`` instance, do the following:
 
 Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the vault. The entire dataset is not re-encrypted.
 
-For a replica set, the steps are the following:
+Key rotation in replica sets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Every ``mongod`` node in a replica set must have its own master key. The key rotation steps are the following:
 
 1. Rotate the master key for the secondary nodes one by one.
 2. Step down the primary and wait for another primary to be elected.
