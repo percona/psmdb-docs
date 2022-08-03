@@ -1,0 +1,52 @@
+.. _PSMDB-6.0.2-1:
+
+================================================================================
+*Percona Server for MongoDB* 6.0.2-1
+================================================================================
+
+:Date: September , 2022
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/6.0/install/index.html>`_
+
+
+We are pleased to announce the availability of Percona Server for MongoDB (PSMDB) 6.0.2-1 – the new major version of the source available, drop-in replacement of MongoDB 6.0 Community edition. It is available for `download from Percona website <https://www.percona.com/downloads/percona-server-mongodb-6.0/#>`_ and for `installation from Percona Software Repositories <https://www.percona.com/doc/percona-server-for-mongodb/6.0/install/index.html>`_.
+
+PSMDB 6.0.2-1 fully supports MongoDB 6.0 protocols and drivers and does not require any code modifications.
+
+PSMDB 6.0.2-1 includes all the features of MongoDB 6.0 Community Edition. These include enhancements to the existing features, plus the bunch of new ones. 
+
+Among new features are the following:
+
+* `Enhanced time series collections <https://www.mongodb.com/docs/v6.0/core/timeseries-collections/#std-label-manual-timeseries-collection>`_ enable you to:
+  
+  - Get deeper data analysis insights by building compound and `secondary indexes <https://www.mongodb.com/docs/v6.0/core/timeseries/timeseries-secondary-index/#std-label-timeseries-add-secondary-index-mongodb-6.0>`_ on time, metadata and measurement fields.  
+  - Distribute the load among nodes in the cluster by `sharding <https://www.mongodb.com/docs/v6.0/core/timeseries/timeseries-shard-collection/#std-label-manual-timeseries-shard-collection>`_ new and existing time series collections.
+  - Benefit from faster reads and improved performance by applying the sorting on the most recent entry instead of the whole collection.
+    
+* Enhance your event-driven solutions with optimized `change streams <https://www.mongodb.com/docs/v6.0/changeStreams/#std-label-changeStreams>`_:
+  
+  - Improve in-app notifications, reference deleted documents or feed the updated version of the entire doc to the downstream system using the `before and after states of a document that was changed <https://www.mongodb.com/docs/v6.0/reference/method/db.collection.watch/#std-label-db.collection.watch-change-streams-pre-and-post-images-example>`_.
+  - React not only to data changes but also to database change events like creating or dropping of collections with the Data Definition Language (DDL) support.
+
+* Off load work from your developers to the database with new aggregation stages like ``$densify``, ``$documents``, ``$fill`` and operators like ``$bottom``, ``$firstN``, ``$lastN``, ``$maxN`` / ``$minN`` and others. These operators allow automating key commands, getting required data insights by combining individual operators into aggregation pipelines. As a result, your developers spend less time on writing complex code or manipulating data manually and can focus on other activities.  
+* Save time on cluster administration using the `cluster-wide configuration parameters <https://www.mongodb.com/docs/v6.0/reference/cluster-parameters/#std-label-cluster-parameters>`_ and commands.
+* Improve communication of your app and MongoDB with the extended set of database commands and aggregation operators added to the `Stable API <https://www.mongodb.com/docs/v6.0/reference/stable-api/#std-label-stable-api>`_ (formerly known as versioned API).
+* Speed up data processing and save on storage costs with `clustered collections <https://www.mongodb.com/docs/v6.0/core/clustered-collections/#std-label-clustered-collections>`_. Clustered collections don’t require secondary indexes and thus, result in faster queries. A single read/write for the index and the document improves performance for inserts, updates, deletes and queries. With less storage space required by clustered connections, bulk updates and inserts are performed faster. And by turning clustered indexes to TTL indexes with a single field, you benefit from simplified delete operations and reduced storage costs.
+
+This release also provides several bug fixes, among which are the following ones:
+
+- `SERVER-67457 <https://jira.mongodb.org/browse/SERVER-67457>`_ - Fixed the issue with the indefinite stall of the config primary node when aborting Resharding operation.
+
+- `SERVER-67492 <https://jira.mongodb.org/browse/SERVER-67492>`_ - Fixed the issue with failed chunk migrations that could lead recipient shard to have divergent ``config.transactions`` records between primary and secondaries
+
+- `SERVER-68130 <https://jira.mongodb.org/browse/SERVER-68130>`_ - Adjust the ``AutosplitVector`` behavior to prevent generating a response with too many split points and throwing a ``BSOBObjectTooLarge`` error
+
+- `SERVER-68193 <https://jira.mongodb.org/browse/SERVER-68193>`_ - Fixed the issue with sharding DDL coordinator locking itself out in retry loop
+
+- `SERVER-66072 <https://jira.mongodb.org/browse/SERVER-66072>`_, `SERVER-68062 <https://jira.mongodb.org/browse/SERVER-68062>`_ - Fixed several aggregation related errors or strange behaviors 
+
+Find the full list of new features and improvements in `MongoDB 6.0 Community Edition release notes <https://www.mongodb.com/docs/v6.0/release-notes/6.0/>`_.
+
+Percona Server for MongoDB 6.0.2-1 extends this feature set by providing enterprise-level enhancements for free.
+
+To upgrade to PSMDB, see our :ref:`upgrade instructions <install/upgrade_from_50>`.
+
