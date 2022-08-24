@@ -1,0 +1,58 @@
+.. _PSMDB-4.4.16-16:
+
+================================================================================
+*Percona Server for MongoDB* 4.4.16-16 (2022-08-30)
+================================================================================
+
+:Date: August 30, 2022
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.4/install/index.html>`_
+
+Percona Server for MongoDB 4.4.16-16 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 4.4.16 Community Edition.
+It supports MongoDB 4.4.16 protocols and drivers.
+
+.. warning::
+
+   Take caution when upgrading from earlier versions of v4.4.x to later versions of 4.4 or on to v5.0. See `SERVER-68511 <https://jira.mongodb.org/browse/SERVER-68511>`_ for more details.
+
+Release Highlights
+==================
+
+* `SERVER-67302 <https://jira.mongodb.org/browse/SERVER-67302>`_ - Fixed the server crash with the CLOCK_REALTIME set to forward by making the linearizable reads robust to primary catch-up and simultaneous stepdown.
+* `SERVER-61321 <https://jira.mongodb.org/browse/SERVER-61321>`_, `SERVER-60607 <https://jira.mongodb.org/browse/SERVER-60607>`_ - Improved handling of large/NaN (Not a Number) values for text index and geo index version.
+* `SERVER-66418 <https://jira.mongodb.org/browse/SERVER-66418>`_ -  Fixed the issue with bad projection created during dependency analysis due to string order assumption. It resulted in the ``PathCollision`` error. The issue is fixed by improving dependency analysis for projections by folding dependencies into ancestor dependencies where possible.
+* `WT-9096 <https://jira.mongodb.org/browse/WT-9096>`_ - Fixed the wrong key/value returning during search near when the key doesn't exist.
+* `SERVER-63243 <https://jira.mongodb.org/browse/SERVER-63243>`_ - This bug fix adjusts the functioning of the range-deleter to prevent the balancer from getting blocked, hung, or ranges being scheduled behind other ranges.
+* `SERVER-67492 <https://jira.mongodb.org/browse/SERVER-67492>`_ - Failed chunk migrations can lead to recipient shard having different config.transactions records between primaries and secondaries - inconsistent data.
+* `SERVER-60958 <https://jira.mongodb.org/browse/SERVER-60958>`_ - This fix avoids server hang in chunk migration when a step-down occurs.
+
+  
+Find the full list of changes in the `MongoDB 4.4.16 Community Edition release notes <https://www.mongodb.com/docs/v4.4/release-notes/4.4/#4.4.16---aug-19--2022>`_.
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-1046`: Make the ``kmipKeyIdentifier`` option not mandatory
+  
+.. note::
+
+   If you have configured data at rest encryption using the KMIP server and wish to upgrade |PSMDB|, go through the `encrypting existing data steps <https://www.mongodb.com/docs/v4.4/tutorial/configure-encryption/#std-label-encrypt-existing-data>`_ during the upgrade as follows: 
+
+   1. Prepare the server
+   2. :ref:`Upgrade Percona Server for MongoDB <minor_upgrade>`
+   3. Enable encryption and initiate the data synchronization.
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-1119`: Fixed the issue with backup cursor not opening if data-at-rest encryption is enabled
+
+Packaging Notes
+===================================
+
+Debian 9 (“Stretch”) is no longer supported.
+
+.. seealso::
+
+   Percona Blog: `OS Platform End of Life (EOL) Announcement for Debian Linux 9 <https://www.percona.com/blog/os-platform-end-of-life-eol-announcement-for-debian-linux-9/>`_  
+

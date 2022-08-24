@@ -63,7 +63,7 @@ master_doc = 'index'
 # The short X.Y version.
 version = '4.4'
 # The full version, including alpha/beta/rc tags.
-release = ".".join([version, '15-15'])
+release = ".".join([version, '16-16'])
 
 # General information about the project.
 product_name = 'Percona Server for MongoDB'
@@ -194,7 +194,7 @@ html_theme_options = {
 
 
 html_context = {
-   'edit_uri': 'edit/4.0/source'
+   'edit_uri': 'edit/4.4/source'
 }
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = ['.', './percona-theme']
