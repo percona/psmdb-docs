@@ -14,6 +14,10 @@ KMIP enables the communication between key management systems and the database s
 
 Starting with version 4.4.15-15, you can specify multiple KMIP servers for failover. On startup, |PSMDB| connects to the servers in the order listed and selects the one with which the connection is successful.
 
+Starting with version 4.4.16-16, the ``kmipKeyIdentifier`` option is no longer mandatory. When left blank, the database server creates a key on the KMIP server and uses that for encryption. When you specify the identifier, the key with such an ID must exist on the keystore. 
+
+|PSMDB| cannot encrypt existing data. If there is data in place, see the steps how to `encrypt existing data <https://www.mongodb.com/docs/v4.4/tutorial/configure-encryption/#std-label-encrypt-existing-data>`_.
+
 .. rubric:: KMIP parameters
 
 .. list-table::
@@ -37,7 +41,7 @@ Starting with version 4.4.15-15, you can specify multiple KMIP servers for failo
      - The path to the PEM file with the KMIP client private key and the certificate chain. The database server uses this PEM file to authenticate the KMIP server.
    * - ``--kmipKeyIdentifier``
      - string
-     - Mandatory. The name of the KMIP key. If the key does not exist, the database server creates a key on the KMIP server with the specified identifier.
+     - Optional starting with version 4.4.16-16. The identifier of the KMIP key. If the key does not exist, the database server creates a key on the KMIP server with the specified identifier. When you specify the identifier, the key with such an ID must exist on the key storage. You can only use this setting for the first time you enable encryption.
    * - ``kmipRotateMasterKey``
      - boolean
      - Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 4.4.14-14. Requires the unique ``--kmipKeyIdentifier`` for every ``mongod`` node.
@@ -51,10 +55,7 @@ Key rotation
 ================
 
 Starting with release 4.4.14-14, the support for `master key rotation <https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation>`_ is added. This enables users to comply with data security regulations when using KMIP.
-
-.. note::
-
-   To make KMIP master key rotation, make sure that every ``mongod`` has a unique ``--kmipKeyIdentifier`` value.
+ 
 
 Configuration
 =============
