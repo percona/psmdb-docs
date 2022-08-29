@@ -14,6 +14,13 @@ It supports MongoDB 5.0.11 protocols and drivers.
 Release Highlights
 ==================
 
+.. important::
+
+   With this release, the ``kmipKeyIdentifier`` option for data-at-rest encryption using the KMIP protocol (tech preview feature) is optional. This change serves to improve the user experience with |PSMDB| as the option names and behavior are similar to those of MongoDB Enterprise. However, if data-at-rest encryption using KMIP is configured, it is the breaking change because the standard upgrade procedure does not work. We do recommend to use the data-at-rest encryption using the KMIP protocol only for testing purposes until it is in the general availability stage.
+
+   If you have configured data at rest encryption and it is absolutely necessary to upgrade your MongoDB instance, see the :ref:`upgrade instructions <upgrade-kmip>`.
+
+
 * `SERVER-68511 <https://jira.mongodb.org/browse/SERVER-68511>`_ - Fixed the issue that caused inconsistency in sharding metadata when running the ``movePrimary`` command on the database that has the Feature Compatibility Version (FCV) set to 4.4 or earlier. Affects MongoDB versions 5.0.0 through 5.0.10 and MongoDB 6.0.0. Upgrade to the the fixed version of MongoDB 5.0.11 / Percona Server for MongoDB 5.0.11-10 as soon as possible.
 * `SERVER-61321 <https://jira.mongodb.org/browse/SERVER-61321>`_, `SERVER-60607 <https://jira.mongodb.org/browse/SERVER-60607>`_ - Improved handling of large/NaN (Not a Number) values for text index and geo index version.
 * `SERVER-68628 <https://jira.mongodb.org/browse/SERVER-68628>`_ - Prevented potential server crash or lost writes when a resharding retry happens after the primary node failover. This is fixed by refreshing the routing information on the primary node during resharding.
@@ -25,6 +32,12 @@ Release Highlights
 * `SERVER-68193 <https://jira.mongodb.org/browse/SERVER-68193>`_ - Prevented sharding DDL coordinator to lock itself out in distlock retry loop. 
 
 Find the full list of changes in the `MongoDB 5.0.11 Community Edition release notes <https://www.mongodb.com/docs/manual/release-notes/5.0/#5.0.11---aug-19--2022>`_.
+
+Improvements
+===========================
+
+* :jirabug:`PSMDB-1046`: Make the ``kmipKeyIdentifier`` option not mandatory
+  
 
 Bugs Fixed
 ================================================================================

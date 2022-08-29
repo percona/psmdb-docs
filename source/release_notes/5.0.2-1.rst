@@ -15,9 +15,13 @@
 
    Percona Server for MongoDB 5.0.2-1 is not recommended for production use due to the following critical issues: `WT-7984 <https://jira.mongodb.org/browse/WT-7984>`_ and `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_. These issues are fixed in MongoDB 5.0.3 Community Edition and :ref:`PSMDB-5.0.3-2`.
 
-   We recommend you to upgrade to Percona Server for MongoDB 5.0.3-2 and run the `validate <https://docs.mongodb.com/manual/reference/command/validate/>`_ command on every collection on every replica set node.
+   Another critical issue that affects the production use of this version is `SERVER-68511 <https://jira.mongodb.org/browse/SERVER-68511>`_. It causes inconsistency in sharding metadata when running the ``movePrimary`` command on the database that has the Feature Compatibility Version (FCV) set to 4.4 or earlier. Affects MongoDB versions 5.0.0 through 5.0.10 and MongoDB 6.0.0. Upgrade to the fixed version of MongoDB 5.0.11 / Percona Server for MongoDB 5.0.11-10 as soon as possible.
 
-   Read more about the post-upgrade steps in `WT-7984 <https://jira.mongodb.org/browse/WT-7984>`_ and `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_.
+   We recommend you to upgrade to Percona Server for MongoDB 5.0.11-10 and run the `validate <https://docs.mongodb.com/manual/reference/command/validate/>`_ command on every collection on every replica set node.
+
+   Read more about the post-upgrade steps in `WT-7984 <https://jira.mongodb.org/browse/WT-7984>`_ and `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_. 
+
+   Learn how to check if your cluster is affected with sharding metadata inconsistency and remediate from this impact in `SERVER-68511 <https://jira.mongodb.org/browse/SERVER-68511>`_.
 
 We are pleased to announce the release candidate of Percona Server for MongoDB 5.0.2-1. It is available for `download from Percona website <https://www.percona.com/downloads/percona-server-mongodb-5.0/#>`_ and for installation from `Percona Software Repositories <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_.
 
