@@ -23,7 +23,11 @@ It supports MongoDB 5.0.3 protocols and drivers.
 
    Unless you are already running a version of MongoDB 5.0.x in your production environments, consider waiting a while longer for any other issues to be worked through. 
 
-   If you are running any version of MongoDB 5.0.x already, please upgrade to MongoDB 5.0.3 or Percona Server for MongoDB 5.0.3-2 as soon as possible. Please follow closely all MongoDB Inc upstream recommendations regarding avoiding unclean shutdowns, check collections with the `validate <https://docs.mongodb.com/manual/reference/command/validate/>`_ command (watch for performance impacts), and make sure and resync any impacted nodes from unaffected nodes as recommended in `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_
+   If you are running any version of MongoDB 5.0.x already, please upgrade to MongoDB 5.0.3 or Percona Server for MongoDB 5.0.3-2 as soon as possible. Please follow closely all MongoDB Inc upstream recommendations regarding avoiding unclean shutdowns, check collections with the `validate <https://docs.mongodb.com/manual/reference/command/validate/>`_ command (watch for performance impacts), and make sure and resync any impacted nodes from unaffected nodes as recommended in `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_.
+
+   Another critical issue that affects the production use of this version is `SERVER-68511 <https://jira.mongodb.org/browse/SERVER-68511>`_. It causes inconsistency in sharding metadata when running the ``movePrimary`` command on the database that has the Feature Compatibility Version (FCV) set to 4.4 or earlier. Affects MongoDB versions 5.0.0 through 5.0.10 and MongoDB 6.0.0. Upgrade to the fixed version of MongoDB 5.0.11 / Percona Server for MongoDB 5.0.11-10 as soon as possible. 
+
+   Follow the upstream recommendations in `SERVER-68511 <https://jira.mongodb.org/browse/SERVER-68511>`_ to check your clusters and remediate any negative impact if the clusters are affected with this issue.
 
 
 Release Highlights
