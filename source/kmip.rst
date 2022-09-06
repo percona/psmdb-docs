@@ -14,6 +14,8 @@ KMIP enables the communication between key management systems and the database s
 
 Starting with version 4.2.21-21, you can specify multiple KMIP servers for failover. On startup, Percona Server for MongoDB connects to the servers in the order listed and selects the one with which the connection is successful.
 
+Starting with version 4.2.22-22, the ``kmipKeyIdentifier`` option is no longer mandatory. When left blank, the database server creates a key on the KMIP server and uses that for encryption. When you specify the identifier, the key with such an ID must exist on the key storage. 
+
 .. admonition:: KMIP parameters
 
    .. list-table::
@@ -23,36 +25,34 @@ Starting with version 4.2.21-21, you can specify multiple KMIP servers for failo
       * - Option
         - Type
         - Description
-      * - --kmipServerName
+      * - ``--kmipServerName``
         - string
         - The hostname or IP address of the KMIP server. As of version 4.2.21-21, multiple KMIP servers are supported as the comma-separated list, e.g. ``kmip1.example.com,kmip2.example.com``
-      * - --kmipPort
+      * - ``--kmipPort``
         - number
         - The port used to communicate with the KMIP server. When undefined, the default port 5696 will be used.
-      * - --kmipServerCAFile
+      * - `--kmipServerCAFile`
         - string
         - The path to the CA certificate file. CA file is used to validate secure client connection to the KMIP server.
-      * - --kmipClientCertificateFile
+      * - ``--kmipClientCertificateFile``
         - string
         - The path to the PEM file with the KMIP client private key and the certificate chain. The database server uses this PEM file to authenticate the KMIP server.
-      * - --kmipKeyIdentifier
+      * - ``--kmipKeyIdentifier``
         - string
-        - Mandatory. The name of the KMIP key. If the key does not exist, the database server will create a key on the KMIP server with the specified identifier.
-      * - --kmipRotateMasterKey
+        - Optional starting with version 4.2.22-22. The identifier of the KMIP key. If the key does not exist, the database server creates a key on the KMIP server with the specified identifier. When you specify the identifier, the key with such an ID must exist on the key storage. You can only use this setting for the first time you enable encryption.
+      * - ``--kmipRotateMasterKey``
         - boolean
         - Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 4.2.20-20. Requires the unique ``--kmipKeyIdentifier`` for every ``mongod`` node.
-      * - --kmipClientCertificatePassword
+      * - ``--kmipClientCertificatePassword``
         - string
         - The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 4.2.21-21.
+
 
 Key rotation
 ================
 
 Starting with version 4.2.20-20, the support for `master key rotation <https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation>`_ is added. This enables users to comply with data security regulations when using KMIP.
 
-.. note::
-
-   To make KMIP master key rotation, make sure that every ``mongod`` has a unique ``--kmipKeyIdentifier`` value.
 
 Configuration
 =============
