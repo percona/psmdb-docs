@@ -86,3 +86,15 @@ Alternatively, you can start |PSMDB| using the command line as follows:
      --kmipServerCAFile <path_to_ca_file> \
      --kmipClientCertificateFile <path_to_client_certificate> \
      --kmipKeyIdentifier <kmip_identifier>
+
+Minor upgrade of |PSMDB| to version 4.2.22-22 and higher
+========================================================
+
+While the data-at-rest encryption using the KMIP Protocol is in the tech preview stage, we recommend using it only for testing purposes as breaking changes can be introduced. With the ``kmipKeyIdentifier`` option becoming optional in version 4.2.22-22, the standard upgrade procedure doesn’t work. 
+
+If you are running |PSMDB| 4.2.21-21 or lower and do need to upgrade |PSMDB| to version 4.2.22-22 and higher, this section provides the upgrade steps.
+
+For a single-node deployment, use the ``mongodump`` / ``mongorestore`` tools to make a backup before the update and to restore from it after binaries are updated.
+
+For replica sets, data must be re-encrypted with the **new** key during the upgrade. Go through the `encrypting existing data steps <https://www.mongodb.com/docs/v4.4/tutorial/configure-encryption/#std-label-encrypt-existing-data>`_  but perform the :ref:`minor upgrade <minor_upgrade>` between steps 1 and 2 to replace the `mongod` binary.
+
