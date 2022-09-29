@@ -1,0 +1,52 @@
+.. _PSMDB-5.0.12-11:
+
+================================================================================
+*Percona Server for MongoDB* 5.0.13-13 (2022-10-)
+================================================================================
+
+:Date: October , 2022
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_
+
+Percona Server for MongoDB 5.0.13-12 is an enhanced, source available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for `MongoDB 5.0.13 Community Edition <https://www.mongodb.com/docs/manual/release-notes/5.0/#5.0.12---sep-05--2022>`_.
+It supports MongoDB 5.0.13 protocols and drivers.
+
+This release of |PSMDB| includes the improvements and bug fixes of MongoDB  Community Edition 5.0.12 and 5.0.13. 
+
+Release Highlights
+==================
+
+* |PSMDB| Docker container now includes the ``mongodump``/``mongorestore`` utilities to align with the upstream container. This enables users to manage backup/restore operations of |PSMDB|.
+* Updated exit code and status message during the master key rotation improves the user experience while using data-at-rest encryption with KMIP.
+
+The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:
+
+* `SERVER-68925 <https://jira.mongodb.org/browse/SERVER-68925>`_ - Detect and resolve table logging inconsistencies for WiredTiger tables at startup
+* `SERVER-60958 <https://jira.mongodb.org/browse/SERVER-60958>`_ - Prevent the server from hanging in chunk migration when a step-down occurs.
+* `SERVER-65382 <https://jira.mongodb.org/browse/SERVER-65382>`_ - Fixed the issue with incorrect chunk size comparison during split by preventing the `AutoSplitVector` from using the `clientReadable`.
+* `SERVER-63843 <https://jira.mongodb.org/browse/SERVER-63843>`_ - Fixed the logger deadlock by adding a check against recursive logging 
+
+
+Find the full list of changes in the `MongoDB 5.0.12 Community Edition <https://www.mongodb.com/docs/manual/release-notes/5.0/#5.0.12---sep-05--2022>`_ and MongoDB 5.0.13 Community Edition release notes.
+
+New Features
+================================================================================
+
+* :jirabug:`PSMDB-776`: Align Docker container with upstream by adding missing ``mongodump``/``mongorestore`` utilities (Thanks to Denys Holius for reporting this issue)
+
+
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-1116`: Use proper exit code and logging severity for successful master key rotation
+
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-1134`: PSMDB with encryption enabled crashes on shutdown if backup cursor isn't closed
+* :jirabug:`PSMDB-1082`: PSMDB crashes when KMIP server has wrong encryption key
+
+
