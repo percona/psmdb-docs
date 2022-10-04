@@ -15,7 +15,7 @@
 
    Read more about the issues and post-upgrade steps in `WT-7984 <https://jira.mongodb.org/browse/WT-7984>`_ and `WT-7995 <https://jira.mongodb.org/browse/WT-7995>`_. 
 
-Percona Server for MongoDB 4.4.2-4 is an enhanced, open source, and highly-scalable database that is a
+Percona Server for MongoDB 4.4.2-4 is an enhanced, source available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for `MongoDB 4.4.2 Community Edition <https://docs.mongodb.com/manual/release-notes/4.4/#nov-18-2020>`_.
 It supports MongoDB 4.4.2 protocols and drivers.
 
