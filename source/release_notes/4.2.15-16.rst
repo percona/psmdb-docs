@@ -7,7 +7,7 @@
 :Date: July 26, 2021
 :Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.2/install/index.html>`_
 
-Percona Server for MongoDB 4.2.15-16 is an enhanced, open source, and highly-scalable database that is a
+Percona Server for MongoDB 4.2.15-16 is an enhanced, source available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for `MongoDB 4.2.15 Community Edition <https://docs.mongodb.com/manual/release-notes/4.2/#4.2.15---jul-13--2021>`_.
 It supports MongoDB 4.2.15 protocols and drivers.
 

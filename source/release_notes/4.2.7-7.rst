@@ -7,7 +7,7 @@
 :Date: June 4, 2020
 :Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.2/install/index.html>`_
 
-Percona Server for MongoDB 4.2.7-7 is an enhanced, open source, and highly-scalable database that is a
+Percona Server for MongoDB 4.2.7-7 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for `MongoDB 4.2.7 Community Edition <https://docs.mongodb.com/manual/release-notes/4.2/#may-26-2020>`_.
 It supports MongoDB 4.2.7 protocols and drivers.
 
