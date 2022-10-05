@@ -71,7 +71,7 @@ The ``mongod`` server must have access to the keytab file to authenticate. To ke
 
       .. tab:: On Debian and Ubuntu
 
-         Edit the environment file at the path ``/etc/default/mongodb`` and specify the ``KRB5_KTNAME`` variable: 
+         Edit the environment file at the path ``/etc/default/mongod`` and specify the ``KRB5_KTNAME`` variable: 
 
          .. code-block:: text
 
