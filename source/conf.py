@@ -63,7 +63,7 @@ master_doc = 'index'
 # The short X.Y version.
 version = '5.0'
 # The full version, including alpha/beta/rc tags.
-release = ".".join([version, '12-11'])
+release = ".".join([version, '13-11'])
 
 # General information about the project.
 product_name = 'Percona Server for MongoDB'
