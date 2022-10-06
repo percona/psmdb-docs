@@ -7,7 +7,7 @@
 :Date: February 10, 2022
 :Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_
 
-Percona Server for MongoDB 5.0.6-5 is an enhanced, open source, and highly-scalable database that is a
+Percona Server for MongoDB 5.0.6-5 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB 5.0.6 Community Edition.
 It supports MongoDB 5.0.6 protocols and drivers.
 
