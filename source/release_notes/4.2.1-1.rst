@@ -14,7 +14,7 @@ free.
 Download the latest version from the `Percona website`_ or the `Percona software
 repositories`_.
 
-|psmdb| is an enhanced, open source, and highly-scalable database that acts as a
+|psmdb| is an enhanced, source available, and highly-scalable database that acts as a
 fully-compatible, drop-in replacement for |mongodb-ce|. It supports |mongodb|
 4.2 protocols and drivers.
 

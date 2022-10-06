@@ -4,7 +4,7 @@
 Hot Backup
 ================================================================================
 
-|PSMDB| includes an integrated open-source hot backup system for the default
+|PSMDB| includes an integrated open source hot backup system for the default
 WiredTiger_ storage engine.  It creates a physical data backup on a running
 server without notable performance and operating degradation.
 
