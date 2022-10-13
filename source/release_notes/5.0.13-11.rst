@@ -1,10 +1,10 @@
 .. _PSMDB-5.0.13-11:
 
 ================================================================================
-*Percona Server for MongoDB* 5.0.13-11 (2022-10-)
+*Percona Server for MongoDB* 5.0.13-11 (2022-10-12)
 ================================================================================
 
-:Date: October , 2022
+:Date: October 12, 2022
 :Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/5.0/install/index.html>`_
 
 Percona Server for MongoDB 5.0.13-12 is an enhanced, source-available, and highly-scalable database that is a
