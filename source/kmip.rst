@@ -3,8 +3,6 @@
 Using the Key Management Interoperability Protocol (KMIP) 
 ============================================================
 
-This feature is **technical preview** quality.
-
 |PSMDB| adds support for the secure transfer of keys using the `OASIS Key Management Interoperability Protocol (KMIP) <https://docs.oasis-open.org/kmip/kmip-spec/v2.0/os/kmip-spec-v2.0-os.html>`__. The KMIP implementation was tested with the `PyKMIP server <https://pykmip.readthedocs.io/en/latest/server.html>`__ and the `HashiCorp Vault Enterprise KMIP Secrets Engine <https://www.vaultproject.io/docs/secrets/kmip>`__.
 
 KMIP enables the communication between a key management system and the database server. KMIP provides the following benefits:
