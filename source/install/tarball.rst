@@ -9,7 +9,7 @@ You can find links to the binary tarballs under the *Generic Linux* menu item on
 Preconditions
 =============
 
-The following libraries are required for the installation. 
+The following packages are required for the installation. 
 
 .. tabs::
 
@@ -28,6 +28,8 @@ The following libraries are required for the installation.
 
 Check that they are installed in your operating system. Otherwise install them.
 
+Procedure
+=========
 
 1. Fetch and extract the binary tarball. For example, if you
    are running Debian 10 ("buster"), use the following command:
