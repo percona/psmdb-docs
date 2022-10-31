@@ -57,13 +57,15 @@ This example shows how to send audit events to the
     --dbpath data/db
     --auditDestination syslog \
 
-Alternatively, you can edit the MongoDB configuration file::
+Alternatively, you can edit the MongoDB configuration file:
 
-  storage:
-   dbPath: data/db
-  auditLog:
-   destination: syslog
-   
+.. code-block:: yaml
+
+   storage:
+    dbPath: data/db
+   auditLog:
+    destination: syslog
+    
 .. note:: If you start the server with auditing enabled,
    it cannot be disabled dynamically during runtime.
 

@@ -3,8 +3,7 @@
 Local key management using a keyfile
 ====================================
 
-The key file must contain a 32 character string encoded in base64. You can generate a random
-key and save it to a file by using the :program:`openssl` command:
+The key file must contain a 32 character string encoded in base64. You can generate a random key and save it to a file by using the :program:`openssl` command:
 
 .. code-block:: bash
 

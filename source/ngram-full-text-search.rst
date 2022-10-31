@@ -46,5 +46,5 @@ However, both *ngram* and MongoDB full text search engine treat words with the h
       - `$text operator <https://docs.mongodb.com/manual/reference/operator/query/text/#op._S_text>`_
 
    More information about ngram implementation:
-      - https://github.com/percona/percona-server-mongodb/blob/v5.0/src/mongo/db/fts/ngram-tokenizer.md
+      - https://github.com/percona/percona-server-mongodb/blob/v6.0/src/mongo/db/fts/ngram-tokenizer.md
 

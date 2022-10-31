@@ -117,7 +117,7 @@ This section assumes that users connect to |PSMDB| by providing their LDAP :abbr
       setParameter:
         authenticationMechanisms: "PLAIN"
 
-   The {PROVIDED_USER} variable substitutes the provided username before authentication or username transformation takes place. 
+   The ``{PROVIDED_USER}`` variable substitutes the provided username before authentication or username transformation takes place. 
 
    Replace ``ldap.example.com`` with the hostname of your LDAP server. In the LDAP query template, replace the domain controllers ``percona`` and ``com`` with those relevant to your organization.
 
@@ -131,7 +131,7 @@ This section assumes that users connect to |PSMDB| by providing their LDAP :abbr
    
    .. code-block:: bash
 
-      mongo -u "cn=alice,dc=percona,dc=com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+      mongosh -u "cn=alice,dc=percona,dc=com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
 
 Access with username transformation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -184,7 +184,7 @@ Note that you can use only the ``query`` or the ``substitution`` stage, the comb
          
          .. code-block:: bash
 
-            mongo -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+            mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
 
    .. tab:: LDAP query
 
@@ -224,7 +224,7 @@ Note that you can use only the ``query`` or the ``substitution`` stage, the comb
          
          .. code-block:: bash
 
-            mongo -u "alice" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+            mongosh -u "alice" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
 
 .. _active-directory:
 
@@ -281,7 +281,7 @@ Use one of the given |PSMDB| configurations for user authentication and authoriz
          
          .. code-block:: bash
 
-            mongo -u "CN=alice,CN=Users,DC=testusers,DC=percona,DC=com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+            mongosh -u "CN=alice,CN=Users,DC=testusers,DC=percona,DC=com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
 
    .. tab:: Username substitution
 
@@ -314,7 +314,7 @@ Use one of the given |PSMDB| configurations for user authentication and authoriz
          
          .. code-block:: bash
 
-            mongo -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+            mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
 
    .. tab:: LDAP query
 
@@ -347,7 +347,7 @@ Use one of the given |PSMDB| configurations for user authentication and authoriz
          
          .. code-block:: bash
 
-            mongo -u "alice" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+            mongosh -u "alice" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
 
 
 Modify one of this example configuration to match your deployment.

@@ -138,7 +138,7 @@ Test the access to |PSMDB|
    
    .. code-block:: bash
 
-      $ mongo --host <hostname> --authenticationMechanism=GSSAPI --authenticationDatabase='$external' --username demo@PERCONATEST.COM
+      $ mongosh --host <hostname> --authenticationMechanism=GSSAPI --authenticationDatabase='$external' --username demo@PERCONATEST.COM
 
 The result should look like the following:
 

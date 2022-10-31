@@ -4,9 +4,6 @@
 Data at Rest Encryption
 ================================================================================
 
-.. contents::
-   :local:
-
 Data at rest encryption for the WiredTiger storage engine in |mongodb| was
 introduced in |mongodb-enterprise| version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
