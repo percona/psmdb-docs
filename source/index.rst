@@ -67,6 +67,7 @@ Features
    log-redaction
    data-at-rest-encryption
    ngram-full-text-search
+   backup-cursor
 
 How to
 ================================================================================
