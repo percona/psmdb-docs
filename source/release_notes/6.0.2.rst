@@ -1,0 +1,63 @@
+.. _PSMDB-6.0.2-1:
+
+================================================================================
+*Percona Server for MongoDB* 6.0.2-1 (2022-10-31)
+================================================================================
+
+:Date: October 31, 2022
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/6.0/install/index.html>`_
+
+
+We are pleased to announce the availability of Percona Server for MongoDB (PSMDB) 6.0.2-1 – the new major version of the source available, drop-in replacement of `MongoDB 6.0 Community edition <https://www.mongodb.com/docs/manual/release-notes/6.0/>`_. It is available for `download from Percona website <https://www.percona.com/downloads/percona-server-mongodb-6.0/#>`_ and for `installation from Percona Software Repositories <https://www.percona.com/doc/percona-server-for-mongodb/6.0/install/index.html>`_.
+
+|PSMDB| 6.0.2-1 fully supports MongoDB 6.0 protocols and drivers and does not require any code modifications.
+
+Release Highlights
+==================
+
+* :ref:`Data-at-rest encryption using the Key Management Interoperability Protocol (KMIP) <kmip>` is generally available enabling you to use it in your production environment
+* :ref:`backup-cursor` functionality is generally available, enabling your application developers to use it for building custom backup solutions. 
+  
+  .. note::
+
+     Percona provides `Percona Backup for MongoDB <https://docs.percona.com/percona-backup-mongodb/index.html>`_ - the open source tool for consistent backups and restores in MongoDB sharded clusters.
+
+* |PSMDB| packages now include ``mongosh`` of the previous mongo shell. The previous legacy ``mongo`` shell was deprecated in MongoDB 5.0 and has been removed in version 6.0. Some older methods are unavailable or have been replaced with newer ones for the new ``mongosh``. Please review any methods for compatibility.
+  
+  If you :ref:`install Percona Server for MongoDB from tarballs <tarball>`, you must install ``mongosh`` from a separate tarball.
+
+|PSMDB| 6.0.2-1 includes all the features of MongoDB 6.0.2 Community Edition, among which are the following:
+
+* `Enhanced time series collections <https://www.mongodb.com/docs/v6.0/core/timeseries-collections/#std-label-manual-timeseries-collection>`_ enable you to:
+  
+  - Get deeper data analysis insights by building compound and `secondary indexes <https://www.mongodb.com/docs/v6.0/core/timeseries/timeseries-secondary-index/#std-label-timeseries-add-secondary-index-mongodb-6.0>`_ on time, metadata and measurement fields.  
+  - Distribute the load among nodes in the cluster by `sharding new and existing time series collections <https://www.mongodb.com/docs/v6.0/core/timeseries/timeseries-shard-collection/#std-label-manual-timeseries-shard-collection>`_.
+  - Benefit from faster reads and improved performance by applying the sorting on the most recent entry instead of the whole collection.
+    
+* The following `change streams <https://www.mongodb.com/docs/v6.0/changeStreams/#std-label-changeStreams>`_ optimizations help you enhance your event-driven solutions:
+  
+  - Improve in-app notifications, reference deleted documents or feed the updated version of the entire doc to the downstream system using the `before and after states of a document that was changed <https://www.mongodb.com/docs/v6.0/reference/method/db.collection.watch/#std-label-db.collection.watch-change-streams-pre-and-post-images-example>`_.
+  - React not only to data changes but also to database change events like creating or dropping of collections with the Data Definition Language (DDL) support.
+
+* New aggregation stages like ``$densify``, ``$documents``, ``$fill`` and operators like ``$bottom``, ``$firstN``, ``$lastN``, ``$maxN`` / ``$minN`` and others enable you to off load work from your developers to the database. These operators allow automating key commands, getting required data insights by combining individual operators into aggregation pipelines. As a result, your developers spend less time on writing complex code or manipulating data manually and can focus on other activities.  
+* `Cluster-wide configuration parameters <https://www.mongodb.com/docs/v6.0/reference/cluster-parameters/#std-label-cluster-parameters>`_ and commands save your DBAs' time on cluster administration.
+* The `Stable API <https://www.mongodb.com/docs/v6.0/reference/stable-api/#std-label-stable-api>`_ (formerly known as versioned API) features the extended set of new database commands and aggregation operators which enables you to improve communication of your apps and MongoDB.
+* Speed up data processing and save on storage costs with `clustered collections <https://www.mongodb.com/docs/v6.0/core/clustered-collections/#std-label-clustered-collections>`_. Clustered collections don’t require secondary indexes and thus, result in faster queries. A single read/write for the index and the document improves performance for inserts, updates, deletes and queries. With less storage space required by clustered connections, bulk updates and inserts are performed faster. And by turning clustered indexes to TTL indexes with a single field, you benefit from simplified delete operations and reduced storage costs.
+
+|PSMDB| also includes the following bug fixes and enhancements provided upstream:
+
+* `SERVER-68511 <https://jira.mongodb.org/browse/SERVER-68511>`_ - Fixed the issue that caused inconsistency in sharding metadata when running the ``movePrimary`` command on the database that has the Feature Compatibility Version (FCV) set to 4.4 or earlier. Affects MongoDB versions 5.0.0 through 5.0.10 and MongoDB 6.0.0. Upgrade to the the fixed version of MongoDB 6.0.2 / Percona Server for MongoDB 6.0.2-1 as soon as possible.
+* `SERVER-66072 <https://jira.mongodb.org/browse/SERVER-66072>`_ - Fixed dependency analysis for ``$match`` aggregation stage with aggregation expressions with the ``$rand`` operator
+* `SERVER-68130 <https://jira.mongodb.org/browse/SERVER-68130>`_ - Fixed the AutoSplitVector's behavior to predict the BSON object size when generating the response
+* `WT-9870 <https://jira.mongodb.org/browse/WT-9870>`_ - Fixed the global time window state before performing the rollback to stable operation by updating the pinned timestamp as part of the transaction setup.
+* `SERVER-68628 <https://jira.mongodb.org/browse/SERVER-68628>`_ - Fixed the issue when retrying a failed resharding operation after a primary failover could lead to server crash or lost writes.
+* `SERVER-68925 <https://jira.mongodb.org/browse/SERVER-68925>`_ - Detect and resolve table logging inconsistencies for WiredTiger tables at startup
+ 
+Find the full list of new features and improvements in `MongoDB 6.0 Community Edition release notes <https://www.mongodb.com/docs/v6.0/release-notes/6.0/>`_.
+
+Percona Server for MongoDB 6.0.2-1 extends this feature set by providing :ref:`enterprise-level enhancements for free <compare>`.
+
+
+To upgrade to PSMDB, see our :ref:`upgrade instructions <install/upgrade_from_50>`.
+
+.. include:: ../res/replace.txt
