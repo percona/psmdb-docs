@@ -1,0 +1,56 @@
+.. _PSMDB-4.2.23-23:
+
+================================================================================
+*Percona Server for MongoDB* 4.2.23-23 (2022-11-08)
+================================================================================
+
+:Date: November 8, 2022
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.2/install/index.html>`_
+
+Percona Server for MongoDB 4.2.23-23 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 4.2.23 Community Edition.
+It supports MongoDB 4.2.23 protocols and drivers.
+
+Release Highlights
+================================================================================
+
+* :ref:`Data-at-rest encryption using the Key Management Interoperability Protocol (KMIP) <kmip>` is generally available enabling you to use it in your production environment
+* :ref:`backup-cursor` functionality is generally available, enabling your application developers to use it for building custom backup solutions. 
+  
+  .. note::
+
+     Percona provides `Percona Backup for MongoDB <https://docs.percona.com/percona-backup-mongodb/index.html>`_ - the open source tool for consistent backups and restores in MongoDB sharded clusters.
+
+* Fixed security vulnerability `CVE-2022-3602 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3602>`_ for |PSMDB| 4.2.21-21 and higher installed from tarballs on Ubuntu 22.04. 
+
+The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:
+
+* `SERVER-68925 <https://jira.mongodb.org/browse/SERVER-68925>`_ - Detect and resolve table logging inconsistencies for WiredTiger tables at startup
+* `SERVER-56127 <https://jira.mongodb.org/browse/SERVER-56127>`_ - Fixed retryable writes on update and delete commands to not execute more than once if chunk is migrated and shard key pattern uses nested fields
+* `SERVER-66310 <https://jira.mongodb.org/browse/SERVER-66310>`_ - Changed the `ExpressionSetUnion::isCommutative()` function to return false when a non-simple collation is in place for the `$setUnion` aggregation expression
+* `SERVER-68359 <https://jira.mongodb.org/browse/SERVER-68359>`_ - Prevent TTLMonitor from processing index if `expireAfterSeconds` value is NaN (Not a Number)
+
+
+New Features
+================================================================================
+
+* :jirabug:`PSMDB-776`: Align Docker container with upstream by adding missing ``mongodb-tools`` utilities (Thanks to Denys Holius for reporting this issue)
+
+
+
+Improvements
+================================================================================
+
+* :jirabug:`PSMDB-1116`: Use proper exit code and logging severity for successful master key rotation
+
+
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-1172`: Fixed CVE-2022-3602 by updating the ``libssl`` for Ubuntu 22.04 tarballs
+* :jirabug:`PSMDB-1134`: Prevent the server crash by ensuring the backup cursor is closed before the server shutdown
+* :jirabug:`PSMDB-1130`: Improve handling of the missing encryption key during KMIP key rotation
+* :jirabug:`PSMDB-1129`: Prevent PSMDB from starting if the configured encryption key doesn't match the one used for data encryption
+* :jirabug:`PSMDB-1082`: Improve error handling for PSMDB when the wrong encryption key is used
+
