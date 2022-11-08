@@ -20,6 +20,7 @@ Release Highlights
 * :ref:`Data at rest encryption using the KMIP protocol <kmip>` is now generally available, enabling you to use this functionality in production environments.
 * `Percona Server for MongoDB Docker container <https://hub.docker.com/r/percona/percona-server-mongodb>`_ now includes the ``mongodb-tools`` utility set to align with the upstream container. This enables users to manage backup/restore operations of |PSMDB|.
 * Updated exit code and status message during the master key rotation improves the user experience while using data-at-rest encryption with KMIP.
+* Fixed security vulnerability `CVE-2022-3602 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3602>`_ for |PSMDB| version 5.0.9-8 and higher installed from tarballs on Ubuntu 22.04.
 
 The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:
 
@@ -51,6 +52,7 @@ Improvements
 Bugs Fixed
 ================================================================================
 
+* :jirabug:`PSMDB-1172`: Fixed CVE-2022-3602 by updating the ``libssl`` for Ubuntu 22.04 tarballs
 * :jirabug:`PSMDB-1134`: Prevent the server crash by ensuring the backup cursor is closed before the server shutdown 
 * :jirabug:`PSMDB-1130`: Improve handling of the missing encryption key during KMIP key rotation
 * :jirabug:`PSMDB-1129`: Prevent |PSMDB| from starting if the configured encryption key doesn't match the one used for data encryption
