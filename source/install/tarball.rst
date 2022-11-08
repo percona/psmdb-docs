@@ -11,6 +11,28 @@ There are two tarballs available:
 - ``percona-server-mongodb-<version>-x86_64.glibc2.17.tar.gz`` is the general tarball, compatible with any `supported operating system <https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb>`_ except Ubuntu 22.04.
 - ``percona-server-mongodb-<version>-x86_64.glibc2.35.tar.gz`` is the tarball for Ubuntu 22.04.  
 
+Preconditions
+=============
+
+The following packages are required for the installation. 
+
+.. tabs::
+
+   .. tab:: On Debian / Ubuntu
+
+      * ``libcurl4``
+      * ``libsasl2-modules``
+      * ``libsasl2-modules-gssapi-mit``
+        
+   .. tab:: On Red Hat Enterprise Linux and derivatives
+
+      * ``libcurl``
+      * ``cyrus-sasl-gssapi``
+      * ``cyrus-sasl-plain``
+
+
+Check that they are installed in your operating system. Otherwise install them.
+
 Procedure
 =========
 
