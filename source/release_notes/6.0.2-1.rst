@@ -26,6 +26,8 @@ Release Highlights
   
   If you :ref:`install Percona Server for MongoDB from tarballs <tarball>`, you must install ``mongosh`` from a separate tarball.
 
+* Security vulnerability `CVE-2022-3602 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3602>`_ is fixed for |PSMDB| installed from tarballs on Ubuntu 22.04.
+  
 |PSMDB| 6.0.2-1 includes all the features of MongoDB 6.0.2 Community Edition, among which are the following:
 
 * `Enhanced time series collections <https://www.mongodb.com/docs/v6.0/core/timeseries-collections/#std-label-manual-timeseries-collection>`_ enable you to:
@@ -57,7 +59,11 @@ Find the full list of new features and improvements in `MongoDB 6.0 Community Ed
 
 Percona Server for MongoDB 6.0.2-1 extends this feature set by providing :ref:`enterprise-level enhancements for free <compare>`.
 
+Bugs Fixed
+================================================================================
 
-To upgrade to PSMDB, see our :ref:`upgrade instructions <install/upgrade_from_50>`.
+* :jirabug:`PSMDB-1172`: Fixed CVE-2022-3602 by updating the ``libssl`` for Ubuntu 22.04 tarballs
+  
+To upgrade to |PSMDB|, see our :ref:`upgrade instructions <upgrade_from_50>`.
 
 .. include:: ../res/replace.txt
