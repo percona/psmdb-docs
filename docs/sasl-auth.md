@@ -1,4 +1,4 @@
-# Setting up LDAP authentication with SASL
+# Set up LDAP authentication with SASL
 
 This document describes an example configuration
 suitable only to test out the external authentication functionality
@@ -24,7 +24,7 @@ The following steps will help you configure your environment:
 Before we move on to the configuration steps, we assume the following:
 
 
-1. You have the LDAP server up and running and have configured users on it. The LDAP server is accessible to the server with *Percona Server for MongoDB* installed. This document focuses on OpenLDAP server. If you use Microsoft Windows Active Directory, refer to the [Microsoft Windows Active Directory](https://docs.percona.com/percona-server-for-mongodb/4.2/sasl-auth.html#windows-ad) section for `saslauthd` configuration.
+1. You have the LDAP server up and running and have configured users on it. The LDAP server is accessible to the server with Percona Server for MongoDB installed. This document focuses on OpenLDAP server. If you use Microsoft Windows Active Directory, see to the *Microsoft Windows Active Directory* section for `saslauthd` configuration.
 
 2. You must place these two servers behind a firewall as the communications between them will be in plain text. This is because the SASL mechanism of PLAIN can only be used when authenticating and credentials will be sent in plain text.
 

@@ -1,4 +1,4 @@
-# Running Percona Server for MongoDB in a Docker Container
+# Run Percona Server for MongoDB in a Docker container
 
 Docker images of Percona Server for MongoDB are hosted publicly on [Docker Hub](https://hub.docker.com/r/percona/percona-server-mongodb/).
 

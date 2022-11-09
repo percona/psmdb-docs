@@ -1,4 +1,4 @@
-# Setting up LDAP authentication and authorization using NativeLDAP
+# Set up LDAP authentication and authorization using NativeLDAP
 
 This document describes an example configuration of LDAP authentication and authorization using direct binding to an LDAP server (Native LDAP). We recommend testing this setup in a non-production environment first, before applying it in production.
 
@@ -63,7 +63,7 @@ By default, Percona Server for MongoDB establishes the TLS connection when bindi
 
 ### Create roles for LDAP groups in Percona Server for MongoDB
 
-Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the `admin` database with the name that exactly matches the  of the LDAP group.
+Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the `admin` database with the name that exactly matches the DN of the LDAP group.
 
 Percona Server for MongoDB maps the user’s LDAP group to the roles and determines what role is assigned to the user. Percona Server for MongoDB then grants privileges defined by this role.
 
@@ -130,7 +130,7 @@ This section assumes that users connect to Percona Server for MongoDB by providi
 
 #### Access with username transformation
 
-If users connect to Percona Server for MongoDB with usernames that are not LDAP , you need to transform these usernames to be accepted by the LDAP server.
+If users connect to Percona Server for MongoDB with usernames that are not LDAP DN, you need to transform these usernames to be accepted by the LDAP server.
 
 Using the `--ldapUserToDNMapping` configuration parameter allows you to do this. You specify the match pattern as a regexp to capture a username. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.
 
@@ -231,7 +231,7 @@ userPrincipalName: bob@otherusers.percona.com
 memberOf: CN=otherusers,CN=Users,DC=percona,DC=com
 ```
 
-The following are respective  groups:
+The following are respective AD groups:
 
 ```text
 dn:CN=testusers,CN=Users,DC=percona,DC=com

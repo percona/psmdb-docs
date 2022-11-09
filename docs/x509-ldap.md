@@ -83,7 +83,7 @@ $ sudo openssl req -nodes -x509 -newkey rsa:4096 -keyout ca.key -out ca.crt -sub
 
 #### Generate client certificates
 
-1. Generate client certificate request and key. In the `-subj` flag, specify the information about clients in the  format.
+1. Generate client certificate request and key. In the `-subj` flag, specify the information about clients in the DN format.
 
     ```{.bash data-prompt="$"}
     $ openssl req -nodes -newkey rsa:4096 -keyout client.key -out client.csr -subj "/DC=com/DC=percona/CN=John Doe"
@@ -243,3 +243,4 @@ The result should look like the following:
 ```
 
 *[CA]: Certificate Authority
+*[DN]: Distinguished Name

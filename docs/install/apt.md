@@ -1,4 +1,4 @@
-# Installing Percona Server for MongoDB on Debian and Ubuntu
+# Install Percona Server for MongoDB on Debian and Ubuntu
 
 This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu.
 
@@ -37,8 +37,8 @@ Percona provides the [`percona-release`](https://www.percona.com/doc/percona-rep
     $ sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
     ```
 
-After you install this package, you have the access to Percona repositories. You
-can check the repository setup in the `/etc/apt/sources.list.d/percona-release.list` file.
+    After you install this package, you have the access to Percona repositories. You
+    can check the repository setup in the `/etc/apt/sources.list.d/percona-release.list` file.
 
 
 3. Enable the repository:
@@ -77,7 +77,11 @@ can check the repository setup in the `/etc/apt/sources.list.d/percona-release.l
          Sample output:
 
          ```
-         percona-server-mongodb | 5.0.2-1.buster | http://repo.percona.com/psmdb-50/apt buster/main amd64 Packages
+         percona-server-mongodb | 4.2.9-9.buster | http://repo.percona.com/psmdb-42/apt buster/main amd64 Packages
+         percona-server-mongodb | 4.2.8-8.buster | http://repo.percona.com/psmdb-42/apt buster/main amd64 Packages
+         percona-server-mongodb | 4.2.7-7.buster | http://repo.percona.com/psmdb-42/apt buster/main amd64 Packages
+         percona-server-mongodb | 4.2.6-6.buster | http://repo.percona.com/psmdb-42/apt buster/main amd64 Packages
+         percona-server-mongodb | 4.2.5-5.buster | http://repo.percona.com/psmdb-42/apt buster/main amd64 Packagess
          ```
 
       2. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 4.2.5-5, run the following command:

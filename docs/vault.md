@@ -1,4 +1,4 @@
-# HashiCorp Vault Integration
+# HashiCorp Vault integration
 
 Percona Server for MongoDB is integrated with HashiCorp Vault. HashiCorp Vault supports different secrets engines. Percona Server for MongoDB only supports the HashiCorp Vault
 back end with KV Secrets Engine - Version 2 (API)

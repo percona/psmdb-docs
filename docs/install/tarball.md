@@ -1,4 +1,4 @@
-# Installing Percona Server for MongoDB from Binary Tarball
+# Install Percona Server for MongoDB from binary tarball
 
 Find links to the binary tarball under the *Generic Linux* menu item on the [Percona website](https://www.percona.com/downloads/percona-server-mongodb-4.2/)
 
@@ -8,6 +8,28 @@ There are two tarballs available:
 
 
 * `percona-server-mongodb-<version>-x86_64.glibc2.35.tar.gz` is the tarball for Ubuntu 22.04.
+
+## Preconditions
+
+The following packages are required for the installation.
+
+=== "On Debian and Ubuntu"
+     
+     * `libcurl4`
+
+     * `libsasl2-modules`
+
+     * `libsasl2-modules-gssapi-mit`
+
+
+=== "On Red hat Enterprise Linux and derivatives"
+
+     * `libcurl`
+
+     * `cyrus-sasl-gssapi`
+
+     * `cyrus-sasl-plain`
+
 
 ## Procedure
 

@@ -1,4 +1,4 @@
-# Enabling Authentication
+# Enable authentication
 
 By default, Percona Server for MongoDB does not restrict access to data and configuration.
 

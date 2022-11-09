@@ -1,4 +1,4 @@
-# Log Redaction
+# Log redaction
 
 Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.
 To enable log redaction, run `mongod` with the `--redactClientLogData` option.

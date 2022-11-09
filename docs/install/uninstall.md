@@ -1,4 +1,4 @@
-# Uninstalling Percona Server for MongoDB
+# Uninstall Percona Server for MongoDB
 
 To completely remove Percona Server for MongoDB you need to remove all the installed packages, data and configuration files. If you need the data, consider making a backup before uninstalling Percona Server for MongoDB.
 
@@ -55,8 +55,8 @@ Follow the instructions, relevant to your operating system:
          $ sudo rm -f /etc/mongod.conf
          ```
 
-      !!! warning
+        !!! warning
 
-          This will remove all the packages and delete all the data files (databases, tables, logs, etc.). You might want to back up your data before doing this in case you need the data later.
+            This will remove all the packages and delete all the data files (databases, tables, logs, etc.). You might want to back up your data before doing this in case you need the data later.
 
 

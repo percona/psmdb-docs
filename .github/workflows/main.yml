@@ -1,8 +1,9 @@
-name: Build Percona Distribution PostgreSQL 15 docs
+name: Build Percona Server for MongoDB 4.2 docs
 on:
   push:
     branches: 
-      - 15
+      - 4.2
+      - PSMDB-1162-RST-to-MD-4.2
      
 jobs:
   build:
@@ -39,18 +40,12 @@ jobs:
           pip install wheel
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-
-     #Set up PlantUML
-      - name: Setup PlantUML dependencies
-        run: |
-          sudo apt install -y graphviz 
      
      # Deploy docs
       - name: Deploy docs
         run: |
-          mike deploy 15 -b publish -p
-          mike set-default 15 -b publish -p
-          mike retitle 15 "15 (LATEST)" -b publish -p
+          mike deploy 4.2 -b publish -p
+          mike retitle 4.2 "4.2.23-23" -b publish -p
 
 # - name: Install Node.js 14.x
 #        uses: percona-platform/setup-node@v2

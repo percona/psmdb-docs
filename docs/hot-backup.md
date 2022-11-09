@@ -18,6 +18,7 @@ To take a hot backup of the database in your current `dbpath`, do the following:
     ```{.bash data-prompt="$"}
     $ sudo chown mongod:mongod <backupDir>
     ```
+
 2. Run the `createBackup` command as administrator on the `admin` database and specify the backup directory.
     
     ```javascript

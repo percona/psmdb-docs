@@ -1,4 +1,4 @@
-# Profiling Rate Limit
+# Profiling rate limit
 
 Percona Server for MongoDB can limit the number of queries collected by the database profiler
 to decrease its impact on performance.

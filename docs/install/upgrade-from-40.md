@@ -1,4 +1,4 @@
-# Upgrading from Percona Server for MongoDB 4.0 to 4.2
+# Upgrade from Percona Server for MongoDB 4.0 to 4.2
 
 
 !!! admonition ""
@@ -81,7 +81,7 @@ data and configuration files are preserved).
 
 After the upgrade, Percona Server for MongoDB is started with the feature set of 4.0 version. Assuming that your applications are compatible with the new version, enable 4.2 version features. Run the following command against the `admin` database:
 
-```javascript {.data-prompt=">"}
+```{.javascript data-prompt=">"}
 > db.adminCommand( { setFeatureCompatibilityVersion: "4.2" } )
 ```
 

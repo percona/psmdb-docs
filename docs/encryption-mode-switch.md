@@ -1,4 +1,4 @@
-# Migrating from Key File Encryption to HashiCorp Vault Encryption
+# Migrate from key file encryption to HashiCorp Vault encryption
 
 The steps below describe how to migrate from the key file encryption to using  HashiCorp Vault.
 
@@ -13,9 +13,9 @@ We assume that you have installed and configured the vault server and enabled th
 
 1. Stop `mongod`.
 
-```{.bash data-prompt="$"}
-$ sudo systemctl stop mongod
-```
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl stop mongod
+    ```
 
 2. Insert the key from keyfile into the HashiCorp Vault server to the desired secret path.
 
@@ -32,9 +32,9 @@ $ sudo systemctl stop mongod
       $ vault kv put secret/dc/psmongodb1 value=d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw=
       ```
 
-!!! note 
+     !!! note 
 
-    Vault KV Secrets Engine uses different read and write secrets paths. To insert data to vault, specify the secret path without the `data/` prefix.
+         Vault KV Secrets Engine uses different read and write secrets paths. To insert data to Vault, specify the secret path without the `data/` prefix.
 
 
 3. Edit the configuration file to provision the HashiCorp Vault configuration options instead of the key file encryption options.

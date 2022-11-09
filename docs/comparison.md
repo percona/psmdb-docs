@@ -1,4 +1,4 @@
-# Percona Server for MongoDB Feature Comparison
+# Percona Server for MongoDB feature comparison
 
 Percona Server for MongoDB 4.2 is based on [MongoDB 4.2](https://docs.mongodb.com/manual/introduction/). Percona Server for MongoDB extends MongoDB Community Edition to include the functionality that is otherwise only available in MongoDB Enterprise Edition.
 
