@@ -118,13 +118,13 @@ rst_prolog = '''
 
 .. |check|  replace:: ``|[[---CHECK---]]|``
 
-.. |PSMDB| replace:: *Percona Server for MongoDB*
+.. |PSMDB| replace:: Percona Server for MongoDB
 
-.. |Percona|  replace:: *Percona*
+.. |Percona|  replace:: Percona
 
-.. |PBM|  replace:: *Percona Backup for MongoDB*
+.. |PBM|  replace:: Percona Backup for MongoDB
 
-.. |MongoDB|  replace:: *MongoDB*
+.. |MongoDB|  replace:: MongoDB
 
 
 '''
