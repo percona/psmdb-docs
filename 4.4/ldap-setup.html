@@ -15,7 +15,7 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-mongodb/4.4/ldap-setup.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/4.4/4.4/ldap-setup.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
@@ -26,10 +26,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.472b142f.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.08040f6c.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
         
       
       
@@ -214,7 +214,7 @@
         <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     percona/psmdb-docs
@@ -257,7 +257,7 @@
       <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     percona/psmdb-docs
@@ -1575,7 +1575,7 @@ EOF
 </li>
 </ol>
 <h3 id="create-roles-for-ldap-groups-in-percona-server-for-mongodb">Create roles for LDAP groups in Percona Server for MongoDB<a class="headerlink" href="#create-roles-for-ldap-groups-in-percona-server-for-mongodb" title="Permanent link">&para;</a></h3>
-<p>Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the <code>admin</code> database with the name that exactly matches the  of the LDAP group.</p>
+<p>Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the <code>admin</code> database with the name that exactly matches the <abbr title="Distinguished Name">DN</abbr> of the LDAP group.</p>
 <p>Percona Server for MongoDB maps the user’s LDAP group to the roles and determines what role is assigned to the user. Percona Server for MongoDB then grants privileges defined by this role.</p>
 <p>To create the roles, use the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">)</span><span class="w"></span>
@@ -1627,7 +1627,7 @@ EOF
 </li>
 </ol>
 <h4 id="access-with-username-transformation">Access with username transformation<a class="headerlink" href="#access-with-username-transformation" title="Permanent link">&para;</a></h4>
-<p>If users connect to Percona Server for MongoDB with usernames that are not LDAP , you need to transform these usernames to be accepted by the LDAP server.</p>
+<p>If users connect to Percona Server for MongoDB with usernames that are not LDAP <abbr title="Distinguished Name">DN</abbr>, you need to transform these usernames to be accepted by the LDAP server.</p>
 <p>Using the <code>--ldapUserToDNMapping</code> configuration parameter allows you to do this. You specify the match pattern as a regexp to capture a username. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.</p>
 <p>If you don’t know what the substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out.</p>
 <p>Note that you can use only the <code>query</code> or the <code>substitution</code> stage, the combination of two is not allowed.</p>
@@ -1719,7 +1719,7 @@ dn:CN=bob,CN=Users,DC=otherusers,DC=percona,DC=com
 userPrincipalName: bob@otherusers.percona.com
 memberOf: CN=otherusers,CN=Users,DC=percona,DC=com
 </code></pre></div>
-<p>The following are respective  groups:</p>
+<p>The following are respective <abbr title="Active Directory">AD</abbr> groups:</p>
 <div class="highlight"><pre><span></span><code>dn:CN=testusers,CN=Users,DC=percona,DC=com
 member:CN=alice,CN=Users,DC=testusers,DC=example,DC=com
 
@@ -1941,7 +1941,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
     
     
               
-      <script src="assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      <script src="assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
         <script src="js/version-select.js"></script>
       
@@ -1955,5 +1955,6 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
                 <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K48FGP2" height="0" width="0" style="display:none;visibility:hidden"></iframe>
               </noscript>
               
+    
   </body>
 </html>
