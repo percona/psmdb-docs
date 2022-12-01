@@ -1,0 +1,205 @@
+\babel@toc {english}{}
+\contentsline {part}{I\hspace {1em}About Percona Server for MongoDB}{3}{part.1}%
+\contentsline {chapter}{\numberline {1}Percona Server for MongoDB Feature Comparison}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Profiling Rate Limiting}{5}{section.1.1}%
+\contentsline {part}{II\hspace {1em}Installation}{7}{part.2}%
+\contentsline {chapter}{\numberline {2}Installing Percona Server for MongoDB}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Alternative Install Instructions}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Upgrade Instructions}{9}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Uninstall Instructions}{10}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Installing Percona Server for MongoDB on Debian and Ubuntu}{10}{subsection.2.3.1}%
+\contentsline {subsubsection}{Package Contents}{10}{subsubsection*.9}%
+\contentsline {subsubsection}{Installing from Percona repositories}{10}{subsubsection*.10}%
+\contentsline {paragraph}{Configure Percona repository}{11}{paragraph*.11}%
+\contentsline {paragraph}{Install the latest version}{11}{paragraph*.12}%
+\contentsline {paragraph}{Install a specific version}{11}{paragraph*.13}%
+\contentsline {subsubsection}{Running Percona Server for MongoDB}{12}{subsubsection*.14}%
+\contentsline {subsection}{\numberline {2.3.2}Installing Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS}{12}{subsection.2.3.2}%
+\contentsline {subsubsection}{Package Contents}{13}{subsubsection*.22}%
+\contentsline {subsubsection}{Installing from Percona repositories}{13}{subsubsection*.23}%
+\contentsline {paragraph}{Configure Percona repository}{13}{paragraph*.24}%
+\contentsline {paragraph}{Install the latest version}{14}{paragraph*.25}%
+\contentsline {paragraph}{Install a specific version}{14}{paragraph*.26}%
+\contentsline {subsubsection}{Running Percona Server for MongoDB}{14}{subsubsection*.27}%
+\contentsline {paragraph}{Running after reboot}{15}{paragraph*.28}%
+\contentsline {subsection}{\numberline {2.3.3}Installing Percona Server for MongoDB from Binary Tarball}{15}{subsection.2.3.3}%
+\contentsline {subsubsection}{Preconditions}{15}{subsubsection*.29}%
+\contentsline {subsubsection}{Procedure}{16}{subsubsection*.30}%
+\contentsline {subsection}{\numberline {2.3.4}Running \sphinxstyleemphasis {Percona Server for MongoDB} in a Docker Container}{16}{subsection.2.3.4}%
+\contentsline {subsubsection}{Connecting from Another Docker Container}{17}{subsubsection*.31}%
+\contentsline {subsubsection}{Connecting with the Mongo Shell}{17}{subsubsection*.32}%
+\contentsline {part}{III\hspace {1em}Features}{19}{part.3}%
+\contentsline {chapter}{\numberline {3}Percona Memory Engine}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Using Percona Memory Engine}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Switching storage engines}{22}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Considerations}{22}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Procedure}{22}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Switching engines with encrypted data}{23}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Configuring Percona Memory Engine}{23}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Hot Backup}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Making a backup}{25}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Saving a backup to a TAR archive}{26}{section.4.2}%
+\contentsline {section}{\numberline {4.3}View backup status}{26}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Streaming hot backups to a remote destination}{28}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Credentials}{28}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Examples}{29}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Restoring data from backup}{29}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Profiling Rate Limit}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Comparing to the \sphinxstyleliteralintitle {\sphinxupquote {sampleRate}} option}{33}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Enabling the Rate Limit}{34}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Profiler Collection Extension}{34}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Authentication}{35}{chapter.6}%
+\contentsline {section}{\numberline {6.1}SCRAM}{35}{section.6.1}%
+\contentsline {section}{\numberline {6.2}x.509 certificate authentication}{35}{section.6.2}%
+\contentsline {section}{\numberline {6.3}LDAP authentication with SASL}{36}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Overview}{36}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Kerberos Authentication}{37}{section.6.5}%
+\contentsline {chapter}{\numberline {7}LDAP authorization}{39}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Supported authentication mechanisms}{39}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Authentication and authorization with direct binding to LDAP}{39}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Username transformation}{40}{subsection.7.2.1}%
+\contentsline {section}{\numberline {7.3}Configuration}{42}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Auditing}{43}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Audit Options}{44}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Audit Message Syntax}{45}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Audit Filter Examples}{45}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Standard Query Selectors}{46}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Regular Expressions}{46}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Read and Write Operations}{47}{subsection.8.3.3}%
+\contentsline {section}{\numberline {8.4}Enabling Auditing of Authorization Success}{47}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Log Redaction}{49}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Data at Rest Encryption}{51}{chapter.10}%
+\contentsline {section}{\numberline {10.1}HashiCorp Vault Integration}{52}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Namespaces}{53}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Key Rotation}{54}{subsection.10.1.2}%
+\contentsline {subsubsection}{Key rotation in replica sets}{54}{subsubsection*.53}%
+\contentsline {section}{\numberline {10.2}Local key management using a keyfile}{54}{section.10.2}%
+\contentsline {section}{\numberline {10.3}Migrating from Key File Encryption to HashiCorp Vault Encryption}{55}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Using the Key Management Interoperability Protocol (KMIP)}{56}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Key rotation}{57}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Configuration}{57}{section.10.6}%
+\contentsline {section}{\numberline {10.7}Encrypting Rollback Files}{58}{section.10.7}%
+\contentsline {chapter}{\numberline {11}Additional text search algorithm \sphinxhyphen {} \sphinxstyleemphasis {ngram}}{59}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Usage}{59}{section.11.1}%
+\contentsline {chapter}{\numberline {12}\$backupCursor and \$backupCursorExtend aggregation stages}{61}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Usage}{61}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Get a list of all files to copy with \$backupCursor}{61}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}Run \sphinxstyleliteralintitle {\sphinxupquote {\$backupCursorExtend}} to retrieve the WiredTiger transaction logs}{62}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}Loop the \sphinxstyleliteralintitle {\sphinxupquote {\$backupCursor}}}{62}{subsection.12.1.3}%
+\contentsline {subsection}{\numberline {12.1.4}Copy the files to the storage}{62}{subsection.12.1.4}%
+\contentsline {part}{IV\hspace {1em}How to}{65}{part.4}%
+\contentsline {chapter}{\numberline {13}Enabling Authentication}{67}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Automatic setup}{67}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Manual setup}{67}{section.13.2}%
+\contentsline {chapter}{\numberline {14}Setting up LDAP authentication with SASL}{69}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Environment setup and configuration}{69}{section.14.1}%
+\contentsline {subsection}{\numberline {14.1.1}Configuring \sphinxstyleliteralintitle {\sphinxupquote {saslauthd}}}{70}{subsection.14.1.1}%
+\contentsline {subsubsection}{OpenLDAP server}{71}{subsubsection*.63}%
+\contentsline {subsubsection}{Microsoft Windows Active Directory}{71}{subsubsection*.64}%
+\contentsline {subsection}{\numberline {14.1.2}Sanity check}{72}{subsection.14.1.2}%
+\contentsline {subsection}{\numberline {14.1.3}Configuring libsasl2}{72}{subsection.14.1.3}%
+\contentsline {subsection}{\numberline {14.1.4}Configuring \sphinxstyleliteralintitle {\sphinxupquote {mongod}} Server}{72}{subsection.14.1.4}%
+\contentsline {subsubsection}{Create a root user}{73}{subsubsection*.65}%
+\contentsline {subsubsection}{Enable external authentication}{73}{subsubsection*.66}%
+\contentsline {subsubsection}{Add an external user to \sphinxstyleemphasis {Percona Server for MongoDB}}{73}{subsubsection*.67}%
+\contentsline {section}{\numberline {14.2}Authenticate as an external user in \sphinxstyleemphasis {Percona Server for MongoDB}}{73}{section.14.2}%
+\contentsline {chapter}{\numberline {15}Setting up LDAP authentication and authorization using NativeLDAP}{75}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Assumptions}{75}{section.15.1}%
+\contentsline {section}{\numberline {15.2}Prerequisites}{75}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Setup procedure}{76}{section.15.3}%
+\contentsline {subsection}{\numberline {15.3.1}Configure TLS/SSL connection for \sphinxstyleemphasis {Percona Server for MongoDB}}{76}{subsection.15.3.1}%
+\contentsline {subsection}{\numberline {15.3.2}Create roles for LDAP groups in \sphinxstyleemphasis {Percona Server for MongoDB}}{76}{subsection.15.3.2}%
+\contentsline {subsection}{\numberline {15.3.3}\sphinxstyleemphasis {Percona Server for MongoDB} configuration}{77}{subsection.15.3.3}%
+\contentsline {subsubsection}{Access without username transformation}{77}{subsubsection*.68}%
+\contentsline {subsubsection}{Access with username transformation}{77}{subsubsection*.69}%
+\contentsline {subsection}{\numberline {15.3.4}Active Directory configuration}{79}{subsection.15.3.4}%
+\contentsline {chapter}{\numberline {16}Set up x.509 authentication and LDAP authorization}{83}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Considerations}{83}{section.16.1}%
+\contentsline {section}{\numberline {16.2}Setup procedure}{83}{section.16.2}%
+\contentsline {subsection}{\numberline {16.2.1}Issue certificates}{83}{subsection.16.2.1}%
+\contentsline {subsubsection}{Generate the root Certificate Authority certificate}{83}{subsubsection*.70}%
+\contentsline {subsubsection}{Generate server certificate}{84}{subsubsection*.71}%
+\contentsline {subsubsection}{Generate client certificates}{84}{subsubsection*.72}%
+\contentsline {subsection}{\numberline {16.2.2}Set up the LDAP server}{85}{subsection.16.2.2}%
+\contentsline {subsection}{\numberline {16.2.3}Configure \sphinxstyleliteralintitle {\sphinxupquote {mongod}} server}{85}{subsection.16.2.3}%
+\contentsline {subsubsection}{Create roles}{85}{subsubsection*.73}%
+\contentsline {subsubsection}{Enable x.509 authentication}{86}{subsubsection*.74}%
+\contentsline {subsection}{\numberline {16.2.4}Authenticate with the x.509 certificate}{86}{subsection.16.2.4}%
+\contentsline {chapter}{\numberline {17}Setting up Kerberos authentication}{89}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Assumptions}{89}{section.17.1}%
+\contentsline {section}{\numberline {17.2}Add user principals to \sphinxstyleemphasis {Percona Server for MongoDB}}{89}{section.17.2}%
+\contentsline {section}{\numberline {17.3}Configure Kerberos keytab files}{90}{section.17.3}%
+\contentsline {section}{\numberline {17.4}\sphinxstyleemphasis {Percona Server for MongoDB} configuration}{91}{section.17.4}%
+\contentsline {section}{\numberline {17.5}Test the access to \sphinxstyleemphasis {Percona Server for MongoDB}}{91}{section.17.5}%
+\contentsline {chapter}{\numberline {18}\sphinxstyleemphasis {Percona Server for MongoDB} Parameter Tuning Guide}{93}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Parameters}{93}{section.18.1}%
+\contentsline {subsection}{\numberline {18.1.1}cursorTimeoutMillis}{93}{subsection.18.1.1}%
+\contentsline {subsection}{\numberline {18.1.2}failIndexKeyTooLong}{94}{subsection.18.1.2}%
+\contentsline {subsection}{\numberline {18.1.3}internalQueryPlannerEnableIndexIntersection}{94}{subsection.18.1.3}%
+\contentsline {subsection}{\numberline {18.1.4}ttlMonitorEnabled}{94}{subsection.18.1.4}%
+\contentsline {subsection}{\numberline {18.1.5}ttlMonitorSleepSecs}{94}{subsection.18.1.5}%
+\contentsline {chapter}{\numberline {19}Upgrading \sphinxstyleemphasis {Percona Server for MongoDB}}{95}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Upgrading from MongoDB 4.4 Community Edition}{95}{section.19.1}%
+\contentsline {subsection}{\numberline {19.1.1}Prerequisites}{96}{subsection.19.1.1}%
+\contentsline {section}{\numberline {19.2}Minor upgrade of \sphinxstyleemphasis {Percona Server for MongoDB}}{98}{section.19.2}%
+\contentsline {section}{\numberline {19.3}Upgrading to \sphinxstyleemphasis {Percona Server for MongoDB} with data at rest encryption enabled}{98}{section.19.3}%
+\contentsline {chapter}{\numberline {20}Upgrading from \sphinxstyleemphasis {Percona Server for MongoDB} 4.2 to 4.4}{99}{chapter.20}%
+\contentsline {chapter}{\numberline {21}Uninstalling \sphinxstyleemphasis {Percona Server for MongoDB}}{101}{chapter.21}%
+\contentsline {part}{V\hspace {1em}Release Notes}{103}{part.5}%
+\contentsline {chapter}{\numberline {22}Percona Server for MongoDB 4.4 Release Notes}{105}{chapter.22}%
+\contentsline {section}{\numberline {22.1}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.17\sphinxhyphen {}17 (2022\sphinxhyphen {}11\sphinxhyphen {}10)}{105}{section.22.1}%
+\contentsline {subsection}{\numberline {22.1.1}Release Highlights}{105}{subsection.22.1.1}%
+\contentsline {subsection}{\numberline {22.1.2}New Features}{106}{subsection.22.1.2}%
+\contentsline {subsection}{\numberline {22.1.3}Improvements}{106}{subsection.22.1.3}%
+\contentsline {subsection}{\numberline {22.1.4}Bugs Fixed}{106}{subsection.22.1.4}%
+\contentsline {section}{\numberline {22.2}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.16\sphinxhyphen {}16 (2022\sphinxhyphen {}08\sphinxhyphen {}30)}{106}{section.22.2}%
+\contentsline {subsection}{\numberline {22.2.1}Release Highlights}{106}{subsection.22.2.1}%
+\contentsline {subsection}{\numberline {22.2.2}Improvements}{107}{subsection.22.2.2}%
+\contentsline {subsection}{\numberline {22.2.3}Bugs Fixed}{107}{subsection.22.2.3}%
+\contentsline {subsection}{\numberline {22.2.4}Packaging Notes}{107}{subsection.22.2.4}%
+\contentsline {section}{\numberline {22.3}Percona Server for MongoDB 4.4.15\sphinxhyphen {}15 (2022\sphinxhyphen {}07\sphinxhyphen {}19)}{107}{section.22.3}%
+\contentsline {subsection}{\numberline {22.3.1}Release Highlights}{107}{subsection.22.3.1}%
+\contentsline {subsection}{\numberline {22.3.2}Supported versions}{108}{subsection.22.3.2}%
+\contentsline {subsection}{\numberline {22.3.3}Improvements}{108}{subsection.22.3.3}%
+\contentsline {section}{\numberline {22.4}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.14\sphinxhyphen {}14 (2022\sphinxhyphen {}05\sphinxhyphen {}25)}{108}{section.22.4}%
+\contentsline {subsection}{\numberline {22.4.1}Release Highlights}{108}{subsection.22.4.1}%
+\contentsline {subsection}{\numberline {22.4.2}Improvements}{109}{subsection.22.4.2}%
+\contentsline {subsection}{\numberline {22.4.3}Bugs Fixed}{109}{subsection.22.4.3}%
+\contentsline {section}{\numberline {22.5}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.13\sphinxhyphen {}13}{109}{section.22.5}%
+\contentsline {subsection}{\numberline {22.5.1}Release Highlights}{110}{subsection.22.5.1}%
+\contentsline {subsection}{\numberline {22.5.2}New Features}{110}{subsection.22.5.2}%
+\contentsline {subsection}{\numberline {22.5.3}Bug Fixes}{110}{subsection.22.5.3}%
+\contentsline {section}{\numberline {22.6}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.12\sphinxhyphen {}12}{110}{section.22.6}%
+\contentsline {subsection}{\numberline {22.6.1}Release Highlights}{111}{subsection.22.6.1}%
+\contentsline {subsection}{\numberline {22.6.2}Bugs Fixed}{111}{subsection.22.6.2}%
+\contentsline {section}{\numberline {22.7}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.10\sphinxhyphen {}11}{112}{section.22.7}%
+\contentsline {subsection}{\numberline {22.7.1}Release Highlights}{112}{subsection.22.7.1}%
+\contentsline {section}{\numberline {22.8}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.9\sphinxhyphen {}10}{112}{section.22.8}%
+\contentsline {subsection}{\numberline {22.8.1}Release Highlights}{113}{subsection.22.8.1}%
+\contentsline {subsection}{\numberline {22.8.2}Improvements}{113}{subsection.22.8.2}%
+\contentsline {section}{\numberline {22.9}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.8\sphinxhyphen {}9}{113}{section.22.9}%
+\contentsline {subsection}{\numberline {22.9.1}Improvements}{114}{subsection.22.9.1}%
+\contentsline {subsection}{\numberline {22.9.2}Bugs Fixed}{114}{subsection.22.9.2}%
+\contentsline {section}{\numberline {22.10}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.6\sphinxhyphen {}8}{114}{section.22.10}%
+\contentsline {subsection}{\numberline {22.10.1}New Features}{114}{subsection.22.10.1}%
+\contentsline {section}{\numberline {22.11}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.5\sphinxhyphen {}7}{115}{section.22.11}%
+\contentsline {section}{\numberline {22.12}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.4\sphinxhyphen {}6}{115}{section.22.12}%
+\contentsline {subsection}{\numberline {22.12.1}Bugs Fixed}{116}{subsection.22.12.1}%
+\contentsline {section}{\numberline {22.13}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.3\sphinxhyphen {}5}{116}{section.22.13}%
+\contentsline {subsection}{\numberline {22.13.1}Improvements}{116}{subsection.22.13.1}%
+\contentsline {subsection}{\numberline {22.13.2}Bugs Fixed}{116}{subsection.22.13.2}%
+\contentsline {section}{\numberline {22.14}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.2\sphinxhyphen {}4}{116}{section.22.14}%
+\contentsline {subsection}{\numberline {22.14.1}Improvements}{117}{subsection.22.14.1}%
+\contentsline {subsection}{\numberline {22.14.2}Bugs Fixed}{117}{subsection.22.14.2}%
+\contentsline {section}{\numberline {22.15}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.1\sphinxhyphen {}3}{117}{section.22.15}%
+\contentsline {section}{\numberline {22.16}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.1\sphinxhyphen {}2}{117}{section.22.16}%
+\contentsline {subsection}{\numberline {22.16.1}Bugs Fixed}{117}{subsection.22.16.1}%
+\contentsline {section}{\numberline {22.17}\sphinxstyleemphasis {Percona Server for MongoDB} 4.4.0\sphinxhyphen {}1}{118}{section.22.17}%
+\contentsline {part}{VI\hspace {1em}Reference}{119}{part.6}%
+\contentsline {chapter}{\numberline {23}Contacting, Contributing, Reporting Bugs}{121}{chapter.23}%
+\contentsline {chapter}{\numberline {24}Glossary}{123}{chapter.24}%
+\contentsline {chapter}{\numberline {25}Copyright and Licensing Information}{125}{chapter.25}%
+\contentsline {section}{\numberline {25.1}Documentation Licensing}{125}{section.25.1}%
+\contentsline {section}{\numberline {25.2}Software License}{125}{section.25.2}%
+\contentsline {chapter}{\numberline {26}Trademark Policy}{127}{chapter.26}%
+\contentsline {chapter}{Index}{129}{section*.86}%

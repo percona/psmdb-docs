@@ -1,0 +1,38 @@
+.. _3.6.11-3.1:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+:Date: |date|
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.6/
+:Installation: :ref:`install`
+
+Percona announces the release of Percona Server for MongoDB |release|
+on |date|. Download the latest version from the `Percona website
+<https://www.percona.com/downloads/percona-server-mongodb-3.6/>`_ or
+the `Percona Software Repositories
+<https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_.
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 3.6 Community Edition.  It
+supports MongoDB 3.6 protocols and drivers.
+
+|PSMDB| extends Community Edition functionality by including the :ref:`inmemory`
+storage engine, as well as several enterprise-grade features.  Also, it includes
+:ref:`mongorocks` storage engine, which is now deprecated.  |PSMDB| requires no
+changes to MongoDB applications or code.
+
+Release |release| extends the ``buildInfo`` command with the ``psmdbVersion``
+key to report the version of |PSMDB|. If this key exists then |PSMDB| is
+installed on the server. This key not available from MongoDB.
+
+Bugs Fixed
+================================================================================
+
+- :jirabug:`PSMDB-216`: The database command ``buildInfo`` provides the
+  ``psmdbVersion`` key to report the version of |PSMDB|. If this key exists then
+  |PSMDB| is installed on the server. This key is not available from MongoDB.
+
+.. |date| replace:: March 15, 2019
+.. |release| replace:: 3.6.11-3.1

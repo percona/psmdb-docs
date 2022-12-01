@@ -1,0 +1,859 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="_static/javascripts/modernizr.js"></script>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-343802-3');
+</script>
+  
+  
+    <title>Setting up LDAP authentication with SASL &#8212; Percona Server for MongoDB 4.0 Documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/../_static/css/material.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
+    <link rel="shortcut icon" href="_static/percona_favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Setting up LDAP authentication and authorization using NativeLDAP" href="ldap-setup.html" />
+    <link rel="prev" title="Enabling Authentication" href="enable-auth.html" />
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-343802-3']);
+_gaq.push(['_trackPageview']);
+</script>
+
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=orange data-md-color-accent=grey>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#sasl-auth" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.percona.com/software/documentation" title="Percona Server for MongoDB 4.0 Documentation"
+           class="md-header-nav__button md-logo">
+          
+              <img src="_static/percona-logo.svg" height="26"
+                   alt="Percona Server for MongoDB 4.0 Documentation logo">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic"> <a href="https://www.percona.com/software/documentation">Percona Product Documentation</a></span>
+          <span class="md-header-nav__topic"> Setting up LDAP authentication with SASL </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    percona/psmdb-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+  
+  <div class="md-flex__cell md-flex__cell--shrink dropdown">
+    <button class="dropdownbutton">Versions</button>
+    <div class="dropdown-content md-hero">
+          <a title="3.6 (EOL)" href="https://docs.percona.com/percona-server-for-mongodb/3.6/">3.6 (EOL)</a>
+      
+          <a title="4.0 (EOL)" href="https://docs.percona.com/percona-server-for-mongodb/4.0/">4.0 (EOL)</a>
+      
+          <a title="4.2" href="https://docs.percona.com/percona-server-for-mongodb/4.2/">4.2</a>
+      
+          <a title="4.4" href="https://docs.percona.com/percona-server-for-mongodb/4.4/">4.4</a>
+      
+          <a title="5.0" href="https://docs.percona.com/percona-server-for-mongodb/5.0/">5.0</a>
+      
+          <a title="6.0" href="https://docs.percona.com/percona-server-for-mongodb/6.0/">6.0</a>
+      
+          <a title="Latest stable" href="https://docs.percona.com/percona-server-for-mongodb/latest/">Latest stable</a>
+      
+    </div>
+  </div>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Percona Server for MongoDB 4.0 Documentation</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="Percona Server for MongoDB 4.0 Documentation" class="md-nav__button md-logo">
+      
+        <img src="_static/percona-logo.svg" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="index.html"
+       title="Percona Server for MongoDB 4.0 Documentation">Percona Server for MongoDB 4.0 Documentation</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    percona/psmdb-docs
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+    
+      <a href="comparison.html" class="md-nav__link">Feature Comparison</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="install/index.html" class="md-nav__link">Installing Percona Server for MongoDB</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="inmemory.html" class="md-nav__link">Percona Memory Engine</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="hot-backup.html" class="md-nav__link">Hot Backup</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="rate-limit.html" class="md-nav__link">Profiling Rate Limit</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="authentication.html" class="md-nav__link">Authentication</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="authorization.html" class="md-nav__link">LDAP authorization</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="audit-logging.html" class="md-nav__link">Auditing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="log-redaction.html" class="md-nav__link">Log Redaction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="data-at-rest-encryption.html" class="md-nav__link">Data at Rest Encryption</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="ngram-full-text-search.html" class="md-nav__link">Additional text search algorithm - <em>ngram</em></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="enable-auth.html" class="md-nav__link">Enable authentication</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Set up LDAP authentication using SASL </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">Set up LDAP authentication using SASL</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#sasl-auth--page-root" class="md-nav__link">Setting up LDAP authentication with SASL</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#environment-setup-and-configuration" class="md-nav__link">Environment setup and configuration</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#configuring-saslauthd" class="md-nav__link">Configuring <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#openldap-server" class="md-nav__link">OpenLDAP server</a>
+        </li>
+        <li class="md-nav__item"><a href="#microsoft-windows-active-directory" class="md-nav__link">Microsoft Windows Active Directory</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#sanity-check" class="md-nav__link">Sanity check</a>
+        </li>
+        <li class="md-nav__item"><a href="#configuring-libsasl2" class="md-nav__link">Configuring libsasl2</a>
+        </li>
+        <li class="md-nav__item"><a href="#configuring-mongod-server" class="md-nav__link">Configuring <code class="docutils literal notranslate"><span class="pre">mongod</span></code> Server</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#create-a-root-user" class="md-nav__link">Create a root user</a>
+        </li>
+        <li class="md-nav__item"><a href="#enable-external-authentication" class="md-nav__link">Enable external authentication</a>
+        </li>
+        <li class="md-nav__item"><a href="#add-an-external-user-to-psmdb" class="md-nav__link">Add an external user to <em>Percona Server for MongoDB</em></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#authenticate-as-an-external-user-in-psmdb" class="md-nav__link">Authenticate as an external user in <em>Percona Server for MongoDB</em></a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/sasl-auth.rst.txt">Show Source</a> </li>
+
+    
+    <li class="md-nav__item"><a class="md-nav__extra_link" href="https://github.com/percona/psmdb-docs/edit/4.0/source/sasl-auth.rst" target="_blank">
+    <i class="fa fa-github"></i>    Edit this page</a> </li>
+   
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="ldap-setup.html" class="md-nav__link">Set up LDAP authentication and authorization using NativeLDAP</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="switch-storage-engines.html" class="md-nav__link">Switch storage engines</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="x509-ldap.html" class="md-nav__link">Set up x.509 authentication and LDAP authorization</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="kerberos.html" class="md-nav__link">Set up Kerberos authentication</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="set-parameter.html" class="md-nav__link">Tune parameters</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">Upgrade Percona Server for MongoDB</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="install/upgrade-from-36.html" class="md-nav__link">Perform a major upgrade of Percona Server for MongoDB from 3.6 to 4.0</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="install/uninstall.html" class="md-nav__link">Uninstall Percona Server for MongoDB</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="release_notes/index.html" class="md-nav__link">Release notes</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="contact.html" class="md-nav__link">Contacting, Contributing, Reporting Bugs</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="glossary.html" class="md-nav__link">Glossary</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="copyright.html" class="md-nav__link">Copyright and Licensing Information</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="trademark-policy.html" class="md-nav__link">Trademark Policy</a>
+      
+    
+    </li>
+  </ul>
+  
+
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+<a title="Download PDF Manual" onclick="_gaq.push(['b._trackEvent', 'Percona Server for MongoDB', 'Download', 'Download Manual Percona Server for MongoDB 4.0 ']);" href="https://learn.percona.com/download-percona-server-mongodb-4-0-manual" class="md-nav__link">Download PDF Manual <span class="glyphicon glyphicon-chevron-down"></span></a>
+  </label>
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#sasl-auth--page-root" class="md-nav__link">Setting up LDAP authentication with SASL</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#environment-setup-and-configuration" class="md-nav__link">Environment setup and configuration</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#configuring-saslauthd" class="md-nav__link">Configuring <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#openldap-server" class="md-nav__link">OpenLDAP server</a>
+        </li>
+        <li class="md-nav__item"><a href="#microsoft-windows-active-directory" class="md-nav__link">Microsoft Windows Active Directory</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#sanity-check" class="md-nav__link">Sanity check</a>
+        </li>
+        <li class="md-nav__item"><a href="#configuring-libsasl2" class="md-nav__link">Configuring libsasl2</a>
+        </li>
+        <li class="md-nav__item"><a href="#configuring-mongod-server" class="md-nav__link">Configuring <code class="docutils literal notranslate"><span class="pre">mongod</span></code> Server</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#create-a-root-user" class="md-nav__link">Create a root user</a>
+        </li>
+        <li class="md-nav__item"><a href="#enable-external-authentication" class="md-nav__link">Enable external authentication</a>
+        </li>
+        <li class="md-nav__item"><a href="#add-an-external-user-to-psmdb" class="md-nav__link">Add an external user to <em>Percona Server for MongoDB</em></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#authenticate-as-an-external-user-in-psmdb" class="md-nav__link">Authenticate as an external user in <em>Percona Server for MongoDB</em></a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/sasl-auth.rst.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+    
+    <li class="md-nav__item"><a class="md-nav__extra_link" href="https://github.com/percona/psmdb-docs/edit/4.0/source/sasl-auth.rst" target="_blank">
+    <i class="fa fa-github"></i>    Edit this page</a> </li>
+   
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+
+  <div class="md-typeset alert alert-warning" role="main">    
+    <p> This documentation is for the end of life version of Percona Server for MongoDB and is no longer supported. You may want to see the <a href="https://docs.percona.com/percona-server-for-mongodb/latest/">current</a> documentation.
+ </div>
+
+  
+<span id="sasl"></span><h1 id="sasl-auth--page-root">Setting up LDAP authentication with SASL<a class="headerlink" href="#sasl-auth--page-root" title="Permalink to this headline">¶</a></h1>
+<p>This document describes an example configuration
+suitable only to test out the external authentication functionality
+in a non-production environment.
+Use common sense to adapt these guidelines to your production environment.</p>
+<p>To learn more about how the authentication works, see <a class="reference internal" href="authentication.html#ldap-authentication-sasl"><span class="std std-ref">LDAP authentication with SASL</span></a>.</p>
+
+<h2 id="environment-setup-and-configuration">Environment setup and configuration<a class="headerlink" href="#environment-setup-and-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The following components are required:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slapd</span></code>: OpenLDAP server.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">libsasl2</span></code> version 2.1.25 or later.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">saslauthd</span></code>: <abbr title="Simple Authentication and Security Layer">SASL</abbr> Authentication Daemon (distinct from <code class="docutils literal notranslate"><span class="pre">libsasl2</span></code>).</p></li>
+</ul>
+<p>The following steps will help you configure your environment:</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#configuring-saslauthd" id="id1">Configuring <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code></a></p>
+<ul>
+<li><p><a class="reference internal" href="#openldap-server" id="id2">OpenLDAP server</a></p></li>
+<li><p><a class="reference internal" href="#microsoft-windows-active-directory" id="id3">Microsoft Windows Active Directory</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#sanity-check" id="id4">Sanity check</a></p></li>
+<li><p><a class="reference internal" href="#configuring-libsasl2" id="id5">Configuring libsasl2</a></p></li>
+<li><p><a class="reference internal" href="#configuring-mongod-server" id="id6">Configuring <code class="docutils literal notranslate"><span class="pre">mongod</span></code> Server</a></p>
+<ul>
+<li><p><a class="reference internal" href="#create-a-root-user" id="id7">Create a root user</a></p></li>
+<li><p><a class="reference internal" href="#enable-external-authentication" id="id8">Enable external authentication</a></p></li>
+<li><p><a class="reference internal" href="#add-an-external-user-to-psmdb" id="id9">Add an external user to <em>Percona Server for MongoDB</em></a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p class="rubric">Assumptions</p>
+<p>Before we move on to the configuration steps, we assume the following:</p>
+<ol class="arabic simple">
+<li><p>You have the LDAP server up and running and have configured users on it. The LDAP server is accessible to the server with <em>Percona Server for MongoDB</em> installed. This document focuses on OpenLDAP server. If you use Microsoft Windows Active Directory, refer to the <a class="reference internal" href="#windows-ad"><span class="std std-ref">Microsoft Windows Active Directory</span></a> section for <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> configuration.</p></li>
+<li><p>You must place these two servers behind a firewall as the communications between them will be in plain text. This is because the SASL mechanism of PLAIN can only be used when authenticating and credentials will be sent in plain text.</p></li>
+<li><p>You have <code class="docutils literal notranslate"><span class="pre">sudo</span></code> privilege to the server with the <em>Percona Server for MongoDB</em> installed.</p></li>
+</ol>
+
+<h3 id="configuring-saslauthd"><a class="toc-backref" href="#id1">Configuring <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code></a><a class="headerlink" href="#configuring-saslauthd" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Install the SASL packages. Depending on your OS, use the following command:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">RedHat and CentOS</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Debian and Ubuntu</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install -y cyrus-sasl
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For <em>Percona Server for MongoDB</em> versions earlier than 4.0.26-21,  4.4.8-9, 4.2.16-17, also install the <code class="docutils literal notranslate"><span class="pre">cyrus-sasl-plain</span></code> package.</p>
+</div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt install -y sasl2-bin
+</pre></div>
+</div>
+</div></div>
+</li>
+<li><p>Configure SASL to use <code class="docutils literal notranslate"><span class="pre">ldap</span></code> as the  authentication mechanism.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Back up the original configuration file before making changes.</p>
+</div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">RedHat and CentOS</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Debian and Ubuntu</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>Specify the <code class="docutils literal notranslate"><span class="pre">ldap</span></code> value for the <code class="docutils literal notranslate"><span class="pre">--MECH</span></code> option using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo sed -i -e s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g /etc/sysconfig/saslauthd
+</pre></div>
+</div>
+<p>Alternatively, you can edit the <code class="file docutils literal notranslate"><span class="pre">/etc/sysconfig/saslauthd</span></code> configuration file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">MECH=ldap</span><span class="w"></span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>Use the following commands to enable the <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> to auto-run on startup and to set the <code class="docutils literal notranslate"><span class="pre">ldap</span></code> value for the <code class="docutils literal notranslate"><span class="pre">--MECHANISMS</span></code> option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo sed -i -e s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g /etc/sysconfig/saslauthdsudo sed -i -e s/^MECHANISMS<span class="o">=</span><span class="s2">"pam"</span>/MECHANISMS<span class="o">=</span><span class="s2">"ldap"</span>/g /etc/default/saslauthd
+$ sudo sed -i -e s/^START<span class="o">=</span>no/START<span class="o">=</span>yes/g /etc/default/saslauthd
+</pre></div>
+</div>
+<p>Alternatively, you can edit the <code class="file docutils literal notranslate"><span class="pre">/etc/default/sysconfig/saslauthd</span></code> configuration file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">START=yes</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">MECHANISMS="ldap"</span><span class="w"></span>
+</pre></div>
+</div>
+</div></div>
+</li>
+<li><p>Create the <code class="file docutils literal notranslate"><span class="pre">/etc/saslauthd.conf</span></code> configuration file and specify the settings that <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> requires to connect to a local LDAP service:</p></li>
+</ol>
+
+<h4 id="openldap-server"><a class="toc-backref" href="#id2">OpenLDAP server</a><a class="headerlink" href="#openldap-server" title="Permalink to this headline">¶</a></h4>
+<p>The following is the example configuration file. Note that the server address <strong>MUST</strong> match the OpenLDAP installation:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ldap_servers: ldap://localhost
+ldap_mech: PLAIN
+ldap_search_base: dc=example,dc=com
+ldap_filter: (cn=%u)
+ldap_bind_dn: cn=admin,dc=example,dc=com
+ldap_password: secret
+</pre></div>
+</div>
+<p>Note the LDAP password (<code class="docutils literal notranslate"><span class="pre">ldap_password</span></code>) and bind domain name (<code class="docutils literal notranslate"><span class="pre">ldap_bind_dn</span></code>).
+This allows the <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> service to connect to the LDAP service as admin.
+In production, this would not be the case; users should not store administrative passwords in unencrypted files.</p>
+
+
+<span id="windows-ad"></span><h4 id="microsoft-windows-active-directory"><a class="toc-backref" href="#id3">Microsoft Windows Active Directory</a><a class="headerlink" href="#microsoft-windows-active-directory" title="Permalink to this headline">¶</a></h4>
+<p>In order for LDAP operations to be performed
+against a Windows Active Directory server,
+a user record must be created to perform the lookups.</p>
+<p>The following example shows configuration parameters for <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code>
+to communicate with an Active Directory server:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ldap_servers: ldap://localhost
+ldap_mech: PLAIN
+ldap_search_base: CN=Users,DC=example,DC=com
+ldap_filter: (sAMAccountName=%u)
+ldap_bind_dn: CN=ldapmgr,CN=Users,DC=&lt;AD Domain&gt;,DC=&lt;AD TLD&gt;
+ldap_password: ld@pmgr_Pa55word
+</pre></div>
+</div>
+<p>In order to determine and test the correct search base
+and filter for your Active Directory installation,
+the Microsoft <a class="reference external" href="https://technet.microsoft.com/en-us/library/Cc772839%28v=WS.10%29.aspx">LDP GUI Tool</a>
+can be used to bind and search the LDAP-compatible directory.</p>
+<ol class="arabic" start="4">
+<li><p>Start the <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> process and set it to run at restart:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start saslauthd
+$ sudo systemctl <span class="nb">enable</span> saslauthd
+</pre></div>
+</div>
+</li>
+<li><p>Give write permissions to the <code class="dir docutils literal notranslate"><span class="pre">/run/saslauthd</span></code> folder for the <code class="docutils literal notranslate"><span class="pre">mongod</span></code>. Either change permissions to the  <code class="dir docutils literal notranslate"><span class="pre">/run/saslauthd</span></code> folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo chmod <span class="m">755</span> /run/saslauthd
+</pre></div>
+</div>
+<p>Or add the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user to the <code class="docutils literal notranslate"><span class="pre">sasl</span></code> group:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo usermod -a -G sasl mongod
+</pre></div>
+</div>
+</li>
+</ol>
+
+
+
+<h3 id="sanity-check"><a class="toc-backref" href="#id4">Sanity check</a><a class="headerlink" href="#sanity-check" title="Permalink to this headline">¶</a></h3>
+<p>Verify that the <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> service can authenticate
+against the users created in the LDAP service:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ testsaslauthd -u christian -p secret  -f /var/run/saslauthd/mux
+</pre></div>
+</div>
+<p>This should return <code class="docutils literal notranslate"><span class="pre">0:OK</span> <span class="pre">"Success"</span></code>.
+If it doesn’t, then either the user name and password
+are not in the LDAP service, or <code class="docutils literal notranslate"><span class="pre">sasaluthd</span></code> is not configured properly.</p>
+
+
+<h3 id="configuring-libsasl2"><a class="toc-backref" href="#id5">Configuring libsasl2</a><a class="headerlink" href="#configuring-libsasl2" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">mongod</span></code> also uses the SASL library for communications. To configure the SASL library, create a configuration file.</p>
+<p>The configuration file <strong>must</strong> be named <code class="docutils literal notranslate"><span class="pre">mongodb.conf</span></code> and placed in a directory
+where <code class="docutils literal notranslate"><span class="pre">libsasl2</span></code> can find and read it.
+<code class="docutils literal notranslate"><span class="pre">libsasl2</span></code> is hard-coded to look in certain directories at build time.
+This location may be different depending on the installation method.</p>
+<p>In the configuration file, specify the following:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pwcheck_method: saslauthd
+saslauthd_path: /var/run/saslauthd/mux
+log_level: 5
+mech_list: plain
+</pre></div>
+</div>
+<p>The first two entries (<code class="docutils literal notranslate"><span class="pre">pwcheck_method</span></code> and <code class="docutils literal notranslate"><span class="pre">saslauthd_path</span></code>)
+are required for <code class="docutils literal notranslate"><span class="pre">mongod</span></code> to successfully use the <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> service.
+The <code class="docutils literal notranslate"><span class="pre">log_level</span></code> is optional but may help determine configuration errors.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://www.cyrusimap.org/sasl/index.html">SASL documentation:</a></p>
+</div>
+
+
+<h3 id="configuring-mongod-server"><a class="toc-backref" href="#id6">Configuring <code class="docutils literal notranslate"><span class="pre">mongod</span></code> Server</a><a class="headerlink" href="#configuring-mongod-server" title="Permalink to this headline">¶</a></h3>
+<p>The configuration consists of the following steps:</p>
+<ul class="simple">
+<li><p>Creating a user with the <strong>root</strong> privileges. This user is required to log in to <em>Percona Server for MongoDB</em> after the external authentication is enabled.</p></li>
+<li><p>Editing the configuration file to enable the external authentication</p></li>
+</ul>
+
+<span id="root-user"></span><h4 id="create-a-root-user"><a class="toc-backref" href="#id7">Create a root user</a><a class="headerlink" href="#create-a-root-user" title="Permalink to this headline">¶</a></h4>
+<p>Create a user with the <strong>root</strong> privileges in the <code class="docutils literal notranslate"><span class="pre">admin</span></code> database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span><span class="w"></span>
+<span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="s2">"user"</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pwd"</span><span class="o">:</span><span class="w"> </span><span class="s2">"$3cr3tP4ssw0rd"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"root"</span><span class="p">]})</span><span class="w"></span>
+<span class="nx">Successfully</span><span class="w"> </span><span class="nx">added</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"user"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"root"</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+
+
+<h4 id="enable-external-authentication"><a class="toc-backref" href="#id8">Enable external authentication</a><a class="headerlink" href="#enable-external-authentication" title="Permalink to this headline">¶</a></h4>
+<p>Edit the <code class="file docutils literal notranslate"><span class="pre">etc/mongod.conf</span></code> configuration file to enable the external authentication:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span><span class="w"></span>
+
+<span class="nt">setParameter</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PLAIN,SCRAM-SHA-1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Restart the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl restart mongod
+</pre></div>
+</div>
+
+
+<h4 id="add-an-external-user-to-psmdb"><a class="toc-backref" href="#id9">Add an external user to <em>Percona Server for MongoDB</em></a><a class="headerlink" href="#add-an-external-user-to-psmdb" title="Permalink to this headline">¶</a></h4>
+<p>User authentication is done by mapping a user object on the LDAP server against a user created in the <code class="docutils literal notranslate"><span class="pre">$external</span></code> database. Thus, at this step, you create the user in the <code class="docutils literal notranslate"><span class="pre">$external</span></code> database and they inherit the roles and privileges. Note that the username must exactly match the name of the user object on the LDAP server.</p>
+<p>Connect to <em>Percona Server for MongoDB</em> and authenticate as <a class="reference internal" href="#root-user"><span class="std std-ref">the root user</span></a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mongo --host localhost --port <span class="m">27017</span> -u admin -p <span class="s1">'$3cr3tP4ssw0rd'</span> --authenticationDatabase <span class="s1">'admin'</span>
+</pre></div>
+</div>
+<p>Use the following command to add an external user to <em>Percona Server for MongoDB</em>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">createUser</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="nx">user</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">}</span><span class="w"> </span><span class="p">]}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+
+
+
+
+<h2 id="authenticate-as-an-external-user-in-psmdb">Authenticate as an external user in <em>Percona Server for MongoDB</em><a class="headerlink" href="#authenticate-as-an-external-user-in-psmdb" title="Permalink to this headline">¶</a></h2>
+<p>When running the <code class="docutils literal notranslate"><span class="pre">mongo</span></code> client, a user can authenticate
+against a given database using the following command:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">auth</span><span class="p">({</span><span class="w"> </span><span class="nx">mechanism</span><span class="o">:</span><span class="s2">"PLAIN"</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">pwd</span><span class="o">:</span><span class="s2">"secret"</span><span class="p">,</span><span class="w"> </span><span class="nx">digestPassword</span><span class="o">:</span><span class="kc">false</span><span class="p">})</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Alternatively, a user can authenticate while connecting to <em>Percona Server for MongoDB</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mongo --host localhost --port <span class="m">27017</span> --authenticationMechanism PLAIN --authenticationDatabase <span class="se">\$</span>external -u christian -p
+</pre></div>
+</div>
+<div class="admonition-based-on-the-material-from-percona-database-performance-blog admonition">
+<p class="admonition-title">Based on the material from <strong>Percona Database Performance Blog</strong></p>
+<p>This section is based on the blog post <a class="reference external" href="https://www.percona.com/blog/2018/12/21/percona-server-for-mongodb-authentication-using-active-directory/">Percona Server for MongoDB Authentication Using Active Directory</a> by <em>Doug Duncan</em>:</p>
+</div>
+
+
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+<div class="md-relbar2__inner md-grid">
+<div class="md-content">
+  <article class="md-content__inner md-typeset" role="main">    
+    <h4>Contact Us </h4>
+       <p>For free technical help, visit the Percona <a class="reference external" href="https://forums.percona.com/c/mongodb/percona-server-for-mongodb/17?utm_campaign=Doc%20pages" target="_blank">Community Forum</a>.<br>
+        <p>To report bugs or submit feature requests, open a <a class="reference external" href="https://jira.percona.com/projects/PSMDB/issues/" target="_blank">JIRA</a> ticket.<br>
+         <p>For paid <a class="reference external" href="https://www.percona.com/services/support"> support </a> and <a class="reference external" href="https://www.percona.com/services/managed-services"> managed </a> or <a class="reference external" href="https://www.percona.com/services/consulting">consulting services </a>, contact <a class="reference external" href="https://www.percona.com/about-percona/contact" target="_blank">Percona Sales</a>.</p>
+         <hr>
+          <small> Last update: Apr 21, 2022 </small>
+ </article>
+</div>
+</div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="enable-auth.html" title="Enabling Authentication"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> Enabling Authentication </span>
+              </div>
+            </a>
+          
+          
+            <a href="ldap-setup.html" title="Setting up LDAP authentication and authorization using NativeLDAP"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> Setting up LDAP authentication and authorization using NativeLDAP </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169;
+                <a href="copyright.html">Copyright</a> Percona LLC and/or its affiliates 2015-2022.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

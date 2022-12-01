@@ -1,0 +1,10 @@
+.. _PSMDB-3.6.23-13.0:
+
+================================================================================
+*Percona Server for MongoDB* 3.6.23-13.0
+================================================================================
+
+:Date: March 30, 2021
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_
+
+Percona Server for MongoDB 3.6.23-13.0 is based on `MongoDB 3.6.23 Community Edition <https://docs.mongodb.com/manual/release-notes/3.6/#mar-19-2021>`_ and does not include any additional changes.

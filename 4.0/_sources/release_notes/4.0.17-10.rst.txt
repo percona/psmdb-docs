@@ -1,0 +1,18 @@
+.. _PSMDB-4.0.17-10:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+:Date: |date|
+:Installation: :ref:`install`
+
+|PSMDB| |release| is based on `MongoDB 4.0.17
+<https://docs.mongodb.com/manual/release-notes/4.0/#mar-25-2020>`_ and does not
+include any additional changes.
+
+.. |release| replace:: 4.0.17-10
+.. |date| replace:: March 30, 2020
+
+.. include:: ../.res/url.txt
+.. include:: ../.res/replace.program.txt

@@ -1,0 +1,808 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="_static/javascripts/modernizr.js"></script>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-343802-3');
+</script>
+  
+  
+    <title>Hot Backup &#8212; Percona Server for MongoDB 3.6 Documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/material.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="_static/percona_favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Profiling Rate Limit" href="rate-limit.html" />
+    <link rel="prev" title="MongoRocks" href="mongorocks.html" />
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-343802-3']);
+_gaq.push(['_trackPageview']);
+</script>
+
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=orange data-md-color-accent=grey>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#hot-backup" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://www.percona.com/software/documentation" title="Percona Server for MongoDB 3.6 Documentation"
+           class="md-header-nav__button md-logo">
+          
+              <img src="_static/percona-logo.svg" height="26"
+                   alt="Percona Server for MongoDB 3.6 Documentation logo">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic"> <a href="https://www.percona.com/software/documentation">Percona Product Documentation</a></span>
+          <span class="md-header-nav__topic"> Hot Backup </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    percona/psmdb-docs
+  </div>
+</a>
+          </div>
+        </div>
+      
+      
+  
+  <div class="md-flex__cell md-flex__cell--shrink dropdown">
+    <button class="dropdownbutton">Versions</button>
+    <div class="dropdown-content md-hero">
+          <a title="3.6 (EOL)" href="https://docs.percona.com/percona-server-for-mongodb/3.6/">3.6 (EOL)</a>
+      
+          <a title="4.0 (EOL)" href="https://docs.percona.com/percona-server-for-mongodb/4.0/">4.0 (EOL)</a>
+      
+          <a title="4.2" href="https://docs.percona.com/percona-server-for-mongodb/4.2/">4.2</a>
+      
+          <a title="4.4" href="https://docs.percona.com/percona-server-for-mongodb/4.4/">4.4</a>
+      
+          <a title="5.0" href="https://docs.percona.com/percona-server-for-mongodb/5.0/">5.0</a>
+      
+          <a title="Latest stable" href="https://docs.percona.com/percona-server-for-mongodb/latest/">Latest stable</a>
+      
+    </div>
+  </div>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Percona Server for MongoDB 3.6 Documentation</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="Percona Server for MongoDB 3.6 Documentation" class="md-nav__button md-logo">
+      
+        <img src="_static/percona-logo.svg" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="index.html"
+       title="Percona Server for MongoDB 3.6 Documentation">Percona Server for MongoDB 3.6 Documentation</a>
+  </label>
+    <div class="md-nav__source">
+      <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-source="github">
+
+    <div class="md-source__icon">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    percona/psmdb-docs
+  </div>
+</a>
+    </div>
+  
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+    
+      <a href="comparison.html" class="md-nav__link">Feature Comparison</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="install/index.html" class="md-nav__link">Installing Percona Server for MongoDB</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="install/upgrade_from_mongodb.html" class="md-nav__link">Upgrading from MongoDB Community Edition</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="install/upgrade_from_34.html" class="md-nav__link">Upgrading from Version 3.4</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="inmemory.html" class="md-nav__link">Percona Memory Engine</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="mongorocks.html" class="md-nav__link">MongoRocks</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Hot Backup </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">Hot Backup</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#hot-backup--page-root" class="md-nav__link">Hot Backup</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#making-a-backup" class="md-nav__link">Making a backup</a>
+        </li>
+        <li class="md-nav__item"><a href="#streaming-hot-backups-to-a-remote-destination" class="md-nav__link">Streaming hot backups to a remote destination</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#credentials" class="md-nav__link">Credentials</a>
+        </li>
+        <li class="md-nav__item"><a href="#examples" class="md-nav__link">Examples</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#restoring-data-from-backup" class="md-nav__link">Restoring data from backup</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/hot-backup.rst.txt">Show Source</a> </li>
+
+    
+    <li class="md-nav__item"><a class="md-nav__extra_link" href="https://github.com/percona/psmdb-docs/edit/3.6/source/hot-backup.rst" target="_blank">
+    <i class="fa fa-github"></i>    Edit this page</a> </li>
+   
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="rate-limit.html" class="md-nav__link">Profiling Rate Limit</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="authentication.html" class="md-nav__link">External Authentication</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="audit-logging.html" class="md-nav__link">Auditing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="log-redaction.html" class="md-nav__link">Log Redaction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="enable-auth.html" class="md-nav__link">Enabling Authentication</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="data_at_rest_encryption.html" class="md-nav__link">Data at Rest Encryption</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="ngram-full-text-search.html" class="md-nav__link">Additional text search algorithm - <em>ngram</em></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="switch_storage_engines.html" class="md-nav__link">Switching Storage Engines</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="switch_storage_engines.html#data-at-rest-encryption" class="md-nav__link">Data at Rest Encryption</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="setParameter.html" class="md-nav__link">Parameter Tuning</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="contact.html" class="md-nav__link">Contacting, Contributing, Reporting Bugs</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="release_notes/index.html" class="md-nav__link">Release Notes</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="glossary.html" class="md-nav__link">Glossary</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="copyright.html" class="md-nav__link">Copyright and Licensing Information</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="trademark-policy.html" class="md-nav__link">Trademark Policy</a>
+      
+    
+    </li>
+  </ul>
+  
+
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+<a title="Download PDF Manual" onclick="_gaq.push(['b._trackEvent', 'Percona Server for MongoDB', 'Download', 'Download Manual Percona Server for MongoDB 3.6 ']);" href="https://learn.percona.com/download-percona-server-mongodb-3-6-manual" class="md-nav__link">Download PDF Manual <span class="glyphicon glyphicon-chevron-down"></span></a>
+  </label>
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#hot-backup--page-root" class="md-nav__link">Hot Backup</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#making-a-backup" class="md-nav__link">Making a backup</a>
+        </li>
+        <li class="md-nav__item"><a href="#streaming-hot-backups-to-a-remote-destination" class="md-nav__link">Streaming hot backups to a remote destination</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#credentials" class="md-nav__link">Credentials</a>
+        </li>
+        <li class="md-nav__item"><a href="#examples" class="md-nav__link">Examples</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#restoring-data-from-backup" class="md-nav__link">Restoring data from backup</a>
+        </li></ul>
+            </nav>
+        </li>
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/hot-backup.rst.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+    
+    <li class="md-nav__item"><a class="md-nav__extra_link" href="https://github.com/percona/psmdb-docs/edit/3.6/source/hot-backup.rst" target="_blank">
+    <i class="fa fa-github"></i>    Edit this page</a> </li>
+   
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <div class="md-typeset" role="main">  
+  <div class="alert alert-warning">  
+    <p> This documentation is for the end of life version of Percona Server for MongoDB and is no longer supported. You may want to see the <a href="https://docs.percona.com/percona-server-for-mongodb/latest/">current</a> documentation.
+    </p>
+  </div>
+ </div>
+
+  
+<span id="id1"></span><h1 id="hot-backup--page-root">Hot Backup<a class="headerlink" href="#hot-backup--page-root" title="Permalink to this headline">¶</a></h1>
+<p><em>Percona Server for MongoDB</em> includes an integrated open-source hot backup system
+for the default <a class="reference external" href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> and alternative <a class="reference internal" href="mongorocks.html#mongorocks"><span class="std std-ref">MongoRocks</span></a> storage engine.
+It creates a physical data backup on a running server
+without notable performance and operating degradation.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#making-a-backup" id="id2">Making a backup</a></p></li>
+<li><p><a class="reference internal" href="#streaming-hot-backups-to-a-remote-destination" id="id3">Streaming hot backups to a remote destination</a></p>
+<ul>
+<li><p><a class="reference internal" href="#credentials" id="id4">Credentials</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id5">Examples</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#restoring-data-from-backup" id="id6">Restoring data from backup</a></p></li>
+</ul>
+</div>
+
+<h2 id="making-a-backup"><a class="toc-backref" href="#id2">Making a backup</a><a class="headerlink" href="#making-a-backup" title="Permalink to this headline">¶</a></h2>
+<p>To take a hot backup of the database in your current <code class="docutils literal notranslate"><span class="pre">dbpath</span></code>, do the following:</p>
+<ul>
+<li><p>Make sure to provide access to the backup directory for the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ chown mongod:mongod &lt;backupDir&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Run the <code class="docutils literal notranslate"><span class="pre">createBackup</span></code> command as administrator on the <code class="docutils literal notranslate"><span class="pre">admin</span></code> database and specify the backup directory.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; use admin
+switched to db admin
+&gt; db.runCommand({createBackup: 1, backupDir: &lt;backup_data_path})
+{ "ok" : 1 }
+</pre></div>
+</div>
+</li>
+</ul>
+<p>If the backup was successful, you should receive an <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">"ok"</span> <span class="pre">:</span> <span class="pre">1</span> <span class="pre">}</span></code> object.
+If there was an error, you will receive a failing <code class="docutils literal notranslate"><span class="pre">ok</span></code> status
+with the error message, for example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; db.runCommand({createBackup: 1, backupDir: ""})
+{ "ok" : 0, "errmsg" : "Destination path must be absolute" }
+</pre></div>
+</div>
+
+
+<span id="psmdb-hot-backup-remote-destination"></span><h2 id="streaming-hot-backups-to-a-remote-destination"><a class="toc-backref" href="#id3">Streaming hot backups to a remote destination</a><a class="headerlink" href="#streaming-hot-backups-to-a-remote-destination" title="Permalink to this headline">¶</a></h2>
+<p><em>Percona Server for MongoDB</em> enables uploading hot backups to an <a class="reference external" href="https://aws.amazon.com/s3/">Amazon S3</a> or a compatible storage service, such
+as <a class="reference external" href="https://min.io/">MinIO</a>.</p>
+<p>This method requires that you provide the <em>bucket</em> field in the <em>s3</em> object:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; use admin
+...
+&gt; db.runCommand({createBackup: 1, s3: {bucket: "backup20190510", path: &lt;some_optional_path&gt;} })
+</pre></div>
+</div>
+<p>In addition to the mandatory <em>bucket</em> field, the <em>s3</em> object may contain the following fields:</p>
+<table>
+<colgroup>
+<col style="width: 30%"/>
+<col style="width: 15%"/>
+<col style="width: 55%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bucket</p></td>
+<td><p>string</p></td>
+<td><p>The only mandatory field. Names are subject to restrictions described in
+the <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html">Bucket Restrictions and Limitations section of Amazon S3 documentation</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>path</p></td>
+<td><p>string</p></td>
+<td><p>The virtual path inside the specified bucket where the backup will be
+created. If the <em>path</em> is not specified then the backup is created in the root
+of the bucket. If there are any objects under the specified path, the backup
+will not be created and an error will be reported.</p></td>
+</tr>
+<tr class="row-even"><td><p>endpoint</p></td>
+<td><p>string</p></td>
+<td><p>The endpoint address and port - mainly for AWS S3 compatible servers such
+as the <em>MinIO</em> server. For a local MinIO server, this can be
+“127.0.0.1:9000”. For AWS S3 this field can be omitted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scheme</p></td>
+<td><p>string</p></td>
+<td><p>“HTTP” or “HTTPS” (default). For a local MinIO server started
+with the <em>minio server</em> command this should field should contain <em>HTTP</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p>useVirtualAddressing</p></td>
+<td><p>bool</p></td>
+<td><p>The style of addressing buckets in the URL. By default ‘true’. For MinIO
+servers, set this field to <strong>false</strong>. For more information, see <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html">Virtual
+Hosting of Buckets</a>
+in the Amazon S3 documentation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>region</p></td>
+<td><p>string</p></td>
+<td><p>The name of an AWS region. The default region is <strong>US_EAST_1</strong>. For more
+information see <a class="reference external" href="https://docs.aws.amazon.com/general/latest/gr/rande.html">AWS Service Endpoints</a> in the
+Amazon S3 documentation.</p></td>
+</tr>
+<tr class="row-even"><td><p>profile</p></td>
+<td><p>string</p></td>
+<td><p>The name of a credentials profile in the <em>credentials</em> configuration file. If
+not specified, the profile named <strong>default</strong> is used.</p></td>
+</tr>
+<tr class="row-odd"><td><p>accessKeyId</p></td>
+<td><p>string</p></td>
+<td><p>The access key id</p></td>
+</tr>
+<tr class="row-even"><td><p>secretAccessKey</p></td>
+<td><p>string</p></td>
+<td><p>The secret access key</p></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="credentials"><a class="toc-backref" href="#id4">Credentials</a><a class="headerlink" href="#credentials" title="Permalink to this headline">¶</a></h3>
+<p>If the user provides the <em>access key id</em> and the <em>secret access key</em> parameters,
+these are used as credentials.</p>
+<p>If the <em>access key id</em> parameter is not specified then the credentials are loaded from
+the credentials configuration file. By default, it is <code class="file docutils literal notranslate"><span class="pre">~/.aws/credentials</span></code>.</p>
+<div class="admonition-an-example-of-the-credentials-file admonition">
+<p class="admonition-title">An example of the credentials file</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[default]
+aws_access_key_id = ABC123XYZ456QQQAAAFFF
+aws_secret_access_key = zuf+secretkey0secretkey1secretkey2
+[localminio]
+aws_access_key_id = ABCABCABCABC55566678
+aws_secret_access_key = secretaccesskey1secretaccesskey2secretaccesskey3
+</pre></div>
+</div>
+</div>
+
+
+<h3 id="examples"><a class="toc-backref" href="#id5">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p><strong>Backup in root of bucket on local instance of MinIO server</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; db.runCommand({createBackup: 1,  s3: {bucket: "backup20190901500",
+scheme: "HTTP",
+endpoint: "127.0.0.1:9000",
+useVirtualAddressing: false,
+profile: "localminio"}})
+</pre></div>
+</div>
+<p><strong>Backup on MinIO testing server with the default credentials profile</strong></p>
+<p>The following command creates a backup under the virtual path  “year2019/day42” in the <em>backup</em> bucket:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; db.runCommand({createBackup: 1,  s3: {bucket: "backup",
+path: "year2019/day42",
+endpoint: "sandbox.min.io:9000",
+useVirtualAddressing: false}})
+</pre></div>
+</div>
+<p><strong>Backup on AWS S3 service using default settings</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; db.runCommand({createBackup: 1,  s3: {bucket: "backup", path: "year2019/day42"}})
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt>AWS Documentation: Providing AWS Credentials</dt><dd><p><a class="reference external" href="https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/credentials.html">https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/credentials.html</a></p>
+</dd>
+</dl>
+</div>
+
+
+
+<h2 id="restoring-data-from-backup"><a class="toc-backref" href="#id6">Restoring data from backup</a><a class="headerlink" href="#restoring-data-from-backup" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">Restoring from backup on a standalone server</p>
+<p>To restore your database on a standalone server, stop the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service, clean out the data directory and copy files from the backup directory to the data directory. The <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user requires access to those files to start the service. Therefore, make the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user the owner of the data directory and all files and subdirectories under it, and restart the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service.</p>
+<p>Run the following commands as root or by using the <strong class="program">sudo</strong> command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stop the mongod service</span>
+$ systemctl stop mongod
+<span class="c1"># Clean out the data directory</span>
+$ rm -rf /var/lib/mongodb/*
+<span class="c1"># Copy backup files</span>
+$ cp -RT &lt;backup_data_path&gt; /var/lib/mongodb/
+<span class="c1"># Grant permissions to data files for the mongod user</span>
+$ chown -R mongod:mongod /var/lib/mongodb/
+<span class="c1"># Start the mongod service</span>
+$ systemctl start mongod
+</pre></div>
+</div>
+<p class="rubric">Restoring from backup in a replica set</p>
+<p>The recommended way to restore the replica set from a backup is to restore it into a standalone node and then initiate it as the first member of a new replica set.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you try to restore the node into the existing replica set and there is more recent data, the restored node detects that it is out of date with the other replica set members, deletes the data and makes an initial sync.</p>
+</div>
+<p>Run the following commands as root or by using the <strong class="program">sudo</strong> command</p>
+<p>The restore steps are the following:</p>
+<ol class="arabic">
+<li><p>Stop the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl stop mongod
+</pre></div>
+</div>
+</li>
+<li><p>Clean the data directory and then copy the files from the backup directory to your data directory. Assuming that the data directory is <code class="file docutils literal notranslate"><span class="pre">/var/lib/mongodb/</span></code>, use the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rm -rf /var/lib/mongodb/*
+$ cp -RT &lt;backup_data_path&gt; /var/lib/mongodb/
+</pre></div>
+</div>
+</li>
+<li><p>Grant permissions to the data files for the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ chown -R mongod:mongod /var/lib/mongodb/
+</pre></div>
+</div>
+</li>
+<li><p>Make sure the replication is disabled in the config file and start the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl start mongod
+</pre></div>
+</div>
+</li>
+<li><p>Connect to your standalone node via the <code class="docutils literal notranslate"><span class="pre">mongo</span></code> shell and drop the local database</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt; mongo
+&gt; use local
+&gt; db.dropDatabase()
+</pre></div>
+</div>
+</li>
+<li><p>Restart the node with the replication enabled</p>
+<ul>
+<li><p>Shut down the node.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl stop mongod
+</pre></div>
+</div>
+</li>
+<li><p>Edit the configuration file and specify the <code class="docutils literal notranslate"><span class="pre">replication.replSetname</span></code> option</p></li>
+<li><p>Start the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> node:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl start mongod
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Initiate a new replica set</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Start the mongo shell
+&gt; mongo
+# Initiate a new replica set
+&gt; rs.initiate()
+</pre></div>
+</div>
+</li>
+</ol>
+
+
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+<div class="md-relbar2__inner md-grid">
+<div class="md-content">
+  <article class="md-content__inner md-typeset" role="main">    
+    <h4>Contact Us </h4>
+       <p>For free technical help, visit the Percona <a class="reference external" href="https://forums.percona.com/c/mongodb/percona-server-for-mongodb/17?utm_campaign=Doc%20pages" target="_blank">Community Forum</a>.<br>
+        <p>To report bugs or submit feature requests, open a <a class="reference external" href="https://jira.percona.com/projects/PSMDB/issues/" target="_blank">JIRA</a> ticket.<br>
+         <p>For paid <a class="reference external" href="https://www.percona.com/services/support"> support </a> and <a class="reference external" href="https://www.percona.com/services/managed-services"> managed </a> or <a class="reference external" href="https://www.percona.com/services/consulting">consulting services </a>, contact <a class="reference external" href="https://www.percona.com/about-percona/contact" target="_blank">Percona Sales</a>.</p>
+ </article>
+</div>
+</div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="mongorocks.html" title="MongoRocks"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> MongoRocks </span>
+              </div>
+            </a>
+          
+          
+            <a href="rate-limit.html" title="Profiling Rate Limit"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> Profiling Rate Limit </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169;
+                <a href="copyright.html">Copyright</a> Percona LLC and/or its affiliates 2015-2022.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

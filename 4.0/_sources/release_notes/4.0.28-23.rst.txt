@@ -1,0 +1,29 @@
+.. _PSMDB-4.0.28-23:
+
+================================================================================
+*Percona Server for MongoDB* 4.0.28-23
+================================================================================
+
+:Date: February 23, 2022
+:Installation: `Installing Percona Server for MongoDB <https://www.percona.com/doc/percona-server-for-mongodb/4.0/install/index.html>`_
+
+Percona Server for MongoDB 4.0.28 is an enhanced, source available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 4.0.28 Community Edition. It supports MongoDB 4.0.28 protocols and drivers.
+
+.. admonition:: Reminder
+
+   MongoDB 4.0 is scheduled to go `End of Life on April 30, 2022 <https://www.mongodb.com/support-policy/legacy>`_.
+   Please plan your upgrades accordingly. To learn more about Percona’s software and services life cycle policies, see `Percona Release Lifecycle Overview <https://www.percona.com/services/policies/percona-software-support-lifecycle>`_ and `Percona Services Lifecycle Policy <https://www.percona.com/services/policies/percona-services-lifecycle-policy>`_.
+      
+
+Release Highlights
+==================
+
+* `SERVER-59929 <https://jira.mongodb.org/browse/SERVER-59929>`_ - Fixed issue from versions 4.0.26 and below that caused slower update and insert times related to ``splitChunk`` and ``moveChunk`` operations.
+* `SERVER-55648 <https://jira.mongodb.org/browse/SERVER-55648>`_ - Resolved issues related to failures in retryable writes in case of shutdowns.
+* `SERVER-62065 <https://jira.mongodb.org/browse/SERVER-62065>`_ - Added the ``repairShardedCollectionChunksHistory`` command to restore ``history`` fields for some chunks. This aims to fix broken snapshot reads and distributed transactions.
+* `SERVER-54064 <https://jira.mongodb.org/browse/SERVER-54064>`_ - Added periodic clean up of logical sessions cache on arbiters
+* `SERVER-45953 <https://jira.mongodb.org/browse/SERVER-45953>`_ - Exempted internal replication oplog readers from acquiring read tickets in order to avoid deadlocks
+  
+Find the full list of changes in the `MongoDB 4.0.28 Community Edition release notes <https://docs.mongodb.com/v4.0/release-notes/4.0/#january-31-2022>`_.
+  

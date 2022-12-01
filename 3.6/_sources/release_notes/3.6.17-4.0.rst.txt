@@ -1,0 +1,28 @@
+.. _PSMDB-3.6.17-4.0:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+:Date: |date|
+:Installation: :ref:`install`
+
+|PSMDB| |release| is based on `MongoDB 3.6.17
+<https://docs.mongodb.com/manual/release-notes/3.6/#jan-27-2020>`_.
+
+Bugs Fixed
+================================================================================
+
+* :jirabug:`PSMDB-473`: The ``logApplicationMessage`` command failed even when
+  it was run by the user with extended privileges. The problem has been fixed to
+  allow running the ``logApplicationMessage`` command by any role that has the
+  `applicationMessage` privilege, such as `clusterManager` or `hostManager`.
+  
+  .. code-block:: javascript
+
+     > db.runCommand({logApplicationMessage: 'find'});
+
+.. |date| replace:: February 13, 2020
+.. |release| replace:: 3.6.17-4.0
+
+

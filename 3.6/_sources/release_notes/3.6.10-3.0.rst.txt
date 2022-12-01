@@ -1,0 +1,74 @@
+.. _3.6.10-3.0:
+
+================================================================================
+|PSMDB| |release|
+================================================================================
+
+:Date: |date|
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.6/
+:Installation: :ref:`install`
+
+Percona announces the release of Percona Server for MongoDB |release|
+on |date|. Download the latest version from the `Percona website
+<https://www.percona.com/downloads/percona-server-mongodb-3.6/>`_ or
+the `Percona Software Repositories
+<https://www.percona.com/doc/percona-server-for-mongodb/3.6/install/index.html>`_. This
+release is :ref:`also available for Ubuntu 18.10 (Cosmic Cuttlefish)
+<install>`.
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 3.6 Community Edition.  It
+supports MongoDB 3.6 protocols and drivers.
+
+|PSMDB| extends Community Edition functionality by including the :ref:`inmemory`
+storage engine, as well as several enterprise-grade features.  Also, it includes
+:ref:`mongorocks` storage engine, which is now deprecated.  |PSMDB| requires no
+changes to MongoDB applications or code.
+
+In |PSMDB| |release|, data at rest encryption becomes GA. The data at rest
+encryption feature now covers the temporary files used for external sorting and
+the rollback files. You can decrypt and examine the contents of the rollback
+files using the new :program:`perconadecrypt` command line tool.
+
+In this release, |PSMDB| supports the Ngram full text search engine. Thanks to
+*@SunguckLee on github* for this contribution. To enable Ngram full
+text search, create an index passing **ngram** to the ``default_language``
+parameter.
+
+.. code-block:: javascript
+
+   mongo > db.collection.createIndex({name:"text"}, {default_language: "ngram"})
+
+New Features
+================================================================================
+
+- :jirabug:`PSMDB-276`: :program:`perconadecrypt` tool is now available for
+  decrypting the encrypted rollback files.
+- :jirabug:`PSMDB-250`: The Ngram full text search engine has been added to
+  |PSMDB|. Thanks to *@SunguckLee on github*
+
+Bugs Fixed
+================================================================================
+
+- :jirabug:`PSMDB-234`: It was possible use a key file for encryption the owner
+  of which was not the owner of the ``mongod`` process.
+- :jirabug:`PSMDB-269`: In some cases, hot backup was not using the correct path
+  to the ``keydb`` directory designated for data encryption.
+- :jirabug:`PSMDB-273`: When using data at rest encryption, temporary files for
+  external sorting and rollback files were not encrypted
+- :jirabug:`PSMDB-272`: :program:`mongos` could crash when running the the
+  :program:`createBackup` command.
+- :jirabug:`PSMDB-233`: WiredTiger encryption options were silently ignored at
+  server startup, although a storage engine different from WiredTiger was used.
+- :jirabug:`PSMDB-257`: MongoDB could not be started with a group-readable ``key
+  file`` owned by ``root``.
+- :jirabug:`PSMDB-266`: In some cases, it was possible to add arbitrary
+  collections to the ``keydb`` directory which may only store encryption data.
+
+Other bugs fixed: 
+:jirabug:`PSMDB-239`,
+:jirabug:`PSMDB-243`
+
+
+.. |release| replace:: 3.6.10-3.0
+.. |date| replace:: February 6, 2019

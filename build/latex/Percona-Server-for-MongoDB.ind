@@ -1,0 +1,62 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter {\sphinxsymbolsname}
+  \item \spxentry{\sphinxhyphen{}\sphinxhyphen{}auditDestination}
+    \subitem \spxentry{command line option}, \hyperpage{44}
+  \item \spxentry{\sphinxhyphen{}\sphinxhyphen{}auditFilter}
+    \subitem \spxentry{command line option}, \hyperpage{44}
+  \item \spxentry{\sphinxhyphen{}\sphinxhyphen{}auditFormat}
+    \subitem \spxentry{command line option}, \hyperpage{44}
+  \item \spxentry{\sphinxhyphen{}\sphinxhyphen{}auditPath}
+    \subitem \spxentry{command line option}, \hyperpage{44}
+  \item \spxentry{\sphinxhyphen{}\sphinxhyphen{}inMemorySizeGB}
+    \subitem \spxentry{command line option}, \hyperpage{23}
+  \item \spxentry{\sphinxhyphen{}\sphinxhyphen{}inMemoryStatisticsLogDelaySecs}
+    \subitem \spxentry{command line option}, \hyperpage{24}
+
+  \indexspace
+  \bigletter A
+  \item \spxentry{ACID}, \hyperindexformat{\spxpagem}{123}
+  \item \spxentry{Atomicity}, \hyperindexformat{\spxpagem}{123}
+
+  \indexspace
+  \bigletter C
+  \item \spxentry{command line option}
+    \subitem \spxentry{\sphinxhyphen{}\sphinxhyphen{}auditDestination}, \hyperpage{44}
+    \subitem \spxentry{\sphinxhyphen{}\sphinxhyphen{}auditFilter}, \hyperpage{44}
+    \subitem \spxentry{\sphinxhyphen{}\sphinxhyphen{}auditFormat}, \hyperpage{44}
+    \subitem \spxentry{\sphinxhyphen{}\sphinxhyphen{}auditPath}, \hyperpage{44}
+    \subitem \spxentry{\sphinxhyphen{}\sphinxhyphen{}inMemorySizeGB}, \hyperpage{23}
+    \subitem \spxentry{\sphinxhyphen{}\sphinxhyphen{}inMemoryStatisticsLogDelaySecs}, 
+		\hyperpage{24}
+  \item \spxentry{Consistency}, \hyperindexformat{\spxpagem}{123}
+
+  \indexspace
+  \bigletter D
+  \item \spxentry{Durability}, \hyperindexformat{\spxpagem}{123}
+
+  \indexspace
+  \bigletter F
+  \item \spxentry{Foreign Key}, \hyperindexformat{\spxpagem}{123}
+
+  \indexspace
+  \bigletter I
+  \item \spxentry{Isolation}, \hyperindexformat{\spxpagem}{123}
+
+  \indexspace
+  \bigletter J
+  \item \spxentry{Jenkins}, \hyperindexformat{\spxpagem}{123}
+
+  \indexspace
+  \bigletter K
+  \item \spxentry{Kerberos}, \hyperindexformat{\spxpagem}{123}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{Rolling restart}, \hyperindexformat{\spxpagem}{123}
+
+\end{sphinxtheindex}

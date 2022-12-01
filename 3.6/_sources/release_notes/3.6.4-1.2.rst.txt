@@ -1,0 +1,34 @@
+.. _3.6.4-1.2:
+
+=================
+|PSMDB| 3.6.4-1.2
+=================
+
+:Date: May 23, 2018
+:Download: http://www.percona.com/downloads/percona-server-mongodb-3.6/
+:Installation: :ref:`install`
+
+|PSMDB| is an enhanced, open source, and highly-scalable database that is
+a fully-compatible, drop-in replacement for MongoDB 3.6 Community Edition.
+It supports MongoDB 3.6 protocols and drivers.
+
+|PSMDB| extends Community Edition functionality by including the
+:ref:`inmemory` storage engine, as well as several enterprise-grade features.
+Also it includes :ref:`mongorocks` storage engine, which is now deprecated.
+|PSMDB| requires no changes to MongoDB applications or code.
+
+This release is based on `MongoDB 3.6.4
+<https://docs.mongodb.com/manual/release-notes/3.6/#apr-13-2018>`_
+and provides the following additional changes:
+
+* :jirabug:`PSMDB-205`: ``mongod`` failed to initialize if audit filter was
+  set to record Action type events specified with the ``$in`` expression.
+
+* :jirabug:`PSMDB-207`: a premature initialization of the feature compatibility
+  version in global parameters was fixed for the RocksDB storage engine.
+
+* :jirabug:`PSMDB-209`: CentOS 6 and CentOS 7 RPM packages contained config
+  file with a wrong link to the online Percona Memory Engine documentation.
+
+.. note:: As mentioned in the |PSMDB| 3.6.3-1.1 Release Notes, MongoRocks is
+   deprecated in |PSMDB| 3.6.
