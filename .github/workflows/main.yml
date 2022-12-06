@@ -3,7 +3,6 @@ on:
   push:
     branches: 
       - 6.0
-      - PSMDB-1162-RST-to-MD-6.0
      
 jobs:
   build:
@@ -46,5 +45,5 @@ jobs:
         run: |
           mike deploy 6.0 -b publish -p
           mike set-default 6.0 -b publish -p
-          mike retitle 6.0 "6.0.2-1 (LATEST)" -b publish -p
+          mike retitle 6.0 "6.0.3-2 (LATEST)" -b publish -p
 
