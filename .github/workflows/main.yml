@@ -3,7 +3,7 @@ on:
   push:
     branches: 
       - 4.2
-      - PSMDB-1162-RST-to-MD-4.2
+      
      
 jobs:
   build:
