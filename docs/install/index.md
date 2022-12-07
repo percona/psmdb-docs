@@ -12,9 +12,7 @@ Choose how you wish to install Percona Server for MongoDB:
 * [from binary tarballs](tarball.md).
 * Manually from [Percona website](https://www.percona.com/downloads/percona-server-mongodb-4.4/)
 
-   !!! note 
-
-       Make sure that all dependencies are satisfied.
+   *NOTE*: Make sure that all dependencies are satisfied.
 
 * [Run in a Docker](docker.md).
 
