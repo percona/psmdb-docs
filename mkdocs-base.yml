@@ -1,0 +1,158 @@
+# MkDocs configuration for builds with material theme
+
+site_name: Percona Server for MongoDB 6.0
+site_description: Documentation
+site_author: Percona LLC
+copyright: Percona LLC, &#169; 2022
+
+repo_name: percona/psmdb-docs
+repo_url: https://github.com/percona/psmdb-docs
+edit_uri: edit/6.0/docs/
+
+use_directory_urls: false
+
+# Theme setup
+theme:
+  name: material
+  logo: _images/percona-logo.svg
+  favicon: _images/percona_favicon.ico
+  custom_dir: _resource/overrides/
+  font:
+    text: Chivo, Colfax, Franziska
+  palette:
+
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: percona-light
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+
+extra_css:
+  - https://unicons.iconscout.com/release/v3.0.3/css/line.css
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css
+  - css/percona.css
+  - css/nocopy.css
+
+extra_javascript:
+  - js/version-select.js
+  - js/promptremover.js
+
+markdown_extensions:
+  abbr: {}
+  attr_list: {}
+  toc:
+    permalink: True
+    title: On this page
+    toc_depth: 3
+  admonition: {}
+  footnotes: {}
+  def_list: {} # https://michelf.ca/projects/php-markdown/extra/#def-list
+  meta: {}
+  md_in_html: {}
+  smarty:
+      {smart_angled_quotes: true}
+  pymdownx.details: {}
+  pymdownx.mark: {}
+  pymdownx.smartsymbols: {}
+  pymdownx.tabbed: 
+      {alternate_style: true}
+  pymdownx.tilde: {}
+  pymdownx.superfences: {}
+  pymdownx.highlight:
+      linenums: false
+  pymdownx.inlinehilite: {}
+  pymdownx.snippets: {}
+  pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+       
+
+plugins:
+  search: {}
+  git-revision-date-localized: 
+    enable_creation_date: true
+    enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
+  macros:
+      include_yaml:
+        - 'variables.yml' # Use in markdown as '{{ VAR }}'
+# exclude: # Don't process these files
+#      glob:
+#         - file.md
+  with-pdf: # https://github.com/orzih/mkdocs-with-pdf
+          output_path: '_pdf/PerconaServerforMongoDB-6.0.pdf'
+          cover_title: 'Percona Server for MongoDB Documentation 5.0'
+          cover_subtitle: 6.0.2-1 (October 31, 2022)
+          author: 'Percona Technical Documentation Team'
+          cover_logo: docs/_images/Percona_Logo_Color.png
+          debug_html: false
+          custom_template_path: _resource/templates
+          enabled_if_env: ENABLE_PDF_EXPORT
+  mike:
+      version_selector: true
+      css_dir: css
+      javascript_dir: js
+      canonical_version: null
+
+extra:
+  version:
+    provider: mike
+
+
+nav:
+  - Home:
+      - index.md
+  - comparison.md
+  - Install PSMDB: 
+      - 'Overview': 'install/index.md'
+      - install/apt.md
+      - install/yum.md
+      - install/tarball.md
+      - install/docker.md
+  - Features: 
+      - Storage:
+        - "Percona Memory Engine": "inmemory.md"
+      - Backup:
+        - "Hot Backup": "hot-backup.md"
+        - backup-cursor.md
+      - Authentication:
+        - "Authentication": "authentication.md"
+        - enable-auth.md
+        - sasl-auth.md
+        - x509-ldap.md
+        - kerberos.md
+        - authorization.md
+        - ldap-setup.md
+      - Encryption:
+        - "Data at rest encryption": "data-at-rest-encryption.md"
+        - vault.md
+        - kmip.md
+        - keyfile.md
+        - encryption-mode-switch.md
+      - audit-logging.md 
+      - rate-limit.md
+      - log-redaction.md
+      - ngram-full-text-search.md
+  - Manage PSMDB:
+      - "Tune parameters": "set-parameter.md"
+      - Upgrade:
+        - "Upgrade PSMDB from 5.0 to 6.0": "install/upgrade-from-50.md"
+        - install/upgrade-from-mongodb.md
+      - install/uninstall.md
+  - Release notes:
+      - release_notes/index.md
+      - release_notes/6.0.2-1.md
+  - glossary.md
+  - Copyright and Licensing:
+      - copyright.md
+  - Trademark policy:
+      - trademark-policy.md 
