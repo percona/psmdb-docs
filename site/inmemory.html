@@ -1,0 +1,1898 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation">
+      
+      
+        <meta name="author" content="Percona LLC">
+      
+      
+      <link rel="icon" href="_images/percona_favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Percona Memory Engine - Percona Server for MongoDB 6.0</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chivo,+Colfax,+Franziska:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Chivo, Colfax, Franziska";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="css/percona.css">
+    
+      <link rel="stylesheet" href="css/nocopy.css">
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+              
+
+              <script>
+              (function (w, d, s, l, i) {
+                  w[l] = w[l] || []; w[l].push({
+                    'gtm.start': new Date().getTime(), 
+                    event: 'gtm.js'
+                  });
+                  var f = d.getElementsByTagName(s)[0],
+                  j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                  j.async = true; 
+                  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                  f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', 'GTM-K48FGP2');
+              </script>
+              
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="percona-light" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#percona-memory-engine" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Product Documentation" data-md-component="logo">
+      
+  <img src="_images/percona-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Percona Server for MongoDB 6.0
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Percona Memory Engine
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="" data-md-color-accent="" type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="" type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    percona/psmdb-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Percona Server for MongoDB 6.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
+      
+  <img src="_images/percona-logo.svg" alt="logo">
+
+    </a>
+    Percona Server for MongoDB 6.0
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    percona/psmdb-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Percona Server for MongoDB 6.0 Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="comparison.html" class="md-nav__link">
+        Percona Server for MongoDB feature comparison
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Install PSMDB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Install PSMDB" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Install PSMDB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/index.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/apt.html" class="md-nav__link">
+        Install Percona Server for MongoDB on Debian and Ubuntu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/yum.html" class="md-nav__link">
+        Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/tarball.html" class="md-nav__link">
+        Install Percona Server for MongoDB from binary tarball
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/docker.html" class="md-nav__link">
+        Run Percona Server for MongoDB in a Docker container
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Features
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Features" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Features
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Percona Memory Engine
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="inmemory.html" class="md-nav__link md-nav__link--active">
+        Percona Memory Engine
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switching-storage-engines" class="md-nav__link">
+    Switching storage engines
+  </a>
+  
+    <nav class="md-nav" aria-label="Switching storage engines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#considerations" class="md-nav__link">
+    Considerations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temporarily-test-percona-memory-engine" class="md-nav__link">
+    Temporarily test Percona Memory Engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permanent-switch-to-percona-memory-engine-without-any-valuable-data-in-your-database" class="md-nav__link">
+    Permanent switch to Percona Memory Engine without any valuable data in your database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-to-percona-memory-engine-with-data-migration-and-compatibility" class="md-nav__link">
+    Switch to Percona Memory Engine with data migration and compatibility
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-at-rest-encryption" class="md-nav__link">
+    Data at rest encryption
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Backup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Backup" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Backup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hot-backup.html" class="md-nav__link">
+        Hot Backup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="backup-cursor.html" class="md-nav__link">
+        $backupCursor and $backupCursorExtend aggregation stages
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Authentication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Authentication" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Authentication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="authentication.html" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enable-auth.html" class="md-nav__link">
+        Enabling authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sasl-auth.html" class="md-nav__link">
+        Set up LDAP authentication with SASL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="x509-ldap.html" class="md-nav__link">
+        Set up x.509 authentication and LDAP authorization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kerberos.html" class="md-nav__link">
+        Setting up Kerberos authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="authorization.html" class="md-nav__link">
+        LDAP authorization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ldap-setup.html" class="md-nav__link">
+        Set up LDAP authentication and authorization using NativeLDAP
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Encryption
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Encryption" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Encryption
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-at-rest-encryption.html" class="md-nav__link">
+        Data at rest encryption
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="vault.html" class="md-nav__link">
+        HashiCorp Vault integration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kmip.html" class="md-nav__link">
+        Using the Key Management Interoperability Protocol (KMIP)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="keyfile.html" class="md-nav__link">
+        Local key management using a keyfile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="encryption-mode-switch.html" class="md-nav__link">
+        Migrate from key file encryption to HashiCorp Vault encryption
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="audit-logging.html" class="md-nav__link">
+        Auditing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rate-limit.html" class="md-nav__link">
+        Profiling rate limit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="log-redaction.html" class="md-nav__link">
+        Log redaction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ngram-full-text-search.html" class="md-nav__link">
+        Additional text search algorithm - ngram
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Manage PSMDB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manage PSMDB" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Manage PSMDB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="set-parameter.html" class="md-nav__link">
+        Tune parameters
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          Upgrade
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Upgrade" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Upgrade
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/upgrade-from-50.html" class="md-nav__link">
+        Upgrade PSMDB from 5.0 to 6.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+        Upgrade Percona Server for MongoDB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/uninstall.html" class="md-nav__link">
+        Uninstall Percona Server for MongoDB
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Release notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Release notes" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Release notes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release_notes/index.html" class="md-nav__link">
+        Percona Server for MongoDB 6.0 Release Notes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release_notes/6.0.2-1.html" class="md-nav__link">
+        Percona Server for MongoDB 6.0.2-1 (2022-10-31)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Copyright and Licensing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Copyright and Licensing" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Copyright and Licensing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="copyright.html" class="md-nav__link">
+        Copyright and Licensing Information
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Trademark policy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Trademark policy" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Trademark policy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="trademark-policy.html" class="md-nav__link">
+        Trademark Policy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+   <label class="md-nav__title" for="__drawer">
+    <a href="https://learn.percona.com/download-percona-server-mongodb-6-0-manual" onclick="_gaq.push(['b._trackEvent', 'Percona Server for MongoDB 6.0', 'Download', 'Download Manual Server for MongoDB 6.0']);" class="md-nav__link md-nav__link--active">
+      Download PDF
+    </a>
+  </label> 
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switching-storage-engines" class="md-nav__link">
+    Switching storage engines
+  </a>
+  
+    <nav class="md-nav" aria-label="Switching storage engines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#considerations" class="md-nav__link">
+    Considerations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    Procedure
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temporarily-test-percona-memory-engine" class="md-nav__link">
+    Temporarily test Percona Memory Engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permanent-switch-to-percona-memory-engine-without-any-valuable-data-in-your-database" class="md-nav__link">
+    Permanent switch to Percona Memory Engine without any valuable data in your database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-to-percona-memory-engine-with-data-migration-and-compatibility" class="md-nav__link">
+    Switch to Percona Memory Engine with data migration and compatibility
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-at-rest-encryption" class="md-nav__link">
+    Data at rest encryption
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+
+                <!-- Edit and view button -->
+                
+                  
+                  
+                  <a
+                    href="https://github.com/percona/psmdb-docs/edit/6.0/docs/inmemory.md"
+                    title="Edit this page"
+                    class="md-content__button md-icon"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+                  </a>
+                  <a
+                    href="https://raw.githubusercontent.com/percona/psmdb-docs/6.0/docs/inmemory.md"
+                    title="View source of this page"
+                    class="md-content__button md-icon"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+                  </a>
+                
+
+                <!--
+                  Hack: check whether the content contains a h1 headline. If it
+                  doesn't, the page title (or respectively site name) is used
+                  as the main headline.
+                -->
+                
+
+                <!-- Markdown content -->
+                <h1 id="percona-memory-engine">Percona Memory Engine</h1>
+<p>Percona Memory Engine is a special configuration of <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> that does
+not store user data on disk. Data fully resides in the main memory, making
+processing much faster and smoother. Keep in mind that you need to have enough
+memory to hold the data set, and ensure that the server does not shut down.</p>
+<p>The Percona Memory Engine is available in Percona Server for MongoDB along with the default MongoDB engine <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a>.</p>
+<h2 id="usage">Usage</h2>
+<p>As of version 3.2, Percona Server for MongoDB runs with <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> by default.  You can select a
+storage engine using the <code>--storageEngine</code> command-line option when you start
+<code>mongod</code>.  Alternatively, you can set the <code>storage.engine</code> variable in the
+configuration file (by default, <code>/etc/mongod.conf</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;dataDir&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span><span class="w"></span>
+</code></pre></div>
+<h2 id="configuration">Configuration</h2>
+<p>You can configure Percona Memory Engine using either command-line options or
+corresponding parameters in the <code>/etc/mongod.conf</code> file. The following are the configuration examples:</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Configuration file</label><div class="tabbed-content">
+<p>The configuration file is formatted in YAML</p>
+<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span><span class="w"></span>
+<span class="w">  </span><span class="nt">inMemory</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">engineConfig</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">inMemorySizeGB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">140</span><span class="w"></span>
+<span class="w">      </span><span class="nt">statisticsLogDelaySecs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Command line</label><div class="tabbed-content">
+<p>Setting parameters in the configuration file is the same as
+ starting the <code>mongod</code> daemon with the following options:</p>
+<div class="highlight"><pre><span></span><code>mongod --storageEngine<span class="o">=</span>inMemory <span class="se">\</span>
+--inMemorySizeGB<span class="o">=</span><span class="m">140</span> <span class="se">\</span>
+--inMemoryStatisticsLogDelaySecs<span class="o">=</span><span class="m">0</span>
+</code></pre></div>
+</div>
+</div>
+<h3 id="options">Options</h3>
+<p>The following options are available (with corresponding YAML configuration file
+parameters):</p>
+<table>
+<thead>
+<tr>
+<th>Command line</th>
+<th>Configuration file</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--inMemorySizeGB()</code></td>
+<td><code>storage.inMemory.engineConfig.inMemorySizeGB</code></td>
+<td>50% of total memory minus 1024 MB, but not less than 256 MB</td>
+<td>Specifies the maximum memory in gigabytes to use for data</td>
+</tr>
+<tr>
+<td><code>--inMemoryStatisticsLogDelaySecs()</code></td>
+<td><code>storage.inMemory.engineConfig.statisticsLogDelaySecs</code></td>
+<td>0</td>
+<td>Specifies the number of seconds between writes to statistics log.  If 0 is specified then statistics are not logged</td>
+</tr>
+</tbody>
+</table>
+<h2 id="switching-storage-engines">Switching storage engines</h2>
+<h3 id="considerations">Considerations</h3>
+<p>If you have data files in your database and want to change to Percona Memory Engine, consider the following:</p>
+<ul>
+<li>
+<p>Data files created by one storage engine are not compatible with other engines, because each one has its own data model.</p>
+</li>
+<li>
+<p>When changing the storage engine, the <code>mongod</code> node requires an empty <code>dbPath</code> data directory when it is restarted. Though Percona Memory Engine stores all data in memory, some metadata files, diagnostics logs and statistics metrics are still written to disk. This is controlled with the <code>--inMemoryStatisticsLogDelaySecs</code> option.</p>
+</li>
+</ul>
+<p>Creating a new <code>dbPath</code> data directory for a different storage engine is the simplest solution. Yet when you switch between disk-using storage engines (e.g. from <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> to Percona Memory Engine), you may have to delete the old data if there is not enough disk space for both. Double-check that your backups are solid and/or the replica set nodes are healthy before you switch to the new storage engine.</p>
+<h3 id="procedure">Procedure</h3>
+<p>To change a storage engine, you have the following options:</p>
+<h4 id="temporarily-test-percona-memory-engine">Temporarily test Percona Memory Engine</h4>
+<p>Set a different data directory for the <code>dbPath</code> variable in the configuration file. Make sure that the user running <code>mongod</code> has read and write permissions for the new data directory.</p>
+<ol>
+<li>
+<p>Stop <code>mongod</code></p>
+<div class="highlight"><pre><span></span><code>$ service mongod stop
+</code></pre></div>
+</li>
+<li>
+<p>Edit the configuration file</p>
+<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;newDataDir&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inmemory</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>Start <code>mongod</code></p>
+<div class="highlight"><pre><span></span><code>$ service mongod start
+</code></pre></div>
+</li>
+</ol>
+<h4 id="permanent-switch-to-percona-memory-engine-without-any-valuable-data-in-your-database">Permanent switch to Percona Memory Engine without any valuable data in your database</h4>
+<p>Clean out the <code>dbPath</code> data directory (by default, <code>/var/lib/mongodb</code>) and edit the configuration file:</p>
+<ol>
+<li>
+<p>Stop <code>mongod</code></p>
+<div class="highlight"><pre><span></span><code>$ service mongod stop
+</code></pre></div>
+</li>
+<li>
+<p>Clean out the <code>dbPath</code> data directory</p>
+<div class="highlight"><pre><span></span><code>$ sudo rm -rf &lt;dbpathDataDir&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Edit the configuration file</p>
+<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;newDataDir&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inmemory</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>Start <code>mongod</code></p>
+<div class="highlight"><pre><span></span><code>$ service mongod start
+</code></pre></div>
+</li>
+</ol>
+<h4 id="switch-to-percona-memory-engine-with-data-migration-and-compatibility">Switch to Percona Memory Engine with data migration and compatibility</h4>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Standalone instance</label><div class="tabbed-content">
+<p>For a standalone instance or a single-node replica set, use the <code>mongodump</code> and <code>mongorestore</code> utilities:</p>
+<ol>
+<li>
+<p>Export the dataDir contents</p>
+<div class="highlight"><pre><span></span><code>$ mongodump --out &lt;dumpDir&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Stop <code>mongod</code></p>
+<div class="highlight"><pre><span></span><code>$ service mongod stop
+</code></pre></div>
+</li>
+<li>
+<p>Clean out the <code>dbPath</code> data directory</p>
+<div class="highlight"><pre><span></span><code>$ sudo rm -rf &lt;dbpathDataDir&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Update the configuration file by setting the new
+value for the <code>storage.engine</code> variable. Set the engine-specific settings such as <code>storage.inMemory.engineConfig.inMemorySizeGB</code></p>
+</li>
+<li>
+<p>Start <code>mongod</code></p>
+<div class="highlight"><pre><span></span><code>$ service mongod start
+</code></pre></div>
+</li>
+<li>
+<p>Restore the database</p>
+<div class="highlight"><pre><span></span><code>$ mongorestore &lt;dumpDir&gt;
+</code></pre></div>
+</li>
+</ol>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Replica set</label><div class="tabbed-content">
+<p>Use the “rolling restart” process.</p>
+<ol>
+<li>
+<p>Switch to the Percona Memory Engine on the secondary node. Clean out the <code>dbPath</code> data directory and edit the configuration file:</p>
+</li>
+<li>
+<p>Stop <code>mongod</code></p>
+<div class="highlight"><pre><span></span><code>$ service mongod stop
+</code></pre></div>
+</li>
+<li>
+<p>Clean out the <code>dbPath</code> data directory</p>
+<div class="highlight"><pre><span></span><code>$ sudo rm -rf &lt;dbpathDataDir&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Edit the configuration file</p>
+<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;newDataDir&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inmemory</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>Start <code>mongod</code></p>
+<div class="highlight"><pre><span></span><code>$ service mongod start
+</code></pre></div>
+</li>
+<li>
+<p>Wait for the node to rejoin with the other nodes and report the SECONDARY status.</p>
+</li>
+<li>
+<p>Repeat the procedure to switch the remaining nodes to Percona Memory Engine.</p>
+</li>
+</ol>
+</div>
+</div>
+<h3 id="data-at-rest-encryption">Data at rest encryption</h3>
+<p>Using <a href="data-at-rest-encryption.html">Data at Rest Encryption</a> means using the same <code>storage.\*</code>
+configuration options as for <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a>. To change from normal to <a href="data-at-rest-encryption.html">Data at Rest Encryption</a> mode or backward, you must clean up the <code>dbPath</code> data directory, just as if you change the storage engine. This is because
+<strong>mongod</strong> cannot convert the data files to an encrypted format ‘in place’. It
+must get the document data again either via the initial sync from another
+replica set member, or from imported backup dump.</p>
+<h1 id="percona-memory-engine_1">Percona memory engine</h1>
+<p>Percona memory engine is a special configuration of <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> that does
+not store user data on disk.  Data fully resides in the main memory, making
+processing much faster and smoother.  Keep in mind that you need to have enough
+memory to hold the data set, and ensure that the server does not shut down.</p>
+<p>The <em>Percona Memory Engine</em> is available in Percona Server for MongoDB along with the default
+MongoDB engine <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a>.</p>
+<h2 id="using-percona-memory-engine">Using Percona Memory Engine</h2>
+<p>As of version 3.2, Percona Server for MongoDB runs with <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> by default.  You can select a
+storage engine using the <code>--storageEngine</code> command-line option when you start
+<code>mongod</code>.  Alternatively, you can set the <code>storage.engine</code> variable in the
+configuration file (by default, <code>/etc/mongod.conf</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;dataDir&gt;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span><span class="w"></span>
+</code></pre></div>
+<h2 id="switching-storage-engines_1">Switching storage engines</h2>
+<h3 id="considerations_1">Considerations</h3>
+<p>If you have data files in your database and want to change to Percona Memory Engine, consider the following:</p>
+<ul>
+<li>
+<p>Data files created by one storage engine are not compatible with other engines, because each one has its own data model.</p>
+</li>
+<li>
+<p>When changing the storage engine, the <strong>mongod</strong> node requires an empty <code>dbPath</code> data directory when it is restarted. Though Percona Memory Engine stores all data in memory, some metadata files, diagnostics logs and statistics metrics are still written to disk. This is controlled with the <code>--inMemoryStatisticsLogDelaySecs</code> option.</p>
+</li>
+</ul>
+<p>Creating a new <code>dbPath</code> data directory for a different storage engine is the simplest solution. Yet when you switch between disk-using storage engines (e.g. from <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> to Percona Memory Engine), you may have to delete the old data if there is not enough disk space for both. Double-check that your backups are solid and/or the replica set nodes are healthy before you switch to the new storage engine.</p>
+<h3 id="procedure_1">Procedure</h3>
+<p>To change a storage engine, you have the following options:</p>
+<ul>
+<li>If you simply want to temporarily test Percona Memory Engine, set a different
+data directory for the <code>dbPath</code> variable in the configuration file.
+Make sure that the user running <strong>mongod</strong> has read and write
+permissions for the new data directory.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ service mongod stop
+$ <span class="c1"># In the configuration file, set the inmemory</span>
+$ <span class="c1"># value for the storage.engine variable</span>
+$ <span class="c1"># Set the &lt;newDataDir&gt; for the dbPath variable</span>
+$ service mongod start
+</code></pre></div>
+<ul>
+<li>If you want to permanently switch to Percona Memory Engine and do not have any
+valuable data in your database, clean out the <code>dbPath</code> data directory
+(by default, <code>/var/lib/mongodb</code>) and edit the configuration file:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ service mongod stop
+$ rm -rf &lt;dbpathDataDir&gt;
+$ <span class="c1"># Update the configuration file by setting the new</span>
+$ <span class="c1"># value for the storage.engine variable</span>
+$ <span class="c1"># set the engine-specific settings such as</span>
+$ <span class="c1"># storage.inMemory.engineConfig.inMemorySizeGB</span>
+$ service mongod start
+</code></pre></div>
+<ul>
+<li>
+<p>If there is data that you want to migrate
+and make compatible with Percona Memory Engine,
+use the following methods:</p>
+<ul>
+<li>for replica sets, use the “rolling restart” process.
+Switch to the Percona Memory Engine on the secondary node. Clean out the <code>dbPath</code> data directory and edit the configuration file:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ service mongod stop
+$ rm -rf &lt;dbpathDataDir&gt;
+$ <span class="c1"># Update the configuration file by setting the new</span>
+$ <span class="c1"># value for the storage.engine variable</span>
+$ <span class="c1"># set the engine-specific settings such as</span>
+$ <span class="c1"># storage.inMemory.engineConfig.inMemorySizeGB</span>
+$ service mongod start
+</code></pre></div>
+<p>Wait for the node to rejoin with the other nodes and report the SECONDARY status.</p>
+<p>Repeat the procedure to switch the remaining nodes to Percona Memory Engine.</p>
+<pre><code>* for a standalone instance or a single-node replica set, use the `mongodump` and `mongorestore` utilities:
+</code></pre>
+<div class="highlight"><pre><span></span><code>$ mongodump --out &lt;dumpDir&gt;
+$ service mongod stop
+$ rm -rf &lt;dbpathDataDir&gt;
+$ <span class="c1"># Update the configuration file by setting the new</span>
+$ <span class="c1"># value for the storage.engine variable</span>
+$ <span class="c1"># set the engine-specific settings such as</span>
+$ <span class="c1"># storage.inMemory.engineConfig.inMemorySizeGB</span>
+$ service mongod start
+$ mongorestore &lt;dumpDir&gt;
+</code></pre></div>
+<h3 id="switching-engines-with-encrypted-data">Switching engines with encrypted data</h3>
+<p>Using <a href="data-at-rest-encryption.html#psmdb-data-at-rest-encryption">Data at Rest Encryption</a> means using the same <code>storage.\*</code>
+configuration options as for <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a>. To change from normal to <a href="data-at-rest-encryption.html#psmdb-data-at-rest-encryption">Data at Rest Encryption</a>
+mode or backward, you must clean up the <code>dbPath</code> data directory,
+just as if you change the storage engine. This is because
+<strong>mongod</strong> cannot convert the data files to an encrypted format ‘in place’. It
+must get the document data again either via the initial sync from another
+replica set member, or from imported backup dump.</p>
+<h2 id="configuring-percona-memory-engine">Configuring Percona Memory Engine</h2>
+<p>You can configure the Percona Memory Engine using either command-line options or
+corresponding parameters in the <code>/etc/mongod.conf</code> file.  The
+configuration file is formatted in YAML. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span><span class="w"></span>
+<span class="w">  </span><span class="nt">inMemory</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">engineConfig</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">inMemorySizeGB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">140</span><span class="w"></span>
+<span class="w">      </span><span class="nt">statisticsLogDelaySecs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+</code></pre></div>
+<p>Setting parameters in the previous example configuration file is the same as
+starting the <code>mongod</code> daemon with the following options:</p>
+<div class="highlight"><pre><span></span><code>$ mongod --storageEngine<span class="o">=</span>inMemory <span class="se">\</span>
+--inMemorySizeGB<span class="o">=</span><span class="m">140</span> <span class="se">\</span>
+--inMemoryStatisticsLogDelaySecs<span class="o">=</span><span class="m">0</span>
+</code></pre></div>
+<p>The following options are available (with corresponding YAML configuration file
+parameters):</p>
+<h3 id="-inmemorysizegb">--inMemorySizeGB()</h3>
+<ul>
+<li>
+<p><strong>Config</strong></p>
+<p><code>storage.inMemory.engineConfig.inMemorySizeGB</code></p>
+</li>
+<li>
+<p><strong>Default</strong></p>
+<p>50% of total memory minus 1024 MB, but not less than 256 MB</p>
+</li>
+</ul>
+<p>Specifies the maximum memory in gigabytes to use for data.</p>
+<h3 id="-inmemorystatisticslogdelaysecs">--inMemoryStatisticsLogDelaySecs()</h3>
+<ul>
+<li>
+<p><strong>Config</strong></p>
+<p><code>storage.inMemory.engineConfig.statisticsLogDelaySecs</code></p>
+</li>
+<li>
+<p><strong>Default</strong></p>
+<p>0</p>
+</li>
+</ul>
+<p>Specifies the number of seconds between writes to statistics log.  If 0 is
+specified then statistics are not logged.</p>
+
+                
+<div class="md-relbar2__inner md-grid">
+<div class="md-content">
+  <article class="md-content__inner md-typeset" role="main">    
+    <h4>Contact Us </h4>
+       <p>For free technical help, visit the Percona <a class="reference external" href="https://forums.percona.com/c/mongodb/percona-server-for-mongodb/17?utm_campaign=Doc%20pages" target="_blank">Community Forum</a>.<br>
+        <p>To report bugs or submit feature requests, open a <a class="reference external" href="https://jira.percona.com/projects/PSMDB/issues/" target="_blank">JIRA</a> ticket.<br>
+         <p>For paid <a class="reference external" href="https://www.percona.com/services/support"> support </a> and <a class="reference external" href="https://www.percona.com/services/managed-services"> managed </a> or <a class="reference external" href="https://www.percona.com/services/consulting">consulting services </a>, contact <a class="reference external" href="https://www.percona.com/about-percona/contact" target="_blank">Percona Sales</a>.</p>
+ </article>
+</div>
+</div>
+
+                <!-- Last update of source file -->
+                
+                  
+                    <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 28, 2022</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 28, 2022</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="install/docker.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Run Percona Server for MongoDB in a Docker container" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Run Percona Server for MongoDB in a Docker container
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="hot-backup.html" class="md-footer__link md-footer__link--next" aria-label="Next: Hot Backup" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Hot Backup
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+    <div class="md-copyright__highlight">
+ <a href='https://percona.com' target='_blank'>Percona LLC and/or its affiliates, </a> &copy; 2022
+    </div>
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+              
+      <script src="assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+        <script src="js/version-select.js"></script>
+      
+        <script src="js/promptremover.js"></script>
+      
+    
+
+              <img src="https://tracking.g2crowd.com/attribution_tracking/conversions/1007137.gif?e=" width="1" height="1" />
+
+              <noscript>
+                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K48FGP2" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+              </noscript>
+              
+  </body>
+</html>
