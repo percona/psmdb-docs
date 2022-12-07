@@ -134,21 +134,21 @@ rst_prolog = '''
 
 .. |LSN|  replace:: *LSN*
 
-.. |Percona XtraBackup|  replace:: *Percona XtraBackup*
+.. |Percona XtraBackup|  replace:: Percona XtraBackup
 
-.. |Percona Toolkit|  replace:: *Percona Toolkit*
+.. |Percona Toolkit|  replace:: Percona Toolkit
 
 .. |Percona Server|  replace:: *Percona Server*
 
-.. |Percona Server for MongoDB|  replace:: *Percona Server  for MongoDB*
+.. |Percona Server for MongoDB|  replace:: Percona Server  for MongoDB
 
-.. |PSMDB| replace:: *Percona Server for MongoDB*
+.. |PSMDB| replace:: Percona Server for MongoDB
 
-.. |Percona|  replace:: *Percona*
+.. |Percona|  replace:: Percona
 
-.. |MySQL|  replace:: *MySQL*
+.. |MySQL|  replace:: MySQL
 
-.. |MongoDB|  replace:: *MongoDB*
+.. |MongoDB|  replace:: MongoDB
 
 .. |TokuBackup| replace:: *TokuBackup*
 
