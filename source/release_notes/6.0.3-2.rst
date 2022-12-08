@@ -18,8 +18,12 @@ Release Highlights
 
 Improvements and bug fixes, provided by MongoDB and included in |PSMDB| are the following:
 
+* `SERVER-68541 <https://jira.mongodb.org/browse/SERVER-68541>`_ - Fixed the condition where issuing concurrent ``removeShard`` and ``movePrimary`` commands may delete unsharded collections in a database thus causing data loss.
+* `SERVER-68139 <https://jira.mongodb.org/browse/SERVER-68139>`_ - Fixed the issue with the resharding command failure if the required projection sort relating to sample chunks and planned number of initial chunks is greater than 100MB.
+* `SERVER-69756 <https://jira.mongodb.org/browse/SERVER-69756>`_ - Corrected a situation where the order of Resharding steps could cause segmentation faults
+* `SERVER-69861 <https://jira.mongodb.org/browse/SERVER-69861>`_ - Corrected a situation where a requested stepdown could run into an uninterruptible lock during the election process and cause a deadlock.
+* `SERVER-68394 <https://jira.mongodb.org/browse/SERVER-68394>`_ - Prevented yielding strong locks upon startup recovery when ``_id`` index is missing
 * `SERVER-66289 <https://jira.mongodb.org/browse/SERVER-66289>`_ - Fixed the issue with how the server handles batches of writes when running $out with secondary read preference by updating write size estimation logic in ``DocumentSourceWriter``
-* `SERVER-68371 <https://jira.mongodb.org/browse/SERVER-68371>`_ - Allowed search queries to pass through query analysis when Client-Side Field Level Encryption is enabled for the MongoClient
 * `SERVER-68115 <https://jira.mongodb.org/browse/SERVER-68115>`_ - Prevented dropping empty path component from `elemMatch` path during index selection
 * `SERVER-68394 <https://jira.mongodb.org/browse/SERVER-68394>`_ - Prevented yielding strong locks upon startup recovery when ``_id`` index is missing
 
