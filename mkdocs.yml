@@ -1,0 +1,45 @@
+# MkDocs configuration for builds with material theme
+
+INHERIT: mkdocs-base.yml
+
+site_url: "https://docs.percona.com/percona-server-for-mongodb/4.2"
+
+plugins:
+    section-index: {} # Adds links to nodes - comment out when creating PDF
+
+theme:
+  name: material
+  custom_dir: _resource/overrides
+
+# Theme features
+
+  features:
+    - search.highlight
+    - navigation.top
+    - navigation.tracking 
+    - content.tabs.link   
+
+
+  
+#Google Analytics configuration 
+extra:
+  analytics:
+    provider: google
+    property: UA-343802-3
+
+#Feedback form widget
+#    feedback:
+#         title: Was this page helpful?
+#         ratings:
+#           - icon: material/heart
+#             name: This page was helpful
+#             data: 1
+#             note: >-
+#               Thanks for your feedback!
+#           - icon: material/heart-broken
+#             name: This page could be improved
+#             data: 0
+#             note: >- 
+#               Thanks for your feedback! Help us improve this page by
+#               using our <a href="https://forms.gle/B5ura1rZEF6P8tdv9" target=_blank>feedback form</a>.
+
