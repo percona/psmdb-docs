@@ -150,6 +150,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - release_notes/index.md
+      - release_notes/5.0.14-12.md
       - release_notes/5.0.13-11.md
       - release_notes/5.0.11-10.md
       - release_notes/5.0.10-9.md
