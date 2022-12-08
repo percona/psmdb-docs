@@ -15,21 +15,21 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/5.0/5.0/keyfile.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/5.0/5.0/release_notes/5.0.14-12.html">
       
-      <link rel="icon" href="_images/percona_favicon.ico">
+      <link rel="icon" href="../_images/percona_favicon.ico">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Local key management using a keyfile - Percona Server for MongoDB 5.0</title>
+        <title>Percona Server for MongoDB 5.0.14-12 (2022-12-08) - Percona Server for MongoDB 5.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
         
       
       
@@ -50,11 +50,11 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -111,7 +111,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#local-key-management-using-a-keyfile" class="md-skip">
+        <a href="#percona-server-for-mongodb-5014-12-2022-12-08" class="md-skip">
           Skip to content
         </a>
       
@@ -129,7 +129,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://percona.com/software/documentation" class="md-header__button md-logo" aria-label="Percona Product Documentation" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -145,7 +145,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Local key management using a keyfile
+              Percona Server for MongoDB 5.0.14-12 (2022-12-08)
             
           </span>
         </div>
@@ -245,9 +245,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Percona Server for MongoDB 5.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 5.0" data-md-component="logo">
+    <a href=".." title="Percona Server for MongoDB 5.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 5.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 5.0
@@ -275,7 +275,7 @@
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         Home
       </a>
     </li>
@@ -290,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         Percona Server for MongoDB feature comparison
       </a>
     </li>
@@ -331,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
+      <a href="../install/index.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -345,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
+      <a href="../install/apt.html" class="md-nav__link">
         Installing Percona Server for MongoDB on Debian and Ubuntu
       </a>
     </li>
@@ -359,7 +359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
+      <a href="../install/yum.html" class="md-nav__link">
         Installing Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS
       </a>
     </li>
@@ -373,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
+      <a href="../install/tarball.html" class="md-nav__link">
         Installing Percona Server for MongoDB from binary tarball
       </a>
     </li>
@@ -387,7 +387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
+      <a href="../install/docker.html" class="md-nav__link">
         Running Percona Server for MongoDB in a Docker Container
       </a>
     </li>
@@ -407,14 +407,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
@@ -463,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         Percona Memory Engine
       </a>
     </li>
@@ -510,7 +508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         Hot Backup
       </a>
     </li>
@@ -524,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         $backupCursor and $backupCursorExtend aggregation stages
       </a>
     </li>
@@ -571,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         Authentication
       </a>
     </li>
@@ -585,7 +583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         Enable authentication
       </a>
     </li>
@@ -599,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         Set up LDAP authentication with SASL
       </a>
     </li>
@@ -613,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         Set up x.509 authentication and LDAP authorization
       </a>
     </li>
@@ -627,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         Set up Kerberos authentication
       </a>
     </li>
@@ -641,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         LDAP authorization
       </a>
     </li>
@@ -655,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         Set up LDAP authentication and authorization using NativeLDAP
       </a>
     </li>
@@ -674,14 +672,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
       
       
       
@@ -704,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         Data at rest encryption
       </a>
     </li>
@@ -718,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         HashiCorp Vault integration
       </a>
     </li>
@@ -732,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         Using the Key Management Interoperability Protocol (KMIP)
       </a>
     </li>
@@ -744,21 +740,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="keyfile.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../keyfile.html" class="md-nav__link">
         Local key management using a keyfile
       </a>
-      
     </li>
   
 
@@ -770,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         Migrating from key file encryption to HashiCorp Vault encryption
       </a>
     </li>
@@ -791,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
+      <a href="../audit-logging.html" class="md-nav__link">
         Auditing
       </a>
     </li>
@@ -805,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
+      <a href="../rate-limit.html" class="md-nav__link">
         Profiling Rate Limit
       </a>
     </li>
@@ -819,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
+      <a href="../log-redaction.html" class="md-nav__link">
         Log Redaction
       </a>
     </li>
@@ -833,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         Additional text search algorithm - ngram
       </a>
     </li>
@@ -881,7 +867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         Tune parameters
       </a>
     </li>
@@ -921,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-44.html" class="md-nav__link">
+      <a href="../install/upgrade-from-44.html" class="md-nav__link">
         Upgrade PSMDB from 4.4 to 5.0
       </a>
     </li>
@@ -935,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
         Upgrading Percona Server for MongoDB
       </a>
     </li>
@@ -956,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="../install/uninstall.html" class="md-nav__link">
         Uninstall Percona Server for MongoDB
       </a>
     </li>
@@ -976,12 +962,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
       
       
       
@@ -989,7 +977,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="release_notes/index.html">Release notes</a>
+          <a href="index.html">Release notes</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -1008,11 +996,68 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release_notes/5.0.14-12.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Percona Server for MongoDB 5.0.14-12 (2022-12-08)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="5.0.14-12.html" class="md-nav__link md-nav__link--active">
         Percona Server for MongoDB 5.0.14-12 (2022-12-08)
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bugs-fixed" class="md-nav__link">
+    Bugs Fixed
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1024,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.13-11.html" class="md-nav__link">
+      <a href="5.0.13-11.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.13-11 (2022-10-12)
       </a>
     </li>
@@ -1038,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.11-10.html" class="md-nav__link">
+      <a href="5.0.11-10.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.11-10 (2022-09-01)
       </a>
     </li>
@@ -1052,7 +1097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.10-9.html" class="md-nav__link">
+      <a href="5.0.10-9.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.10-9 (2022-08-09)
       </a>
     </li>
@@ -1066,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.9-8.html" class="md-nav__link">
+      <a href="5.0.9-8.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.9-8 (2022-06-20)
       </a>
     </li>
@@ -1080,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.8-7.html" class="md-nav__link">
+      <a href="5.0.8-7.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.8-7 (2022-05-10)
       </a>
     </li>
@@ -1094,7 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.7-6.html" class="md-nav__link">
+      <a href="5.0.7-6.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.7-6 (2022-04-20)
       </a>
     </li>
@@ -1108,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.6-5.html" class="md-nav__link">
+      <a href="5.0.6-5.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.6-5 (2022-02-10)
       </a>
     </li>
@@ -1122,7 +1167,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.5-4.html" class="md-nav__link">
+      <a href="5.0.5-4.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.5-4 (2021-12-28)
       </a>
     </li>
@@ -1136,7 +1181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.4-3.html" class="md-nav__link">
+      <a href="5.0.4-3.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.4-3 (Release Candidate) (2021-12-08)
       </a>
     </li>
@@ -1150,7 +1195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.3-2.html" class="md-nav__link">
+      <a href="5.0.3-2.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.3-2 (Release Candidate) (2021-10-14)
       </a>
     </li>
@@ -1164,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.2-1.html" class="md-nav__link">
+      <a href="5.0.2-1.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.2-1 (Release Candidate) (2021-08-16)
       </a>
     </li>
@@ -1186,7 +1231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         Glossary
       </a>
     </li>
@@ -1201,7 +1246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         Copyright and Licensing
       </a>
     </li>
@@ -1216,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         Trademark policy
       </a>
     </li>
@@ -1250,6 +1295,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improvements" class="md-nav__link">
+    Improvements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bugs-fixed" class="md-nav__link">
+    Bugs Fixed
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1266,14 +1340,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/psmdb-docs/edit/5.0/docs/keyfile.md"
+                    href="https://github.com/percona/psmdb-docs/edit/5.0/docs/release_notes/5.0.14-12.md"
                     title="Edit this page"
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/5.0/docs/keyfile.md"
+                    href="https://raw.githubusercontent.com/percona/psmdb-docs/5.0/docs/release_notes/5.0.14-12.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1289,47 +1363,51 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="local-key-management-using-a-keyfile">Local key management using a keyfile<a class="headerlink" href="#local-key-management-using-a-keyfile" title="Permanent link">&para;</a></h1>
-<p>The key file must contain a 32 character string encoded in base64. You can generate a random
-key and save it to a file by using the <code>openssl</code> command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ openssl rand -base64 <span class="m">32</span> &gt; mongodb-keyfile
-</code></pre></div>
-<p>Then, as the owner of the <code>mongod</code> process, update the file permissions: only
-the owner should be able to read and modify this file. The effective permissions
-specified with the <code>chmod</code> command can be:</p>
-<ul>
-<li><strong>600</strong> - only the owner may read and modify the file</li>
-<li><strong>400</strong> - only the owner may read the file.</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ chmod <span class="m">600</span> mongodb-keyfile
-</code></pre></div>
-<p>Enable the data encryption at rest in Percona Server for MongoDB by setting these options:</p>
+                <h1 id="percona-server-for-mongodb-5014-12-2022-12-08">Percona Server for MongoDB 5.0.14-12 (2022-12-08)<a class="headerlink" href="#percona-server-for-mongodb-5014-12-2022-12-08" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th><strong>Release date</strong></th>
+<th>December 8, 2022</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Installation</strong></td>
+<td><a href="../install/index.html">Installing Percona Server for MongoDB</a></td>
+</tr>
+</tbody>
+</table>
+<p>Percona Server for MongoDB 5.0.14-12 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for <a href="https://www.mongodb.com/docs/v5.0/release-notes/5.0/#5.0.14---nov-21--2022">MongoDB 5.0.14 Community Edition</a>.</p>
+<p>It supports MongoDB 5.0.14 protocols and drivers </p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<p>With this release, :ref:<code>backup-cursor</code> is now generally available, enabling you to use it for building custom backup solutions.</p>
+<p>The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:</p>
 <ul>
 <li>
-<p><code>--enableEncryption</code> to enable data at rest encryption</p>
+<p><a href="https://jira.mongodb.org/browse/SERVER-68477">SERVER-68477</a> - Fixed the bug where an unexpected behavior could negatively impact existing TTL indexes with improper configuration and could cause the sudden expiration of TTL-indexed documents in a collection. This sudden expiration could cause data to be aged out prior than planned and could negatively impact write performance.</p>
+<p>This bug involves TTL indexes with the <code>expireAfterSeconds</code> value of NaN (not-a-number). The TTL indexes are treated as 0 instead of NaN and that resulted in the sudden expiration of TTL-indexed documents in a collection. The bug affects MongoDB 5.0.0 through 5.0.13 and MongoDB 6.0.0 through 6.0.1.</p>
+<p>It could be hit on MongoDB 4.4/4.2 when initially syncing from a 5.0.0-5.0.13 or 6.0.0-6.0.1 node and on MongoDB 5.0.0-5.0.13 when restoring from a <code>mongodump</code> of 4.2 / 4.4 collection or initially syncing from a 4.2/4.4 node that has a TTL configured with expireAfterSeconds: NaN.</p>
+<p>The issue is fixed upstream in version 5.0.14 and 6.0.2. As the general recommendation, avoid using expireAfterSeconds: NaN as a configuration and correct this config anywhere it exists.</p>
+<p>Follow closely the upstream recommendations to detect affected indexes and modify them using the collMod command.</p>
 </li>
 <li>
-<p><code>--encryptionKeyFile</code> to specify the path to a file that contains the encryption key</p>
+<p><a href="https://jira.mongodb.org/browse/SERVER-70879">SERVER-70879</a> - Corrected a potential race condition where multiple writing threads can update collection metadata in a way where overwrites could possibly happen. This could cause data/documents to be either unavailable or lost.</p>
 </li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-66289">SERVER-66289</a> - Fixed the issue with how the server handles batches of writes when running $out with secondary read preference by updating write size estimation logic in <code>DocumentSourceWriter</code></li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-61185">SERVER-61185</a> -  Improved the performance of inserts into unique indexes</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-68115">SERVER-68115</a> - Prevented dropping empty path component from <code>elemMatch</code> path during index selection</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$ mongod ... --enableEncryption --encryptionKeyFile &lt;fileName&gt;
-</code></pre></div>
-<p>By default, Percona Server for MongoDB uses the <code>AES256-CBC</code> cipher mode. If you want to use the <code>AES256-GCM</code> cipher mode, then use the <code>--encryptionCipherMode</code> parameter to change it.</p>
-<p>If <code>mongod</code> is started with the <code>--relaxPermChecks</code> option and the key file
-is owned by <code>root</code>, then <code>mongod</code> can read the file based on the
-group bit set accordingly. The effective key file permissions in this
-case are:</p>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/v5.0/release-notes/5.0/#5.0.14---nov-21--2022">MongoDB 5.0.14 Community Edition release notes</a>.</p>
+<h2 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>440</strong> - both the owner and the group can only read the file, or</li>
-<li><strong>640</strong> - only the owner can read and the change the file, the group can only read the file.</li>
+<li><a href="https://jira.percona.com/browse/PSMDB-1181">PSMDB-1181</a>: Add backup cursor parameters to cursor&rsquo;s metadata</li>
 </ul>
-<p>All these options can be specified in the configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;boolean&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="nt">encryptionCipherMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="nt">encryptionKeyFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="nt">relaxPermChecks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;boolean&gt;</span><span class="w"></span>
-</code></pre></div>
+<h2 id="bugs-fixed">Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://jira.percona.com/browse/PSMDB-1175">PSMDB-1175</a>: Fixed Percona Server for MongoDB behavior when calling <code>$backupCursor</code> with <code>disableIncrementalBackup</code> option</li>
+</ul>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1384,7 +1462,7 @@ case are:</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="kmip.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using the Key Management Interoperability Protocol (KMIP)" rel="prev">
+        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Release notes" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1393,20 +1471,20 @@ case are:</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Using the Key Management Interoperability Protocol (KMIP)
+              Release notes
             </div>
           </div>
         </a>
       
       
         
-        <a href="encryption-mode-switch.html" class="md-footer__link md-footer__link--next" aria-label="Next: Migrating from key file encryption to HashiCorp Vault encryption" rel="next">
+        <a href="5.0.13-11.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Server for MongoDB 5.0.13-11 (2022-10-12)" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Migrating from key file encryption to HashiCorp Vault encryption
+              Percona Server for MongoDB 5.0.13-11 (2022-10-12)
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1439,15 +1517,15 @@ case are:</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link"], "search": "assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top", "navigation.tracking", "content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
               
-      <script src="assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
     
 
