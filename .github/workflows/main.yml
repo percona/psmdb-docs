@@ -42,7 +42,7 @@ jobs:
       - name: Deploy docs
         run: |
           mike deploy 4.4 -b publish -p
-          mike retitle 4.4 "4.4.17-17" -b publish -p
+          mike retitle 4.4 "4.4.18-18" -b publish -p
 # - name: Install Node.js 14.x
 #        uses: percona-platform/setup-node@v2
 #        with:
