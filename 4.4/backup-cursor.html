@@ -1496,16 +1496,18 @@
 <span class="nx">bkCsrMetadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bkCsr</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">metadata</span><span class="w"></span>
 </code></pre></div>
 <p>Sample output:</p>
-<div class="highlight"><pre><span></span><code>[
-  {
-    metadata: {
-      backupId: UUID(&quot;35c34101-0107-44cf-bdec-fad285e07534&quot;),
-      dbpath: &#39;/var/lib/mongodb&#39;,
-      oplogStart: { ts: Timestamp({ t: 1666631297, i: 1 }), t: Long(&quot;-1&quot;) },
-      oplogEnd: { ts: Timestamp({ t: 1666631408, i: 1 }), t: Long(&quot;1&quot;) },
-      checkpointTimestamp: Timestamp({ t: 1666631348, i: 1 })
-    }
-  },
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="nt">&quot;metadata&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;backupId&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">UUID(</span><span class="s2">&quot;35c34101-0107-44cf-bdec-fad285e07534&quot;</span><span class="err">)</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;dbpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;/var/lib/mo</span><span class="kc">n</span><span class="err">godb&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;oplogStart&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kc">ts</span><span class="p">:</span><span class="w"> </span><span class="err">Times</span><span class="kc">ta</span><span class="err">mp(</span><span class="p">{</span><span class="w"> </span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="mi">1666631297</span><span class="p">,</span><span class="w"> </span><span class="err">i</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="err">)</span><span class="p">,</span><span class="w"> </span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">Lo</span><span class="kc">n</span><span class="err">g(</span><span class="s2">&quot;-1&quot;</span><span class="err">)</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;oplogEnd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kc">ts</span><span class="p">:</span><span class="w"> </span><span class="err">Times</span><span class="kc">ta</span><span class="err">mp(</span><span class="p">{</span><span class="w"> </span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="mi">1666631408</span><span class="p">,</span><span class="w"> </span><span class="err">i</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="err">)</span><span class="p">,</span><span class="w"> </span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">Lo</span><span class="kc">n</span><span class="err">g(</span><span class="s2">&quot;1&quot;</span><span class="err">)</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;checkpointTimestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">Times</span><span class="kc">ta</span><span class="err">mp(</span><span class="p">{</span><span class="w"> </span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="mi">1666631348</span><span class="p">,</span><span class="w"> </span><span class="err">i</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="err">)</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;disableIncrementalBackup&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;incrementalBackup&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;blockSize&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w"></span>
+<span class="w">         </span><span class="p">}</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>Store the <code>metadata</code> document somewhere, because you need to pass the <code>backupId</code> parameter from this document as the input parameter for the <code>$backupCursorExtend</code> stage. Also you need the <code>oplogEnd</code> timestamp.
 Make sure that the <code>$backupCursor</code> is complete on all shards in your cluster.</p>
@@ -1555,7 +1557,7 @@ Make sure that the <code>$backupCursor</code> is complete on all shards in your 
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 19, 2022</span>
       
         <br>
         Created:
