@@ -23,7 +23,7 @@ utilities, server software, default configuration, and `init.d` scripts. |
 
 ### Configure Percona repository
 
-Percona provides the [`percona-release`](https://www.percona.com/doc/percona-repo-config/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Backup for MongoDB packages and required dependencies smoothly.
+Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Backup for MongoDB packages and required dependencies smoothly.
 
 1. Fetch **percona-release** packages from Percona web:
     
