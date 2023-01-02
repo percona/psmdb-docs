@@ -6,7 +6,7 @@ Before upgrading your production Percona Server for MongoDB deployments, test al
 in a testing environment to make sure they are compatible with the new version.
 For more information, see [Compatibility Changes in MongoDB 5.0](https://docs.mongodb.com/manual/release-notes/5.0-compatibility/)
 
-We recommend to upgrade Percona Server for MongoDB from official Percona repositories using [`percona-release` repository management tool](https://www.percona.com/doc/percona-repo-config/index.html) and
+We recommend to upgrade Percona Server for MongoDB from official Percona repositories using [`percona-release` repository management tool](https://docs.percona.com/percona-software-repositories/index.html) and
 the corresponding package manager for your system. 
 
 This document describes this method for the in-place upgrade (where your existing data and configuration files are preserved).
