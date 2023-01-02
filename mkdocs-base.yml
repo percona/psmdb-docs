@@ -79,6 +79,7 @@ markdown_extensions:
 
 plugins:
   search: {}
+  section-index: {}
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
@@ -149,7 +150,8 @@ nav:
         - install/upgrade-from-mongodb.md
       - install/uninstall.md
   - Release notes:
-      - release_notes/index.md
+      - "Release notes index": "release_notes/index.md"
+      - release_notes/6.0.3-2.md
       - release_notes/6.0.2-1.md
   - glossary.md
   - Copyright and Licensing:
