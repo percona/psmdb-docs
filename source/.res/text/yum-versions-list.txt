@@ -1,5 +1,0 @@
-.. code-block:: text
-
-       Available Packages
-   percona-server-mongodb.x86_64    4.4.0-1.el8       psmdb-44-release-x86_64
-

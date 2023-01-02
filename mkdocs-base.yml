@@ -15,7 +15,7 @@ use_directory_urls: false
 theme:
   name: material
   logo: _images/percona-logo.svg
-  favicon: _images/percona-favicon.ico
+  favicon: _images/percona_favicon.ico
   custom_dir: _resource/overrides/
   font:
     text: Chivo, Colfax, Franziska
