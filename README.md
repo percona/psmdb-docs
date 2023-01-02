@@ -11,7 +11,7 @@ Percona Server for MongoDB is a free, enhanced, fully compatible, open source, d
 
 The Percona Server for MongoDB code is [here](https://github.com/percona/percona-server-mongodb).
 
-This repository contains the source files for [Percona Server for MongoDB documentation](https://www.percona.com/doc/percona-server-for-mongodb/4.2/index.html). The documentation is written in [reStructured text markup language](https://docutils.sourceforge.io/rst.html) and is created using [Sphinx Python Documentation Generator](https://www.sphinx-doc.org/en/master/). 
+This repository contains the source files for [Percona Server for MongoDB documentation](https://docs.percona.com/percona-server-for-mongodb/4.2/index.html). The documentation is written in [Markdown](https://www.markdownguide.org/basic-syntax/) and is created using [MkDocs](https://www.mkdocs.org/getting-started/) documentation generator. 
 
 ## Contributing
 
