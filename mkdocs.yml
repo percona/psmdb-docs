@@ -5,7 +5,8 @@ INHERIT: mkdocs-base.yml
 site_url: "https://docs.percona.com/percona-server-for-mongodb/4.2"
 
 plugins:
-    section-index: {} # Adds links to nodes - comment out when creating PDF
+  - section-index
+  - search # Adds links to nodes - comment out when creating PDF
 
 theme:
   name: material
