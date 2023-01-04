@@ -1,7 +1,9 @@
 # MkDocs configuration for Netlify builds
 
 INHERIT: mkdocs-base.yml
+
 site_url: https://docs.percona.com/percona-server-for-mongodb/6.0/
+
 
 theme:
   name: material
