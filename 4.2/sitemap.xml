@@ -2,292 +2,292 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/index.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/404.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/audit-logging.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/authentication.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/authorization.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/backup-cursor.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/comparison.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/copyright.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/data-at-rest-encryption.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/enable-auth.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/encryption-mode-switch.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/glossary.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/hot-backup.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/inmemory.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/kerberos.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/keyfile.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/kmip.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/ldap-setup.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/log-redaction.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/ngram-full-text-search.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/rate-limit.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/sasl-auth.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/set-parameter.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/trademark-policy.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/vault.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/x509-ldap.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/install/index.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/install/apt.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/install/docker.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/install/tarball.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/install/uninstall.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/install/upgrade-from-40.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/install/upgrade-from-mongodb.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/install/yum.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/index.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.0-1.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.1-1.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.10-11.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.11-12.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.12-13.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.13-14.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.14-15.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.15-16.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.17-17.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.18-18.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.19-19.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.2-3.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.20-20.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.21-21.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.22-22.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.23-23.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.3-4.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.5-5.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.6-6.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.7-7.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.8-8.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.9-10.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.2/4.2/release_notes/4.2.9-9.html</loc>
-         <lastmod>2023-01-04</lastmod>
+         <lastmod>2023-01-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
