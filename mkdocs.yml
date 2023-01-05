@@ -5,6 +5,7 @@ INHERIT: mkdocs-base.yml
 site_url: "https://docs.percona.com/percona-server-for-mongodb/5.0/"
 
 
+
 theme:
   name: material
   custom_dir: _resource/overrides
