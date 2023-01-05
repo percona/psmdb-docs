@@ -369,6 +369,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    System requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-instructions" class="md-nav__link">
+    Installation instructions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#upgrade-instructions" class="md-nav__link">
     Upgrade instructions
   </a>
@@ -1289,6 +1303,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    System requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-instructions" class="md-nav__link">
+    Installation instructions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#upgrade-instructions" class="md-nav__link">
     Upgrade instructions
   </a>
@@ -1338,6 +1366,19 @@
                 <!-- Markdown content -->
                 <h1 id="install-percona-server-for-mongodb">Install Percona Server for MongoDB<a class="headerlink" href="#install-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
 <p>Percona provides installation packages of Percona Server for MongoDB for the most 64-bit Linux distributions. Find the full list of supported platforms on the <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">Percona Software and Platform Lifecycle</a> page.</p>
+<h2 id="system-requirements">System requirements<a class="headerlink" href="#system-requirements" title="Permanent link">&para;</a></h2>
+<p>Percona Server for MongoDB has the same <a href="https://www.mongodb.com/docs/v5.0/administration/production-notes/#x86_64">system requirements</a> as the MongoDB Community Edition.</p>
+<p>Starting in MongoDB 5.0, <code>mongod</code>, <code>mongos</code>, and the legacy <code>mongo</code> shell are supported on x86_64 platforms that must meet these minimum micro-architecture requirements:</p>
+<ul>
+<li>
+<p>Only Oracle Linux running the Red Hat Compatible Kernel (RHCK) is supported. MongoDB does not support the Unbreakable Enterprise Kernel (UEK).</p>
+</li>
+<li>
+<p>MongoDB 5.0 and above requires use of the AVX instruction set, available on 
+<a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX">select Intel and AMD processors</a>. </p>
+</li>
+</ul>
+<h2 id="installation-instructions">Installation instructions<a class="headerlink" href="#installation-instructions" title="Permanent link">&para;</a></h2>
 <p>Choose how you wish to install Percona Server for MongoDB:</p>
 <ul>
 <li>
