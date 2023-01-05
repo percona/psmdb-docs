@@ -4,24 +4,12 @@ INHERIT: mkdocs-base.yml
 
 site_url: "https://docs.percona.com/percona-server-for-mongodb/4.4"
 
-plugins:
-  - section-index
-  - search # Adds links to nodes - comment out when creating PDF
 
 theme:
   name: material
   custom_dir: _resource/overrides
 
-# Theme features
 
-  features:
-    - search.highlight
-    - navigation.top
-    - navigation.tracking 
-    - content.tabs.link   
-
-
-  
 #Google Analytics configuration 
 extra:
   analytics:

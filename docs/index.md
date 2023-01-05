@@ -16,7 +16,6 @@ It requires no changes to MongoDB applications or code.
 
 Percona Server for MongoDB provides the following features:
 
-
 * MongoDB’s default [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) engine
 
 * [Percona Memory Engine](inmemory.md) storage engine
