@@ -79,6 +79,7 @@ markdown_extensions:
 
 plugins:
   search: {}
+  section-index: {}
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]

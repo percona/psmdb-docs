@@ -15,7 +15,6 @@ Percona Server for MongoDB is a free, enhanced, fully compatible, source availab
 
 Percona Server for MongoDB provides the following features:
 
-
 * MongoDB’s default [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) engine
 
 * [Percona Memory Engine](inmemory.md) storage engine
