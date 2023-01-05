@@ -10,7 +10,7 @@ It requires no changes to MongoDB applications or code.
 
 !!! note ""
 
-    This is the documentation for the latest release, **Percona Server for MongoDB {{release}}** ([Release Notes](release_notes/{{release}}.md)).
+    This is the documentation for the latest release, **Percona Server for MongoDB 5.0.14-12** ([Release Notes](release_notes/5.0.14-12.md)).
 
 
 ## Features
