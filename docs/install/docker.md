@@ -46,13 +46,20 @@ which can be used for connection from an application running in another containe
 To link the application container to the `psmdb` container,
 use the `--link psmdb` option when running the container with your app.
 
-## Connecting with the `mongo` shell
+## Connecting with the `mongosh` shell
 
-To start another container with the `mongo` shell
+To start another container with the `mongosh` shell
 that connects to your Percona Server for MongoDB container,
 run the following command: 
 
 ```{.bash data-prompt="$"}
-$ docker run -it --link psmdb --rm percona/percona-server-mongodb:mongo mongo -h psmdb
+$ docker run -it --link psmdb --rm percona/percona-server-mongodb:6.0 mongosh mongodb://MONGODB_SERVER:PORT/DB_NAME
 ```
 
+Set `MONGODB_SERVER`, `PORT`, and `DB_NAME` with the IP address of the `psmdb` container, the port of your MongoDB Server (default value is 27017), and the name of the database you want to connect to.
+
+You can get the IP address by running this command:
+
+```{.bash data-prompt="$"}
+$ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' psmdb
+```
