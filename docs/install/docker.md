@@ -46,13 +46,13 @@ which can be used for connection from an application running in another containe
 To link the application container to the `psmdb` container,
 use the `--link psmdb` option when running the container with your app.
 
-## Connecting with the `mongo` shell
+## Connecting with the `mongosh` shell
 
-To start another container with the `mongo` shell
+To start another container with the `mongosh` shell
 that connects to your Percona Server for MongoDB container,
 run the following command: 
 
 ```{.bash data-prompt="$"}
-$ docker run -it --link psmdb --rm percona/percona-server-mongodb:mongo mongo -h psmdb
+$ docker run -it --link psmdb --rm percona/percona-server-mongodb:6.0 mongosh --host psmdb
 ```
 
