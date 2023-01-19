@@ -432,8 +432,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#connecting-with-the-mongo-shell" class="md-nav__link">
-    Connecting with the mongo shell
+  <a href="#connecting-with-the-mongosh-shell" class="md-nav__link">
+    Connecting with the mongosh shell
   </a>
   
 </li>
@@ -1171,8 +1171,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#connecting-with-the-mongo-shell" class="md-nav__link">
-    Connecting with the mongo shell
+  <a href="#connecting-with-the-mongosh-shell" class="md-nav__link">
+    Connecting with the mongosh shell
   </a>
   
 </li>
@@ -1261,11 +1261,11 @@ of the image to derive the container from.</p>
 which can be used for connection from an application running in another container.</p>
 <p>To link the application container to the <code>psmdb</code> container,
 use the <code>--link psmdb</code> option when running the container with your app.</p>
-<h2 id="connecting-with-the-mongo-shell">Connecting with the <code>mongo</code> shell<a class="headerlink" href="#connecting-with-the-mongo-shell" title="Permanent link">&para;</a></h2>
-<p>To start another container with the <code>mongo</code> shell
+<h2 id="connecting-with-the-mongosh-shell">Connecting with the <code>mongosh</code> shell<a class="headerlink" href="#connecting-with-the-mongosh-shell" title="Permanent link">&para;</a></h2>
+<p>To start another container with the <code>mongosh</code> shell
 that connects to your Percona Server for MongoDB container,
 run the following command: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--link<span class="w"> </span>psmdb<span class="w"> </span>--rm<span class="w"> </span>percona/percona-server-mongodb:mongo<span class="w"> </span>mongo<span class="w"> </span>-h<span class="w"> </span>psmdb
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--link<span class="w"> </span>psmdb<span class="w"> </span>--rm<span class="w"> </span>percona/percona-server-mongodb:6.0<span class="w"> </span>mongosh<span class="w"> </span>--host<span class="w"> </span>psmdb
 </code></pre></div>
 
                 
@@ -1288,7 +1288,7 @@ run the following command: </p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2023</span>
       
         <br>
         Created:
