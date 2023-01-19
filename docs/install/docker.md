@@ -51,5 +51,5 @@ that connects to your Percona Server for MongoDB container,
 run the following command: 
 
 ```{.bash data-prompt="$"}
-$ docker run -it --link psmdb --rm percona/percona-server-mongodb:mongo mongo -h psmdb
+$ docker run -it --link psmdb --rm percona/percona-server-mongodb:5.0 mongo --host psmdb
 ```
