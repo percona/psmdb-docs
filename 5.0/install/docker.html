@@ -1389,7 +1389,7 @@ use the <code>--link psmdb</code> option when running the container with your ap
 <p>To start another container with the <code>mongo</code> shell
 that connects to your Percona Server for MongoDB container,
 run the following command: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--link<span class="w"> </span>psmdb<span class="w"> </span>--rm<span class="w"> </span>percona/percona-server-mongodb:mongo<span class="w"> </span>mongo<span class="w"> </span>-h<span class="w"> </span>psmdb
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--link<span class="w"> </span>psmdb<span class="w"> </span>--rm<span class="w"> </span>percona/percona-server-mongodb:5.0<span class="w"> </span>mongo<span class="w"> </span>--host<span class="w"> </span>psmdb
 </code></pre></div>
 
                 
@@ -1412,7 +1412,7 @@ run the following command: </p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2023</span>
       
         <br>
         Created:
