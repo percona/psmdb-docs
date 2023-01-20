@@ -60,6 +60,8 @@ Set `MONGODB_SERVER`, `PORT`, and `DB_NAME` with the IP address of the `psmdb` c
 
 You can get the IP address by running this command:
 
+{% raw %}
 ```{.bash data-prompt="$"}
 $ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' psmdb
 ```
+{% endraw %}
