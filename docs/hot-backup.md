@@ -150,15 +150,15 @@ Run the following commands as root or by using the `sudo` command
 
 2. Clean out the data directory
    
-   ```{.bash data-prompt="$"}
-   $ rm -rf /var/lib/mongodb/*
-   ```
+    ```{.bash data-prompt="$"}
+    $ rm -rf /var/lib/mongodb/*
+    ```
 
 3. Copy backup files
 
-   ```{.bash data-prompt="$"}
-   $ cp -RT <backup_data_path> /var/lib/mongodb/
-   ```
+    ```{.bash data-prompt="$"}
+    $ cp -RT <backup_data_path> /var/lib/mongodb/
+    ```
 
 4. Grant permissions to data files for the `mongod` user
 

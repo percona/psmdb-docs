@@ -265,7 +265,7 @@ data directory for the `dbPath` variable in the configuration file.
 Make sure that the user running **mongod** has read and write
 permissions for the new data directory.
 
-```bash
+```{.bash data-prompt="$"}
 $ service mongod stop
 $ # In the configuration file, set the inmemory
 $ # value for the storage.engine variable
@@ -278,7 +278,7 @@ $ service mongod start
 valuable data in your database, clean out the `dbPath` data directory
 (by default, `/var/lib/mongodb`) and edit the configuration file:
 
-```bash
+```{.bash data-prompt="$"}
 $ service mongod stop
 $ rm -rf <dbpathDataDir>
 $ # Update the configuration file by setting the new
@@ -297,34 +297,34 @@ use the following methods:
     * for replica sets, use the “rolling restart” process.
 Switch to the Percona Memory Engine on the secondary node. Clean out the `dbPath` data directory and edit the configuration file:
 
-```bash
-$ service mongod stop
-$ rm -rf <dbpathDataDir>
-$ # Update the configuration file by setting the new
-$ # value for the storage.engine variable
-$ # set the engine-specific settings such as
-$ # storage.inMemory.engineConfig.inMemorySizeGB
-$ service mongod start
-```
+      ```{.bash data-prompt="$"}
+      $ service mongod stop
+      $ rm -rf <dbpathDataDir>
+      $ # Update the configuration file by setting the new
+      $ # value for the storage.engine variable
+      $ # set the engine-specific settings such as
+      $ # storage.inMemory.engineConfig.inMemorySizeGB
+      $ service mongod start
+      ```
 
-Wait for the node to rejoin with the other nodes and report the SECONDARY status.
+      Wait for the node to rejoin with the other nodes and report the SECONDARY status.
 
-Repeat the procedure to switch the remaining nodes to Percona Memory Engine.
+      Repeat the procedure to switch the remaining nodes to Percona Memory Engine.
 
 
     * for a standalone instance or a single-node replica set, use the `mongodump` and `mongorestore` utilities:
 
-```bash
-$ mongodump --out <dumpDir>
-$ service mongod stop
-$ rm -rf <dbpathDataDir>
-$ # Update the configuration file by setting the new
-$ # value for the storage.engine variable
-$ # set the engine-specific settings such as
-$ # storage.inMemory.engineConfig.inMemorySizeGB
-$ service mongod start
-$ mongorestore <dumpDir>
-```
+      ```{.bash data-prompt="$"}
+      $ mongodump --out <dumpDir>
+      $ service mongod stop
+      $ rm -rf <dbpathDataDir>
+      $ # Update the configuration file by setting the new
+      $ # value for the storage.engine variable
+      $ # set the engine-specific settings such as
+      $ # storage.inMemory.engineConfig.inMemorySizeGB
+      $ service mongod start
+      $ mongorestore <dumpDir>
+      ```
 
 ### Switching engines with encrypted data
 
@@ -336,62 +336,32 @@ just as if you change the storage engine. This is because
 must get the document data again either via the initial sync from another
 replica set member, or from imported backup dump.
 
-## Configuring Percona Memory Engine
+## Configure Percona Memory Engine
 
-You can configure the Percona Memory Engine using either command-line options or
-corresponding parameters in the `/etc/mongod.conf` file.  The
-configuration file is formatted in YAML. For example:
+Use either the command line or edit the configuration file to configure Percona Memory Engine
 
-```yaml
-storage:
-  engine: inMemory
-  inMemory:
-    engineConfig:
-      inMemorySizeGB: 140
-      statisticsLogDelaySecs: 0
-```
+=== "Command line"
 
-Setting parameters in the previous example configuration file is the same as
-starting the `mongod` daemon with the following options:
+     ```{.bash data-prompt="$"}
+     $ mongod --storageEngine=inMemory \
+     --inMemorySizeGB=140 \
+     --inMemoryStatisticsLogDelaySecs=0
+     ```
 
-```bash
-$ mongod --storageEngine=inMemory \
---inMemorySizeGB=140 \
---inMemoryStatisticsLogDelaySecs=0
-```
+=== "Configuration file"
 
-The following options are available (with corresponding YAML configuration file
-parameters):
+     ```yaml
+     storage:
+       engine: inMemory
+       inMemory:
+         engineConfig:
+           inMemorySizeGB: 140
+           statisticsLogDelaySecs: 0
+     ```
 
+### Available options
 
-### --inMemorySizeGB()
-
-* **Config**
-
-    `storage.inMemory.engineConfig.inMemorySizeGB`
-
-
-
-* **Default**
-
-    50% of total memory minus 1024 MB, but not less than 256 MB
-
-
-Specifies the maximum memory in gigabytes to use for data.
-
-
-### --inMemoryStatisticsLogDelaySecs()
-
-* **Config**
-
-    `storage.inMemory.engineConfig.statisticsLogDelaySecs`
-
-
-
-* **Default**
-
-    0
-
-
-Specifies the number of seconds between writes to statistics log.  If 0 is
-specified then statistics are not logged.
+| Command line | Config file | Default value | Description | 
+| ------------ | ----------- | ------------- | ----------- | 
+| `--inMemorySizeGB()`| `storage.inMemory.engineConfig.inMemorySizeGB` | 50% of total memory minus 1024 MB, but not less than 256 MB | Specifies the maximum memory in gigabytes to use for data.|
+| `--inMemoryStatisticsLogDelaySecs()` | `storage.inMemory.engineConfig.statisticsLogDelaySecs` | 0 | Specifies the number of seconds between writes to statistics log.  If 0 is specified then statistics are not logged. | 
