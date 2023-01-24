@@ -120,7 +120,7 @@ $ sudo systemctl start mongod
 
     Output:
 
-    ```
+    ```{.text .no-copy}
     Principal name                 Cache name
     --------------                 ----------
     demo@PERCONATEST.COM           FILE:/tmp/<ticket>
@@ -135,7 +135,7 @@ $ sudo systemctl start mongod
 
     The result should look like the following:
 
-    ```javascript
+    ```{.javascript .no-copy}
     > db.runCommand({connectionStatus : 1})
     {
          "authInfo" : {

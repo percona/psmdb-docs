@@ -60,7 +60,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
         Sample output:
 
-         ```
+         ```{.text .no-copy}
          Available Packages
          percona-server-mongodb.x86_64   5.0.2-1.el8   psmdb-50-release-x86_64
          percona-server-mongodb.x86_64   5.0.3-2.el8   psmdb-50-release-x86_64

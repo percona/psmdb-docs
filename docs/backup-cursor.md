@@ -28,7 +28,7 @@ bkCsrMetadata = bkCsr.next().metadata
 
 Sample output:
 
-```json
+```{.json .no-copy}
 {
   "metadata" : {
      "backupId": UUID("35c34101-0107-44cf-bdec-fad285e07534"),
@@ -60,7 +60,7 @@ var bkExtCsr = db.aggregate([{$backupCursorExtend: {backupId: bkCsrMetadata.back
 
 Sample output:
 
-```default
+```{.json .no-copy}
 { "filename" : "/data/plain_rs/n1/data/journal/WiredTigerLog.0000000042" }
 { "filename" : "/data/plain_rs/n1/data/journal/WiredTigerLog.0000000043" }
 { "filename" : "/data/plain_rs/n1/data/journal/WiredTigerLog.0000000044" }

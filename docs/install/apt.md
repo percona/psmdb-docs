@@ -11,8 +11,7 @@ This document describes how to install Percona Server for MongoDB from Percona r
 
 | Package                 | Contains                                 |
 | ----------------------- | -----------------------------------------|
-| `percona-server-mongodb`| The `mongo` shell, import/export tools, other client
-utilities, server software, default configuration, and `init.d` scripts. |
+| `percona-server-mongodb`| The `mongo` shell, import/export tools, other client utilities, server software, default configuration, and `init.d` scripts. |
 | `percona-server-mongodb-server`| The mongod` server, default configuration files, and `init.d` scripts|
 | `percona-server-mongodb-shell` | The `mongo` shell |
 | `percona-server-mongodb-mongos`| The `mongos` sharded cluster query router |
@@ -75,7 +74,7 @@ After you install this package, you have the access to Percona repositories. You
         
         Sample output:
 
-         ```
+         ```{.sh .no-copy}
          percona-server-mongodb | 5.0.13-11.jammy | http://repo.percona.com/psmdb-50/apt jammy/main amd64 Packages
          percona-server-mongodb | 5.0.11-10.jammy | http://repo.percona.com/psmdb-50/apt jammy/main amd64 Packages
          percona-server-mongodb | 5.0.10-9.jammy | http://repo.percona.com/psmdb-50/apt jammy/main amd64 Packages
