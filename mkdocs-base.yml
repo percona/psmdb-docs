@@ -114,7 +114,7 @@ nav:
       - index.md
   - comparison.md
   - Install PSMDB: 
-      - 'Overview': 'install/index.md'
+      - 'System requirements': 'install/index.md'
       - install/apt.md
       - install/yum.md
       - install/tarball.md

@@ -12,11 +12,22 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 
 To run the latest Percona Server for MongoDB 6.0 in a Docker container, run the following command as the root user or via `sudo`:
 
-```{.bash data-prompt="$"}
-$ docker run -d --name psmdb --restart always \
-percona/percona-server-mongodb:6.0
-```
+=== "On x86_64 platforms "
 
+      ```{.bash data-prompt="$"}
+      $ docker run -d --name psmdb --restart always \
+      percona/percona-server-mongodb:6.0
+      ```
+
+=== "On ARM64 platforms"
+
+      ```{.bash data-prompt="$"}
+      $ docker run -d --name psmdb --restart always \
+      percona/percona-server-mongodb:<TAG>-arm64
+      ```
+     
+      Replace the `<TAG>` with the desired version (for example, 6.0.4-3-arm64)
+   
 The command does the following:
 
 
@@ -35,7 +46,7 @@ Setting it to `always` ensures that the Docker daemon
 will start the container on startup
 and restart it if the container exits.
 
-* `percona/percona-server-mongodb:6.0` is the name and version tag
+* `percona/percona-server-mongodb:6.0` / `percona/percona-server-mongodb:<TAG>-arm64` is the name and version tag
 of the image to derive the container from.
 
 ## Connecting from another Docker container
