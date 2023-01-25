@@ -92,7 +92,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-6.0.pdf'
           cover_title: 'Percona Server for MongoDB Documentation 6.0'
-          cover_subtitle: 6.0.4-3 (January 26, 2023)
+          cover_subtitle: 6.0.4-3 (January 30, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
