@@ -334,7 +334,7 @@
   
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
-        Overview
+        System requirements
       </a>
     </li>
   
@@ -1056,6 +1056,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../release_notes/6.0.4-3.html" class="md-nav__link">
+        Percona Server for MongoDB 6.0.4-3 (2023-01-30)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../release_notes/6.0.3-2.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.3-2 (2022-12-07)
       </a>
@@ -1227,9 +1241,21 @@
 <p>By default, Docker will pull the image from Docker Hub if it is not available locally.</p>
 </div>
 <p>To run the latest Percona Server for MongoDB 6.0 in a Docker container, run the following command as the root user or via <code>sudo</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On x86_64 platforms </label><label for="__tabbed_1_2">On ARM64 platforms</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
 percona/percona-server-mongodb:6.0
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
+percona/percona-server-mongodb:&lt;TAG&gt;-arm64
+</code></pre></div>
+<p>Replace the <code>&lt;TAG&gt;</code> with the desired version (for example, 6.0.4-3-arm64)</p>
+</div>
+</div>
+</div>
 <p>The command does the following:</p>
 <ul>
 <li>
@@ -1252,7 +1278,7 @@ will start the container on startup
 and restart it if the container exits.</p>
 </li>
 <li>
-<p><code>percona/percona-server-mongodb:6.0</code> is the name and version tag
+<p><code>percona/percona-server-mongodb:6.0</code> / <code>percona/percona-server-mongodb:&lt;TAG&gt;-arm64</code> is the name and version tag
 of the image to derive the container from.</p>
 </li>
 </ul>
@@ -1292,7 +1318,7 @@ run the following command: </p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 30, 2023</span>
       
         <br>
         Created:

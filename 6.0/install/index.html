@@ -22,7 +22,7 @@
     
     
       
-        <title>Overview - Percona Server for MongoDB 6.0</title>
+        <title>System requirements - Percona Server for MongoDB 6.0</title>
       
     
     
@@ -145,7 +145,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              System requirements
             
           </span>
         </div>
@@ -343,12 +343,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Overview
+          System requirements
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="index.html" class="md-nav__link md-nav__link--active">
-        Overview
+        System requirements
       </a>
       
         
@@ -372,6 +372,26 @@
   <a href="#system-requirements" class="md-nav__link">
     System requirements
   </a>
+  
+    <nav class="md-nav" aria-label="System requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#x86_64" class="md-nav__link">
+    x86_64
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arm64" class="md-nav__link">
+    ARM64
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1063,6 +1083,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../release_notes/6.0.4-3.html" class="md-nav__link">
+        Percona Server for MongoDB 6.0.4-3 (2023-01-30)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../release_notes/6.0.3-2.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.3-2 (2022-12-07)
       </a>
@@ -1175,6 +1209,26 @@
     System requirements
   </a>
   
+    <nav class="md-nav" aria-label="System requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#x86_64" class="md-nav__link">
+    x86_64
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arm64" class="md-nav__link">
+    ARM64
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1235,7 +1289,8 @@
                 <h1 id="install-percona-server-for-mongodb">Install Percona Server for MongoDB<a class="headerlink" href="#install-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
 <p>Percona provides installation packages of Percona Server for MongoDB for the most 64-bit Linux distributions. Find the full list of supported platforms on the <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">Percona Software and Platform Lifecycle</a> page.</p>
 <h2 id="system-requirements">System requirements<a class="headerlink" href="#system-requirements" title="Permanent link">&para;</a></h2>
-<p>Percona Server for MongoDB has the same <a href="https://www.mongodb.com/docs/v5.0/administration/production-notes/#x86_64">system requirements</a> as the MongoDB Community Edition.</p>
+<h3 id="x86_64">x86_64<a class="headerlink" href="#x86_64" title="Permanent link">&para;</a></h3>
+<p>Percona Server for MongoDB has the same <a href="https://www.mongodb.com/docs/v6.0/administration/production-notes/#x86_64">system requirements</a> as the MongoDB Community Edition.</p>
 <p>Starting in MongoDB 5.0, <code>mongod</code>, <code>mongos</code>, and the legacy <code>mongo</code> shell are supported on x86_64 platforms that must meet these minimum micro-architecture requirements:</p>
 <ul>
 <li>
@@ -1246,6 +1301,8 @@
 <a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX">select Intel and AMD processors</a>. </p>
 </li>
 </ul>
+<h3 id="arm64">ARM64<a class="headerlink" href="#arm64" title="Permanent link">&para;</a></h3>
+<p>Percona Server for MongoDB requires the ARMv8.2-A or later microarchitecture.</p>
 <h2 id="installation-instructions">Installation instructions<a class="headerlink" href="#installation-instructions" title="Permanent link">&para;</a></h2>
 <p>Choose how you wish to install Percona Server for MongoDB:</p>
 <ul>
@@ -1294,7 +1351,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 5, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 30, 2023</span>
       
         <br>
         Created:
