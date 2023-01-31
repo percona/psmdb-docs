@@ -34,7 +34,17 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-
+  
+  features:
+    - search.highlight
+    - search.suggest
+    - search.share
+    - navigation.top
+    - navigation.tracking 
+    - content.tabs.link   
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
 
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
@@ -78,7 +88,8 @@ markdown_extensions:
        
 
 plugins:
-  search: {}
+  search: 
+    separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   section-index: {}
   git-revision-date-localized: 
     enable_creation_date: true
