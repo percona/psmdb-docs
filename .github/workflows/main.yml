@@ -4,6 +4,7 @@ on:
     branches: 
       - 4.2
       
+      
      
 jobs:
   build:
@@ -17,7 +18,7 @@ jobs:
         with:
           fetch-depth: 0
       #Prepare the env
-      - name: Set up Python
+      - name: Set up PythonPSMDB-1202-Material-9.0.x-4.2
         uses: percona-platform/setup-python@v2
         with:
           python-version: '3.x'

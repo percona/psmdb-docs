@@ -28,7 +28,7 @@ bkCsrMetadata = bkCsr.next().metadata
 
 Sample output:
 
-```default
+```{.json .no-copy}
 [
   {
     metadata: {
@@ -58,7 +58,7 @@ var bkExtCsr = db.aggregate([{$backupCursorExtend: {backupId: bkCsrMetadata.back
 
 Sample output:
 
-```default
+```{.json .no-copy}
 { "filename" : "/data/plain_rs/n1/data/journal/WiredTigerLog.0000000042" }
 { "filename" : "/data/plain_rs/n1/data/journal/WiredTigerLog.0000000043" }
 { "filename" : "/data/plain_rs/n1/data/journal/WiredTigerLog.0000000044" }

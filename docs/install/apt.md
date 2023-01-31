@@ -11,8 +11,7 @@ This document describes how to install Percona Server for MongoDB from Percona r
 
 | Package                 | Contains                                 |
 | ----------------------- | -----------------------------------------|
-| `percona-server-mongodb`| The `mongo` shell, import/export tools, other client
-utilities, server software, default configuration, and `init.d` scripts. |
+| `percona-server-mongodb`| The `mongo` shell, import/export tools, other client utilities, server software, default configuration, and `init.d` scripts. |
 | `percona-server-mongodb-server`| The mongod` server, default configuration files, and `init.d` scripts|
 | `percona-server-mongodb-shell` | The `mongo` shell |
 | `percona-server-mongodb-mongos`| The `mongos` sharded cluster query router |
@@ -76,7 +75,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
          Sample output:
 
-         ```
+         ```{.text .no-copy}
          percona-server-mongodb | 4.2.9-9.buster | http://repo.percona.com/psmdb-42/apt buster/main amd64 Packages
          percona-server-mongodb | 4.2.8-8.buster | http://repo.percona.com/psmdb-42/apt buster/main amd64 Packages
          percona-server-mongodb | 4.2.7-7.buster | http://repo.percona.com/psmdb-42/apt buster/main amd64 Packages
