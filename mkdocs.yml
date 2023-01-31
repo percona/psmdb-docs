@@ -4,7 +4,6 @@ INHERIT: mkdocs-base.yml
 
 site_url: "https://docs.percona.com/percona-server-for-mongodb/5.0/"
 
-  
 #Google Analytics configuration 
 extra:
   analytics:
