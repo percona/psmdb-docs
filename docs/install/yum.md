@@ -49,7 +49,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
 === "Install a specific version"
 
-     To install a specific version of *Percona Server for MongoDB*, do the following:
+     To install a specific version of Percona Server for MongoDB, do the following:
 
      1. List available versions:
 
@@ -59,7 +59,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
         Sample output:
 
-         ```
+         ```{.text .no-copy}
              Available Packages
          percona-server-mongodb.x86_64  4.4.10-11.el8  psmdb-44-release-x86_64
          percona-server-mongodb.x86_64  4.4.12-12.el8  psmdb-44-release-x86_64
