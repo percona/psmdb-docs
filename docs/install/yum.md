@@ -32,7 +32,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
     
     Example output
 
-    ```
+    ```{ .sh .no-copy }
     Retrieving https://repo.percona.com/yum/percona-release-latest.noarch.rpm
     Preparing...                ########################################### [100%]
     1:percona-release        ########################################### [100%]
@@ -70,8 +70,9 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
         Sample output:
 
-         ```
+         ```{.bash .no-copy}
              Available Packages
+         
          percona-server-mongodb.x86_64    6.0.2-1.el8       psmdb-60-release-x86_64
          ```
 

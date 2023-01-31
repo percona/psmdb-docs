@@ -141,7 +141,7 @@ db.createRole(
 
 Output:
 
-```json
+```{.json .no-copy}
 {
      "role" : "cn=otherusers,dc=percona,dc=com",
      "privileges" : [ ],
@@ -205,7 +205,7 @@ $ mongosh --host localhost --tls --tlsCAFile /var/lib/mongocerts/ca.crt --tlsCer
 
 The result should look like the following:
 
-```javascript
+```{.javascript .no-copy}
 > db.runCommand({connectionStatus : 1})
 {
      "authInfo" : {
