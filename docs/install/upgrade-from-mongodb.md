@@ -56,7 +56,7 @@ processManagement:
 
          Output:
 
-         ```
+         ```{.text .no-copy}
          ii  mongodb-org                      6.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
          ii  mongodb-org-database             6.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
          ii  mongodb-org-database-tools-extra 6.0.2                       amd64        Extra MongoDB database tools
@@ -108,7 +108,7 @@ processManagement:
 
          Output:
 
-         ```
+         ```{.text .no-copy}
          mongodb-org-shell-6.0.2-1.el8.x86_64
          mongodb-org-database-6.0.0-1.el8.x86_64
          mongodb-org-6.0.0-1.el8.x86_64
