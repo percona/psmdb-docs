@@ -24,7 +24,7 @@
         <link rel="next" href="kerberos.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1509,7 +1509,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/x509-ldap.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/x509-ldap.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1747,238 +1747,10 @@ $<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </s
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/x509-ldap.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/x509-ldap.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="set-up-x509-authentication-and-ldap-authorization">Set up x.509 authentication and LDAP authorization<a class="headerlink" href="#set-up-x509-authentication-and-ldap-authorization" title="Permanent link">&para;</a></h1>
-<p><a href="authentication.html#x509">x.509 certificate authentication</a> is one of the supported authentication mechanisms in Percona Server for MongoDB. It is compatible with <a href="authorization.html">LDAP authorization</a> to enable you to control user access and operations in your database environment.</p>
-<p>This document provides the steps on how to configure and use x.509 certificates for authentication in Percona Server for MongoDB and authorize users in the LDAP server.</p>
-<h2 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p>For testing purposes, in this tutorial we use <a href="https://www.openssl.org/">OpenSSL</a> to issue self-signed certificates. For production use, we recommend using certificates issued and signed by the <abbr title="Certificate Authority">CA</abbr> in Percona Server for MongoDB. Client certificates must meet the <a href="https://docs.mongodb.com/manual/core/security-x.509/#client-certificate-requirements">client certificate requirements</a>.</p>
-</li>
-<li>
-<p>The setup of the LDAP server and the configuration of the LDAP schema is out of scope of this document. We assume that you have the LDAP server up and running and accessible to Percona Server for MongoDB.</p>
-</li>
-</ol>
-<h2 id="setup-procedure">Setup procedure<a class="headerlink" href="#setup-procedure" title="Permanent link">&para;</a></h2>
-<h3 id="issue-certificates">Issue certificates<a class="headerlink" href="#issue-certificates" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Create a directory to store the certificates. For example, <code>/var/lib/mongocerts</code>.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/lib/mongocerts
-</code></pre></div>
-</li>
-<li>
-<p>Grant access to the <code>mongod</code> user to this directory:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span class="w"> </span>/var/lib/mongocerts
-</code></pre></div>
-</li>
-</ol>
-<h4 id="generate-the-root-certificate-authority-certificate">Generate the root Certificate Authority certificate<a class="headerlink" href="#generate-the-root-certificate-authority-certificate" title="Permanent link">&para;</a></h4>
-<p>The root Certificate Authority certificate will be used to sign the SSL certificates.</p>
-<p>Run the following command and in the <code>-subj</code> flag, provide the details about your organization:</p>
-<ul>
-<li>C - Country Name (2 letter code);</li>
-<li>ST - State or Province Name (full name);</li>
-<li>L - Locality Name (city);</li>
-<li>O - Organization Name (company);</li>
-<li>CN - Common Name (your name or your server’s hostname) .</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/var/lib/mongocerts
-$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-nodes<span class="w"> </span>-x509<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-keyout<span class="w"> </span>ca.key<span class="w"> </span>-out<span class="w"> </span>ca.crt<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/C=US/ST=California/L=SanFrancisco/O=Percona/OU=root/CN=localhost&quot;</span>
-</code></pre></div>
-<h4 id="generate-server-certificate">Generate server certificate<a class="headerlink" href="#generate-server-certificate" title="Permanent link">&para;</a></h4>
-<ol>
-<li>
-<p>Create the server certificate request and key. In the <code>-subj</code> flag, provide the details about your organization:</p>
-<ul>
-<li>
-<p>C - Country Name (2 letter code);</p>
-</li>
-<li>
-<p>ST - State or Province Name (full name);</p>
-</li>
-<li>
-<p>L - Locality Name (city);</p>
-</li>
-<li>
-<p>O - Organization Name (company);</p>
-</li>
-<li>
-<p>CN - Common Name (your name or your server’s hostname) .</p>
-</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-nodes<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-keyout<span class="w"> </span>server.key<span class="w"> </span>-out<span class="w"> </span>server.csr<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/C=US/ST=California/L=SanFrancisco/O=Percona/OU=server/CN=localhost&quot;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Sign the server certificate request with the root <abbr title="Certificate Authority">CA</abbr> certificate:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span>server.csr<span class="w"> </span>-CA<span class="w"> </span>ca.crt<span class="w"> </span>-CAkey<span class="w"> </span>ca.key<span class="w"> </span>-set_serial<span class="w"> </span><span class="m">01</span><span class="w"> </span>-out<span class="w"> </span>server.crt
-</code></pre></div>
-</li>
-<li>
-<p>Combine the server certificate and key to create a certificate key file. Run this command as the <code>root</code> user:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>server.key<span class="w"> </span>server.crt<span class="w"> </span>&gt;<span class="w"> </span>server.pem
-</code></pre></div>
-</li>
-</ol>
-<h4 id="generate-client-certificates">Generate client certificates<a class="headerlink" href="#generate-client-certificates" title="Permanent link">&para;</a></h4>
-<ol>
-<li>
-<p>Generate client certificate request and key. In the <code>-subj</code> flag, specify the information about clients in the <abbr title="Distinguished Name">DN</abbr> format.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-nodes<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-keyout<span class="w"> </span>client.key<span class="w"> </span>-out<span class="w"> </span>client.csr<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/DC=com/DC=percona/CN=John Doe&quot;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Sign the client certificate request with the root <abbr title="Certificate Authority">CA</abbr> certificate.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-in<span class="w"> </span>client.csr<span class="w"> </span>-CA<span class="w"> </span>ca.crt<span class="w"> </span>-CAkey<span class="w"> </span>ca.key<span class="w"> </span>-set_serial<span class="w"> </span><span class="m">02</span><span class="w"> </span>-out<span class="w"> </span>client.crt
-</code></pre></div>
-</li>
-<li>
-<p>Combine the client certificate and key to create a certificate key file.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>client.key<span class="w"> </span>client.crt<span class="w"> </span>&gt;<span class="w"> </span>client.pem
-</code></pre></div>
-</li>
-</ol>
-<h3 id="set-up-the-ldap-server">Set up the LDAP server<a class="headerlink" href="#set-up-the-ldap-server" title="Permanent link">&para;</a></h3>
-<p>The setup of the LDAP server is out of scope of this document. Please work with your LDAP administrators to set up the LDAP server and configure the LDAP schema.</p>
-<h3 id="configure-the-mongod-server">Configure the <code>mongod</code> server<a class="headerlink" href="#configure-the-mongod-server" title="Permanent link">&para;</a></h3>
-<p>The configuration consists of the following steps:</p>
-<ul>
-<li>Creating a role that matches the user group on the LDAP server</li>
-<li>Editing the configuration file to enable the x.509 authentication</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When you use x.509 authentication with LDAP authorization, you don’t need to create users in the <code>$external</code> database.  User management is done on the LDAP server so when a client connects to the database, they are authenticated and authorized through the LDAP server.</p>
-</div>
-<h4 id="create-roles">Create roles<a class="headerlink" href="#create-roles" title="Permanent link">&para;</a></h4>
-<p>At this step, create the roles in the <code>admin</code> database with the names that exactly match the names of the user groups on the LDAP server. These roles are used for user <a href="authorization.html">LDAP authorization</a> in Percona Server for MongoDB.</p>
-<p>In our example, we create the role <code>cn=otherusers,dc=percona,dc=com</code> that has the corresponding LDAP group.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">)</span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">createRole</span><span class="p">(</span>
-<span class="w">   </span><span class="p">{</span>
-<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cn=otherusers,dc=percona,dc=com&quot;</span><span class="p">,</span>
-<span class="w">     </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
-<span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">           </span><span class="s2">&quot;userAdminAnyDatabase&quot;</span><span class="p">,</span>
-<span class="w">           </span><span class="s2">&quot;clusterMonitor&quot;</span><span class="p">,</span>
-<span class="w">           </span><span class="s2">&quot;clusterManager&quot;</span><span class="p">,</span>
-<span class="w">           </span><span class="s2">&quot;clusterAdmin&quot;</span>
-<span class="w">            </span><span class="p">]</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">)</span>
-</code></pre></div>
-<p>Output:</p>
-<div class="no-copy highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">     </span><span class="nt">&quot;role&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cn=otherusers,dc=percona,dc=com&quot;</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">&quot;privileges&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span>
-<span class="w">     </span><span class="nt">&quot;roles&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">             </span><span class="s2">&quot;userAdminAnyDatabase&quot;</span><span class="p">,</span>
-<span class="w">             </span><span class="s2">&quot;clusterMonitor&quot;</span><span class="p">,</span>
-<span class="w">             </span><span class="s2">&quot;clusterManager&quot;</span><span class="p">,</span>
-<span class="w">             </span><span class="s2">&quot;clusterAdmin&quot;</span>
-<span class="w">     </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-<h4 id="enable-x509-authentication">Enable x.509 authentication<a class="headerlink" href="#enable-x509-authentication" title="Permanent link">&para;</a></h4>
-<ol>
-<li>
-<p>Stop the <code>mongod</code> service</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
-</code></pre></div>
-</li>
-<li>
-<p>Edit the <code>/etc/mongod.conf</code> configuration file.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">net</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">27017</span>
-<span class="w">  </span><span class="nt">bindIp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
-<span class="w">  </span><span class="nt">tls</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">requireTLS</span>
-<span class="w">    </span><span class="nt">certificateKeyFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/mongocerts/server.pem</span>
-<span class="w">    </span><span class="nt">CAFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/mongocerts/ca.crt</span>
-
-<span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
-<span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
-<span class="w">    </span><span class="nt">transportSecurity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
-<span class="w">    </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))&quot;</span>
-
-<span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PLAIN,MONGODB-X509</span>
-</code></pre></div>
-<p>Replace <code>ldap.example.com</code> with the hostname of your LDAP server. In the LDAP query template, replace the domain controllers <code>percona</code> and <code>com</code> with those relevant to your organization.</p>
-</li>
-<li>
-<p>Start the <code>mongod</code> service</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
-</code></pre></div>
-</li>
-</ol>
-<h3 id="authenticate-with-the-x509-certificate">Authenticate with the x.509 certificate<a class="headerlink" href="#authenticate-with-the-x509-certificate" title="Permanent link">&para;</a></h3>
-<p>To test the authentication, connect to <em>Percona Server for MongoDB</em> using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongo<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--tls<span class="w"> </span>--tlsCAFile<span class="w"> </span>/var/lib/mongocerts/ca.crt<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>&lt;path_to_client_certificate&gt;/client.pem<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-X509<span class="w"> </span>--authenticationDatabase<span class="o">=</span><span class="s1">&#39;$external&#39;</span>
-</code></pre></div>
-<p>The result should look like the following:</p>
-<div class="no-copy highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">connectionStatus</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
-<span class="p">{</span>
-<span class="w">     </span><span class="s2">&quot;authInfo&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="s2">&quot;authenticatedUsers&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;user&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CN=John Doe,DC=percona,DC=com&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$external&quot;</span>
-<span class="w">                     </span><span class="p">}</span>
-<span class="w">             </span><span class="p">],</span>
-<span class="w">             </span><span class="s2">&quot;authenticatedUserRoles&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cn=otherreaders,dc=percona,dc=com&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
-<span class="w">                     </span><span class="p">},</span>
-<span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;clusterAdmin&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
-<span class="w">                     </span><span class="p">},</span>
-<span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;userAdminAnyDatabase&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
-<span class="w">                     </span><span class="p">},</span>
-<span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;clusterManager&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
-<span class="w">                     </span><span class="p">},</span>
-<span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;clusterMonitor&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
-<span class="w">                     </span><span class="p">}</span>
-<span class="w">             </span><span class="p">]</span>
-<span class="w">     </span><span class="p">},</span>
-<span class="w">     </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
-<span class="p">}</span>
-</code></pre></div>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1992,14 +1764,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </s
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -2120,7 +1885,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </s
     
     
               
-      <script src="assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="js/version-select.js"></script>
       

@@ -24,7 +24,7 @@
         <link rel="next" href="4.4.15-15.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1467,7 +1467,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/release_notes/4.4.16-16.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.16-16.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1568,101 +1568,10 @@ It supports MongoDB 4.4.16 protocols and drivers.</p>
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.16-16.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/release_notes/4.4.16-16.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="percona-server-for-mongodb-4416-16-2022-08-30">Percona Server for MongoDB 4.4.16-16 (2022-08-30)<a class="headerlink" href="#percona-server-for-mongodb-4416-16-2022-08-30" title="Permanent link">&para;</a></h1>
-<table>
-<thead>
-<tr>
-<th><strong>Release date</strong></th>
-<th>August 30, 2022</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Installation</strong></td>
-<td><a href="../install/index.html">Installing Percona Server for MongoDB</a></td>
-</tr>
-</tbody>
-</table>
-<p>Percona Server for MongoDB 4.4.16-16 is an enhanced, source-available, and highly-scalable database that is a
-fully-compatible, drop-in replacement for MongoDB 4.4.16 Community Edition.
-It supports MongoDB 4.4.16 protocols and drivers.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Take caution when upgrading from earlier versions of v4.4.x to later versions of 4.4 or on to v5.0. See <a href="https://jira.mongodb.org/browse/SERVER-68511">SERVER-68511</a> for more details.</p>
-</div>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-67302">SERVER-67302</a> - Fixed the server crash with the CLOCK_REALTIME set to forward by making the linearizable reads robust to primary catch-up and simultaneous stepdown.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-61321">SERVER-61321</a>, <a href="https://jira.mongodb.org/browse/SERVER-60607">SERVER-60607</a> - Improved handling of large/NaN (Not a Number) values for text index and geo index version.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-66418">SERVER-66418</a> -  Fixed the issue with bad projection created during dependency analysis due to string order assumption. It resulted in the <code>PathCollision</code> error. The issue is fixed by improving dependency analysis for projections by folding dependencies into ancestor dependencies where possible.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/WT-9096">WT-9096</a> - Fixed the wrong key/value returning during search near when the key doesn’t exist.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-63243">SERVER-63243</a> - This bug fix adjusts the functioning of the range-deleter to prevent the balancer from getting blocked, hung, or ranges being scheduled behind other ranges.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-67492">SERVER-67492</a> - Failed chunk migrations can lead to recipient shard having different config.transactions records between primaries and secondaries - inconsistent data.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-60958">SERVER-60958</a> - This fix avoids server hang in chunk migration when a step-down occurs.</p>
-</li>
-</ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/v4.4/release-notes/4.4/#4.4.16---aug-19--2022">MongoDB 4.4.16 Community Edition release notes</a>.</p>
-<h2 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://jira.percona.com/browse/PSMDB-1046">PSMDB-1046</a>: Make the <code>kmipKeyIdentifier</code> option not mandatory</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you have configured data at rest encryption using the KMIP server and wish to upgrade Percona Server for MongoDB, go through the <a href="https://www.mongodb.com/docs/v4.4/tutorial/configure-encryption/#std-label-encrypt-existing-data">encrypting existing data steps</a> during the upgrade as follows:</p>
-<ol>
-<li>
-<p>Prepare the server</p>
-</li>
-<li>
-<p><a href="../install/upgrade-from-mongodb.html">Upgrade Percona Server for MongoDB</a></p>
-</li>
-<li>
-<p>Enable encryption and initiate the data synchronization.</p>
-</li>
-</ol>
-</div>
-<h2 id="bugs-fixed">Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://jira.percona.com/browse/PSMDB-1119">PSMDB-1119</a>: Fixed the issue with backup cursor not opening if data-at-rest encryption is enabled</li>
-</ul>
-<h2 id="packaging-notes">Packaging Notes<a class="headerlink" href="#packaging-notes" title="Permanent link">&para;</a></h2>
-<p>Debian 9 (“Stretch”) is no longer supported.</p>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1676,14 +1585,7 @@ It supports MongoDB 4.4.16 protocols and drivers.</p>
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1804,7 +1706,7 @@ It supports MongoDB 4.4.16 protocols and drivers.</p>
     
     
               
-      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       

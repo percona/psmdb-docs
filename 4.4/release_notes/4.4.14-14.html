@@ -24,7 +24,7 @@
         <link rel="next" href="4.4.13-13.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1453,7 +1453,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/release_notes/4.4.14-14.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.14-14.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1542,89 +1542,10 @@ It supports MongoDB 4.4.14 protocols and drivers.</p>
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.14-14.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/release_notes/4.4.14-14.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="percona-server-for-mongodb-4414-14-2022-05-25">Percona Server for MongoDB 4.4.14-14 (2022-05-25)<a class="headerlink" href="#percona-server-for-mongodb-4414-14-2022-05-25" title="Permanent link">&para;</a></h1>
-<table>
-<thead>
-<tr>
-<th><strong>Release date</strong></th>
-<th>May 25, 2022</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Installation</strong></td>
-<td><a href="../install/index.html">Installing Percona Server for MongoDB</a></td>
-</tr>
-</tbody>
-</table>
-<p>Percona Server for MongoDB 4.4.14-14 is an enhanced, source-available, and highly-scalable database that is a
-fully-compatible, drop-in replacement for MongoDB 4.4.14 Community Edition.
-It supports MongoDB 4.4.14 protocols and drivers.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<p>Percona Server for MongoDB now supports the master key rotation for data encrypted using the  <a href="../kmip.html#kmip">Keys Management Interoperability Protocol (KMIP)</a> protocol (tech preview feature). This improvement allows users to comply with regulatory standards for data security.</p>
-<p>Other improvements and bug fixes introduced by MongoDB and included in Percona Server for MongoDB are the following:</p>
-<ul>
-<li><a href="https://jira.mongodb.org/browse/WT-8924">WT-8924</a> - Fixed a bug that causes replication to stall on secondary replica set members in a sharded cluster handling cross-shard transactions. It is caused by WiredTger to erroneously return a write conflict when deciding if an update to a record is allowed. If MongoDB decides to retry the operation that caused the conflict in WiredTiger, it will enter an indefinite retry loop, and oplog application will stall on secondary nodes.</li>
-</ul>
-<p>If this bug is hit, the secondary nodes will experience indefinite growth in replication lag. Restart the secondary nodes to resume replication.</p>
-<p>This bug affects MongoDB 4.4.10 through 4.4.13 and 5.0.4 to 5.0.7.</p>
-<p>Update to the latest version to avoid the secondary replication stall and lag issues.</p>
-<ul>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-60412">SERVER-60412</a> - Check if the host has <code>cgroups</code> v2 enabled and read the memory limits according to that.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-62229">SERVER-62229</a> - Fix invariant by allowing applying index build abort entry when in <code>recoverFromOplogAsStandalone</code> mode</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-55429">SERVER-55429</a> - Fixed the issue with blocked migrations by adding a timeout to migrations when waiting for range deletions on intersecting ranges</p>
-</li>
-</ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/4.4/#4.4.14---may-9--2022">MongoDB 4.4.14 Community Edition Release notes</a>.</p>
-<h2 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-1011">PSMDB-1011</a>: Add KMIP master key rotation</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-1043">PSMDB-1043</a>: The <code>kmipClientCertificateFile</code> option now includes both the client private key and public certificate</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-1044">PSMDB-1044</a>: Make the <code>kmipPort</code> option not mandatory and assign the default value</p>
-</li>
-</ul>
-<h2 id="bugs-fixed">Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-979">PSMDB-979</a>: Rotate audit logs in the mode as defined in the configuration.</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-1030">PSMDB-1030</a>: Fix descriptions and mutual dependencies of KMIP related options for <code>mongod</code> and <code>perconadecrypt</code></p>
-</li>
-</ul>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1638,14 +1559,7 @@ It supports MongoDB 4.4.14 protocols and drivers.</p>
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1766,7 +1680,7 @@ It supports MongoDB 4.4.14 protocols and drivers.</p>
     
     
               
-      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       

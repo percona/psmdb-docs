@@ -24,7 +24,7 @@
         <link rel="next" href="kmip.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1507,7 +1507,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/vault.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/vault.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1641,134 +1641,10 @@ with versioning enabled.</p>
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/vault.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/vault.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="hashicorp-vault-integration">HashiCorp Vault integration<a class="headerlink" href="#hashicorp-vault-integration" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB is integrated with HashiCorp Vault. HashiCorp Vault supports different secrets engines. Percona Server for MongoDB only supports the HashiCorp Vault
-back end with KV Secrets Engine - Version 2 (API)
-with versioning enabled.</p>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p>Percona Blog: <a href="https://www.percona.com/blog/2020/04/21/using-vault-to-store-the-master-key-for-data-at-rest-encryption-on-percona-server-for-mongodb/">Using Vault to Store the Master Key for Data at Rest Encryption on Percona Server for MongoDB</a></p>
-<p>HashiCorp Vault Documentation: <a href="https://www.vaultproject.io/api/secret/kv/kv-v2.html">How to configure the KV Engine</a></p>
-</div>
-<h2 id="hashicorp-vault-parameters">HashiCorp Vault Parameters<a class="headerlink" href="#hashicorp-vault-parameters" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Command line</th>
-<th>Configuration file</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>vaultServerName</td>
-<td>security.vault.serverName</td>
-<td>string</td>
-<td>The IP address of the Vault server</td>
-</tr>
-<tr>
-<td>vaultPort</td>
-<td>security.vault.port</td>
-<td>int</td>
-<td>The port on the Vault server</td>
-</tr>
-<tr>
-<td>vaultTokenFile</td>
-<td>security.vault.tokenFile</td>
-<td>string</td>
-<td>The path to the vault token file. The token file is used by MongoDB to access HashiCorp Vault. The vault token file consists of the raw vault token and does not include any additional strings or parameters. <br> <br> Example of a vault token file: <br> <br> <code>s.uTrHtzsZnEE7KyHeA797CkWA</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Config file example</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">vault</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">serverName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
-<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8200</span>
-<span class="w">    </span><span class="nt">tokenFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/user/path/token</span>
-<span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/data/hello</span>
-</code></pre></div>
-<p>During the first run of the Percona Server for MongoDB, the process generates a secure key and writes the key to the vault.</p>
-<p>During the subsequent start, the server tries to read the master key from the vault. If the configured secret does not exist, vault responds with HTTP 404 error.</p>
-<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&para;</a></h2>
-<p>Namespaces are isolated environments in Vault that allow for separate secret key and policy management.</p>
-<p>You can use Vault namespaces with Percona Server for MongoDB. Specify the namespace(s) for the <code>security.vault.secret</code> option value as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>&lt;namespace&gt;/secret/data/&lt;secret_path&gt;
-</code></pre></div>
-<p>For example, the path to secret keys for namespace <code>test</code> on  the secrets engine <code>secret</code> will be <code>test/secret/&lt;my_secret_path&gt;</code>.</p>
-<h3 id="targeting-a-namespace-in-vault-configuration">Targeting a namespace in Vault configuration<a class="headerlink" href="#targeting-a-namespace-in-vault-configuration" title="Permanent link">&para;</a></h3>
-<p>You have the following options of how to target a particular namespace when configuring Vault:</p>
-<ol>
-<li>Set the VAULT_NAMESPACE environment variable so that all subsequent commands are executed against that namespace. Use the following command to set the environment variable for the namespace <code>test</code>:</li>
-</ol>
-<p><div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">VAULT_NAMESPACE</span><span class="o">=</span><span class="nb">test</span>
-</code></pre></div>
-2. Provide the namespace with the <code>-namespace</code> flag in commands</p>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p>HashiCorp Vault Documentation:</p>
-<ul>
-<li>
-<p><a href="https://www.vaultproject.io/docs/enterprise/namespaces">Namespaces</a></p>
-</li>
-<li>
-<p><a href="https://learn.hashicorp.com/tutorials/vault/namespaces">Secure Multi-Tenancy with Namespaces</a></p>
-</li>
-</ul>
-</div>
-<h2 id="key-rotation">Key Rotation<a class="headerlink" href="#key-rotation" title="Permanent link">&para;</a></h2>
-<p>Key rotation is replacing the old master key with a new one. This process helps to comply with regulatory requirements.</p>
-<p>To rotate the keys for a single <code>mongod</code> instance, do the following:</p>
-<ol>
-<li>
-<p>Stop the <code>mongod</code> process</p>
-</li>
-<li>
-<p>Add <code>--vaultRotateMasterKey</code> option via the command line or <code>security.vault.rotateMasterKey</code> to the config file.</p>
-</li>
-<li>
-<p>Run the <code>mongod</code> process with the selected option, the process will perform the key rotation and exit.</p>
-</li>
-<li>
-<p>Remove the selected option from the startup command or the config file.</p>
-</li>
-<li>
-<p>Start <code>mongod</code> again.</p>
-</li>
-</ol>
-<p>Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the vault. The entire dataset is not re-encrypted.</p>
-<h3 id="key-rotation-in-replica-sets">Key rotation in replica sets<a class="headerlink" href="#key-rotation-in-replica-sets" title="Permanent link">&para;</a></h3>
-<p>Every <code>mongod</code> node in a replica set must have its own master key. The key rotation steps are the following:</p>
-<ol>
-<li>Rotate the master key for the secondary nodes one by one.</li>
-<li>Step down the primary and wait for another primary to be elected.</li>
-<li>Rotate the master key for the previous primary node.</li>
-</ol>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1782,14 +1658,7 @@ with versioning enabled.</p>
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1910,7 +1779,7 @@ with versioning enabled.</p>
     
     
               
-      <script src="assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="js/version-select.js"></script>
       

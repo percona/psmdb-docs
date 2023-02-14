@@ -24,7 +24,7 @@
         <link rel="next" href="4.4.14-14.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1453,7 +1453,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/release_notes/4.4.15-15.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.15-15.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1536,83 +1536,10 @@ It supports MongoDB 4.4.15 protocols and drivers.</p>
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.15-15.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/release_notes/4.4.15-15.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="percona-server-for-mongodb-4415-15-2022-07-19">Percona Server for MongoDB 4.4.15-15 (2022-07-19)<a class="headerlink" href="#percona-server-for-mongodb-4415-15-2022-07-19" title="Permanent link">&para;</a></h1>
-<table>
-<thead>
-<tr>
-<th><strong>Release date</strong></th>
-<th>July 19, 2022</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Installation</strong></td>
-<td><a href="../install/index.html">Installing Percona Server for MongoDB</a></td>
-</tr>
-</tbody>
-</table>
-<p>Percona Server for MongoDB 4.4.15-15 is an enhanced, source available, and highly-scalable database that is a
-fully-compatible, drop-in replacement for MongoDB 4.4.15 Community Edition.
-It supports MongoDB 4.4.15 protocols and drivers.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p>Support of <a href="../kmip.html#kmip">multiple KMIP servers</a> adds failover to your data-at-rest encryption setup.</p>
-</li>
-<li>
-<p>Allow users to set KMIP client certificate password through a flag to simplify the migration from MongoDB Enterprise to Percona Server for MongoDB.</p>
-</li>
-</ul>
-<p>Other improvements and bug fixes introduced by MongoDB and included in Percona Server for MongoDB are the following:</p>
-<ul>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-66433">SERVER-66433</a> - Backported the check for user errors in case deadline on the migration destination manager is hit while waiting for a range to be cleared up. This prevents the balancer from getting blocked.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-65821">SERVER-65821</a> - Fixed the deadlock situation in cross shard transactions that could occur when the FCV (Feature Compatibility Version) was set after the “prepared” state of the transactions. That ended up with both the the <a href="https://www.mongodb.com/docs/manual/reference/command/setFeatureCompatibilityVersion/">setFCV</a> thread and the TransactionCoordinator hung.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-65131">SERVER-65131</a> - This is a v6.0 backport fix to v4.4 that disables opportunistic read targeting (except for specified hedged reads) in order to prevent possible performance problems associated with uneven read distribution across the secondaries.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-54900">SERVER-54900</a> - Fixed an issue where competing/blocking network calls to the sync source could prevent selecting a new sync-source. This is resolved by canceling the ASIO session when SSL handshake times out.</p>
-</li>
-</ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/4.4/#4.4.15---jun-21--2022">MongoDB 4.4.15 Community Edition Release notes</a>.</p>
-<h2 id="supported-versions">Supported versions<a class="headerlink" href="#supported-versions" title="Permanent link">&para;</a></h2>
-<p>Percona Server for MongoDB is now available on Ubuntu 22.04 (Jammy Jellyfish).</p>
-<h2 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-1045">PSMDB-1045</a>: Add support for several KMIP servers</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-1054">PSMDB-1054</a>: Add the ability to specify the password for the KMIP client keys and certificates to simplify migration from MongoDB Enterprise.</p>
-</li>
-</ul>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1626,14 +1553,7 @@ It supports MongoDB 4.4.15 protocols and drivers.</p>
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1754,7 +1674,7 @@ It supports MongoDB 4.4.15 protocols and drivers.</p>
     
     
               
-      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       

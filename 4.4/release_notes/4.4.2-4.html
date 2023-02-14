@@ -24,7 +24,7 @@
         <link rel="next" href="4.4.1-3.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1439,7 +1439,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/release_notes/4.4.2-4.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.2-4.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1522,83 +1522,10 @@ It supports MongoDB 4.4.2 protocols and drivers.</p>
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.2-4.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/release_notes/4.4.2-4.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="percona-server-for-mongodb-442-4-2020-12-01">Percona Server for MongoDB  4.4.2-4 (2020-12-01)<a class="headerlink" href="#percona-server-for-mongodb-442-4-2020-12-01" title="Permanent link">&para;</a></h1>
-<table>
-<thead>
-<tr>
-<th><strong>Release date</strong></th>
-<th>December 1, 2020</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Installation</strong></td>
-<td><a href="../install/index.html">Installing Percona Server for MongoDB</a></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This version is not recommended for production use due to the following critical issues: <a href="https://jira.mongodb.org/browse/WT-7984">WT-7984</a> and <a href="https://jira.mongodb.org/browse/WT-7995">WT-7995</a>. They are fixed in <a href="https://docs.mongodb.com/manual/release-notes/4.4/#4.4.9---sep-21--2021">MongoDB 4.4.9 Community Edition</a> and <a href="4.4.9-10.html#psmdb-4-4-9-10">Percona Server for MongoDB 4.4.9-10</a>.</p>
-<p>We recommend you to upgrade to Percona Server for MongoDB 4.4.9-10 as soon as possible and run the <a href="https://docs.mongodb.com/manual/reference/command/validate/">validate</a> command on every collection on every replica set node.</p>
-<p>Read more about the issues and post-upgrade steps in <a href="https://jira.mongodb.org/browse/WT-7984">WT-7984</a> and <a href="https://jira.mongodb.org/browse/WT-7995">WT-7995</a>.</p>
-</div>
-<p>Percona Server for MongoDB 4.4.2-4 is an enhanced, source available, and highly-scalable database that is a
-fully-compatible, drop-in replacement for <a href="https://docs.mongodb.com/manual/release-notes/4.4/#nov-18-2020">MongoDB 4.4.2 Community Edition</a>.
-It supports MongoDB 4.4.2 protocols and drivers.</p>
-<h2 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-758">PSMDB-758</a>: Add mongobridge as a part of percona-server-mongodb-server package</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-755">PSMDB-755</a>: Add ldapDebug, ldapFollowReferrals and ldapConnectionPoolSizePerHost server parameters</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-711">PSMDB-711</a>: Improve audit log performance</p>
-</li>
-</ul>
-<h2 id="bugs-fixed">Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-718">PSMDB-718</a>: Audit log messages include datatype output</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-712">PSMDB-712</a>: User can’t be authorized via LDAP due to ‘LDAP search failed with error: Referral’</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-766">PSMDB-766</a>: Redirect openldap debug messages to mongodb log</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-715">PSMDB-715</a>: createBackup using AWS remote location fails with “EntityTooLarge”</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-544">PSMDB-544</a>: Binaries perconadecrypt and mongobridge do not have a version</p>
-</li>
-</ul>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1612,14 +1539,7 @@ It supports MongoDB 4.4.2 protocols and drivers.</p>
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1740,7 +1660,7 @@ It supports MongoDB 4.4.2 protocols and drivers.</p>
     
     
               
-      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       

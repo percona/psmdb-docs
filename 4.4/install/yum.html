@@ -24,7 +24,7 @@
         <link rel="next" href="tarball.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1519,7 +1519,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/install/yum.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/install/yum.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1682,163 +1682,10 @@ to enable auto-start as follows:</p>
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/install/yum.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/install/yum.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="install-percona-server-for-mongodb-on-red-hat-enterprise-linux-and-derivatives">Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives<a class="headerlink" href="#install-percona-server-for-mongodb-on-red-hat-enterprise-linux-and-derivatives" title="Permanent link">&para;</a></h1>
-<p>This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Percona Server for MongoDB should work on other RPM-based distributions (for example, Amazon Linux AMI and Oracle Linux), but it is tested only on platforms listed on the <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">Percona Software and Platform Lifecycle</a> page <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. </p>
-</div>
-<h2 id="package-contents">Package Contents<a class="headerlink" href="#package-contents" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Package</th>
-<th>Contains</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>percona-server-mongodb</code></td>
-<td>The <code>mongo</code> shell, import/export tools, other client utilities, server software, default configuration, and <code>init.d</code> scripts.</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-server</code></td>
-<td>The mongod<code>server, default configuration files, and</code>init.d` scripts</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-shell</code></td>
-<td>The <code>mongo</code> shell</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-mongos</code></td>
-<td>The <code>mongos</code> sharded cluster query router</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-tools</code></td>
-<td>Mongo tools for high-performance MongoDB fork from Percona</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-dbg</code></td>
-<td>Debug symbols for the server</td>
-</tr>
-</tbody>
-</table>
-<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
-<p>Percona provides the <a href="https://docs.percona.com/percona-software-repositories/index.html"><code>percona-release</code></a> configuration tool that simplifies operating repositories and enables to install and update both Percona Backup for MongoDB packages and required dependencies smoothly.</p>
-<h3 id="configure-percona-repository">Configure Percona repository<a class="headerlink" href="#configure-percona-repository" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Install <strong>percona-release</strong>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-</code></pre></div>
-</li>
-<li>
-<p>Enable the repository: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-44<span class="w"> </span>release
-</code></pre></div>
-</li>
-</ol>
-<h3 id="install-percona-server-for-mongodb-packages">Install Percona Server for MongoDB packages<a class="headerlink" href="#install-percona-server-for-mongodb-packages" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Install the latest version</label><label for="__tabbed_1_2">Install a specific version</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>To install the latest version of <em>Percona Server for MongoDB</em>, use the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>To install a specific version of Percona Server for MongoDB, do the following:</p>
-<ol>
-<li>
-<p>List available versions:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>list<span class="w"> </span>percona-server-mongodb<span class="w"> </span>--showduplicates
-</code></pre></div>
-<p>Sample output:</p>
-<div class="no-copy highlight"><pre><span></span><code>    Available Packages
-percona-server-mongodb.x86_64  4.4.10-11.el8  psmdb-44-release-x86_64
-percona-server-mongodb.x86_64  4.4.12-12.el8  psmdb-44-release-x86_64
-percona-server-mongodb.x86_64  4.4.13-13.el8  psmdb-44-release-x86_64
-percona-server-mongodb.x86_64  4.4.14-14.el8  psmdb-44-release-x86_64
-percona-server-mongodb.x86_64  4.4.15-15.el8  psmdb-44-release-x86_64
-percona-server-mongodb.x86_64  4.4.16-16.el8  psmdb-44-release-x86_64
-percona-server-mongodb.x86_64  4.4.17-17.el8  psmdb-44-release-x86_64
-</code></pre></div>
-</li>
-<li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 4.4.15-15, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-4.4.15-15.el8
-</code></pre></div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<h2 id="run-percona-server-for-mongodb">Run Percona Server for MongoDB<a class="headerlink" href="#run-percona-server-for-mongodb" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you use SELinux in enforcing mode, you must customize your SELinux user policies to allow access to certain <code>/sys</code> and <code>/proc</code> files for OS-level statistics. Also, you must customize directory and port access policies if you are using non-default locations.</p>
-<p>Please refer to <a href="https://docs.mongodb.com/v4.2/tutorial/install-mongodb-on-red-hat/#configure-selinux">Configure SELinux</a> section of MongoDB Documentation for policy configuration guidelines.</p>
-</div>
-<p>By default, Percona Server for MongoDB stores data files in <code>/var/lib/mongodb/</code>
-and configuration parameters in <code>/etc/mongod.conf</code>.</p>
-<p><strong>Starting the service</strong></p>
-<p>Percona Server for MongoDB is not started automatically after installation.
-Start it manually using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
-</code></pre></div>
-<p><strong>Confirming that service is running</strong></p>
-<p>Check the service status using the following command: <code>service mongod status</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
-</code></pre></div>
-<p><strong>Stopping the service</strong></p>
-<p>Stop the service using the following command: <code>service mongod stop</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
-</code></pre></div>
-<p><strong>Restarting the service</strong></p>
-<p>Restart the service using the following command: <code>service mongod restart</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
-</code></pre></div>
-<h3 id="run-after-reboot">Run after reboot<a class="headerlink" href="#run-after-reboot" title="Permanent link">&para;</a></h3>
-<p>The <code>mongod</code> service is not automatically started
-after you reboot the system.</p>
-<p>For RHEL or CentOS versions 5 and 6, you can use the <code>chkconfig</code> utility
-to enable auto-start as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chkconfig<span class="w"> </span>--add<span class="w"> </span>mongod
-</code></pre></div>
-<p>For RHEL or CentOS version 7, you can use the <code>systemctl</code> utility:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mongod
-</code></pre></div>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>We support only the current stable RHEL 6 and CentOS 6 releases, because there is no official (i.e. RedHat provided) method to support or download the latest OpenSSL on RHEL and CentOS versions prior to 6.5. Similarly, and also as a result thereof, there is no official Percona way to support the latest Percona Server builds on RHEL and CentOS versions prior to 6.5. Additionally, many users will need to upgrade to OpenSSL 1.0.1g or later (due to the <a href="http://www.percona.com/resources/ceo-customer-advisory-heartbleed">Heartbleed vulnerability</a>), and this OpenSSL version is not available for download from any official RHEL and CentOS repositories for versions 6.4 and prior. For any officially unsupported system, src.rpm packages can be used to rebuild Percona Server for any environment. Please contact our <a href="http://www.percona.com/products/mysql-support">support service</a> if you require further information on this.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1852,14 +1699,7 @@ to enable auto-start as follows:</p>
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1980,7 +1820,7 @@ to enable auto-start as follows:</p>
     
     
               
-      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       

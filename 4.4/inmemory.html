@@ -24,7 +24,7 @@
         <link rel="next" href="hot-backup.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1535,7 +1535,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/inmemory.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/inmemory.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1775,240 +1775,10 @@ replica set member, or from imported backup dump.</p>
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/inmemory.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/inmemory.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="percona-memory-engine">Percona Memory Engine<a class="headerlink" href="#percona-memory-engine" title="Permanent link">&para;</a></h1>
-<p>Percona Memory Engine is a special configuration of <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> that does
-not store user data on disk. Data fully resides in the main memory, making
-processing much faster and smoother. Keep in mind that you need to have enough
-memory to hold the data set, and ensure that the server does not shut down.</p>
-<p>The Percona Memory Engine is available in Percona Server for MongoDB along with the default MongoDB engine <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a>.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>As of version 3.2, Percona Server for MongoDB runs with <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> by default.  You can select a
-storage engine using the <code>--storageEngine</code> command-line option when you start
-<code>mongod</code>.  Alternatively, you can set the <code>storage.engine</code> variable in the
-configuration file (by default, <code>/etc/mongod.conf</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;dataDir&gt;</span>
-<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span>
-</code></pre></div>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>You can configure Percona Memory Engine using either command-line options or
-corresponding parameters in the <code>/etc/mongod.conf</code> file. The following are the configuration examples:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Configuration file</label><label for="__tabbed_1_2">Command line</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>The configuration file is formatted in YAML</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span>
-<span class="w">  </span><span class="nt">inMemory</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">engineConfig</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">inMemorySizeGB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">140</span>
-<span class="w">      </span><span class="nt">statisticsLogDelaySecs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>Setting parameters in the configuration file is the same as
- starting the <code>mongod</code> daemon with the following options:</p>
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--storageEngine<span class="o">=</span>inMemory<span class="w"> </span><span class="se">\</span>
---inMemorySizeGB<span class="o">=</span><span class="m">140</span><span class="w"> </span><span class="se">\</span>
---inMemoryStatisticsLogDelaySecs<span class="o">=</span><span class="m">0</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
-<p>The following options are available (with corresponding YAML configuration file
-parameters):</p>
-<table>
-<thead>
-<tr>
-<th>Command line</th>
-<th>Configuration file</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>--inMemorySizeGB()</code></td>
-<td><code>storage.inMemory.engineConfig.inMemorySizeGB</code></td>
-<td>50% of total memory minus 1024 MB, but not less than 256 MB</td>
-<td>Specifies the maximum memory in gigabytes to use for data</td>
-</tr>
-<tr>
-<td><code>--inMemoryStatisticsLogDelaySecs()</code></td>
-<td><code>storage.inMemory.engineConfig.statisticsLogDelaySecs</code></td>
-<td>0</td>
-<td>Specifies the number of seconds between writes to statistics log.  If 0 is specified then statistics are not logged</td>
-</tr>
-</tbody>
-</table>
-<h2 id="switching-storage-engines">Switching storage engines<a class="headerlink" href="#switching-storage-engines" title="Permanent link">&para;</a></h2>
-<h3 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">&para;</a></h3>
-<p>If you have data files in your database and want to change to Percona Memory Engine, consider the following:</p>
-<ul>
-<li>
-<p>Data files created by one storage engine are not compatible with other engines, because each one has its own data model.</p>
-</li>
-<li>
-<p>When changing the storage engine, the <code>mongod</code> node requires an empty <code>dbPath</code> data directory when it is restarted. Though Percona Memory Engine stores all data in memory, some metadata files, diagnostics logs and statistics metrics are still written to disk. This is controlled with the <code>--inMemoryStatisticsLogDelaySecs</code> option.</p>
-</li>
-</ul>
-<p>Creating a new <code>dbPath</code> data directory for a different storage engine is the simplest solution. Yet when you switch between disk-using storage engines (e.g. from <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> to Percona Memory Engine), you may have to delete the old data if there is not enough disk space for both. Double-check that your backups are solid and/or the replica set nodes are healthy before you switch to the new storage engine.</p>
-<h3 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h3>
-<p>To change a storage engine, you have the following options:</p>
-<h4 id="temporarily-test-percona-memory-engine">Temporarily test Percona Memory Engine<a class="headerlink" href="#temporarily-test-percona-memory-engine" title="Permanent link">&para;</a></h4>
-<p>Set a different data directory for the <code>dbPath</code> variable in the configuration file. Make sure that the user running <code>mongod</code> has read and write permissions for the new data directory.</p>
-<ol>
-<li>
-<p>Stop <code>mongod</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>stop
-</code></pre></div>
-</li>
-<li>
-<p>Edit the configuration file</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;newDataDir&gt;</span>
-<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inmemory</span>
-</code></pre></div>
-</li>
-<li>
-<p>Start <code>mongod</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>start
-</code></pre></div>
-</li>
-</ol>
-<h4 id="permanent-switch-to-percona-memory-engine-without-any-valuable-data-in-your-database">Permanent switch to Percona Memory Engine without any valuable data in your database<a class="headerlink" href="#permanent-switch-to-percona-memory-engine-without-any-valuable-data-in-your-database" title="Permanent link">&para;</a></h4>
-<p>Clean out the <code>dbPath</code> data directory (by default, <code>/var/lib/mongodb</code>) and edit the configuration file:</p>
-<ol>
-<li>
-<p>Stop <code>mongod</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>stop
-</code></pre></div>
-</li>
-<li>
-<p>Clean out the <code>dbPath</code> data directory</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
-</code></pre></div>
-</li>
-<li>
-<p>Edit the configuration file</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;newDataDir&gt;</span>
-<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inmemory</span>
-</code></pre></div>
-</li>
-<li>
-<p>Start <code>mongod</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>start
-</code></pre></div>
-</li>
-</ol>
-<h4 id="switch-to-percona-memory-engine-with-data-migration-and-compatibility">Switch to Percona Memory Engine with data migration and compatibility<a class="headerlink" href="#switch-to-percona-memory-engine-with-data-migration-and-compatibility" title="Permanent link">&para;</a></h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Standalone instance</label><label for="__tabbed_2_2">Replica set</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>For a standalone instance or a single-node replica set, use the <code>mongodump</code> and <code>mongorestore</code> utilities:</p>
-<ol>
-<li>
-<p>Export the dataDir contents</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongodump<span class="w"> </span>--out<span class="w"> </span>&lt;dumpDir&gt;
-</code></pre></div>
-</li>
-<li>
-<p>Stop <code>mongod</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>stop
-</code></pre></div>
-</li>
-<li>
-<p>Clean out the <code>dbPath</code> data directory</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
-</code></pre></div>
-</li>
-<li>
-<p>Update the configuration file by setting the new
-value for the <code>storage.engine</code> variable. Set the engine-specific settings such as <code>storage.inMemory.engineConfig.inMemorySizeGB</code></p>
-</li>
-<li>
-<p>Start <code>mongod</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>start
-</code></pre></div>
-</li>
-<li>
-<p>Restore the database</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongorestore<span class="w"> </span>&lt;dumpDir&gt;
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<p>Use the “rolling restart” process.</p>
-<ol>
-<li>
-<p>Switch to the Percona Memory Engine on the secondary node. Clean out the <code>dbPath</code> data directory and edit the configuration file:</p>
-</li>
-<li>
-<p>Stop <code>mongod</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>stop
-</code></pre></div>
-</li>
-<li>
-<p>Clean out the <code>dbPath</code> data directory</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
-</code></pre></div>
-</li>
-<li>
-<p>Edit the configuration file</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;newDataDir&gt;</span>
-<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inmemory</span>
-</code></pre></div>
-</li>
-<li>
-<p>Start <code>mongod</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>start
-</code></pre></div>
-</li>
-<li>
-<p>Wait for the node to rejoin with the other nodes and report the SECONDARY status.</p>
-</li>
-<li>
-<p>Repeat the procedure to switch the remaining nodes to Percona Memory Engine.</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<h3 id="data-at-rest-encryption">Data at Rest Encryption<a class="headerlink" href="#data-at-rest-encryption" title="Permanent link">&para;</a></h3>
-<p>Using <a href="data-at-rest-encryption.html#psmdb-data-at-rest-encryption">Data at Rest Encryption</a> means using the same <code>storage.\*</code>
-configuration options as for <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a>. To change from normal to <a href="data-at-rest-encryption.html#psmdb-data-at-rest-encryption">Data at Rest Encryption</a>
-mode or backward, you must clean up the <code>dbPath</code> data directory,
-just as if you change the storage engine. This is because
-<strong>mongod</strong> cannot convert the data files to an encrypted format ‘in place’. It
-must get the document data again either via the initial sync from another
-replica set member, or from imported backup dump.</p>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -2022,14 +1792,7 @@ replica set member, or from imported backup dump.</p>
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -2150,7 +1913,7 @@ replica set member, or from imported backup dump.</p>
     
     
               
-      <script src="assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="js/version-select.js"></script>
       

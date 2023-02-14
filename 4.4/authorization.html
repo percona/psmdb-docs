@@ -24,7 +24,7 @@
         <link rel="next" href="ldap-setup.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1523,7 +1523,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/authorization.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/authorization.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1652,129 +1652,10 @@
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/authorization.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/authorization.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="ldap-authorization">LDAP authorization<a class="headerlink" href="#ldap-authorization" title="Permanent link">&para;</a></h1>
-<p>LDAP authorization allows you to control user access and operations in your database environment using the centralized user management storage – an LDAP server. You create and manage user credentials and permission information in the LDAP server. In addition, you create roles in the <code>admin</code> database with the names that exactly match the LDAP group Distinguished Name. These roles define what privileges the users who belong to the corresponding LDAP group.</p>
-<h2 id="supported-authentication-mechanisms">Supported authentication mechanisms<a class="headerlink" href="#supported-authentication-mechanisms" title="Permanent link">&para;</a></h2>
-<p>LDAP authorization is compatible with the following authentication mechanisms:</p>
-<ul>
-<li>
-<p><a href="authentication.html#x509-certificate-authentication">x.509 certificate authentication</a></p>
-</li>
-<li>
-<p><a href="authentication.html#kerberos-authentication">Kerberos Authentication</a></p>
-</li>
-<li>
-<p><a href="#authentication-and-authorization-with-direct-binding-to-ldap">Authentication and authorization with direct binding to LDAP</a></p>
-</li>
-</ul>
-<h2 id="authentication-and-authorization-with-direct-binding-to-ldap">Authentication and authorization with direct binding to LDAP<a class="headerlink" href="#authentication-and-authorization-with-direct-binding-to-ldap" title="Permanent link">&para;</a></h2>
-<p>Starting with release 4.2.5-5, you can configure Percona Server for MongoDB to communicate with the LDAP server directly to authenticate and also authorize users.</p>
-<p>The advantage of using this mechanism is that it is easy to setup and does not require pre-creating users  in the dummy <code>$external</code> db. Nevertheless, the <code>--authenticationDatabase</code> connection argument will still need to be specified as <code>$external</code>.</p>
-<p>The following example illustrates the connection to Percona Server for MongoDB from the <code>mongo</code> shell:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongo<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;CN=alice,CN=Users,DC=engineering,DC=example,DC=com&quot;</span><span class="w"> </span>-p<span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN
-</code></pre></div>
-<p>The following diagram illustrates the authentication and authorization flow:</p>
-<p><img alt="image" src="_images/NativeLDAP-auth.png" /></p>
-<ol>
-<li>
-<p>A user connects to the db providing their credentials</p>
-</li>
-<li>
-<p>If required, Percona Server for MongoDB <a href="#username-transformation">transforms the username</a> to match the user in the LDAP server according to the mapping rules specified for the <code>--ldapUserToDNMapping</code> parameter.</p>
-</li>
-<li>
-<p>Percona Server for MongoDB queries the LDAP server for the user identity and /or the LDAP groups this user belongs to.</p>
-</li>
-<li>
-<p>The LDAP server evaluates the query and if a user exists, returns their LDAP groups.</p>
-</li>
-<li>
-<p>Percona Server for MongoDB authorizes the user by mapping the DN of the returned groups against the roles assigned to the user in the <code>admin</code> database.  If a user belongs to several groups they receive permissions associated with every group.</p>
-</li>
-</ol>
-<h3 id="username-transformation">Username transformation<a class="headerlink" href="#username-transformation" title="Permanent link">&para;</a></h3>
-<p>If clients connect to Percona Server for MongoDB with usernames that are not LDAP , these usernames must be converted to the format acceptable by LDAP.</p>
-<p>To achieve this,  the <code>--ldapUserToDNMapping</code> parameter is available in Percona Server for MongoDB configuration.</p>
-<p>The <code>--ldapUserToDNMapping</code> parameter is a JSON string representing an ordered array of rules expressed as JSON documents. Each document provides a regex pattern (<code>match</code> field) to match against a provided username. If that pattern matches, there are two ways to continue:</p>
-<ul>
-<li>
-<p>If there is the <code>substitution</code> value, then the matched pattern becomes the username of the user for further processing.</p>
-</li>
-<li>
-<p>If there is the <code>ldapQuery</code> value, the matched pattern is sent to the LDAP server and the result of that LDAP query becomes the  of the user for further processing.</p>
-</li>
-</ul>
-<p>Both <code>substitution</code> and <code>ldapQuery</code> should contain placeholders to insert parts of the original username – those placeholders are replaced with regular expression submatches found on the <code>match</code> stage.</p>
-<p>So having an array of documents, Percona Server for MongoDB tries to match each document against the provided name and if it matches, the name is replaced either with the substitution string or with the result of the LDAP query.</p>
-<h3 id="ldap-referrals">LDAP referrals<a class="headerlink" href="#ldap-referrals" title="Permanent link">&para;</a></h3>
-<p>As of version 4.4.2-4, Percona Server for MongoDB supports LDAP referrals as defined in <a href="https://www.rfc-editor.org/rfc/rfc4511.txt">RFC 4511 4.1.10</a>. For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.</p>
-<p>To enable LDAP referrals, set the <code>ldapFollowReferrals</code> server parameter to <code>true</code> using the <a href="set-parameter.html">setParameter</a> command or by editing the configuration file.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">ldapFollowReferrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div>
-<h3 id="connection-pool">Connection pool<a class="headerlink" href="#connection-pool" title="Permanent link">&para;</a></h3>
-<p>As of version 4.4.2-4, Percona Server for MongoDB always uses a connection pool to LDAP server to process bind requests. The connection pool is enabled by default. The default connection pool size is 2 connections.</p>
-<p>You can change the connection pool size either at the server startup or dynamically by specifying the value for the <code>ldapConnectionPoolSizePerHost</code> server parameter.</p>
-<p>For example, to set the number of connections in the pool to 5, use the <a href="set-parameter.html">setParameter</a> command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Command line</label><label for="__tabbed_1_2">Configuration file</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapConnectionPoolSizePerHost</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">ldapConnectionPoolSizePerHost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h3 id="support-for-multiple-ldap-servers">Support for multiple LDAP servers<a class="headerlink" href="#support-for-multiple-ldap-servers" title="Permanent link">&para;</a></h3>
-<p>As of version 4.4.3-5, you can specify multiple LDAP servers for failover. Percona Server for MongoDB sends bind requests to the first server defined in the list. When this server is down or unavailable, it sends requests to the next server  and so on. Note that Percona Server for MongoDB keeps sending requests to this server even after the unavailable server recovers.</p>
-<p>Specify the LDAP servers as a comma-separated list in the format <code>&lt;host&gt;:&lt;port&gt;</code> for the <a href="https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-ldapservers">–ldapServers</a> option.</p>
-<p>You can define the option value at the server startup by editing the configuration file.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;enabled&quot;</span>
-<span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap1.example.net,ldap2.example.net&quot;</span>
-</code></pre></div>
-<p>You can change <code>ldapServers</code> dynamically at runtime using the <a href="set-parameter.html">setParameter</a>.</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code>&gt; db.adminCommand( { setParameter: 1, ldapServers:&quot;localhost,ldap1.example.net,ldap2.example.net&quot;} )
-{ &quot;was&quot; : &quot;ldap1.example.net,ldap2.example.net&quot;, &quot;ok&quot; : 1 }
-</code></pre></div>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p>MongoDB Documentation:</p>
-<ul>
-<li><a href="https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/">Authenticate and Authorize Users Using Active Directory via Native LDAP</a></li>
-<li><a href="https://ldapwiki.com/wiki/LDAP%20Referral">LDAP referrals</a></li>
-</ul>
-</div>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>For how to configure LDAP authorization with the native LDAP authentication, see <a href="ldap-setup.html">Setting up LDAP authentication and authorization using NativeLDAP</a>.</p>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1788,14 +1669,7 @@
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1916,7 +1790,7 @@
     
     
               
-      <script src="assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="js/version-select.js"></script>
       

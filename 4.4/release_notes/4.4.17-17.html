@@ -24,7 +24,7 @@
         <link rel="next" href="4.4.16-16.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1467,7 +1467,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/release_notes/4.4.17-17.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.17-17.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1572,105 +1572,10 @@ It supports MongoDB 4.4.17 protocols and drivers.</p>
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.17-17.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/release_notes/4.4.17-17.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="percona-server-for-mongodb-4417-17-2022-11-10">Percona Server for MongoDB 4.4.17-17 (2022-11-10)<a class="headerlink" href="#percona-server-for-mongodb-4417-17-2022-11-10" title="Permanent link">&para;</a></h1>
-<table>
-<thead>
-<tr>
-<th><strong>Release date</strong></th>
-<th>November 10, 2022</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Installation</strong></td>
-<td><a href="../install/index.html">Installing Percona Server for MongoDB</a></td>
-</tr>
-</tbody>
-</table>
-<p>Percona Server for MongoDB 4.4.17-17 is an enhanced, source available, and highly-scalable database that is a
-fully-compatible, drop-in replacement for MongoDB 4.4.17 Community Edition.
-It supports MongoDB 4.4.17 protocols and drivers.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><a href="../kmip.html#kmip">Data-at-rest encryption using the Key Management Interoperability Protocol (KMIP)</a> is generally available enabling you to use it in your production environment</p>
-</li>
-<li>
-<p><a href="../backup-cursor.html#backup-cursor">$backupCursor and $backupCursorExtend aggregation stages</a> functionality is generally available, enabling your application developers to use it for building custom backup solutions.</p>
-</li>
-</ul>
-<p><strong>NOTE</strong>: Percona provides <a href="https://docs.percona.com/percona-backup-mongodb/index.html">Percona Backup for MongoDB</a> - the open source tool for consistent backups and restores in MongoDB sharded clusters.</p>
-<ul>
-<li>Fixed security vulnerability <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3602">CVE-2022-3602</a> for Percona Server for MongoDB 4.4.15-15 and higher installed from tarballs on Ubuntu 22.04.</li>
-</ul>
-<p>The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:</p>
-<ul>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-68925">SERVER-68925</a> - Detect and resolve table logging inconsistencies for WiredTiger tables at startup</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-56127">SERVER-56127</a> - Fixed retryable writes on update and delete commands to not execute more than once if chunk is migrated and shard key pattern uses nested fields</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-64142">SERVER-64142</a> - Verify that any unique indexes are prefixed by the new shard key pattern</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-65382">SERVER-65382</a> - Prevent the use of <code>clientReadable</code> function in <code>AutoSplitVector</code> when reordering shard key fields</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/WT-9870">WT-9870</a> - Fixed the global time window state before performing the rollback to stable operation by updating the pinned timestamp as part of the transaction setup.</p>
-</li>
-</ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/v4.4/release-notes/4.4/#4.4.17---sep-28--2022">MongoDB 4.4.17 Community Edition release notes</a></p>
-<h2 id="new-features">New Features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://jira.percona.com/browse/PSMDB-776">PSMDB-776</a>: Align Docker container with upstream by adding missing <code>mongodb-tools</code> utilities (Thanks to Denys Holius for reporting this issue)</li>
-</ul>
-<h2 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://jira.percona.com/browse/PSMDB-1116">PSMDB-1116</a>: Use proper exit code and logging severity for successful master key rotation</li>
-</ul>
-<h2 id="bugs-fixed">Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-1172">PSMDB-1172</a>: Fixed CVE-2022-3602 by updating libssl for Ubuntu 22.04 tarball</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-1134">PSMDB-1134</a>: Prevent the server crash by ensuring the backup cursor is closed before the server shutdown</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-1130">PSMDB-1130</a>: Improve handling of the missing encryption key during KMIP key rotation</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-1129">PSMDB-1129</a>: Prevent Percona Server for MongoDB from starting if the configured encryption key doesn’t match the one used for data encryption</p>
-</li>
-<li>
-<p><a href="https://jira.percona.com/browse/PSMDB-1082">PSMDB-1082</a>: Improve error handling for Percona Server for MongoDB when the wrong encryption key is used</p>
-</li>
-</ul>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1684,14 +1589,7 @@ It supports MongoDB 4.4.17 protocols and drivers.</p>
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1812,7 +1710,7 @@ It supports MongoDB 4.4.17 protocols and drivers.</p>
     
     
               
-      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       

@@ -24,7 +24,7 @@
         <link rel="next" href="log-redaction.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1453,7 +1453,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/rate-limit.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/rate-limit.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1607,154 +1607,10 @@ and the current rate limit value for <em>fast</em> queries.</p>
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/rate-limit.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/rate-limit.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="profiling-rate-limit">Profiling rate limit<a class="headerlink" href="#profiling-rate-limit" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB can limit the number of queries collected by the database profiler
-to decrease its impact on performance.
-Rate limit is an integer between 1 and 1000
-and represents the fraction of queries to be profiled.
-For example, if you set it to 20, then every 20<sup>th</sup> query will be logged.
-For compatibility reasons, rate limit of 0 is the same as setting it to 1,
-and will effectively disable the feature
-meaning that every query will be profiled.</p>
-<p>The MongoDB database profiler can operate in one of three modes:</p>
-<ul>
-<li>
-<p><code>0</code>: Profiling is disabled. This is the default setting.</p>
-</li>
-<li>
-<p><code>1</code>: The profiler collects data only for <em>slow</em> queries.
-By default, queries that take more than 100 milliseconds to execute
-are considered <em>slow</em>.</p>
-</li>
-<li>
-<p><code>2</code>: Collects profiling data for all database operations.</p>
-</li>
-</ul>
-<p>Mode <code>1</code> ignores all <em>fast</em> queries,
-which may be the cause of problems that you are trying to find.
-Mode <code>2</code> provides a comprehensive picture of database performance,
-but may introduce unnecessary overhead.</p>
-<p>With rate limiting you can collect profiling data for all database operations
-and reduce overhead by sampling queries.
-Slow queries ignore rate limiting and are always collected by the profiler.</p>
-<h2 id="comparing-to-the-samplerate-option">Comparing to the <code>sampleRate</code> option<a class="headerlink" href="#comparing-to-the-samplerate-option" title="Permanent link">&para;</a></h2>
-<p>The <code>sampleRate</code> option (= <a href="https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-slowopsamplerate">slowOpSampleRate</a> config file option) is a similar
-concept to <code>rateLimit</code>. But it works at different profile level, completely
-ignores operations faster than <code>slowOpsThresholdMs</code> (a.k.a. <code>slowMs</code>), and affects the
-log file printing, too.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>sampleRate</th>
-<th>rateLimit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Affects profiling level 1</td>
-<td>yes</td>
-<td>no</td>
-</tr>
-<tr>
-<td>Affects profiling level 2</td>
-<td>no</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>Discards/filters slow ops</td>
-<td>yes</td>
-<td>no</td>
-</tr>
-<tr>
-<td>Discards/filters fast ops</td>
-<td>no</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>Affects log file</td>
-<td>yes</td>
-<td>no</td>
-</tr>
-<tr>
-<td>Example value of option</td>
-<td>0.02</td>
-<td>50</td>
-</tr>
-</tbody>
-</table>
-<p><code>rateLimit</code> is a better way to have continuous profiling for monitoring or live
-analysis purposes. <code>sampleRate</code> requires setting slowOpsThresholdMs to zero if
-you want to sample all types of operations. <code>sampleRate</code> has an effect on the log file which may either decrease or increase the log volume.</p>
-<h2 id="enabling-the-rate-limit">Enabling the rate limit<a class="headerlink" href="#enabling-the-rate-limit" title="Permanent link">&para;</a></h2>
-<p>To enable rate limiting, set the profiler mode to <code>2</code>
-and specify the value of the rate limit.
-Optionally, you can also change the default threshold for slow queries,
-which will not be sampled by rate limiting.</p>
-<p>For example, to set the rate limit to <code>100</code>
-(profile every 100<sup>th</sup> <em>fast</em> query)
-and the slow query threshold to <code>200</code>
-(profile all queries slower than 200 milliseconds),
-run the <code>mongod</code> instance as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span>--profile<span class="w"> </span><span class="m">2</span><span class="w"> </span>--slowms<span class="w"> </span><span class="m">200</span><span class="w"> </span>--rateLimit<span class="w"> </span><span class="m">100</span>
-</code></pre></div>
-<p>To do the same at runtime, use the <code>profile</code> command.
-It returns the <em>previous</em> settings
-and <code>"ok" : 1</code> indicates that the operation was successful:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">profile</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">slowms</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">ratelimit</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">&quot;was&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;slowms&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ratelimit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<p>To check the current settings, run <code>profile: -1</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">profile</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">&quot;was&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;slowms&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ratelimit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<p>If you want to set or get just the rate limit value,
-use the <code>profilingRateLimit</code> parameter on the <code>admin</code> database:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">).</span><span class="nx">runCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;profilingRateLimit&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">&quot;was&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">).</span><span class="nx">runCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;profilingRateLimit&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">&quot;profilingRateLimit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<p>If you want rate limiting to persist when you restart <code>mongod</code>,
-set the corresponding variables in the MongoDB configuration file
-(by default, <code>/etc/mongod.conf</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="nt">operationProfiling</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
-<span class="w">  </span><span class="nt">slowOpThresholdMs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
-<span class="w">  </span><span class="nt">rateLimit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The value of the <code>operationProfiling.mode</code> variable is a string, which you can set to either <code>off</code>, <code>slowOp</code>, or <code>all</code>, corresponding to profiling modes <code>0</code>, <code>1</code>, and <code>2</code>.</p>
-</div>
-<h2 id="profiler-collection-extension">Profiler collection extension<a class="headerlink" href="#profiler-collection-extension" title="Permanent link">&para;</a></h2>
-<p>Each document in the <code>system.profile</code> collection
-includes an additional <code>rateLimit</code> field.
-This field always has the value of <code>1</code> for <em>slow</em> queries
-and the current rate limit value for <em>fast</em> queries.</p>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1768,14 +1624,7 @@ and the current rate limit value for <em>fast</em> queries.</p>
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1896,7 +1745,7 @@ and the current rate limit value for <em>fast</em> queries.</p>
     
     
               
-      <script src="assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="js/version-select.js"></script>
       

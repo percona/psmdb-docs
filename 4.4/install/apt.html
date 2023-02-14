@@ -24,7 +24,7 @@
         <link rel="next" href="yum.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1493,7 +1493,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/install/apt.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/install/apt.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1644,151 +1644,10 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/install/apt.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/install/apt.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="install-percona-server-for-mongodb-on-debian-and-ubuntu">Install Percona Server for MongoDB on Debian and Ubuntu<a class="headerlink" href="#install-percona-server-for-mongodb-on-debian-and-ubuntu" title="Permanent link">&para;</a></h1>
-<p>This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Percona Server for MongoDB should work on other DEB-based distributions,
-but it is tested only on platforms listed on the <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">Percona Software and Platform Lifecycle</a> page.</p>
-</div>
-<h2 id="package-contents">Package Contents<a class="headerlink" href="#package-contents" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Package</th>
-<th>Contains</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>percona-server-mongodb</code></td>
-<td>The <code>mongo</code> shell, import/export tools, other client utilities, server software, default configuration, and <code>init.d</code> scripts.</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-server</code></td>
-<td>The mongod<code>server, default configuration files, and</code>init.d` scripts</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-shell</code></td>
-<td>The <code>mongo</code> shell</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-mongos</code></td>
-<td>The <code>mongos</code> sharded cluster query router</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-tools</code></td>
-<td>Mongo tools for high-performance MongoDB fork from Percona</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-dbg</code></td>
-<td>Debug symbols for the server</td>
-</tr>
-</tbody>
-</table>
-<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
-<h3 id="configure-percona-repository">Configure Percona repository<a class="headerlink" href="#configure-percona-repository" title="Permanent link">&para;</a></h3>
-<p>Percona provides the <a href="https://www.percona.com/doc/percona-repo-config/index.html"><code>percona-release</code></a> configuration tool that simplifies operating repositories and enables to install and update both Percona Backup for MongoDB packages and required dependencies smoothly.</p>
-<ol>
-<li>
-<p>Fetch <strong>percona-release</strong> packages from Percona web:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
-</code></pre></div>
-</li>
-<li>
-<p>Install the downloaded package with <strong>dpkg</strong>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
-</code></pre></div>
-<p>After you install this package, you have the access to Percona repositories. You
-can check the repository setup in the <code>/etc/apt/sources.list.d/percona-release.list</code> file.</p>
-</li>
-<li>
-<p>Enable the repository:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-44<span class="w"> </span>release
-</code></pre></div>
-</li>
-<li>
-<p>Remember to update the local cache:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</code></pre></div>
-</li>
-</ol>
-<h3 id="install-percona-server-for-mongodb">Install Percona Server for MongoDB<a class="headerlink" href="#install-percona-server-for-mongodb" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Install the latest version</label><label for="__tabbed_1_2">Install a specific version</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>Run the following command to install the latest version of Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>To install a specific version of Percona Server for MongoDB, do the following:</p>
-<ol>
-<li>
-<p>List available versions:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-cache<span class="w"> </span>madison<span class="w"> </span>percona-server-mongodb
-</code></pre></div>
-<p>Sample output:</p>
-<div class="no-copy highlight"><pre><span></span><code>percona-server-mongodb | 4.4.17-17.jammy | http://repo.percona.com/psmdb-44/apt jammy/main amd64 Packages
-percona-server-mongodb | 4.4.16-16.jammy | http://repo.percona.com/psmdb-44/apt jammy/main amd64 Packages
-percona-server-mongodb | 4.4.15-15.jammy | http://repo.percona.com/psmdb-44/apt jammy/main amd64 Packages
-percona-server-mongodb |  4.4.17-17 | http://repo.percona.com/psmdb-44/apt jammy/main Sources
-percona-server-mongodb |  4.4.16-16 | http://repo.percona.com/psmdb-44/apt jammy/main Sources
-percona-server-mongodb |  4.4.15-15 | http://repo.percona.com/psmdb-44/apt jammy/main Sources
-</code></pre></div>
-</li>
-<li>
-<p>Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 4.4.15-15, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb<span class="o">=</span><span class="m">4</span>.4.15-15.jammy<span class="w"> </span>percona-server-mongodb-mongos<span class="o">=</span><span class="m">4</span>.4.15-15.jammy<span class="w"> </span>percona-server-mongodb-shell<span class="o">=</span><span class="m">4</span>.4.15-15.jammy<span class="w"> </span>percona-server-mongodb-server<span class="o">=</span><span class="m">4</span>.4.15-15.jammy<span class="w"> </span>percona-server-mongodb-tools<span class="o">=</span><span class="m">4</span>.4.15-15.jammy
-</code></pre></div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<h2 id="run-percona-server-for-mongodb">Run Percona Server for MongoDB<a class="headerlink" href="#run-percona-server-for-mongodb" title="Permanent link">&para;</a></h2>
-<p>By default, Percona Server for MongoDB stores data files in <code>/var/lib/mongodb/</code>
-and configuration parameters in <code>/etc/mongod.conf</code>.</p>
-<p><strong>Starting the service</strong></p>
-<p>Percona Server for MongoDB is started automatically after installation unless it encounters errors during the installation process.</p>
-<p>You can also manually start it using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
-</code></pre></div>
-<p><strong>Confirming that the service is running</strong></p>
-<p>Check the service status using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
-</code></pre></div>
-<p><strong>Stopping the service</strong></p>
-<p>Stop the service using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
-</code></pre></div>
-<p><strong>Restarting the service</strong></p>
-<p>Restart the service using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
-</code></pre></div>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1802,14 +1661,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1930,7 +1782,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
     
     
               
-      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       

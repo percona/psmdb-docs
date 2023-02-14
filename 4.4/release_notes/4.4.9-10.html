@@ -24,7 +24,7 @@
         <link rel="next" href="4.4.8-9.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1439,7 +1439,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/release_notes/4.4.9-10.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.9-10.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1518,79 +1518,10 @@ Requires the <a href="https://docs.mongodb.com/manual/reference/command/validate
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.9-10.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/release_notes/4.4.9-10.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="percona-server-for-mongodb-449-10-2021-10-07">Percona Server for MongoDB 4.4.9-10 (2021-10-07)<a class="headerlink" href="#percona-server-for-mongodb-449-10-2021-10-07" title="Permanent link">&para;</a></h1>
-<table>
-<thead>
-<tr>
-<th><strong>Release date</strong></th>
-<th>October 7, 2021</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Installation</strong></td>
-<td><a href="../install/index.html">Installing Percona Server for MongoDB</a></td>
-</tr>
-</tbody>
-</table>
-<p>Percona Server for MongoDB 4.4.9-10 is an enhanced, source available, and highly-scalable database that is a
-fully-compatible, drop-in replacement for MongoDB 4.4.9 Community Edition.
-It supports MongoDB 4.4.9 protocols and drivers.</p>
-<p><strong>WARNING</strong>: Beginning with MongoDB 4.4.2, several data impacting or corrupting bugs were introduced. Details are listed below.</p>
-<p>These bugs are fixed in MongoDB 4.4.9. Percona Server for MongoDB 4.4.9-10 includes the upstream fixes of these bugs.</p>
-<p>Please upgrade to MongoDB 4.4.9 or Percona Server for MongoDB 4.4.9-10  as soon as possible.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<p>The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:</p>
-<ul>
-<li>
-<p><a href="https://jira.mongodb.org/browse/WT-7426">WT-7426</a> - After upgrade to v4.4.5, startups or restarts can trigger WiredTigers RTS bug which can corrupt page metadata causing documents on affected pages to become invisible to MongoDB. This can lead to temporary query incorrectness, or more likely a fatal error and inability to restart. Affects only MongoDB 4.4.5 and Percona Server for MongoDB 4.4.5-7.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-58936">SERVER-58936</a> - Unique Index constraint violations possible - can cause duplicate data - fixed in version 4.4.8.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/WT-7995">WT-7995</a> - Checkpoint thread can read and persist inconsistent version of data to disk. Can cause Duplicate Key error on startup and prevent the node from starting. Unclean shutdowns can cause data inconsistency within documents, deleted documents to still exist, incomplete query results due to lost or inaccurate index entries, and/or missing documents. Affects MongoDB versions 4.4.2 through 4.4.8 and Percona Server for MongoDB 4.4.2-4 - 4.4.8-9 as well as MongoDB 5.0.0 through 5.0.2. Upgrade to fixed version of MongoDB 4.4.9 / Percona Server for MongoDB 4.4.9-10 as soon as possible.</p>
-</li>
-<li>
-<p>WT-7984 and associated Server Bug SERVER-60371.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/WT-7984">WT-7984</a> - Bug that could cause Checkpoint thread to omit a page of data. If the server experiences an unclean shutdown, an inconsistent checkpoint is used for recovery and causes data corruption. Fixed in version 4.4.9.
-Requires the <a href="https://docs.mongodb.com/manual/reference/command/validate/">validate</a>  command to be run and possible data remediation via complete initial sync.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-60371">SERVER-60371</a> - If previously upgraded to version 4.4.8 then upgrade to 4.4.9, could still experience Duplicate Key error and Fatal assertion. Related to the two previous WiredTiger bugs.</p>
-</li>
-</ul>
-<p>Requires the <a href="https://docs.mongodb.com/manual/reference/command/validate/">validate</a> command to be run and possible data remediation via complete initial sync. Currently under review.</p>
-<p>Find the full list of changes in the <a href="https://docs.mongodb.com/manual/release-notes/4.4/#4.4.9---sep-21--2021">MongoDB 4.4.9 Community Edition release notes</a>.</p>
-<h2 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://jira.percona.com/browse/PSMDB-918">PSMDB-918</a>: Disable the ability to delete the mongod user in RPM packages - This preserves the permissions to the MongoDB data directory for the <code>mongod</code> user as its user ID and group ID remain unchanged.</li>
-</ul>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1604,14 +1535,7 @@ Requires the <a href="https://docs.mongodb.com/manual/reference/command/validate
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1732,7 +1656,7 @@ Requires the <a href="https://docs.mongodb.com/manual/reference/command/validate
     
     
               
-      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       

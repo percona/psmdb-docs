@@ -24,7 +24,7 @@
         <link rel="next" href="install/index.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1423,7 +1423,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/comparison.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/comparison.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1517,94 +1517,10 @@
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/comparison.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/comparison.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="percona-server-for-mongodb-feature-comparison">Percona Server for MongoDB feature comparison<a class="headerlink" href="#percona-server-for-mongodb-feature-comparison" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB 4.4 is based on <a href="https://docs.mongodb.com/manual/introduction/">MongoDB 4.4</a>. Percona Server for MongoDB extends MongoDB Community Edition to include the functionality that is otherwise only available in MongoDB Enterprise Edition.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>PSMDB</th>
-<th>MongoDB</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Storage Engines</strong></td>
-<td>- <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> (default) <br> - <a href="inmemory.html">Percona Memory Engine</a></td>
-<td>- <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> (default) <br>- <a href="https://docs.mongodb.com/v4.2/core/inmemory/">In-Memory</a> (Enterprise only)</td>
-</tr>
-<tr>
-<td><strong>Encryption-at-Rest</strong></td>
-<td>- Key servers = <a href="vault.html">Hashicorp Vault</a>, <a href="kmip.html">KMIP</a> <br> - Fully open source</td>
-<td>- Key server = KMIP <br> - Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Hot Backup</strong></td>
-<td><a href="hot-backup.html">YES</a> (replica set)</td>
-<td>NO</td>
-</tr>
-<tr>
-<td><strong>LDAP Authentication</strong></td>
-<td>(legacy) <a href="authentication.html">LDAP authentication with SASL</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>LDAP Authorization</strong></td>
-<td><a href="authorization.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Kerberos Authentication</strong></td>
-<td><a href="authentication.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Audit Logging</strong></td>
-<td><a href="audit-logging.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Log redaction</strong></td>
-<td><a href="log-redaction.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>SNMP Monitoring</strong></td>
-<td>NO</td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Database profiler</strong></td>
-<td><a href="rate-limit.html">YES</a> with the <a href="#profiling-rate-limiting"><code>--rateLimit</code></a> argument</td>
-<td>YES</td>
-</tr>
-</tbody>
-</table>
-<h2 id="profiling-rate-limiting">Profiling Rate Limiting<a class="headerlink" href="#profiling-rate-limiting" title="Permanent link">&para;</a></h2>
-<p>Profiling Rate Limiting was added to <em>Percona Server for MongoDB</em> in v3.4 with the <code>--rateLimit</code> argument. Since v3.6, MongoDB Community (and Enterprise) Edition includes a similar option <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate">slowOpSampleRate</a>. Please see <a href="rate-limit.html#rate-limit">Profiling Rate Limit</a> for more information.</p>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1618,14 +1534,7 @@
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1746,7 +1655,7 @@
     
     
               
-      <script src="assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="js/version-select.js"></script>
       

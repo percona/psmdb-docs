@@ -24,7 +24,7 @@
         <link rel="next" href="set-parameter.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
@@ -1425,7 +1425,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/ngram-full-text-search.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/ngram-full-text-search.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1478,53 +1478,10 @@ a collection setting the <code>default_language</code> parameter to <strong>ngra
 </div>
 </div>
 
+                <!-- Last update of source file -->
                 
                   
-
-  
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/ngram-full-text-search.md" title="Edit this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/ngram-full-text-search.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<h1 id="additional-text-search-algorithm-ngram">Additional text search algorithm - ngram<a class="headerlink" href="#additional-text-search-algorithm-ngram" title="Permanent link">&para;</a></h1>
-<p>The <a href="https://en.wikipedia.org/wiki/N-gram">ngram</a> text search algorithm is useful for searching text for a specific string
-of characters in a field of a collection. This feature can be used to find exact sub-string matches, which provides an alternative to parsing text from languages other than the list of European languages already supported by MongoDB Community’s full text search engine. It
-may also turn out to be more convenient when working with the text where symbols
-like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimiters.</p>
-<p>Unlike MongoDB full text search engine, <em>ngram</em> search algorithm uses only the following token delimiter
-characters that do not count as word characters in human languages:</p>
-<ul>
-<li>Horizontal tab</li>
-<li>Vertical tab</li>
-<li>Line feed</li>
-<li>Carriage return</li>
-<li>Space</li>
-</ul>
-<p>The <em>ngram</em> text search is slower than MongoDB full text search.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>To use <em>ngram</em>, create a text index on
-a collection setting the <code>default_language</code> parameter to <strong>ngram</strong>:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span><span class="s2">&quot;text&quot;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">default_language</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ngram&quot;</span><span class="p">})</span>
-</code></pre></div>
-<p><em>ngram</em> search algorithm treats special characters like individual terms. Therefore, you don’t have to enclose the search string in escaped double quotes (<code>\\"</code>) to query the text index. For example, to search for documents that contain the date <code>2021-02-12</code>, specify the following:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">$text</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$search</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2021-02-12&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
-</code></pre></div>
-<p>However, both <em>ngram</em> and MongoDB full text search engine treat words with the hyphen-minus <code>-</code> sign  in front of them as negated (e.g. “-coffee”)  and exclude such words from the search results.</p>
-
-  <hr>
+                    <hr>
 <div class="md-source-file">
   <small>
     
@@ -1538,14 +1495,7 @@ a collection setting the <code>default_language</code> parameter to <strong>ngra
     
   </small>
 </div>
-
-
-  
-
-
-
-
-                
+                  
                 
               
               </article>
@@ -1666,7 +1616,7 @@ a collection setting the <code>default_language</code> parameter to <strong>ngra
     
     
               
-      <script src="assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="js/version-select.js"></script>
       
