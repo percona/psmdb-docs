@@ -17,6 +17,11 @@ with versioning enabled.
 | vaultServerName      | security.vault.serverName | string | The IP address of the Vault server|
 | vaultPort            | security.vault.port       | int    | The port on the Vault server|
 | vaultTokenFile       | security.vault.tokenFile  | string | The path to the vault token file. The token file is used by MongoDB to access HashiCorp Vault. The vault token file consists of the raw vault token and does not include any additional strings or parameters. <br> <br> Example of a vault token file: <br> <br> `s.uTrHtzsZnEE7KyHeA797CkWA`|
+| vaultSecret          | security.vault.secret     | string | The path to the Vault secret. The Vault secret path format must be ```<secrets_engine_mount_path>/data/<custom_path>``` <br> <br> where: <br> - ``<secrets_engine_mount_path>`` is the path to the Key/Value Secrets Engine v2; <br> - ``data`` is the mandatory path prefix required by Version 2 API; <br> - ``<custom_path>`` is the path to the specific secret. <br> <br> Example: `secret_v2/data/psmdb-test/rs1-27017` <br><br> Starting with version [6.0.5-4](release_notes/6.0.5-4.md), a distinct Vault secret path for every replica set member is no longer mandatory. In earlier versions, it is recommended to use different secret paths for every database node in the entire deployment to avoid issues during the master key rotation.|
+| vaultSecretVersion | security.vault.<br>secretVersion | unsigned long | (Optional) The version of the Vault secret to use | 
+| vaultRotateMasterKey | security.vault.<br>rotateMasterKey| switch | When enabled, rotates the master key and exits |
+| vaultServerCAFile    | security.vault.<br>serverCAFile | string | The path to the TLS certificate file |
+| vaultDisableTLSForTesting | security.vault.<br>disableTLSForTesting | switch | Disables secure connection to Vault using SSL/TLS client certificates|
 
 **Config file example**
 
@@ -65,7 +70,7 @@ You have the following options of how to target a particular namespace when conf
 
     * [Secure Multi-Tenancy with Namespaces](https://learn.hashicorp.com/tutorials/vault/namespaces)
 
-## Key Rotation
+## Key rotation
 
 Key rotation is replacing the old master key with a new one. This process helps to comply with regulatory requirements.
 
@@ -85,7 +90,11 @@ Rotating the master key process also re-encrypts the keystore using the new mast
 
 ### Key rotation in replica sets
 
-Every `mongod` node in a replica set must have its own master key. The key rotation steps are the following:
+Starting with version [6.0.5-4](release_notes/6.0.5-4.md), you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The `mongod` server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.  
+
+In versions 6.0.4-3 and earlier, every `mongod` node in a replica set in your entire deployment must have a distinct path to the master keys on a Vault server. 
+
+The key rotation steps are the following:
 
 1. Rotate the master key for the secondary nodes one by one.
 2. Step down the primary and wait for another primary to be elected.
