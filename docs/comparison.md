@@ -7,9 +7,10 @@ Percona Server for MongoDB 4.4 is based on [MongoDB 4.4](https://docs.mongodb.co
 | **Storage Engines**    | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br> - [Percona Memory Engine](inmemory.md) | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br>- [In-Memory](https://docs.mongodb.com/v4.2/core/inmemory/) (Enterprise only)|
 | **Encryption-at-Rest** | - Key servers = [Hashicorp Vault](vault.md), [KMIP](kmip.md) <br> - Fully open source | - Key server = KMIP <br> - Enterprise only |
 | **Hot Backup**         | [YES](hot-backup.md) (replica set) | NO  |
-| **LDAP Authentication**| (legacy) [LDAP authentication with SASL](authentication.md) | Enterprise only |
-| **LDAP Authorization** | [YES](authorization.md)| Enterprise only |
-| **Kerberos Authentication** | [YES](authentication.md)| Enterprise only |
+| **LDAP authentication**| (legacy) [LDAP authentication with SASL](authentication.md) | Enterprise only |
+| **LDAP authorization** | [YES](authorization.md)| Enterprise only |
+| **Kerberos authentication** | [YES](authentication.md)| Enterprise only |
+| **AWS IAM authentication** | [YES](aws-iam.md)   | MongoDB Atlas
 | **Audit Logging**      | [YES](audit-logging.md) | Enterprise only |
 | **Log redaction**      | [YES](log-redaction.md) | Enterprise only |
 | **SNMP Monitoring**    | NO                      | Enterprise only |
