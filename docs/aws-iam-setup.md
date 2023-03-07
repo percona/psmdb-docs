@@ -19,10 +19,10 @@ To configure AWS IAM authentication means to set up your AWS environment and con
 
 The steps are the following:
 
-1. Add records for the IAM user/role in the `$external` database
-2. Enable external authentication
+1. Create records for the IAM user/role in the `$external` database
+2. Enable authentication and specify the authentication mechanism as `MONGODB-AWS`.
 
-### Add IAM users / roles
+### Create IAM users / roles
 
 During the authentication, Percona Server for MongoDB matches the ARN of the IAM user or role retrieved from AWS STS against the user created in the `$external` database. Thus, the username for this user must include their ARN  and have the following format:
 
@@ -64,7 +64,7 @@ Create a user and assign the required roles to them. Specify the ARN and names i
      )
      ```
 
-### Enable external authentication
+### Enable authentication
 
 Run the following commands as root or via `sudo`
 

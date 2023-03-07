@@ -23,7 +23,7 @@ SCRAM is the default authentication mechanism. *Percona Server for MongoDB* veri
 
 This authentication mechanism enables a client to authenticate in Percona Server for MongoDB by providing an x.509 certificate instead of user credentials. Each certificate contains the `subject` field defined in the DN format. In Percona Server for MongoDB, each certificate has a corresponding user record in the `$external` database. When a user connects to the database, Percona Server for MongoDB matches the `subject` value against the usernames defined in the `$external` database.
 
-For production use, we recommend using valid  certificates. For testing purposes, you can generate and use self-signed certificates.
+For production use, we recommend using valid CA certificates. For testing purposes, you can generate and use self-signed certificates.
 
 x.509 authentication is compatible with with [LDAP authorization](authorization.md) to enable you to control user access and operations in Percona Server for MongoDB. For configuration guidelines, refer to [Set up x.509 authentication and LDAP authorization](x509-ldap.md).
 
@@ -113,3 +113,4 @@ Kerberos authentication in *Percona Server for MongoDB* is implemented the same 
 
 
 *[SCRAM]: Salted Challenge Response Authentication Mechanism
+*[CA]: Certified Authority
