@@ -1,8 +1,8 @@
-# Enable authentication
+# Enable SCRAM authentication
 
 By default, Percona Server for MongoDB does not restrict access to data and configuration.
 
-Enabling authentication enforces users to identify themselves when accessing the database. This documents describes how to enable built-in authentication mechanism. *Percona Server for MongoDB* also supports the number of external authentication mechanisms. To learn more, refer to [Authentication](authentication.md#ext-auth).
+Enabling authentication enforces users to identify themselves when accessing the database. This documents describes how to enable built-in [SCRAM](authentication.md#scram) authentication mechanism. *Percona Server for MongoDB* also supports the number of external authentication mechanisms. To learn more, refer to [Authentication](authentication.md#ext-auth).
 
 You can enable authentication either automatically or manually.
 
