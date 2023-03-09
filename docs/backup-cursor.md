@@ -29,16 +29,18 @@ bkCsrMetadata = bkCsr.next().metadata
 Sample output:
 
 ```{.json .no-copy}
-[
-  {
-    metadata: {
-      backupId: UUID("35c34101-0107-44cf-bdec-fad285e07534"),
-      dbpath: '/var/lib/mongodb',
-      oplogStart: { ts: Timestamp({ t: 1666631297, i: 1 }), t: Long("-1") },
-      oplogEnd: { ts: Timestamp({ t: 1666631408, i: 1 }), t: Long("1") },
-      checkpointTimestamp: Timestamp({ t: 1666631348, i: 1 })
-    }
-  },
+{
+  metadata: {
+    backupId: UUID("35c34101-0107-44cf-bdec-fad285e07534"),
+    dbpath: '/var/lib/mongodb',
+    "oplogStart": { ts: Timestamp({ t: 1666631297, i: 1 }), t: Long("-1") },
+    "oplogEnd": { ts: Timestamp({ t: 1666631408, i: 1 }), t: Long("1") },
+    "checkpointTimestamp": Timestamp({ t: 1666631348, i: 1 })
+    "disableIncrementalBackup" : false,
+    "incrementalBackup" : false,
+    "blockSize" : 16
+  }
+},
 ```
 
 Store the `metadata` document somewhere, because you need to pass the `backupId` parameter from this document as the input parameter for the `$backupCursorExtend` stage. Also you need the `oplogEnd` timestamp.
