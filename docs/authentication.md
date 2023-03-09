@@ -35,7 +35,7 @@ x.509 authentication is compatible with with [LDAP authorization](authorization.
 
 ## LDAP authentication with SASL
 
-LDAP authentication with  means that both the client and the server establish a SASL session using the SASL library. Then authentication (bind) requests are sent to the LDAP server through the SASL authentication daemon (`saslauthd`) that acts as a remote proxy for the `mongod` server.
+LDAP authentication with SASL means that both the client and the server establish a SASL session using the SASL library. Then authentication (bind) requests are sent to the LDAP server through the SASL authentication daemon (`saslauthd`) that acts as a remote proxy for the `mongod` server.
 
 The following components are necessary for external authentication to work:
 

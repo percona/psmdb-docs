@@ -8,7 +8,7 @@
 
 IAM (Identity Access Management) is the AWS service that allows you to securely control access to AWS resources. Percona Server for MongoDB supports authentication with AWS IAM enabling you to use the same AWS credentials both for it and other components of your infrastructure. This saves your DBAs from managing different sets of secrets and frees their time on other activities. 
 
-You can configure AWS IAM for a password-less authentication. Instead of username and password, the user or the application presents the secret key and the temporary credentials for authentication. The secret key is not sent to Percona Server for MongoDB thus significantly increasing the security in your infrastructure. For this scenario, configure the AWS instance that you use to support temporary credentials.
+You can configure AWS IAM for a password-less authentication. Instead of username and password, the user or the application presents the AWS security credentials for authentication, but the secret key is not sent to Percona Server for MongoDB. This significantly increases the security in your infrastructure. 
 
 Percona Server for MongoDB supports two authentication types: 
 
@@ -18,18 +18,18 @@ This authentication type is typically used by human operators. Every user accoun
 
 ## Role authentication
 
-This type is typically used for applications / `mongo` clients. The application must be running on AWS services like EC2 instance or ECS (Elastic Container Service) which uses the IAM role assigned to it. This IAM role ARN is used to authenticate the user in Percona Server for MongoDB.  
+This type is typically used for applications / `mongo` clients. For instance, if your application is running on AWS resources like EC2 instance or ECS (Elastic Container Service) which uses the IAM role assigned to it. Another scenario is to allow users to assume the IAM role and in such a way, grant a user the permissions outlined in the IAM role. The ARN of the IAM role is used to authenticate the application in Percona Server for MongoDB.  
 
 For either type of AWS IAM authentication, the flow is the following:
 
 ![image](_images/aws-iam-auth.png)
 
 1. A `mongo` client (a Mongo shell or an application that talks to Percona Server for MongoDB via a driver) gets AWS credentials from either EC2/ECS instance metadata service, environmental variables or MongoDB URI connection string.
-2. The `mongo` client constructs the authentication request which includes the AWS access key ID, token and signature and sends it to Percona Server for MongoDB
+2. The `mongo` client constructs the authentication request which includes the AWS access key ID, token and the signature and sends it to Percona Server for MongoDB
 
     !!! important 
 
-        The `mongo` client never sends the secret access key to Percona Server for MongoDB
+        The `mongo` client never sends the secret access key to Percona Server for MongoDB.
 
 3. Percona Server for MongoDB sends the received credentials to the AWS STS (Security Token Service) for verification
 5. The AWS STS service validates whether the signature is correct and answers with the user / role ARN that created the signature
