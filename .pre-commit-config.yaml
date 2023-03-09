@@ -1,0 +1,7 @@
+repos:
+    - repo: https://github.com/jackdewinter/pymarkdown
+      rev: v0.9.8
+      hooks:
+          - id: pymarkdown
+            files: ^docs/
+            args: [-d MD013]
