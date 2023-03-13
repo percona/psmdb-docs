@@ -1,23 +1,23 @@
 name: Build Percona Server for MongoDB 6.0 docs
 on:
   push:
-    branches: 
+    branches:
       - 6.0
-     
+
 jobs:
   build:
     name: Deploy docs
     runs-on: ubuntu-latest
 
-    steps: 
+    steps:
       #Pull the latest changes
-      - name: Chekout code
-        uses: percona-platform/checkout@v2
+      - name: Checkout code
+        uses: percona-platform/checkout@v3
         with:
           fetch-depth: 0
       #Prepare the env
       - name: Set up Python
-        uses: percona-platform/setup-python@v2
+        uses: percona-platform/setup-python@v3
         with:
           python-version: '3.x'
       
@@ -38,9 +38,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install wheel
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      
 
-     
-     # Deploy docs
+      #Deploy docs
       - name: Deploy docs
         run: |
           mike deploy 6.0 -b publish -p
