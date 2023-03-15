@@ -56,8 +56,7 @@ processManagement:
 
          Output:
 
-<<<<<<< HEAD
-         ```
+         ```{.text .no-copy}
          ii  mongodb-org                      4.4.15                       amd64        MongoDB open source document-oriented database system (metapackage)
          ii  mongodb-org-database             4.4.15                       amd64        MongoDB open source document-oriented database system (metapackage)
          ii  mongodb-org-database-tools-extra 4.4.15                       amd64        Extra MongoDB database tools
@@ -65,16 +64,6 @@ processManagement:
          ii  mongodb-org-server               4.4.15                       amd64        MongoDB database server
          ii  mongodb-org-shell                4.4.15                       amd64        MongoDB shell client
          ii  mongodb-org-tools                4.4.15                       amd64        MongoDB tools
-=======
-         ```{.text .no-copy}
-         ii  mongodb-org            5.0.2    amd64   MongoDB open source document-oriented database system (metapackage)
-         ii  mongodb-org-database   5.0.2    amd64   MongoDB open source document-oriented database system (metapackage)
-         ii  mongodb-org-database-tools-extra 5.0.2   amd64   Extra MongoDB database tools
-         ii  mongodb-org-mongos     5.0.2    amd64   MongoDB sharded cluster query router
-         ii  mongodb-org-server     5.0.2    amd64   MongoDB database server
-         ii  mongodb-org-shell      5.0.2    amd64   MongoDB shell client
-         ii  mongodb-org-tools      5.0.2    amd64   MongoDB tools
->>>>>>> fcedd03... PSMDB-1208 Applied new branding to docs
          ```
 
      3. Remove the installed packages:
@@ -119,18 +108,10 @@ processManagement:
 
          Output:
 
-<<<<<<< HEAD
-         ```
+         ```{.text .no-copy}
          mongodb-org-shell-4.4.15-1.el8.x86_64
          mongodb-org-database-4.4.15-1.el8.x86_64
          mongodb-org-4.4.15-1.el8.x86_64
-=======
-
-         ```{.text .no-copy}
-         mongodb-org-shell-5.0.2-1.el8.x86_64
-         mongodb-org-database-5.0.0-1.el8.x86_64
-         mongodb-org-5.0.0-1.el8.x86_64
->>>>>>> fcedd03... PSMDB-1208 Applied new branding to docs
          mongodb-database-tools-100.4.1-1.x86_64
          mongodb-org-server-4.4.15-1.el8.x86_64
          mongodb-org-mongos-4.4.15-1.el8.x86_64
