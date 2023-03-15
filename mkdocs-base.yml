@@ -3,7 +3,7 @@
 site_name: Percona Server for MongoDB 4.4
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2022
+copyright: Percona LLC, &#169; 2023
 
 repo_name: percona/psmdb-docs
 repo_url: https://github.com/percona/psmdb-docs
@@ -112,7 +112,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-4.4.pdf'
           cover_title: 'Server for MongoDB Documentation 4.4'
-          cover_subtitle: 4.4.18-18 (December 19, 2022)
+          cover_subtitle: 4.4.19-19 (March 20, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -180,6 +180,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - release_notes/index.md
+      - release_notes/4.4.19-19.md
       - release_notes/4.4.18-18.md
       - release_notes/4.4.17-17.md
       - release_notes/4.4.16-16.md
