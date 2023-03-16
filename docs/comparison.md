@@ -10,6 +10,7 @@ Percona Server for MongoDB 5.0 is based on [MongoDB 5.0](https://docs.mongodb.co
 | **LDAP Authentication**| (legacy) [LDAP authentication with SASL](authentication.md) | Enterprise only |
 | **LDAP Authorization** | [YES](authorization.md)| Enterprise only |
 | **Kerberos Authentication** | [YES](authentication.md)| Enterprise only |
+| **AWS IAM authentication** | [YES](aws-iam.md)   | MongoDB Atlas|
 | **Audit Logging**      | [YES](audit-logging.md) | Enterprise only |
 | **Log redaction**      | [YES](log-redaction.md) | Enterprise only |
 | **SNMP Monitoring**    | NO                      | Enterprise only |
