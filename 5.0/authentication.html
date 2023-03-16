@@ -24,18 +24,18 @@
         <link rel="next" href="enable-auth.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>Authentication - Percona Server for MongoDB 5.0</title>
+        <title>Authentication overview - Percona Server for MongoDB 5.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0d440cfe.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.c4a75a56.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -125,7 +125,7 @@
       
     </div>
     
-      <div data-md-component="outdated" hidden>
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
       </div>
     
@@ -152,7 +152,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentication
+              Authentication overview
             
           </span>
         </div>
@@ -225,7 +225,7 @@
         <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     percona/psmdb-docs
@@ -269,7 +269,7 @@
       <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     percona/psmdb-docs
@@ -600,12 +600,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Authentication
+          Authentication overview
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="authentication.html" class="md-nav__link md-nav__link--active">
-        Authentication
+        Authentication overview
       </a>
       
         
@@ -655,7 +655,7 @@
       
         <li class="md-nav__item">
   <a href="#kerberos-authentication" class="md-nav__link">
-    Kerberos Authentication
+    Kerberos authentication
   </a>
   
 </li>
@@ -676,7 +676,7 @@
   
     <li class="md-nav__item">
       <a href="enable-auth.html" class="md-nav__link">
-        Enable authentication
+        Enable SCRAM authentication
       </a>
     </li>
   
@@ -719,6 +719,34 @@
     <li class="md-nav__item">
       <a href="kerberos.html" class="md-nav__link">
         Set up Kerberos authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-iam.html" class="md-nav__link">
+        AWS IAM authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-iam-setup.html" class="md-nav__link">
+        Setting up AWS IAM authentication
       </a>
     </li>
   
@@ -1369,7 +1397,7 @@
       
         <li class="md-nav__item">
   <a href="#kerberos-authentication" class="md-nav__link">
-    Kerberos Authentication
+    Kerberos authentication
   </a>
   
 </li>
@@ -1423,15 +1451,16 @@ In addition, you can integrate Percona Server for MongoDB with a separate servic
 <ul>
 <li><a href="#scram"><abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr></a>(default)</li>
 <li><a href="#x509-certificate-authentication">x.509 certificate authentication</a></li>
-<li><a href="sasl-auth.html">LDAP authentication with SASL</a></li>
-<li><a href="kerberos.html">Kerberos Authentication</a></li>
+<li><a href="#ldap-authentication-with-sasl">LDAP authentication with SASL</a>)</li>
+<li><a href="#kerberos-authentication">Kerberos Authentication</a></li>
 <li><a href="authorization.html">Authentication and authorization with direct binding to LDAP</a></li>
+<li><a href="aws-iam.html">AWS IAM authentication</a></li>
 </ul>
 <h2 id="scram"><abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr><a class="headerlink" href="#scram" title="Permanent link">&para;</a></h2>
-<p><abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr> is the default authentication mechanism. <em>Percona Server for MongoDB</em> verifies the credentials against the user’s name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see <a href="enable-auth.html#enable-auth">Enabling Authentication</a>.</p>
+<p><abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr> is the default authentication mechanism. <em>Percona Server for MongoDB</em> verifies the credentials against the user’s name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see <a href="enable-auth.html#enable-auth">Enable authentication</a>.</p>
 <h2 id="x509-certificate-authentication">x.509 certificate authentication<a class="headerlink" href="#x509-certificate-authentication" title="Permanent link">&para;</a></h2>
-<p>This authentication mechanism enables a client to authenticate in Percona Server for MongoDB by providing an x.509 certificate instead of user credentials. Each certificate contains the <code>subject</code> field defined in the  format. In Percona Server for MongoDB, each certificate has a corresponding user record in the <code>$external</code> database. When a user connects to the database, Percona Server for MongoDB matches the <code>subject</code> value against the usernames defined in the <code>$external</code> database.</p>
-<p>For production use, we recommend using valid  certificates. For testing purposes, you can generate and use self-signed certificates.</p>
+<p>This authentication mechanism enables a client to authenticate in Percona Server for MongoDB by providing an x.509 certificate instead of user credentials. Each certificate contains the <code>subject</code> field defined in the <abbr title="Distinguished Name">DN</abbr> format. In Percona Server for MongoDB, each certificate has a corresponding user record in the <code>$external</code> database. When a user connects to the database, Percona Server for MongoDB matches the <code>subject</code> value against the usernames defined in the <code>$external</code> database.</p>
+<p>For production use, we recommend using valid <abbr title="Certified Authority">CA</abbr> certificates. For testing purposes, you can generate and use self-signed certificates.</p>
 <p>x.509 authentication is compatible with with <a href="authorization.html">LDAP authorization</a> to enable you to control user access and operations in Percona Server for MongoDB. For configuration guidelines, refer to <a href="x509-ldap.html">Set up x.509 authentication and LDAP authorization</a>.</p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
@@ -1440,7 +1469,7 @@ In addition, you can integrate Percona Server for MongoDB with a separate servic
 </div>
 <h2 id="ldap-authentication-with-sasl">LDAP authentication with SASL<a class="headerlink" href="#ldap-authentication-with-sasl" title="Permanent link">&para;</a></h2>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>LDAP authentication with  means that both the client and the server establish a SASL session using the SASL library. Then authentication (bind) requests are sent to the LDAP server through the SASL authentication daemon (<code>saslauthd</code>) that acts as a remote proxy for the <code>mongod</code> server.</p>
+<p>LDAP authentication with SASL means that both the client and the server establish a SASL session using the SASL library. Then authentication (bind) requests are sent to the LDAP server through the SASL authentication daemon (<code>saslauthd</code>) that acts as a remote proxy for the <code>mongod</code> server.</p>
 <p>The following components are necessary for external authentication to work:</p>
 <ul>
 <li>
@@ -1481,7 +1510,7 @@ to authenticate the client or reject the request.</li>
 <li>If successful, the client has authenticated and can proceed.</li>
 </ol>
 <p>For configuration instructions, refer to <a href="sasl-auth.html#sasl">Setting up LDAP authentication with SASL</a>.</p>
-<h2 id="kerberos-authentication">Kerberos Authentication<a class="headerlink" href="#kerberos-authentication" title="Permanent link">&para;</a></h2>
+<h2 id="kerberos-authentication">Kerberos authentication<a class="headerlink" href="#kerberos-authentication" title="Permanent link">&para;</a></h2>
 <p>Percona Server for MongoDB supports Kerberos authentication starting from release 4.2.6-6.</p>
 <p>This authentication mechanism involves the use of a Key Distribution Center (KDC) - a symmetric encryption component which operates with tickets. A ticket is a small amount of encrypted data which is used for authentication. It is issued for a user session and has a limited lifetime.</p>
 <p>When using Kerberos authentication, you also operate with principals and realms.</p>
@@ -1533,7 +1562,7 @@ to authenticate the client or reject the request.</li>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 16, 2023</span>
       
         <br>
         Created:
@@ -1553,10 +1582,10 @@ to authenticate the client or reject the request.</li>
 
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
             Back to top
-          </a>
+          </button>
         
       </main>
       
@@ -1659,11 +1688,11 @@ to authenticate the client or reject the request.</li>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "search.suggest", "search.share", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "search.suggest", "search.share", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
               
-      <script src="assets/javascripts/bundle.6df46069.min.js"></script>
+      <script src="assets/javascripts/bundle.efa0ade1.min.js"></script>
       
         <script src="js/version-select.js"></script>
       
