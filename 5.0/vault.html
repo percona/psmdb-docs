@@ -1132,6 +1132,20 @@
   
   
     <li class="md-nav__item">
+      <a href="release_notes/5.0.15-13.html" class="md-nav__link">
+        Percona Server for MongoDB 5.0.15-13 (2023-03-16)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release_notes/5.0.14-12.html" class="md-nav__link">
         Percona Server for MongoDB 5.0.14-12 (2022-12-08)
       </a>
@@ -1509,7 +1523,7 @@ with versioning enabled.</p>
 <td>vaultSecret</td>
 <td>security.vault.secret</td>
 <td>string</td>
-<td>The path to the Vault secret. The Vault secret path format must be <code>&lt;secrets_engine_mount_path&gt;/data/&lt;custom_path&gt;</code> <br> <br> where: <br> - <code>&lt;secrets_engine_mount_path&gt;</code> is the path to the Key/Value Secrets Engine v2; <br> - <code>data</code> is the mandatory path prefix required by Version 2 API; <br> - <code>&lt;custom_path&gt;</code> is the path to the specific secret. <br> <br> Example: <code>secret_v2/data/psmdb-test/rs1-27017</code> <br><br> Starting with version <a href="release_notes/5.0.15-13.md">5.0.15-13</a>, a distinct Vault secret path for every replica set member is no longer mandatory. In earlier versions, it is recommended to use different secret paths for every database node in the entire deployment to avoid issues during the master key rotation.</td>
+<td>The path to the Vault secret. The Vault secret path format must be <code>&lt;secrets_engine_mount_path&gt;/data/&lt;custom_path&gt;</code> <br> <br> where: <br> - <code>&lt;secrets_engine_mount_path&gt;</code> is the path to the Key/Value Secrets Engine v2; <br> - <code>data</code> is the mandatory path prefix required by Version 2 API; <br> - <code>&lt;custom_path&gt;</code> is the path to the specific secret. <br> <br> Example: <code>secret_v2/data/psmdb-test/rs1-27017</code> <br><br> Starting with version <a href="release_notes/5.0.15-13.html">5.0.15-13</a>, a distinct Vault secret path for every replica set member is no longer mandatory. In earlier versions, it is recommended to use different secret paths for every database node in the entire deployment to avoid issues during the master key rotation.</td>
 </tr>
 <tr>
 <td>vaultSecretVersion</td>
@@ -1596,7 +1610,7 @@ with versioning enabled.</p>
 </ol>
 <p>Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the vault. The entire dataset is not re-encrypted.</p>
 <h3 id="key-rotation-in-replica-sets">Key rotation in replica sets<a class="headerlink" href="#key-rotation-in-replica-sets" title="Permanent link">&para;</a></h3>
-<p>Starting with version <a href="release_notes/5.0.15-13.md">5.0.15-13</a>, you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The <code>mongod</code> server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.  </p>
+<p>Starting with version <a href="release_notes/5.0.15-13.html">5.0.15-13</a>, you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The <code>mongod</code> server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.  </p>
 <p>In versions 5.0.14-12 and earlier, every <code>mongod</code> node in a replica set in your entire deployment must have a distinct path to the master keys on a Vault server. </p>
 <p>The key rotation steps are the following:</p>
 <ol>
