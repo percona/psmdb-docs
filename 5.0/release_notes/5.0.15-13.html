@@ -1459,6 +1459,10 @@
 <p>Percona Server for MongoDB 5.0.15-13 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for <a href="https://www.mongodb.com/docs/manual/release-notes/5.0/#5.0.15---feb-27--2023">MongoDB 5.0.15 Community Edition</a>.</p>
 <p>It supports MongoDB 5.0.15 protocols and drivers </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Due to critical issues identified in previous releases that may affect data integrity and performance, we recommend upgrading all production environments to the latest version - currently MongoDB 5.0.15. Find details about those issues in <a href="https://www.mongodb.com/docs/manual/release-notes/5.0/">MongoDB 5.0 Community Edition release notes</a>.</p>
+</div>
 <h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <ul>
 <li>The support for authentication using <a href="../aws-iam.html">AWS IAM</a> enables you to natively integrate Percona Server for MongoDB with AWS services, increase security of your infrastructure by setting up password-less authentication and offload your DBAs from managing different sets of secrets. This is the <a href="../glossary.html#technical-preview-feature">technical preview feature</a></li>
@@ -1471,6 +1475,11 @@ fully-compatible, drop-in replacement for <a href="https://www.mongodb.com/docs/
 <li><a href="https://jira.mongodb.org/browse/SERVER-71759">SERVER-71759</a> - Changed the yielding policy of dataSize command to YIELD_AUTO for both when the command is called with estimate:true or false</li>
 <li><a href="https://jira.mongodb.org/browse/SERVER-72535">SERVER-72535</a> - Disallow creating the ‘admin’, ‘local’, and ‘config’ databases with alternative cases in names on sharded clusters</li>
 <li><a href="https://jira.mongodb.org/browse/SERVER-72222">SERVER-72222</a> - Fixed the incorrect behavior of the <code>mapReduce</code> command with single reduce optimization in sharded clusters</li>
+<li><a href="https://jira.mongodb.org/browse/WT-9926">WT-9926</a> - Fixed a crash during startup from backup can lose metadata by not deleting checkpoints during recovery from backup</li>
+<li><a href="https://jira.mongodb.org/browse/WT-9751">WT-9751</a> - Fixed a memory leak in reconciliation after aborted eviction</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-72222">SERVER-72222</a> - Fixed mapReduce with single reduce optimization from failing in sharded clusters</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-71399">SERVER-71399</a> - Fixed the issue with not removing the jumbo flag upon successful split of the chunk</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-71191">SERVER-71191</a> - Fixed the deadlock between index build setup, prepared transaction and stepdown by unlocking and relocking Replication State Transition Lock (RSTL) during index build setup </li>
 </ul>
 <p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/5.0/#5.0.15---feb-27--2023">MongoDB 5.0.15 Community Edition release notes</a>.</p>
 <h2 id="new-features">New Features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h2>
@@ -1508,7 +1517,7 @@ fully-compatible, drop-in replacement for <a href="https://www.mongodb.com/docs/
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 16, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 17, 2023</span>
       
         <br>
         Created:
