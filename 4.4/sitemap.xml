@@ -241,6 +241,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/4.4/4.4/release_notes/4.4.19-19.html</loc>
+         <lastmod>2023-03-20</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.4/4.4/release_notes/4.4.2-4.html</loc>
          <lastmod>2023-03-20</lastmod>
          <changefreq>daily</changefreq>
