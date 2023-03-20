@@ -2,7 +2,7 @@
 
 Authentication is the process of verifying a client’s identity. Normally, a client needs to authenticate themselves against the MongoDB server user database before doing any work or reading any data from a `mongod` or `mongos` instance.
 
-By default, Percona Server for MongoDB provides a  authentication mechanism where clients authenticate themselves by providing their user credentials.
+By default, Percona Server for MongoDB provides a SCRAM authentication mechanism where clients authenticate themselves by providing their user credentials.
 In addition, you can integrate Percona Server for MongoDB with a separate service, such as OpenLDAP or Active Directory. This enables users to access the database with the same credentials they use for their emails or workstations.
 
 You can use any of these authentication mechanisms supported in Percona Server for MongoDB:
@@ -10,19 +10,20 @@ You can use any of these authentication mechanisms supported in Percona Server f
 
 * [SCRAM](#scram)(default)
 * [x.509 certificate authentication](#x509-certificate-authentication)
-* [LDAP authentication with SASL](sasl-auth.md)
-* [Kerberos Authentication](kerberos.md)
+* [LDAP authentication with SASL](#ldap-authentication-with-sasl)
+* [Kerberos Authentication](#kerberos-authentication)
 * [Authentication and authorization with direct binding to LDAP](authorization.md)
+* [AWS IAM authentication](aws-iam.md)
 
 ## SCRAM
 
-SCRAM is the default authentication mechanism. *Percona Server for MongoDB* verifies the credentials against the user’s name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see [Enabling Authentication](enable-auth.md#enable-auth).
+SCRAM is the default authentication mechanism. *Percona Server for MongoDB* verifies the credentials against the user’s name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see [Enable Authentication](enable-auth.md#enable-auth).
 
 ## x.509 certificate authentication
 
-This authentication mechanism enables a client to authenticate in Percona Server for MongoDB by providing an x.509 certificate instead of user credentials. Each certificate contains the `subject` field defined in the  format. In Percona Server for MongoDB, each certificate has a corresponding user record in the `$external` database. When a user connects to the database, Percona Server for MongoDB matches the `subject` value against the usernames defined in the `$external` database.
+This authentication mechanism enables a client to authenticate in Percona Server for MongoDB by providing an x.509 certificate instead of user credentials. Each certificate contains the `subject` field defined in the DN format. In Percona Server for MongoDB, each certificate has a corresponding user record in the `$external` database. When a user connects to the database, Percona Server for MongoDB matches the `subject` value against the usernames defined in the `$external` database.
 
-For production use, we recommend using valid  certificates. For testing purposes, you can generate and use self-signed certificates.
+For production use, we recommend using valid CA certificates. For testing purposes, you can generate and use self-signed certificates.
 
 x.509 authentication is compatible with with [LDAP authorization](authorization.md) to enable you to control user access and operations in Percona Server for MongoDB. For configuration guidelines, refer to [Set up x.509 authentication and LDAP authorization](x509-ldap.md).
 
@@ -34,9 +35,7 @@ x.509 authentication is compatible with with [LDAP authorization](authorization.
 
 ## LDAP authentication with SASL
 
-## Overview
-
-LDAP authentication with  means that both the client and the server establish a SASL session using the SASL library. Then authentication (bind) requests are sent to the LDAP server through the SASL authentication daemon (`saslauthd`) that acts as a remote proxy for the `mongod` server.
+LDAP authentication with SASL means that both the client and the server establish a SASL session using the SASL library. Then authentication (bind) requests are sent to the LDAP server through the SASL authentication daemon (`saslauthd`) that acts as a remote proxy for the `mongod` server.
 
 The following components are necessary for external authentication to work:
 
@@ -78,7 +77,7 @@ to authenticate the client or reject the request.
 For configuration instructions, refer to [Setting up LDAP authentication with SASL](sasl-auth.md#sasl).
 
 
-## Kerberos Authentication
+## Kerberos authentication
 
 Percona Server for MongoDB supports Kerberos authentication starting from release 4.4.0-1.
 
@@ -112,4 +111,6 @@ Kerberos authentication in *Percona Server for MongoDB* is implemented the same 
 
     MongoDB Documentation: [Kerberos Authentication](https://docs.mongodb.com/manual/core/kerberos/)
 
+
 *[SCRAM]: Salted Challenge Response Authentication Mechanism
+*[CA]: Certified Authority

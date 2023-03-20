@@ -25,6 +25,8 @@ Percona Server for MongoDB provides the following features:
 * [External authentication](authentication.md#ext-auth)
 using OpenLDAP or Active Directory
 
+* [AWS IAM authentication](aws-iam.md) (a [technical preview feature](glosary.md#technical-preview-feature))
+
 * [Audit logging](audit-logging.md) to track and query database interactions of users or applications
 
 * [Hot Backup](hot-backup.md) for the default [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/)
