@@ -589,7 +589,7 @@
   
     <li class="md-nav__item">
       <a href="authentication.html" class="md-nav__link">
-        Authentication
+        Authentication overview
       </a>
     </li>
   
@@ -603,7 +603,7 @@
   
     <li class="md-nav__item">
       <a href="enable-auth.html" class="md-nav__link">
-        Enable authentication
+        Enable SCRAM authentication
       </a>
     </li>
   
@@ -646,6 +646,34 @@
     <li class="md-nav__item">
       <a href="kerberos.html" class="md-nav__link">
         Setting up Kerberos authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-iam.html" class="md-nav__link">
+        AWS IAM authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-iam-setup.html" class="md-nav__link">
+        Setting up AWS IAM authentication
       </a>
     </li>
   
@@ -1377,6 +1405,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#technical-preview-feature" class="md-nav__link">
+    Technical preview feature
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1512,6 +1547,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#technical-preview-feature" class="md-nav__link">
+    Technical preview feature
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1577,6 +1619,8 @@
 <p>Kerberos is an authentication protocol for client/server authentication without sending the passwords over an insecure network. Kerberos uses symmetric encryption in the form of tickets - small pieces of encrypted data used for authentication. A ticket is issued for the client and validated by the server.  </p>
 <h2 id="rolling-restart">Rolling restart<a class="headerlink" href="#rolling-restart" title="Permanent link">&para;</a></h2>
 <p>A rolling restart (rolling upgrade) is shutting down and upgrading nodes one by one. The whole cluster remains operational. There is no interruption to clients assuming the elections are short and all writes directed to the old primary use the retryWrite mechanism.</p>
+<h2 id="technical-preview-feature">Technical preview feature<a class="headerlink" href="#technical-preview-feature" title="Permanent link">&para;</a></h2>
+<p>Technical preview features are not yet ready for enterprise use and are not included in support via SLA. They are included in this release so that users can provide feedback prior to the full release of the feature in a future GA release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.</p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1590,25 +1634,6 @@
 </div>
 </div>
 
-                <!-- Last update of source file -->
-                
-                  
-                    <hr>
-<div class="md-source-file">
-  <small>
-    
-      Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
-      
-        <br>
-        Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
-      
-    
-  </small>
-</div>
-                  
-                
               
               </article>
             </div>
