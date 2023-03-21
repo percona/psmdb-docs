@@ -52,8 +52,8 @@ by adding marketing-requested elements
 
                 <!-- Edit and view button -->
                 {% if page.edit_url %}
-                  {% set edit = "https://github.com/percona/psmdb-docs/edit/5.0/docs/" %}
-                  {% set view = "https://raw.githubusercontent.com/percona/psmdb-docs/5.0/docs/" %}
+                  {% set edit = "https://github.com/percona/psmdb-docs/edit/4.4/docs/" %}
+                  {% set view = "https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/" %}
                   <a
                     href="{{ page.edit_url }}"
                     title="{{ lang.t('edit.link.title') }}"
@@ -84,5 +84,13 @@ by adding marketing-requested elements
 
                 {{ relbar2() }}
 
+                <!-- Last update of source file -->
+                {% if page and page.meta %}
+                  {% if page.meta.git_revision_date_localized or
+                        page.meta.revision_date
+                  %}
+                    {% include "partials/source-file.html" %}
+                  {% endif %}
+                {% endif %}
               {% endblock %}
 
