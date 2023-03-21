@@ -86,9 +86,9 @@ markdown_extensions:
        
 
 plugins:
+#  section-index: {}
   search: 
     separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-  section-index: {}
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
@@ -128,8 +128,7 @@ extra:
 
 
 nav:
-  - Home:
-      - index.md
+  - Home: index.md
   - comparison.md
   - Install PSMDB: 
       - 'System requirements': 'install/index.md'
@@ -164,7 +163,7 @@ nav:
   - Manage PSMDB:
       - "Tune parameters": "set-parameter.md"
       - Upgrade:
-        - "Upgrade PSMDB from 5.0 to 6.0": "install/upgrade-from-50.md"
+        - "Upgrade from 5.0 to 6.0": "install/upgrade-from-50.md"
         - install/upgrade-from-mongodb.md
       - install/uninstall.md
   - Release notes:
@@ -173,7 +172,5 @@ nav:
       - release_notes/6.0.3-2.md
       - release_notes/6.0.2-1.md
   - glossary.md
-  - Copyright and Licensing:
-      - copyright.md
-  - Trademark policy:
-      - trademark-policy.md 
+  - copyright.md
+  - trademark-policy.md 
