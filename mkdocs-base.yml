@@ -42,7 +42,7 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-
+  
   features:
     - search.highlight
     - search.suggest
@@ -53,7 +53,6 @@ theme:
     - content.action.edit
     - content.action.view
     - content.code.copy
-
 
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
@@ -91,15 +90,15 @@ markdown_extensions:
   pymdownx.inlinehilite: {}
   pymdownx.snippets: {}
   pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+#      emoji_index: !!python/name:materialx.emoji.twemoji
+#      emoji_generator: !!python/name:materialx.emoji.to_svg
 
        
 
 plugins:
+  section-index: {}
   search: 
     separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-  section-index: {}
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
