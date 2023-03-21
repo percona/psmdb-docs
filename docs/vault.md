@@ -17,6 +17,10 @@ with versioning enabled.
 | vaultServerName      | security.vault.serverName | string | The IP address of the Vault server|
 | vaultPort            | security.vault.port       | int    | The port on the Vault server|
 | vaultTokenFile       | security.vault.tokenFile  | string | The path to the vault token file. The token file is used by MongoDB to access HashiCorp Vault. The vault token file consists of the raw vault token and does not include any additional strings or parameters. <br> <br> Example of a vault token file: <br> <br> `s.uTrHtzsZnEE7KyHeA797CkWA`|
+| vaultSecret          | security.vault.secret     | string | The path to the vault secret. Every replica set member must have its own distinct vault secret. It is recommended to use different secret paths for every database node. <br> <br> Note that vault secrets path format must be ```<vault_secret_mount>/data/<custom_path>``` <br> <br> where: <br> * ``<vault_secret_mount>`` is your Vault KV Secrets Engine; <br> * ``data`` is the mandatory path prefix required by Version 2 API; <br> * ``<custom_path>`` is your secrets path. <br> <br> Example: `secret_v2/data/psmdb-test/rs1-27017`| 
+| vaultRotateMasterKey | security.vault.rotateMasterKey| switch | Enables master key rotation|
+| vaultServerCAFile    | security.vault.serverCAFile | string | The path to the TLS certificate file |
+| vaultDisableTLSForTesting | security.vault.disableTLSForTesting | switch | Disables secure connection to |vault| using SSL/TLS client certificates|
 
 **Config file example**
 

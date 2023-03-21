@@ -97,7 +97,6 @@ markdown_extensions:
 plugins:
   search: 
     separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-  section-index: {}
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
@@ -137,8 +136,7 @@ extra:
 
 
 nav:
-  - Home:
-      - index.md
+  - Home: index.md
   - comparison.md
   - Install PSMDB: 
       - 'Overview': 'install/index.md'
@@ -173,7 +171,7 @@ nav:
   - Manage PSMDB:
       - "Tune parameters": "set-parameter.md"
       - Upgrade:
-        - "Upgrade PSMDB from 4.0 to 4.2": "install/upgrade-from-40.md"
+        - "Upgrade from 4.0 to 4.2": "install/upgrade-from-40.md"
         - install/upgrade-from-mongodb.md
       - install/uninstall.md
   - Release notes:
