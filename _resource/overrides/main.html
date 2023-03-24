@@ -16,6 +16,17 @@
 {% block extrahead %}
               {{ super() }}
 
+              <html data-lt-installed="true">
+                <head>
+                    <meta property="og:title" content="Percona Server for MongoDB">
+                    <meta property="og:description" content="Documentation">
+                    <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/4.2/_images/mongodb.png"
+                    <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
+                </head>
+                <body>
+                </body>
+              </html>
+
               <script>
               (function (w, d, s, l, i) {
                   w[l] = w[l] || []; w[l].push({
