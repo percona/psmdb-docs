@@ -2,7 +2,7 @@
 
 INHERIT: mkdocs-base.yml
 
-site_url: "https://docs.percona.com/percona-server-for-mongodb/4.4"
+site_url: "https://docs.percona.com/percona-server-for-mongodb/"
 
 
 #Google Analytics configuration 
