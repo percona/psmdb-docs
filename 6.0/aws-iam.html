@@ -15,27 +15,27 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/index.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/aws-iam.html">
       
       
-        <link rel="prev" href="../install/uninstall.html">
+        <link rel="prev" href="kerberos.html">
       
       
-        <link rel="next" href="6.0.4-3.html">
+        <link rel="next" href="aws-iam-setup.html">
       
-      <link rel="icon" href="../_images/percona-favicon.ico">
+      <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
     
     
       
-        <title>Release notes index - Percona Server for MongoDB 6.0</title>
+        <title>AWS IAM authentication - Percona Server for MongoDB 6.0</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.240905d7.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -55,11 +55,11 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="../css/percona.css">
+      <link rel="stylesheet" href="css/percona.css">
     
-      <link rel="stylesheet" href="../css/nocopy.css">
+      <link rel="stylesheet" href="css/nocopy.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -127,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-server-for-mongodb-60-release-notes" class="md-skip">
+        <a href="#aws-iam-authentication" class="md-skip">
           Skip to content
         </a>
       
@@ -149,7 +149,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 6.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
       
-  <img src="../_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -165,7 +165,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Release notes index
+              AWS IAM authentication
             
           </span>
         </div>
@@ -270,7 +270,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 6.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
       
-  <img src="../_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 6.0
@@ -298,7 +298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         Home
       </a>
     </li>
@@ -313,7 +313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../comparison.html" class="md-nav__link">
+      <a href="comparison.html" class="md-nav__link">
         Percona Server for MongoDB feature comparison
       </a>
     </li>
@@ -355,7 +355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/index.html" class="md-nav__link">
+      <a href="install/index.html" class="md-nav__link">
         System requirements
       </a>
     </li>
@@ -369,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/apt.html" class="md-nav__link">
+      <a href="install/apt.html" class="md-nav__link">
         Install Percona Server for MongoDB on Debian and Ubuntu
       </a>
     </li>
@@ -383,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/yum.html" class="md-nav__link">
+      <a href="install/yum.html" class="md-nav__link">
         Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
       </a>
     </li>
@@ -397,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/tarball.html" class="md-nav__link">
+      <a href="install/tarball.html" class="md-nav__link">
         Install Percona Server for MongoDB from binary tarball
       </a>
     </li>
@@ -411,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/docker.html" class="md-nav__link">
+      <a href="install/docker.html" class="md-nav__link">
         Run Percona Server for MongoDB in a Docker container
       </a>
     </li>
@@ -431,14 +431,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
       
@@ -447,7 +449,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Features
@@ -487,7 +489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inmemory.html" class="md-nav__link">
+      <a href="inmemory.html" class="md-nav__link">
         Percona Memory Engine
       </a>
     </li>
@@ -535,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hot-backup.html" class="md-nav__link">
+      <a href="hot-backup.html" class="md-nav__link">
         Hot Backup
       </a>
     </li>
@@ -549,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../backup-cursor.html" class="md-nav__link">
+      <a href="backup-cursor.html" class="md-nav__link">
         $backupCursor and $backupCursorExtend aggregation stages
       </a>
     </li>
@@ -568,14 +570,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
       
       
       
@@ -584,7 +588,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_3">
           <span class="md-nav__icon md-icon"></span>
           Authentication
@@ -597,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authentication.html" class="md-nav__link">
+      <a href="authentication.html" class="md-nav__link">
         Authentication overview
       </a>
     </li>
@@ -611,7 +615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enable-auth.html" class="md-nav__link">
+      <a href="enable-auth.html" class="md-nav__link">
         Enable SCRAM authentication
       </a>
     </li>
@@ -625,7 +629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sasl-auth.html" class="md-nav__link">
+      <a href="sasl-auth.html" class="md-nav__link">
         Set up LDAP authentication with SASL
       </a>
     </li>
@@ -639,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../x509-ldap.html" class="md-nav__link">
+      <a href="x509-ldap.html" class="md-nav__link">
         Set up x.509 authentication and LDAP authorization
       </a>
     </li>
@@ -653,7 +657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kerberos.html" class="md-nav__link">
+      <a href="kerberos.html" class="md-nav__link">
         Setting up Kerberos authentication
       </a>
     </li>
@@ -665,11 +669,68 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../aws-iam.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          AWS IAM authentication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="aws-iam.html" class="md-nav__link md-nav__link--active">
         AWS IAM authentication
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-authentication" class="md-nav__link">
+    User authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-authentication" class="md-nav__link">
+    Role authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -681,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws-iam-setup.html" class="md-nav__link">
+      <a href="aws-iam-setup.html" class="md-nav__link">
         Setting up AWS IAM authentication
       </a>
     </li>
@@ -695,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authorization.html" class="md-nav__link">
+      <a href="authorization.html" class="md-nav__link">
         LDAP authorization
       </a>
     </li>
@@ -709,7 +770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ldap-setup.html" class="md-nav__link">
+      <a href="ldap-setup.html" class="md-nav__link">
         Set up LDAP authentication and authorization using NativeLDAP
       </a>
     </li>
@@ -757,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data-at-rest-encryption.html" class="md-nav__link">
+      <a href="data-at-rest-encryption.html" class="md-nav__link">
         Data at rest encryption
       </a>
     </li>
@@ -771,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vault.html" class="md-nav__link">
+      <a href="vault.html" class="md-nav__link">
         HashiCorp Vault integration
       </a>
     </li>
@@ -785,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kmip.html" class="md-nav__link">
+      <a href="kmip.html" class="md-nav__link">
         Using the Key Management Interoperability Protocol (KMIP)
       </a>
     </li>
@@ -799,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../keyfile.html" class="md-nav__link">
+      <a href="keyfile.html" class="md-nav__link">
         Local key management using a keyfile
       </a>
     </li>
@@ -813,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../encryption-mode-switch.html" class="md-nav__link">
+      <a href="encryption-mode-switch.html" class="md-nav__link">
         Migrate from key file encryption to HashiCorp Vault encryption
       </a>
     </li>
@@ -834,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../audit-logging.html" class="md-nav__link">
+      <a href="audit-logging.html" class="md-nav__link">
         Auditing
       </a>
     </li>
@@ -848,7 +909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rate-limit.html" class="md-nav__link">
+      <a href="rate-limit.html" class="md-nav__link">
         Profiling rate limit
       </a>
     </li>
@@ -862,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../log-redaction.html" class="md-nav__link">
+      <a href="log-redaction.html" class="md-nav__link">
         Log redaction
       </a>
     </li>
@@ -876,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ngram-full-text-search.html" class="md-nav__link">
+      <a href="ngram-full-text-search.html" class="md-nav__link">
         Additional text search algorithm - ngram
       </a>
     </li>
@@ -925,7 +986,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../set-parameter.html" class="md-nav__link">
+      <a href="set-parameter.html" class="md-nav__link">
         Tune parameters
       </a>
     </li>
@@ -966,7 +1027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/upgrade-from-50.html" class="md-nav__link">
+      <a href="install/upgrade-from-50.html" class="md-nav__link">
         Upgrade from 5.0 to 6.0
       </a>
     </li>
@@ -980,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
         Upgrade Percona Server for MongoDB
       </a>
     </li>
@@ -1001,7 +1062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/uninstall.html" class="md-nav__link">
+      <a href="install/uninstall.html" class="md-nav__link">
         Uninstall Percona Server for MongoDB
       </a>
     </li>
@@ -1021,16 +1082,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
       
       
       
@@ -1039,7 +1098,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Release notes
@@ -1050,21 +1109,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release_notes/index.html" class="md-nav__link">
         Release notes index
       </a>
-      
     </li>
   
 
@@ -1076,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="6.0.4-3.html" class="md-nav__link">
+      <a href="release_notes/6.0.4-3.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.4-3 (2023-01-30)
       </a>
     </li>
@@ -1090,7 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="6.0.3-2.html" class="md-nav__link">
+      <a href="release_notes/6.0.3-2.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.3-2 (2022-12-07)
       </a>
     </li>
@@ -1104,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="6.0.2-1.html" class="md-nav__link">
+      <a href="release_notes/6.0.2-1.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.2-1 (2022-10-31)
       </a>
     </li>
@@ -1126,7 +1175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../glossary.html" class="md-nav__link">
+      <a href="glossary.html" class="md-nav__link">
         Glossary
       </a>
     </li>
@@ -1141,7 +1190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../copyright.html" class="md-nav__link">
+      <a href="copyright.html" class="md-nav__link">
         Copyright and licensing information
       </a>
     </li>
@@ -1156,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trademark-policy.html" class="md-nav__link">
+      <a href="trademark-policy.html" class="md-nav__link">
         Trademark policy
       </a>
     </li>
@@ -1191,6 +1240,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-authentication" class="md-nav__link">
+    User authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-authentication" class="md-nav__link">
+    Role authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1207,14 +1285,14 @@
                   
                   
                   <a
-                    href="https://github.com/percona/psmdb-docs/edit/6.0/docs/release_notes/index.md"
+                    href="https://github.com/percona/psmdb-docs/edit/6.0/docs/aws-iam.md"
                     title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/6.0/docs/release_notes/index.md"
+                    href="https://raw.githubusercontent.com/percona/psmdb-docs/6.0/docs/aws-iam.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1231,18 +1309,56 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="percona-server-for-mongodb-60-release-notes">Percona Server for MongoDB 6.0 Release Notes<a class="headerlink" href="#percona-server-for-mongodb-60-release-notes" title="Permanent link">&para;</a></h1>
+                <h1 id="aws-iam-authentication"><abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication<a class="headerlink" href="#aws-iam-authentication" title="Permanent link">&para;</a></h1>
+<div class="admonition admonition">
+<p class="admonition-title">Version added: <a href="release_notes/6.0.5-4.md">6.0.5-4</a></p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This is a <a href="glossary.html#technical-preview-feature">technical preview feature</a></p>
+</div>
+<p><abbr title="Identity Access Management">IAM</abbr> (Identity Access Management) is the <abbr title="Amazon Web Service">AWS</abbr> service that allows you to securely control access to <abbr title="Amazon Web Service">AWS</abbr> resources. Percona Server for MongoDB supports authentication with <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> enabling you to use the same <abbr title="Amazon Web Service">AWS</abbr> credentials both for it and other components of your infrastructure. This saves your DBAs from managing different sets of secrets and frees their time on other activities. </p>
+<p>You can configure <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> for a password-less authentication. Instead of username and password, the user or the application presents the <abbr title="Amazon Web Service">AWS</abbr> security credentials for authentication, but the secret key is not sent to Percona Server for MongoDB. This significantly increases the security in your infrastructure. </p>
+<p>Percona Server for MongoDB supports two authentication types: </p>
+<h2 id="user-authentication">User authentication<a class="headerlink" href="#user-authentication" title="Permanent link">&para;</a></h2>
+<p>This authentication type is typically used by human operators. Every user account in <abbr title="Amazon Web Service">AWS</abbr> has the ARN (Amazon Resource Name), which uniquely identifies this account and the user associated with it. During authentication, the ARN is used to verify the user&rsquo;s identity. </p>
+<h2 id="role-authentication">Role authentication<a class="headerlink" href="#role-authentication" title="Permanent link">&para;</a></h2>
+<p>This type is typically used for applications / <code>mongo</code> clients. For instance, if your application is running on <abbr title="Amazon Web Service">AWS</abbr> resources like EC2 instance or ECS (Elastic Container Service) which uses the <abbr title="Identity Access Management">IAM</abbr> role assigned to it. Another scenario is to allow users to assume the <abbr title="Identity Access Management">IAM</abbr> role and in such a way, grant a user the permissions outlined in the <abbr title="Identity Access Management">IAM</abbr> role. The ARN of the <abbr title="Identity Access Management">IAM</abbr> role is used to authenticate the application in Percona Server for MongoDB.  </p>
+<p>For either type of <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication, the flow is the following:</p>
+<p><img alt="image" src="_images/aws-iam-auth.png" /></p>
+<ol>
+<li>A <code>mongo</code> client (a Mongo shell or an application that talks to Percona Server for MongoDB via a driver) gets <abbr title="Amazon Web Service">AWS</abbr> credentials from either EC2/ECS instance metadata service, environmental variables or MongoDB URI connection string.</li>
+<li>
+<p>The <code>mongo</code> client constructs the authentication request which includes the <abbr title="Amazon Web Service">AWS</abbr> access key ID, token and the signature and sends it to Percona Server for MongoDB</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <code>mongo</code> client never sends the secret access key to Percona Server for MongoDB.</p>
+</div>
+</li>
+<li>
+<p>Percona Server for MongoDB sends the received credentials to the <abbr title="Amazon Web Service">AWS</abbr> STS (Security Token Service) for verification</p>
+</li>
+<li>The <abbr title="Amazon Web Service">AWS</abbr> STS service validates whether the signature is correct and answers with the user / role ARN that created the signature</li>
+<li>Percona Server for MongoDB looks for the same username as the received ARN in the <code>$external</code> database and grants privileges to access Percona Server for MongoDB as defined for the respective user.</li>
+</ol>
+<div class="admonition admonition">
+<p class="admonition-title">See also</p>
 <ul>
 <li>
-<p><a href="6.0.4-3.html">Percona Server for MongoDB 6.0.4-3 (2022-12-07)</a></p>
+<p><abbr title="Amazon Web Service">AWS</abbr> documentation: </p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html"><abbr title="Amazon Web Service">AWS</abbr> Identity and Access Management</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html#sts-introduction">Temporary security credentials in <abbr title="Identity Access Management">IAM</abbr></a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (<abbr title="Amazon Web Service">AWS</abbr> Signature Version 4)</a></li>
+</ul>
 </li>
 <li>
-<p><a href="6.0.3-2.html">Percona Server for MongoDB 6.0.3-2 (2022-12-07)</a></p>
-</li>
-<li>
-<p><a href="6.0.2-1.html">Percona Server for MongoDB 6.0.2-1 (2022-10-31)</a></p>
+<p>MongoDB documentation: <a href="https://www.mongodb.com/docs/atlas/security/passwordless-authentication/#std-label-passwordless-auth-aws-no-saml">Set Up Passwordless Authentication with <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr></a></p>
 </li>
 </ul>
+</div>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>For how to configure <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication, see <a href="aws-iam-setup.html">Setting up <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication</a>.</p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1264,11 +1380,11 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 31, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2023</span>
       
     
   </small>
@@ -1383,15 +1499,15 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.account.edit content.code.copy search.highlight search.share", "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.account.edit content.code.copy search.highlight search.share", "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
               
-      <script src="../assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="assets/javascripts/bundle.19047be9.min.js"></script>
       
-        <script src="../js/version-select.js"></script>
+        <script src="js/version-select.js"></script>
       
-        <script src="../js/promptremover.js"></script>
+        <script src="js/promptremover.js"></script>
       
     
 

@@ -28,7 +28,7 @@
     
     
       
-        <title>Authentication - Percona Server for MongoDB 6.0</title>
+        <title>Authentication overview - Percona Server for MongoDB 6.0</title>
       
     
     
@@ -165,7 +165,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentication
+              Authentication overview
             
           </span>
         </div>
@@ -611,12 +611,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Authentication
+          Authentication overview
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="authentication.html" class="md-nav__link md-nav__link--active">
-        Authentication
+        Authentication overview
       </a>
       
         
@@ -666,7 +666,7 @@
       
         <li class="md-nav__item">
   <a href="#kerberos-authentication" class="md-nav__link">
-    Kerberos Authentication
+    Kerberos authentication
   </a>
   
 </li>
@@ -687,7 +687,7 @@
   
     <li class="md-nav__item">
       <a href="enable-auth.html" class="md-nav__link">
-        Enabling authentication
+        Enable SCRAM authentication
       </a>
     </li>
   
@@ -730,6 +730,34 @@
     <li class="md-nav__item">
       <a href="kerberos.html" class="md-nav__link">
         Setting up Kerberos authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-iam.html" class="md-nav__link">
+        AWS IAM authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-iam-setup.html" class="md-nav__link">
+        Setting up AWS IAM authentication
       </a>
     </li>
   
@@ -1262,7 +1290,7 @@
       
         <li class="md-nav__item">
   <a href="#kerberos-authentication" class="md-nav__link">
-    Kerberos Authentication
+    Kerberos authentication
   </a>
   
 </li>
@@ -1317,15 +1345,16 @@ In addition, you can integrate Percona Server for MongoDB with a separate servic
 <ul>
 <li><a href="#scram"><abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr></a> (default)</li>
 <li><a href="#x509-certificate-authentication">x.509 certificate authentication</a></li>
-<li><a href="sasl-auth.html">LDAP authentication with SASL</a></li>
-<li><a href="kerberos.html">Kerberos Authentication</a></li>
+<li><a href="#ldap-authentication-with-sasl">LDAP authentication with SASL</a>)</li>
+<li><a href="#kerberos-authentication">Kerberos Authentication</a></li>
 <li><a href="authorization.html">Authentication and authorization with direct binding to LDAP</a></li>
+<li><a href="aws-iam.html">AWS IAM authentication</a></li>
 </ul>
 <h2 id="scram"><abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr><a class="headerlink" href="#scram" title="Permanent link">&para;</a></h2>
-<p><abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr> is the default authentication mechanism. Percona Server for MongoDB verifies the credentials against the user’s name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see <a href="enable-auth.html">Enabling Authentication</a>.</p>
+<p><abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr> is the default authentication mechanism. Percona Server for MongoDB verifies the credentials against the user’s name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see <a href="enable-auth.html#enable-auth">Enable authentication</a>.</p>
 <h2 id="x509-certificate-authentication">x.509 certificate authentication<a class="headerlink" href="#x509-certificate-authentication" title="Permanent link">&para;</a></h2>
-<p>This authentication mechanism enables a client to authenticate in Percona Server for MongoDB by providing an x.509 certificate instead of user credentials. Each certificate contains the <code>subject</code> field defined in the  format. In Percona Server for MongoDB, each certificate has a corresponding user record in the <code>$external</code> database. When a user connects to the database, Percona Server for MongoDB matches the <code>subject</code> value against the usernames defined in the <code>$external</code> database.</p>
-<p>For production use, we recommend using valid  certificates. For testing purposes, you can generate and use self-signed certificates.</p>
+<p>This authentication mechanism enables a client to authenticate in Percona Server for MongoDB by providing an x.509 certificate instead of user credentials. Each certificate contains the <code>subject</code> field defined in the <abbr title="Distinguished Name">DN</abbr> format. In Percona Server for MongoDB, each certificate has a corresponding user record in the <code>$external</code> database. When a user connects to the database, Percona Server for MongoDB matches the <code>subject</code> value against the usernames defined in the <code>$external</code> database.</p>
+<p>For production use, we recommend using valid <abbr title="Certified Authority">CA</abbr> certificates. For testing purposes, you can generate and use self-signed certificates.</p>
 <p>x.509 authentication is compatible with with <a href="authorization.html">LDAP authorization</a> to enable you to control user access and operations in Percona Server for MongoDB. For configuration guidelines, refer to <a href="x509-ldap.html">Set up x.509 authentication and LDAP authorization</a>.</p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
@@ -1334,7 +1363,7 @@ In addition, you can integrate Percona Server for MongoDB with a separate servic
 </div>
 <h2 id="ldap-authentication-with-sasl">LDAP authentication with SASL<a class="headerlink" href="#ldap-authentication-with-sasl" title="Permanent link">&para;</a></h2>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>LDAP authentication with  means that both the client and the server establish a SASL session using the SASL library. Then authentication (bind) requests are sent to the LDAP server through the SASL authentication daemon (<code>saslauthd</code>) that acts as a remote proxy for the <code>mongod</code> server.</p>
+<p>LDAP authentication with SASL means that both the client and the server establish a SASL session using the SASL library. Then authentication (bind) requests are sent to the LDAP server through the SASL authentication daemon (<code>saslauthd</code>) that acts as a remote proxy for the <code>mongod</code> server.</p>
 <p>The following components are necessary for external authentication to work:</p>
 <ul>
 <li>
@@ -1375,7 +1404,7 @@ to authenticate the client or reject the request.</li>
 <li>If successful, the client has authenticated and can proceed.</li>
 </ol>
 <p>For configuration instructions, refer to <a href="sasl-auth.html">Setting up LDAP authentication with SASL</a>.</p>
-<h2 id="kerberos-authentication">Kerberos Authentication<a class="headerlink" href="#kerberos-authentication" title="Permanent link">&para;</a></h2>
+<h2 id="kerberos-authentication">Kerberos authentication<a class="headerlink" href="#kerberos-authentication" title="Permanent link">&para;</a></h2>
 <p>Percona Server for MongoDB supports Kerberos authentication starting from release 6.0.2-1.</p>
 <p>This authentication mechanism involves the use of a Key Distribution Center (KDC) - a symmetric encryption component which operates with tickets. A ticket is a small amount of encrypted data which is used for authentication. It is issued for a user session and has a limited lifetime.</p>
 <p>When using Kerberos authentication, you also operate with principals and realms.</p>
@@ -1427,7 +1456,7 @@ to authenticate the client or reject the request.</li>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2023</span>
       
         <br>
         Created:

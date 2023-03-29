@@ -28,7 +28,7 @@
     
     
       
-        <title>Enabling authentication - Percona Server for MongoDB 6.0</title>
+        <title>Enable SCRAM authentication - Percona Server for MongoDB 6.0</title>
       
     
     
@@ -127,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#enabling-authentication" class="md-skip">
+        <a href="#enable-scram-authentication" class="md-skip">
           Skip to content
         </a>
       
@@ -165,7 +165,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Enabling authentication
+              Enable SCRAM authentication
             
           </span>
         </div>
@@ -602,7 +602,7 @@
   
     <li class="md-nav__item">
       <a href="authentication.html" class="md-nav__link">
-        Authentication
+        Authentication overview
       </a>
     </li>
   
@@ -625,12 +625,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Enabling authentication
+          Enable SCRAM authentication
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="enable-auth.html" class="md-nav__link md-nav__link--active">
-        Enabling authentication
+        Enable SCRAM authentication
       </a>
       
         
@@ -709,6 +709,34 @@
     <li class="md-nav__item">
       <a href="kerberos.html" class="md-nav__link">
         Setting up Kerberos authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-iam.html" class="md-nav__link">
+        AWS IAM authentication
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-iam-setup.html" class="md-nav__link">
+        Setting up AWS IAM authentication
       </a>
     </li>
   
@@ -1267,9 +1295,9 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="enabling-authentication">Enabling authentication<a class="headerlink" href="#enabling-authentication" title="Permanent link">&para;</a></h1>
+                <h1 id="enable-scram-authentication">Enable SCRAM authentication<a class="headerlink" href="#enable-scram-authentication" title="Permanent link">&para;</a></h1>
 <p>By default, Percona Server for MongoDB does not restrict access to data and configuration.</p>
-<p>Enabling authentication enforces users to identify themselves when accessing the database. This documents describes how to enable built-in authentication mechanism. Percona Server for MongoDB also supports the number of external authentication mechanisms. To learn more, refer to <a href="authentication.html">Authentication</a>.</p>
+<p>Enabling authentication enforces users to identify themselves when accessing the database. This documents describes how to enable built-in <a href="authentication.html#scram">SCRAM</a> authentication mechanism. <em>Percona Server for MongoDB</em> also supports the number of external authentication mechanisms. To learn more, refer to <a href="authentication.html#ext-auth">Authentication</a>.</p>
 <p>You can enable authentication either automatically or manually.</p>
 <h2 id="automatic-setup">Automatic setup<a class="headerlink" href="#automatic-setup" title="Permanent link">&para;</a></h2>
 <p>To enable authentication and automatically set it up,
@@ -1331,7 +1359,7 @@ You can add other users with various roles depending on your needs.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2023</span>
       
         <br>
         Created:
