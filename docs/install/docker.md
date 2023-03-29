@@ -41,10 +41,66 @@ of the image to derive the container from.
 ## Connecting from another Docker container
 
 The Percona Server for MongoDB container exposes standard MongoDB port (27017),
-which can be used for connection from an application running in another container.
+which can be used for connection from an application
+running in another container.
 
-To link the application container to the `psmdb` container,
-use the `--link psmdb` option when running the container with your app.
+To connect the application container to the `psmdb` container, you can either use the default `bridge` network, or create your own network and attach both containers to it.
+
+=== "Bridge network"
+    
+    When you start Docker, a default `bridge` network is created and all containers are attached to it unless otherwise specified. 
+
+    To link your application container to the `psmdb` container, do the following:
+
+    1. Get the IP address of the `psmdb` container
+
+        {% raw %}
+        ```{.bash data-prompt="$"}
+        $ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' psmdb
+        ```
+        {% endraw %}
+
+        Output
+
+        ```{.bash .no-copy}
+        "172.19.0.2"
+        ```
+
+    2. Link the application container. This example shows how to link Percona Backup for MongoDB running in another container to the `psmdb` container. This example assumes that `psmdb` container is running as a single node replica set and that the PBMUSER is created there to run Percona Backup for MongoDB. 
+
+        ```{.bash data-prompt="$"}
+        $ docker run --rm  --name pbm  -e PBM_MONGODB_URI="mongodb://PBMUSER:PASSWORD@172.19.0.2:27017/?authSource=admin" -d percona/percona-backup-mongodb
+        ```
+
+=== "User-defined network"
+
+    You can isolate desired containers in a user-defined network and provide DNS resolution across them. The containers on the same network also share environment variables which simplifies their administration. Read more about other advantages of user-defined networks in [Docker documentation](https://docs.docker.com/network/bridge/).
+
+    To link the application container with the `psmdb` container on the user-defined network, do the following:
+
+    1. Create the network:
+
+        ```{.bash data-prompt="$"}
+        $ docker network create my-network
+        ```
+
+    2. Start the `psmdb` container and connect it to the your network
+
+        ```{.bash data-prompt="$"}
+        $ docker run --name psmdb --net=my-network -d percona/percona-server-mongodb:4.2
+        ```
+
+        Alternatively, you can connect the already running container to your network:
+
+        ```{.bash data-prompt="$"}
+        $ docker network connect my-network psmdb
+        ```       
+
+    3. Link the application container. This example shows how to link Percona Backup for MongoDB running in another container to the `psmdb` container. This example assumes that `psmdb` container is running as a single node replica set and that the PBMUSER is created there to run Percona Backup for MongoDB. 
+
+        ```{.bash data-prompt="$"}
+        $ docker run --rm  --name pbm --net=my-network  -e PBM_MONGODB_URI="mongodb://pbmuser:secretpwd@psmdb:27017/?authSource=admin" -d percona/percona-backup-mongodb
+        ```
 
 ## Connecting with the `mongo` shell
 
