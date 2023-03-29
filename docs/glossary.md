@@ -43,3 +43,4 @@ A rolling restart (rolling upgrade) is shutting down and upgrading nodes one by 
 ## Technical preview feature
 
 Technical preview features are not yet ready for enterprise use and are not included in support via SLA. They are included in this release so that users can provide feedback on their experience with the feature prior to its full release in a future GA release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.
+
