@@ -101,7 +101,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-6.0.pdf'
           cover_title: 'Server for MongoDB Documentation 6.0'
-          cover_subtitle: 6.0.4-3 (January 30, 2023)
+          cover_subtitle: 6.0.5-4 (March 29, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -170,6 +170,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
+      - release_notes/6.0.5-4.md
       - release_notes/6.0.4-3.md
       - release_notes/6.0.3-2.md
       - release_notes/6.0.2-1.md
