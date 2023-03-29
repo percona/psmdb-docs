@@ -143,11 +143,13 @@ nav:
         - "Hot Backup": "hot-backup.md"
         - backup-cursor.md
       - Authentication:
-        - "Authentication": "authentication.md"
+        - "Authentication overview": "authentication.md"
         - enable-auth.md
         - sasl-auth.md
         - x509-ldap.md
         - kerberos.md
+        - aws-iam.md
+        - aws-iam-setup.md
         - authorization.md
         - ldap-setup.md
       - Encryption:
