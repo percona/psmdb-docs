@@ -1721,72 +1721,76 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
 <ol>
 <li>
 <p>Create a compose file and define the services in it.</p>
-<p>```yaml title &ldquo;docker-compose.yaml&rdquo;
-version: &ldquo;3&rdquo;
-services:
-  rs101:
-    image: percona/percona-server-mongodb:4.2
-    container_name: rs101
-    hostname: rs101
-    ports:
-      - &ldquo;27017:27017&rdquo;
-    networks:
-      - my-network
-    command: &ldquo;&ndash;port=27017 &ndash;replSet rs&rdquo;</p>
-<p>rs102:
-    image: percona/percona-server-mongodb:4.2
-    container_name: rs102
-    hostname: rs102
-    ports:
-      - &ldquo;28017:28017&rdquo;  <br />
-    networks:
-      - my-network
-    command: &ldquo;&ndash;port=28017 &ndash;replSet rs&rdquo;</p>
-<p>rs103:
-    image: percona/percona-server-mongodb:4.2
-    container_name: rs103
-    hostname: rs103
-    ports:
-      - &ldquo;29017:29017&rdquo;  <br />
-    networks:
-      - my-network
-    command: &ldquo;&ndash;port=29017 &ndash;replSet rs&rdquo;</p>
-<p>rs-init:
-    image: percona/percona-server-mongodb:4.2
-    container_name: rs-init
-    restart: &ldquo;no&rdquo;
-    networks:
-      - my-network
-    depends_on:
-      - rs101
-      - rs102
-      - rs103
-    command: &gt;
-      mongo &ndash;host rs101:27017 &ndash;eval 
-      &lsquo;
-      config = {
-      &ldquo;_id&rdquo; : &ldquo;rs&rdquo;,
-      &ldquo;members&rdquo; : [
-        {
-          &ldquo;_id&rdquo; : 0,
-          &ldquo;host&rdquo; : &ldquo;rs101:27017&rdquo;
-        },
-        {
-          &ldquo;_id&rdquo; : 1,
-          &ldquo;host&rdquo; : &ldquo;rs102:28017&rdquo;
-        },
-        {
-          &ldquo;_id&rdquo; : 2,
-          &ldquo;host&rdquo; : &ldquo;rs103:29017&rdquo;
-        }
-      ]
-      };
-      rs.initiate(config);
-      &lsquo; </p>
-<p>networks:
-  my-network:
-    driver: bridge
-```</p>
+<div class="highlight"><span class="filename">docker-compose.yaml</span><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">rs101</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">percona/percona-server-mongodb:4.2</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs101</span>
+<span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs101</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;27017:27017&quot;</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-network</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;--port=27017</span><span class="nv"> </span><span class="s">--replSet</span><span class="nv"> </span><span class="s">rs&quot;</span>
+
+<span class="w">  </span><span class="nt">rs102</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">percona/percona-server-mongodb:4.2</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs102</span>
+<span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs102</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;28017:28017&quot;</span><span class="w">    </span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-network</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;--port=28017</span><span class="nv"> </span><span class="s">--replSet</span><span class="nv"> </span><span class="s">rs&quot;</span>
+
+<span class="w">  </span><span class="nt">rs103</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">percona/percona-server-mongodb:4.2</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs103</span>
+<span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs103</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;29017:29017&quot;</span><span class="w">    </span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-network</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;--port=29017</span><span class="nv"> </span><span class="s">--replSet</span><span class="nv"> </span><span class="s">rs&quot;</span>
+
+<span class="w">  </span><span class="nt">rs-init</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">percona/percona-server-mongodb:4.2</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs-init</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;no&quot;</span>
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-network</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs101</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs102</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs103</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">      </span><span class="no">mongo --host rs101:27017 --eval </span>
+<span class="w">      </span><span class="no">&#39;</span>
+<span class="w">      </span><span class="no">config = {</span>
+<span class="w">      </span><span class="no">&quot;_id&quot; : &quot;rs&quot;,</span>
+<span class="w">      </span><span class="no">&quot;members&quot; : [</span>
+<span class="w">        </span><span class="no">{</span>
+<span class="w">          </span><span class="no">&quot;_id&quot; : 0,</span>
+<span class="w">          </span><span class="no">&quot;host&quot; : &quot;rs101:27017&quot;</span>
+<span class="w">        </span><span class="no">},</span>
+<span class="w">        </span><span class="no">{</span>
+<span class="w">          </span><span class="no">&quot;_id&quot; : 1,</span>
+<span class="w">          </span><span class="no">&quot;host&quot; : &quot;rs102:28017&quot;</span>
+<span class="w">        </span><span class="no">},</span>
+<span class="w">        </span><span class="no">{</span>
+<span class="w">          </span><span class="no">&quot;_id&quot; : 2,</span>
+<span class="w">          </span><span class="no">&quot;host&quot; : &quot;rs103:29017&quot;</span>
+<span class="w">        </span><span class="no">}</span>
+<span class="w">      </span><span class="no">]</span>
+<span class="w">      </span><span class="no">};</span>
+<span class="w">      </span><span class="no">rs.initiate(config);</span>
+<span class="w">      </span><span class="no">&#39; </span>
+
+
+<span class="nt">networks</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">my-network</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+</code></pre></div>
 </li>
 <li>
 <p>Build and run the replica set with Compose </p>
