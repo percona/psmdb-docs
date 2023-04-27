@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="../_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Installing Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS &#8212; Percona Server for MongoDB 4.0 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="Installing Percona Server for MongoDB from Binary Tarball" href="tarball.html" />
     <link rel="prev" title="Installing Percona Server for MongoDB on Debian and Ubuntu" href="apt.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="get" name="search">
+    <form class="md-search__form" action="../search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -556,14 +560,14 @@ scripts</p></td>
 <h3 id="configure-percona-repository"><a class="toc-backref" href="#id4">Configure Percona repository</a><a class="headerlink" href="#configure-percona-repository" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p>Install <strong class="program">percona-release</strong>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>https://repo.percona.com/yum/percona-release-latest.noarch.rpm
 </pre></div>
 </div>
 <div class="admonition-example-of-output admonition">
 <p class="admonition-title">Example of Output</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Retrieving https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-Preparing...                <span class="c1">########################################### [100%]</span>
-<span class="m">1</span>:percona-release        <span class="c1">########################################### [100%]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Retrieving<span class="w"> </span>https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+Preparing...<span class="w">                </span><span class="c1">########################################### [100%]</span>
+<span class="m">1</span>:percona-release<span class="w">        </span><span class="c1">########################################### [100%]</span>
 </pre></div>
 </div>
 </div>
@@ -586,7 +590,7 @@ Preparing...                <span class="c1">###################################
 
 <h3 id="install-the-latest-version"><a class="toc-backref" href="#id5">Install the latest version</a><a class="headerlink" href="#install-the-latest-version" title="Permalink to this headline">¶</a></h3>
 <p>To install the latest version of <em>Percona Server for MongoDB</em>, use the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install percona-server-mongodb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
 </pre></div>
 </div>
 
@@ -595,7 +599,7 @@ Preparing...                <span class="c1">###################################
 <p>To install a specific version of <em>Percona Server for MongoDB</em>, do the following:</p>
 <ol class="arabic">
 <li><p>List available versions:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum list percona-server-mongodb --showduplicates
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>list<span class="w"> </span>percona-server-mongodb<span class="w"> </span>--showduplicates
 </pre></div>
 </div>
 <div class="admonition-sample-output admonition">
@@ -617,7 +621,7 @@ percona-server-mongodb.x86_64    4.0.20-13.el8     psmdb-40-release-x86_64
 </div>
 </li>
 <li><p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 4.0.13-7, run the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install percona-server-mongodb-4.0.13-7.el8
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-4.0.13-7.el8
 </pre></div>
 </div>
 </li>
@@ -651,22 +655,22 @@ The configuration file is <code class="file docutils literal notranslate"><span 
 <p><strong>Starting the service</strong></p>
 <p><em>Percona Server for MongoDB</em> is not started automatically after installation.
 Start it manually using the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 <p><strong>Confirming that service is running</strong></p>
-<p>Check the service status using the following command: <code class="code bash docutils literal notranslate"><span class="pre">service</span> <span class="pre">mongod</span> <span class="pre">status</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl status mongod
+<p>Check the service status using the following command: <code class="code bash docutils literal notranslate"><span class="pre">service</span><span class="whitespace"> </span><span class="pre">mongod</span><span class="whitespace"> </span><span class="pre">status</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
 </pre></div>
 </div>
 <p><strong>Stopping the service</strong></p>
-<p>Stop the service using the following command: <code class="code bash docutils literal notranslate"><span class="pre">service</span> <span class="pre">mongod</span> <span class="pre">stop</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl stop mongod
+<p>Stop the service using the following command: <code class="code bash docutils literal notranslate"><span class="pre">service</span><span class="whitespace"> </span><span class="pre">mongod</span><span class="whitespace"> </span><span class="pre">stop</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 <p><strong>Restarting the service</strong></p>
-<p>Restart the service using the following command: <code class="code bash docutils literal notranslate"><span class="pre">service</span> <span class="pre">mongod</span> <span class="pre">restart</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl restart mongod
+<p>Restart the service using the following command: <code class="code bash docutils literal notranslate"><span class="pre">service</span><span class="whitespace"> </span><span class="pre">mongod</span><span class="whitespace"> </span><span class="pre">restart</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </pre></div>
 </div>
 
@@ -675,11 +679,11 @@ Start it manually using the following command:</p>
 after you reboot the system.</p>
 <p>For RHEL or CentOS versions 5 and 6, you can use the <code class="docutils literal notranslate"><span class="pre">chkconfig</span></code> utility
 to enable auto-start as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo chkconfig --add mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>chkconfig<span class="w"> </span>--add<span class="w"> </span>mongod
 </pre></div>
 </div>
 <p>For RHEL or CentOS version 7, you can use the <code class="docutils literal notranslate"><span class="pre">systemctl</span></code> utility:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl <span class="nb">enable</span> mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mongod
 </pre></div>
 </div>
 <p class="rubric">Footnotes</p>

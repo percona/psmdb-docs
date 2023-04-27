@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="../_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Upgrading from Percona Server for MongoDB 3.6 to 4.0 &#8212; Percona Server for MongoDB 4.0 Documentation</title>
@@ -78,11 +75,18 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="Uninstalling Percona Server for MongoDB" href="uninstall.html" />
     <link rel="prev" title="Upgrading Percona Server for MongoDB" href="upgrade-from-mongodb.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -130,7 +134,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="get" name="search">
+    <form class="md-search__form" action="../search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -511,27 +515,27 @@ the corresponding package manager for your system.  For more information, see
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Upgrading on Debian or Ubuntu</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Upgrading on RHEL and CentOS</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><ol class="arabic">
 <li><p>Stop the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> instance:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl stop mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p>Enable Percona repository for <em>Percona Server for MongoDB</em> 4.0:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo percona-release <span class="nb">enable</span> psmdb-40
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-40
 </pre></div>
 </div>
 </li>
 <li><p>Update the local cache:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt update
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
 </pre></div>
 </div>
 </li>
 <li><p>Install <em>Percona Server for MongoDB</em> 4.0 packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt install percona-server-mongodb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
 </pre></div>
 </div>
 </li>
 <li><p>Start the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> instance:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
@@ -539,19 +543,19 @@ the corresponding package manager for your system.  For more information, see
 <p>For more information, see <a class="reference internal" href="apt.html#apt"><span class="std std-ref">Installing Percona Server for MongoDB on Debian and Ubuntu</span></a>.</p>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><ol class="arabic">
 <li><p>Stop the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> instance:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl stop mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p>Enable Percona repository for <em>Percona Server for MongoDB</em> 4.0:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo percona-release <span class="nb">enable</span> psmdb-40
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-40
 </pre></div>
 </div>
 </li>
 <li><p>Install <em>Percona Server for MongoDB</em> 4.0 packages:</p>
 </li>
 <li><p>Start the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> instance:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
@@ -559,7 +563,7 @@ the corresponding package manager for your system.  For more information, see
 <p>For more information, see <a class="reference internal" href="yum.html#yum"><span class="std std-ref">Installing Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS</span></a>.</p>
 </div></div>
 <p>After the upgrade, <em>Percona Server for MongoDB</em> is started with the feature set of 3.6 version. Assuming that your applications are compatible with the new version, enable 4.0 version features. Run the following command against the <code class="docutils literal notranslate"><span class="pre">admin</span></code> database:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setFeatureCompatibilityVersion</span><span class="o">:</span><span class="w"> </span><span class="s2">"4.0"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setFeatureCompatibilityVersion</span><span class="o">:</span><span class="w"> </span><span class="s2">"4.0"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition seealso">

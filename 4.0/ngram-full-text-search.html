@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Additional text search algorithm - ngram &#8212; Percona Server for MongoDB 4.0 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Enabling Authentication" href="enable-auth.html" />
     <link rel="prev" title="Migrating from Key File Encryption to HashiCorp Vault Encryption" href="encryption-mode-switch.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -515,11 +519,11 @@ characters that do not count as word characters in human languages:</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>To use <em>ngram</em>, create a text index on
 a collection setting the <code class="docutils literal notranslate"><span class="pre">default_language</span></code> parameter to <strong>ngram</strong>:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mongo</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span><span class="s2">"text"</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">default_language</span><span class="o">:</span><span class="w"> </span><span class="s2">"ngram"</span><span class="p">})</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mongo</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span><span class="s2">"text"</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">default_language</span><span class="o">:</span><span class="w"> </span><span class="s2">"ngram"</span><span class="p">})</span>
 </pre></div>
 </div>
 <p><em>ngram</em> search algorithm treats special characters like individual terms. Therefore, you don’t have to enclose the search string in escaped double quotes (<code class="docutils literal notranslate"><span class="pre">\"</span></code>) to query the text index. For example, to search for documents that contain the date <code class="docutils literal notranslate"><span class="pre">2021-02-12</span></code>, specify the following:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mongo</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">$text</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$search</span><span class="o">:</span><span class="w"> </span><span class="s2">"2021-02-12"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">mongo</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">$text</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$search</span><span class="o">:</span><span class="w"> </span><span class="s2">"2021-02-12"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
 </pre></div>
 </div>
 <p>However, both <em>ngram</em> and MongoDB full text search engine treat words with the hyphen-minus <code class="docutils literal notranslate"><span class="pre">-</span></code> sign  in front of them as negated (e.g. “-coffee”)  and exclude such words from the search results.</p>

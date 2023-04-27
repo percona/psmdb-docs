@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Hot Backup &#8212; Percona Server for MongoDB 4.0 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Profiling Rate Limit" href="rate-limit.html" />
     <link rel="prev" title="Percona Memory Engine" href="inmemory.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -548,15 +552,15 @@ server without notable performance and operating degradation.</p>
 <p>To take a hot backup of the database in your current <code class="docutils literal notranslate"><span class="pre">dbpath</span></code>, do the following:</p>
 <ul>
 <li><p>Make sure to provide access to the backup directory for the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chown mongod:mongod &lt;backupDir&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chown<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;backupDir&gt;
 </pre></div>
 </div>
 </li>
 <li><p>Run the <code class="docutils literal notranslate"><span class="pre">createBackup</span></code> command as administrator on the <code class="docutils literal notranslate"><span class="pre">admin</span></code> database and specify the backup directory.</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span><span class="w"></span>
-<span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">"&lt;backup_data_path&gt;"</span><span class="p">})</span><span class="w"></span>
-<span class="p">{</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
+<span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">"&lt;backup_data_path&gt;"</span><span class="p">})</span>
+<span class="p">{</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 </li>
@@ -565,8 +569,8 @@ server without notable performance and operating degradation.</p>
 <p>If the backup was successful, you should receive an <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">"ok"</span> <span class="pre">:</span> <span class="pre">1</span> <span class="pre">}</span></code> object.
 If there was an error, you will receive a failing <code class="docutils literal notranslate"><span class="pre">ok</span></code> status
 with the error message, for example:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">""</span><span class="p">})</span><span class="w"></span>
-<span class="p">{</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"errmsg"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Destination path must be absolute"</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">""</span><span class="p">})</span>
+<span class="p">{</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"errmsg"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Destination path must be absolute"</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 
@@ -577,9 +581,9 @@ with the error message, for example:</p>
 </div>
 <p>To save a backup in the format of <em>tar</em> archive, use the <em>archive</em> field to
 specify the destination path:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span><span class="w"></span>
-<span class="p">...</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">archive</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">path_to_archive</span><span class="o">&gt;</span><span class="p">.</span><span class="nx">tar</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
+<span class="p">...</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">archive</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">path_to_archive</span><span class="o">&gt;</span><span class="p">.</span><span class="nx">tar</span><span class="w"> </span><span class="p">})</span>
 </pre></div>
 </div>
 
@@ -588,74 +592,74 @@ specify the destination path:</p>
 <h2 id="view-backup-status"><a class="toc-backref" href="#id5">View backup status</a><a class="headerlink" href="#view-backup-status" title="Permalink to this headline">¶</a></h2>
 <p>As of version 4.0.26-21, you can view the backup status using the <a class="reference external" href="https://docs.mongodb.com/manual/reference/operator/aggregation/currentOp/">$currentOp</a> aggregation stage. You can also use the <a class="reference external" href="https://docs.mongodb.com/manual/reference/command/currentOp/#mongodb-dbcommand-dbcmd.currentOp">currentOp</a> command though it is considered legacy.</p>
 <p>Run the <code class="docutils literal notranslate"><span class="pre">$currentOp</span></code> against the <code class="docutils literal notranslate"><span class="pre">admin</span></code> database:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">).</span><span class="nx">aggregate</span><span class="p">([</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nx">$currentOp</span><span class="o">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
-<span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nx">$match</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"command.createBackup"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">$exists</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}}</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="p">])</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">).</span><span class="nx">aggregate</span><span class="p">([</span>
+<span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nx">$currentOp</span><span class="o">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nx">$match</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"command.createBackup"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">$exists</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">])</span>
 </pre></div>
 </div>
 <div class="admonition-sample-output admonition">
 <p class="admonition-title">Sample output</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"type"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"op"</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"host"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"bionic:27017"</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"desc"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"conn1251"</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"connectionId"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1251</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"client"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"127.0.0.1:52898"</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"appName"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"MongoDB Shell"</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"clientMetadata"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="s2">"application"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="s2">"name"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"MongoDB Shell"</span><span class="w"></span>
-<span class="w">      </span><span class="p">},</span><span class="w"></span>
-<span class="w">      </span><span class="s2">"driver"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="s2">"name"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"MongoDB Internal Client"</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="s2">"version"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"4.0.26-21"</span><span class="w"></span>
-<span class="w">      </span><span class="p">},</span><span class="w"></span>
-<span class="w">      </span><span class="s2">"os"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="s2">"type"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Linux"</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="s2">"name"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Ubuntu"</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="s2">"architecture"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"x86_64"</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="s2">"version"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"18.04"</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"active"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"currentOpTime"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"2021-08-03T11:39:57.675+0000"</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"opid"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">222817</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"lsid"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="s2">"id"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">UUID</span><span class="p">(</span><span class="s2">"6f8d06fc-842b-420c-a43f-495db7bd6d88"</span><span class="p">),</span><span class="w"></span>
-<span class="w">      </span><span class="s2">"uid"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">BinData</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="s2">"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"secs_running"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">NumberLong</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"microsecs_running"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">NumberLong</span><span class="p">(</span><span class="mf">1516769</span><span class="p">),</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"op"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"ns"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin.$cmd"</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"command"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="s2">"createBackup"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="s2">"backupDir"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"/tmp/mongo"</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="s2">"lsid"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="s2">"id"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">UUID</span><span class="p">(</span><span class="s2">"6f8d06fc-842b-420c-a43f-495db7bd6d88"</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="p">},</span><span class="w"></span>
-<span class="w">      </span><span class="s2">"$db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="s2">"type"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"op"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"host"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"bionic:27017"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"desc"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"conn1251"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"connectionId"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1251</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"client"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"127.0.0.1:52898"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"appName"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"MongoDB Shell"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"clientMetadata"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"application"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"MongoDB Shell"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s2">"driver"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"MongoDB Internal Client"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"version"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"4.0.26-21"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s2">"os"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"type"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Linux"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Ubuntu"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"architecture"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"x86_64"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"version"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"18.04"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"active"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"currentOpTime"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"2021-08-03T11:39:57.675+0000"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"opid"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">222817</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"lsid"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"id"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">UUID</span><span class="p">(</span><span class="s2">"6f8d06fc-842b-420c-a43f-495db7bd6d88"</span><span class="p">),</span>
+<span class="w">      </span><span class="s2">"uid"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">BinData</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="s2">"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="</span><span class="p">)</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"secs_running"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">NumberLong</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span>
+<span class="w">  </span><span class="s2">"microsecs_running"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">NumberLong</span><span class="p">(</span><span class="mf">1516769</span><span class="p">),</span>
+<span class="w">  </span><span class="s2">"op"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"command"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"ns"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin.$cmd"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"command"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"createBackup"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"backupDir"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"/tmp/mongo"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"lsid"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"id"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">UUID</span><span class="p">(</span><span class="s2">"6f8d06fc-842b-420c-a43f-495db7bd6d88"</span><span class="p">)</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s2">"$db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span>
+<span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="s2">"msg"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Hot Backup: copying data bytes Hot Backup: copying data bytes:</span>
-<span class="s2">  971530240/1147213741 84%"</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"progress"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="s2">"done"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">971530240</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="s2">"total"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1147213741</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"numYields"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"locks"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="s2">  971530240/1147213741 84%"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"progress"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"done"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">971530240</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"total"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1147213741</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"numYields"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"locks"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"waitingForLock"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"lockStats"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"waitingForLock"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"lockStats"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"waitingForFlowControl"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">"flowControlStats"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"waitingForFlowControl"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"flowControlStats"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -786,15 +790,15 @@ useVirtualAddressing: false}})
 <p class="rubric">Restoring from backup on a standalone server</p>
 <p>To restore your database on a standalone server, stop the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service, clean out the data directory and copy files from the backup directory to the data directory. The <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user requires access to those files to start the service. Therefore, make the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user the owner of the data directory and all files and subdirectories under it, and restart the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#Stop the mongod service</span>
-$ systemctl stop mongod
+$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 <span class="c1">#Clean out the data directory</span>
-$ rm -rf /var/lib/mongodb/*
+$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/mongodb/*
 <span class="c1"># Copy backup files</span>
-$ cp -RT &lt;backup_data_path&gt; /var/lib/mongodb/
+$<span class="w"> </span>cp<span class="w"> </span>-RT<span class="w"> </span>&lt;backup_data_path&gt;<span class="w"> </span>/var/lib/mongodb/
 <span class="c1">#Grant permissions to data files for the mongod user</span>
-$ chown -R mongod:mongod /var/lib/mongodb/
+$<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>/var/lib/mongodb/
 <span class="c1">#Start the mongod service</span>
-$ systemctl start mongod
+$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 <p class="rubric">Restoring from backup in a replica set</p>
@@ -806,43 +810,43 @@ $ systemctl start mongod
 <p>The restore steps are the following:</p>
 <ol class="arabic">
 <li><p>Stop the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl stop mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p>Clean the data directory and then copy the files from the backup directory to your data directory. Assuming that the data directory is <code class="file docutils literal notranslate"><span class="pre">/var/lib/mongodb/</span></code>, use the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rm -rf /var/lib/mongodb/*
-$ cp -RT &lt;backup_data_path&gt; /var/lib/mongodb/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/mongodb/*
+$<span class="w"> </span>cp<span class="w"> </span>-RT<span class="w"> </span>&lt;backup_data_path&gt;<span class="w"> </span>/var/lib/mongodb/
 </pre></div>
 </div>
 </li>
 <li><p>Grant permissions to the data files for the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ chown -R mongod:mongod /var/lib/mongodb/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>/var/lib/mongodb/
 </pre></div>
 </div>
 </li>
 <li><p>Make sure the replication is disabled in the config file and start the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p>Connect to your standalone node via the <code class="docutils literal notranslate"><span class="pre">mongo</span></code> shell and drop the local database</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mongo
-$ use <span class="nb">local</span>
-$ db.dropDatabase<span class="o">()</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mongo
+$<span class="w"> </span>use<span class="w"> </span><span class="nb">local</span>
+$<span class="w"> </span>db.dropDatabase<span class="o">()</span>
 </pre></div>
 </div>
 </li>
 <li><p>Restart the node with the replication enabled</p>
 <ul>
 <li><p>Shut down the node.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl stop mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p>Edit the configuration file and specify the <code class="docutils literal notranslate"><span class="pre">replication.replSetname</span></code> option</p></li>
 <li><p>Start the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> node:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
@@ -850,9 +854,9 @@ $ db.dropDatabase<span class="o">()</span>
 </li>
 <li><p>Initiate a new replica set</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start the mongo shell</span>
-$ mongo
+$<span class="w"> </span>mongo
 <span class="c1"># Initiate a new replica set</span>
-$ rs.initiate<span class="o">()</span>
+$<span class="w"> </span>rs.initiate<span class="o">()</span>
 </pre></div>
 </div>
 </li>

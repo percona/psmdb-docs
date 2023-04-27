@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>LDAP authorization &#8212; Percona Server for MongoDB 4.0 Documentation</title>
@@ -78,11 +75,18 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Auditing" href="audit-logging.html" />
     <link rel="prev" title="Authentication" href="authentication.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -130,7 +134,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -555,8 +559,8 @@ _gaq.push(['_trackPageview']);
 <p class="rubric">LDAP referrals</p>
 <p>As of version 4.2.10-11, <em>Percona Server for MongoDB</em> supports LDAP referrals as defined in <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc4511.txt">RFC 4511 4.1.10</a>. For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.</p>
 <p>To enable LDAP referrals, set the <code class="docutils literal notranslate"><span class="pre">ldapFollowReferrals</span></code> server parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code> using the <a class="reference internal" href="set-parameter.html#setparameter"><span class="std std-ref">setParameter</span></a> command or by editing the configuration file.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">setParameter</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">ldapFollowReferrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">ldapFollowReferrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 <p class="rubric">Connection pool</p>
@@ -564,11 +568,11 @@ _gaq.push(['_trackPageview']);
 <p>You can change the connection pool size either at the server startup or dynamically by specifying the value for the <code class="docutils literal notranslate"><span class="pre">ldapConnectionPoolSizePerHost</span></code> server parameter.</p>
 <p>For example, to set the number of connections in the pool to 5, use the <code class="docutils literal notranslate"><span class="pre">setParameter</span></code> command:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Command line</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Configuration file:</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapConnectionPoolSizePerHost</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Command line</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Configuration file:</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapConnectionPoolSizePerHost</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">setParameter</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ldapConnectionPoolSizePerHost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ldapConnectionPoolSizePerHost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 </pre></div>
 </div>
 </div></div>
@@ -576,10 +580,10 @@ _gaq.push(['_trackPageview']);
 <p>As of version 4.2.12-13, you can specify multiple LDAP servers for failover. <em>Percona Server for MongoDB</em> sends bind requests to the first server defined in the list. When this server is down or unavailable, it sends requests to the next server  and so on. Note that <em>Percona Server for MongoDB</em> keeps sending requests to this server even after the unavailable server recovers.</p>
 <p>Specify the LDAP servers as a comma-separated list in the format <code class="docutils literal notranslate"><span class="pre">&lt;host&gt;:&lt;port&gt;</span></code> for the <a class="reference external" href="https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-ldapservers">–ldapServers</a> option.</p>
 <p>You can define the option value at the server startup by editing the configuration file.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ldap</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap1.example.net,ldap2.example.net"</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
+<span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap1.example.net,ldap2.example.net"</span>
 </pre></div>
 </div>
 <p>You can change <code class="docutils literal notranslate"><span class="pre">ldapServers</span></code> dynamically at runtime using the <a class="reference internal" href="set-parameter.html#setparameter"><span class="std std-ref">setParameter</span></a>.</p>

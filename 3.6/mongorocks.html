@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>MongoRocks &#8212; Percona Server for MongoDB 3.6 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Hot Backup" href="hot-backup.html" />
     <link rel="prev" title="Percona Memory Engine" href="inmemory.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -184,6 +188,8 @@ _gaq.push(['_trackPageview']);
           <a title="4.4" href="https://docs.percona.com/percona-server-for-mongodb/4.4/">4.4</a>
       
           <a title="5.0" href="https://docs.percona.com/percona-server-for-mongodb/5.0/">5.0</a>
+      
+          <a title="6.0" href="https://docs.percona.com/percona-server-for-mongodb/6.0/">6.0</a>
       
           <a title="Latest stable" href="https://docs.percona.com/percona-server-for-mongodb/latest/">Latest stable</a>
       
@@ -538,8 +544,8 @@ When changing the storage engine, you have to do one of the following:</p>
 <li><p>If you simply want to temporarily test <em>MongoRocks</em>,
 change to a different data directory with the <code class="docutils literal notranslate"><span class="pre">--dbpath</span></code>
 command-line option:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ service mongod stop
-$ mongod --storageEngine rocksdb --useDeprecatedMongoRocks --dbpath &lt;newDataDir&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>stop
+$<span class="w"> </span>mongod<span class="w"> </span>--storageEngine<span class="w"> </span>rocksdb<span class="w"> </span>--useDeprecatedMongoRocks<span class="w"> </span>--dbpath<span class="w"> </span>&lt;newDataDir&gt;
 </pre></div>
 </div>
 <div class="admonition note">
@@ -551,22 +557,22 @@ has read and write permissions for the new data directory.</p>
 <li><p>If you want to permanently switch to <em>MongoRocks</em>
 and do not have any valuable data in your database,
 clean out the default data directory and edit the configuration file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ service mongod stop
-$ rm -rf /var/lib/mongodb/*
-$ sed -i <span class="s1">'/engine: .*rocksdb/s/#//g'</span> /etc/mongod.conf
-$ service mongod start
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>stop
+$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/mongodb/*
+$<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'/engine: .*rocksdb/s/#//g'</span><span class="w"> </span>/etc/mongod.conf
+$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>start
 </pre></div>
 </div>
 </li>
 <li><p>If there is data that you want to migrate
 and make compatible with <em>MongoRocks</em>,
 use the <code class="docutils literal notranslate"><span class="pre">mongodump</span></code> and <code class="docutils literal notranslate"><span class="pre">mongorestore</span></code> utilities:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mongodump --out &lt;dumpDir&gt;
-$ service mongod stop
-$ rm -rf /var/lib/mongodb/*
-$ sed -i <span class="s1">'/engine: .*rocksdb/s/#//g'</span> /etc/mongod.conf
-$ service mongod start
-$ mongorestore &lt;dumpDir&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mongodump<span class="w"> </span>--out<span class="w"> </span>&lt;dumpDir&gt;
+$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>stop
+$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/mongodb/*
+$<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'/engine: .*rocksdb/s/#//g'</span><span class="w"> </span>/etc/mongod.conf
+$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>start
+$<span class="w"> </span>mongorestore<span class="w"> </span>&lt;dumpDir&gt;
 </pre></div>
 </div>
 </li>
@@ -593,14 +599,14 @@ as the default for running <em>Percona Server for MongoDB</em> with <em>MongoRoc
 </div>
 <p>Setting parameters in the previous example configuration file
 is the same as starting the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> daemon with the following options:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mongod --storageEngine<span class="o">=</span>rocksdb <span class="se">\</span>
-  --useDeprecatedMongoRocks <span class="se">\</span>
-  --rocksdbCacheSizeGB<span class="o">=</span><span class="m">1</span> <span class="se">\</span>
-  --rocksdbCompression<span class="o">=</span>snappy <span class="se">\</span>
-  --rocksdbMaxWriteMBPerSec<span class="o">=</span><span class="m">1024</span> <span class="se">\</span>
-  --rocksdbCrashSafeCounters<span class="o">=</span><span class="nb">false</span> <span class="se">\</span>
-  --rocksdbCounters<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
-  --rocksdbSingleDeleteIndex<span class="o">=</span><span class="nb">false</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mongod<span class="w"> </span>--storageEngine<span class="o">=</span>rocksdb<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--useDeprecatedMongoRocks<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--rocksdbCacheSizeGB<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--rocksdbCompression<span class="o">=</span>snappy<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--rocksdbMaxWriteMBPerSec<span class="o">=</span><span class="m">1024</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--rocksdbCrashSafeCounters<span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--rocksdbCounters<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--rocksdbSingleDeleteIndex<span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 <p>The following options are available

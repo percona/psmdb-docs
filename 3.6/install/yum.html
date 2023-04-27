@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="../_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Installing Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS &#8212; Percona Server for MongoDB 3.6 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="Installing Percona Server for MongoDB from Binary Tarball" href="tarball.html" />
     <link rel="prev" title="Installing Percona Server for MongoDB on Debian and Ubuntu" href="apt.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="get" name="search">
+    <form class="md-search__form" action="../search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -184,6 +188,8 @@ _gaq.push(['_trackPageview']);
           <a title="4.4" href="https://docs.percona.com/percona-server-for-mongodb/4.4/">4.4</a>
       
           <a title="5.0" href="https://docs.percona.com/percona-server-for-mongodb/5.0/">5.0</a>
+      
+          <a title="6.0" href="https://docs.percona.com/percona-server-for-mongodb/6.0/">6.0</a>
       
           <a title="Latest stable" href="https://docs.percona.com/percona-server-for-mongodb/latest/">Latest stable</a>
       
@@ -520,13 +526,13 @@ and init.d scripts.</p>
 <p>Starting from <em>Percona Server for MongoDB</em> 3.6.19-7.0, the packages are located in the <code class="docutils literal notranslate"><span class="pre">psmdb-36</span></code> repository. To install the latest version of <em>Percona Server for MongoDB</em>, do the following:</p>
 <ol class="arabic">
 <li><p>Enable the repository.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo percona-release <span class="nb">enable</span> psmdb-36
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-36
 </pre></div>
 </div>
 </li>
 <li><p>Install the required <em>Percona Server for MongoDB</em> package using <strong class="command">yum</strong>.
 For example, to install the full package, run the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install Percona-Server-MongoDB-36
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>Percona-Server-MongoDB-36
 </pre></div>
 </div>
 </li>
@@ -537,12 +543,12 @@ For example, to install the full package, run the following:</p>
 <p>Earlier versions of <em>Percona Server for MongoDB</em> are located in the <code class="docutils literal notranslate"><span class="pre">original</span></code> repository. To install a specific version:</p>
 <ol class="arabic">
 <li><p>Enable the <cite>original</cite> repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo percona-release <span class="nb">enable</span> original
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>original
 </pre></div>
 </div>
 </li>
 <li><p>List available packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum list Percona-Server-MongoDB-36 --showduplicates
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>list<span class="w"> </span>Percona-Server-MongoDB-36<span class="w"> </span>--showduplicates
 </pre></div>
 </div>
 <div class="admonition-sample-output admonition">
@@ -557,7 +563,7 @@ Percona-Server-MongoDB-36.x86_64    3.6.19-7.0.el8    percona-release-x86_64
 </div>
 </li>
 <li><p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 3.6.17-4.0, use the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install Percona-Server-MongoDB-36-3.6.17-4.0.el8
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>Percona-Server-MongoDB-36-3.6.17-4.0.el8
 </pre></div>
 </div>
 </li>
@@ -592,25 +598,25 @@ The configuration file is <code class="file docutils literal notranslate"><span 
 <li><p><strong>Starting the service</strong></p>
 <p><em>Percona Server for MongoDB</em> is not started automatically after installation.
 Start it manually using the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p><strong>Confirming that service is running</strong></p>
 <p>Check the service status using the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl status mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p><strong>Stopping the service</strong></p>
 <p>Stop the service using the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl stop mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p><strong>Restarting the service</strong></p>
 <p>Restart the service using the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl restart mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
@@ -621,11 +627,11 @@ Start it manually using the following command:</p>
 after you reboot the system.</p>
 <p>For RHEL or CentOS versions 5 and 6, you can use the <code class="docutils literal notranslate"><span class="pre">chkconfig</span></code> utility
 to enable auto-start as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ chkconfig --add mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>chkconfig<span class="w"> </span>--add<span class="w"> </span>mongod
 </pre></div>
 </div>
 <p>For RHEL or CentOS version 7, you can use the <code class="docutils literal notranslate"><span class="pre">systemctl</span></code> utility as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl <span class="nb">enable</span> mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mongod
 </pre></div>
 </div>
 
@@ -636,18 +642,18 @@ to enable auto-start as follows:</p>
 you’ll need to remove all the installed packages and data files:</p>
 <ol class="arabic">
 <li><p>Stop the Percona Server for MongoDB service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl stop mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p>Remove the packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum remove Percona-Server-MongoDB*
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span>Percona-Server-MongoDB*
 </pre></div>
 </div>
 </li>
 <li><p>Remove the data and configuration files:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rm -rf /var/lib/mongodb
-$ rm -f /etc/mongod.cnf
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/mongodb
+$<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>/etc/mongod.cnf
 </pre></div>
 </div>
 </li>

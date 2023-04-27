@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="../_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Upgrading from MongoDB 3.6 Community Edition to Percona Server for MongoDB &#8212; Percona Server for MongoDB 3.6 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="Upgrading from Percona Server for MongoDB 3.4 to 3.6" href="upgrade_from_34.html" />
     <link rel="prev" title="Running Percona Server for MongoDB in a Docker Container" href="docker.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="get" name="search">
+    <form class="md-search__form" action="../search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -184,6 +188,8 @@ _gaq.push(['_trackPageview']);
           <a title="4.4" href="https://docs.percona.com/percona-server-for-mongodb/4.4/">4.4</a>
       
           <a title="5.0" href="https://docs.percona.com/percona-server-for-mongodb/5.0/">5.0</a>
+      
+          <a title="6.0" href="https://docs.percona.com/percona-server-for-mongodb/6.0/">6.0</a>
       
           <a title="Latest stable" href="https://docs.percona.com/percona-server-for-mongodb/latest/">Latest stable</a>
       
@@ -507,9 +513,9 @@ new <code class="docutils literal notranslate"><span class="pre">mongod</span></
 <h2 id="prerequisites"><a class="toc-backref" href="#id1">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <p>Before you start the upgrade, update the MongoDB configuration file
 (<code class="file docutils literal notranslate"><span class="pre">/etc/mongod.conf</span></code>) to contain the following settings.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">processManagement</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">fork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<span class="w">   </span><span class="nt">pidFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/mongod.pid</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">processManagement</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">fork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">   </span><span class="nt">pidFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/mongod.pid</span>
 </pre></div>
 </div>
 <p>Troubleshooting tip: The <code class="docutils literal notranslate"><span class="pre">pidFilePath</span></code> setting in <code class="file docutils literal notranslate"><span class="pre">mongod.conf</span></code> must  match the <code class="docutils literal notranslate"><span class="pre">PIDFile</span></code> option in the <code class="docutils literal notranslate"><span class="pre">systemd</span> <span class="pre">mongod</span></code> service unit. Otherwise, the service will kill the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> process after a timeout.</p>
@@ -523,40 +529,40 @@ backup of your data.</p>
 <h2 id="upgrading-on-debian-or-ubuntu"><a class="toc-backref" href="#id2">Upgrading on Debian or Ubuntu</a><a class="headerlink" href="#upgrading-on-debian-or-ubuntu" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Stop the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl stop mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p>Check for installed packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ dpkg -l <span class="p">|</span> grep mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mongod
 
-ii  mongodb-org                    <span class="m">3</span>.6.2                              amd64        MongoDB open <span class="nb">source</span> document-oriented database system <span class="o">(</span>metapackage<span class="o">)</span>
-ii  mongodb-org-mongos             <span class="m">3</span>.6.2                              amd64        MongoDB sharded cluster query router
-ii  mongodb-org-server             <span class="m">3</span>.6.2                              amd64        MongoDB database server
-ii  mongodb-org-shell              <span class="m">3</span>.6.2                              amd64        MongoDB shell client
-ii  mongodb-org-tools              <span class="m">3</span>.6.2                              amd64        MongoDB tools
+ii<span class="w">  </span>mongodb-org<span class="w">                    </span><span class="m">3</span>.6.2<span class="w">                              </span>amd64<span class="w">        </span>MongoDB<span class="w"> </span>open<span class="w"> </span><span class="nb">source</span><span class="w"> </span>document-oriented<span class="w"> </span>database<span class="w"> </span>system<span class="w"> </span><span class="o">(</span>metapackage<span class="o">)</span>
+ii<span class="w">  </span>mongodb-org-mongos<span class="w">             </span><span class="m">3</span>.6.2<span class="w">                              </span>amd64<span class="w">        </span>MongoDB<span class="w"> </span>sharded<span class="w"> </span>cluster<span class="w"> </span>query<span class="w"> </span>router
+ii<span class="w">  </span>mongodb-org-server<span class="w">             </span><span class="m">3</span>.6.2<span class="w">                              </span>amd64<span class="w">        </span>MongoDB<span class="w"> </span>database<span class="w"> </span>server
+ii<span class="w">  </span>mongodb-org-shell<span class="w">              </span><span class="m">3</span>.6.2<span class="w">                              </span>amd64<span class="w">        </span>MongoDB<span class="w"> </span>shell<span class="w"> </span>client
+ii<span class="w">  </span>mongodb-org-tools<span class="w">              </span><span class="m">3</span>.6.2<span class="w">                              </span>amd64<span class="w">        </span>MongoDB<span class="w"> </span>tools
 </pre></div>
 </div>
 </li>
 <li><p>Remove installed packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get remove <span class="se">\</span>
-mongodb-org <span class="se">\</span>
-mongodb-org-mongos <span class="se">\</span>
-mongodb-org-server <span class="se">\</span>
-mongodb-org-shell <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>remove<span class="w"> </span><span class="se">\</span>
+mongodb-org<span class="w"> </span><span class="se">\</span>
+mongodb-org-mongos<span class="w"> </span><span class="se">\</span>
+mongodb-org-server<span class="w"> </span><span class="se">\</span>
+mongodb-org-shell<span class="w"> </span><span class="se">\</span>
 mongodb-org-tools
 </pre></div>
 </div>
 </li>
 <li><p>Remove log files:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo rm -r /var/log/mongodb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span>/var/log/mongodb
 </pre></div>
 </div>
 </li>
 <li><p>Install <em>Percona Server for MongoDB</em> <a class="reference internal" href="apt.html#apt"><span class="std std-ref">using apt</span></a></p></li>
 <li><p>Verify that the configuration file includes the correct options. For example, <em>Percona Server for MongoDB</em> stores data files in <code class="file docutils literal notranslate"><span class="pre">/var/lib/mongodb</span></code> by default. If you used another <code class="docutils literal notranslate"><span class="pre">dbPath</span></code> data directory, edit the configuration file accordingly</p></li>
 <li><p>Start the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
@@ -566,12 +572,12 @@ mongodb-org-tools
 <h2 id="upgrading-on-red-hat-enterprise-linux-or-centos"><a class="toc-backref" href="#id3">Upgrading on Red Hat Enterprise Linux or CentOS</a><a class="headerlink" href="#upgrading-on-red-hat-enterprise-linux-or-centos" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Stop the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl stop mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p>Check for installed packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rpm -qa <span class="p">|</span> grep mongo
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rpm<span class="w"> </span>-qa<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mongo
 
 mongodb-org-mongos-3.6.2-1.el6.x86_64
 mongodb-org-shell-3.6.2-1.el6.x86_64
@@ -584,21 +590,21 @@ mongodb-org-3.6.2-1.el6.x86_64
 </ol>
 <ol class="arabic" start="3">
 <li><p>Remove the installed packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum remove <span class="se">\</span>
-mongodb-org-mongos-3.6.2-1.el6.x86_64 mongodb-org-shell-3.6.2-1.el6.x86_64 <span class="se">\</span>
-mongodb-org-server-3.6.2-1.el6.x86_64 mongodb-org-tools-3.6.2-1.el6.x86_64 <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span><span class="se">\</span>
+mongodb-org-mongos-3.6.2-1.el6.x86_64<span class="w"> </span>mongodb-org-shell-3.6.2-1.el6.x86_64<span class="w"> </span><span class="se">\</span>
+mongodb-org-server-3.6.2-1.el6.x86_64<span class="w"> </span>mongodb-org-tools-3.6.2-1.el6.x86_64<span class="w"> </span><span class="se">\</span>
 mongodb-org-3.6.2-1.el6.x86_64
 </pre></div>
 </div>
 </li>
 <li><p>Remove log files:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo rm -r /var/log/mongodb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span>/var/log/mongodb
 </pre></div>
 </div>
 </li>
 <li><p>Install Percona Server for MongoDB <a class="reference internal" href="yum.html#yum"><span class="std std-ref">using yum</span></a>.</p></li>
 <li><p>Start the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>

@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Data at Rest Encryption &#8212; Percona Server for MongoDB 4.0 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="HashiCorp Vault Integration" href="vault.html" />
     <link rel="prev" title="Log Redaction" href="log-redaction.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -539,7 +543,7 @@ following cipher modes:</p>
 <p>By default, the AES256-CBC cipher mode is applied. The following example
 demonstrates how to apply the AES256-GCM cipher mode when starting the
 <strong class="program">mongod</strong> service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mongod ... --encryptionCipherMode AES256-GCM
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mongod<span class="w"> </span>...<span class="w"> </span>--encryptionCipherMode<span class="w"> </span>AES256-GCM
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -554,7 +558,7 @@ demonstrates how to apply the AES256-GCM cipher mode when starting the
 <p>Starting from version 3.6, <em>Percona Server for MongoDB</em> also encrypts rollback files when data at
 rest encryption is enabled. To inspect the contents of these files, use
 <strong class="program">perconadecrypt</strong>. This is a tool that you run from the command line as follows:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ perconadecrypt --encryptionKeyFile FILE  --inputPath FILE --outputPath FILE <span class="o">[</span>--encryptionCipherMode MODE<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>perconadecrypt<span class="w"> </span>--encryptionKeyFile<span class="w"> </span>FILE<span class="w">  </span>--inputPath<span class="w"> </span>FILE<span class="w"> </span>--outputPath<span class="w"> </span>FILE<span class="w"> </span><span class="o">[</span>--encryptionCipherMode<span class="w"> </span>MODE<span class="o">]</span>
 </pre></div>
 </div>
 <p>When decrypting, the cipher mode must match the cipher mode which was used for

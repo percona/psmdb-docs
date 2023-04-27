@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Hot Backup &#8212; Percona Server for MongoDB 3.6 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Profiling Rate Limit" href="rate-limit.html" />
     <link rel="prev" title="MongoRocks" href="mongorocks.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -184,6 +188,8 @@ _gaq.push(['_trackPageview']);
           <a title="4.4" href="https://docs.percona.com/percona-server-for-mongodb/4.4/">4.4</a>
       
           <a title="5.0" href="https://docs.percona.com/percona-server-for-mongodb/5.0/">5.0</a>
+      
+          <a title="6.0" href="https://docs.percona.com/percona-server-for-mongodb/6.0/">6.0</a>
       
           <a title="Latest stable" href="https://docs.percona.com/percona-server-for-mongodb/latest/">Latest stable</a>
       
@@ -510,7 +516,7 @@ without notable performance and operating degradation.</p>
 <p>To take a hot backup of the database in your current <code class="docutils literal notranslate"><span class="pre">dbpath</span></code>, do the following:</p>
 <ul>
 <li><p>Make sure to provide access to the backup directory for the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ chown mongod:mongod &lt;backupDir&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;backupDir&gt;
 </pre></div>
 </div>
 </li>
@@ -661,15 +667,15 @@ useVirtualAddressing: false}})
 <p>To restore your database on a standalone server, stop the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service, clean out the data directory and copy files from the backup directory to the data directory. The <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user requires access to those files to start the service. Therefore, make the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user the owner of the data directory and all files and subdirectories under it, and restart the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service.</p>
 <p>Run the following commands as root or by using the <strong class="program">sudo</strong> command</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stop the mongod service</span>
-$ systemctl stop mongod
+$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 <span class="c1"># Clean out the data directory</span>
-$ rm -rf /var/lib/mongodb/*
+$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/mongodb/*
 <span class="c1"># Copy backup files</span>
-$ cp -RT &lt;backup_data_path&gt; /var/lib/mongodb/
+$<span class="w"> </span>cp<span class="w"> </span>-RT<span class="w"> </span>&lt;backup_data_path&gt;<span class="w"> </span>/var/lib/mongodb/
 <span class="c1"># Grant permissions to data files for the mongod user</span>
-$ chown -R mongod:mongod /var/lib/mongodb/
+$<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>/var/lib/mongodb/
 <span class="c1"># Start the mongod service</span>
-$ systemctl start mongod
+$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 <p class="rubric">Restoring from backup in a replica set</p>
@@ -682,23 +688,23 @@ $ systemctl start mongod
 <p>The restore steps are the following:</p>
 <ol class="arabic">
 <li><p>Stop the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl stop mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p>Clean the data directory and then copy the files from the backup directory to your data directory. Assuming that the data directory is <code class="file docutils literal notranslate"><span class="pre">/var/lib/mongodb/</span></code>, use the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rm -rf /var/lib/mongodb/*
-$ cp -RT &lt;backup_data_path&gt; /var/lib/mongodb/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/mongodb/*
+$<span class="w"> </span>cp<span class="w"> </span>-RT<span class="w"> </span>&lt;backup_data_path&gt;<span class="w"> </span>/var/lib/mongodb/
 </pre></div>
 </div>
 </li>
 <li><p>Grant permissions to the data files for the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ chown -R mongod:mongod /var/lib/mongodb/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>/var/lib/mongodb/
 </pre></div>
 </div>
 </li>
 <li><p>Make sure the replication is disabled in the config file and start the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
@@ -712,13 +718,13 @@ $ cp -RT &lt;backup_data_path&gt; /var/lib/mongodb/
 <li><p>Restart the node with the replication enabled</p>
 <ul>
 <li><p>Shut down the node.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl stop mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p>Edit the configuration file and specify the <code class="docutils literal notranslate"><span class="pre">replication.replSetname</span></code> option</p></li>
 <li><p>Start the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> node:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>

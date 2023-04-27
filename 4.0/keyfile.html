@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Local key management using a keyfile &#8212; Percona Server for MongoDB 4.0 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Migrating from Key File Encryption to HashiCorp Vault Encryption" href="encryption-mode-switch.html" />
     <link rel="prev" title="HashiCorp Vault Integration" href="vault.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -470,7 +474,7 @@ _gaq.push(['_trackPageview']);
 <span id="keyfile"></span><h1 id="keyfile--page-root">Local key management using a keyfile<a class="headerlink" href="#keyfile--page-root" title="Permalink to this headline">¶</a></h1>
 <p>The key file must contain a 32 character string encoded in base64. You can generate a random
 key and save it to a file by using the <strong class="program">openssl</strong> command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ openssl rand -base64 <span class="m">32</span> &gt; mongodb-keyfile
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">32</span><span class="w"> </span>&gt;<span class="w"> </span>mongodb-keyfile
 </pre></div>
 </div>
 <p>Then, as the owner of the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> process, update the file permissions: only
@@ -480,7 +484,7 @@ specified with the <code class="docutils literal notranslate"><span class="pre">
 <li><p><strong>600</strong> - only the owner may read and modify the file</p></li>
 <li><p><strong>400</strong> - only the owner may read the file.</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ chmod <span class="m">600</span> mongodb-keyfile
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>mongodb-keyfile
 </pre></div>
 </div>
 <p>Enable the data encryption at rest in <em>Percona Server for MongoDB</em> by setting these options:</p>
@@ -488,7 +492,7 @@ specified with the <code class="docutils literal notranslate"><span class="pre">
 <li><p><code class="docutils literal notranslate"><span class="pre">--enableEncryption</span></code> to enable data at rest encryption</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--encryptionKeyFile</span></code> to specify the path to a file that contains the encryption key</p></li>
 </ul>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mongod ... --enableEncryption --encryptionKeyFile &lt;fileName&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mongod<span class="w"> </span>...<span class="w"> </span>--enableEncryption<span class="w"> </span>--encryptionKeyFile<span class="w"> </span>&lt;fileName&gt;
 </pre></div>
 </div>
 <p>By default, <em>Percona Server for MongoDB</em> uses the <code class="docutils literal notranslate"><span class="pre">AES256-CBC</span></code> cipher mode. If you want to use the <code class="docutils literal notranslate"><span class="pre">AES256-GCM</span></code> cipher mode, then use the <code class="docutils literal notranslate"><span class="pre">encryptionCipherMode</span></code> parameter to change it.</p>
@@ -510,11 +514,11 @@ case are:</p>
 </dl>
 </div>
 <p>All these options can be specified in the configuration file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;boolean&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="nt">encryptionCipherMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="nt">encryptionKeyFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span><span class="w"></span>
-<span class="w">   </span><span class="nt">relaxPermChecks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;boolean&gt;</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;boolean&gt;</span>
+<span class="w">   </span><span class="nt">encryptionCipherMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span>
+<span class="w">   </span><span class="nt">encryptionKeyFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span>
+<span class="w">   </span><span class="nt">relaxPermChecks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;boolean&gt;</span>
 </pre></div>
 </div>
 <div class="admonition seealso">

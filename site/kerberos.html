@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Documentation" name="description"/>
+<meta content="Percona LLC" name="author"/>
+<link href="_images/percona-favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.2.2, mkdocs-material-7.2.6" name="generator"/>
+<title>Setting up Kerberos authentication - Percona Server for MongoDB 6.0</title>
+<link href="assets/stylesheets/main.802231af.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,700%7C&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Poppins";--md-code-font-family:""}</style>
+<link href="https://unicons.iconscout.com/release/v3.0.3/css/line.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="css/percona.css" rel="stylesheet"/>
+<link href="css/nocopy.css" rel="stylesheet"/>
+<html data-lt-installed="true">
+<head>
+<meta content="Percona Server for MongoDB" property="og:title"/>
+<meta content="Documentation" property="og:description"/>
+<meta <meta="" content="https://docs.percona.com/percona-server-for-mongodb/" property="og:url"/>
+</head>
+<body>
+</body>
+</html>
+<script>
+              (function (w, d, s, l, i) {
+                  w[l] = w[l] || []; w[l].push({
+                    'gtm.start': new Date().getTime(), 
+                    event: 'gtm.js'
+                  });
+                  var f = d.getElementsByTagName(s)[0],
+                  j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                  j.async = true; 
+                  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                  f.parentNode.insertBefore(j, f);
+                })(window, document, 'script', 'dataLayer', 'GTM-K48FGP2');
+              </script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="percona-light" dir="ltr">
+<script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#setting-up-kerberos-authentication">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Percona Server for MongoDB 6.0" class="md-header__button md-logo" data-md-component="logo" href="https://docs.percona.com" title="Percona Server for MongoDB 6.0">
+<img alt="logo" src="_images/percona-logo.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Percona Server for MongoDB 6.0
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Setting up Kerberos authentication
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="percona-light" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/percona/psmdb-docs/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    percona/psmdb-docs
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Percona Server for MongoDB 6.0" class="md-nav__button md-logo" data-md-component="logo" href="https://docs.percona.com" title="Percona Server for MongoDB 6.0">
+<img alt="logo" src="_images/percona-logo.svg"/>
+</a>
+    Percona Server for MongoDB 6.0
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/percona/psmdb-docs/" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    percona/psmdb-docs
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="index.html">
+        Home
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="comparison.html">
+        Percona Server for MongoDB feature comparison
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+        Install PSMDB
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Install PSMDB" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Install PSMDB
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="install/index.html">
+        System requirements
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="install/apt.html">
+        Install Percona Server for MongoDB on Debian and Ubuntu
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="install/yum.html">
+        Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="install/tarball.html">
+        Install Percona Server for MongoDB from binary tarball
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="install/docker.html">
+        Run Percona Server for MongoDB in a Docker container
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+        Features
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Features" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Features
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1">
+        Storage
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Storage" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="inmemory.html">
+        Percona Memory Engine
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2">
+        Backup
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Backup" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Backup
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="hot-backup.html">
+        Hot Backup
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="backup-cursor.html">
+        $backupCursor and $backupCursorExtend aggregation stages
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3">
+        Authentication
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Authentication" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Authentication
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="authentication.html">
+        Authentication overview
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="enable-auth.html">
+        Enable SCRAM authentication
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="sasl-auth.html">
+        Set up LDAP authentication with SASL
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="x509-ldap.html">
+        Set up x.509 authentication and LDAP authorization
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Setting up Kerberos authentication
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="kerberos.html">
+        Setting up Kerberos authentication
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#assumptions">
+    Assumptions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#add-user-principals-to-percona-server-for-mongodb">
+    Add user principals to Percona Server for MongoDB
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configure-kerberos-keytab-files">
+    Configure Kerberos keytab files
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="aws-iam.html">
+        AWS IAM authentication
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="aws-iam-setup.html">
+        Setting up AWS IAM authentication
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="authorization.html">
+        LDAP authorization
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="ldap-setup.html">
+        Set up LDAP authentication and authorization using NativeLDAP
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4">
+        Encryption
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Encryption" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+          Encryption
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="data-at-rest-encryption.html">
+        Data at rest encryption
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="vault.html">
+        HashiCorp Vault integration
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="kmip.html">
+        Using the Key Management Interoperability Protocol (KMIP)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="keyfile.html">
+        Local key management using a keyfile
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="encryption-mode-switch.html">
+        Migrate from key file encryption to HashiCorp Vault encryption
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="audit-logging.html">
+        Auditing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="rate-limit.html">
+        Profiling rate limit
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="log-redaction.html">
+        Log redaction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="ngram-full-text-search.html">
+        Additional text search algorithm - ngram
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+        Manage PSMDB
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Manage PSMDB" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Manage PSMDB
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="set-parameter.html">
+        Tune parameters
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2">
+        Upgrade
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Upgrade" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Upgrade
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="install/upgrade-from-50.html">
+        Upgrade from 5.0 to 6.0
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="install/upgrade-from-mongodb.html">
+        Upgrade Percona Server for MongoDB
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="install/uninstall.html">
+        Uninstall Percona Server for MongoDB
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+        Release notes
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Release notes" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Release notes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="release_notes/index.html">
+        Release notes index
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="release_notes/6.0.5-4.html">
+        Percona Server for MongoDB 6.0.5-4 (2023-03-29)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="release_notes/6.0.4-3.html">
+        Percona Server for MongoDB 6.0.4-3 (2023-01-30)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="release_notes/6.0.3-2.html">
+        Percona Server for MongoDB 6.0.3-2 (2022-12-07)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="release_notes/6.0.2-1.html">
+        Percona Server for MongoDB 6.0.2-1 (2022-10-31)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="glossary.html">
+        Glossary
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="copyright.html">
+        Copyright and licensing information
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="trademark-policy.html">
+        Trademark policy
+      </a>
+</li>
+<br/>
+<label class="md-nav__title" for="__drawer">
+<a class="md-nav__link md-nav__link--active" href="https://learn.percona.com/download-percona-server-mongodb-6-0-manual" onclick="_gaq.push(['b._trackEvent', 'Percona Server for MongoDB 6.0', 'Download', 'Download Manual Server for MongoDB 6.0']);">
+      Download PDF
+    </a>
+</label>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#assumptions">
+    Assumptions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#add-user-principals-to-percona-server-for-mongodb">
+    Add user principals to Percona Server for MongoDB
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configure-kerberos-keytab-files">
+    Configure Kerberos keytab files
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<!-- Edit and view button -->
+<a class="md-content__button md-icon" href="https://github.com/percona/psmdb-docs/edit/6.0/docs/kerberos.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1z"></path></svg>
+</a>
+<a class="md-content__button md-icon" href="https://raw.githubusercontent.com/percona/psmdb-docs/6.0/docs/kerberos.md" title="View source of this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2z"></path></svg>
+</a>
+<!--
+                  Hack: check whether the content contains a h1 headline. If it
+                  doesn't, the page title (or respectively site name) is used
+                  as the main headline.
+                -->
+<!-- Markdown content -->
+<h1 id="setting-up-kerberos-authentication">Setting up Kerberos authentication</h1>
+<p>This document provides configuration steps for setting up <a href="authentication.html#kerberos-authentication">Kerberos Authentication</a> in Percona Server for MongoDB.</p>
+<h2 id="assumptions">Assumptions</h2>
+<p>The setup of the Kerberos server itself is out of scope of this document. Please refer to the <a href="https://web.mit.edu/kerberos/krb5-latest/doc/admin/install_kdc.html">Kerberos documentation</a> for the installation and configuration steps relevant to your operation system.</p>
+<p>We assume that you have successfully completed the following steps:</p>
+<ul>
+<li>
+<p>Installed and configured the Kerberos server</p>
+</li>
+<li>
+<p>Added necessary <a href="https://web.mit.edu/kerberos/krb5-1.12/doc/admin/realm_config.html">realms</a></p>
+</li>
+<li>
+<p>Added service, admin and user <a href="https://web.mit.edu/kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-user/What-is-a-Kerberos-Principal_003f.html#What-is-a-Kerberos-Principal_003f">principals</a></p>
+</li>
+<li>
+<p>Configured the <code>A</code> and <code>PTR</code> DNS records for every host running <code>mongod</code> instance to resolve the hostnames onto Kerberos realm.</p>
+</li>
+</ul>
+<h2 id="add-user-principals-to-percona-server-for-mongodb">Add user principals to Percona Server for MongoDB</h2>
+<p>To get authenticated, users must exist both in the Kerberos and Percona Server for MongoDB servers with exactly matching names.</p>
+<p>After you defined the user principals in the Kerberos server, add them to the <code>$external</code> database in Percona Server for MongoDB and assign required roles:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span> <span class="nx">use</span> <span class="nx">$external</span>
+<span class="o">&gt;</span> <span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="nx">user</span><span class="o">:</span> <span class="s2">"demo@PERCONATEST.COM"</span><span class="p">,</span><span class="nx">roles</span><span class="o">:</span> <span class="p">[{</span><span class="nx">role</span><span class="o">:</span> <span class="s2">"read"</span><span class="p">,</span> <span class="nx">db</span><span class="o">:</span> <span class="s2">"admin"</span><span class="p">}]})</span>
+</code></pre></div>
+<p>Replace <code>demo@PERCONATEST.COM</code> with your username and Kerberos realm.</p>
+<h2 id="configure-kerberos-keytab-files">Configure Kerberos keytab files</h2>
+<p>A keytab file stores the authentication keys for a service principal representing a <code>mongod</code> instance to access the Kerberos admin server.</p>
+<p>After you have added the service principal to the Kerberos admin server, the entry for this principal is added to the <code>/etc/krb5.keytab</code> keytab file.</p>
+<p>The <code>mongod</code> server must have access to the keytab file to authenticate. To keep the keytab file secure, restrict the access to it only for the user running the <code>mongod</code> process.</p>
+<ol>
+<li>
+<p>Stop the <code>mongod</code> service</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl stop mongod
+</code></pre></div>
+</li>
+<li>
+<p><a href="https://web.mit.edu/kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-install/The-Keytab-File.html">Generate the keytab file</a> or get a copy of it if you generated the keytab file on another host. Save the keyfile under a separate path (e.g. <code>/etc/mongodb.keytab</code>)</p>
+<div class="highlight"><pre><span></span><code>$ cp /etc/krb5.keytab /etc/mongodb.keytab
+</code></pre></div>
+</li>
+<li>
+<p>Change the ownership to the keytab file</p>
+<div class="highlight"><pre><span></span><code>$ sudo chown mongod:mongod /etc/mongodb.keytab
+</code></pre></div>
+</li>
+<li>
+<p>Set the <code>KRB5_KTNAME</code> variable in the environment file for the <code>mongod</code> process.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><label for="__tabbed_1_1">Debian and Ubuntu</label><div class="tabbed-content">
+<p>Edit the environment file at the path <code>/etc/default/mongod</code> and specify the <code>KRB5_KTNAME</code> variable:</p>
+<div class="highlight"><pre><span></span><code>KRB5_KTNAME=/etc/mongodb.keytab
+</code></pre></div>
+<p>If you have a different path to the keytab file, specify it accordingly.</p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio"><label for="__tabbed_1_2">RHEL and derivatives</label><div class="tabbed-content">
+<p>Edit the environment file at the path <code>/etc/sysconfig/mongod</code> and specify the <code>KRB5_KTNAME</code> variable:</p>
+<div class="highlight"><pre><span></span><code>KRB5_KTNAME=/etc/mongodb.keytab
+</code></pre></div>
+<p>If you have a different path to the keytab file, specify it accordingly.</p>
+</div>
+</input></input></div>
+</li>
+<li>
+<p>Restart the <code>mongod</code> service</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl start mongod
+</code></pre></div>
+</li>
+</ol>
+<div class="md-relbar2__inner md-grid">
+<div class="md-content">
+<article class="md-content__inner md-typeset" role="main">
+<h4>Contact Us </h4>
+<p>For free technical help, visit the Percona <a class="reference external" href="https://forums.percona.com/c/mongodb/percona-server-for-mongodb/17?utm_campaign=Doc%20pages" target="_blank">Community Forum</a>.<br/>
+<p>To report bugs or submit feature requests, open a <a class="reference external" href="https://jira.percona.com/projects/PSMDB/issues/" target="_blank">JIRA</a> ticket.<br/>
+<p>For paid <a class="reference external" href="https://www.percona.com/services/support"> support </a> and <a class="reference external" href="https://www.percona.com/services/managed-services"> managed </a> or <a class="reference external" href="https://www.percona.com/services/consulting">consulting services </a>, contact <a class="reference external" href="https://www.percona.com/about-percona/contact" target="_blank">Percona Sales</a>.</p>
+</p></p></article>
+</div>
+</div>
+<!-- Last update of source file -->
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Set up x.509 authentication and LDAP authorization" class="md-footer__link md-footer__link--prev" href="x509-ldap.html" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Set up x.509 authentication and LDAP authorization
+            </div>
+</div>
+</a>
+<a aria-label="Next: AWS IAM authentication" class="md-footer__link md-footer__link--next" href="aws-iam.html" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              AWS IAM authentication
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Percona LLC, © 2023
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+ ... <a class="link--pdf-download" download href="_pdf/PerconaServerforMongoDB-6.0.pdf" title="PDF">download PDF</a></div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.account.edit content.code.copy search.highlight search.share", "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.409db549.min.js", "version": {"provider": "mike"}}</script>
+<script src="assets/javascripts/bundle.756773cc.min.js"></script>
+<script src="js/version-select.js"></script>
+<script src="js/promptremover.js"></script>
+<img height="1" src="https://tracking.g2crowd.com/attribution_tracking/conversions/1007137.gif?e=" width="1">
+<noscript>
+<iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-K48FGP2" style="display:none;visibility:hidden" width="0"></iframe>
+</noscript>
+</img></body>
+</html>

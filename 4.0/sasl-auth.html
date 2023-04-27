@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Setting up LDAP authentication with SASL &#8212; Percona Server for MongoDB 4.0 Documentation</title>
@@ -78,11 +75,18 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Setting up LDAP authentication and authorization using NativeLDAP" href="ldap-setup.html" />
     <link rel="prev" title="Enabling Authentication" href="enable-auth.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -130,7 +134,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -595,14 +599,14 @@ Use common sense to adapt these guidelines to your production environment.</p>
 <ol class="arabic">
 <li><p>Install the SASL packages. Depending on your OS, use the following command:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">RedHat and CentOS</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Debian and Ubuntu</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install -y cyrus-sasl
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">RedHat and CentOS</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Debian and Ubuntu</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cyrus-sasl
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For <em>Percona Server for MongoDB</em> versions earlier than 4.0.26-21,  4.4.8-9, 4.2.16-17, also install the <code class="docutils literal notranslate"><span class="pre">cyrus-sasl-plain</span></code> package.</p>
 </div>
-</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt install -y sasl2-bin
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sasl2-bin
 </pre></div>
 </div>
 </div></div>
@@ -614,21 +618,21 @@ Use common sense to adapt these guidelines to your production environment.</p>
 </div>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">RedHat and CentOS</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">Debian and Ubuntu</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><p>Specify the <code class="docutils literal notranslate"><span class="pre">ldap</span></code> value for the <code class="docutils literal notranslate"><span class="pre">--MECH</span></code> option using the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo sed -i -e s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g /etc/sysconfig/saslauthd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthd
 </pre></div>
 </div>
 <p>Alternatively, you can edit the <code class="file docutils literal notranslate"><span class="pre">/etc/sysconfig/saslauthd</span></code> configuration file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">MECH=ldap</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">MECH=ldap</span>
 </pre></div>
 </div>
 </div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><p>Use the following commands to enable the <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> to auto-run on startup and to set the <code class="docutils literal notranslate"><span class="pre">ldap</span></code> value for the <code class="docutils literal notranslate"><span class="pre">--MECHANISMS</span></code> option:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo sed -i -e s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g /etc/sysconfig/saslauthdsudo sed -i -e s/^MECHANISMS<span class="o">=</span><span class="s2">"pam"</span>/MECHANISMS<span class="o">=</span><span class="s2">"ldap"</span>/g /etc/default/saslauthd
-$ sudo sed -i -e s/^START<span class="o">=</span>no/START<span class="o">=</span>yes/g /etc/default/saslauthd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthdsudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECHANISMS<span class="o">=</span><span class="s2">"pam"</span>/MECHANISMS<span class="o">=</span><span class="s2">"ldap"</span>/g<span class="w"> </span>/etc/default/saslauthd
+$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^START<span class="o">=</span>no/START<span class="o">=</span>yes/g<span class="w"> </span>/etc/default/saslauthd
 </pre></div>
 </div>
 <p>Alternatively, you can edit the <code class="file docutils literal notranslate"><span class="pre">/etc/default/sysconfig/saslauthd</span></code> configuration file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">START=yes</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">MECHANISMS="ldap"</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">START=yes</span>
+<span class="l l-Scalar l-Scalar-Plain">MECHANISMS="ldap"</span>
 </pre></div>
 </div>
 </div></div>
@@ -671,17 +675,17 @@ the Microsoft <a class="reference external" href="https://technet.microsoft.com/
 can be used to bind and search the LDAP-compatible directory.</p>
 <ol class="arabic" start="4">
 <li><p>Start the <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> process and set it to run at restart:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start saslauthd
-$ sudo systemctl <span class="nb">enable</span> saslauthd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>saslauthd
+$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>saslauthd
 </pre></div>
 </div>
 </li>
 <li><p>Give write permissions to the <code class="dir docutils literal notranslate"><span class="pre">/run/saslauthd</span></code> folder for the <code class="docutils literal notranslate"><span class="pre">mongod</span></code>. Either change permissions to the  <code class="dir docutils literal notranslate"><span class="pre">/run/saslauthd</span></code> folder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo chmod <span class="m">755</span> /run/saslauthd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/run/saslauthd
 </pre></div>
 </div>
 <p>Or add the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user to the <code class="docutils literal notranslate"><span class="pre">sasl</span></code> group:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo usermod -a -G sasl mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>sasl<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
@@ -692,7 +696,7 @@ $ sudo systemctl <span class="nb">enable</span> saslauthd
 <h3 id="sanity-check"><a class="toc-backref" href="#id4">Sanity check</a><a class="headerlink" href="#sanity-check" title="Permalink to this headline">¶</a></h3>
 <p>Verify that the <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> service can authenticate
 against the users created in the LDAP service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ testsaslauthd -u christian -p secret  -f /var/run/saslauthd/mux
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>testsaslauthd<span class="w"> </span>-u<span class="w"> </span>christian<span class="w"> </span>-p<span class="w"> </span>secret<span class="w">  </span>-f<span class="w"> </span>/var/run/saslauthd/mux
 </pre></div>
 </div>
 <p>This should return <code class="docutils literal notranslate"><span class="pre">0:OK</span> <span class="pre">"Success"</span></code>.
@@ -731,25 +735,25 @@ The <code class="docutils literal notranslate"><span class="pre">log_level</span
 
 <span id="root-user"></span><h4 id="create-a-root-user"><a class="toc-backref" href="#id7">Create a root user</a><a class="headerlink" href="#create-a-root-user" title="Permalink to this headline">¶</a></h4>
 <p>Create a user with the <strong>root</strong> privileges in the <code class="docutils literal notranslate"><span class="pre">admin</span></code> database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span><span class="w"></span>
-<span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span><span class="w"></span>
-<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="s2">"user"</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pwd"</span><span class="o">:</span><span class="w"> </span><span class="s2">"$3cr3tP4ssw0rd"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"root"</span><span class="p">]})</span><span class="w"></span>
-<span class="nx">Successfully</span><span class="w"> </span><span class="nx">added</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"user"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"root"</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
+<span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="s2">"user"</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pwd"</span><span class="o">:</span><span class="w"> </span><span class="s2">"$3cr3tP4ssw0rd"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"root"</span><span class="p">]})</span>
+<span class="nx">Successfully</span><span class="w"> </span><span class="nx">added</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"user"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"root"</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 
 
 <h4 id="enable-external-authentication"><a class="toc-backref" href="#id8">Enable external authentication</a><a class="headerlink" href="#enable-external-authentication" title="Permalink to this headline">¶</a></h4>
 <p>Edit the <code class="file docutils literal notranslate"><span class="pre">etc/mongod.conf</span></code> configuration file to enable the external authentication:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
 
-<span class="nt">setParameter</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PLAIN,SCRAM-SHA-1</span><span class="w"></span>
+<span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PLAIN,SCRAM-SHA-1</span>
 </pre></div>
 </div>
 <p>Restart the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl restart mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </pre></div>
 </div>
 
@@ -757,11 +761,11 @@ The <code class="docutils literal notranslate"><span class="pre">log_level</span
 <h4 id="add-an-external-user-to-psmdb"><a class="toc-backref" href="#id9">Add an external user to <em>Percona Server for MongoDB</em></a><a class="headerlink" href="#add-an-external-user-to-psmdb" title="Permalink to this headline">¶</a></h4>
 <p>User authentication is done by mapping a user object on the LDAP server against a user created in the <code class="docutils literal notranslate"><span class="pre">$external</span></code> database. Thus, at this step, you create the user in the <code class="docutils literal notranslate"><span class="pre">$external</span></code> database and they inherit the roles and privileges. Note that the username must exactly match the name of the user object on the LDAP server.</p>
 <p>Connect to <em>Percona Server for MongoDB</em> and authenticate as <a class="reference internal" href="#root-user"><span class="std std-ref">the root user</span></a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mongo --host localhost --port <span class="m">27017</span> -u admin -p <span class="s1">'$3cr3tP4ssw0rd'</span> --authenticationDatabase <span class="s1">'admin'</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mongo<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-p<span class="w"> </span><span class="s1">'$3cr3tP4ssw0rd'</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'admin'</span>
 </pre></div>
 </div>
 <p>Use the following command to add an external user to <em>Percona Server for MongoDB</em>:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">createUser</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="nx">user</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">}</span><span class="w"> </span><span class="p">]}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">createUser</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="nx">user</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">}</span><span class="w"> </span><span class="p">]}</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
 </div>
 
@@ -771,11 +775,11 @@ The <code class="docutils literal notranslate"><span class="pre">log_level</span
 <h2 id="authenticate-as-an-external-user-in-psmdb">Authenticate as an external user in <em>Percona Server for MongoDB</em><a class="headerlink" href="#authenticate-as-an-external-user-in-psmdb" title="Permalink to this headline">¶</a></h2>
 <p>When running the <code class="docutils literal notranslate"><span class="pre">mongo</span></code> client, a user can authenticate
 against a given database using the following command:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">auth</span><span class="p">({</span><span class="w"> </span><span class="nx">mechanism</span><span class="o">:</span><span class="s2">"PLAIN"</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">pwd</span><span class="o">:</span><span class="s2">"secret"</span><span class="p">,</span><span class="w"> </span><span class="nx">digestPassword</span><span class="o">:</span><span class="kc">false</span><span class="p">})</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">auth</span><span class="p">({</span><span class="w"> </span><span class="nx">mechanism</span><span class="o">:</span><span class="s2">"PLAIN"</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">pwd</span><span class="o">:</span><span class="s2">"secret"</span><span class="p">,</span><span class="w"> </span><span class="nx">digestPassword</span><span class="o">:</span><span class="kc">false</span><span class="p">})</span>
 </pre></div>
 </div>
 <p>Alternatively, a user can authenticate while connecting to <em>Percona Server for MongoDB</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mongo --host localhost --port <span class="m">27017</span> --authenticationMechanism PLAIN --authenticationDatabase <span class="se">\$</span>external -u christian -p
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mongo<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN<span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="se">\$</span>external<span class="w"> </span>-u<span class="w"> </span>christian<span class="w"> </span>-p
 </pre></div>
 </div>
 <div class="admonition-based-on-the-material-from-percona-database-performance-blog admonition">

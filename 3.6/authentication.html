@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>External Authentication &#8212; Percona Server for MongoDB 3.6 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Auditing" href="audit-logging.html" />
     <link rel="prev" title="Profiling Rate Limit" href="rate-limit.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -184,6 +188,8 @@ _gaq.push(['_trackPageview']);
           <a title="4.4" href="https://docs.percona.com/percona-server-for-mongodb/4.4/">4.4</a>
       
           <a title="5.0" href="https://docs.percona.com/percona-server-for-mongodb/5.0/">5.0</a>
+      
+          <a title="6.0" href="https://docs.percona.com/percona-server-for-mongodb/6.0/">6.0</a>
       
           <a title="Latest stable" href="https://docs.percona.com/percona-server-for-mongodb/latest/">Latest stable</a>
       
@@ -605,11 +611,11 @@ Use common sense to adapt these guidelines to your production.</p>
 <ol class="arabic">
 <li><p>Install the SASL packages. Depending on your OS, use the following command:</p>
 <p>For <em>RedHat and CentOS</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo yum install -y cyrus-sasl cyrus-sasl-plain
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cyrus-sasl<span class="w"> </span>cyrus-sasl-plain
 </pre></div>
 </div>
 <p>For <em>Debian and Ubuntu</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install -y sasl2-bin
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sasl2-bin
 </pre></div>
 </div>
 </li>
@@ -619,21 +625,21 @@ Use common sense to adapt these guidelines to your production.</p>
 <p>Back up the original configuration file before making changes.</p>
 </div>
 <p>For <em>RedHat/CentOS</em>, specify the <code class="docutils literal notranslate"><span class="pre">ldap</span></code> value for the <code class="docutils literal notranslate"><span class="pre">--MECH</span></code> option using the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo sed -i -e s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g /etc/sysconfig/saslauthd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthd
 </pre></div>
 </div>
 <p>Alternatively, you can edit the <code class="file docutils literal notranslate"><span class="pre">/etc/sysconfig/saslauthd</span></code> configuration file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">MECH=ldap</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">MECH=ldap</span>
 </pre></div>
 </div>
 <p>For <em>Debian/Ubuntu</em>, use the following commands to enable the <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> to auto-run on startup and to set the <code class="docutils literal notranslate"><span class="pre">ldap</span></code> value for the <code class="docutils literal notranslate"><span class="pre">--MECHANISMS</span></code> option:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo sed -i -e s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g /etc/sysconfig/saslauthdsudo sed -i -e s/^MECHANISMS<span class="o">=</span><span class="s2">"pam"</span>/MECHANISMS<span class="o">=</span><span class="s2">"ldap"</span>/g /etc/default/saslauthd
-sudo sed -i -e s/^START<span class="o">=</span>no/START<span class="o">=</span>yes/g /etc/default/saslauthd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthdsudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECHANISMS<span class="o">=</span><span class="s2">"pam"</span>/MECHANISMS<span class="o">=</span><span class="s2">"ldap"</span>/g<span class="w"> </span>/etc/default/saslauthd
+sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^START<span class="o">=</span>no/START<span class="o">=</span>yes/g<span class="w"> </span>/etc/default/saslauthd
 </pre></div>
 </div>
 <p>Alternatively, you can edit the <code class="file docutils literal notranslate"><span class="pre">/etc/default/sysconfig/saslauthd</span></code> configuration file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">START=yes</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">MECHANISMS="ldap"</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">START=yes</span>
+<span class="l l-Scalar l-Scalar-Plain">MECHANISMS="ldap"</span>
 </pre></div>
 </div>
 </li>
@@ -674,11 +680,11 @@ the Microsoft <a class="reference external" href="https://technet.microsoft.com/
 can be used to bind and search the LDAP-compatible directory.</p>
 <ol class="arabic" start="4">
 <li><p>Give write permissions to the <code class="file docutils literal notranslate"><span class="pre">/run/saslauthd</span></code> folder for the <code class="docutils literal notranslate"><span class="pre">mongod</span></code>. Either change permissions to the  <code class="file docutils literal notranslate"><span class="pre">/run/saslauthd</span></code> folder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo chmod <span class="m">755</span> /run/saslauthd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/run/saslauthd
 </pre></div>
 </div>
 <p>Or add the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> user to the <code class="docutils literal notranslate"><span class="pre">sasl</span></code> group:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo usermod -a -G sasl mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>sasl<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
@@ -689,7 +695,7 @@ can be used to bind and search the LDAP-compatible directory.</p>
 <h3 id="sanity-check"><a class="toc-backref" href="#id7">Sanity check</a><a class="headerlink" href="#sanity-check" title="Permalink to this headline">¶</a></h3>
 <p>Verify that the <code class="docutils literal notranslate"><span class="pre">saslauthd</span></code> service can authenticate
 against the users created in the LDAP service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ testsaslauthd -u christian -p secret  -f /var/run/saslauthd/mux
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>testsaslauthd<span class="w"> </span>-u<span class="w"> </span>christian<span class="w"> </span>-p<span class="w"> </span>secret<span class="w">  </span>-f<span class="w"> </span>/var/run/saslauthd/mux
 </pre></div>
 </div>
 <p>This should return <code class="docutils literal notranslate"><span class="pre">0:OK</span> <span class="pre">"Success"</span></code>.
@@ -728,15 +734,15 @@ Successfully added user: { "user" : "admin", "roles" : [ "root" ] }
 </pre></div>
 </div>
 <p>Edit the <code class="file docutils literal notranslate"><span class="pre">etc/mongod.conf</span></code> configuration file to enable the external authentication:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
 
-<span class="nt">setParameter</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PLAIN,SCRAM-SHA-1</span><span class="w"></span>
+<span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PLAIN,SCRAM-SHA-1</span>
 </pre></div>
 </div>
 <p>Restart the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>service mongod restart
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>service<span class="w"> </span>mongod<span class="w"> </span>restart
 </pre></div>
 </div>
 <p>When everything is configured properly, you can use the <a class="reference internal" href="#commands"><span class="std std-ref">External authentication commands</span></a>.</p>
@@ -786,30 +792,30 @@ against a given database using the following command:</p>
 <p>This feature has been supported in MongoDB 3.6 Enterprise since its version 3.4.</p>
 <p>As of version 3.6.21-10.0, Percona Server for MongoDB supports LDAP referrals as defined in <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc4511.txt">RFC 4511 4.1.10</a>. For security reasons, LDAP referrals are disabled by default. Double-check that using referrals is safe before enabling them.</p>
 <p>To enable LDAP referrals, set the <code class="docutils literal notranslate"><span class="pre">ldapFollowReferrals</span></code> server parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code> using the <a class="reference internal" href="setParameter.html#setparameter"><span class="std std-ref">setParameter</span></a> command or by editing the configuration file.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">setParameter</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">ldapFollowReferrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">ldapFollowReferrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 <p class="rubric">Connection pool</p>
 <p>As of version 3.6.21-10.0, <em>Percona Server for MongoDB</em> always uses a connection pool to LDAP server to process authentication requests. The connection pool is enabled by default. The default connection pool size is 2 connections.</p>
 <p>You can change the connection pool size either at the server startup or dynamically by specifying the value for the <code class="docutils literal notranslate"><span class="pre">ldapConnectionPoolSizePerHost</span></code> server parameter.</p>
 <p>For example, to set the number of connections in the pool to 5, use the <code class="docutils literal notranslate"><span class="pre">setParameter</span></code> command:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapConnectionPoolSizePerHost</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">$</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapConnectionPoolSizePerHost</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Alternatively, edit the configuration file:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">setParameter</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ldapConnectionPoolSizePerHost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ldapConnectionPoolSizePerHost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 </pre></div>
 </div>
 <p class="rubric">Support for multiple LDAP servers</p>
 <p>As of version 3.6.21-11.0, you can specify multiple LDAP servers for failover. <em>Percona Server for MongoDB</em> sends authentication requests to the first server defined in the list. When this server is down or unavailable, it sends requests to the next server  and so on. Note that <em>Percona Server for MongoDB</em> keeps sending requests to this server even after the unavailable server recovers.</p>
 <p>Specify the LDAP servers as a comma-separated list in the format <code class="docutils literal notranslate"><span class="pre">&lt;host&gt;:&lt;port&gt;</span></code> for the <a class="reference external" href="https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-ldapservers">–ldapServers</a> option.</p>
 <p>You can define the option value at the server startup by editing the configuration file.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ldap</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap1.example.net,ldap2.example.net"</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
+<span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap1.example.net,ldap2.example.net"</span>
 </pre></div>
 </div>
 <p>You can change <code class="docutils literal notranslate"><span class="pre">ldapServers</span></code> dynamically at runtime using the <a class="reference internal" href="setParameter.html#setparameter"><span class="std std-ref">setParameter</span></a>.</p>

@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Setting up Kerberos authentication &#8212; Percona Server for MongoDB 4.0 Documentation</title>
@@ -78,11 +75,18 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Percona Server for MongoDB Parameter Tuning Guide" href="set-parameter.html" />
     <link rel="prev" title="Set up x.509 authentication and LDAP authorization" href="x509-ldap.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -130,7 +134,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -534,8 +538,8 @@ _gaq.push(['_trackPageview']);
 <h2 id="add-user-principals-to-psmdb">Add user principals to <em>Percona Server for MongoDB</em><a class="headerlink" href="#add-user-principals-to-psmdb" title="Permalink to this headline">¶</a></h2>
 <p>To get authenticated, users must exist both in the Kerberos and <em>Percona Server for MongoDB</em> servers with exactly matching names.</p>
 <p>After you defined the user principals in the Kerberos server, add them to the <code class="docutils literal notranslate"><span class="pre">$external</span></code> database in <em>Percona Server for MongoDB</em> and assigned required roles:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">use</span><span class="w"> </span><span class="nx">$external</span><span class="w"></span>
-<span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">"demo@PERCONATEST.COM"</span><span class="p">,</span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">}]})</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">use</span><span class="w"> </span><span class="nx">$external</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">"demo@PERCONATEST.COM"</span><span class="p">,</span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">}]})</span>
 </pre></div>
 </div>
 <p>Replace <code class="docutils literal notranslate"><span class="pre">demo@PERCONATEST.COM</span></code> with your username and Kerberos realm.</p>
@@ -547,17 +551,17 @@ _gaq.push(['_trackPageview']);
 <p>The <code class="docutils literal notranslate"><span class="pre">mongod</span></code> server must have access to the keytab file to authenticate. To keep the keytab file secure, restrict the access to it only for the user running the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> process.</p>
 <ol class="arabic">
 <li><p>Stop the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl stop mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
 <li><p><a class="reference external" href="https://web.mit.edu/kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-install/The-Keytab-File.html">Generate the keytab file</a> or get a copy of it if you generated the keytab file on another host. Save the keyfile under a separate path (e.g. /etc/mongodb.keytab)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cp /etc/krb5.keytab /etc/mongodb.keytab
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cp<span class="w"> </span>/etc/krb5.keytab<span class="w"> </span>/etc/mongodb.keytab
 </pre></div>
 </div>
 </li>
 <li><p>Change the ownership to the keytab file</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo chown mongod:mongod /etc/mongodb.keytab
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span class="w"> </span>/etc/mongodb.keytab
 </pre></div>
 </div>
 </li>
@@ -576,7 +580,7 @@ _gaq.push(['_trackPageview']);
 </div></div>
 </li>
 <li><p>Restart the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 </li>
@@ -585,15 +589,15 @@ _gaq.push(['_trackPageview']);
 
 <h2 id="psmdb-configuration"><em>Percona Server for MongoDB</em> configuration<a class="headerlink" href="#psmdb-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Enable external authentication in <em>Percona Server for MongoDB</em> configuration. Edit the <code class="docutils literal notranslate"><span class="pre">etc/mongod.conf</span></code> configuration file and specify the following configuration:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 
-<span class="nt">setParameter</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GSSAPI</span><span class="w"></span>
+<span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GSSAPI</span>
 </pre></div>
 </div>
 <p>Restart the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> service to apply the configuration:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl start mongod
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </pre></div>
 </div>
 
@@ -601,44 +605,44 @@ _gaq.push(['_trackPageview']);
 <h2 id="test-the-access-to-psmdb">Test the access to <em>Percona Server for MongoDB</em><a class="headerlink" href="#test-the-access-to-psmdb" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Obtain the Kerberos ticket for the user using the <code class="docutils literal notranslate"><span class="pre">kinit</span></code> command and specify the user password:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ kinit demo
-Password <span class="k">for</span> demo@PERCONATEST.COM:
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>kinit<span class="w"> </span>demo
+Password<span class="w"> </span><span class="k">for</span><span class="w"> </span>demo@PERCONATEST.COM:
 </pre></div>
 </div>
 </li>
 <li><p>Check the user ticket:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ klist -l
-Principal name                 Cache name
---------------                 ----------
-demo@PERCONATEST.COM           FILE:/tmp/&lt;ticket&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>klist<span class="w"> </span>-l
+Principal<span class="w"> </span>name<span class="w">                 </span>Cache<span class="w"> </span>name
+--------------<span class="w">                 </span>----------
+demo@PERCONATEST.COM<span class="w">           </span>FILE:/tmp/&lt;ticket&gt;
 </pre></div>
 </div>
 </li>
 <li><p>Connect to <em>Percona Server for MongoDB</em>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mongo --host &lt;hostname&gt; --authenticationMechanism<span class="o">=</span>GSSAPI --authenticationDatabase<span class="o">=</span><span class="s1">'$external'</span> --username demo@PERCONATEST.COM
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mongo<span class="w"> </span>--host<span class="w"> </span>&lt;hostname&gt;<span class="w"> </span>--authenticationMechanism<span class="o">=</span>GSSAPI<span class="w"> </span>--authenticationDatabase<span class="o">=</span><span class="s1">'$external'</span><span class="w"> </span>--username<span class="w"> </span>demo@PERCONATEST.COM
 </pre></div>
 </div>
 </li>
 </ol>
 <p>The result should look like the following:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">connectionStatus</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">     </span><span class="s2">"authInfo"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">             </span><span class="s2">"authenticatedUsers"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                     </span><span class="p">{</span><span class="w"></span>
-<span class="w">                             </span><span class="s2">"user"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"demo@PERCONATEST.COM"</span><span class="p">,</span><span class="w"></span>
-<span class="w">                             </span><span class="s2">"db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"$external"</span><span class="w"></span>
-<span class="w">                     </span><span class="p">}</span><span class="w"></span>
-<span class="w">             </span><span class="p">],</span><span class="w"></span>
-<span class="w">             </span><span class="s2">"authenticatedUserRoles"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                     </span><span class="p">{</span><span class="w"></span>
-<span class="w">                             </span><span class="s2">"role"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"></span>
-<span class="w">                             </span><span class="s2">"db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="w"></span>
-<span class="w">                     </span><span class="p">}</span><span class="w"></span>
-<span class="w">             </span><span class="p">]</span><span class="w"></span>
-<span class="w">     </span><span class="p">},</span><span class="w"></span>
-<span class="w">     </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">connectionStatus</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
+<span class="p">{</span>
+<span class="w">     </span><span class="s2">"authInfo"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="s2">"authenticatedUsers"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                     </span><span class="p">{</span>
+<span class="w">                             </span><span class="s2">"user"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"demo@PERCONATEST.COM"</span><span class="p">,</span>
+<span class="w">                             </span><span class="s2">"db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"$external"</span>
+<span class="w">                     </span><span class="p">}</span>
+<span class="w">             </span><span class="p">],</span>
+<span class="w">             </span><span class="s2">"authenticatedUserRoles"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                     </span><span class="p">{</span>
+<span class="w">                             </span><span class="s2">"role"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span>
+<span class="w">                             </span><span class="s2">"db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span>
+<span class="w">                     </span><span class="p">}</span>
+<span class="w">             </span><span class="p">]</span>
+<span class="w">     </span><span class="p">},</span>
+<span class="w">     </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 

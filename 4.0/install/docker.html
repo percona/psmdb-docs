@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="../_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Running Percona Server for MongoDB in a Docker Container &#8212; Percona Server for MongoDB 4.0 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="Percona Memory Engine" href="../inmemory.html" />
     <link rel="prev" title="Installing Percona Server for MongoDB from Binary Tarball" href="tarball.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="get" name="search">
+    <form class="md-search__form" action="../search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -492,7 +496,7 @@ if it is not available locally.</p>
 </div>
 <p>To run the latest <em>Percona Server for MongoDB</em> 4.0 in a Docker container, use the following command:</p>
 <p>Run this command as root or by using the <strong class="program">sudo</strong> command</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run -d --name psmdb --restart always <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
 percona/percona-server-mongodb:4.0
 </pre></div>
 </div>
@@ -531,7 +535,7 @@ use the <code class="docutils literal notranslate"><span class="pre">--link</spa
 <h2 id="connecting-with-the-mongo-shell">Connecting with the Mongo Shell<a class="headerlink" href="#connecting-with-the-mongo-shell" title="Permalink to this headline">¶</a></h2>
 <p>To start another container with the <code class="docutils literal notranslate"><span class="pre">mongo</span></code> shell
 that connects to your <em>Percona Server for MongoDB</em> container,
-run the following comand: <code class="code bash docutils literal notranslate"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">--link</span> <span class="pre">psmdb</span> <span class="pre">--rm</span> <span class="pre">percona/percona-server-mongodb:mongo</span> <span class="pre">mongo</span> <span class="pre">-h</span> <span class="pre">psmdb</span></code></p>
+run the following comand: <code class="code bash docutils literal notranslate"><span class="pre">docker</span><span class="whitespace"> </span><span class="pre">run</span><span class="whitespace"> </span><span class="pre">-it</span><span class="whitespace"> </span><span class="pre">--link</span><span class="whitespace"> </span><span class="pre">psmdb</span><span class="whitespace"> </span><span class="pre">--rm</span><span class="whitespace"> </span><span class="pre">percona/percona-server-mongodb:mongo</span><span class="whitespace"> </span><span class="pre">mongo</span><span class="whitespace"> </span><span class="pre">-h</span><span class="whitespace"> </span><span class="pre">psmdb</span></code></p>
 
 
 

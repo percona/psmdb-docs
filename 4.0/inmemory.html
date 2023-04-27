@@ -45,18 +45,15 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-343802-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-343802-3');
-</script>
+  <script>
+      window.ga = window.ga || function () {
+          (ga.q = ga.q || []).push(arguments)
+      };
+      ga.l = +new Date;
+      ga('create', 'UA-343802-3', 'auto');
+      ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
   
   
     <title>Percona Memory Engine &#8212; Percona Server for MongoDB 4.0 Documentation</title>
@@ -77,11 +74,18 @@
     <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Hot Backup" href="hot-backup.html" />
     <link rel="prev" title="Running Percona Server for MongoDB in a Docker Container" href="install/docker.html" />
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-343802-3']);
-_gaq.push(['_trackPageview']);
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBVF48V');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
   
    
@@ -129,7 +133,7 @@ _gaq.push(['_trackPageview']);
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="get" name="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
       <input type="text" class="md-search__input" name="q" placeholder="Search"
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
@@ -536,9 +540,9 @@ MongoDB engines (the original <a class="reference external" href="https://docs.m
 storage engine using the <code class="docutils literal notranslate"><span class="pre">--storageEngine</span></code> command-line option when you start
 <code class="docutils literal notranslate"><span class="pre">mongod</span></code>.  Alternatively, you can set the <code class="docutils literal notranslate"><span class="pre">storage.engine</span></code> variable in the
 configuration file (by default, <code class="file docutils literal notranslate"><span class="pre">/etc/mongod.conf</span></code>):</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">storage</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;dataDir&gt;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">storage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;dataDir&gt;</span>
+<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span>
 </pre></div>
 </div>
 <div class="admonition seealso">
@@ -573,24 +577,24 @@ configuration file (by default, <code class="file docutils literal notranslate">
 data directory for the <code class="docutils literal notranslate"><span class="pre">dbPath</span></code> variable in the configuration fle.
 Make sure that the user running <strong class="program">mongod</strong> has read and write
 permissons for the new data directory.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ service mongod stop
-$ <span class="c1"># In the configuration file, set the inmemory</span>
-$ <span class="c1"># value for the storage.engine variable</span>
-$ <span class="c1"># Set the &lt;newDataDir&gt; for the dbPath variable</span>
-$ service mongod start
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>stop
+$<span class="w"> </span><span class="c1"># In the configuration file, set the inmemory</span>
+$<span class="w"> </span><span class="c1"># value for the storage.engine variable</span>
+$<span class="w"> </span><span class="c1"># Set the &lt;newDataDir&gt; for the dbPath variable</span>
+$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>start
 </pre></div>
 </div>
 </li>
 <li><p>If you want to permanently switch to Percona Memory Engine and do not have any
 valuable data in your database, clean out the <code class="docutils literal notranslate"><span class="pre">dbPath</span></code> data directory
 (by default, <code class="file docutils literal notranslate"><span class="pre">/var/lib/mongodb</span></code>) and edit the configuration file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ service mongod stop
-$ rm -rf &lt;dbpathDataDir&gt;
-$ <span class="c1"># Update the configuration file by setting the new</span>
-$ <span class="c1"># value for the storage.engine variable</span>
-$ <span class="c1"># set the engine-specific settings such as</span>
-$ <span class="c1"># storage.inMemory.engineConfig.inMemorySizeGB</span>
-$ service mongod start
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>stop
+$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
+$<span class="w"> </span><span class="c1"># Update the configuration file by setting the new</span>
+$<span class="w"> </span><span class="c1"># value for the storage.engine variable</span>
+$<span class="w"> </span><span class="c1"># set the engine-specific settings such as</span>
+$<span class="w"> </span><span class="c1"># storage.inMemory.engineConfig.inMemorySizeGB</span>
+$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>start
 </pre></div>
 </div>
 </li>
@@ -598,28 +602,28 @@ $ service mongod start
 <ul>
 <li><p>for replicasets, use the “rolling restart” process.
 Switch to the Percona Memory Engine on the secondary node. Clean out the <code class="docutils literal notranslate"><span class="pre">dbPath</span></code> data directory and edit the configuration file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ service mongod stop
-$ rm -rf &lt;dbpathDataDir&gt;
-$ <span class="c1"># Update the configuration file by setting the new</span>
-$ <span class="c1"># value for the storage.engine variable</span>
-$ <span class="c1"># set the engine-specific settings such as</span>
-$ <span class="c1"># storage.inMemory.engineConfig.inMemorySizeGB</span>
-$ service mongod start
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>stop
+$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
+$<span class="w"> </span><span class="c1"># Update the configuration file by setting the new</span>
+$<span class="w"> </span><span class="c1"># value for the storage.engine variable</span>
+$<span class="w"> </span><span class="c1"># set the engine-specific settings such as</span>
+$<span class="w"> </span><span class="c1"># storage.inMemory.engineConfig.inMemorySizeGB</span>
+$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>start
 </pre></div>
 </div>
 <p>Wait for the node to rejoin with the other nodes and report the SECONDARY status.</p>
 <p>Repeat the procedure to switch the remaining nodes to Percona Memory Engine.</p>
 </li>
 <li><p>for a standalone instance or a single-node replicaset, use the <code class="docutils literal notranslate"><span class="pre">mongodump</span></code> and <code class="docutils literal notranslate"><span class="pre">mongorestore</span></code> utilities:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mongodump --out &lt;dumpDir&gt;
-$ service mongod stop
-$ rm -rf &lt;dbpathDataDir&gt;
-$ <span class="c1"># Update the configuration file by setting the new</span>
-$ <span class="c1"># value for the storage.engine variable</span>
-$ <span class="c1"># set the engine-specific settings such as</span>
-$ <span class="c1"># storage.inMemory.engineConfig.inMemorySizeGB</span>
-$ service mongod start
-$ mongorestore &lt;dumpDir&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mongodump<span class="w"> </span>--out<span class="w"> </span>&lt;dumpDir&gt;
+$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>stop
+$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
+$<span class="w"> </span><span class="c1"># Update the configuration file by setting the new</span>
+$<span class="w"> </span><span class="c1"># value for the storage.engine variable</span>
+$<span class="w"> </span><span class="c1"># set the engine-specific settings such as</span>
+$<span class="w"> </span><span class="c1"># storage.inMemory.engineConfig.inMemorySizeGB</span>
+$<span class="w"> </span>service<span class="w"> </span>mongod<span class="w"> </span>start
+$<span class="w"> </span>mongorestore<span class="w"> </span>&lt;dumpDir&gt;
 </pre></div>
 </div>
 </li>
@@ -633,18 +637,18 @@ $ mongorestore &lt;dumpDir&gt;
 <p>You can configure the Percona Memory Engine using either command-line options or
 corresponding parameters in the <code class="file docutils literal notranslate"><span class="pre">/etc/mongod.conf</span></code> file.  The
 configuration file is formatted in YAML. For example:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">storage</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span><span class="w"></span>
-<span class="w">  </span><span class="nt">inMemory</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">engineConfig</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">inMemorySizeGB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">140</span><span class="w"></span>
-<span class="w">      </span><span class="nt">statisticsLogDelaySecs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">storage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span>
+<span class="w">  </span><span class="nt">inMemory</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">engineConfig</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">inMemorySizeGB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">140</span>
+<span class="w">      </span><span class="nt">statisticsLogDelaySecs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </pre></div>
 </div>
 <p>Setting parameters in the previous example configuration file is the same as
 starting the <code class="docutils literal notranslate"><span class="pre">mongod</span></code> daemon with the following options:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mongod --storageEngine<span class="o">=</span>inMemory <span class="se">\</span>
---inMemorySizeGB<span class="o">=</span><span class="m">140</span> <span class="se">\</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mongod<span class="w"> </span>--storageEngine<span class="o">=</span>inMemory<span class="w"> </span><span class="se">\</span>
+--inMemorySizeGB<span class="o">=</span><span class="m">140</span><span class="w"> </span><span class="se">\</span>
 --inMemoryStatisticsLogDelaySecs<span class="o">=</span><span class="m">0</span>
 </pre></div>
 </div>
