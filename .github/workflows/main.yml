@@ -2,10 +2,9 @@ name: Build Percona Server for MongoDB 4.2 docs
 on:
   push:
     branches: 
-      - 4.2
-      
-      
+     - 4.2
      
+
 jobs:
   build:
     name: Deploy docs
@@ -14,12 +13,12 @@ jobs:
     steps: 
       #Pull the latest changes
       - name: Chekout code
-        uses: percona-platform/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       #Prepare the env
-      - name: Set up PythonPSMDB-1202-Material-9.0.x-4.2
-        uses: percona-platform/setup-python@v2
+      - name: Set up Python
+        uses: actions/setup-python@v3
         with:
           python-version: '3.x'
       
