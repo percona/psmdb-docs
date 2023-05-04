@@ -13,6 +13,10 @@ Starting with version 5.0.9-8, you can specify multiple KMIP servers for failove
 
 Starting with version 5.0.11-10, the `kmipKeyIdentifier` option is no longer mandatory. When left blank, the database server creates a key on the KMIP server and uses that for encryption. When you specify the identifier, the key with such an ID must exist on the key storage.
 
+!!! note
+
+    Starting with version 5.0.17-14, the master key is stored in a raw-byte format. If you set up Percona Server for MongoDB 5.0.17-14 with data-at-rest encryption using KMIP and wish to downgrade to some previous version, this downgrade is not possible via binary replacement. Consider using the [logical backup and restore via Percona Backup for MongoDB](https://docs.percona.com/percona-backup-mongodb/usage/start-backup.html) for this purpose.
+
 ## KMIP parameters
 
 | Option            | Type    | Description    |
