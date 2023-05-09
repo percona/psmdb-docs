@@ -24,7 +24,7 @@
         <link rel="next" href="keyfile.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.11">
     
     
       
@@ -1507,6 +1507,10 @@
 <p>Starting with version 4.4.15-15, you can specify multiple KMIP servers for failover. On startup, Percona Server for MongoDB connects to the servers in the order listed and selects the one with which the connection is successful.</p>
 <p>Starting with version 4.4.16-16, the <code>kmipKeyIdentifier</code> option is no longer mandatory. When left blank, the database server creates a key on the KMIP server and uses that for encryption. When you specify the identifier, the key with such an ID must exist on the keystore.</p>
 <p>Percona Server for MongoDB cannot encrypt existing data. If there is data in place, see the steps <a href="https://www.mongodb.com/docs/v4.4/tutorial/configure-encryption/#std-label-encrypt-existing-data">how to encrypt existing data</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting with version 4.4.21-20, the master key is stored in a raw-byte format. If you set up Percona Server for MongoDB 4.4.21-20 and wish to downgrade to some previous version, this downgrade is not possible via binary replacement. Consider using the <a href="https://docs.percona.com/percona-backup-mongodb/usage/start-backup.html">logical backup and restore via Percona Backup for MongoDB</a> for this purpose.</p>
+</div>
 <h2 id="kmip-parameters">KMIP parameters<a class="headerlink" href="#kmip-parameters" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1597,7 +1601,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 6, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 9, 2023</span>
       
         <br>
         Created:
