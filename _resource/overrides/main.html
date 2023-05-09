@@ -45,6 +45,13 @@
               <!-- End Google Tag Manager (noscript) -->
               {% endblock %}
 
+             {% block outdated %}
+               You're not viewing the latest version.
+               <a href="{{ '../' ~ base_url }}"> 
+                 <strong>Click here to go to latest.</strong>
+               </a>
+             {% endblock %}
+
              {% block content %}
 
               {{ page.content }}
