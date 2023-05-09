@@ -13,6 +13,10 @@ Starting with version 4.4.16-16, the `kmipKeyIdentifier` option is no longer man
 
 Percona Server for MongoDB cannot encrypt existing data. If there is data in place, see the steps [how to encrypt existing data](https://www.mongodb.com/docs/v4.4/tutorial/configure-encryption/#std-label-encrypt-existing-data).
 
+!!! note
+
+    Starting with version 4.4.21-20, the master key is stored in a raw-byte format. If you set up Percona Server for MongoDB 4.4.21-20 and wish to downgrade to some previous version, this downgrade is not possible via binary replacement. Consider using the [logical backup and restore via Percona Backup for MongoDB](https://docs.percona.com/percona-backup-mongodb/usage/start-backup.html) for this purpose.
+
 ## KMIP parameters
 
 | Option            | Type    | Description    |
