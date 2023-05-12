@@ -93,8 +93,6 @@ markdown_extensions:
 #      emoji_index: !!python/name:materialx.emoji.twemoji
 #      emoji_generator: !!python/name:materialx.emoji.to_svg
 
-       
-
 plugins:
 #  section-index: {}
   search: 
@@ -102,6 +100,12 @@ plugins:
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
+  meta-descriptions:
+    export_csv: false
+    quiet: false
+    enable_checks: false
+    min_length: 50
+    max_length: 160
   macros:
       include_yaml:
         - 'variables.yml' # Use in markdown as '{{ VAR }}'
