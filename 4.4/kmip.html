@@ -24,7 +24,7 @@
         <link rel="next" href="keyfile.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.12">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
@@ -1530,46 +1530,54 @@
 <table>
 <thead>
 <tr>
-<th>Option</th>
+<th>Command line</th>
+<th>Configuration file</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>--kmipServerName</code></td>
+<td>kmipServerName</td>
+<td>security.kmip.<br>serverName</td>
 <td>string</td>
 <td>The hostname or IP address of the KMIP server. As of version 4.4.15-15, multiple KMIP servers are supported as the comma-separated list, e.g. <code>kmip1.example.com,kmip2.example.com</code></td>
 </tr>
 <tr>
-<td><code>--kmipPort</code></td>
+<td>kmipPort</td>
+<td>security.kmip.port</td>
 <td>number</td>
 <td>The port used to communicate with the KMIP server. When undefined, the default port <code>5696</code> will be used</td>
 </tr>
 <tr>
-<td><code>--kmipServerCAFile</code></td>
+<td>kmipServerCAFile</td>
+<td>security.kmip.<br>serverCAFile</td>
 <td>string</td>
-<td>The path to the CA certificate file. CA file is used to validate secure client connection to the KMIP server</td>
+<td>The path to the certificate of the root authority that issued the certificate for the KMIP server. Required only if the root certificate is not trusted by default on the machine the database server works on.</td>
 </tr>
 <tr>
-<td><code>--kmipClientCertificateFile</code></td>
+<td>kmipClientCertificateFile</td>
+<td>security.kmip.<br>clientCertificateFile</td>
 <td>string</td>
 <td>The path to the PEM file with the KMIP client private key and the certificate chain. The database server uses this PEM file to authenticate the KMIP server</td>
 </tr>
 <tr>
-<td><code>--kmipKeyIdentifier</code></td>
+<td>kmipKeyIdentifier</td>
+<td>security.kmip.<br>keyIdentifier</td>
 <td>string</td>
-<td>Optional starting with version 4.4.16-16. The identifier of the KMIP key. If the key does not exist, the database server creates a key on the KMIP server with the specified identifier. When you specify the identifier, the key with such an ID must exist on the key storage. You can only use this setting for the first time you enable encryption</td>
+<td>Optional starting with version 4.4.16-16. The identifier of the KMIP key. If not specified, the database server creates a key on the KMIP server and saves its identifier internally for future use. When you specify the identifier, the key with such an ID must exist on the key storage. You can only use this setting for the first time you enable encryption</td>
 </tr>
 <tr>
-<td><code>--kmipRotateMasterKey</code></td>
+<td>kmipRotateMasterKey</td>
+<td>security.kmip.<br>rotateMasterKey</td>
 <td>boolean</td>
-<td>Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 4.4.14-14. Requires the unique &ndash;kmipKeyIdentifier for every mongod node</td>
+<td>Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 4.4.14-14.</td>
 </tr>
 <tr>
-<td><code>--kmipClientCertificatePassword</code></td>
+<td>kmipClientCertificatePassword</td>
+<td>security.kmip.<br>clientCertificatePassword</td>
 <td>string</td>
-<td>The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 4.4.15-15</td>
+<td>The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 4.4.15-15.</td>
 </tr>
 </tbody>
 </table>
@@ -1616,7 +1624,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 9, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 24, 2023</span>
       
         <br>
         Created:
@@ -1745,7 +1753,7 @@
     <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "search.suggest", "search.share", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.c2be25ad.min.js"></script>
+      <script src="assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="js/version-select.js"></script>
       
