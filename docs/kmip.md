@@ -13,15 +13,15 @@ Starting with version 6.0.2-1, the `kmipKeyIdentifier` option is no longer manda
 
 ## KMIP parameters
 
-| Option            | Type    | Description    |
-| ----------------- | ------- | -------------- |
-|`--kmipServerName` | string  | The hostname or IP address of the KMIP server. Multiple KMIP servers are supported as the comma-separated list, e.g. `kmip1.example.com,kmip2.example.com`|
-| `--kmipPort`      | number  | The port used to communicate with the KMIP server. When undefined, the default port `5696` will be used|
-| `--kmipServerCAFile`| string| The path to the CA certificate file. CA file is used to validate secure client connection to the KMIP server|
-| `--kmipClientCertificateFile`| string| The path to the PEM file with the KMIP client private key and the certificate chain. The database server uses this PEM file to authenticate the KMIP server|
-| `--kmipKeyIdentifier`| string| Optional. The identifier of the KMIP key. If the key does not exist, the database server creates a key on the KMIP server with the specified identifier. When you specify the identifier, the key with such an ID must exist on the key storage. You can only use this setting for the first time you enable encryption|
-| `--kmipRotateMasterKey`| boolean| Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Requires the unique `--kmipKeyIdentifier` for every `mongod` node |
-| `--kmipClientCertificatePassword`| string| The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 4.2.21-21|
+| Command line     | Configuration file       | Type  | Description    |
+| ---------------- | ------------------------ | ----- | ---------------|
+| kmipServerName | security.kmip.<br>serverName |string | The hostname or IP address of the KMIP server. Multiple KMIP servers are supported as the comma-separated list, e.g. `kmip1.example.com,kmip2.example.com`|
+| kmipPort       | security.kmip.port       | number | The port used to communicate with the KMIP server. When undefined, the default port `5696` will be used|
+| kmipServerCAFile| security.kmip.<br>serverCAFile | string | The path to the certificate of the root authority that issued the certificate for the KMIP server. Required only if the root certificate is not trusted by default on the machine the database server works on.|
+| kmipClientCertificateFile| security.kmip.<br>clientCertificateFile | string | The path to the PEM file with the KMIP client private key and the certificate chain. The database server uses this PEM file to authenticate the KMIP server|
+| kmipKeyIdentifier| security.kmip.<br>keyIdentifier | string | Optional. The identifier of the KMIP key. If not specified, the database server creates a key on the KMIP server and saves its identifier internally for future use. When you specify the identifier, the key with such an ID must exist on the key storage. You can only use this setting for the first time you enable encryption.|
+| kmipRotateMasterKey| security.kmip.<br>rotateMasterKey | boolean| Controls master keys rotation. When enabled, generates the new master key and re-encrypts the keystore.|
+| kmipClientCertificatePassword| security.kmip.<br>clientCertificatePassword | string| The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted.|
 
 ## Key rotation
 
