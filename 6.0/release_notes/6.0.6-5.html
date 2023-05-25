@@ -9,40 +9,30 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB can limit the number of queries collected by the database profiler
-to decrease its impact on performance.
-Rate limit is an integer between 1 and 1000
-and represents the fraction of queries to be profiled.
-For example, if you set it to 20, then every 20th query will be logged.
-For compatibility reasons, rate limit of 0 is the same as setting it to 1,
-and will effectively disable the feature
-meaning that every query will be profiled.">
+        <meta name="description" content="Percona Server for MongoDB 6.0.6-5 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 6.0.6 Community Edition.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/rate-limit.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.6-5.html">
       
       
-        <link rel="prev" href="audit-logging.html">
       
-      
-        <link rel="next" href="log-redaction.html">
-      
-      <link rel="icon" href="_images/percona-favicon.ico">
+      <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
     
     
       
-        <title>Profiling rate limit - Percona Server for MongoDB 6.0</title>
+        <title>Percona Server for MongoDB 6.0.6-5 (2023-05-25) - Percona Server for MongoDB 6.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.85bb2934.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.a6bdf11c.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a6bdf11c.min.css">
       
       
 
@@ -62,11 +52,11 @@ meaning that every query will be profiled.">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
               <!-- Google Tag Manager -->
               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -89,7 +79,7 @@ meaning that every query will be profiled.">
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Server for MongoDB 6.0 - Profiling rate limit" />
+                 <meta property="og:title" content="Percona Server for MongoDB 6.0 - Percona Server for MongoDB 6.0.6-5 (2023-05-25)" />
                  <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/6.0/_images/mongodb.png">
                  <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
                 </head>
@@ -120,7 +110,7 @@ meaning that every query will be profiled.">
     <div data-md-component="skip">
       
         
-        <a href="#profiling-rate-limit" class="md-skip">
+        <a href="#percona-server-for-mongodb-606-5-2023-05-25" class="md-skip">
           Skip to content
         </a>
       
@@ -142,7 +132,7 @@ meaning that every query will be profiled.">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 6.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -158,7 +148,7 @@ meaning that every query will be profiled.">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Profiling rate limit
+              Percona Server for MongoDB 6.0.6-5 (2023-05-25)
             
           </span>
         </div>
@@ -269,7 +259,7 @@ meaning that every query will be profiled.">
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 6.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 6.0
@@ -297,7 +287,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         Home
       </a>
     </li>
@@ -312,7 +302,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         Percona Server for MongoDB feature comparison
       </a>
     </li>
@@ -354,7 +344,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
+      <a href="../install/index.html" class="md-nav__link">
         System requirements
       </a>
     </li>
@@ -368,7 +358,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
+      <a href="../install/apt.html" class="md-nav__link">
         Install Percona Server for MongoDB on Debian and Ubuntu
       </a>
     </li>
@@ -382,7 +372,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
+      <a href="../install/yum.html" class="md-nav__link">
         Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
       </a>
     </li>
@@ -396,7 +386,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
+      <a href="../install/tarball.html" class="md-nav__link">
         Install Percona Server for MongoDB from binary tarball
       </a>
     </li>
@@ -410,7 +400,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
+      <a href="../install/docker.html" class="md-nav__link">
         Run Percona Server for MongoDB in a Docker container
       </a>
     </li>
@@ -430,16 +420,14 @@ meaning that every query will be profiled.">
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
       
@@ -448,7 +436,7 @@ meaning that every query will be profiled.">
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Features
@@ -488,7 +476,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         Percona Memory Engine
       </a>
     </li>
@@ -536,7 +524,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         Hot Backup
       </a>
     </li>
@@ -550,7 +538,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         $backupCursor and $backupCursorExtend aggregation stages
       </a>
     </li>
@@ -598,7 +586,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         Authentication overview
       </a>
     </li>
@@ -612,7 +600,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         Enable SCRAM authentication
       </a>
     </li>
@@ -626,7 +614,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         Set up LDAP authentication with SASL
       </a>
     </li>
@@ -640,7 +628,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         Set up x.509 authentication and LDAP authorization
       </a>
     </li>
@@ -654,7 +642,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         Setting up Kerberos authentication
       </a>
     </li>
@@ -668,7 +656,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         AWS IAM authentication
       </a>
     </li>
@@ -682,7 +670,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         Setting up AWS IAM authentication
       </a>
     </li>
@@ -696,7 +684,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         LDAP authorization
       </a>
     </li>
@@ -710,7 +698,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         Set up LDAP authentication and authorization using NativeLDAP
       </a>
     </li>
@@ -758,7 +746,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         Data at rest encryption
       </a>
     </li>
@@ -772,7 +760,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         HashiCorp Vault integration
       </a>
     </li>
@@ -786,7 +774,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         Using the Key Management Interoperability Protocol (KMIP)
       </a>
     </li>
@@ -800,7 +788,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="keyfile.html" class="md-nav__link">
+      <a href="../keyfile.html" class="md-nav__link">
         Local key management using a keyfile
       </a>
     </li>
@@ -814,7 +802,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         Migrate from key file encryption to HashiCorp Vault encryption
       </a>
     </li>
@@ -835,7 +823,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
+      <a href="../audit-logging.html" class="md-nav__link">
         Auditing
       </a>
     </li>
@@ -847,68 +835,11 @@ meaning that every query will be profiled.">
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Profiling rate limit
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="rate-limit.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../rate-limit.html" class="md-nav__link">
         Profiling rate limit
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#comparing-to-the-samplerate-option" class="md-nav__link">
-    Comparing to the sampleRate option
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enabling-the-rate-limit" class="md-nav__link">
-    Enabling the rate limit
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#profiler-collection-extension" class="md-nav__link">
-    Profiler collection extension
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -920,7 +851,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
+      <a href="../log-redaction.html" class="md-nav__link">
         Log redaction
       </a>
     </li>
@@ -934,7 +865,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         Additional text search algorithm - ngram
       </a>
     </li>
@@ -983,7 +914,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         Tune parameters
       </a>
     </li>
@@ -1024,7 +955,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-50.html" class="md-nav__link">
+      <a href="../install/upgrade-from-50.html" class="md-nav__link">
         Upgrade from 5.0 to 6.0
       </a>
     </li>
@@ -1038,7 +969,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
         Upgrade Percona Server for MongoDB
       </a>
     </li>
@@ -1059,7 +990,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="../install/uninstall.html" class="md-nav__link">
         Uninstall Percona Server for MongoDB
       </a>
     </li>
@@ -1108,7 +1039,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         Release notes index
       </a>
     </li>
@@ -1122,7 +1053,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.6.5.md" class="md-nav__link">
+      <a href="6.0.6.5.md" class="md-nav__link">
         None
       </a>
     </li>
@@ -1136,7 +1067,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.5-4.html" class="md-nav__link">
+      <a href="6.0.5-4.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.5-4 (2023-03-29)
       </a>
     </li>
@@ -1150,7 +1081,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.4-3.html" class="md-nav__link">
+      <a href="6.0.4-3.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.4-3 (2023-01-30)
       </a>
     </li>
@@ -1164,7 +1095,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.3-2.html" class="md-nav__link">
+      <a href="6.0.3-2.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.3-2 (2022-12-07)
       </a>
     </li>
@@ -1178,7 +1109,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.2-1.html" class="md-nav__link">
+      <a href="6.0.2-1.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.2-1 (2022-10-31)
       </a>
     </li>
@@ -1200,7 +1131,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         Glossary
       </a>
     </li>
@@ -1215,7 +1146,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         Copyright and licensing information
       </a>
     </li>
@@ -1230,7 +1161,7 @@ meaning that every query will be profiled.">
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         Trademark policy
       </a>
     </li>
@@ -1272,22 +1203,15 @@ meaning that every query will be profiled.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comparing-to-the-samplerate-option" class="md-nav__link">
-    Comparing to the sampleRate option
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enabling-the-rate-limit" class="md-nav__link">
-    Enabling the rate limit
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#profiler-collection-extension" class="md-nav__link">
-    Profiler collection extension
+  <a href="#bugs-fixed" class="md-nav__link">
+    Bugs Fixed
   </a>
   
 </li>
@@ -1310,14 +1234,14 @@ meaning that every query will be profiled.">
                   
                   
                   <a
-                    href="https://github.com/percona/psmdb-docs/edit/6.0/docs/rate-limit.md"
+                    href="https://github.com/percona/psmdb-docs/edit/6.0/docs/release_notes/6.0.6-5.md"
                     title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/6.0/docs/rate-limit.md"
+                    href="https://raw.githubusercontent.com/percona/psmdb-docs/6.0/docs/release_notes/6.0.6-5.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1334,131 +1258,44 @@ meaning that every query will be profiled.">
                 
 
                 <!-- Markdown content -->
-                <h1 id="profiling-rate-limit">Profiling rate limit<a class="headerlink" href="#profiling-rate-limit" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB can limit the number of queries collected by the database profiler
-to decrease its impact on performance.
-Rate limit is an integer between 1 and 1000
-and represents the fraction of queries to be profiled.
-For example, if you set it to 20, then every 20<sup>th</sup> query will be logged.
-For compatibility reasons, rate limit of 0 is the same as setting it to 1,
-and will effectively disable the feature
-meaning that every query will be profiled.</p>
-<p>The MongoDB database profiler can operate in one of three modes:</p>
-<ul>
-<li>
-<p><code>0</code>: Profiling is disabled. This is the default setting.</p>
-</li>
-<li>
-<p><code>1</code>: The profiler collects data only for <em>slow</em> queries.
-By default, queries that take more than 100 milliseconds to execute
-are considered <em>slow</em>.</p>
-</li>
-<li>
-<p><code>2</code>: Collects profiling data for all database operations.</p>
-</li>
-</ul>
-<p>Mode <code>1</code> ignores all <em>fast</em> queries,
-which may be the cause of problems that you are trying to find.
-Mode <code>2</code> provides a comprehensive picture of database performance,
-but may introduce unnecessary overhead.</p>
-<p>With rate limiting you can collect profiling data for all database operations
-and reduce overhead by sampling queries.
-Slow queries ignore rate limiting and are always collected by the profiler.</p>
-<h2 id="comparing-to-the-samplerate-option">Comparing to the <code>sampleRate</code> option<a class="headerlink" href="#comparing-to-the-samplerate-option" title="Permanent link">&para;</a></h2>
-<p>The <code>sampleRate</code> option (= <a href="https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-slowopsamplerate">slowOpSampleRate</a> config file option) is a similar
-concept to <code>rateLimit</code>. But it works at different profile level, completely
-ignores operations faster than <code>slowOpsThresholdMs</code> (a.k.a. <code>slowMs</code>), and affects the
-log file printing, too.</p>
+                <h1 id="percona-server-for-mongodb-606-5-2023-05-25">Percona Server for MongoDB 6.0.6-5 (2023-05-25)<a class="headerlink" href="#percona-server-for-mongodb-606-5-2023-05-25" title="Permanent link">&para;</a></h1>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>sampleRate</th>
-<th>rateLimit</th>
+<th>Release date</th>
+<th>May 25, 2023</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Affects profiling level 1</td>
-<td>yes</td>
-<td>no</td>
-</tr>
-<tr>
-<td>Affects profiling level 2</td>
-<td>no</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>Discards/filters slow ops</td>
-<td>yes</td>
-<td>no</td>
-</tr>
-<tr>
-<td>Discards/filters fast ops</td>
-<td>no</td>
-<td>yes</td>
-</tr>
-<tr>
-<td>Affects log file</td>
-<td>yes</td>
-<td>no</td>
-</tr>
-<tr>
-<td>Example value of option</td>
-<td>0.02</td>
-<td>50</td>
+<td><strong>Installation</strong></td>
+<td><a href="../install/index.html">Installing Percona Server for MongoDB</a></td>
 </tr>
 </tbody>
 </table>
-<p><code>rateLimit</code> is a better way to have continuous profiling for monitoring or live
-analysis purposes. <code>sampleRate</code> requires setting slowOpsThresholdMs to zero if
-you want to sample all types of operations. <code>sampleRate</code> has an effect on the log file which may either decrease or increase the log volume.</p>
-<h2 id="enabling-the-rate-limit">Enabling the rate limit<a class="headerlink" href="#enabling-the-rate-limit" title="Permanent link">&para;</a></h2>
-<p>To enable rate limiting, set the profiler mode to <code>2</code>
-and specify the value of the rate limit.
-Optionally, you can also change the default threshold for slow queries,
-which will not be sampled by rate limiting.</p>
-<p>For example, to set the rate limit to <code>100</code>
-(profile every 100<sup>th</sup> <em>fast</em> query)
-and the slow query threshold to <code>200</code>
-(profile all queries slower than 200 milliseconds),
-run the <code>mongod</code> instance as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span>--profile<span class="w"> </span><span class="m">2</span><span class="w"> </span>--slowms<span class="w"> </span><span class="m">200</span><span class="w"> </span>--rateLimit<span class="w"> </span><span class="m">100</span>
-</code></pre></div>
-<p>To do the same at runtime, use the <code>profile</code> command.
-It returns the <em>previous</em> settings
-and <code>"ok" : 1</code> indicates that the operation was successful:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">profile</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">slowms</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="nx">ratelimit</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">&quot;was&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;slowms&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ratelimit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<p>To check the current settings, run <code>profile: -1</code>:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">profile</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">&quot;was&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;slowms&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ratelimit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<p>If you want to set or get just the rate limit value,
-use the <code>profilingRateLimit</code> parameter on the <code>admin</code> database:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">).</span><span class="nx">runCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;profilingRateLimit&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">&quot;was&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">).</span><span class="nx">runCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">getParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;profilingRateLimit&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">&quot;profilingRateLimit&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<p>If you want rate limiting to persist when you restart <code>mongod</code>,
-set the corresponding variables in the MongoDB configuration file
-(by default, <code>/etc/mongod.conf</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="nt">operationProfiling</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
-<span class="w">  </span><span class="nt">slowOpThresholdMs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
-<span class="w">  </span><span class="nt">rateLimit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The value of the <code>operationProfiling.mode</code> variable is a string, which you can set to either <code>off</code>, <code>slowOp</code>, or <code>all</code>, corresponding to profiling modes <code>0</code>, <code>1</code>, and <code>2</code>.</p>
-</div>
-<h2 id="profiler-collection-extension">Profiler collection extension<a class="headerlink" href="#profiler-collection-extension" title="Permanent link">&para;</a></h2>
-<p>Each document in the <code>system.profile</code> collection
-includes an additional <code>rateLimit</code> field.
-This field always has the value of <code>1</code> for <em>slow</em> queries
-and the current rate limit value for <em>fast</em> queries.</p>
+<p>Percona Server for MongoDB 6.0.6-5 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 6.0.6 Community Edition.</p>
+<p>It is based on <a href="https://www.mongodb.com/docs/manual/release-notes/6.0/#6.0.6---may-12--2023">MongoDB 6.0.6 Community edition</a> and supports the upstream protocols and drivers.</p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<p>Improvements and bug fixes, provided by MongoDB and included in Percona Server for MongoDB are the following:</p>
+<ul>
+<li><a href="https://jira.mongodb.org/browse/SERVER-51835">SERVER-51835</a> - Fixed the handling of the read preference tags to respect their order and ignore other tags when all eligible replica set members are found.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-67105">SERVER-67105</a> - Allowed usage of clustered index in queries.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-72774">SERVER-72774</a> - Prevented a node in quiesce mode to win election.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-74930">SERVER-74930</a> - Fixed the issue with the <code>$avg</code> operator to return the sum instead of the average within a <code>$group</code> stage</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-75205">SERVER-75205</a> - Fixed deadlock between <code>stepdown</code> and <code>restoring</code> locks after yielding when all read tickets exhausted</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/WT-10551">WT-10551</a> - Fixed the bug with WiredTiger failing to load the incremental backup change bitmap for a file. The issue affects MongoDB versions 4.4.8 through 4.4.21, 5.0.2 through 5.0.17, and 6.0.0 through 6.0.5 causing the server to crash with the checksum error if the affected incremental backup was restored and the affected data is accessed.</p>
+<p>If you are using incremental backups, upgrade to the fixed upstream version 6.0.6 / Percona Server for MongoDB 6.0.6-5 as soon as possible. Follow closely the upstream recommendations to remediate the negative impact. </p>
+</li>
+</ul>
+<p>Find the full list of new features and improvements in <a href="https://www.mongodb.com/docs/manual/release-notes/6.0/#6.0.6---may-12--2023">MongoDB 6.0.6 Community edition release notes</a>.</p>
+<h2 id="bugs-fixed">Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://jira.percona.com/browse/PSMDB-1211">PSMDB-1211</a>: Improved the master key rotation handling in case of failure</li>
+<li><a href="https://jira.percona.com/browse/PSMDB-1231">PSMDB-1231</a>: Register a master key for data-at-rest encryption on the KMIP server in the raw-bytes form</li>
+<li><a href="https://jira.percona.com/browse/PSMDB-1239">PSMDB-1239</a>: Fixed the issue with PSMDB failing to restart when wrong data-at-rest encryption options were used during the previous start  </li>
+</ul>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1480,11 +1317,11 @@ and the current rate limit value for <em>fast</em> queries.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 25, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 25, 2023</span>
       
     
   </small>
@@ -1599,14 +1436,14 @@ and the current rate limit value for <em>fast</em> queries.</p>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.account.edit content.code.copy search.highlight search.share", "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.account.edit content.code.copy search.highlight search.share", "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
     
   </body>
