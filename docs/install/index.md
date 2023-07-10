@@ -22,12 +22,13 @@ Choose how you wish to install Percona Server for MongoDB:
     * [on Debian or Ubuntu](apt.md#apt)
     * [on RHEL or CentOS](yum.md#yum)
 
-* [From binary tarballs](tarball.md)
-* Manually from [Percona website](https://www.percona.com/downloads/percona-server-mongodb-4.2/)
-
+* [build from source code](source.md)
+* [from binary tarballs](tarball.md)
+* Manually from [Percona website](https://www.percona.com/downloads/percona-server-mongodb-5.0/)
+   
     !!! note
 
-        Make sure that all dependencies are satisfied
+        Make sure that all dependencies are satisfied.
 
 * [Run in Docker](docker.md)
 
