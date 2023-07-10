@@ -22,13 +22,13 @@ Follow the instructions, relevant to your operating system:
 
      2. Remove the packages. There are two options.
 
-        === "Keep the configuration and data files"
+         === "Keep the configuration and data files"
 
              ```{.bash data-prompt="$"}
              $ sudo apt remove percona-server-mongodb*
              ```
 
-        === "Delete configuration and data files"
+         === "Delete configuration and data files"
 
               ```{.bash data-prompt="$"}
               $ sudo apt purge percona-server-mongodb*
