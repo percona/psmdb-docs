@@ -5,9 +5,9 @@ This document describes how to install Percona Server for MongoDB from Percona r
 !!! note
 
     Percona Server for MongoDB should work on other DEB-based distributions,
-    but it is tested only on platforms listed on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page.
+    but it is tested only on platforms listed on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb) page.
 
-## Package Contents
+## Package contents
 
 | Package                 | Contains                                 |
 | ----------------------- | -----------------------------------------|
