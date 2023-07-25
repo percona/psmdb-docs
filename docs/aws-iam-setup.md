@@ -90,6 +90,23 @@ Run the following commands as root or via `sudo`
     $ sudo systemctl start mongod
     ```
 
+#### Configure AWS STS endpoint
+
+To reduce network latency and send AWS STS requests to the endpoints in a region that is geographically closer to you, you can override the default endpoint. You must [enable the AWS region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) to use it.
+
+Edit the `/etc/mongod.conf` configuration file as follows:
+
+```yaml
+security:
+  authorization: enabled
+
+setParameter:
+  authenticationMechanisms: MONGODB-AWS
+  awsStsHost: sts.amazonaws.com
+```
+
+See the [list of AWS endpoints](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#id_credentials_region-endpoints).
+
 ## Authenticate in Percona Server for MongoDB using AWS IAM
 
 To test the authentication, use either of the following methods:
