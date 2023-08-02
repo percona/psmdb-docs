@@ -120,7 +120,7 @@ To build Percona Server for MongoDB manually, you need the following:
 2. Build Percona Server for MongoDB from ``buildscripts/scons.py``
      
     ```{.bash data-prompt="$"}
-    $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup CPPPATH="${AWS_LIBS}/include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos install-mongo
+    $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup CPPPATH="${AWS_LIBS}/include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos 
     ```  
 
    This command builds core components of the database. Other available targets for the
