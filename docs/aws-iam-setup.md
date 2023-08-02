@@ -92,9 +92,9 @@ Run the following commands as root or via `sudo`
 
 #### Configure AWS STS endpoint
 
-To reduce network latency and send AWS STS requests to the endpoints in a region that is geographically closer to you, you can override the default endpoint. You must [enable the AWS region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) to use it.
+By default, all authentication requests are sent to the `sts.amazonaws.com` endpoint. If this endpoint is unavailable for some reason, you can override it and send AWS STS requests to the endpoints of your choice to ensure successful authentication. You must [enable the AWS region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html) to use it.
 
-Edit the `/etc/mongod.conf` configuration file as follows:
+Edit the `/etc/mongod.conf` configuration file and specify the AWS endpoint for the `awsStsHost` parameter.
 
 ```yaml
 security:
@@ -102,7 +102,7 @@ security:
 
 setParameter:
   authenticationMechanisms: MONGODB-AWS
-  awsStsHost: sts.amazonaws.com
+  awsStsHost: <aws-endpoint>
 ```
 
 See the [list of AWS endpoints](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#id_credentials_region-endpoints).
