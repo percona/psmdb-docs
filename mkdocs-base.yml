@@ -142,6 +142,7 @@ nav:
       - install/apt.md
       - install/yum.md
       - install/tarball.md
+      - install/source.md
       - install/docker.md
   - Features: 
       - Storage:
