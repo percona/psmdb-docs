@@ -108,7 +108,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-6.0.pdf'
           cover_title: 'Server for MongoDB Documentation 6.0'
-          cover_subtitle: 6.0.6-5 (May 25, 2023)
+          cover_subtitle: 6.0.8-6 (August 8, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -128,11 +128,9 @@ extra:
   consent:
     title: Cookie consent
     description: >- 
-      We use cookies to recognize your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for. With your consent, you're helping us to
-      make our documentation better. Read more about <a class="reference external" href="https://www.percona.com/20180524-cookie-policy" target="_blank">Percona Cookie Policy</a>.
-
+      We use cookies to personalize content and ads, to provide social media
+      features, and to analyze our traffic. <a class="reference external" href="https://www.percona.com/20180524-cookie-policy" target="_blank">Percona Privacy Policy</a>.
+      Learn more about <a class="reference external" href="https://www.percona.com/20180524-cookie-policy" target="_blank">Percona Cookie Policy</a>.
 
 nav:
   - Home: index.md
@@ -178,6 +176,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
+      - release_notes/6.0.8-6.md
       - release_notes/6.0.6-5.md
       - release_notes/6.0.5-4.md
       - release_notes/6.0.4-3.md

@@ -6,3 +6,4 @@ INHERIT: mkdocs-base.yml
 markdown_extensions:
   pymdownx.tabbed: {}
   admonition: {}
+  pymdownx.superfences: {}
