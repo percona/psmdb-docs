@@ -32,8 +32,10 @@ For either type of AWS IAM authentication, the flow is the following:
         The `mongo` client never sends the secret access key to Percona Server for MongoDB.
 
 3. Percona Server for MongoDB sends the received credentials to the AWS STS (Security Token Service) for verification
-5. The AWS STS service validates whether the signature is correct and answers with the user / role ARN that created the signature
-6. Percona Server for MongoDB looks for the same username as the received ARN in the `$external` database and grants privileges to access Percona Server for MongoDB as defined for the respective user.
+4. The AWS STS service validates whether the signature is correct and answers with the user / role ARN that created the signature
+5. Percona Server for MongoDB looks for the same username as the received ARN in the `$external` database and grants privileges to access Percona Server for MongoDB as defined for the respective user.
+
+Starting with version [6.0.6-8](release_notes/6.0.6-8.md), you can [configure the AWS STS endpoint](aws-iam-setup.md#configure-aws-sts-endpoint) by specifying the `setParameter.awsStsHost` in the configuration file. This allows you to send requests to the AWS resources of your choice to meet security requirements of your organization and ensure successful authentication. 
 
 !!! admonition "See also"
 
@@ -42,6 +44,7 @@ For either type of AWS IAM authentication, the flow is the following:
         * [AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
         * [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html#sts-introduction)
         * [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
+        * [Managing AWS STS in an AWS Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html)
 
     * MongoDB documentation: [Set Up Passwordless Authentication with AWS IAM](https://www.mongodb.com/docs/atlas/security/passwordless-authentication/#std-label-passwordless-auth-aws-no-saml)
 
