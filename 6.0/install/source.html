@@ -9,37 +9,33 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Auditing allows administrators to track
-and log user activity on a MongoDB server.
-With auditing enabled, the server will generate an audit log file.
-This file contains information about different user events
-including authentication, authorization failures, and so on.">
+        <meta name="description" content="You can build Percona Server for MongoDB from the source code either manually or using the build script.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/audit-logging.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/install/source.html">
       
       
-        <link rel="prev" href="encryption-mode-switch.html">
+        <link rel="prev" href="tarball.html">
       
       
-        <link rel="next" href="rate-limit.html">
+        <link rel="next" href="docker.html">
       
-      <link rel="icon" href="_images/percona-favicon.ico">
+      <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Auditing - Percona Server for MongoDB 6.0</title>
+        <title>Build from source code - Percona Server for MongoDB 6.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.eebd395e.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.eebd395e.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -59,13 +55,13 @@ including authentication, authorization failures, and so on.">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
               <!-- Google Tag Manager -->
               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -88,7 +84,7 @@ including authentication, authorization failures, and so on.">
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Server for MongoDB 6.0 - Auditing" />
+                 <meta property="og:title" content="Percona Server for MongoDB 6.0 - Build from source code" />
                  <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/6.0/_images/mongodb.png">
                  <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
                 </head>
@@ -119,7 +115,7 @@ including authentication, authorization failures, and so on.">
     <div data-md-component="skip">
       
         
-        <a href="#auditing" class="md-skip">
+        <a href="#build-from-source-code" class="md-skip">
           Skip to content
         </a>
       
@@ -141,7 +137,7 @@ including authentication, authorization failures, and so on.">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 6.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -157,7 +153,7 @@ including authentication, authorization failures, and so on.">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Auditing
+              Build from source code
             
           </span>
         </div>
@@ -268,7 +264,7 @@ including authentication, authorization failures, and so on.">
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 6.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 6.0
@@ -296,7 +292,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         Home
       </a>
     </li>
@@ -311,128 +307,9 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         Percona Server for MongoDB feature comparison
       </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          Install PSMDB
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Install PSMDB
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
-        System requirements
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
-        Install Percona Server for MongoDB on Debian and Ubuntu
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
-        Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
-        Install Percona Server for MongoDB from binary tarball
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/source.html" class="md-nav__link">
-        Build from source code
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
-        Run Percona Server for MongoDB in a Docker container
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -452,7 +329,216 @@ including authentication, authorization failures, and so on.">
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Install PSMDB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Install PSMDB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        System requirements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apt.html" class="md-nav__link">
+        Install Percona Server for MongoDB on Debian and Ubuntu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="yum.html" class="md-nav__link">
+        Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tarball.html" class="md-nav__link">
+        Install Percona Server for MongoDB from binary tarball
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Build from source code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="source.html" class="md-nav__link md-nav__link--active">
+        Build from source code
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#manual-build" class="md-nav__link">
+    Manual build
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-steps" class="md-nav__link">
+    Build steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-build-script" class="md-nav__link">
+    Use the build script
+  </a>
+  
+    <nav class="md-nav" aria-label="Use the build script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-the-build-environment" class="md-nav__link">
+    Prepare the build environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-steps_1" class="md-nav__link">
+    Build steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker.html" class="md-nav__link">
+        Run Percona Server for MongoDB in a Docker container
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
       
@@ -461,7 +547,7 @@ including authentication, authorization failures, and so on.">
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Features
@@ -501,7 +587,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         Percona Memory Engine
       </a>
     </li>
@@ -549,7 +635,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         Hot Backup
       </a>
     </li>
@@ -563,7 +649,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         $backupCursor and $backupCursorExtend aggregation stages
       </a>
     </li>
@@ -611,7 +697,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         Authentication overview
       </a>
     </li>
@@ -625,7 +711,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         Enable SCRAM authentication
       </a>
     </li>
@@ -639,7 +725,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         Set up LDAP authentication with SASL
       </a>
     </li>
@@ -653,7 +739,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         Set up x.509 authentication and LDAP authorization
       </a>
     </li>
@@ -667,7 +753,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         Setting up Kerberos authentication
       </a>
     </li>
@@ -681,7 +767,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         AWS IAM authentication
       </a>
     </li>
@@ -695,7 +781,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         Setting up AWS IAM authentication
       </a>
     </li>
@@ -709,7 +795,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         LDAP authorization
       </a>
     </li>
@@ -723,7 +809,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         Set up LDAP authentication and authorization using NativeLDAP
       </a>
     </li>
@@ -771,7 +857,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         Data at rest encryption
       </a>
     </li>
@@ -785,7 +871,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         HashiCorp Vault integration
       </a>
     </li>
@@ -799,7 +885,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         Using the Key Management Interoperability Protocol (KMIP)
       </a>
     </li>
@@ -813,7 +899,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="keyfile.html" class="md-nav__link">
+      <a href="../keyfile.html" class="md-nav__link">
         Local key management using a keyfile
       </a>
     </li>
@@ -827,7 +913,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         Migrate from key file encryption to HashiCorp Vault encryption
       </a>
     </li>
@@ -846,102 +932,11 @@ including authentication, authorization failures, and so on.">
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Auditing
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="audit-logging.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../audit-logging.html" class="md-nav__link">
         Auditing
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#audit-options" class="md-nav__link">
-    Audit options
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audit-message-syntax" class="md-nav__link">
-    Audit message syntax
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audit-filter-examples" class="md-nav__link">
-    Audit filter examples
-  </a>
-  
-    <nav class="md-nav" aria-label="Audit filter examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#standard-query-selectors" class="md-nav__link">
-    Standard query selectors
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#regular-expressions" class="md-nav__link">
-    Regular expressions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#read-and-write-operations" class="md-nav__link">
-    Read and write operations
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enabling-auditing-of-authorization-success" class="md-nav__link">
-    Enabling auditing of authorization success
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -953,7 +948,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
+      <a href="../rate-limit.html" class="md-nav__link">
         Profiling rate limit
       </a>
     </li>
@@ -967,7 +962,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
+      <a href="../log-redaction.html" class="md-nav__link">
         Log redaction
       </a>
     </li>
@@ -981,7 +976,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         Additional text search algorithm - ngram
       </a>
     </li>
@@ -1030,7 +1025,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         Tune parameters
       </a>
     </li>
@@ -1071,7 +1066,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-50.html" class="md-nav__link">
+      <a href="upgrade-from-50.html" class="md-nav__link">
         Upgrade from 5.0 to 6.0
       </a>
     </li>
@@ -1085,7 +1080,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="upgrade-from-mongodb.html" class="md-nav__link">
         Upgrade Percona Server for MongoDB
       </a>
     </li>
@@ -1106,7 +1101,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="uninstall.html" class="md-nav__link">
         Uninstall Percona Server for MongoDB
       </a>
     </li>
@@ -1155,7 +1150,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="../release_notes/index.html" class="md-nav__link">
         Release notes index
       </a>
     </li>
@@ -1169,7 +1164,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.8-6.html" class="md-nav__link">
+      <a href="../release_notes/6.0.8-6.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.8-6 (2023-08-08)
       </a>
     </li>
@@ -1183,7 +1178,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.6-5.html" class="md-nav__link">
+      <a href="../release_notes/6.0.6-5.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.6-5 (2023-05-25)
       </a>
     </li>
@@ -1197,7 +1192,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.5-4.html" class="md-nav__link">
+      <a href="../release_notes/6.0.5-4.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.5-4 (2023-03-29)
       </a>
     </li>
@@ -1211,7 +1206,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.4-3.html" class="md-nav__link">
+      <a href="../release_notes/6.0.4-3.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.4-3 (2023-01-30)
       </a>
     </li>
@@ -1225,7 +1220,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.3-2.html" class="md-nav__link">
+      <a href="../release_notes/6.0.3-2.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.3-2 (2022-12-07)
       </a>
     </li>
@@ -1239,7 +1234,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.2-1.html" class="md-nav__link">
+      <a href="../release_notes/6.0.2-1.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.2-1 (2022-10-31)
       </a>
     </li>
@@ -1261,7 +1256,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         Glossary
       </a>
     </li>
@@ -1276,7 +1271,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         Copyright and licensing information
       </a>
     </li>
@@ -1291,7 +1286,7 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         Trademark policy
       </a>
     </li>
@@ -1333,44 +1328,16 @@ including authentication, authorization failures, and so on.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#audit-options" class="md-nav__link">
-    Audit options
+  <a href="#manual-build" class="md-nav__link">
+    Manual build
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audit-message-syntax" class="md-nav__link">
-    Audit message syntax
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audit-filter-examples" class="md-nav__link">
-    Audit filter examples
-  </a>
-  
-    <nav class="md-nav" aria-label="Audit filter examples">
+    <nav class="md-nav" aria-label="Manual build">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#standard-query-selectors" class="md-nav__link">
-    Standard query selectors
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#regular-expressions" class="md-nav__link">
-    Regular expressions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#read-and-write-operations" class="md-nav__link">
-    Read and write operations
+  <a href="#build-steps" class="md-nav__link">
+    Build steps
   </a>
   
 </li>
@@ -1381,9 +1348,36 @@ including authentication, authorization failures, and so on.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#enabling-auditing-of-authorization-success" class="md-nav__link">
-    Enabling auditing of authorization success
+  <a href="#use-the-build-script" class="md-nav__link">
+    Use the build script
   </a>
+  
+    <nav class="md-nav" aria-label="Use the build script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-the-build-environment" class="md-nav__link">
+    Prepare the build environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-steps_1" class="md-nav__link">
+    Build steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1405,14 +1399,14 @@ including authentication, authorization failures, and so on.">
                   
                   
                   <a
-                    href="https://github.com/percona/psmdb-docs/edit/6.0/docs/audit-logging.md"
+                    href="https://github.com/percona/psmdb-docs/edit/6.0/docs/install/source.md"
                     title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/6.0/docs/audit-logging.md"
+                    href="https://raw.githubusercontent.com/percona/psmdb-docs/6.0/docs/install/source.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1429,253 +1423,283 @@ including authentication, authorization failures, and so on.">
                 
 
                 <!-- Markdown content -->
-                <h1 id="auditing">Auditing<a class="headerlink" href="#auditing" title="Permanent link">&para;</a></h1>
-<p>Auditing allows administrators to track
-and log user activity on a MongoDB server.
-With auditing enabled, the server will generate an audit log file.
-This file contains information about different user events
-including authentication, authorization failures, and so on.</p>
-<p>To enable audit logging, specify where to send audit events
-using the <a href="#-auditdestination"><code>--auditDestination</code></a> option on the command line
-or the <code>auditLog.destination</code> variable in the configuration file.</p>
-<p>If you want to output events to a file,
-also specify the format of the file
-using the <a href="#-auditformat"><code>--auditFormat</code></a> option
-or the <code>auditLog.format</code> variable,
-and the path to the file using the <a href="#-auditpath"><code>--auditPath</code></a> option
-or the <code>auditLog.path</code> variable.</p>
-<p>To filter recorded events, use the <a href="#-auditfilter"><code>--auditFilter</code></a> option
-or the <code>auditLog.filter</code> variable.</p>
-<p>For example, to log only events from a user named <strong>tim</strong>
-and write them to a JSON file <code>/var/log/psmdb/audit.json</code>,
-start the server with the following parameters:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--dbpath<span class="w"> </span>data/db
-<span class="w"> </span>--auditDestination<span class="w"> </span>file<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--auditFormat<span class="w"> </span>JSON<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--auditPath<span class="w"> </span>/var/log/psmdb/audit.json<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--auditFilter<span class="w"> </span><span class="s1">&#39;{ &quot;users.user&quot; : &quot;tim&quot; }&#39;</span>
-</code></pre></div>
-<p>The options in the previous example can be used as variables
-in the MongoDB configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/db</span>
-<span class="nt">auditLog</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
-<span class="w">  </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JSON</span>
-<span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log/psmdb/audit.json</span>
-<span class="w">  </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{</span><span class="nv"> </span><span class="s">&quot;users.user&quot;</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">&quot;tim&quot;</span><span class="nv"> </span><span class="s">}&#39;</span>
-</code></pre></div>
-<p>This example shows how to send audit events to the
-<code>syslog</code>. Specify the following parameters:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>mongod<span class="w"> </span><span class="se">\</span>
---dbpath<span class="w"> </span>data/db
---auditDestination<span class="w"> </span>syslog<span class="w"> </span><span class="se">\</span>
-</code></pre></div>
-<p>Alternatively, you can edit the MongoDB configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data/db</span>
-<span class="nt">auditLog</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">syslog</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you start the server with auditing enabled, you cannot disable auditing dynamically during runtime.</p>
-</div>
-<h2 id="audit-options">Audit options<a class="headerlink" href="#audit-options" title="Permanent link">&para;</a></h2>
-<p>The following options control audit logging:</p>
+                <h1 id="build-from-source-code">Build from source code<a class="headerlink" href="#build-from-source-code" title="Permanent link">&para;</a></h1>
+<p>You can build Percona Server for MongoDB from the source code either manually or using the build script. </p>
+<h2 id="manual-build">Manual build<a class="headerlink" href="#manual-build" title="Permanent link">&para;</a></h2>
+<p>To build Percona Server for MongoDB manually, you need the following:</p>
+<ul>
+<li>A modern C++ compiler capable of compiling C++17 like GCC 8.2 or newer </li>
+<li>Amazon AWS Software Development Kit for C++ library </li>
+<li>Python 3.7.x and Pip modules. </li>
+<li>The set of dependencies for your operating system. The following table lists dependencies for Ubuntu 22.04 and Red Hat Enterprise 9 and compatible derivatives:</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th>Command line</th>
-<th>Configuration file</th>
-<th>Type</th>
-<th>Description</th>
+<th>Linux Distribution</th>
+<th>Dependencies</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>--auditDestination()</code></td>
-<td><code>auditLog.destination</code></td>
-<td>string</td>
-<td>Enables auditing and specifies where to send audit events: <br> - <code>console</code>: Output audit events to <code>stdout</code>. <br> - <code>file</code>: Output audit events to a file specified by the <code>--auditPath</code> option in a format specified by the <code>--auditFormat</code> option. <br> - <code>syslog</code>: Output audit events to <code>syslog</code></td>
+<td>Debian/Ubuntu</td>
+<td>gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev liblzma-dev e2fslibs-dev</td>
 </tr>
 <tr>
-<td><code>--auditFilter()</code></td>
-<td><code>auditLog.filter</code></td>
-<td>string</td>
-<td>Specifies a filter to apply to incoming audit events, enabling the administrator to only capture a subset of them. The value must be interpreted as a query object with the following syntax: <br><br><code>{ &lt;field1&gt;: &lt;expression1&gt;, ... }</code> <br><br> Audit log events that match this query will be logged. Events that do not match this query will be ignored. <br> For more information, see <a href="#audit-file-examples">Audit filter examples</a></td>
-</tr>
-<tr>
-<td><code>--auditFormat()</code></td>
-<td><code>auditLog.format</code></td>
-<td>string</td>
-<td>Specifies the format of the audit log file, if you set the <code>--auditDestination</code> option to <code>file</code>. <br> The default value is <code>JSON</code>. Alternatively, you can set it to <code>BSON</code></td>
-</tr>
-<tr>
-<td><code>--auditPath()</code></td>
-<td><code>auditLog.path</code></td>
-<td>string</td>
-<td>Specifies the fully qualified path to the file where audit log events are written, if you set the <code>--auditDestination</code> option to <code>file</code>. <br> If this option is not specified, then the <code>auditLog.json</code> file is created in the server’s configured log path. If log path is not configured on the server, then the <code>auditLog.json</code> file is created in the current directory (from which <code>mongod</code> was started). <br><br> <strong>NOTE</strong>: This file will rotate in the same manner as the system log path, either on server reboot or using the <code>logRotate</code> command. The time of rotation will be added to the old file’s name.</td>
+<td>RedHat Enterprise Linux/CentOS 9</td>
+<td>gcc gcc-c++ cmake curl openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel</td>
 </tr>
 </tbody>
 </table>
-<h2 id="audit-message-syntax">Audit message syntax<a class="headerlink" href="#audit-message-syntax" title="Permanent link">&para;</a></h2>
-<p>Audit logging writes messages in JSON format with the following syntax:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nx">atype</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">ts</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;$date&quot;</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">timestamp</span><span class="o">&gt;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="nx">local</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ip</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="kr">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="nx">remote</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ip</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="kr">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="nx">users</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">],</span>
-<span class="w">  </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">],</span>
-<span class="w">  </span><span class="nx">param</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nb">document</span><span class="o">&gt;</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">result</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="kr">int</span><span class="o">&gt;</span>
-<span class="p">}</span>
+<ul>
+<li>About 13 GB of disk space for the core binaries (<code>mongod</code>, <code>mongos</code>, and <code>mongo</code>) and about 600 GB for the install-all target.</li>
+</ul>
+<h3 id="build-steps">Build steps<a class="headerlink" href="#build-steps" title="Permanent link">&para;</a></h3>
+<h4 id="install-python-and-python-modules">Install Python and Python modules<a class="headerlink" href="#install-python-and-python-modules" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Make sure the <code>python3</code>, <code>python3-dev</code>, <code>python3-pip</code> Python packages are installed on your machine. Otherwise, install them using the package manager of your operating system.</p>
+</li>
+<li>
+<p>Clone Percona Server for MongoDB repository</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/percona/percona-server-mongodb.git
 </code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>atype</code></td>
-<td>Event type</td>
-</tr>
-<tr>
-<td><code>ts</code></td>
-<td>Date and UTC time of the event</td>
-</tr>
-<tr>
-<td><code>local</code></td>
-<td>Local IP address and port number of the instance</td>
-</tr>
-<tr>
-<td><code>remote</code></td>
-<td>Remote IP address and port number of the incoming connection associated with the event</td>
-</tr>
-<tr>
-<td><code>users</code></td>
-<td>Users associated with the event</td>
-</tr>
-<tr>
-<td><code>roles</code></td>
-<td>Roles granted to the user</td>
-</tr>
-<tr>
-<td><code>param</code></td>
-<td>Details of the event associated with the specific type</td>
-</tr>
-<tr>
-<td><code>result</code></td>
-<td>Exit code (<code>0</code> for success)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="audit-filter-examples">Audit filter examples<a class="headerlink" href="#audit-filter-examples" title="Permanent link">&para;</a></h2>
-<p>The following examples demonstrate the flexibility of audit log filters.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">auditLog</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">filter</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;{atype:</span><span class="nv"> </span><span class="s">{$in:</span><span class="nv"> </span><span class="s">[</span>
-<span class="w">         </span><span class="s">&quot;authenticate&quot;,</span><span class="nv"> </span><span class="s">&quot;authCheck&quot;,</span>
-<span class="w">         </span><span class="s">&quot;renameCollection&quot;,</span><span class="nv"> </span><span class="s">&quot;dropCollection&quot;,</span><span class="nv"> </span><span class="s">&quot;dropDatabase&quot;,</span>
-<span class="w">         </span><span class="s">&quot;createUser&quot;,</span><span class="nv"> </span><span class="s">&quot;dropUser&quot;,</span><span class="nv"> </span><span class="s">&quot;dropAllUsersFromDatabase&quot;,</span><span class="nv"> </span><span class="s">&quot;updateuser&quot;,</span>
-<span class="w">         </span><span class="s">&quot;grantRolesToUser&quot;,</span><span class="nv"> </span><span class="s">&quot;revokeRolesFromUser&quot;,</span><span class="nv"> </span><span class="s">&quot;createRole&quot;,</span><span class="nv"> </span><span class="s">&quot;updateRole&quot;,</span>
-<span class="w">         </span><span class="s">&quot;dropRole&quot;,</span><span class="nv"> </span><span class="s">&quot;dropAllRolesFromDatabase&quot;,</span><span class="nv"> </span><span class="s">&quot;grantRolesToRole&quot;,</span><span class="nv"> </span><span class="s">&quot;revokeRolesFromRole&quot;,</span>
-<span class="w">         </span><span class="s">&quot;grantPrivilegesToRole&quot;,</span><span class="nv"> </span><span class="s">&quot;revokePrivilegesFromRole&quot;,</span>
-<span class="w">         </span><span class="s">&quot;replSetReconfig&quot;,</span>
-<span class="w">         </span><span class="s">&quot;enableSharding&quot;,</span><span class="nv"> </span><span class="s">&quot;shardCollection&quot;,</span><span class="nv"> </span><span class="s">&quot;addShard&quot;,</span><span class="nv"> </span><span class="s">&quot;removeShard&quot;,</span>
-<span class="w">         </span><span class="s">&quot;shutdown&quot;,</span>
-<span class="w">         </span><span class="s">&quot;applicationMessage&quot;</span>
-<span class="w">      </span><span class="s">]}}&#39;</span>
+</li>
+<li>
+<p>Switch to the Percona Server for MongoDB branch that you are building
+   and install Python3 modules</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>percona-server-mongodb<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>v6.0
+$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>-r<span class="w"> </span>etc/pip/dev-requirements.txt
 </code></pre></div>
-<h3 id="standard-query-selectors">Standard query selectors<a class="headerlink" href="#standard-query-selectors" title="Permanent link">&para;</a></h3>
-<p>You can use query selectors,
-such as <code>$eq</code>, <code>$in</code>, <code>$gt</code>, <code>$lt</code>, <code>$ne</code>, and others
-to log multiple event types.</p>
-<p>For example, to log only the <code>dropCollection</code> and <code>dropDatabase</code> events:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Command line</label><label for="__tabbed_1_2">Config file</label></div>
+</li>
+<li>
+<p>Define Percona Server for MongoDB version (6.0.6 for the time of
+   writing this document)</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;{&quot;version&quot;: &quot;6.0.6&quot;}&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>version.json
+</code></pre></div>
+</li>
+</ol>
+<h4 id="install-operating-system-dependencies">Install operating system dependencies<a class="headerlink" href="#install-operating-system-dependencies" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">RHEL / CentOS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>--auditDestination<span class="w"> </span>file<span class="w"> </span>--auditFilter<span class="w"> </span><span class="s1">&#39;{ atype: { $in: [ &quot;dropCollection&quot;, &quot;dropDatabase&quot; ] } }&#39;</span>
+<p>The following command installs the dependencies for Ubuntu 22.04:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gcc<span class="w"> </span>g++<span class="w"> </span>cmake<span class="w"> </span>curl<span class="w"> </span>libssl-dev<span class="w"> </span>libldap2-dev<span class="w"> </span>libkrb5-dev<span class="w"> </span>libcurl4-openssl-dev<span class="w"> </span>libsasl2-dev<span class="w"> </span>liblz4-dev<span class="w"> </span>libbz2-dev<span class="w"> </span>libsnappy-dev<span class="w"> </span>zlib1g-dev<span class="w"> </span>libzlcore-dev<span class="w"> </span>liblzma-dev<span class="w"> </span>e2fslibs-dev
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">auditLog</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
-<span class="w">  </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{</span><span class="nv"> </span><span class="s">atype:</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$in:</span><span class="nv"> </span><span class="s">[</span><span class="nv"> </span><span class="s">&quot;dropCollection&quot;,</span><span class="nv"> </span><span class="s">&quot;dropDatabase&quot;</span><span class="nv"> </span><span class="s">]</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}&#39;</span>
+<p>The following command installs the dependencies for CentOS 9:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>gcc<span class="w"> </span>gcc-c++<span class="w"> </span>cmake<span class="w"> </span>curl<span class="w"> </span>openssl-devel<span class="w"> </span>openldap-devel<span class="w"> </span>krb5-devel<span class="w"> </span>libcurl-devel<span class="w"> </span>cyrus-sasl-devel<span class="w"> </span>bzip2-devel<span class="w"> </span>zlib-devel<span class="w"> </span>lz4-devel<span class="w"> </span>xz-devel<span class="w"> </span>e2fsprogs-devel
 </code></pre></div>
 </div>
 </div>
 </div>
-<h3 id="regular-expressions">Regular expressions<a class="headerlink" href="#regular-expressions" title="Permanent link">&para;</a></h3>
-<p>Another way to specify multiple event types is using regular expressions.</p>
-<p>For example, to filter all <code>drop</code> operations:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Command line</label><label for="__tabbed_2_2">Config file</label></div>
+<h4 id="build-aws-software-development-kit-for-c-library">Build AWS Software Development Kit for C++ library<a class="headerlink" href="#build-aws-software-development-kit-for-c-library" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Clone the AWS Software Development Kit for C++ repository</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/aws/aws-sdk-cpp.git
+</code></pre></div>
+</li>
+<li>
+<p>Create a directory to store the AWS library </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/tmp/lib/aws
+</code></pre></div>
+</li>
+<li>
+<p>Declare an environment variable <code>AWS_LIBS</code> for this directory 
+    <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">AWS_LIBS</span><span class="o">=</span>/tmp/lib/aws
+</code></pre></div></p>
+</li>
+<li>
+<p>Percona Server for MongoDB is built with AWS SDK CPP 1.9.379
+   version. Switch to this version </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>aws-sdk-cpp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span><span class="m">1</span>.9.379
+</code></pre></div>
+</li>
+<li>
+<p>It is recommended to keep build files outside the SDK directory.
+   Create a build directory and navigate to it </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+</code></pre></div>
+</li>
+<li>
+<p>Generate build files using <code>cmake</code> </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="s1">&#39;-DBUILD_ONLY=s3;transfer&#39;</span><span class="w"> </span>-DBUILD_SHARED_LIBS<span class="o">=</span>OFF<span class="w"> </span>-DMINIMIZE_SIZE<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Install the SDK </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>make<span class="w"> </span>install
+</code></pre></div>
+</li>
+</ol>
+<h4 id="build-percona-server-for-mongodb">Build Percona Server for MongoDB<a class="headerlink" href="#build-percona-server-for-mongodb" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Change directory to <code>percona-server-mongodb</code> </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>percona-server-mongodb
+</code></pre></div>
+</li>
+<li>
+<p>Build Percona Server for MongoDB from <code>buildscripts/scons.py</code></p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>buildscripts/scons.py<span class="w"> </span>--disable-warnings-as-errors<span class="w"> </span>--release<span class="w"> </span>--ssl<span class="w"> </span>--opt<span class="o">=</span>on<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span>--all<span class="k">)</span><span class="w"> </span>--use-sasl-client<span class="w"> </span>--wiredtiger<span class="w"> </span>--audit<span class="w"> </span>--inmemory<span class="w"> </span>--hotbackup<span class="w"> </span><span class="nv">CPPPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="nv">LIBPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib </span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib64&quot;</span><span class="w"> </span>install-mongod<span class="w"> </span>install-mongos<span class="w"> </span>
+</code></pre></div>
+</li>
+</ol>
+<p>This command builds core components of the database. Other available targets for the
+   <code>scons</code> command are:  </p>
+<ul>
+<li><code>install-mongod</code></li>
+<li><code>install-mongos</code></li>
+<li><code>install-servers</code> (includes mongod and mongos)</li>
+<li><code>install-core</code> (includes mongod and mongos)</li>
+<li><code>install-devcore</code> (includes mongod, mongos, and jstestshell (formerly mongo shell))</li>
+<li><code>install-all</code></li>
+</ul>
+<p>The built binaries are in the <code>percona-server-mongodb</code> directory.</p>
+<h2 id="use-the-build-script">Use the build script<a class="headerlink" href="#use-the-build-script" title="Permanent link">&para;</a></h2>
+<p>To automate the build process, Percona provides the build script. With this script you can either build binary tarballs or DEB/RPM packages to install Percona Server for MongoDB from. </p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<p>To use the build script you need the following:</p>
+<ul>
+<li>Docker up and running on your machine</li>
+<li>About 200GB of disk space</li>
+</ul>
+<h3 id="prepare-the-build-environment">Prepare the build environment<a class="headerlink" href="#prepare-the-build-environment" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create the folder where all build actions take place. For the steps below we use the <code>/tmp/psmdb/test</code> folder.</li>
+<li>
+<p>Navigate to the build folder and download the build script. Replace the <code>&lt;tag&gt;</code> placeholder with the required version of Percona Server for MongoDB:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://raw.githubusercontent.com/percona/percona-server-mongodb/psmdb-&lt;tag&gt;/percona-packaging/scripts/psmdb_builder.sh<span class="w"> </span>-O<span class="w"> </span>psmdb_builder.sh<span class="w"> </span>
+</code></pre></div>
+</li>
+</ol>
+<h3 id="build-steps_1">Build steps<a class="headerlink" href="#build-steps_1" title="Permanent link">&para;</a></h3>
+<p>Use the following instructions depending on what you wish to build:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Build tarballs</label><label for="__tabbed_2_2">Build packages</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>--auditDestination<span class="w"> </span>file<span class="w"> </span>--auditFilter<span class="w"> </span><span class="s1">&#39;{ &quot;atype&quot; : /^drop.*/ }&#39;</span>
+<p>The following command builds tarballs of Percona Server for MongoDB 6.0.6-5 on Red Hat Enterprise Linux 9. Change the Docker image and the values for <code>--branch</code>, <code>--psm_ver</code>, <code>--psm_release</code> flags to build tarballs of a different version and on a different operating system.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>rhel:9<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">set -o xtrace</span>
+<span class="s1">cd /tmp/psmdb</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
+<span class="s1">--branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --get_sources=1</span>
+<span class="s1">&#39;</span>
+</code></pre></div>
+<p>The command does the following:</p>
+<ul>
+<li>runs Docker daemon as the root user using the RHEL 9 image</li>
+<li>mounts the build directory into the container</li>
+<li>establishes the shell session inside the container</li>
+<li>inside the container, navigates to the build directory and runs the build script to install dependencies </li>
+<li>runs the build script again to build the tarball for the PSMDB version 6.0.6-5</li>
+</ul>
+<p>Check that tarballs are built:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/source_tarball/
+</code></pre></div>
+<p>Sample output:</p>
+<div class="no-copy highlight"><pre><span></span><code>total 88292
+-rw-r--r--. 1 root root 90398894 Jul  1 10:58 percona-server-mongodb-6.0.6-5.tar.gz
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">auditLog</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
-<span class="w">  </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{</span><span class="nv"> </span><span class="s">&quot;atype&quot;</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">/^drop.*/</span><span class="nv"> </span><span class="s">}&#39;</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h3 id="read-and-write-operations">Read and write operations<a class="headerlink" href="#read-and-write-operations" title="Permanent link">&para;</a></h3>
-<p>By default, operations with successful authorization are not logged,
-so for this filter to work, enable <code>auditAuthorizationSuccess</code> parameter,
-as described in <a href="#enabling-auditing-of-authorization-success">Enabling auditing of authorization success</a>.</p>
-<p>For example, to filter read and write operations
-on all the collections in the <code>test</code> database:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The dot (<code>.</code>) after the database name in the regular expression must be escaped with two backslashes (<code>\\\\</code>).</p>
-</div>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Command line</label><label for="__tabbed_3_2">Config file</label></div>
+<ol>
+<li>
+<p>Build source packages</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">DEB</label><label for="__tabbed_3_2">RPM</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>--setParameter<span class="w"> </span><span class="nv">auditAuthorizationSuccess</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--auditDestination<span class="w"> </span>file<span class="w"> </span>--auditFilter<span class="w"> </span><span class="s1">&#39;{ atype: &quot;authCheck&quot;, &quot;param.command&quot;: { $in: [ &quot;find&quot;, &quot;insert&quot;, &quot;delete&quot;, &quot;update&quot;, &quot;findandmodify&quot; ] }, &quot;param.ns&quot;: /^test\\./ } }&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:jammy<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">set -o xtrace</span>
+<span class="s1">cd /tmp/psmdb</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
+<span class="s1">--branch=release-6.0.6-5 --psm_ver=6.0.6--psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_deb=1</span>
+<span class="s1">&#39;</span>
+</code></pre></div>
+<p>Check that source packages are created</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/source_deb/
+</code></pre></div>
+<p>Sample output:</p>
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_6.0.6.orig.tar.gz
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">auditLog</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
-<span class="w">  </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{</span><span class="nv"> </span><span class="s">atype:</span><span class="nv"> </span><span class="s">&quot;authCheck&quot;,</span><span class="nv"> </span><span class="s">&quot;param.command&quot;:</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$in:</span><span class="nv"> </span><span class="s">[</span><span class="nv"> </span><span class="s">&quot;find&quot;,</span><span class="nv"> </span><span class="s">&quot;insert&quot;,</span><span class="nv"> </span><span class="s">&quot;delete&quot;,</span><span class="nv"> </span><span class="s">&quot;update&quot;,</span><span class="nv"> </span><span class="s">&quot;findandmodify&quot;</span><span class="nv"> </span><span class="s">]</span><span class="nv"> </span><span class="s">},</span><span class="nv"> </span><span class="s">&quot;param.ns&quot;:</span><span class="nv"> </span><span class="s">/^test\\./</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}&#39;</span>
-
-<span class="nt">setParameter</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> auditAuthorizationSuccess</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:jammy<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">set -o xtrace</span>
+<span class="s1">cd /tmp/psmdb</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
+<span class="s1">--branch=release-6.0.6-5 --psm_ver=6.0.6--psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_rpm=1</span>
+<span class="s1">&#39;</span>
+</code></pre></div>
+<p>Check that source packages are created</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/srpm/
+</code></pre></div>
+<p>Sample output:</p>
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-6.0.6-5.generic.src.rpm
 </code></pre></div>
 </div>
 </div>
 </div>
-<h2 id="enabling-auditing-of-authorization-success">Enabling auditing of authorization success<a class="headerlink" href="#enabling-auditing-of-authorization-success" title="Permanent link">&para;</a></h2>
-<p>By default, only authorization failures for the <code>authCheck</code> action
-are logged by the audit system. <code>authCheck</code> is for authorization by
-role-based access control, it does not concern authentication at logins.</p>
-<p>To enable logging of authorization successes,
-set the <code>auditAuthorizationSuccess</code> parameter to <code>true</code>. Audit events
-will then be triggered by every command, including CRUD ones.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Enabling the <code>auditAuthorizationSuccess</code> parameter heavily impacts the performance compared to logging only authorization failures.</p>
+</li>
+<li>
+<p>Build Percona Server for MongoDB packages</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">DEB</label><label for="__tabbed_4_2">RPM</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:jammy<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">set -o xtrace</span>
+<span class="s1">cd /tmp/psmdb</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
+<span class="s1">--branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_deb=1</span>
+<span class="s1">&#39;</span>
+</code></pre></div>
+<p>Check that source packages are created</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/deb/
+</code></pre></div>
+<p>Sample output:</p>
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-dbg_6.0.6-5.jammy_amd64.deb  
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos_6.0.6-5.jammy_amd64.deb 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server_6.0.6-5.jammy_amd64.deb 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_6.0.6-5.jammy_amd64.deb  
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_6.0.6-5.jammy_amd64.deb
+</code></pre></div>
 </div>
-<p>You can enable it on a running server using the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">auditAuthorizationSuccess</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:jammy<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">set -o xtrace</span>
+<span class="s1">cd /tmp/psmdb</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
+<span class="s1">--branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_rpm=1</span>
+<span class="s1">&#39;</span>
 </code></pre></div>
-<p>To enable it on the command line, use the following option
-when running <code>mongod</code> or <code>mongos</code> process:</p>
-<div class="highlight"><pre><span></span><code><span class="o">--</span><span class="nx">setParameter</span><span class="w"> </span><span class="nx">auditAuthorizationSuccess</span><span class="o">=</span><span class="kc">true</span>
+<p>Check that source packages are created</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/srpm/
 </code></pre></div>
-<p>You can also add it to the configuration file as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">auditAuthorizationSuccess</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<p>Sample output:</p>
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-6.0.6-5.el8.x86_64.rpm  
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-6.0.6-5.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-6.0.6-5.el8.x86_64.rpm    
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-6.0.6-5.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-6.0.6-5.el8.x86_64.rpm    
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-6.0.6-5.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-6.0.6-5.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-6.0.6-5.el8.x86_64.rpm
 </code></pre></div>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1698,11 +1722,11 @@ when running <code>mongod</code> or <code>mongos</code> process:</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 8, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 8, 2023</span>
       
     
   </small>
@@ -1817,17 +1841,17 @@ when running <code>mongod</code> or <code>mongos</code> process:</p>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.account.edit content.code.copy search.highlight search.share", "search": "assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.account.edit content.code.copy search.highlight search.share", "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
-          <script src="js/version-select.js"></script>
+          <script src="../js/version-select.js"></script>
         
       
         
-          <script src="js/promptremover.js"></script>
+          <script src="../js/promptremover.js"></script>
         
       
     

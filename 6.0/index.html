@@ -453,6 +453,20 @@ It requires no changes to MongoDB applications or code.">
   
   
     <li class="md-nav__item">
+      <a href="install/source.html" class="md-nav__link">
+        Build from source code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="install/docker.html" class="md-nav__link">
         Run Percona Server for MongoDB in a Docker container
       </a>
@@ -1106,6 +1120,20 @@ It requires no changes to MongoDB applications or code.">
   
   
     <li class="md-nav__item">
+      <a href="release_notes/6.0.8-6.html" class="md-nav__link">
+        Percona Server for MongoDB 6.0.8-6 (2023-08-08)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release_notes/6.0.6-5.html" class="md-nav__link">
         Percona Server for MongoDB 6.0.6-5 (2023-05-25)
       </a>
@@ -1318,9 +1346,25 @@ It requires no changes to MongoDB applications or code.</p>
 <div class="admonition hint">
 <p>To see which version of Percona Server for MongoDB you are using check the value of the <code>psmdbVersion</code> key in the output of the <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo">buildInfo</a> database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.</p>
 </div>
-<div class="admonition note">
-<p>This is the documentation for the latest release, <strong>Percona Server for MongoDB 6.0.6-5</strong> (<a href="release_notes/6.0.6-5.html">Release Notes</a>).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Changes to Chunk Management and Balancing</strong></p>
+<p>Several changes have been incrementally introduced within 6.0.x releases.</p>
+<ul>
+<li>The name of a subset of data has changed from a <code>chunk</code> to a <code>range</code>. </li>
+<li>
+<p>The data size has changed from 64 MB for a chunk to 128 MB for a range.</p>
+</li>
+<li>
+<p>The balancer now distributes ranges based on the actual data size of collections. Formerly the balancer migrated and balanced data across shards based strictly on the number of chunks of data that exist for a collection across each shard. This, combined with the auto-splitter process could cause quite a heavy performance impact to heavy write environments. </p>
+</li>
+<li>
+<p>Ranges (formerly chunks) are no longer auto-split. They are split only when they move across shards for distribution purposes. The auto-splitter process is currently still available but it serves no purpose and does nothing active to the data. This also means that the Enable/Disable AutoSplit helpers should no longer be used. </p>
+</li>
+</ul>
+<p>The above changes are expected to lead to better performance overall going forward.</p>
 </div>
+<p><a class="md-button md-button" href="release_notes/6.0.8-6.html">What&rsquo;s new in Percona Server for MongoDB 6.0.8-6</a></p>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
 <p>Percona Server for MongoDB provides the following features:</p>
 <ul>
@@ -1352,9 +1396,8 @@ using OpenLDAP or Active Directory</p>
 </ul>
 <p>To learn more about the features, available in Percona Server for MongoDB, see <a href="comparison.html">Percona Server for MongoDB Feature Comparison</a></p>
 <h2 id="get-started">Get started<a class="headerlink" href="#get-started" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="install/index.html">Install Percona Server for MongoDB</a></li>
-</ul>
+<p>Ready to try out Percona Server for MongoDB?</p>
+<p><a class="md-button md-button" href="install/index.html">Install and get started</a></p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1443,7 +1486,7 @@ using OpenLDAP or Active Directory</p>
 
 
 <h4>Cookie consent</h4>
-<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better. Read more about <a class="reference external" href="https://www.percona.com/20180524-cookie-policy" target="_blank">Percona Cookie Policy</a>.</p>
+<p>We use cookies to personalize content and ads, to provide social media features, and to analyze our traffic. <a class="reference external" href="https://www.percona.com/20180524-cookie-policy" target="_blank">Percona Privacy Policy</a>. Learn more about <a class="reference external" href="https://www.percona.com/20180524-cookie-policy" target="_blank">Percona Cookie Policy</a>.</p>
 <input class="md-toggle" type="checkbox" id="__settings" >
 <div class="md-consent__settings">
   <ul class="task-list">
