@@ -1363,6 +1363,7 @@
 <li>The <abbr title="Amazon Web Service">AWS</abbr> STS service validates whether the signature is correct and answers with the user / role ARN that created the signature</li>
 <li>Percona Server for MongoDB looks for the same username as the received ARN in the <code>$external</code> database and grants privileges to access Percona Server for MongoDB as defined for the respective user.</li>
 </ol>
+<p>Starting with version <a href="release_notes/6.0.6-8.md">6.0.6-8</a>, you can <a href="aws-iam-setup.html#configure-aws-sts-endpoint">configure the <abbr title="Amazon Web Service">AWS</abbr> STS endpoint</a> by specifying the <code>setParameter.awsStsHost</code> in the configuration file. This allows you to send requests to the <abbr title="Amazon Web Service">AWS</abbr> resources of your choice to meet security requirements of your organization and ensure successful authentication. </p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
 <ul>
@@ -1372,6 +1373,7 @@
 <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html"><abbr title="Amazon Web Service">AWS</abbr> Identity and Access Management</a></li>
 <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html#sts-introduction">Temporary security credentials in <abbr title="Identity Access Management">IAM</abbr></a></li>
 <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (<abbr title="Amazon Web Service">AWS</abbr> Signature Version 4)</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Managing <abbr title="Amazon Web Service">AWS</abbr> STS in an <abbr title="Amazon Web Service">AWS</abbr> Region</a></li>
 </ul>
 </li>
 <li>
@@ -1403,7 +1405,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 8, 2023</span>
       
         <br>
         Created:
