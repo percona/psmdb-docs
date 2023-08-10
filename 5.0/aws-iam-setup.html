@@ -1576,6 +1576,17 @@
 </code></pre></div>
 </li>
 </ol>
+<h4 id="configure-aws-sts-endpoint">Configure <abbr title="Amazon Web Service">AWS</abbr> STS endpoint<a class="headerlink" href="#configure-aws-sts-endpoint" title="Permanent link">&para;</a></h4>
+<p>By default, all authentication requests are sent to the <code>sts.amazonaws.com</code> endpoint. If this endpoint is unavailable for some reason, you can override it and send <abbr title="Amazon Web Service">AWS</abbr> STS requests to the endpoints of your choice to ensure successful authentication. You must <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">enable the <abbr title="Amazon Web Service">AWS</abbr> region</a> to use it.</p>
+<p>Edit the <code>/etc/mongod.conf</code> configuration file and specify the <abbr title="Amazon Web Service">AWS</abbr> endpoint for the <code>awsStsHost</code> parameter.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
+
+<span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MONGODB-AWS</span>
+<span class="w">  </span><span class="nt">awsStsHost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;aws-endpoint&gt;</span>
+</code></pre></div>
+<p>See the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#id_credentials_region-endpoints">list of <abbr title="Amazon Web Service">AWS</abbr> endpoints</a>.</p>
 <h2 id="authenticate-in-percona-server-for-mongodb-using-aws-iam">Authenticate in Percona Server for MongoDB using <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr><a class="headerlink" href="#authenticate-in-percona-server-for-mongodb-using-aws-iam" title="Permanent link">&para;</a></h2>
 <p>To test the authentication, use either of the following methods:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">MongoDB connection string</label><label for="__tabbed_3_2">Environment variables</label><label for="__tabbed_3_3"><abbr title="Amazon Web Service">AWS</abbr> resource metadata</label></div>
@@ -1642,7 +1653,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 16, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 10, 2023</span>
       
         <br>
         Created:
