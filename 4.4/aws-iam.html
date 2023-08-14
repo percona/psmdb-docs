@@ -407,6 +407,20 @@
   
   
     <li class="md-nav__item">
+      <a href="install/source.html" class="md-nav__link">
+        Build from source code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="install/docker.html" class="md-nav__link">
         Run Percona Server for MongoDB in a Docker container
       </a>
@@ -1089,16 +1103,10 @@
       
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="release_notes/index.html">Release notes</a>
-          
-            <label for="__nav_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Release notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
@@ -1106,6 +1114,34 @@
           Release notes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release_notes/index.html" class="md-nav__link">
+        Release notes index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release_notes/4.4.23-22.html" class="md-nav__link">
+        Percona Server for MongoDB 4.4.23-22 (2023-08-14)
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1577,9 +1613,12 @@
 <li>
 <p>Percona Server for MongoDB sends the received credentials to the <abbr title="Amazon Web Service">AWS</abbr> STS (Security Token Service) for verification</p>
 </li>
-<li>The <abbr title="Amazon Web Service">AWS</abbr> STS service validates whether the signature is correct and answers with the user / role ARN that created the signature</li>
+<li>
+<p>The <abbr title="Amazon Web Service">AWS</abbr> STS service validates whether the signature is correct and answers with the user / role ARN that created the signature</p>
+</li>
 <li>Percona Server for MongoDB looks for the same username as the received ARN in the <code>$external</code> database and grants privileges to access Percona Server for MongoDB as defined for the respective user.</li>
 </ol>
+<p>Starting with version <a href="release_notes/4.4.23-22.html">4.4.23-22</a>, you can <a href="aws-iam-setup.html#configure-aws-sts-endpoint">configure the <abbr title="Amazon Web Service">AWS</abbr> STS endpoint</a> by specifying the <code>setParameter.awsStsHost</code> in the configuration file. This allows you to send requests to the <abbr title="Amazon Web Service">AWS</abbr> resources of your choice to meet security requirements of your organization and ensure successful authentication. </p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
 <ul>
@@ -1589,6 +1628,7 @@
 <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html"><abbr title="Amazon Web Service">AWS</abbr> Identity and Access Management</a></li>
 <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html#sts-introduction">Temporary security credentials in <abbr title="Identity Access Management">IAM</abbr></a></li>
 <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (<abbr title="Amazon Web Service">AWS</abbr> Signature Version 4)</a></li>
+<li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Managing <abbr title="Amazon Web Service">AWS</abbr> STS in an <abbr title="Amazon Web Service">AWS</abbr> Region</a></li>
 </ul>
 </li>
 <li>
@@ -1620,7 +1660,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2023</span>
       
         <br>
         Created:

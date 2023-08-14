@@ -156,6 +156,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/4.4/install/source.html</loc>
+         <lastmod>2023-08-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.4/install/tarball.html</loc>
          <lastmod>2023-08-14</lastmod>
          <changefreq>daily</changefreq>
@@ -257,6 +262,11 @@
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/4.4/release_notes/4.4.22-21.html</loc>
+         <lastmod>2023-08-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/4.4/release_notes/4.4.23-22.html</loc>
          <lastmod>2023-08-14</lastmod>
          <changefreq>daily</changefreq>
     </url>

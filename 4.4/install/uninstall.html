@@ -407,6 +407,20 @@
   
   
     <li class="md-nav__item">
+      <a href="source.html" class="md-nav__link">
+        Build from source code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="docker.html" class="md-nav__link">
         Run Percona Server for MongoDB in a Docker container
       </a>
@@ -1040,16 +1054,10 @@
       
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../release_notes/index.html">Release notes</a>
-          
-            <label for="__nav_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Release notes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
@@ -1057,6 +1065,34 @@
           Release notes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release_notes/index.html" class="md-nav__link">
+        Release notes index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release_notes/4.4.23-22.html" class="md-nav__link">
+        Percona Server for MongoDB 4.4.23-22 (2023-08-14)
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1494,18 +1530,16 @@
 </li>
 <li>
 <p>Remove the packages. There are two options.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Keep the configuration and data files</label><label for="__tabbed_2_2">Delete configuration and data files</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>percona-server-mongodb*
+<p>=== &ldquo;Keep the configuration and data files&rdquo;</p>
+<div class="highlight"><pre><span></span><code> ```{.bash data-prompt=&quot;$&quot;}
+ $ sudo apt remove percona-server-mongodb*
+ ```
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>purge<span class="w"> </span>percona-server-mongodb*
+<p>=== &ldquo;Delete configuration and data files&rdquo;</p>
+<div class="highlight"><pre><span></span><code>  ```{.bash data-prompt=&quot;$&quot;}
+  $ sudo apt purge percona-server-mongodb*
+  ```
 </code></pre></div>
-</div>
-</div>
-</div>
 </li>
 </ol>
 </div>
@@ -1557,7 +1591,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2023</span>
       
         <br>
         Created:

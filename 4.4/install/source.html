@@ -9,28 +9,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB 4.4.16-16 is an enhanced, source-available, and highly-scalable database that is a
-fully-compatible, drop-in replacement for MongoDB 4.4.16 Community Edition.
-It supports MongoDB 4.4.16 protocols and drivers.">
+        <meta name="description" content="To build Percona Server for MongoDB, you need:">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/4.4/release_notes/4.4.16-16.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/4.4/install/source.html">
       
       
-        <link rel="prev" href="4.4.17-17.html">
+        <link rel="prev" href="tarball.html">
       
       
-        <link rel="next" href="4.4.15-15.html">
+        <link rel="next" href="docker.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Percona Server for MongoDB 4.4.16-16 (2022-08-30) - Percona Server for MongoDB 4.4</title>
+        <title>Build from source code - Percona Server for MongoDB 4.4</title>
       
     
     
@@ -86,7 +84,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Server for MongoDB 4.4 - Percona Server for MongoDB 4.4.16-16 (2022-08-30)" />
+                 <meta property="og:title" content="Percona Server for MongoDB 4.4 - Build from source code" />
                  <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/4.4/_images/mongodb.png">
                  <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
                 </head>
@@ -117,7 +115,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
     <div data-md-component="skip">
       
         
-        <a href="#percona-server-for-mongodb-4416-16-2022-08-30" class="md-skip">
+        <a href="#build-from-source-code" class="md-skip">
           Skip to content
         </a>
       
@@ -155,7 +153,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Server for MongoDB 4.4.16-16 (2022-08-30)
+              Build from source code
             
           </span>
         </div>
@@ -324,14 +322,16 @@ It supports MongoDB 4.4.16 protocols and drivers.">
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
       
@@ -340,7 +340,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Install PSMDB
@@ -353,7 +353,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="../install/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         Overview
       </a>
     </li>
@@ -367,7 +367,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="../install/apt.html" class="md-nav__link">
+      <a href="apt.html" class="md-nav__link">
         Install Percona Server for MongoDB on Debian and Ubuntu
       </a>
     </li>
@@ -381,7 +381,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="../install/yum.html" class="md-nav__link">
+      <a href="yum.html" class="md-nav__link">
         Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
       </a>
     </li>
@@ -395,7 +395,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="../install/tarball.html" class="md-nav__link">
+      <a href="tarball.html" class="md-nav__link">
         Installing Percona Server for MongoDB from binary tarball
       </a>
     </li>
@@ -407,11 +407,81 @@ It supports MongoDB 4.4.16 protocols and drivers.">
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../install/source.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Build from source code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="source.html" class="md-nav__link md-nav__link--active">
         Build from source code
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-steps" class="md-nav__link">
+    Build steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Build steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-python-and-python-modules" class="md-nav__link">
+    Install Python and Python modules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-aws-software-development-kit-for-c-library" class="md-nav__link">
+    Build the AWS Software Development Kit for C++ library
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-percona-server-for-mongodb" class="md-nav__link">
+    Build Percona Server for MongoDB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -423,7 +493,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="../install/docker.html" class="md-nav__link">
+      <a href="docker.html" class="md-nav__link">
         Run Percona Server for MongoDB in a Docker container
       </a>
     </li>
@@ -978,7 +1048,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="../install/upgrade-from-42.html" class="md-nav__link">
+      <a href="upgrade-from-42.html" class="md-nav__link">
         Upgrade from 4.2 to 4.4
       </a>
     </li>
@@ -992,7 +1062,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="upgrade-from-mongodb.html" class="md-nav__link">
         Upgrading Percona Server for MongoDB
       </a>
     </li>
@@ -1013,7 +1083,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="../install/uninstall.html" class="md-nav__link">
+      <a href="uninstall.html" class="md-nav__link">
         Uninstall Percona Server for MongoDB
       </a>
     </li>
@@ -1033,16 +1103,14 @@ It supports MongoDB 4.4.16 protocols and drivers.">
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
       
       
       
@@ -1051,7 +1119,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Release notes
@@ -1064,7 +1132,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../release_notes/index.html" class="md-nav__link">
         Release notes index
       </a>
     </li>
@@ -1078,7 +1146,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.23-22.html" class="md-nav__link">
+      <a href="../release_notes/4.4.23-22.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.23-22 (2023-08-14)
       </a>
     </li>
@@ -1092,7 +1160,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.22-21.html" class="md-nav__link">
+      <a href="../release_notes/4.4.22-21.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.22-21 (2023-06-06)
       </a>
     </li>
@@ -1106,7 +1174,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.21-20.html" class="md-nav__link">
+      <a href="../release_notes/4.4.21-20.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.21-20 (2023-05-09)
       </a>
     </li>
@@ -1120,7 +1188,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.19-19.html" class="md-nav__link">
+      <a href="../release_notes/4.4.19-19.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.19-19 (2023-03-20)
       </a>
     </li>
@@ -1134,7 +1202,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.18-18.html" class="md-nav__link">
+      <a href="../release_notes/4.4.18-18.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.18-18 (2022-12-19)
       </a>
     </li>
@@ -1148,7 +1216,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.17-17.html" class="md-nav__link">
+      <a href="../release_notes/4.4.17-17.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.17-17 (2022-11-10)
       </a>
     </li>
@@ -1160,75 +1228,11 @@ It supports MongoDB 4.4.16 protocols and drivers.">
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Percona Server for MongoDB 4.4.16-16 (2022-08-30)
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="4.4.16-16.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../release_notes/4.4.16-16.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.16-16 (2022-08-30)
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#release-highlights" class="md-nav__link">
-    Release Highlights
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#improvements" class="md-nav__link">
-    Improvements
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bugs-fixed" class="md-nav__link">
-    Bugs Fixed
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#packaging-notes" class="md-nav__link">
-    Packaging Notes
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1240,7 +1244,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.15-15.html" class="md-nav__link">
+      <a href="../release_notes/4.4.15-15.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.15-15 (2022-07-19)
       </a>
     </li>
@@ -1254,7 +1258,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.14-14.html" class="md-nav__link">
+      <a href="../release_notes/4.4.14-14.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.14-14 (2022-05-25)
       </a>
     </li>
@@ -1268,7 +1272,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.13-13.html" class="md-nav__link">
+      <a href="../release_notes/4.4.13-13.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.13-13 (2022-03-23)
       </a>
     </li>
@@ -1282,7 +1286,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.12-12.html" class="md-nav__link">
+      <a href="../release_notes/4.4.12-12.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.12-12 (2022-02-07)
       </a>
     </li>
@@ -1296,7 +1300,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.10-11.html" class="md-nav__link">
+      <a href="../release_notes/4.4.10-11.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.10-11 (2021-11-10)
       </a>
     </li>
@@ -1310,7 +1314,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.9-10.html" class="md-nav__link">
+      <a href="../release_notes/4.4.9-10.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.9-10 (2021-10-07)
       </a>
     </li>
@@ -1324,7 +1328,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.8-9.html" class="md-nav__link">
+      <a href="../release_notes/4.4.8-9.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.8-9 (2021-08-16)
       </a>
     </li>
@@ -1338,7 +1342,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.6-8.html" class="md-nav__link">
+      <a href="../release_notes/4.4.6-8.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.6-8 (2021-08-16)
       </a>
     </li>
@@ -1352,7 +1356,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.5-7.html" class="md-nav__link">
+      <a href="../release_notes/4.4.5-7.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.5-7 (2021-04-19)
       </a>
     </li>
@@ -1366,7 +1370,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.4-6.html" class="md-nav__link">
+      <a href="../release_notes/4.4.4-6.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.4-6 (2021-02-25)
       </a>
     </li>
@@ -1380,7 +1384,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.3-5.html" class="md-nav__link">
+      <a href="../release_notes/4.4.3-5.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.3-5 (2021-01-27)
       </a>
     </li>
@@ -1394,7 +1398,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.2-4.html" class="md-nav__link">
+      <a href="../release_notes/4.4.2-4.html" class="md-nav__link">
         Percona Server for MongoDB  4.4.2-4 (2020-12-01)
       </a>
     </li>
@@ -1408,7 +1412,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.1-3.html" class="md-nav__link">
+      <a href="../release_notes/4.4.1-3.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.1-3 (2020-10-09)
       </a>
     </li>
@@ -1422,7 +1426,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.1-2.html" class="md-nav__link">
+      <a href="../release_notes/4.4.1-2.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.1-2 (2020-09-24)
       </a>
     </li>
@@ -1436,7 +1440,7 @@ It supports MongoDB 4.4.16 protocols and drivers.">
   
   
     <li class="md-nav__item">
-      <a href="4.4.0-1.html" class="md-nav__link">
+      <a href="../release_notes/4.4.0-1.html" class="md-nav__link">
         Percona Server for MongoDB 4.4.0-1 (2020-08-26)
       </a>
     </li>
@@ -1530,30 +1534,36 @@ It supports MongoDB 4.4.16 protocols and drivers.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#release-highlights" class="md-nav__link">
-    Release Highlights
+  <a href="#build-steps" class="md-nav__link">
+    Build steps
+  </a>
+  
+    <nav class="md-nav" aria-label="Build steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-python-and-python-modules" class="md-nav__link">
+    Install Python and Python modules
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#improvements" class="md-nav__link">
-    Improvements
+        
+          <li class="md-nav__item">
+  <a href="#build-the-aws-software-development-kit-for-c-library" class="md-nav__link">
+    Build the AWS Software Development Kit for C++ library
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#bugs-fixed" class="md-nav__link">
-    Bugs Fixed
+        
+          <li class="md-nav__item">
+  <a href="#build-percona-server-for-mongodb" class="md-nav__link">
+    Build Percona Server for MongoDB
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#packaging-notes" class="md-nav__link">
-    Packaging Notes
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1575,14 +1585,14 @@ It supports MongoDB 4.4.16 protocols and drivers.">
                   
                   
                   <a
-                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.16-16.md"
+                    href="https://github.com/percona/psmdb-docs/edit/4.4/docs/install/source.md"
                     title=""
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/release_notes/4.4.16-16.md"
+                    href="https://raw.githubusercontent.com/percona/psmdb-docs/4.4/docs/install/source.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1598,78 +1608,191 @@ It supports MongoDB 4.4.16 protocols and drivers.">
                 
 
                 <!-- Markdown content -->
-                <h1 id="percona-server-for-mongodb-4416-16-2022-08-30">Percona Server for MongoDB 4.4.16-16 (2022-08-30)<a class="headerlink" href="#percona-server-for-mongodb-4416-16-2022-08-30" title="Permanent link">&para;</a></h1>
+                <h1 id="build-from-source-code">Build from source code<a class="headerlink" href="#build-from-source-code" title="Permanent link">&para;</a></h1>
+<p>To build Percona Server for MongoDB, you need: </p>
+<ul>
+<li>A modern C++ compiler capable of compiling C++17 like GCC 8.2 or newer </li>
+<li>Amazon AWS Software Development Kit for C++ library </li>
+<li>Python 3.6.x and Pip. </li>
+<li>The set of dependencies for your operating system. The following table lists dependencies for Ubuntu 20.04, CentOS 7 and Red Hat Enterprise 8 and compatible derivatives:</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th><strong>Release date</strong></th>
-<th>August 30, 2022</th>
+<th>Linux Distribution</th>
+<th>Dependencies</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Installation</strong></td>
-<td><a href="../install/index.html">Installing Percona Server for MongoDB</a></td>
+<td>Debian/Ubuntu</td>
+<td>python3 python3-dev python3-pip scons gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libpcap-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev libsasl2-dev liblzma-dev libext2fs-dev e2fslibs-dev bear</td>
+</tr>
+<tr>
+<td>CentOS / RedHat Enterprise Linux 7</td>
+<td>centos-release-scl epel-release python3 python3-devel scons gcc gcc-c++ cmake3 openssl-devel cyrus-sasl-devel snappy-devel zlib-devel bzip2-devel libcurl-devel lz4-devel openldap-devel krb5-devel xz-devel e2fsprogs-devel expat-devel devtoolset-8-gcc devtoolset-8-gcc-c++</td>
+</tr>
+<tr>
+<td>RedHat Enterprise Linux/CentOS 8</td>
+<td>python36 python36-develgcc-c++ gcc cmake3 wgetopenssl-devel zlib-develcyrus-sasl-devel xz-develbzip2-devel libcurl-devellz4-devel e2fsprogs-develkrb5-devel openldap-develexpat-devel cmake</td>
 </tr>
 </tbody>
 </table>
-<p>Percona Server for MongoDB 4.4.16-16 is an enhanced, source-available, and highly-scalable database that is a
-fully-compatible, drop-in replacement for MongoDB 4.4.16 Community Edition.
-It supports MongoDB 4.4.16 protocols and drivers.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Take caution when upgrading from earlier versions of v4.4.x to later versions of 4.4 or on to v5.0. See <a href="https://jira.mongodb.org/browse/SERVER-68511">SERVER-68511</a> for more details.</p>
-</div>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-67302">SERVER-67302</a> - Fixed the server crash with the CLOCK_REALTIME set to forward by making the linearizable reads robust to primary catch-up and simultaneous stepdown.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-61321">SERVER-61321</a>, <a href="https://jira.mongodb.org/browse/SERVER-60607">SERVER-60607</a> - Improved handling of large/NaN (Not a Number) values for text index and geo index version.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-66418">SERVER-66418</a> -  Fixed the issue with bad projection created during dependency analysis due to string order assumption. It resulted in the <code>PathCollision</code> error. The issue is fixed by improving dependency analysis for projections by folding dependencies into ancestor dependencies where possible.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/WT-9096">WT-9096</a> - Fixed the wrong key/value returning during search near when the key doesn’t exist.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-63243">SERVER-63243</a> - This bug fix adjusts the functioning of the range-deleter to prevent the balancer from getting blocked, hung, or ranges being scheduled behind other ranges.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-67492">SERVER-67492</a> - Failed chunk migrations can lead to recipient shard having different config.transactions records between primaries and secondaries - inconsistent data.</p>
-</li>
-<li>
-<p><a href="https://jira.mongodb.org/browse/SERVER-60958">SERVER-60958</a> - This fix avoids server hang in chunk migration when a step-down occurs.</p>
-</li>
-</ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/v4.4/release-notes/4.4/#4.4.16---aug-19--2022">MongoDB 4.4.16 Community Edition release notes</a>.</p>
-<h2 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://jira.percona.com/browse/PSMDB-1046">PSMDB-1046</a>: Make the <code>kmipKeyIdentifier</code> option not mandatory</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you have configured data at rest encryption using the KMIP server and wish to upgrade Percona Server for MongoDB, go through the <a href="https://www.mongodb.com/docs/v4.4/tutorial/configure-encryption/#std-label-encrypt-existing-data">encrypting existing data steps</a> during the upgrade as follows:</p>
+<h2 id="build-steps">Build steps<a class="headerlink" href="#build-steps" title="Permanent link">&para;</a></h2>
+<h3 id="install-python-and-python-modules">Install Python and Python modules<a class="headerlink" href="#install-python-and-python-modules" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Prepare the server</p>
+<p>Clone Percona Server for MongoDB repository</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/percona/percona-server-mongodb.git
+</code></pre></div>
 </li>
 <li>
-<p><a href="../install/upgrade-from-mongodb.html">Upgrade Percona Server for MongoDB</a></p>
+<p>Install the dependencies for your operating system. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">RHEL/CentOS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The following command installs the dependencies for Ubuntu 20.04: </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3<span class="w"> </span>python3-dev<span class="w"> </span>python3-pip<span class="w"> </span>scons<span class="w"> </span>gcc<span class="w"> </span>g++<span class="w"> </span>cmake<span class="w"> </span>curl<span class="w"> </span>libssl-dev<span class="w"> </span>libldap2-dev<span class="w"> </span>libkrb5-dev<span class="w"> </span>libcurl4-openssl-dev<span class="w"> </span>libsasl2-dev<span class="w"> </span>liblz4-dev<span class="w"> </span>libpcap-dev<span class="w"> </span>libbz2-dev<span class="w"> </span>libsnappy-dev<span class="w"> </span>zlib1g-dev<span class="w"> </span>libzlcore-dev<span class="w"> </span>libsasl2-dev<span class="w"> </span>liblzma-dev<span class="w"> </span>libext2fs-dev<span class="w"> </span>e2fslibs-dev<span class="w"> </span>bear
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>The following command installs the dependencies for CentOS 7:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>centos-release-scl<span class="w"> </span>epel-release<span class="w"> </span>
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-devel<span class="w"> </span>scons<span class="w"> </span>gcc<span class="w"> </span>gcc-c++<span class="w"> </span>cmake3<span class="w"> </span>openssl-devel<span class="w"> </span>cyrus-sasl-devel<span class="w"> </span>snappy-devel<span class="w"> </span>zlib-devel<span class="w"> </span>bzip2-devel<span class="w"> </span>libcurl-devel<span class="w"> </span>lz4-devel<span class="w"> </span>openldap-devel<span class="w"> </span>krb5-devel<span class="w"> </span>xz-devel<span class="w"> </span>e2fsprogs-devel<span class="w"> </span>expat-devel<span class="w"> </span>devtoolset-8-gcc<span class="w"> </span>devtoolset-8-gcc-c++
+</code></pre></div>
 </li>
 <li>
-<p>Enable encryption and initiate the data synchronization.</p>
+<p>Build a specific <code>curl</code> version</p>
+<ul>
+<li>
+<p>Fetch the package archive    </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://curl.se/download/curl-7.66.0.tar.gz
+</code></pre></div>
+</li>
+<li>
+<p>Unzip the package      </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xvzf<span class="w"> </span>curl-7.66.0.tar.gz<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>curl-7.66.0
+</code></pre></div>
+</li>
+<li>
+<p>Configure and build the package  </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./configure
+$<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>install
+</code></pre></div>
+</li>
+</ul>
 </li>
 </ol>
 </div>
-<h2 id="bugs-fixed">Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+</li>
+<li>
+<p>Switch to the Percona Server for MongoDB branch that you are building
+   and install Python3 modules</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>percona-server-mongodb<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>v4.4
+$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>-r<span class="w"> </span>etc/pip/dev-requirements.txt
+</code></pre></div>
+</li>
+<li>
+<p>Define Percona Server for MongoDB version (4.4.3 for the time of
+   writing this document)</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;{&quot;version&quot;: &quot;4.4.3&quot;}&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>version.json
+</code></pre></div>
+</li>
+</ol>
+<h3 id="build-the-aws-software-development-kit-for-c-library">Build the AWS Software Development Kit for C++ library<a class="headerlink" href="#build-the-aws-software-development-kit-for-c-library" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Clone the AWS Software Development Kit for C++
+   repository</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/aws/aws-sdk-cpp.git
+</code></pre></div>
+</li>
+<li>
+<p>Create a directory to store the AWS library </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/tmp/lib/aws
+</code></pre></div>
+</li>
+<li>
+<p>Declare an environment variable <code>AWS_LIBS</code> for this directory </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">AWS_LIBS</span><span class="o">=</span>/tmp/lib/aws
+</code></pre></div>
+</li>
+<li>
+<p>Percona Server for MongoDB is built with AWS SDK CPP 1.9.379
+   version. Switch to this version </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>aws-sdk-cpp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span><span class="m">1</span>.9.379
+</code></pre></div>
+</li>
+<li>
+<p>It is recommended to keep build files outside the SDK directory.
+   Create a build directory and navigate to it </p>
+<p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+</code></pre></div>
+6. Generate build files using <code>cmake</code> </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Debian/Ubuntu</label><label for="__tabbed_2_2">RHEL/CentOS 7</label><label for="__tabbed_2_3">RHEL/CentOS 8</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>-DBUILD_ONLY<span class="o">=</span><span class="s2">&quot;s3;transfer&quot;</span><span class="w"> </span>-DBUILD_SHARED_LIBS<span class="o">=</span>OFF<span class="w"> </span>-DMINIMIZE_SIZE<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cmake3<span class="w"> </span>..<span class="w"> </span>-DCMAKE_C_COMPILER<span class="o">=</span>/opt/rh/devtoolset-8/root/usr/bin/gcc<span class="w">  </span>-DCMAKE_CXX_COMPILER<span class="o">=</span>/opt/rh/devtoolset-8/root/usr/bin/g++<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>-DBUILD_ONLY<span class="o">=</span><span class="s2">&quot;s3;transfer&quot;</span><span class="w"> </span>-DBUILD_SHARED_LIBS<span class="o">=</span>OFF<span class="w"> </span>-DMINIMIZE_SIZE<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>-DBUILD_ONLY<span class="o">=</span><span class="s2">&quot;s3;transfer&quot;</span><span class="w"> </span>-DBUILD_SHARED_LIBS<span class="o">=</span>OFF<span class="w"> </span>-DMINIMIZE_SIZE<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Install the SDK </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>make<span class="w"> </span>install
+</code></pre></div>
+</li>
+</ol>
+<h3 id="build-percona-server-for-mongodb">Build Percona Server for MongoDB<a class="headerlink" href="#build-percona-server-for-mongodb" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Change directory to <code>percona-server-mongodb</code> </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>percona-server-mongodb
+</code></pre></div>
+</li>
+<li>
+<p>Build Percona Server for MongoDB from <code>buildscripts/scons.py</code>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Debian/Ubuntu</label><label for="__tabbed_3_2">RHEL/CentOS 7</label><label for="__tabbed_3_3">RHEL/CentOS 8</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>buildscripts/scons.py<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span>--all<span class="k">)</span><span class="w"> </span>--jlink<span class="o">=</span><span class="m">2</span><span class="w"> </span>--disable-warnings-as-errors<span class="w"> </span>--ssl<span class="w"> </span>--opt<span class="o">=</span>on<span class="w"> </span>--use-sasl-client<span class="w"> </span>--wiredtiger<span class="w"> </span>--audit<span class="w"> </span>--inmemory<span class="w"> </span>--hotbackup<span class="w"> </span><span class="nv">CPPPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="nv">LIBPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib&quot;</span><span class="w"> </span>install-mongod
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>python3<span class="w"> </span>buildscripts/scons.py<span class="w"> </span><span class="nv">CC</span><span class="o">=</span>/opt/rh/devtoolset-8/root/usr/bin/gcc<span class="w"> </span><span class="nv">CXX</span><span class="o">=</span>/opt/rh/devtoolset-8/root/usr/bin/g++<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span>--all<span class="k">)</span><span class="w"> </span>--jlink<span class="o">=</span><span class="m">2</span><span class="w"> </span>--install-mode<span class="o">=</span>legacy<span class="w"> </span>--disable-warnings-as-errors<span class="w"> </span>--ssl<span class="w"> </span>--opt<span class="o">=</span>on<span class="w"> </span>--use-sasl-client<span class="w"> </span>--wiredtiger<span class="w"> </span>--audit<span class="w"> </span>--inmemory<span class="w"> </span>--hotbackup<span class="w"> </span><span class="nv">CPPPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="nv">LIBPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib&quot;</span><span class="w">  </span>mongod
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>buildscripts/scons.py<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span>--all<span class="k">)</span><span class="w"> </span>--jlink<span class="o">=</span><span class="m">2</span><span class="w"> </span>--install-mode<span class="o">=</span>legacy<span class="w"> </span>--disable-warnings-as-errors<span class="w"> </span>--ssl<span class="w"> </span>--opt<span class="o">=</span>on<span class="w"> </span>--use-sasl-client<span class="w"> </span>--wiredtiger<span class="w"> </span>--audit<span class="w"> </span>--inmemory<span class="w"> </span>--hotbackup<span class="w"> </span><span class="nv">CPPPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="nv">LIBPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib64&quot;</span><span class="w"> </span>mongod
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+</ol>
+<p>This command builds only the database. Other available targets for the
+<code>scons</code> command are: </p>
 <ul>
-<li><a href="https://jira.percona.com/browse/PSMDB-1119">PSMDB-1119</a>: Fixed the issue with backup cursor not opening if data-at-rest encryption is enabled</li>
+<li><code>mongod</code> </li>
+<li><code>mongos</code> </li>
+<li><code>mongo</code> </li>
+<li><code>core</code> (includes <code>mongod</code>, <code>mongos</code>, <code>mongo</code>) </li>
+<li><code>all</code>
+The built binaries are in the <code>percona-server-mongodb</code> directory.</li>
 </ul>
-<h2 id="packaging-notes">Packaging Notes<a class="headerlink" href="#packaging-notes" title="Permanent link">&para;</a></h2>
-<p>Debian 9 (“Stretch”) is no longer supported.</p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1692,11 +1815,11 @@ It supports MongoDB 4.4.16 protocols and drivers.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 14, 2023</span>
       
     
   </small>
