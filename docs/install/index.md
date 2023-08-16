@@ -12,12 +12,12 @@ Starting in MongoDB 5.0, `mongod`, `mongos`, and the legacy `mongo` shell are su
 
 * Only Oracle Linux running the Red Hat Compatible Kernel (RHCK) is supported. MongoDB does not support the Unbreakable Enterprise Kernel (UEK).
 
-* MongoDB 5.0 and above requires use of the AVX instruction set, available on 
+* MongoDB 5.0 and above requires the use of the AVX instruction set, available on 
 [select Intel and AMD processors](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX). 
 
 ### ARM64
 
-Percona Server for MongoDB requires the ARMv8.2-A or later microarchitecture.
+Percona Server for MongoDB requires the ARMv8.2-A or later micro-architecture.
 
 ## Installation instructions
 
@@ -30,7 +30,7 @@ Choose how you wish to install Percona Server for MongoDB:
 
 * [build from source code](source.md)
 * [from binary tarballs](tarball.md)
-* Manually from [Percona website](https://www.percona.com/downloads/percona-server-mongodb-6.0/)
+* Manually from [Percona website](https://www.percona.com/downloads/percona-server-mongodb-7.0/)
    
     !!! note
 
@@ -41,7 +41,7 @@ Choose how you wish to install Percona Server for MongoDB:
 
 ## Upgrade instructions
 
-If you are currently using MongoDB, see [Upgrading from MongoDB](upgrade-from-mongodb.md).
+If you are already using MongoDB, see [Upgrading from MongoDB](upgrade-from-mongodb.md).
 
-If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 5.0](upgrade-from-50.md).
+If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 6.0](upgrade-from-60.md).
 

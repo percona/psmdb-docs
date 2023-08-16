@@ -17,7 +17,7 @@ To build Percona Server for MongoDB manually, you need the following:
    | Debian/Ubuntu                   | gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev liblzma-dev e2fslibs-dev|
    | RedHat Enterprise Linux/CentOS 9| gcc gcc-c++ cmake curl openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel|  
 
-- About 13 GB of disk space for the core binaries (`mongod`, `mongos`, and `mongo`) and about 600 GB for the install-all target.
+- About 13 GB of disk space for the core binaries (`mongod`, `mongos`, and `mongo`) and about 600 GB for the `install-all` target.
 
 ### Build steps
 
@@ -35,15 +35,15 @@ To build Percona Server for MongoDB manually, you need the following:
    and install Python3 modules
 
     ```{.bash data-prompt="$"}
-    $ cd percona-server-mongodb && git checkout v6.0
+    $ cd percona-server-mongodb && git checkout v7.0
     $ python3 -m pip install --user -r etc/pip/dev-requirements.txt
     ```
 
-4. Define Percona Server for MongoDB version (6.0.6 for the time of
+4. Define Percona Server for MongoDB version (7.0.0 for the time of
    writing this document)
 
     ```{.bash data-prompt="$"}
-    $ echo '{"version": "6.0.6"}' > version.json
+    $ echo '{"version": "7.0.0"}' > version.json
     ```
 
 #### Install operating system dependencies
@@ -161,7 +161,7 @@ Use the following instructions depending on what you wish to build:
 
 === "Build tarballs"
 
-    The following command builds tarballs of Percona Server for MongoDB 6.0.6-5 on Red Hat Enterprise Linux 9. Change the Docker image and the values for `--branch`, `--psm_ver`, `--psm_release` flags to build tarballs of a different version and on a different operating system.
+    The following command builds tarballs of Percona Server for MongoDB 7.0.0-1 on Red Hat Enterprise Linux 9. Change the Docker image and the values for `--branch`, `--psm_ver`, `--psm_release` flags to build tarballs of a different version and on a different operating system.
 
     ```{.bash data-prompt="$"}
     $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb rhel:9 sh -c '
@@ -169,7 +169,7 @@ Use the following instructions depending on what you wish to build:
     cd /tmp/psmdb
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-    --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --get_sources=1
+    --branch=release-7.0.0-1 --psm_ver=7.0.0 --psm_release=1 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --get_sources=1
     '
     ```
 
@@ -179,7 +179,7 @@ Use the following instructions depending on what you wish to build:
     * mounts the build directory into the container
     * establishes the shell session inside the container
     * inside the container, navigates to the build directory and runs the build script to install dependencies 
-    * runs the build script again to build the tarball for the PSMDB version 6.0.6-5
+    * runs the build script again to build the tarball for the PSMDB version 7.0.0-1
 
     Check that tarballs are built:
 
@@ -191,7 +191,7 @@ Use the following instructions depending on what you wish to build:
 
     ```{.text .no-copy}
     total 88292
-    -rw-r--r--. 1 root root 90398894 Jul  1 10:58 percona-server-mongodb-6.0.6-5.tar.gz
+    -rw-r--r--. 1 root root 90398894 Jul  1 10:58 percona-server-mongodb-7.0.0-1.tar.gz
     ```
 
 === "Build packages"
@@ -206,7 +206,7 @@ Use the following instructions depending on what you wish to build:
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-6.0.6-5 --psm_ver=6.0.6--psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_deb=1
+            --branch=release-7.0.0-1 --psm_ver=7.0.0--psm_release=1 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_deb=1
             '
             ```
 
@@ -219,7 +219,7 @@ Use the following instructions depending on what you wish to build:
             Sample output:
 
             ```{.text .no-copy}
-            rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_6.0.6.orig.tar.gz
+            rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_7.0.0.orig.tar.gz
             ```
         
         === "RPM"
@@ -230,7 +230,7 @@ Use the following instructions depending on what you wish to build:
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-6.0.6-5 --psm_ver=6.0.6--psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_rpm=1
+            --branch=release-7.0.0-1 --psm_ver=7.0.0--psm_release=1 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_rpm=1
             '
             ```
 
@@ -243,7 +243,7 @@ Use the following instructions depending on what you wish to build:
             Sample output:
 
             ```{.text .no-copy}
-            rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-6.0.6-5.generic.src.rpm
+            rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-7.0.0-1.generic.src.rpm
             ```
 
     2. Build Percona Server for MongoDB packages
@@ -256,7 +256,7 @@ Use the following instructions depending on what you wish to build:
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_deb=1
+            --branch=release-7.0.0-1 --psm_ver=7.0.0--psm_release=1 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_deb=1
             '
             ```
 
@@ -269,11 +269,11 @@ Use the following instructions depending on what you wish to build:
             Sample output:
 
             ```{.text .no-copy}
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-dbg_6.0.6-5.jammy_amd64.deb  
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos_6.0.6-5.jammy_amd64.deb 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server_6.0.6-5.jammy_amd64.deb 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_6.0.6-5.jammy_amd64.deb  
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_6.0.6-5.jammy_amd64.deb
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-dbg_7.0.0-1.jammy_amd64.deb  
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos_7.0.0-1.jammy_amd64.deb 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server_7.0.0-1.jammy_amd64.deb 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_7.0.0-1.jammy_amd64.deb  
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_7.0.0-1.jammy_amd64.deb
             ```
         
         === "RPM"
@@ -284,7 +284,7 @@ Use the following instructions depending on what you wish to build:
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_rpm=1
+            --branch=release-7.0.0-1 --psm_ver=7.0.0 --psm_release=1 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_rpm=1
             '
             ```
 
@@ -297,12 +297,12 @@ Use the following instructions depending on what you wish to build:
             Sample output:
 
             ```{.text .no-copy}
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-6.0.6-5.el8.x86_64.rpm  
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-6.0.6-5.el8.x86_64.rpm 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-6.0.6-5.el8.x86_64.rpm    
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-6.0.6-5.el8.x86_64.rpm 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-6.0.6-5.el8.x86_64.rpm    
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-6.0.6-5.el8.x86_64.rpm 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-6.0.6-5.el8.x86_64.rpm 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-6.0.6-5.el8.x86_64.rpm
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-7.0.0-1.el8.x86_64.rpm  
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-7.0.0-1.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-7.0.0-1.el8.x86_64.rpm    
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-7.0.0-1.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-7.0.0-1.el8.x86_64.rpm    
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-7.0.0-1.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-7.0.0-1.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-7.0.0-1.el8.x86_64.rpm
             ```

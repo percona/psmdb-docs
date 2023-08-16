@@ -1,8 +1,8 @@
-name: Build Percona Server for MongoDB 6.0 docs
+name: Build Percona Server for MongoDB 7.0 docs
 on:
   push:
     branches: 
-      - 6.0
+      - 7.0
      
 jobs:
   build:
@@ -43,7 +43,7 @@ jobs:
      # Deploy docs
       - name: Deploy docs
         run: |
-          mike deploy 6.0 -b publish -p
-          mike set-default 6.0 -b publish -p
-          mike retitle 6.0 "6.0.8-6 (LATEST)" -b publish -p
+          mike deploy 7.0 -b publish -p
+          mike set-default 7.0 -b publish -p
+          mike retitle 7.0 "7.0.0-1 (LATEST)" -b publish -p
 

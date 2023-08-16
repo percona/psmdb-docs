@@ -92,8 +92,6 @@ Rotating the master key process also re-encrypts the keystore using the new mast
 
 Starting with version [6.0.5-4](release_notes/6.0.5-4.md), you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The `mongod` server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.  
 
-In versions 6.0.4-3 and earlier, every `mongod` node in a replica set in your entire deployment must have a distinct path to the master keys on a Vault server. 
-
 The key rotation steps are the following:
 
 1. Rotate the master key for the secondary nodes one by one.

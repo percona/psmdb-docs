@@ -1,11 +1,11 @@
-# Upgrading from Percona Server for MongoDB 5.0 to 6.0
+# Upgrading from Percona Server for MongoDB 6.0 to 7.0
 
-To upgrade Percona Server for MongoDB to version 6.0, you must be running version
-5.0. Upgrades from earlier versions are not supported.
+To upgrade Percona Server for MongoDB to version 7.0, you must be running version
+6.0. Upgrades from earlier versions are not supported.
 
 Before upgrading your production Percona Server for MongoDB deployments, test all your applications
 in a testing environment to make sure they are compatible with the new version.
-For more information, see [Compatibility Changes in MongoDB 6.0](https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/)
+For more information, see [Compatibility Changes in MongoDB 7.0](https://www.mongodb.com/docs/v7.0/release-notes/7.0-compatibility/)
 
 We recommend to upgrade Percona Server for MongoDB from official Percona repositories using [`percona-release` repository management tool](https://docs.percona.com/percona-software-repositories/index.html) and
 the corresponding package manager for your system. 
@@ -25,10 +25,10 @@ data and configuration files are preserved).
           $ sudo systemctl stop mongod
           ```
 
-     2. Enable Percona repository for Percona Server for MongoDB 6.0:
+     2. Enable Percona repository for Percona Server for MongoDB 7.0:
 
          ```{.bash data-prompt="$"}
-         $ sudo percona-release enable psmdb-60
+         $ sudo percona-release enable psmdb-70
          ```
 
      3. Update the local cache:
@@ -37,7 +37,7 @@ data and configuration files are preserved).
          $ sudo apt update
          ```
 
-     4. Install Percona Server for MongoDB 6.0 packages:
+     4. Install Percona Server for MongoDB 7.0 packages:
 
          ```{.bash data-prompt="$"}
          $ sudo apt install percona-server-mongodb
@@ -59,13 +59,13 @@ data and configuration files are preserved).
           $ sudo systemctl stop mongod
           ```
 
-     2. Enable Percona repository for Percona Server for MongoDB 6.0:
+     2. Enable Percona repository for Percona Server for MongoDB 7.0:
 
          ```{.bash data-prompt="$"}
-         $ sudo percona-release enable psmdb-60
+         $ sudo percona-release enable psmdb-70
          ``` 
 
-     3. Install Percona Server for MongoDB 6.0 packages:
+     3. Install Percona Server for MongoDB 7.0 packages:
 
          ```{.bash data-prompt="$"}
          $ sudo yum install percona-server-mongodb
@@ -77,16 +77,16 @@ data and configuration files are preserved).
          $ sudo systemctl start mongod
          ```
 
-After the upgrade, Percona Server for MongoDB is started with the feature set of 5.0 version. Assuming that your applications are compatible with the new version, enable 6.0 version features. Run the following command against the `admin` database:
+After the upgrade, Percona Server for MongoDB is started with the feature set of 5.0 version. Assuming that your applications are compatible with the new version, enable 7.0 version features. Run the following command against the `admin` database:
 
 ```{.javascript data-prompt=">"}
-> db.adminCommand( { setFeatureCompatibilityVersion: "6.0" } )
+> db.adminCommand( { setFeatureCompatibilityVersion: "7.0" } )
 ```
 
 !!! admonition "See also"
 
     MongoDB Documentation:
 
-    * [Upgrade a Standalone](https://docs.mongodb.com/manual/release-notes/6.0-upgrade-standalone/)
-    * [Upgrade a Replica Set](https://docs.mongodb.com/manual/release-notes/6.0-upgrade-replica-set/)
-    * [Upgrade a Sharded Cluster](https://docs.mongodb.com/manual/release-notes/6.0-upgrade-sharded-cluster/)
+    * [Upgrade a Standalone](https://docs.mongodb.com/manual/release-notes/7.0-upgrade-standalone/)
+    * [Upgrade a Replica Set](https://docs.mongodb.com/manual/release-notes/7.0-upgrade-replica-set/)
+    * [Upgrade a Sharded Cluster](https://docs.mongodb.com/manual/release-notes/7.0-upgrade-sharded-cluster/)
