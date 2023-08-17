@@ -176,12 +176,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
-      - release_notes/6.0.8-6.md
-      - release_notes/6.0.6-5.md
-      - release_notes/6.0.5-4.md
-      - release_notes/6.0.4-3.md
-      - release_notes/6.0.3-2.md
-      - release_notes/6.0.2-1.md
+      - release_notes/7.0.0-1.md
   - glossary.md
   - copyright.md
   - trademark-policy.md 
