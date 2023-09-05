@@ -10,15 +10,26 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 
     By default, Docker will pull the image from Docker Hub if it is not available locally.
 
-To run the latest Percona Server for MongoDB 5.0 in a Docker container, use the following command:
+To run the latest Percona Server for MongoDB 5.0 in a Docker container, run the following command as the root user or via `sudo`:
 
-Run this command as root or by using the **sudo** command
+=== "On x86_64 platforms"
 
-```{.bash data-prompt="$"}
-$ docker run -d --name psmdb --restart always \
-percona/percona-server-mongodb:5.0
-```
+      ```{.bash data-prompt="$"}
+      $ docker run -d --name psmdb --restart always \
+      percona/percona-server-mongodb:5.0
+      ```
 
+=== "On ARM64 platforms"
+
+    The Docker image is available starting with version 5.0-20-17.
+
+      ```{.bash data-prompt="$"}
+      $ docker run -d --name psmdb --restart always \
+      percona/percona-server-mongodb:<TAG>-arm64
+      ```
+     
+      Replace the `<TAG>` with the desired version (for example, 5.0-20-17-arm64)
+   
 The command does the following:
 
 
