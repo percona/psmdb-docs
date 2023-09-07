@@ -9,35 +9,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The key file must contain a 32 character string encoded in base64. You can generate a random
-key and save it to a file by using the openssl command:">
+        <meta name="description" content="Installation">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/5.0/keyfile.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/5.0/release_notes/5.0.20-17.html">
       
       
-        <link rel="prev" href="kmip.html">
+        <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="encryption-mode-switch.html">
+        <link rel="next" href="5.0.19-16.html">
       
       
-      <link rel="icon" href="_images/percona-favicon.ico">
+      <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
     
     
       
-        <title>Local key management using a keyfile - Percona Server for MongoDB 5.0</title>
+        <title>Percona Server for MongoDB 5.0.20-17 (2023-09-07) - Percona Server for MongoDB 5.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.046329b4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.046329b4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.85d0ee34.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
       
       
 
@@ -60,13 +59,13 @@ key and save it to a file by using the openssl command:">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
               <!-- Google Tag Manager -->
               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -89,7 +88,7 @@ key and save it to a file by using the openssl command:">
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Server for MongoDB 5.0 - Local key management using a keyfile" />
+                 <meta property="og:title" content="Percona Server for MongoDB 5.0 - Percona Server for MongoDB 5.0.20-17 (2023-09-07)" />
                  <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/5.0/_images/mongodb.png">
                  <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
                 </head>
@@ -120,7 +119,7 @@ key and save it to a file by using the openssl command:">
     <div data-md-component="skip">
       
         
-        <a href="#local-key-management-using-a-keyfile" class="md-skip">
+        <a href="#percona-server-for-mongodb-5020-17-2023-09-07" class="md-skip">
           Skip to content
         </a>
       
@@ -140,7 +139,7 @@ key and save it to a file by using the openssl command:">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://percona.com/software/documentation" title="Percona product Documentation" class="md-header__button md-logo" aria-label="Percona product Documentation" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -156,7 +155,7 @@ key and save it to a file by using the openssl command:">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Local key management using a keyfile
+              Percona Server for MongoDB 5.0.20-17 (2023-09-07)
             
           </span>
         </div>
@@ -268,7 +267,7 @@ key and save it to a file by using the openssl command:">
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 5.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 5.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 5.0
@@ -294,7 +293,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -313,7 +312,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -366,7 +365,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
+      <a href="../install/index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -386,7 +385,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
+      <a href="../install/apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -406,7 +405,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
+      <a href="../install/yum.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -426,7 +425,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
+      <a href="../install/tarball.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -446,7 +445,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="install/source.html" class="md-nav__link">
+      <a href="../install/source.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -466,7 +465,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
+      <a href="../install/docker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -491,19 +490,17 @@ key and save it to a file by using the openssl command:">
       
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
@@ -516,7 +513,7 @@ key and save it to a file by using the openssl command:">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -563,7 +560,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -625,7 +622,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -645,7 +642,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -707,7 +704,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -727,7 +724,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -747,7 +744,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -767,7 +764,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -787,7 +784,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -807,7 +804,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -827,7 +824,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -847,7 +844,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -867,7 +864,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -893,19 +890,17 @@ key and save it to a file by using the openssl command:">
                 
   
   
-    
-  
   
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
         
           <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
             
@@ -918,7 +913,7 @@ key and save it to a file by using the openssl command:">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_4">
             <span class="md-nav__icon md-icon"></span>
             Encryption
@@ -931,7 +926,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -951,7 +946,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -971,7 +966,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -989,18 +984,9 @@ key and save it to a file by using the openssl command:">
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="keyfile.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../keyfile.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1009,7 +995,6 @@ key and save it to a file by using the openssl command:">
   
 
       </a>
-      
     </li>
   
 
@@ -1021,7 +1006,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1049,7 +1034,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
+      <a href="../audit-logging.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1069,7 +1054,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
+      <a href="../rate-limit.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1089,7 +1074,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
+      <a href="../log-redaction.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1109,7 +1094,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1170,7 +1155,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1224,7 +1209,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-44.html" class="md-nav__link">
+      <a href="../install/upgrade-from-44.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1244,7 +1229,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1272,7 +1257,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="../install/uninstall.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1297,17 +1282,19 @@ key and save it to a file by using the openssl command:">
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
@@ -1320,7 +1307,7 @@ key and save it to a file by using the openssl command:">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Release notes
@@ -1333,7 +1320,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1351,9 +1338,29 @@ key and save it to a file by using the openssl command:">
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release_notes/5.0.20-17.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 5.0.20-17 (2023-09-07)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="5.0.20-17.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1362,6 +1369,35 @@ key and save it to a file by using the openssl command:">
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1373,7 +1409,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.19-16.html" class="md-nav__link">
+      <a href="5.0.19-16.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1393,7 +1429,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.18-15.html" class="md-nav__link">
+      <a href="5.0.18-15.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1413,7 +1449,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.17-14.html" class="md-nav__link">
+      <a href="5.0.17-14.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1433,7 +1469,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.15-13.html" class="md-nav__link">
+      <a href="5.0.15-13.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1453,7 +1489,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.14-12.html" class="md-nav__link">
+      <a href="5.0.14-12.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1473,7 +1509,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.13-11.html" class="md-nav__link">
+      <a href="5.0.13-11.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1493,7 +1529,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.11-10.html" class="md-nav__link">
+      <a href="5.0.11-10.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1513,7 +1549,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.10-9.html" class="md-nav__link">
+      <a href="5.0.10-9.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1533,7 +1569,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.9-8.html" class="md-nav__link">
+      <a href="5.0.9-8.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1553,7 +1589,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.8-7.html" class="md-nav__link">
+      <a href="5.0.8-7.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1573,7 +1609,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.7-6.html" class="md-nav__link">
+      <a href="5.0.7-6.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1593,7 +1629,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.6-5.html" class="md-nav__link">
+      <a href="5.0.6-5.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1613,7 +1649,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.5-4.html" class="md-nav__link">
+      <a href="5.0.5-4.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1633,7 +1669,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.4-3.html" class="md-nav__link">
+      <a href="5.0.4-3.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1653,7 +1689,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.3-2.html" class="md-nav__link">
+      <a href="5.0.3-2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1673,7 +1709,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/5.0.2-1.html" class="md-nav__link">
+      <a href="5.0.2-1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1700,7 +1736,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1719,7 +1755,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1738,7 +1774,7 @@ key and save it to a file by using the openssl command:">
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1779,6 +1815,21 @@ key and save it to a file by using the openssl command:">
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    Release Highlights
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1795,14 +1846,14 @@ key and save it to a file by using the openssl command:">
                   
                   
                   <a
-                    href="https://github.com/percona/psmdb-docs/edit/5.0/docs/keyfile.md"
+                    href="https://github.com/percona/psmdb-docs/edit/5.0/docs/release_notes/5.0.20-17.md"
                     title="edit.link.title"
                     class="md-content__button md-icon"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
                   </a>
                   <a
-                    href="https://github.com/percona/psmdb-docs/edit/5.0/docs/keyfile.md"
+                    href="https://github.com/percona/psmdb-docs/edit/5.0/docs/release_notes/5.0.20-17.md"
                     title="View source of this page"
                     class="md-content__button md-icon"
                   >
@@ -1818,47 +1869,24 @@ key and save it to a file by using the openssl command:">
                 
 
                 <!-- Markdown content -->
-                <h1 id="local-key-management-using-a-keyfile">Local key management using a keyfile<a class="headerlink" href="#local-key-management-using-a-keyfile" title="Permanent link">&para;</a></h1>
-<p>The key file must contain a 32 character string encoded in base64. You can generate a random
-key and save it to a file by using the <code>openssl</code> command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">32</span><span class="w"> </span>&gt;<span class="w"> </span>mongodb-keyfile
-</code></pre></div>
-<p>Then, as the owner of the <code>mongod</code> process, update the file permissions: only
-the owner should be able to read and modify this file. The effective permissions
-specified with the <code>chmod</code> command can be:</p>
+                <h1 id="percona-server-for-mongodb-5020-17-2023-09-07">Percona Server for MongoDB 5.0.20-17 (2023-09-07)<a class="headerlink" href="#percona-server-for-mongodb-5020-17-2023-09-07" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="../install/index.html">Installation</a></p>
+<p>Percona Server for MongoDB 5.0.20-17 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for <a href="https://www.mongodb.com/docs/manual/release-notes/5.0/#5.0.20---august-14--2023">MongoDB 5.0.20 Community Edition</a>.</p>
+<p>It supports MongoDB 5.0.20 protocols and drivers.</p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>600</strong> - only the owner may read and modify the file</li>
-<li><strong>400</strong> - only the owner may read the file.</li>
+<li>Percona Server for MongoDB 5.0.20-17 features a Docker image for ARM64 architectures. </li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>mongodb-keyfile
-</code></pre></div>
-<p>Enable the data encryption at rest in Percona Server for MongoDB by setting these options:</p>
+<p>The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:</p>
 <ul>
-<li>
-<p><code>--enableEncryption</code> to enable data at rest encryption</p>
-</li>
-<li>
-<p><code>--encryptionKeyFile</code> to specify the path to a file that contains the encryption key</p>
-</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-74954">SERVER-74954</a> - Fixed the issue with the incorrect output for the query where the <code>$or</code> operator rewrites the <code>$elemMatch</code> extra condition.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-78813">SERVER-78813</a> - Fixed commit point propagation for exhaust oplog cursors.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-79136">SERVER-79136</a> -  Blocked the <code>$group</code> min/max rewrite in timestamp if there is a non-meta filter. </li>
+<li><a href="https://jira.mongodb.org/browse/WT-10449">WT-10449</a> - Improved the reconciliation time and slow eviction for pages with lots of updates by avoiding saving the update chain when there are no updates to be written to the history store</li>
+<li><a href="https://jira.mongodb.org/browse/WT-11031">WT-11031</a> -  Fixed the Rollback to Stable behavior to skip tables with no time window information in the checkpoint.</li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span>...<span class="w"> </span>--enableEncryption<span class="w"> </span>--encryptionKeyFile<span class="w"> </span>&lt;fileName&gt;
-</code></pre></div>
-<p>By default, Percona Server for MongoDB uses the <code>AES256-CBC</code> cipher mode. If you want to use the <code>AES256-GCM</code> cipher mode, then use the <code>--encryptionCipherMode</code> parameter to change it.</p>
-<p>If <code>mongod</code> is started with the <code>--relaxPermChecks</code> option and the key file
-is owned by <code>root</code>, then <code>mongod</code> can read the file based on the
-group bit set accordingly. The effective key file permissions in this
-case are:</p>
-<ul>
-<li><strong>440</strong> - both the owner and the group can only read the file, or</li>
-<li><strong>640</strong> - only the owner can read and the change the file, the group can only read the file.</li>
-</ul>
-<p>All these options can be specified in the configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;boolean&gt;</span>
-<span class="w">   </span><span class="nt">encryptionCipherMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span>
-<span class="w">   </span><span class="nt">encryptionKeyFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span>
-<span class="w">   </span><span class="nt">relaxPermChecks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;boolean&gt;</span>
-</code></pre></div>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/5.0/#5.0.20---august-14--2023">MongoDB 5.0.20 Community Edition release notes</a>.</p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1881,11 +1909,11 @@ case are:</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 7, 2023</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 8, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 7, 2023</span>
       
     
   </small>
@@ -2008,14 +2036,14 @@ case are:</p>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "search.suggest", "search.share", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "search.suggest", "search.share", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
     
   </body>
