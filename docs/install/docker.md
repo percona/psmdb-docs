@@ -11,12 +11,25 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 
     By default, Docker will pull the image from Docker Hub if it is not available locally.
 
-To run the latest Percona Server for MongoDB 4.4 in a Docker container, use the following command:
+To run the latest Percona Server for MongoDB 4.4 in a Docker container, run the following command as the root user or via `sudo`:
 
-```{.bash data-prompt="$"}
-$ docker run -d --name psmdb --restart always \
-percona/percona-server-mongodb:4.4
-```
+=== "On x86_64 platforms"
+
+     ```{.bash data-prompt="$"}
+     $ docker run -d --name psmdb --restart always \
+     percona/percona-server-mongodb:4.4
+     ```
+
+=== "On ARM64 platforms"
+
+    The Docker image is available starting with version 4.4.24-23.
+
+      ```{.bash data-prompt="$"}
+      $ docker run -d --name psmdb --restart always \
+      percona/percona-server-mongodb:<TAG>-arm64
+      ```
+     
+      Replace the `<TAG>` with the desired version (for example, 4.4.24-23-arm64)
 
 The command does the following:
 
@@ -36,7 +49,7 @@ Setting it to `always` ensures that the Docker daemon
 will start the container on startup
 and restart it if the container exits.
 
-* `percona/percona-server-mongodb:4.4` is the name and version tag
+* `percona/percona-server-mongodb:4.4`/`percona/percona-server-mongodb:<TAG>-arm64` is the name and version tag
 of the image to derive the container from.
 
 ## Connecting from another Docker container

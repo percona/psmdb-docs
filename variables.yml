@@ -1,6 +1,6 @@
 # PSMDB Variables set for HTML output
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
-release: '4.4.23-22'
+release: '4.4.24-23'
 version: '4.4'
-release_date: 2023-08-14
+release_date: 2023-09-11
