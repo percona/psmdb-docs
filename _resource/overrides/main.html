@@ -3,7 +3,6 @@ MkDocs template for builds with Material Theme to customize docs layout
 by adding marketing-requested elements
 #}
 
-{# Import the theme's layout. #}
 {% extends "base.html" %}
 
 {%- macro relbar2 () %}
@@ -11,36 +10,37 @@ by adding marketing-requested elements
 <div class="md-content">
   <article class="md-content__inner md-typeset" role="main">    
     <h4>Contact Us </h4>
-       <p>For free technical help, visit the Percona <a class="reference external" href="https://forums.percona.com/c/mongodb/percona-server-for-mongodb/17?utm_campaign=Doc%20pages" target="_blank">Community Forum</a>.<br>
-        <p>To report bugs or submit feature requests, open a <a class="reference external" href="https://jira.percona.com/projects/PSMDB/issues/" target="_blank">JIRA</a> ticket.<br>
+       <p>For free technical help, visit the Percona <a class="reference external" href="https://forums.percona.com/c/mongodb/percona-distribution-for-mongodb/43" target="_blank">Community Forum</a>.<br>
+        <p>To report bugs or submit feature requests, open a <a class="reference external" href="https://jira.percona.com/projects/DISTMONGO/issues/" target="_blank">JIRA</a> ticket.<br>
          <p>For paid <a class="reference external" href="https://www.percona.com/services/support"> support </a> and <a class="reference external" href="https://www.percona.com/services/managed-services"> managed </a> or <a class="reference external" href="https://www.percona.com/services/consulting">consulting services </a>, contact <a class="reference external" href="https://www.percona.com/about-percona/contact" target="_blank">Percona Sales</a>.</p>
-  <img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=bc14d3fa-b256-4ea5-bc67-fbd656af149b" />
- </article>
+ 
+ <img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=cffd47da-0145-414b-b946-dc5693f50e95" />
+</article>
 </div>
 </div>
+
 {%- endmacro %}
-              
-                 {% block extrahead %}
-                 {{ super() }}
+
+{% block extrahead %}
+{{ super() }}
                  {% set title = config.site_name %}
                  {% if page and page.meta and page.meta.title %}
                  {% set title = title ~ " - " ~ page.meta.title %}
                  {% elif page and page.title and not page.is_homepage %}
                  {% set title = title ~ " - " ~ page.title %}
                  {% endif %}
-                 <meta property="og:type" content="website" />
-                 <meta property="og:title" content="{{ title }}" />
-                 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/6.0/_images/mongodb.png">
-                 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
-                </head>
-                <body>
-                </body>
-              </html>
 
-              {% endblock %}
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ title }}" />
+<meta property="og:image" content="https://docs.percona.com/percona-distribution-for-mongodb/4.4/_images/mongodb.png">
+<meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
+</head>
+<body>
+</body>
 
+{% endblock %}
 
-              {% block analytics %}
+{% block analytics %}
               <!-- Google Tag Manager -->
               <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -53,53 +53,6 @@ by adding marketing-requested elements
               <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBVF48V"
               height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <!-- End Google Tag Manager (noscript) -->
-              {% endblock %}
 
-              {% block content %}
-
-                <!-- Edit and view button -->
-                {% if page.edit_url %}
-                  {% set edit = "https://github.com/percona/psmdb-docs/edit/6.0/docs/" %}
-                  {% set view = "https://raw.githubusercontent.com/percona/psmdb-docs/6.0/docs/" %}
-                  <a
-                    href="{{ page.edit_url }}"
-                    title="{{ lang.t('edit.link.title') }}"
-                    class="md-content__button md-icon"
-                  >
-                    {% include ".icons/material/file-edit-outline.svg" %}
-                  </a>
-                  <a
-                    href="{{ page.edit_url | replace(edit, view) }}"
-                    title="View source of this page"
-                    class="md-content__button md-icon"
-                  >
-                    {% include ".icons/material/file-eye-outline.svg" %}
-                  </a>
-                {% endif %}
-
-
-                <!--
-                  Hack: check whether the content contains a h1 headline. If it
-                  doesn't, the page title (or respectively site name) is used
-                  as the main headline.
-                -->
-                {% if "\x3ch1" not in page.content %}
-                  <h1>{{ page.title | d(config.site_name, true)}}</h1>
-                {% endif %}
-
-                <!-- Markdown content -->
-                {{ page.content }}
-
-                {{ relbar2() }}
-
-                <!-- Last update of source file -->
-                {% if page and page.meta %}
-                  {% if page.meta.git_revision_date_localized or
-                        page.meta.revision_date
-                  %}
-                    {% include "partials/source-file.html" %}
-                  {% endif %}
-                {% endif %}
-              {% endblock %}
-
+{% endblock %}
 

@@ -19,10 +19,13 @@ theme:
   custom_dir: _resource/overrides/
   font:
     text: Poppins
+  icon:
+    edit: material/file-edit 
+    view: material/file-eye
   
   features:
     content.action.view
-    content.account.edit
+    content.action.edit
     content.code.copy
     search.highlight
     search.share
@@ -79,10 +82,16 @@ markdown_extensions:
   pymdownx.highlight:
       linenums: false
   pymdownx.inlinehilite: {}
-  pymdownx.snippets: {}
+  pymdownx.snippets:
+      base_path: ["snippets"]
+      auto_append:
+        - services-banner.md
   pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - _resource/overrides/.icons
 
        
 
