@@ -13,9 +13,13 @@ the corresponding package manager for your system.
 This document describes this method for the in-place upgrade (where your existing
 data and configuration files are preserved).
 
-!!! warning 
+## Prerequisites
 
-    Perform a full backup of your data and configuration files before upgrading.
+Before the upgrade, do the following:
+
+1. Make a full backup of your data and configuration files
+
+2. In Percona Server for MongoDB 7.0, journaling is enabled by default. Thus,  the `storage.journal.enabled` configuration option has no effect. Edit the configuration file and remove the `storage.journal.enabled` option to ensure successful database start after the upgrade. 
 
 === "Upgrade on Debian and Ubuntu"
 
