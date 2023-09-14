@@ -17,7 +17,9 @@ Starting in MongoDB 5.0, `mongod`, `mongos`, and the legacy `mongo` shell are su
 
 ### ARM64
 
-Percona Server for MongoDB requires the ARMv8.2-A or later microarchitecture.
+Percona Server for MongoDB requires the ARMv8.2-A or later microarchitecture. 
+
+At the moment we provide [Docker images](https://hub.docker.com/r/percona/percona-server-mongodb/) only. Packages will be added to the repositories in the future.
 
 ## Installation instructions
 
