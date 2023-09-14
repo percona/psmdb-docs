@@ -56,3 +56,36 @@ by adding marketing-requested elements
 
 {% endblock %}
 
+{% block site_nav %}
+            {% if nav %}
+              {% if page.meta and page.meta.hide %}
+                {% set hidden = "hidden" if "navigation" in page.meta.hide %}
+              {% endif %}
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" {{ hidden }}>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    {% include "partials/nav.html" %}
+                    <br>
+                    <label class="md-nav__title" for="__drawer">
+    <a href="https://learn.percona.com/download-percona-server-mongodb-6-0-manual" onclick="_gaq.push(['b._trackEvent', 'Percona Server for MongoDB 6.0', 'Download', 'Download Manual Server for MongoDB 6.0']);" class="md-nav__link md-nav__link--active" style="font-size: .7rem;">
+      Download PDF
+    </a>
+  </label> 
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+            {% if "toc.integrate" not in features %}
+              {% if page.meta and page.meta.hide %}
+                {% set hidden = "hidden" if "toc" in page.meta.hide %}
+              {% endif %}
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" {{ hidden }}>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    {% include "partials/toc.html" %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endblock %}
+

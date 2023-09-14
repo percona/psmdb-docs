@@ -20,8 +20,8 @@ theme:
   font:
     text: Poppins
   icon:
-    edit: material/file-edit 
-    view: material/file-eye
+    edit: material/file-edit-outline
+    view: material/file-eye-outline
   
   features:
     content.action.view
