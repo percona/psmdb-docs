@@ -13,6 +13,13 @@ Starting in MongoDB 5.0, `mongod`, `mongos`, and the legacy `mongo` shell are su
 * MongoDB 5.0 and above requires use of the AVX instruction set, available on 
 [select Intel and AMD processors](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX). 
 
+
+### ARM64
+
+Percona Server for MongoDB requires the ARMv8.2-A or later microarchitecture. 
+
+Currently, only [Docker images](https://hub.docker.com/r/percona/percona-server-mongodb/) are available.
+
 ## Installation instructions
 
 Choose how you wish to install Percona Server for MongoDB:
