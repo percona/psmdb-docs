@@ -109,7 +109,7 @@ Audit logging writes messages in JSON format with the following syntax:
 
 ## Audit filter examples
 
-The following examples demonstrate the flexibility of audit log filters.
+The following examples show the flexibility of audit log filters.
 
 ```yaml
 auditLog:
@@ -117,7 +117,7 @@ auditLog:
       filter: '{atype: {$in: [
          "authenticate", "authCheck",
          "renameCollection", "dropCollection", "dropDatabase",
-         "createUser", "dropUser", "dropAllUsersFromDatabase", "updateuser",
+         "createUser", "dropUser", "dropAllUsersFromDatabase", "updateUser",
          "grantRolesToUser", "revokeRolesFromUser", "createRole", "updateRole",
          "dropRole", "dropAllRolesFromDatabase", "grantRolesToRole", "revokeRolesFromRole",
          "grantPrivilegesToRole", "revokePrivilegesFromRole",
