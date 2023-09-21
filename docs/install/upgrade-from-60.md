@@ -19,7 +19,7 @@ Before the upgrade, do the following:
 
 1. Make a full backup of your data and configuration files
 
-2. In Percona Server for MongoDB 7.0, journaling is enabled by default. Thus,  the `storage.journal.enabled` configuration option has no effect. Edit the configuration file and remove the `storage.journal.enabled` option to ensure successful database start after the upgrade. 
+2. In Percona Server for MongoDB 7.0, journaling is enabled by default. Both the `storage.journal.enabled` configuration option and the corresponding `--journal`, `--no-journal` command-line options are ignored. You receive the corresponding warning during the server start after the upgrade. To get rid of this warning, change your configuration to remove the journaling options. 
 
 === "Upgrade on Debian and Ubuntu"
 
