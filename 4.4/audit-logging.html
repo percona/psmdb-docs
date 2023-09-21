@@ -29,7 +29,7 @@ including authentication, authorization failures, and so on.">
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.3.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.3.2">
     
     
       
@@ -37,7 +37,7 @@ including authentication, authorization failures, and so on.">
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.046329b4.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.30068a00.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.85d0ee34.min.css">
@@ -2246,13 +2246,13 @@ auditLog:
 </tbody>
 </table>
 <h2 id="audit-filter-examples">Audit filter examples<a class="headerlink" href="#audit-filter-examples" title="Permanent link">&para;</a></h2>
-<p>The following examples demonstrate the flexibility of audit log filters.</p>
+<p>The following examples show the flexibility of audit log filters.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">auditLog</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">filter</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&#39;{atype:</span><span class="nv"> </span><span class="s">{$in:</span><span class="nv"> </span><span class="s">[</span>
 <span class="w">         </span><span class="s">&quot;authenticate&quot;,</span><span class="nv"> </span><span class="s">&quot;authCheck&quot;,</span>
 <span class="w">         </span><span class="s">&quot;renameCollection&quot;,</span><span class="nv"> </span><span class="s">&quot;dropCollection&quot;,</span><span class="nv"> </span><span class="s">&quot;dropDatabase&quot;,</span>
-<span class="w">         </span><span class="s">&quot;createUser&quot;,</span><span class="nv"> </span><span class="s">&quot;dropUser&quot;,</span><span class="nv"> </span><span class="s">&quot;dropAllUsersFromDatabase&quot;,</span><span class="nv"> </span><span class="s">&quot;updateuser&quot;,</span>
+<span class="w">         </span><span class="s">&quot;createUser&quot;,</span><span class="nv"> </span><span class="s">&quot;dropUser&quot;,</span><span class="nv"> </span><span class="s">&quot;dropAllUsersFromDatabase&quot;,</span><span class="nv"> </span><span class="s">&quot;updateUser&quot;,</span>
 <span class="w">         </span><span class="s">&quot;grantRolesToUser&quot;,</span><span class="nv"> </span><span class="s">&quot;revokeRolesFromUser&quot;,</span><span class="nv"> </span><span class="s">&quot;createRole&quot;,</span><span class="nv"> </span><span class="s">&quot;updateRole&quot;,</span>
 <span class="w">         </span><span class="s">&quot;dropRole&quot;,</span><span class="nv"> </span><span class="s">&quot;dropAllRolesFromDatabase&quot;,</span><span class="nv"> </span><span class="s">&quot;grantRolesToRole&quot;,</span><span class="nv"> </span><span class="s">&quot;revokeRolesFromRole&quot;,</span>
 <span class="w">         </span><span class="s">&quot;grantPrivilegesToRole&quot;,</span><span class="nv"> </span><span class="s">&quot;revokePrivilegesFromRole&quot;,</span>
@@ -2368,7 +2368,7 @@ when running <code>mongod</code> or <code>mongos</code> process:</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 21, 2023</span>
       
         <br>
         Created:
