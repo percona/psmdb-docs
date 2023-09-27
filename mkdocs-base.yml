@@ -164,6 +164,7 @@ nav:
         - kmip.md
         - keyfile.md
         - encryption-mode-switch.md
+        - fips.md
       - audit-logging.md 
       - rate-limit.md
       - log-redaction.md
