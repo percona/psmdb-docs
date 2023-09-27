@@ -146,11 +146,12 @@ nav:
   - comparison.md
   - Install PSMDB: 
       - 'System requirements': 'install/index.md'
-      - install/apt.md
-      - install/yum.md
-      - install/tarball.md
+      - "On Debian and Ubuntu": install/apt.md
+      - "On RHEL and derivatives": install/yum.md
+      - "From tarballs": install/tarball.md
       - install/source.md
-      - install/docker.md
+      - "Run in Docker": install/docker.md
+      - "Install PSMDB Pro": install/pro.md
   - Features: 
       - Storage:
         - "Percona Memory Engine": "inmemory.md"
@@ -173,6 +174,7 @@ nav:
         - kmip.md
         - keyfile.md
         - encryption-mode-switch.md
+        - fips.md
       - audit-logging.md 
       - rate-limit.md
       - log-redaction.md
