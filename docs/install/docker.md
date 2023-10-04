@@ -26,7 +26,7 @@ To run the latest Percona Server for MongoDB 7.0 in a Docker container, run the 
       percona/percona-server-mongodb:<TAG>-arm64
       ```
      
-      Replace the `<TAG>` with the desired version (for example, 7.0.1-0-arm64)
+      Replace the `<TAG>` with the desired version (for example, 7.0.2-0-arm64)
    
 The command does the following:
 

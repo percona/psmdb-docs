@@ -81,7 +81,7 @@ Before the upgrade, do the following:
          $ sudo systemctl start mongod
          ```
 
-After the upgrade, Percona Server for MongoDB is started with the feature set of 5.0 version. Assuming that your applications are compatible with the new version, enable 7.0 version features. Run the following command against the `admin` database:
+After the upgrade, Percona Server for MongoDB is started with the feature set of 6.0 version. Assuming that your applications are compatible with the new version, enable 7.0 version features. Run the following command against the `admin` database:
 
 ```{.javascript data-prompt=">"}
 > db.adminCommand( { setFeatureCompatibilityVersion: "7.0" } )
