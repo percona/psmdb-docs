@@ -79,7 +79,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
          percona-server-mongodb | 7.0.2-1.bullseye | http://repo.percona.com/psmdb-70/apt bullseye/main amd64 Packages
          ```
 
-      2. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 7.0.0-1, run the following command:
+      2. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 7.0.2-1, run the following command:
 
          ```{.bash data-prompt="$"}
          $ sudo apt install percona-server-mongodb=7.0.2-1.bullseye percona-server-mongodb-mongos=7.0.2-1.bullseye percona-server-mongodb-shell=7.0.2-1.bullseye percona-server-mongodb-server=7.0.2-1.bullseye percona-server-mongodb-tools=7.0.2-1.bullseye

@@ -20,8 +20,8 @@ theme:
   font:
     text: Poppins
   icon:
-    edit: material/file-edit 
-    view: material/file-eye
+    edit: material/file-edit-outline
+    view: material/file-eye-outline
   
   features:
     content.action.view
@@ -117,7 +117,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-7.0.pdf'
           cover_title: 'Server for MongoDB Documentation 7.0'
-          cover_subtitle: 7.0.0-1 (, 2023)
+          cover_subtitle: 7.0.2-1 (October 5, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -185,7 +185,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
-      - release_notes/7.0.0-1.md
+      - release_notes/7.0.2-1.md
   - glossary.md
   - copyright.md
   - trademark-policy.md 

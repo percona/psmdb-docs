@@ -57,13 +57,13 @@ processManagement:
          Output:
 
          ```{.text .no-copy}
-         ii  mongodb-org                      7.0.0                       amd64        MongoDB open source document-oriented database system (metapackage)
-         ii  mongodb-org-database             7.0.0                       amd64        MongoDB open source document-oriented database system (metapackage)
-         ii  mongodb-org-database-tools-extra 7.0.0                       amd64        Extra MongoDB database tools
-         ii  mongodb-org-mongos               7.0.0                       amd64        MongoDB sharded cluster query router
-         ii  mongodb-org-server               7.0.0                       amd64        MongoDB database server
-         ii  mongodb-org-shell                7.0.0                       amd64        MongoDB shell client
-         ii  mongodb-org-tools                7.0.0                       amd64        MongoDB tools
+         ii  mongodb-org                      7.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
+         ii  mongodb-org-database             7.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
+         ii  mongodb-org-database-tools-extra 7.0.2                       amd64        Extra MongoDB database tools
+         ii  mongodb-org-mongos               7.0.2                       amd64        MongoDB sharded cluster query router
+         ii  mongodb-org-server               7.0.2                       amd64        MongoDB database server
+         ii  mongodb-org-shell                7.0.2                       amd64        MongoDB shell client
+         ii  mongodb-org-tools                7.0.2                       amd64        MongoDB tools
          ```
 
      3. Remove the installed packages:
@@ -109,26 +109,26 @@ processManagement:
          Output:
 
          ```{.text .no-copy}
-         mongodb-org-shell-7.0.0-1.el9.x86_64
-         mongodb-org-database-7.0.0-1.el9.x86_64
-         mongodb-org-7.0.0-1.el8.x86_64
+         mongodb-org-shell-7.0.2-1.el9.x86_64
+         mongodb-org-database-7.0.2-1.el9.x86_64
+         mongodb-org-7.0.2-1.el8.x86_64
          mongodb-database-tools-100.4.1-1.x86_64
-         mongodb-org-server-7.0.0-1.el9.x86_64
-         mongodb-org-mongos-7.0.0-1.el9.x86_64
-         mongodb-org-tools-7.0.0-1.el9.x86_64
+         mongodb-org-server-7.0.2-1.el9.x86_64
+         mongodb-org-mongos-7.0.2-1.el9.x86_64
+         mongodb-org-tools-7.0.2-1.el9.x86_64
          ```
 
      3. Remove the installed packages:
 
          ```{.bash data-prompt="$"}
          $ sudo yum remove \
-         mongodb-org-shell-7.0.0-1.el9.x86_64
-         mongodb-org-database-7.0.0-1.el9.x86_64
-         mongodb-org-7.0.0-1.el9.x86_64
+         mongodb-org-shell-7.0.2-1.el9.x86_64
+         mongodb-org-database-7.0.2-1.el9.x86_64
+         mongodb-org-7.0.2-1.el9.x86_64
          mongodb-database-tools-100.4.1-1.x86_64
-         mongodb-org-server-7.0.0-1.el8.x86_64
-         mongodb-org-mongos-7.0.0-1.el8.x86_64
-         mongodb-org-tools-7.0.0-1.el8.x86_64
+         mongodb-org-server-7.0.2-1.el8.x86_64
+         mongodb-org-mongos-7.0.2-1.el8.x86_64
+         mongodb-org-tools-7.0.2-1.el8.x86_64
          ```
      
      4. Remove log files:
