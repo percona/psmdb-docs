@@ -31,7 +31,7 @@ For either type of AWS IAM authentication, the flow is the following:
 4. The AWS STS service validates whether the signature is correct and answers with the user / role ARN that created the signature
 5. Percona Server for MongoDB looks for the same username as the received ARN in the `$external` database and grants privileges to access Percona Server for MongoDB as defined for the respective user.
 
-Starting with version [6.0.8-6](release_notes/6.0.8-6.md), you can [configure the AWS STS endpoint](aws-iam-setup.md#configure-aws-sts-endpoint) by specifying the `setParameter.awsStsHost` in the configuration file. This allows you to send requests to the AWS resources of your choice to meet security requirements of your organization and ensure successful authentication. 
+Starting with version [6.0.8-6](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.8-6.md), you can [configure the AWS STS endpoint](aws-iam-setup.md#configure-aws-sts-endpoint) by specifying the `setParameter.awsStsHost` in the configuration file. This allows you to send requests to the AWS resources of your choice to meet security requirements of your organization and ensure successful authentication. 
 
 !!! admonition "See also"
 
