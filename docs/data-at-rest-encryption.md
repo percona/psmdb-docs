@@ -48,7 +48,7 @@ $ mongod ... --encryptionCipherMode AES256-GCM
 
     MongoDB Documentation: [encryptionCipherMode Option](https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-encryptionciphermode)
 
-## Encrypting Rollback Files
+## Encrypting rollback files
 
 Starting from version 3.6, Percona Server for MongoDB also encrypts rollback files when data at rest encryption is enabled. To inspect the contents of these files, use **perconadecrypt**. This is a tool that you run from the command line as follows:
 

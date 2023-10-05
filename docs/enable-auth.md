@@ -53,6 +53,6 @@ To enable access control manually:
 
 !!! admonition "See also"
 
-    MongoDB Documentation: [Enable Access Control](https://www.mongodb.com/docs/v6.0/tutorial/enable-authentication/)
+    MongoDB Documentation: [Enable Access Control](https://www.mongodb.com/docs/v7.0/tutorial/enable-authentication/)
 
 

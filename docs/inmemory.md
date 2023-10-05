@@ -9,7 +9,7 @@ The Percona Memory Engine is available in Percona Server for MongoDB along with 
 
 ## Usage
 
-As of version 3.2, Percona Server for MongoDB runs with [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) by default.  You can select a
+As of version 3.2, Percona Server for MongoDB runs with [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) by default. You can select a
 storage engine using the `--storageEngine` command-line option when you start
 `mongod`.  Alternatively, you can set the `storage.engine` variable in the
 configuration file (by default, `/etc/mongod.conf`):

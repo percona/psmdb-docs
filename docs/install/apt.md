@@ -43,7 +43,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 3. Enable the repository:
 
     ```{.bash data-prompt="$"}
-    $ sudo percona-release enable psmdb-60 release
+    $ sudo percona-release enable psmdb-70 release
     ```
 
 4. Remember to update the local cache:
@@ -76,13 +76,13 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
          Sample output:
 
          ```{.bash .no-copy}
-         percona-server-mongodb | 6.0.2-1.buster | http://repo.percona.com/psmdb-60/apt buster/main amd64 Packages
+         percona-server-mongodb | 7.0.2-1.bullseye | http://repo.percona.com/psmdb-70/apt bullseye/main amd64 Packages
          ```
 
-      2. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 6.0.2-1, run the following command:
+      2. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 7.0.2-1, run the following command:
 
          ```{.bash data-prompt="$"}
-         $ sudo apt install percona-server-mongodb=6.0.2-1.buster percona-server-mongodb-mongos=6.0.2-1.buster percona-server-mongodb-shell=6.0.2-1.buster percona-server-mongodb-server=6.0.2-1.buster percona-server-mongodb-tools=6.0.2-1.buster
+         $ sudo apt install percona-server-mongodb=7.0.2-1.bullseye percona-server-mongodb-mongos=7.0.2-1.bullseye percona-server-mongodb-shell=7.0.2-1.bullseye percona-server-mongodb-server=7.0.2-1.bullseye percona-server-mongodb-tools=7.0.2-1.bullseye
          ```
 
 ## Run Percona Server for MongoDB

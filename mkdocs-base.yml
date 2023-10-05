@@ -1,13 +1,13 @@
 # MkDocs configuration for builds with material theme
 
-site_name: Percona Server for MongoDB 6.0
+site_name: Percona Server for MongoDB 7.0
 site_description: Documentation
 site_author: Percona LLC
 copyright: Percona LLC, &#169; 2023
 
 repo_name: percona/psmdb-docs
 repo_url: https://github.com/percona/psmdb-docs
-edit_uri: edit/6.0/docs/
+edit_uri: edit/7.0/docs/
 
 use_directory_urls: false
 
@@ -19,10 +19,13 @@ theme:
   custom_dir: _resource/overrides/
   font:
     text: Poppins
+  icon:
+    edit: material/file-edit-outline
+    view: material/file-eye-outline
   
   features:
     content.action.view
-    content.account.edit
+    content.action.edit
     content.code.copy
     search.highlight
     search.share
@@ -79,10 +82,16 @@ markdown_extensions:
   pymdownx.highlight:
       linenums: false
   pymdownx.inlinehilite: {}
-  pymdownx.snippets: {}
+  pymdownx.snippets:
+      base_path: ["snippets"]
+      auto_append:
+        - services-banner.md
   pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - _resource/overrides/.icons
 
        
 
@@ -106,9 +115,9 @@ plugins:
 #      glob:
 #         - file.md
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
-          output_path: '_pdf/PerconaServerforMongoDB-6.0.pdf'
-          cover_title: 'Server for MongoDB Documentation 6.0'
-          cover_subtitle: 6.0.8-6 (August 8, 2023)
+          output_path: '_pdf/PerconaServerforMongoDB-7.0.pdf'
+          cover_title: 'Server for MongoDB Documentation 7.0'
+          cover_subtitle: 7.0.2-1 (October 5, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -171,17 +180,12 @@ nav:
   - Manage PSMDB:
       - "Tune parameters": "set-parameter.md"
       - Upgrade:
-        - "Upgrade from 5.0 to 6.0": "install/upgrade-from-50.md"
+        - "Upgrade from 6.0 to 7.0": "install/upgrade-from-60.md"
         - install/upgrade-from-mongodb.md
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
-      - release_notes/6.0.8-6.md
-      - release_notes/6.0.6-5.md
-      - release_notes/6.0.5-4.md
-      - release_notes/6.0.4-3.md
-      - release_notes/6.0.3-2.md
-      - release_notes/6.0.2-1.md
+      - release_notes/7.0.2-1.md
   - glossary.md
   - copyright.md
   - trademark-policy.md 
