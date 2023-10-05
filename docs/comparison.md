@@ -1,6 +1,6 @@
 # Percona Server for MongoDB feature comparison
 
-Percona Server for MongoDB 6.0 is based on [MongoDB 6.0](https://docs.mongodb.com/manual/introduction/). Percona Server for MongoDB extends MongoDB Community Edition to include the functionality that is otherwise only available in MongoDB Enterprise Edition.
+Percona Server for MongoDB 7.0 is based on [MongoDB 7.0](https://docs.mongodb.com/manual/introduction/). Percona Server for MongoDB extends MongoDB Community Edition to include the functionality that is otherwise only available in MongoDB Enterprise Edition.
 
 |                        | PSMDB  | MongoDB  |
 |------------------------| ------ | -------- |

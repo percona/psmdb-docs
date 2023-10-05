@@ -11,11 +11,11 @@ An in-place upgrade is suitable for most environments except the ones that use e
 
 This document provides upgrade instructions for the following use cases:
 
-* [Upgrading from MongoDB 6.0 Community Edition](#upgrading-from-mongodb-60-community-edition)
+* [Upgrading from MongoDB 7.0 Community Edition](#upgrading-from-mongodb-70-community-edition)
 
 * [Minor upgrade of Percona Server for MongoDB](#minor-upgrade-of-percona-server-for-mongodb)
 
-## Upgrading from MongoDB 6.0 Community Edition
+## Upgrading from MongoDB 7.0 Community Edition
 
 !!! note 
 
@@ -57,13 +57,13 @@ processManagement:
          Output:
 
          ```{.text .no-copy}
-         ii  mongodb-org                      6.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
-         ii  mongodb-org-database             6.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
-         ii  mongodb-org-database-tools-extra 6.0.2                       amd64        Extra MongoDB database tools
-         ii  mongodb-org-mongos               6.0.2                       amd64        MongoDB sharded cluster query router
-         ii  mongodb-org-server               6.0.2                       amd64        MongoDB database server
-         ii  mongodb-org-shell                6.0.2                       amd64        MongoDB shell client
-         ii  mongodb-org-tools                6.0.2                       amd64        MongoDB tools
+         ii  mongodb-org                      7.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
+         ii  mongodb-org-database             7.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
+         ii  mongodb-org-database-tools-extra 7.0.2                       amd64        Extra MongoDB database tools
+         ii  mongodb-org-mongos               7.0.2                       amd64        MongoDB sharded cluster query router
+         ii  mongodb-org-server               7.0.2                       amd64        MongoDB database server
+         ii  mongodb-org-shell                7.0.2                       amd64        MongoDB shell client
+         ii  mongodb-org-tools                7.0.2                       amd64        MongoDB tools
          ```
 
      3. Remove the installed packages:
@@ -109,26 +109,26 @@ processManagement:
          Output:
 
          ```{.text .no-copy}
-         mongodb-org-shell-6.0.2-1.el8.x86_64
-         mongodb-org-database-6.0.0-1.el8.x86_64
-         mongodb-org-6.0.0-1.el8.x86_64
+         mongodb-org-shell-7.0.2-1.el9.x86_64
+         mongodb-org-database-7.0.2-1.el9.x86_64
+         mongodb-org-7.0.2-1.el8.x86_64
          mongodb-database-tools-100.4.1-1.x86_64
-         mongodb-org-server-6.0.2-1.el8.x86_64
-         mongodb-org-mongos-6.0.2-1.el8.x86_64
-         mongodb-org-tools-6.0.0-1.el8.x86_64
+         mongodb-org-server-7.0.2-1.el9.x86_64
+         mongodb-org-mongos-7.0.2-1.el9.x86_64
+         mongodb-org-tools-7.0.2-1.el9.x86_64
          ```
 
      3. Remove the installed packages:
 
          ```{.bash data-prompt="$"}
          $ sudo yum remove \
-         mongodb-org-shell-6.0.2-1.el8.x86_64
-         mongodb-org-database-6.0.0-1.el8.x86_64
-         mongodb-org-6.0.0-1.el8.x86_64
+         mongodb-org-shell-7.0.2-1.el9.x86_64
+         mongodb-org-database-7.0.2-1.el9.x86_64
+         mongodb-org-7.0.2-1.el9.x86_64
          mongodb-database-tools-100.4.1-1.x86_64
-         mongodb-org-server-6.0.2-1.el8.x86_64
-         mongodb-org-mongos-6.0.2-1.el8.x86_64
-         mongodb-org-tools-6.0.0-1.el8.x86_64
+         mongodb-org-server-7.0.2-1.el8.x86_64
+         mongodb-org-mongos-7.0.2-1.el8.x86_64
+         mongodb-org-tools-7.0.2-1.el8.x86_64
          ```
      
      4. Remove log files:
@@ -155,8 +155,8 @@ To upgrade a replica set or a sharded cluster, use the [rolling restart](../glos
 
     MongoDB Documentation:
 
-    * [Upgrade a Replica Set](https://docs.mongodb.com/manual/release-notes/6.0-upgrade-replica-set/)
-    * [Upgrade a Sharded Cluster](https://docs.mongodb.com/manual/release-notes/6.0-upgrade-sharded-cluster/)
+    * [Upgrade a Replica Set](https://docs.mongodb.com/manual/release-notes/7.0-upgrade-replica-set/)
+    * [Upgrade a Sharded Cluster](https://docs.mongodb.com/manual/release-notes/7.0-upgrade-sharded-cluster/)
 
 ## Minor upgrade of Percona Server for MongoDB
 

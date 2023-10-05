@@ -4,7 +4,7 @@ The steps below describe how to migrate from the key file encryption to using  H
 
 !!! note 
 
-    This is a simple guideline and it should be used for testing purposes only. We recommend to contact [Percona Consulting Services](https://www.percona.com/services/consulting) to assist you with migration in production environment.
+    This is a sample guideline and it should be used for testing purposes only. We recommend to contact [Percona Consulting Services](https://www.percona.com/services/consulting) to assist you with migration in production environment.
 
 ### Assumptions
 

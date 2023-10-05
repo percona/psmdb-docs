@@ -41,7 +41,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 2. Enable the repository: 
    
     ```{.bash data-prompt="$"}
-    $ sudo percona-release enable psmdb-60 release
+    $ sudo percona-release enable psmdb-70 release
     ```
    
     !!! admonition "See also"
@@ -73,13 +73,13 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
          ```{.bash .no-copy}
              Available Packages
          
-         percona-server-mongodb.x86_64    6.0.2-1.el8       psmdb-60-release-x86_64
+         percona-server-mongodb.x86_64    7.0.2-1.el9       psmdb-70-release-x86_64
          ```
 
-     2. Install a specific version packages. For example, to install *Percona Server for MongoDB* 6.0.2-1, run the following command:
+     2. Install a specific version packages. For example, to install *Percona Server for MongoDB* 7.0.2-1, run the following command:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-server-mongodb-6.0.2-1.el8
+        $ sudo yum install percona-server-mongodb-7.0.2-1.el9
         ```
 
 ## Run Percona Server for MongoDB

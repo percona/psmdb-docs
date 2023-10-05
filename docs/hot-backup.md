@@ -132,7 +132,7 @@ useVirtualAddressing: false}})
 
 ## Restoring data from backup
 
-### Restoring from backup on a standalone server
+### On a standalone server
 
 To restore your database on a standalone server, stop the `mongod` service, clean out the data directory and copy files from the backup directory to the data directory. The `mongod` user requires access to those files to start the service. Therefore, make the `mongod` user the owner of the data directory and all files and subdirectories under it, and restart the `mongod` service.
 
@@ -172,7 +172,7 @@ Run the following commands as root or by using the `sudo` command
     $ systemctl start mongod
     ```
 
-### Restoring from backup in a replica set
+### In a replica set
 
 The recommended way to restore the replica set from a backup is to restore it into a standalone node and then initiate it as the first member of a new replica set.
 
