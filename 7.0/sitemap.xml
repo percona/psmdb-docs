@@ -156,11 +156,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.percona.com/percona-server-for-mongodb/7.0/install/source-fips.html</loc>
-         <lastmod>2023-10-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/7.0/install/source.html</loc>
          <lastmod>2023-10-05</lastmod>
          <changefreq>daily</changefreq>
@@ -192,6 +187,11 @@
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/index.html</loc>
+         <lastmod>2023-10-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.2-1.html</loc>
          <lastmod>2023-10-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
