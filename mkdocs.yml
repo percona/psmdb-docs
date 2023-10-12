@@ -8,24 +8,21 @@ site_url: "https://docs.percona.com/percona-server-for-mongodb"
 extra:
   analytics:
     provider: google
-    property: UA-343802-3
+    property: G-J4J70BNH0G
 
 #Feedback form widget
-#    feedback:
-#         title: Was this page helpful?
-#         ratings:
-#           - icon: material/heart
-#             name: This page was helpful
-#             data: 1
-#             note: >-
-#               Thanks for your feedback!
-#           - icon: material/heart-broken
-#             name: This page could be improved
-#             data: 0
-#             note: >- 
-#               Thanks for your feedback! Help us improve this page by
-#               using our <a href="https://forms.gle/B5ura1rZEF6P8tdv9" target=_blank>feedback form</a>.
+    feedback:
+         title: Was this page helpful?
+         ratings:
+           - icon: material/emoticon-happy-outline
+             name: This page was helpful
+             data: 1
+             note: >-
+               Thanks for your feedback!
+           - icon: material/emoticon-sad-outline
+             name: This page could be improved
+             data: 0
+             note: >- 
+               Thanks for your feedback! Help us improve this page by
+               using our <a href="https://docs.google.com/forms/d/1bkWACehjqlwA0AKf-qTJcXvYbOSYgze8iTPXjntqmNo/edit" target="_blank" rel="noopener">feedback form</a>.
 
-
-plugins:
-  section-index: {}
