@@ -146,3 +146,31 @@ section {
 [data-grid] .md-button {
     margin: 0.5em 0.25em 0 0;
 }
+
+/* Custom highlights */
+i[info],
+i[warning] {
+    font-style: normal;
+    font-weight: bold;
+    display: inline-block;
+    padding: 0 0.25em;
+    border-radius: 0.2em;
+}
+i[info] {
+    background-color: #00b8d41a;
+    border-width: 0.05rem;
+    border-style: solid;
+    border-color: #00b8d41a;
+}
+i[info] [class*="moji"] {
+    color: #00b8d4;
+}
+i[warning] {
+    background-color: #ff91001a;
+    border-width: 0.05rem;
+    border-style: solid;
+    border-color: #ff91001a;
+}
+i[warning] [class*="moji"] {
+    color: #ff9100;
+}
