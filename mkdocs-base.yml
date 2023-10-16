@@ -3,7 +3,8 @@
 site_name: Percona Server for MongoDB 4.4
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2023
+copyright: >
+  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2023 — <a href="#__consent">Cookie Consent</a>
 
 repo_name: percona/psmdb-docs
 repo_url: https://github.com/percona/psmdb-docs
@@ -22,7 +23,7 @@ theme:
   
   features:
     content.action.view
-    content.account.edit
+    content.action.edit
     content.code.copy
     search.highlight
     search.share
@@ -89,10 +90,16 @@ markdown_extensions:
   pymdownx.highlight:
       linenums: false
   pymdownx.inlinehilite: {}
-  pymdownx.snippets: {}
+  pymdownx.snippets:
+      base_path: ["snippets"]
+      auto_append:
+        - services-banner.md
   pymdownx.emoji:
-#      emoji_index: !!python/name:materialx.emoji.twemoji
-#      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - _resource/overrides/.icons
 
 plugins:
 #  section-index: {}
