@@ -27,7 +27,7 @@ Starting with version 6.0.2-1, the `kmipKeyIdentifier` option is no longer manda
 | kmipRotateMasterKey| security.kmip.<br>rotateMasterKey | boolean| Controls master keys rotation. When enabled, generates the new master key and re-encrypts the keystore.|
 | kmipClientCertificatePassword| security.kmip.<br>clientCertificatePassword | string| The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted.|
 | kmipConnectRetries| security.kmip.<br>connectRetries| Defines how many times to retry the initial connection to the KMIP server. The max number of retries equals to `connectRetries + 1`. Use it together with the `connectTimeoutMS` parameter to control how long `mongod` waits for the response before making the next retry.|
-| kmipConnectTimeoutMS|security.kmip.<br>ConnectTimeoutMS| The time to wait for the response from the KMIP server. If the `connectRetries` setting is specified, the `mongod` waits up to the value specified with `connectTimeoutMS` for each retry.|
+| kmipConnectTimeoutMS|security.kmip.<br>connectTimeoutMS| The time to wait for the response from the KMIP server. If the `connectRetries` setting is specified, the `mongod` waits up to the value specified with `connectTimeoutMS` for each retry.|
 
 ## Key rotation
 
