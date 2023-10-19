@@ -1820,6 +1820,18 @@
 <td>string</td>
 <td>The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted.</td>
 </tr>
+<tr>
+<td>kmipConnectRetries</td>
+<td>security.kmip.<br>connectRetries</td>
+<td>int</td>
+<td>Defines how many times to retry the initial connection to the KMIP server. The max number of connection attempts equals to <code>connectRetries + 1</code>. Default: 0. The option accepts values greater than zero. <br><br>Use it together with the <code>connectTimeoutMS</code> parameter to control how long <code>mongod</code> waits for the response before making the next retry.</td>
+</tr>
+<tr>
+<td>kmipConnectTimeoutMS</td>
+<td>security.kmip.<br>connectTimeoutMS</td>
+<td>int</td>
+<td>The time to wait for the response from the KMIP server. Min value: 1000. Default: 5000. <br><br>If the <code>connectRetries</code> setting is specified, the <code>mongod</code> waits up to the value specified with <code>connectTimeoutMS</code> for each retry.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="key-rotation">Key rotation<a class="headerlink" href="#key-rotation" title="Permanent link">&para;</a></h2>
@@ -1861,7 +1873,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 25, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 19, 2023</span>
       
         <br>
         Created:
