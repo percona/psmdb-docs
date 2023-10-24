@@ -67,7 +67,8 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
 
      6. Verify that the configuration file includes correct options:
 
-         * Copy the required configuration options like custom dbPath/system log path, additional security/replication or sharding options from the backup configuration file (`/etc/mongod.conf`) to the current one `/etc/mongodb.conf`. 
+         * Copy the required configuration options like custom dbPath/system log path, additional security/replication or sharding options from the backup configuration file (`/etc/mongod.conf.bkp`) to the current one `/etc/mongodb.conf`. 
+
          * Make sure that the `mongod` user has access to your custom paths. If not, provide it as follows:
 
             ```{.bash data-prompt="$"}
@@ -88,7 +89,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
      7. Restart the `mongod` service:
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl start mongod
+         $ sudo systemctl restart mongod
          ```
 
 === "Upgrade on Red Hat Enterprise Linux and derivatives"
@@ -155,7 +156,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
      6. Restart the `mongod` service:
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl start mongod
+         $ sudo systemctl restart mongod
          ```
 
 To upgrade a replica set or a sharded cluster, use the [rolling restart](../glossary.md#rolling-restart) method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.
