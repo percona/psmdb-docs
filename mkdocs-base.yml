@@ -191,7 +191,8 @@ nav:
       - "Tune parameters": "set-parameter.md"
       - Upgrade:
         - "Upgrade from 4.4 to 5.0": "install/upgrade-from-44.md"
-        - install/upgrade-from-mongodb.md
+        - "Upgrade from MongoDB Community": "install/upgrade-from-mongodb.md"
+        - install/minor-upgrade.md
       - install/uninstall.md
   - Release notes:
       - Release notes index: release_notes/index.md
