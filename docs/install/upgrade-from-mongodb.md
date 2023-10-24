@@ -87,7 +87,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
      7. Restart the `mongod` service:
 
          ```{.bash data-prompt="$"}
-         $ sudo systemctl start mongod
+         $ sudo systemctl restart mongod
          ```
 
 === "Upgrade on Red Hat Enterprise Linux and derivatives"
