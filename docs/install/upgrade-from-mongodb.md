@@ -66,7 +66,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
 
      6. Verify that the configuration file includes correct options:
 
-         * Copy the required configuration options like custom dbPath/system log path, additional security/replication or sharding options from the backup configuration file (`/etc/mongod.conf`) to the current one `/etc/mongodb.conf`. 
+         * Copy the required configuration options like custom dbPath/system log path, additional security/replication or sharding options from the backup configuration file (`/etc/mongod.conf.bkp`) to the current one `/etc/mongodb.conf`. 
          * Make sure that the `mongod` user has access to your custom paths. If not, provide it as follows:
 
             ```{.bash data-prompt="$"}
