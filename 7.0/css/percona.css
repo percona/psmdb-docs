@@ -143,6 +143,36 @@ section {
     margin: 0.5em 0.25em 0 0;
 }
 
+<<<<<<< HEAD
 /*.git-revision-date-localized-plugin:before {
   content: url('https://api.iconify.design/mdi/clock-edit-outline.svg');
 }*/
+=======
+/* Custom highlights */
+i[info],
+i[warning] {
+    font-style: normal;
+    font-weight: bold;
+    display: inline-block;
+    padding: 0 0.25em;
+    border-radius: 0.2em;
+}
+i[info] {
+    background-color: #00b8d41a;
+    border-width: 0.05rem;
+    border-style: solid;
+    border-color: #00b8d41a;
+}
+i[info] [class*="moji"] {
+    color: #00b8d4;
+}
+i[warning] {
+    background-color: #ff91001a;
+    border-width: 0.05rem;
+    border-style: solid;
+    border-color: #ff91001a;
+}
+i[warning] [class*="moji"] {
+    color: #ff9100;
+}
+>>>>>>> 791e1f2e... PSMDB-1091 Extended the step about using custom db data and log paths

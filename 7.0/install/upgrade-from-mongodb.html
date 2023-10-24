@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An in-place upgrade is done by keeping the existing data in the server. It involves changing out the MongoDB binaries. Generally speaking, the upgrade steps include:">
+        <meta name="description" content="This document provides instructions for an in-place upgrade from MongoDB Community Edition to Percona Server for MongoDB.">
       
       
         <meta name="author" content="Percona LLC">
@@ -20,22 +20,22 @@
         <link rel="prev" href="upgrade-from-60.html">
       
       
-        <link rel="next" href="uninstall.html">
+        <link rel="next" href="minor-upgrade.html">
       
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.3">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
     
     
       
-        <title>Upgrade Percona Server for MongoDB - Percona Server for MongoDB 7.0</title>
+        <title>Upgrade from MongoDB Community - Percona Server for MongoDB 7.0</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.79e020e9.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.35e1ed30.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a5377069.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -88,7 +88,7 @@
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 7.0 - Upgrade Percona Server for MongoDB" />
+<meta property="og:title" content="Percona Server for MongoDB 7.0 - Upgrade from MongoDB Community" />
 <meta property="og:image" content="https://docs.percona.com/percona-distribution-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
 </head>
@@ -118,7 +118,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upgrade-percona-server-for-mongodb" class="md-skip">
+        <a href="#upgrade-from-mongodb-community-edition-to-percona-server-for-mongodb" class="md-skip">
           Skip to content
         </a>
       
@@ -157,7 +157,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upgrade Percona Server for MongoDB
+              Upgrade from MongoDB Community
             
           </span>
         </div>
@@ -1269,7 +1269,7 @@
           
   
   <span class="md-ellipsis">
-    Upgrade Percona Server for MongoDB
+    Upgrade from MongoDB Community
   </span>
   
 
@@ -1280,7 +1280,7 @@
         
   
   <span class="md-ellipsis">
-    Upgrade Percona Server for MongoDB
+    Upgrade from MongoDB Community
   </span>
   
 
@@ -1304,28 +1304,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#upgrading-from-mongodb-70-community-edition" class="md-nav__link">
-    Upgrading from MongoDB 7.0 Community Edition
-  </a>
-  
-    <nav class="md-nav" aria-label="Upgrading from MongoDB 7.0 Community Edition">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#minor-upgrade-of-percona-server-for-mongodb" class="md-nav__link">
-    Minor upgrade of Percona Server for MongoDB
+  <a href="#procedure" class="md-nav__link">
+    Procedure
   </a>
   
 </li>
@@ -1348,6 +1328,26 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="minor-upgrade.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Minor upgrade of Percona Server for MongoDB
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1563,28 +1563,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#upgrading-from-mongodb-70-community-edition" class="md-nav__link">
-    Upgrading from MongoDB 7.0 Community Edition
-  </a>
-  
-    <nav class="md-nav" aria-label="Upgrading from MongoDB 7.0 Community Edition">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#minor-upgrade-of-percona-server-for-mongodb" class="md-nav__link">
-    Minor upgrade of Percona Server for MongoDB
+  <a href="#procedure" class="md-nav__link">
+    Procedure
   </a>
   
 </li>
@@ -1634,46 +1614,29 @@
   
 
 
-<h1 id="upgrade-percona-server-for-mongodb">Upgrade Percona Server for MongoDB<a class="headerlink" href="#upgrade-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
-<p>An in-place upgrade is done by keeping the existing data in the server. It involves changing out the MongoDB binaries. Generally speaking, the upgrade steps include:</p>
-<ol>
-<li>Stopping the <code>mongod</code> service</li>
-<li>Removing the old binaries</li>
-<li>Installing the new server version binaries</li>
-<li>Restarting the <code>mongod</code> service with the same <code>dbpath</code> data directory.</li>
-</ol>
+<h1 id="upgrade-from-mongodb-community-edition-to-percona-server-for-mongodb">Upgrade from MongoDB Community Edition to Percona Server for MongoDB<a class="headerlink" href="#upgrade-from-mongodb-community-edition-to-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
+<p>This document provides instructions for an in-place upgrade from MongoDB Community Edition to Percona Server for MongoDB.</p>
+<p>An in-place upgrade is done by keeping the existing data in the server and replacing the MongoDB binaries. Afterwards, you restart the <code>mongod</code> service with the same <code>dbpath</code> data directory.</p>
 <p>An in-place upgrade is suitable for most environments except the ones that use ephemeral storage and/or host addresses.</p>
-<p>This document provides upgrade instructions for the following use cases:</p>
-<ul>
-<li>
-<p><a href="#upgrading-from-mongodb-70-community-edition">Upgrading from MongoDB 7.0 Community Edition</a></p>
-</li>
-<li>
-<p><a href="#minor-upgrade-of-percona-server-for-mongodb">Minor upgrade of Percona Server for MongoDB</a></p>
-</li>
-</ul>
-<h2 id="upgrading-from-mongodb-70-community-edition">Upgrading from MongoDB 7.0 Community Edition<a class="headerlink" href="#upgrading-from-mongodb-70-community-edition" title="Permanent link">&para;</a></h2>
+<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>MongoDB creates a user that belongs to two groups, which is a potential security risk.  This is fixed in Percona Server for MongoDB: the user is included only in the <code>mongod</code> group.  To avoid problems with current MongoDB setups, existing user group membership is not changed when you migrate to Percona Server for MongoDB.  Instead, a new <code>mongod</code> user is created during installation, and it belongs to the <code>mongod</code> group.</p>
+<p>MongoDB creates a user that belongs to two groups, which is a potential security risk. This is fixed in Percona Server for MongoDB: the user is included only in the <code>mongod</code> group. To avoid problems with current MongoDB setups, existing user group membership is not changed when you migrate to Percona Server for MongoDB.  Instead, a new <code>mongod</code> user is created during installation, and it belongs to the <code>mongod</code> group.</p>
 </div>
-<p>This section describes an in-place upgrade of a <code>mongod</code> instance. If you are using data at rest encryption, refer to the <a href="#upgrading-to-percona-server-for-mongodb-with-data-at-rest-encryption-enabled">Upgrading to Percona Server for MongoDB with data at rest encryption enabled</a> section.</p>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
-<p>Before you start the upgrade, update the MongoDB configuration file
-(<code>/etc/mongod.conf</code>) to contain the following settings.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">processManagement</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">fork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">   </span><span class="nt">pidFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/mongod.pid</span>
-</code></pre></div>
-<p><strong>Troubleshooting tip</strong>: The <code>pidFilePath</code> setting in <code>mongod.conf</code> must  match the <code>PIDFile</code> option in the <code>systemd mongod</code> service unit. Otherwise, the service will kill the <code>mongod</code> process after a timeout.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<p>This procedure describes an in-place upgrade of a <code>mongod</code> instance. If you are using data at rest encryption, refer to the <a href="upgrading-to-percona-server-for-mongodb-with-data-at-rest-encryption-enabled">Upgrading to Percona Server for MongoDB with data at rest encryption enabled</a> section.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>Before starting the upgrade, we recommend to perform a full backup of your data.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Upgrade on Debian and Ubuntu</label><label for="__tabbed_1_2">Upgrade on Red Hat Enterprise Linux and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
+<li>
+<p>Save the current configuration file as the backup:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>/etc/mongod.conf<span class="w"> </span>/etc/mongod.conf.bkp
+</code></pre></div>
+</li>
 <li>
 <p>Stop the <code>mongod</code> service:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
@@ -1704,18 +1667,30 @@ ii  mongodb-org-tools                7.0.2                       amd64        Mo
 </code></pre></div>
 </li>
 <li>
-<p>Remove log files:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span>/var/log/mongodb
-</code></pre></div>
-</li>
-<li>
 <p><a href="apt.html">Install Percona Server for MongoDB</a></p>
 </li>
 <li>
-<p>Verify that the configuration file includes the correct options. For example, Percona Server for MongoDB stores data files in /var/lib/mongodb by default. If you used another dbPath data directory, edit the configuration file accordingly</p>
+<p>Verify that the configuration file includes correct options:</p>
+<ul>
+<li>Copy the required configuration options like custom dbPath/system log path, additional security/replication or sharding options from the backup configuration file (<code>/etc/mongod.conf</code>) to the current one <code>/etc/mongodb.conf</code>. </li>
+<li>
+<p>Make sure that the <code>mongod</code> user has access to your custom paths. If not, provide it as follows:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;custom-dbPath&gt;
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;custom-systemLog.path&gt;
+</code></pre></div>
 </li>
 <li>
-<p>Start the <code>mongod</code> service:</p>
+<p>Make sure the configuration file includes the following configuration:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">processManagement</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">fork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">   </span><span class="nt">pidFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/mongod.pid</span>
+</code></pre></div>
+<p><strong>Troubleshooting tip</strong>: The <code>pidFilePath</code> setting in <code>mongod.conf</code> must match the <code>PIDFile</code> option in the <code>systemd mongod</code> service unit. Otherwise, the service will kill the <code>mongod</code> process after a timeout.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Restart the <code>mongod</code> service:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
@@ -1755,19 +1730,30 @@ mongodb-org-tools-7.0.2-1.el8.x86_64
 </code></pre></div>
 </li>
 <li>
-<p>Remove log files:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-r<span class="w"> </span>/var/log/mongodb
+<p><a href="yum.html">Install Percona Server for MongoDB</a></p>
+</li>
+<li>
+<p>Verify that the configuration file includes correct options:</p>
+<ul>
+<li>When you remove old packages, your existing configuration file is saved as <code>/etc/mongod.conf.rpmsave</code>. Copy the required configuration options like custom dbPath/system log path, additional security/replication or sharding options from the backup configuration file (<code>/etc/mongod.conf.rpmsave</code>) to the current one <code>/etc/mongodb.conf</code>.</li>
+<li>
+<p>Make sure that the <code>mongod</code> user has access to your custom paths. If not, provide it as follows:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;custom-dbPath&gt;
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;custom-systemLog.path&gt;
 </code></pre></div>
 </li>
 <li>
-<p><a href="yum.html">Install Percona Server for MongoDB</a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When you remove old packages, your existing configuration file is saved as <code>/etc/mongod.conf.rpmsave</code>. If you want to use this configuration with the new version, replace the default <code>/etc/mongod.conf</code> file. For example, existing data may not be compatible with the default WiredTiger storage engine.</p>
-</div>
+<p>Make sure the configuration file includes the following configuration:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">processManagement</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">fork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">   </span><span class="nt">pidFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/mongod.pid</span>
+</code></pre></div>
+<p><strong>Troubleshooting tip</strong>: The <code>pidFilePath</code> setting in <code>mongod.conf</code> must match the <code>PIDFile</code> option in the <code>systemd mongod</code> service unit. Otherwise, the service will kill the <code>mongod</code> process after a timeout.</p>
+</li>
+</ul>
 </li>
 <li>
-<p>Start the <code>mongod</code> service:</p>
+<p>Restart the <code>mongod</code> service:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
@@ -1784,24 +1770,6 @@ mongodb-org-tools-7.0.2-1.el8.x86_64
 <li><a href="https://docs.mongodb.com/manual/release-notes/7.0-upgrade-sharded-cluster/">Upgrade a Sharded Cluster</a></li>
 </ul>
 </div>
-<h2 id="minor-upgrade-of-percona-server-for-mongodb">Minor upgrade of Percona Server for MongoDB<a class="headerlink" href="#minor-upgrade-of-percona-server-for-mongodb" title="Permanent link">&para;</a></h2>
-<p>To upgrade Percona Server for MongoDB to the latest version, follow these steps:</p>
-<ol>
-<li>
-<p>Stop the <code>mongod</code> service:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
-</code></pre></div>
-</li>
-<li>
-<p><a href="index.html">Install the latest version packages</a>. Use the command relevant to your operating system.</p>
-</li>
-<li>
-<p>Start the <code>mongod</code> service:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
-</code></pre></div>
-</li>
-</ol>
-<p>To upgrade a replica set or a sharded cluster, use the <a href="../glossary.html#term-Rolling-restart">rolling restart</a> method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.</p>
 <h2 id="upgrading-to-percona-server-for-mongodb-with-data-at-rest-encryption-enabled">Upgrading to Percona Server for MongoDB with data at rest encryption enabled<a class="headerlink" href="#upgrading-to-percona-server-for-mongodb-with-data-at-rest-encryption-enabled" title="Permanent link">&para;</a></h2>
 <p>Steps to upgrade from MongoDB 6.0 Community Edition with data encryption enabled to Percona Server for MongoDB are different. <code>mongod</code> requires an empty <code>dbPath</code> data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the <a href="../inmemory.html#switching-storage-engines">Switching storage engines</a> for more information on migration of encrypted data. <a href="https://www.percona.com/about-percona/contact#us">Contact us</a> for working at the detailed migration steps, if further assistance is needed.</p>
 <div data-banner="data-banner">
@@ -1819,7 +1787,7 @@ mongodb-org-tools-7.0.2-1.el8.x86_64
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 5, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2023</span>
       
         <br>
         Created:
@@ -1984,10 +1952,10 @@ mongodb-org-tools-7.0.2-1.el8.x86_64
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.6eac0284.min.js"></script>
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       
