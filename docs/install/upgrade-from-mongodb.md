@@ -155,7 +155,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
     6. Restart the `mongod` service:
 
         ```{.bash data-prompt="$"}
-        $ sudo systemctl start mongod
+        $ sudo systemctl restart mongod
         ```
 
 To upgrade a replica set or a sharded cluster, use the [rolling restart](../glossary.md#rolling-restart) method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.
