@@ -188,5 +188,6 @@ nav:
       - "Release notes index": "release_notes/index.md"
       - release_notes/7.0.2-1.md
   - glossary.md
+  - "Telemetry": telemetry.md
   - copyright.md
   - trademark-policy.md 
