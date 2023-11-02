@@ -28,6 +28,8 @@ Starting with version 5.0.11-10, the `kmipKeyIdentifier` option is no longer man
 | kmipKeyIdentifier| security.kmip.<br>keyIdentifier | string| Optional starting with version 5.0.11-10. The identifier of the KMIP key. If not specified, the database server creates a key on the KMIP server and saves its identifier internally for future use. When you specify the identifier, the key with such an ID must exist on the key storage. You can only use this setting for the first time you enable encryption.|
 | kmipRotateMasterKey|security.kmip.<br>rotateMasterKey | boolean| Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 5.0.8-7. |
 | kmipClientCertificatePassword| security.kmip.<br>clientCertificatePassword | string| The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 5.0.9-8.|
+| kmipConnectRetries| security.kmip.<br>connectRetries| int| Defines how many times to retry the initial connection to the KMIP server. The max number of connection attempts equals to `connectRetries + 1`. Default: 0. The option accepts values greater than zero. <br><br>Use it together with the `connectTimeoutMS` parameter to control how long `mongod` waits for the response before making the next retry.|
+| kmipConnectTimeoutMS|security.kmip.<br>connectTimeoutMS| int | The time to wait for the response from the KMIP server. Min value: 1000. Default: 5000. <br><br>If the `connectRetries` setting is specified, the `mongod` waits up to the value specified with `connectTimeoutMS` for each retry.|
 
 # Key rotation
 
