@@ -16,9 +16,9 @@ Community users can receive these solutions by [building Percona Server for Mong
 
     === "On Debian and Ubuntu"
 
-        1. Create the `/etc/apt/sources.list.d/percona-eol.list` configuration file with the following contents
+        1. Create the `/etc/apt/sources.list.d/psmdb-pro` configuration file with the following contents
 
-            ```ini title="/etc/apt/sources.list.d/percona-eol.list"
+            ```ini title="/etc/apt/sources.list.d/psmdb-pro"
             deb http://repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-60/apt/ jammy main
             ```
         2. Update the local cache

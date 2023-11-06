@@ -169,7 +169,7 @@ To use the build script you need the following:
 2. Navigate to the build folder and download the build script. Replace the `<tag>` placeholder with the required version of Percona Server for MongoDB:
 
     ```{.bash data-prompt="$"}
-    $ wget https://raw.githubusercontent.com/percona/percona-server-mongodb/Percona Server for MongoDB-<tag>/percona-packaging/scripts/Percona Server for MongoDB_builder.sh -O Percona Server for MongoDB_builder.sh 
+    $ wget https://raw.githubusercontent.com/percona/percona-server-mongodb/Percona Server for MongoDB-<tag>/percona-packaging/scripts/Percona_Server_for_MongoDB_builder.sh -O Percona_Server_for_MongoDB_builder.sh 
     ```
 
 ### Build steps
@@ -183,25 +183,24 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
     === "Basic build"    
 
         ```{.bash data-prompt="$"}
-        $ docker run -ti -u root -v /tmp/Percona Server for MongoDB:/tmp/Percona Server for MongoDB rhel:9 sh -c '
+        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb rhel:9 sh -c '
         set -o xtrace
-        cd /tmp/Percona Server for MongoDB
-        bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --install_deps=1
-        bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --repo=https://github.com/percona/percona-server-mongodb.git \
-        --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=Percona Server for MongoDB-3.2.11-3.1 --get_sources=1
+        cd /tmp/psmdb
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+        --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --get_sources=1
         '
         ```    
 
     === "Pro build"    
 
         ```{.bash data-prompt="$"}
-        $ docker run -ti -u root -v /tmp/Percona Server for MongoDB:/tmp/Percona Server for MongoDB rhel:9 sh -c '
+        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb rhel:9 sh -c '
         set -o xtrace
-        cd /tmp/Percona Server for MongoDB
-        bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --install_deps=1
-        bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --repo=https://github.com/percona/percona-server-mongodb.git \
-        --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --enable_fipsmode=1 \
-        --jemalloc_tag=Percona Server for MongoDB-3.2.11-3.1 --get_sources=1
+        cd /tmp/psmdb
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+        --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --enable_fipsmode=1 --jemalloc_tag=psmdb-3.2.11-3.1 --get_sources=1
         '
         ```    
 
@@ -216,7 +215,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 2. Check that tarballs are built:
 
     ```{.bash data-prompt="$"}
-    $ ls -la /tmp/Percona Server for MongoDB/test/source_tarball/
+    $ ls -la /tmp/psmdb/test/source_tarball/
     ```
 
     Sample output:
@@ -233,19 +232,19 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
     === "DEB"
 
         ```{.bash data-prompt="$"}
-        $ docker run -ti -u root -v /tmp/Percona Server for MongoDB:/tmp/Percona Server for MongoDB ubuntu:jammy sh -c '
+        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
         set -o xtrace
-        cd /tmp/Percona Server for MongoDB
-        bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --install_deps=1
-        bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --repo=https://github.com/percona/percona-server-mongodb.git \
-        --branch=release-6.0.6-5 --psm_ver=6.0.6--psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=Percona Server for MongoDB-3.2.11-3.1 --build_src_deb=1
+        cd /tmp/psmdb
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+        --branch=release-6.0.6-5 --psm_ver=6.0.6--psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_deb=1
         '
         ```
 
         Check that source packages are created
 
         ```{.bash data-prompt="$"}
-        $ ls -la /tmp/Percona Server for MongoDB/test/source_deb/
+        $ ls -la /tmp/psmdb/test/source_deb/
         ```
 
         Sample output:
@@ -257,19 +256,19 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
     === "RPM"
 
         ```{.bash data-prompt="$"}
-        $ docker run -ti -u root -v /tmp/Percona Server for MongoDB:/tmp/Percona Server for MongoDB ubuntu:jammy sh -c '
+        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
         set -o xtrace
-        cd /tmp/Percona Server for MongoDB
-        bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --install_deps=1
-        bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --repo=https://github.com/percona/percona-server-mongodb.git \
-        --branch=release-6.0.6-5 --psm_ver=6.0.6--psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=Percona Server for MongoDB-3.2.11-3.1 --build_src_rpm=1
+        cd /tmp/psmdb
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+        --branch=release-6.0.6-5 --psm_ver=6.0.6--psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_rpm=1
         '
         ```
 
         Check that source packages are created
 
         ```{.bash data-prompt="$"}
-        $ ls -la /tmp/Percona Server for MongoDB/test/srpm/
+        $ ls -la /tmp/psmdb/test/srpm/
         ```
 
         Sample output:
@@ -285,19 +284,19 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
         === "DEB"
 
             ```{.bash data-prompt="$"}
-            $ docker run -ti -u root -v /tmp/Percona Server for MongoDB:/tmp/Percona Server for MongoDB ubuntu:jammy sh -c '
+            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
             set -o xtrace
-            cd /tmp/Percona Server for MongoDB
-            bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --install_deps=1
-            bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=Percona Server for MongoDB-3.2.11-3.1 --build_deb=1
+            cd /tmp/psmdb
+            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+            --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_deb=1
             '
             ```
 
             Check that source packages are created
 
             ```{.bash data-prompt="$"}
-            $ ls -la /tmp/Percona Server for MongoDB/test/deb/
+            $ ls -la /tmp/psmdb/test/deb/
             ```
 
             Sample output:
@@ -313,19 +312,19 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
         === "RPM"
 
             ```{.bash data-prompt="$"}
-            $ docker run -ti -u root -v /tmp/Percona Server for MongoDB:/tmp/Percona Server for MongoDB ubuntu:jammy sh -c '
+            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
             set -o xtrace
-            cd /tmp/Percona Server for MongoDB
-            bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --install_deps=1
-            bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=Percona Server for MongoDB-3.2.11-3.1 --build_rpm=1
+            cd /tmp/psmdb
+            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+            --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_rpm=1
             '
             ```
 
             Check that source packages are created
 
             ```{.bash data-prompt="$"}
-            $ ls -la /tmp/Percona Server for MongoDB/test/srpm/
+            $ ls -la /tmp/psmdb/test/srpm/
             ```
 
             Sample output:
@@ -346,20 +345,19 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
         === "DEB"
 
             ```{.bash data-prompt="$"}
-            $ docker run -ti -u root -v /tmp/Percona Server for MongoDB:/tmp/Percona Server for MongoDB ubuntu:jammy sh -c '
+            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
             set -o xtrace
-            cd /tmp/Percona Server for MongoDB
-            bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --install_deps=1
-            bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --enable_fipsmode=1\
-            --jemalloc_tag=Percona Server for MongoDB-3.2.11-3.1 --build_deb=1
+            cd /tmp/psmdb
+            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+            --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --enable_fipsmode=1 --jemalloc_tag=psmdb-3.2.11-3.1 --build_deb=1
             '
             ```
 
             Check that source packages are created
 
             ```{.bash data-prompt="$"}
-            $ ls -la /tmp/Percona Server for MongoDB/test/deb/
+            $ ls -la /tmp/psmdb/test/deb/
             ```
 
             Sample output:
@@ -375,20 +373,19 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
         === "RPM"
 
             ```{.bash data-prompt="$"}
-            $ docker run -ti -u root -v /tmp/Percona Server for MongoDB:/tmp/Percona Server for MongoDB ubuntu:jammy sh -c '
+            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
             set -o xtrace
-            cd /tmp/Percona Server for MongoDB
-            bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --install_deps=1
-            bash -x ./Percona Server for MongoDB_builder.sh --builddir=/tmp/Percona Server for MongoDB/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --enable_fipsmode=1\
-            --jemalloc_tag=Percona Server for MongoDB-3.2.11-3.1 --build_rpm=1
+            cd /tmp/psmdb
+            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+            --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --enable_fipsmode=1 --jemalloc_tag=psmdb-3.2.11-3.1 --build_rpm=1
             '
             ```
 
             Check that source packages are created
 
             ```{.bash data-prompt="$"}
-            $ ls -la /tmp/Percona Server for MongoDB/test/srpm/
+            $ ls -la /tmp/psmdb/test/srpm/
             ```
 
             Sample output:
