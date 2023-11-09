@@ -25,15 +25,15 @@
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
-        <title>Using the Key Management Interoperability Protocol (KMIP) - Percona Server for MongoDB 5.0</title>
+        <title>Use KMIP - Percona Server for MongoDB 5.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.35e1ed30.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.4b4a2bd9.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.356b1318.min.css">
@@ -88,7 +88,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Server for MongoDB 5.0 - Using the Key Management Interoperability Protocol (KMIP)" />
+                 <meta property="og:title" content="Percona Server for MongoDB 5.0 - Use KMIP" />
                  <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/5.0/_images/mongodb.png">
                  <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
                 </head>
@@ -155,7 +155,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using the Key Management Interoperability Protocol (KMIP)
+              Use KMIP
             
           </span>
         </div>
@@ -966,7 +966,7 @@
         
   
   <span class="md-ellipsis">
-    HashiCorp Vault integration
+    Use Vault
   </span>
   
 
@@ -995,7 +995,7 @@
           
   
   <span class="md-ellipsis">
-    Using the Key Management Interoperability Protocol (KMIP)
+    Use KMIP
   </span>
   
 
@@ -1006,7 +1006,7 @@
         
   
   <span class="md-ellipsis">
-    Using the Key Management Interoperability Protocol (KMIP)
+    Use KMIP
   </span>
   
 
@@ -1055,7 +1055,7 @@
         
   
   <span class="md-ellipsis">
-    Local key management using a keyfile
+    Use local keyfile
   </span>
   
 
@@ -1075,7 +1075,7 @@
         
   
   <span class="md-ellipsis">
-    Migrating from key file encryption to HashiCorp Vault encryption
+    Migrate from keyfile to Vault
   </span>
   
 
@@ -1414,6 +1414,26 @@
   
   <span class="md-ellipsis">
     Release notes index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release_notes/5.0.22-19.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 5.0.22-19 (2023-11-09)
   </span>
   
 
@@ -1815,6 +1835,25 @@
   
   
     <li class="md-nav__item">
+      <a href="telemetry.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telemetry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
       <a href="copyright.html" class="md-nav__link">
         
   
@@ -1988,6 +2027,18 @@
 <td>string</td>
 <td>The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 5.0.9-8.</td>
 </tr>
+<tr>
+<td>kmipConnectRetries</td>
+<td>security.kmip.<br>connectRetries</td>
+<td>int</td>
+<td>Defines how many times to retry the initial connection to the KMIP server. The max number of connection attempts equals to <code>connectRetries + 1</code>. Default: 0. The option accepts values greater than zero. <br><br>Use it together with the <code>connectTimeoutMS</code> parameter to control how long <code>mongod</code> waits for the response before making the next retry.</td>
+</tr>
+<tr>
+<td>kmipConnectTimeoutMS</td>
+<td>security.kmip.<br>connectTimeoutMS</td>
+<td>int</td>
+<td>The time to wait for the response from the KMIP server. Min value: 1000. Default: 5000. <br><br>If the <code>connectRetries</code> setting is specified, the <code>mongod</code> waits up to the value specified with <code>connectTimeoutMS</code> for each retry.</td>
+</tr>
 </tbody>
 </table>
 <h1 id="key-rotation">Key rotation<a class="headerlink" href="#key-rotation" title="Permanent link">&para;</a></h1>
@@ -2037,7 +2088,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 24, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 9, 2023</span>
       
         <br>
         Created:
@@ -2213,7 +2264,7 @@
     <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "search.suggest", "search.share", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.aecac24b.min.js"></script>
+      <script src="assets/javascripts/bundle.81fa17fe.min.js"></script>
       
         <script src="js/version-select.js"></script>
       
