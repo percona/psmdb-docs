@@ -1,6 +1,6 @@
 # Installing Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS
 
-This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives.
+This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. We gather [Telemetry data](telemetry.md) to understand the use of the software and improve our products.
 
 !!! note
 
