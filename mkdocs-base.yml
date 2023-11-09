@@ -180,7 +180,7 @@ nav:
       - Encryption:
         - "Data at rest encryption": "data-at-rest-encryption.md"
         - "Use Vault": vault.md
-        - "Use KMIP" :kmip.md
+        - "Use KMIP": kmip.md
         - "Use local keyfile": keyfile.md
         - "Migrate from keyfile to Vault": encryption-mode-switch.md
       - audit-logging.md 
