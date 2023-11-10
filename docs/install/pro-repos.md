@@ -1,12 +1,6 @@
-# Install Percona Server for MongoDB Pro
+# Install Pro packages of Percona Server for MongoDB
 
-This document provides guidelines how to install Percona Server for MongoDB Pro packages from Percona repositories. 
-
-Percona Server for MongoDB Pro packages include solutions typically demanded by large enterprises such as [FIPS compliance module](../fips.md) out of the box. Pro packages are available to Percona Customers. 
-
-[Become Percona Customer](https://www.percona.com/about/contact){.md-button}
-
-Community users can receive these solutions by [building Percona Server for MongoDB from source code](source.md).  
+This document provides guidelines how to install Pro packages of Percona Server for MongoDB from Percona repositories. [Learn more about PSMDB Pro :material-arrow-top-right:](../psmdb-pro.md).
 
 ## Procedure
 

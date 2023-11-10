@@ -4,8 +4,8 @@ This document guides you though the steps how to build Percona Server for MongoD
 
 ## Available builds
 
-- Pro builds. These builds include solutions such as FIPS mode that are typically demanded by large enterprises. They are included into packages provided by Percona and are available to Percona Customers. [Learn how to become a Customer](https://www.percona.com/about/contact). 
-- Basic builds. These include all Percona Server for MongoDB functionality except the solutions in pro builds. The packages provided by Percona are available to anyone.
+- Pro builds. These builds include [solutions](../psmdb-pro.md) that are typically demanded by large enterprises. They are included into packages built by Percona and are available to Percona Customers. [Learn how to become a Customer](https://www.percona.com/about/contact). 
+- Basic builds. These include all Percona Server for MongoDB functionality except the solutions in Pro builds. The packages built by Percona are available to anyone.
 
 ### Build options
 

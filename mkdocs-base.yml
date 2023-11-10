@@ -144,6 +144,7 @@ extra:
 nav:
   - Home: index.md
   - comparison.md
+  - psmdb-pro.md
   - Install PSMDB: 
       - 'System requirements': 'install/index.md'
       - "On Debian and Ubuntu": install/apt.md
@@ -151,7 +152,7 @@ nav:
       - "From tarballs": install/tarball.md
       - install/source.md
       - "Run in Docker": install/docker.md
-      - "Install PSMDB Pro": install/pro.md
+      - "Install PSMDB Pro": install/pro-repos.md
   - Features: 
       - Storage:
         - "Percona Memory Engine": "inmemory.md"
