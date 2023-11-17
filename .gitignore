@@ -2,5 +2,8 @@ build
 source/percona-theme/
 source/ext/psdom.pyc
 *~
-source/__pycache__/
+__pycache__
+
+# Local Netlify folder
+.netlify
 site/
