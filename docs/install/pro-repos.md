@@ -23,7 +23,7 @@ This document provides guidelines how to install Pro packages of Percona Server 
 
     === "On RHEL and derivatives"
 
-        Create the configuration file with the following contents
+        Create the `/etc/yum.repos.d/psmdb-pro.repo` configuration file with the following contents
 
         ```ini 
         [psmdb-6.0-pro]
