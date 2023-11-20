@@ -10,7 +10,7 @@ Find the list of solutions available in Percona Server for MongoDB Pro:
 
 | Name                                | Version added | Description  | 
 | ----------------------------------- | ------------- | -------------
-| [FIPS compliance module](fips.md)| [6.0.9-7](release_notes/6.0.9-7.md) | Enables US organizations to introduce FIPS-compliant encryption and thus meet the requirements towards data security |
+| [FIPS support ](fips.md)| [6.0.9-7](release_notes/6.0.9-7.md) | Enables US organizations to introduce FIPS-compliant encryption and thus meet the requirements towards data security |
 
 ## What's in it for you?
 
