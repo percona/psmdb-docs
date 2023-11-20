@@ -13,7 +13,7 @@ This document provides guidelines how to install Pro packages of Percona Server 
         1. Create the `/etc/apt/sources.list.d/psmdb-pro.list` configuration file with the following contents
 
             ```ini title="/etc/apt/sources.list.d/psmdb-pro"
-            deb http://repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-60/apt/ jammy main
+            deb http://repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-60-pro/apt/ OPERATING_SYSTEM main
             ```
         2. Update the local cache
 
