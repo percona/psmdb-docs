@@ -169,7 +169,7 @@ To use the build script you need the following:
 2. Navigate to the build folder and download the build script. Replace the `<tag>` placeholder with the required version of Percona Server for MongoDB:
 
     ```{.bash data-prompt="$"}
-    $ wget https://raw.githubusercontent.com/percona/percona-server-mongodb/Percona Server for MongoDB-<tag>/percona-packaging/scripts/Percona_Server_for_MongoDB_builder.sh -O Percona_Server_for_MongoDB_builder.sh 
+    $ wget https://raw.githubusercontent.com/percona/percona-server-mongodb/psmdb-<tag>/percona-packaging/scripts/psmdb_builder.sh -O psmdb_builder.sh 
     ```
 
 ### Build steps
