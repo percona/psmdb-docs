@@ -165,7 +165,7 @@ To use the build script you need the following:
 
 ### Prepare the build environment
 
-1. Create the folder where all build actions take place. For the steps below we use the `/tmp/Percona Server for MongoDB/test` folder.
+1. Create the folder where all build actions take place. For the steps below we use the `/tmp/psmdb/test` folder.
 2. Navigate to the build folder and download the build script. Replace the `<tag>` placeholder with the required version of Percona Server for MongoDB:
 
     ```{.bash data-prompt="$"}
