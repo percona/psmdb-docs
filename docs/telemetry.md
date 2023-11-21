@@ -24,7 +24,7 @@ The following is an example of the collected data:
 
 ## Disable telemetry
 
-Starting with Percona Server for MongoDB 5.0.22-19, telemetry is enabled by default. If you decide not to send usage data to Percona, you can set the `PERCONA_TELEMETRY_DISABLE=1` environment variable for either the root user or in the operating system prior to the installation process.
+Starting with Percona Server for MongoDB 7.0.4-2, telemetry is enabled by default. If you decide not to send usage data to Percona, you can set the `PERCONA_TELEMETRY_DISABLE=1` environment variable for either the root user or in the operating system prior to the installation process.
 
 === "Debian-derived distribution"
 
