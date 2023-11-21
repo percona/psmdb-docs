@@ -38,7 +38,7 @@ This document provides guidelines how to install Pro packages of Percona Server 
     === "On Debian and Ubuntu"
 
         ```{.bash .data-prompt="$"}
-        $ apt install -y percona-server-mongodb
+        $ apt install -y percona-server-mongodb-pro
         ```
 
     === "On RHEL and derivatives"
