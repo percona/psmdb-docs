@@ -10,6 +10,8 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 
     By default, Docker will pull the image from Docker Hub if it is not available locally.
 
+    We gather [Telemetry data](telemetry.md) to understand the use of the software and improve our products.
+
 To run the latest Percona Server for MongoDB 6.0 in a Docker container, run the following command as the root user or via `sudo`:
 
 === "On x86_64 platforms"
