@@ -44,5 +44,5 @@ This document provides guidelines how to install Pro packages of Percona Server 
     === "On RHEL and derivatives"
 
         ```{.bash .data-prompt="$"}
-        $ yum install -y percona-server-mongodb
+        $ yum install -y percona-server-mongodb-pro
         ```
