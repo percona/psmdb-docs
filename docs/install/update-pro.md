@@ -1,10 +1,24 @@
-# Install Pro packages of Percona Server for MongoDB
+# Upgrade to Percona Server for MongoDB Pro
 
-This document provides guidelines how to install Pro packages of Percona Server for MongoDB from Percona repositories. [Learn more about PSMDB Pro :material-arrow-top-right:](../psmdb-pro.md).
+Are you a Percona Customer already and are you ready to enjoy all the [benefits of Percona Server for MongoDB Pro](../psmdb-pro.md)? 
+
+This document provides instructions how you can upgrade from Percona Server for MongoDB Basic to Percona Server for MongoDB Pro.
+
+!!! note
+
+    You can upgrade to Percona Server for MongoDB Pro starting with version 6.0.12-9. 
+
+## Preconditions 
+
+Request the access to the Pro repository from Percona Support. You will receive the client ID and the access token.
 
 ## Procedure
 
-1. Request the access the pro repository from Percona Support. You will receive the client ID and the access token.
+1. Stop the `mongod` service
+
+    ```{.bash data-prompt="$"}
+    $ sudo systemctl stop mongod
+    ```
 
 2. Configure the repository
 
@@ -15,6 +29,7 @@ This document provides guidelines how to install Pro packages of Percona Server 
             ```ini title="/etc/apt/sources.list.d/psmdb-pro.list"
             deb http://repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-60-pro/apt/ OPERATING_SYSTEM main
             ```
+
         2. Update the local cache
 
             ```{.bash .data-prompt="$"}
@@ -38,11 +53,17 @@ This document provides guidelines how to install Pro packages of Percona Server 
     === "On Debian and Ubuntu"
 
         ```{.bash .data-prompt="$"}
-        $ apt install -y percona-server-mongodb-pro
+        $ sudo apt install -y percona-server-mongodb-pro
         ```
 
     === "On RHEL and derivatives"
 
         ```{.bash .data-prompt="$"}
-        $ yum install -y percona-server-mongodb-pro
+        $ sudo yum install -y percona-server-mongodb-pro
         ```
+
+4. Start the server
+
+    ```{.bash .data-prompt="$"}
+    $ sudo systemct start mongod
+    ```

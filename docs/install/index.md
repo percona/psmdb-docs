@@ -29,7 +29,7 @@ Choose how you wish to install Percona Server for MongoDB:
 
     * [on Debian or Ubuntu](apt.md#apt)
     * [on RHEL or CentOS](yum.md#yum)
-    * [install pro builds](pro.md)
+    * [install pro builds](install-pro.md)
 
 * [build from source code](source.md)
 * [from binary tarballs](tarball.md)
@@ -47,4 +47,6 @@ Choose how you wish to install Percona Server for MongoDB:
 If you are currently using MongoDB, see [Upgrading from MongoDB](upgrade-from-mongodb.md).
 
 If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 5.0](upgrade-from-50.md).
+
+If you wish to upgrade to Percona Server for MongoDB Pro, see [Upgrade to PSMDB Pro](update-pro.md) guide. 
 

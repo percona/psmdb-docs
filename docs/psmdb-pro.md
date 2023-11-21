@@ -17,7 +17,7 @@ Find the list of solutions available in Percona Server for MongoDB Pro:
 * Save on deploying and maintaining build infrastructure as we do the build and testing for you 
 * Longer support for older versions of operating systems.  
 
-[Install PSMDB Pro](install/pro-repos.md){.md-button}
+[Install PSMDB Pro](install/install-pro.md){.md-button}
 
-Community users can receive all these solutions by [building Percona Server for MongoDB from the same source code](source.md).  
+Community users can receive all these solutions by [building Percona Server for MongoDB from the same source code](install/source.md).  
 
