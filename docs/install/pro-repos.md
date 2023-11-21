@@ -28,7 +28,7 @@ This document provides guidelines how to install Pro packages of Percona Server 
         ```ini title="/etc/yum.repos.d/psmdb-pro.repo"
         [psmdb-6.0-pro]
         name=PSMDB_6.0_PRO
-        baseurl=http://repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-60-pro/yum/testing/$releasever/RPMS/x86_64
+        baseurl=http://repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-60-pro/yum/main/$releasever/RPMS/x86_64
         enabled=1
         gpgkey = https://repo.percona.com/yum/PERCONA-PACKAGING-KEY
         ```
