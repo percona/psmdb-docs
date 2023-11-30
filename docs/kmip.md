@@ -19,17 +19,59 @@ Starting with version 5.0.11-10, the `kmipKeyIdentifier` option is no longer man
 
 ## KMIP parameters
 
-| Command line     | Configuration file       | Type  | Description    |
-| ---------------- | ------------------------ | ----- | ---------------|
-| kmipServerName   | security.kmip.<br>serverName | string | The hostname or IP address of the KMIP server. As of version 4.2.21-21, multiple KMIP servers are supported as the comma-separated list, e.g. `kmip1.example.com,kmip2.example.com`|
-| kmipPort     | security.kmip.port       | number | The port used to communicate with the KMIP server. When undefined, the default port `5696` will be used|
-| kmipServerCAFile| security.kmip.<br>serverCAFile | string | The path to the certificate of the root authority that issued the certificate for the KMIP server. Required only if the root certificate is not trusted by default on the machine the database server works on.|
-| kmipClientCertificateFile| security.kmip.<br>clientCertificateFile | string| The path to the PEM file with the KMIP client private key and the certificate chain. The database server uses this PEM file to authenticate the KMIP server|
-| kmipKeyIdentifier| security.kmip.<br>keyIdentifier | string| Optional starting with version 5.0.11-10. The identifier of the KMIP key. If not specified, the database server creates a key on the KMIP server and saves its identifier internally for future use. When you specify the identifier, the key with such an ID must exist on the key storage. You can only use this setting for the first time you enable encryption.|
-| kmipRotateMasterKey|security.kmip.<br>rotateMasterKey | boolean| Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 5.0.8-7. |
-| kmipClientCertificatePassword| security.kmip.<br>clientCertificatePassword | string| The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 5.0.9-8.|
-| kmipConnectRetries| security.kmip.<br>connectRetries| int| Defines how many times to retry the initial connection to the KMIP server. The max number of connection attempts equals to `connectRetries + 1`. Default: 0. The option accepts values greater than zero. <br><br>Use it together with the `connectTimeoutMS` parameter to control how long `mongod` waits for the response before making the next retry.|
-| kmipConnectTimeoutMS|security.kmip.<br>connectTimeoutMS| int | The time to wait for the response from the KMIP server. Min value: 1000. Default: 5000. <br><br>If the `connectRetries` setting is specified, the `mongod` waits up to the value specified with `connectTimeoutMS` for each retry.|
+| Configuration file | {{ optionlink('security.kmip.serverName') }}|
+|--------------------| ---------------|
+| **Command line**       | `kmipServerName` |
+| **Type**               | string | 
+| **Description**        | The hostname or IP address of the KMIP server. As of version 4.2.21-21, multiple KMIP servers are supported as the comma-separated list, e.g. `kmip1.example.com,kmip2.example.com` | 
+
+| Configuration file | {{ optionlink('security.kmip.port')}}  |
+|--------------------| --------------------|
+| **Command line**        | `kmipPort`      |
+| **Type**               | number | 
+| **Description**        | The port used to communicate with the KMIP server. When undefined, the default port `5696` is used|
+
+| Configuration file  | {{ optionlink('security.kmip.serverCAFile')}} | 
+|--------------------| --------------------|
+| **Command line**        | `kmipServerCAFile`      |
+| **Type**               | string |
+| **Description**        | The path to the certificate of the root authority that issued the certificate for the KMIP server. Required only if the root certificate is not trusted by default on the machine the database server works on.|
+
+| Configuration file  | {{ optionlink('security.kmip.clientCertificateFile')}} |
+|--------------------| --------------------|
+| **Command line**        | `kmipClientCertificateFile`      | 
+| **Type**                | string |
+| **Description**         | The path to the PEM file with the KMIP client private key and the certificate chain. The database server uses this PEM file to authenticate the KMIP server|
+
+| Configuration file  | {{ optionlink('security.kmip.keyIdentifier')}} |
+|-------------------- | --------------------|
+| **Command line**    | `kmipKeyIdentifier` |
+| **Type**                | string |
+| **Description**         | Optional starting with version 5.0.11-10. The identifier of the KMIP key. If not specified, the database server creates a key on the KMIP server and saves its identifier internally for future use. When you specify the identifier, the key with such an ID must exist on the key storage. You can only use this setting for the first time you enable encryption.|
+
+| Configuration file  | {{ optionlink('security.kmip.rotateMasterKey')}} |
+|-------------------- | --------------------|
+| **Command line**    | `kmipRotateMasterKey` | 
+| **Type**            | boolean | 
+| **Description**     | Controls master keys rotation. When enabled, generates the new master key version and re-encrypts the keystore. Available as of version 5.0.8-7. |
+
+| Configuration file  | {{ optionlink('security.kmip.clientCertificatePassword')}}| 
+|-------------------- | --------------------|
+| **Command line**    | `kmipClientCertificatePassword` |
+| **Type**            | string|
+| **Description**     | The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted. Available starting with version 5.0.9-8.|
+
+| Configuration file  | {{ optionlink('security.kmip.connectRetries')}}|
+|-------------------- | --------------------|
+| **Command line**    | `kmipConnectRetries` | 
+| **Type**            | int | 
+| **Description**     | Defines how many times to retry the initial connection to the KMIP server. The max number of connection attempts equals to `connectRetries + 1`. Default: 0. The option accepts values greater than zero. <br><br>Use it together with the `connectTimeoutMS` parameter to control how long `mongod` waits for the response before making the next retry.|
+
+| Configuration file  | {{optionlink('security.kmip.connectTimeoutMS')}}|
+|-------------------- | --------------------|
+| **Command line**    | `kmipConnectTimeoutMS`|
+| **Type**            | int|
+| **Description**     | The time to wait for the response from the KMIP server. Min value: 1000. Default: 5000. <br><br>If the `connectRetries` setting is specified, the `mongod` waits up to the value specified with `connectTimeoutMS` for each retry.|
 
 # Key rotation
 
@@ -40,6 +82,8 @@ Starting with release 5.0.8-7, the support for [master key rotation](https://www
 ### Considerations
 
 Make sure you have obtained the root certificate, and the keypair for the KMIP server and the `mongod` client. For testing purposes you can use the [OpenSSL](https://www.openssl.org/) to issue self-signed certificates. For production use we recommend you use the valid certificates issued by the key management appliance.
+
+### Procedure
 
 To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, edit the `/etc/mongod.conf` configuration file as follows:
 
