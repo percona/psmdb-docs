@@ -45,5 +45,5 @@ jobs:
         run: |
           mike deploy 6.0 -b publish -p
           mike set-default 6.0 -b publish -p
-          mike retitle 6.0 "6.0.11-8 (LATEST)" -b publish -p
+          mike retitle 6.0 "6.0.12-9 (LATEST)" -b publish -p
 
