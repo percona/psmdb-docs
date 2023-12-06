@@ -62,7 +62,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
            mongodb-org-tools
          ```
 
-     5. [Install Percona Server for MongoDB](apt.md)
+     5. [Install Percona Server for MongoDB](apt.md). If you a Percona Customer, you can [install Percona Server for MongoDB Pro](install-pro.md)
 
      6. Verify that the configuration file includes correct options:
 
@@ -129,9 +129,9 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
          mongodb-org-tools-7.0.2-1.el8.x86_64
          ```
      
-     4. [Install Percona Server for MongoDB](yum.md)
+     4. [Install Percona Server for MongoDB](yum.md). If you a Percona Customer, you can [install Percona Server for MongoDB Pro](install-pro.md)
 
-    5. Verify that the configuration file includes correct options:
+     5. Verify that the configuration file includes correct options:
 
          * When you remove old packages, your existing configuration file is saved as `/etc/mongod.conf.rpmsave`. Copy the required configuration options like custom dbPath/system log path, additional security/replication or sharding options from the backup configuration file (`/etc/mongod.conf.rpmsave`) to the current one `/etc/mongodb.conf`.
          * Make sure that the `mongod` user has access to your custom paths. If not, provide it as follows:
