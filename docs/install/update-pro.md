@@ -4,10 +4,6 @@ Are you a Percona Customer already and are you ready to enjoy all the [benefits 
 
 This document provides instructions how you can upgrade from Percona Server for MongoDB Basic to Percona Server for MongoDB Pro.
 
-!!! note
-
-    You can upgrade to Percona Server for MongoDB Pro starting with version 6.0.12-9. 
-
 ## Preconditions 
 
 Request the access to the Pro repository from Percona Support. You will receive the client ID and the access token.
@@ -56,14 +52,56 @@ Request the access to the Pro repository from Percona Support. You will receive 
         $ sudo apt install -y percona-server-mongodb-pro
         ```
 
-    === "On RHEL and derivatives"
+    === "On RHEL 8+ and derivatives"
 
         ```{.bash .data-prompt="$"}
         $ sudo yum install -y percona-server-mongodb-pro
         ```
+
+    === "On RHEL 7 and derivatives"
+
+        1. Back up the `/etc/mongod.conf` configuration file
+       
+            ```{.bash .data-prompt="$"}
+            $ sudo cp /etc/mongod.conf /etc/mongod.conf.bkp
+            ```
+
+        2. Remove Percona Server for MongoDB basic packages
+
+            ```{.bash .data-prompt="$"}
+            $ sudo yum remove percona-server-mongodb*
+            ```
+
+        3. Install Percona Server for MongoDB Pro packages
+
+            ```{.bash .data-prompt="$"}
+            $ sudo yum install -y percona-server-mongodb-pro
+            ```
+
+        4. Restore the configuration file from the backup
+
+            ```{.bash .data-prompt="$"}
+            $ sudo cp /etc/mongod.conf.bkp /etc/mongod.conf
+            ```
 
 4. Start the server
 
     ```{.bash .data-prompt="$"}
     $ sudo systemct start mongod
     ```
+
+## Downgrade considerations
+
+The downgrade to Percona Server for MongoDB basic of version **6.0.12 and higher** is done automatically by [installing the basic packages](yum.md#install-percona-server-for-mongodb-packages). 
+
+If you wish to downgrade from Percona Server for MongoDB Pro to Percona Server for MongoDB basic of version **lower than 6.0.12**, do the following:
+
+1. Remove the Pro packages
+
+    ```{.bash .data-prompt="$"}
+    $ sudo yum remove percona-server-mongodb-pro*
+    ```
+
+2. [Install Percona Server for MongoDB basic packages of the desired version](yum.md#install-percona-server-for-mongodb-packages)
+
+        
