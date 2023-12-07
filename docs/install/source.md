@@ -194,13 +194,6 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 
     === "Pro build"    
 
-        ```{.bash data-prompt="$"}
-        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb rhel:9 sh -c '
-        set -o xtrace
-        cd /tmp/psmdb
-        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
-        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-        --branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --full-featured=1 --jemalloc_tag=psmdb-3.2.11-3.1 --get_sources=1
         '
         ```    
 
