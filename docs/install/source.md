@@ -215,7 +215,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 
     ```{.text .no-copy}
     total 88292
-    -rw-r--r--. 1 root root 90398894 Jul  1 10:58 percona-server-mongodb-6.0.6-5.tar.gz
+    -rw-r--r--. 1 root root 90398894 Jul  1 10:58 percona-server-mongodb-6.0.12-9-x86_64.glibc2.17.tar.gz
     ```
 
 #### Packages
