@@ -208,7 +208,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 2. Check that tarballs are built:
 
     ```{.bash data-prompt="$"}
-    $ ls -la /tmp/psmdb/test/source_tarball/
+    $ ls -la /tmp/psmdb/test/tarball/
     ```
 
     Sample output:
