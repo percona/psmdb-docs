@@ -192,7 +192,6 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
         '
         ```    
 
-    === "Pro build"    
 
         '
         ```    
