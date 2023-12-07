@@ -183,7 +183,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
     === "Basic build"    
 
         ```{.bash data-prompt="$"}
-        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb rhel:9 sh -c '
+        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:7 sh -c '
         set -o xtrace
         cd /tmp/psmdb
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
