@@ -182,7 +182,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 
     You can build only Percona Server for MongoDB basic tarballs with the build script. Percona Server for MongoDB Pro tarballs are not supported.
 
-1. The following command builds tarballs of Percona Server for MongoDB 6.0.12-9 on Oracle Linux 7. Change the Docker image and the values for `--branch`, `--psm_ver`, `--psm_release` flags to build tarballs of a different version and on a different operating system.
+1. The following command builds tarballs of Percona Server for MongoDB 6.0.12-9 on Centos 7. Change the Docker image and the values for `--branch`, `--psm_ver`, `--psm_release` flags to build tarballs of a different version and on a different operating system.
 
     ```{.bash data-prompt="$"}
     $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:7 sh -c '
