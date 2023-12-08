@@ -220,7 +220,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 1. Build the source tarball. It serves as the base for source packages. It is important to build source tarball using the oldest supported operating system, which is Centos 7.
 
     ```{.bash data-prompt="$"}
-    $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:7 sh -c '
+    $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb centos:7 sh -c '
     set -o xtrace
     cd /tmp/psmdb
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
