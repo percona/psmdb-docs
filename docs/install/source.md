@@ -196,7 +196,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 
     The command does the following:    
 
-    * runs Docker daemon as the root user using the Oracle Linux 7 image
+    * runs Docker daemon as the root user using the Centos 7 image
     * mounts the build directory into the container
     * establishes the shell session inside the container
     * inside the container, navigates to the build directory and runs the build script to install dependencies 
