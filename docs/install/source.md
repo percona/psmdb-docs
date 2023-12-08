@@ -217,7 +217,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 
 #### Packages
 
-1. Build the source tarball. It serves as the base for source packages. It is important to build source tarball using the oldest supported operating system, which is Oracle Linux 7.
+1. Build the source tarball. It serves as the base for source packages. It is important to build source tarball using the oldest supported operating system, which is Centos 7.
 
     ```{.bash data-prompt="$"}
     $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:7 sh -c '
