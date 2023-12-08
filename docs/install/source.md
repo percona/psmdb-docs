@@ -229,7 +229,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 
 2. Build source packages. These packages include the source code and patches and are used to build binary packages.
 
-    Note that to build source packages you still have to use the oldest supported operating system: Oracle Linux 7 for RPMs and Ubuntu 18.04 (Bionic Beaver) for DEB packages. 
+    Note that to build source packages you still have to use the oldest supported operating system: Centos 7 for RPMs and Ubuntu 18.04 (Bionic Beaver) for DEB packages. 
 
     === "Basic build" 
 
