@@ -185,7 +185,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 1. The following command builds tarballs of Percona Server for MongoDB 6.0.12-9 on Centos 7. Change the Docker image and the values for `--branch`, `--psm_ver`, `--psm_release` flags to build tarballs of a different version and on a different operating system.
 
     ```{.bash data-prompt="$"}
-    $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:7 sh -c '
+    $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb centos:7 sh -c '
     set -o xtrace
     cd /tmp/psmdb
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
