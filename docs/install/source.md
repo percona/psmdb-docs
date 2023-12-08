@@ -182,7 +182,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 
     You can build only Percona Server for MongoDB basic tarballs with the build script. Percona Server for MongoDB Pro tarballs are not supported.
 
-1. The following command builds tarballs of Percona Server for MongoDB 6.0.12-9 on Centos 7. Change the Docker image and the values for `--branch`, `--psm_ver`, `--psm_release` flags to build tarballs of a different version and on a different operating system.
+1. The following command builds tarballs of Percona Server for MongoDB 6.0.12-9 on CentOS 7. Change the Docker image and the values for `--branch`, `--psm_ver`, `--psm_release` flags to build tarballs of a different version and on a different operating system.
 
     ```{.bash data-prompt="$"}
     $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb centos:7 sh -c '
@@ -196,7 +196,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 
     The command does the following:    
 
-    * runs Docker daemon as the root user using the Centos 7 image
+    * runs Docker daemon as the root user using the CentOS 7 image
     * mounts the build directory into the container
     * establishes the shell session inside the container
     * inside the container, navigates to the build directory and runs the build script to install dependencies 
@@ -217,7 +217,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 
 #### Packages
 
-1. Build the source tarball. It serves as the base for source packages. It is important to build source tarball using the oldest supported operating system, which is Centos 7.
+1. Build the source tarball. It serves as the base for source packages. It is important to build source tarball using the oldest supported operating system, which is CentOS 7.
 
     ```{.bash data-prompt="$"}
     $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb centos:7 sh -c '
@@ -229,7 +229,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
 
 2. Build source packages. These packages include the source code and patches and are used to build binary packages.
 
-    Note that to build source packages you still have to use the oldest supported operating system: Centos 7 for RPMs and Ubuntu 18.04 (Bionic Beaver) for DEB packages. 
+    Note that to build source packages you still have to use the oldest supported operating system: CentOS 7 for RPMs and Ubuntu 18.04 (Bionic Beaver) for DEB packages. 
 
     === "Basic build" 
 
@@ -331,7 +331,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-pro-6.0.12-9.generic.src.rpm
             ```
 
-2. Build Percona Server for MongoDB packages. Here you can use the operating system of your choice. In the commands below we use Oracle Linux 9 for RPMs and Ubuntu 22.04 (Jammy Jellyfish) for DEB packages.
+2. Build Percona Server for MongoDB packages. Here you can use the operating system of your choice. In the commands below, we use Oracle Linux 9 for RPMs and Ubuntu 22.04 (Jammy Jellyfish) for DEB packages.
 
     === "Basic build"
 
@@ -451,6 +451,6 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-pro-6.0.12-9.el8.x86_64.rpm 
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-pro-6.0.12-9.el8.x86_64.rpm    
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-pro-6.0.12-9.el8.x86_64.rpm 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-pro-6.0.12-9.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-6.0.12-9.el8.x86_64.rpm 
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-6.0.12-9.el8.x86_64.rpm
             ```
