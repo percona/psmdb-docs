@@ -169,10 +169,10 @@ nav:
         - ldap-setup.md
       - Encryption:
         - "Data at rest encryption": "data-at-rest-encryption.md"
-        - vault.md
-        - kmip.md
-        - keyfile.md
-        - encryption-mode-switch.md
+        - "Use Vault": vault.md
+        - "Use KMIP" : kmip.md
+        - "Use local keyfile": keyfile.md
+        - "Migrate from keyfile to Vault": encryption-mode-switch.md
       - audit-logging.md 
       - rate-limit.md
       - log-redaction.md
