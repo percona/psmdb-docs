@@ -19,10 +19,13 @@ theme:
   custom_dir: _resource/overrides/
   font:
     text: Poppins
+  icon:
+    edit: material/file-edit-outline
+    view: material/file-eye-outline
   
   features:
     content.action.view
-    content.account.edit
+    content.action.edit
     content.code.copy
     search.highlight
     search.share
@@ -79,10 +82,16 @@ markdown_extensions:
   pymdownx.highlight:
       linenums: false
   pymdownx.inlinehilite: {}
-  pymdownx.snippets: {}
+  pymdownx.snippets:
+      base_path: ["snippets"]
+      auto_append:
+        - services-banner.md
   pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - _resource/overrides/.icons
 
        
 
@@ -108,7 +117,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-6.0.pdf'
           cover_title: 'Server for MongoDB Documentation 6.0'
-          cover_subtitle: 6.0.9-7 (September 14, 2023)
+          cover_subtitle: 6.0.11-8 (October 19, 2023)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -160,10 +169,10 @@ nav:
         - ldap-setup.md
       - Encryption:
         - "Data at rest encryption": "data-at-rest-encryption.md"
-        - vault.md
-        - kmip.md
-        - keyfile.md
-        - encryption-mode-switch.md
+        - "Use Vault": vault.md
+        - "Use KMIP": kmip.md
+        - "Use local keyfile": keyfile.md
+        - "Migrate from keyfile to Vault": encryption-mode-switch.md
       - audit-logging.md 
       - rate-limit.md
       - log-redaction.md
@@ -172,10 +181,12 @@ nav:
       - "Tune parameters": "set-parameter.md"
       - Upgrade:
         - "Upgrade from 5.0 to 6.0": "install/upgrade-from-50.md"
-        - install/upgrade-from-mongodb.md
+        - "Upgrade from MongoDB Community": "install/upgrade-from-mongodb.md"
+        - install/minor-upgrade.md
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
+      - release_notes/6.0.11-8.md
       - release_notes/6.0.9-7.md
       - release_notes/6.0.8-6.md
       - release_notes/6.0.6-5.md
