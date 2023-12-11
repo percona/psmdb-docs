@@ -91,9 +91,20 @@
 <meta property="og:title" content="Percona Server for MongoDB 7.0 - Authentication overview" />
 <meta property="og:image" content="https://docs.percona.com/percona-distribution-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
-</head>
+ <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
 <body>
-</body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 
 
   </head>
@@ -1528,6 +1539,27 @@
   
   
     <li class="md-nav__item">
+      <a href="release_notes/7.0.4-2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 7.0.4-2 (2023-12-11)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release_notes/7.0.2-1.html" class="md-nav__link">
         
   
@@ -1771,7 +1803,7 @@ to create data necessary for the authentication mechanism.</p>
 </li>
 </ul>
 <p>The following image illustrates this architecture:</p>
-<p><img alt="image" src="_images/psmdb-ext-auth.png" /></p>
+<p><a class="glightbox" href="_images/psmdb-ext-auth.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image" src="_images/psmdb-ext-auth.png" /></a></p>
 <p>An authentication session uses the following sequence:</p>
 <ol>
 <li>A <code>mongosh</code> client connects to a running <code>mongod</code> instance.</li>
@@ -1802,7 +1834,7 @@ to authenticate the client or reject the request.</li>
 <p>A realm is the logical network, similar to a domain, for all Kerberos nodes under the same master KDC.</p>
 <p>A principal is a user or a service which is known to Kerberos. A principal name is used for authentication in Kerberos. A service principal represents the service, e.g. <code>mongodb</code>. A user principal represents the user. The user principal name corresponds to the username in the <code>$external</code> database in Percona Server for MongoDB.</p>
 <p>The following diagram shows the authentication workflow:</p>
-<p><img alt="image" src="_images/Kerberos_auth.png" /></p>
+<p><a class="glightbox" href="_images/Kerberos_auth.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image" src="_images/Kerberos_auth.png" /></a></p>
 <p>The sequence is the following:</p>
 <ol>
 <li>
@@ -2041,5 +2073,5 @@ to authenticate the client or reject the request.</li>
         <script src="js/promptremover.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

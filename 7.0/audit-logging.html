@@ -95,9 +95,20 @@ including authentication, authorization failures, and so on.">
 <meta property="og:title" content="Percona Server for MongoDB 7.0 - Auditing" />
 <meta property="og:image" content="https://docs.percona.com/percona-distribution-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
-</head>
+ <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
 <body>
-</body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 
 
   </head>
@@ -1554,6 +1565,27 @@ including authentication, authorization failures, and so on.">
   
   
     <li class="md-nav__item">
+      <a href="release_notes/7.0.4-2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 7.0.4-2 (2023-12-11)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release_notes/7.0.2-1.html" class="md-nav__link">
         
   
@@ -2240,5 +2272,5 @@ when running <code>mongod</code> or <code>mongos</code> process:</p>
         <script src="js/promptremover.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

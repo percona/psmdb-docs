@@ -89,9 +89,20 @@ It requires no changes to MongoDB applications or code.">
 <meta property="og:title" content="Percona Server for MongoDB 7.0" />
 <meta property="og:image" content="https://docs.percona.com/percona-distribution-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
-</head>
+ <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
 <body>
-</body>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 
 
   </head>
@@ -1495,6 +1506,27 @@ It requires no changes to MongoDB applications or code.">
   
   
     <li class="md-nav__item">
+      <a href="release_notes/7.0.4-2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 7.0.4-2 (2023-12-11)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release_notes/7.0.2-1.html" class="md-nav__link">
         
   
@@ -1675,7 +1707,7 @@ It requires no changes to MongoDB applications or code.</p>
 <div class="admonition hint">
 <p>To see which version of Percona Server for MongoDB you are using check the value of the <code>psmdbVersion</code> key in the output of the <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo">buildInfo</a> database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.</p>
 </div>
-<p><a class="md-button md-button" href="release_notes/7.0.2-1.html">What&rsquo;s new in Percona Server for MongoDB 7.0.2-1</a></p>
+<p><a class="md-button md-button" href="release_notes/7.0.4-2.html">What&rsquo;s new in Percona Server for MongoDB 7.0.4-2</a></p>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
 <p>Percona Server for MongoDB provides the following features:</p>
 <ul>
@@ -1924,5 +1956,5 @@ using OpenLDAP or Active Directory</p>
         <script src="js/promptremover.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

@@ -200,4 +200,9 @@
          <lastmod>2023-12-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
+    <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.4-2.html</loc>
+         <lastmod>2023-12-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
 </urlset>
