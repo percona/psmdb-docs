@@ -448,7 +448,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-6.0.12-9.el8.x86_64.rpm  
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-debugsource-6.0.12-9.el8.x86_64.rpm 
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro-6.0.12-9.el8.x86_64.rpm    
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-pro-6.0.12-9.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro-debuginfo-6.0.12-9.el8.x86_64.rpm 
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-pro-6.0.12-9.el8.x86_64.rpm    
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-pro-6.0.12-9.el8.x86_64.rpm 
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-6.0.12-9.el8.x86_64.rpm 
