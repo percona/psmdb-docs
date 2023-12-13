@@ -1,6 +1,6 @@
 # Install Percona Server for MongoDB on Debian and Ubuntu
 
-This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu.
+This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu. We gather [Telemetry data](telemetry.md) to understand the use of the software and improve our products.
 
 !!! note
 
