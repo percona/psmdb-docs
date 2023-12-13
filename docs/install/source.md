@@ -417,7 +417,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             Sample output:
 
             ```{.text .no-copy}
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-dbg-pro_6.0.12-9.jammy_amd64.deb  
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-dbg_6.0.12-9.jammy_amd64.deb  
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro_6.0.12-9.jammy_amd64.deb 
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-pro_6.0.12-9.jammy_amd64.deb 
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-6.0.12-9.jammy_amd64.deb  
