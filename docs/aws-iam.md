@@ -2,10 +2,6 @@
 
 !!! admonition "Version added: [6.0.5-4](release_notes/6.0.5-4.md)"
 
-!!! important
-
-    This is a [technical preview feature](glossary.md#technical-preview-feature)
-
 IAM (Identity Access Management) is the AWS service that allows you to securely control access to AWS resources. Percona Server for MongoDB supports authentication with AWS IAM enabling you to use the same AWS credentials both for it and other components of your infrastructure. This saves your DBAs from managing different sets of secrets and frees their time on other activities. 
 
 You can configure AWS IAM for a password-less authentication. Instead of username and password, the user or the application presents the AWS security credentials for authentication, but the secret key is not sent to Percona Server for MongoDB. This significantly increases the security in your infrastructure. 
