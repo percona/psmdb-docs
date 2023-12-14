@@ -66,6 +66,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/6.0/fips.html</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/6.0/glossary.html</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
@@ -107,6 +112,11 @@
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/6.0/ngram-full-text-search.html</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/6.0/psmdb-pro.html</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -161,6 +171,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/6.0/install/install-pro.html</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/6.0/install/minor-upgrade.html</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
@@ -177,6 +192,11 @@
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/6.0/install/uninstall.html</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/6.0/install/update-pro.html</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="You can build Percona Server for MongoDB from the source code either manually or using the build script.">
+        <meta name="description" content="This document guides you though the steps how to build Percona Server for MongoDB from source code.">
       
       
         <meta name="author" content="Percona LLC">
@@ -338,6 +338,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../psmdb-pro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB Pro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -352,10 +372,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -366,8 +386,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Install PSMDB
           </label>
@@ -405,7 +425,7 @@
         
   
   <span class="md-ellipsis">
-    Install Percona Server for MongoDB on Debian and Ubuntu
+    On Debian and Ubuntu
   </span>
   
 
@@ -426,7 +446,7 @@
         
   
   <span class="md-ellipsis">
-    Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
+    On RHEL and derivatives
   </span>
   
 
@@ -447,7 +467,7 @@
         
   
   <span class="md-ellipsis">
-    Install Percona Server for MongoDB from binary tarball
+    From tarballs
   </span>
   
 
@@ -510,6 +530,30 @@
       On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available builds
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Available builds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#manual-build" class="md-nav__link">
@@ -606,7 +650,28 @@
         
   
   <span class="md-ellipsis">
-    Run Percona Server for MongoDB in a Docker container
+    Run in Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install-pro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install PSMDB Pro
   </span>
   
 
@@ -639,10 +704,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -653,8 +718,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Features
           </label>
@@ -676,10 +741,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -690,8 +755,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             Storage
           </label>
@@ -742,10 +807,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -756,8 +821,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             Backup
           </label>
@@ -829,10 +894,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -843,8 +908,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             Authentication
           </label>
@@ -1063,10 +1128,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1077,8 +1142,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Encryption
           </label>
@@ -1180,6 +1245,27 @@
   
   <span class="md-ellipsis">
     Migrate from keyfile to Vault
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fips.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FIPS compliance
   </span>
   
 
@@ -1304,10 +1390,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1318,8 +1404,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Manage PSMDB
           </label>
@@ -1362,10 +1448,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
         
           
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1376,8 +1462,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             Upgrade
           </label>
@@ -1416,6 +1502,27 @@
   
   <span class="md-ellipsis">
     Upgrade from MongoDB Community
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="update-pro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upgrade to PSMDB Pro
   </span>
   
 
@@ -1498,10 +1605,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1512,8 +1619,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Release notes
           </label>
@@ -1810,6 +1917,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#available-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available builds
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Available builds">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#manual-build" class="md-nav__link">
     <span class="md-ellipsis">
       Manual build
@@ -1916,7 +2047,17 @@
 
 
 <h1 id="build-from-source-code">Build from source code<a class="headerlink" href="#build-from-source-code" title="Permanent link">&para;</a></h1>
-<p>You can build Percona Server for MongoDB from the source code either manually or using the build script. </p>
+<p>This document guides you though the steps how to build Percona Server for MongoDB from source code.</p>
+<h2 id="available-builds">Available builds<a class="headerlink" href="#available-builds" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Pro builds. These builds include <a href="../psmdb-pro.html">solutions</a> that are typically demanded by large enterprises. They are included into packages built by Percona and are available to Percona Customers. <a href="https://www.percona.com/about/contact">Learn how to become a Customer</a>. </li>
+<li>Basic builds. These include all Percona Server for MongoDB functionality except the solutions in Pro builds. The packages built by Percona are available to anyone.</li>
+</ul>
+<h3 id="build-options">Build options<a class="headerlink" href="#build-options" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="#manual build">Manually</a> </li>
+<li><a href="#use-the-build-script">Using the build script</a>  </li>
+</ul>
 <h2 id="manual-build">Manual build<a class="headerlink" href="#manual-build" title="Permanent link">&para;</a></h2>
 <p>To build Percona Server for MongoDB manually, you need the following:</p>
 <ul>
@@ -2035,8 +2176,18 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 </li>
 <li>
 <p>Build Percona Server for MongoDB from <code>buildscripts/scons.py</code></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>buildscripts/scons.py<span class="w"> </span>--disable-warnings-as-errors<span class="w"> </span>--release<span class="w"> </span>--ssl<span class="w"> </span>--opt<span class="o">=</span>on<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span>--all<span class="k">)</span><span class="w"> </span>--use-sasl-client<span class="w"> </span>--wiredtiger<span class="w"> </span>--audit<span class="w"> </span>--inmemory<span class="w"> </span>--hotbackup<span class="w"> </span><span class="nv">CPPPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="nv">LIBPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib </span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib64&quot;</span><span class="w"> </span>install-mongod<span class="w"> </span>install-mongos<span class="w"> </span>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Basic build</label><label for="__tabbed_2_2">Pro build</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>buildscripts/scons.py<span class="w"> </span>--disable-warnings-as-errors<span class="w"> </span>--release<span class="w"> </span>--ssl<span class="w"> </span>--opt<span class="o">=</span>on<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span>--all<span class="k">)</span><span class="w"> </span>--use-sasl-client<span class="w"> </span>--wiredtiger<span class="w"> </span>--audit<span class="w"> </span>--inmemory<span class="w"> </span>--hotbackup<span class="w"> </span><span class="nv">CPPPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="nv">LIBPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib </span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib64&quot;</span><span class="w"> </span>install-mongod<span class="w"> </span>install-mongos
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>buildscripts/scons.py<span class="w"> </span>--disable-warnings-as-errors<span class="w"> </span>--release<span class="w"> </span>--ssl<span class="w"> </span>--opt<span class="o">=</span>on<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span>--all<span class="k">)</span><span class="w"> </span>--use-sasl-client<span class="w"> </span>--wiredtiger<span class="w"> </span>--audit<span class="w"> </span>--inmemory<span class="w"> </span>--hotbackup<span class="w"> </span>--full-featured<span class="w"> </span><span class="nv">CPPPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="nv">LIBPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib </span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib64&quot;</span><span class="w"> </span>install-mongod<span class="w"> </span>install-mongos
+</code></pre></div>
+</div>
+</div>
+</div>
 </li>
 </ol>
 <p>This command builds core components of the database. Other available targets for the
@@ -2044,12 +2195,12 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 <ul>
 <li><code>install-mongod</code></li>
 <li><code>install-mongos</code></li>
-<li><code>install-servers</code> (includes mongod and mongos)</li>
-<li><code>install-core</code> (includes mongod and mongos)</li>
-<li><code>install-devcore</code> (includes mongod, mongos, and jstestshell (formerly mongo shell))</li>
+<li><code>install-servers</code> (includes <code>mongod</code> and <code>mongos</code>)</li>
+<li><code>install-core</code> (includes <code>mongod</code> and <code>mongos</code>)</li>
+<li><code>install-devcore</code> (includes <code>mongod</code>, <code>mongos</code>, and <code>jstestshell</code> (formerly mongo shell))</li>
 <li><code>install-all</code></li>
 </ul>
-<p>The built binaries are in the <code>percona-server-mongodb</code> directory.</p>
+<p>The built binaries are in the <code>percona-server-mongodb/bin</code> directory.</p>
 <h2 id="use-the-build-script">Use the build script<a class="headerlink" href="#use-the-build-script" title="Permanent link">&para;</a></h2>
 <p>To automate the build process, Percona provides the build script. With this script you can either build binary tarballs or DEB/RPM packages to install Percona Server for MongoDB from. </p>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
@@ -2068,79 +2219,143 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 </li>
 </ol>
 <h3 id="build-steps_1">Build steps<a class="headerlink" href="#build-steps_1" title="Permanent link">&para;</a></h3>
-<p>Use the following instructions depending on what you wish to build:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Build tarballs</label><label for="__tabbed_2_2">Build packages</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>The following command builds tarballs of Percona Server for MongoDB 6.0.6-5 on Red Hat Enterprise Linux 9. Change the Docker image and the values for <code>--branch</code>, <code>--psm_ver</code>, <code>--psm_release</code> flags to build tarballs of a different version and on a different operating system.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>rhel:9<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<p>Use the following instructions to build <a href="#tarballs">tarballs</a> or <a href="#packages">packages</a>:</p>
+<h4 id="tarballs">Tarballs<a class="headerlink" href="#tarballs" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can build only Percona Server for MongoDB basic tarballs with the build script. Percona Server for MongoDB Pro tarballs are not supported.</p>
+</div>
+<ol>
+<li>
+<p>The following command builds tarballs of Percona Server for MongoDB 6.0.12-9 on CentOS 7. Change the Docker image and the values for <code>--branch</code>, <code>--psm_ver</code>, <code>--psm_release</code> flags to build tarballs of a different version and on a different operating system.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>centos:7<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
 <span class="s1">set -o xtrace</span>
 <span class="s1">cd /tmp/psmdb</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
-<span class="s1">--branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --get_sources=1</span>
+<span class="s1">--branch=release-6.0.12-9 --psm_ver=6.0.12 --psm_release=9 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --get_sources=1 --build_tarball=1</span>
 <span class="s1">&#39;</span>
 </code></pre></div>
-<p>The command does the following:</p>
+<p>The command does the following:    </p>
 <ul>
-<li>runs Docker daemon as the root user using the RHEL 9 image</li>
+<li>runs Docker daemon as the root user using the CentOS 7 image</li>
 <li>mounts the build directory into the container</li>
 <li>establishes the shell session inside the container</li>
 <li>inside the container, navigates to the build directory and runs the build script to install dependencies </li>
-<li>runs the build script again to build the tarball for the PSMDB version 6.0.6-5</li>
+<li>runs the build script again to build the tarball for the Percona Server for MongoDB version 6.0.12-9</li>
 </ul>
+</li>
+<li>
 <p>Check that tarballs are built:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/source_tarball/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/tarball/
 </code></pre></div>
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code>total 88292
--rw-r--r--. 1 root root 90398894 Jul  1 10:58 percona-server-mongodb-6.0.6-5.tar.gz
+-rw-r--r--. 1 root root 90398894 Jul  1 10:58 percona-server-mongodb-6.0.12-9-x86_64.glibc2.17.tar.gz
 </code></pre></div>
-</div>
-<div class="tabbed-block">
+</li>
+</ol>
+<h4 id="packages">Packages<a class="headerlink" href="#packages" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
-<p>Build source packages</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">DEB</label><label for="__tabbed_3_2">RPM</label></div>
+<p>Build the source tarball. It serves as the base for source packages. It is important to build source tarball using the oldest supported operating system, which is CentOS 7.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>centos:7<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">set -o xtrace</span>
+<span class="s1">cd /tmp/psmdb</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git --branch=release-6.0.12-9 --psm_ver=6.0.12 --psm_release=9 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --get_sources=1&#39;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Build source packages. These packages include the source code and patches and are used to build binary packages.</p>
+<p>Note that to build source packages you still have to use the oldest supported operating system: CentOS 7 for RPMs and Ubuntu 18.04 (Bionic Beaver) for DEB packages. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Basic build</label><label for="__tabbed_3_2">Pro build</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:jammy<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">DEB</label><label for="__tabbed_4_2">RPM</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:bionic<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
 <span class="s1">set -o xtrace</span>
 <span class="s1">cd /tmp/psmdb</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
-<span class="s1">--branch=release-6.0.6-5 --psm_ver=6.0.6--psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_deb=1</span>
+<span class="s1">--branch=release-6.0.12-9 --psm_ver=6.0.12--psm_release=9 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_deb=1</span>
 <span class="s1">&#39;</span>
 </code></pre></div>
-<p>Check that source packages are created</p>
+<p>Check that source packages are created    </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/source_deb/
 </code></pre></div>
-<p>Sample output:</p>
-<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_6.0.6.orig.tar.gz
+<p>Sample output:    </p>
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_6.0.12.orig.tar.gz
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:jammy<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>centos:7<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
 <span class="s1">set -o xtrace</span>
 <span class="s1">cd /tmp/psmdb</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
-<span class="s1">--branch=release-6.0.6-5 --psm_ver=6.0.6--psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_rpm=1</span>
+<span class="s1">--branch=release-6.0.12-9 --psm_ver=6.0.12--psm_release=9 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_rpm=1</span>
 <span class="s1">&#39;</span>
 </code></pre></div>
-<p>Check that source packages are created</p>
+<p>Check that source packages are created    </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/srpm/
 </code></pre></div>
-<p>Sample output:</p>
-<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-6.0.6-5.generic.src.rpm
+<p>Sample output:    </p>
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-6.0.12-9.generic.src.rpm
 </code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">DEB</label><label for="__tabbed_5_2">RPM</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:bionic<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">set -o xtrace</span>
+<span class="s1">cd /tmp/psmdb</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
+<span class="s1">--branch=release-6.0.12-9 --psm_ver=6.0.12--psm_release=9 --mongo_tools_tag=100.7.0 --full-featured=1 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_deb=1</span>
+<span class="s1">&#39;</span>
+</code></pre></div>
+<p>Check that source packages are created    </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/source_deb/
+</code></pre></div>
+<p>Sample output:    </p>
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-pro_6.0.12.orig.tar.gz
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>centos:7<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">set -o xtrace</span>
+<span class="s1">cd /tmp/psmdb</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
+<span class="s1">--branch=release-6.0.12-9 --psm_ver=6.0.12--psm_release=9 --mongo_tools_tag=100.7.0 --full-featured=1 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_rpm=1</span>
+<span class="s1">&#39;</span>
+</code></pre></div>
+<p>Check that source packages are created    </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/srpm/
+</code></pre></div>
+<p>Sample output:    </p>
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-pro-6.0.12-9.generic.src.rpm
+</code></pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 </li>
 <li>
-<p>Build Percona Server for MongoDB packages</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">DEB</label><label for="__tabbed_4_2">RPM</label></div>
+<p>Build Percona Server for MongoDB packages. Here you can use the operating system of your choice. In the commands below, we use Oracle Linux 9 for RPMs and Ubuntu 22.04 (Jammy Jellyfish) for DEB packages.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Basic build</label><label for="__tabbed_6_2">Pro build</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">DEB</label><label for="__tabbed_7_2">RPM</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:jammy<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
@@ -2148,50 +2363,99 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 <span class="s1">cd /tmp/psmdb</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
-<span class="s1">--branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_deb=1</span>
+<span class="s1">--branch=release-6.0.12-9 --psm_ver=6.0.12 --psm_release=9 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_deb=1</span>
 <span class="s1">&#39;</span>
 </code></pre></div>
 <p>Check that source packages are created</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/deb/
 </code></pre></div>
 <p>Sample output:</p>
-<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-dbg_6.0.6-5.jammy_amd64.deb  
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos_6.0.6-5.jammy_amd64.deb 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server_6.0.6-5.jammy_amd64.deb 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_6.0.6-5.jammy_amd64.deb  
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_6.0.6-5.jammy_amd64.deb
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-dbg_6.0.12-9.jammy_amd64.deb  
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro_6.0.12-9.jammy_amd64.deb 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server_6.0.12-9.jammy_amd64.deb 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_6.0.12-9.jammy_amd64.deb  
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_6.0.12-9.jammy_amd64.deb
 </code></pre></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>oraclelinux:9<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">set -o xtrace</span>
+<span class="s1">cd /tmp/psmdb</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
+<span class="s1">--branch=release-6.0.12-9 --psm_ver=6.0.12 --psm_release=9 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_rpm=1</span>
+<span class="s1">&#39;</span>
+</code></pre></div>
+<p>Check that source packages are created</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/rpm/
+</code></pre></div>
+<p>Sample output:</p>
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-6.0.12-9.el8.x86_64.rpm  
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-6.0.12-9.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-6.0.12-9.el8.x86_64.rpm    
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-6.0.12-9.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-6.0.12-9.el8.x86_64.rpm    
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-6.0.12-9.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-6.0.12-9.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-6.0.12-9.el8.x86_64.rpm
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">DEB</label><label for="__tabbed_8_2">RPM</label></div>
+<div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:jammy<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
 <span class="s1">set -o xtrace</span>
 <span class="s1">cd /tmp/psmdb</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
-<span class="s1">--branch=release-6.0.6-5 --psm_ver=6.0.6 --psm_release=5 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_rpm=1</span>
+<span class="s1">--branch=release-6.0.12-9 --psm_ver=6.0.12 --psm_release=9 --mongo_tools_tag=100.7.0 --full-featured=1 --jemalloc_tag=psmdb-3.2.11-3.1 --build_deb=1</span>
 <span class="s1">&#39;</span>
 </code></pre></div>
 <p>Check that source packages are created</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/srpm/
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/deb/
 </code></pre></div>
 <p>Sample output:</p>
-<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-6.0.6-5.el8.x86_64.rpm  
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-6.0.6-5.el8.x86_64.rpm 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-6.0.6-5.el8.x86_64.rpm    
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-6.0.6-5.el8.x86_64.rpm 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-6.0.6-5.el8.x86_64.rpm    
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-6.0.6-5.el8.x86_64.rpm 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-6.0.6-5.el8.x86_64.rpm 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-6.0.6-5.el8.x86_64.rpm
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-dbg_6.0.12-9.jammy_amd64.deb  
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro_6.0.12-9.jammy_amd64.deb 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-pro_6.0.12-9.jammy_amd64.deb 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-6.0.12-9.jammy_amd64.deb  
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro_6.0.12-9.jammy_amd64.deb
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>oraclelinux:9<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
+<span class="s1">set -o xtrace</span>
+<span class="s1">cd /tmp/psmdb</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
+<span class="s1">--branch=release-6.0.12-9 --psm_ver=6.0.12 --psm_release=9 --mongo_tools_tag=100.7.0 --full-featured=1 --jemalloc_tag=psmdb-3.2.11-3.1 --build_rpm=1</span>
+<span class="s1">&#39;</span>
+</code></pre></div>
+<p>Check that source packages are created</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/rpm/
+</code></pre></div>
+<p>Sample output:</p>
+<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-6.0.12-9.el8.x86_64.rpm  
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-debugsource-6.0.12-9.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro-6.0.12-9.el8.x86_64.rpm    
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro-debuginfo-6.0.12-9.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-pro-6.0.12-9.el8.x86_64.rpm    
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-pro-debuginfo-6.0.12-9.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-6.0.12-9.el8.x86_64.rpm 
+rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-6.0.12-9.el8.x86_64.rpm
+</code></pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 </li>
 </ol>
-</div>
-</div>
-</div>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2224,7 +2488,7 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debugi
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 8, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 14, 2023</span>
   </span>
 
     

@@ -8,19 +8,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB adds support for secure transfer of keys using the OASIS Key Management Interoperability Protocol (KMIP). The KMIP implementation was tested with the PyKMIP server and the HashiCorp Vault Enterprise KMIP Secrets Engine.">
+        <meta name="description" content="Percona Server for MongoDB Pro includes solutions typically demanded by large enterprises. Percona Server for MongoDB Pro is wrapped in packages created and tested by Percona. These packages are supported only for paying Percona Customers with a subscription.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/kmip.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/psmdb-pro.html">
       
       
-        <link rel="prev" href="vault.html">
+        <link rel="prev" href="comparison.html">
       
       
-        <link rel="next" href="keyfile.html">
+        <link rel="next" href="install/index.html">
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
@@ -28,7 +28,7 @@
     
     
       
-        <title>Use KMIP - Percona Server for MongoDB 6.0</title>
+        <title>Percona Server for MongoDB Pro - Percona Server for MongoDB 6.0</title>
       
     
     
@@ -88,7 +88,7 @@
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 6.0 - Use KMIP" />
+<meta property="og:title" content="Percona Server for MongoDB 6.0 - Percona Server for MongoDB Pro" />
 <meta property="og:image" content="https://docs.percona.com/percona-distribution-for-mongodb/4.4/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
 </head>
@@ -115,7 +115,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-the-key-management-interoperability-protocol-kmip" class="md-skip">
+        <a href="#percona-server-for-mongodb-pro" class="md-skip">
           Skip to content
         </a>
       
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Use KMIP
+              Percona Server for MongoDB Pro
             
           </span>
         </div>
@@ -338,10 +338,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="psmdb-pro.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB Pro
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="psmdb-pro.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -350,6 +370,55 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solutions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-in-it-for-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's in it for you?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -549,21 +618,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -577,7 +644,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -975,21 +1042,19 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
@@ -1003,7 +1068,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Encryption
@@ -1056,30 +1121,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Use KMIP
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="kmip.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="kmip.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1088,88 +1133,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#kmip-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      KMIP parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-rotation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key rotation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Considerations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
-    <span class="md-ellipsis">
-      Procedure
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1880,53 +1843,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#kmip-parameters" class="md-nav__link">
+  <a href="#solutions" class="md-nav__link">
     <span class="md-ellipsis">
-      KMIP parameters
+      Solutions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-rotation" class="md-nav__link">
+  <a href="#whats-in-it-for-you" class="md-nav__link">
     <span class="md-ellipsis">
-      Key rotation
+      What's in it for you?
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Considerations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
-    <span class="md-ellipsis">
-      Procedure
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1954,7 +1884,7 @@
                   
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/kmip.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/psmdb-pro.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1963,249 +1893,41 @@
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/kmip.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/psmdb-pro.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="using-the-key-management-interoperability-protocol-kmip">Using the Key Management Interoperability Protocol (KMIP)<a class="headerlink" href="#using-the-key-management-interoperability-protocol-kmip" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB adds support for secure transfer of keys using the <a href="https://docs.oasis-open.org/kmip/kmip-spec/v2.0/os/kmip-spec-v2.0-os.html">OASIS Key Management Interoperability Protocol (KMIP)</a>. The KMIP implementation was tested with the <a href="https://pykmip.readthedocs.io/en/latest/server.html">PyKMIP server</a> and the <a href="https://www.vaultproject.io/docs/secrets/kmip">HashiCorp Vault Enterprise KMIP Secrets Engine</a>.</p>
-<p>KMIP enables the communication between key management systems and the database server. KMIP provides the following benefits:</p>
+<h1 id="percona-server-for-mongodb-pro">Percona Server for MongoDB Pro<a class="headerlink" href="#percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h1>
+<p>Percona Server for MongoDB Pro includes <a href="#solutions">solutions</a> typically demanded by large enterprises. Percona Server for MongoDB Pro is wrapped in packages created and tested by Percona. These packages are supported only for paying Percona Customers with a subscription.</p>
+<p><a class="md-button" href="https://www.percona.com/about/contact">Become a Percona Customer</a></p>
+<h2 id="solutions">Solutions<a class="headerlink" href="#solutions" title="Permanent link">&para;</a></h2>
+<p>Find the list of solutions available in Percona Server for MongoDB Pro:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Version added</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="fips.html">FIPS support </a></td>
+<td><a href="release_notes/6.0.9-7.html">6.0.9-7</a></td>
+<td>Enables US organizations to introduce FIPS-compliant encryption and thus meet the requirements towards data security</td>
+</tr>
+</tbody>
+</table>
+<h2 id="whats-in-it-for-you">What&rsquo;s in it for you?<a class="headerlink" href="#whats-in-it-for-you" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Streamlines encryption key management</li>
-<li>Eliminates redundant key management processes</li>
+<li>Save on deploying and maintaining build infrastructure as we do the build and testing for you </li>
+<li>Longer support for older versions of operating systems.  </li>
 </ul>
-<p>You can specify multiple KMIP servers for failover. On startup, Percona Server for MongoDB connects to the servers in the order listed and selects the one with which the connection is successful.</p>
-<p>Starting with version 6.0.2-1, the <code>kmipKeyIdentifier</code> option is no longer mandatory. When left blank, the database server creates a key on the KMIP server and uses that for encryption. When you specify the identifier, the key with such an ID must exist on the key storage.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Starting with version 6.0.6-5, the master key is stored in a raw-byte format. If you set up Percona Server for MongoDB 6.0.6-5 with data-at-rest encryption using KMIP and wish to downgrade to some previous version, this downgrade is not possible via binary replacement. Consider using the <a href="https://docs.percona.com/percona-backup-mongodb/usage/start-backup.html">logical backup and restore via Percona Backup for MongoDB</a> for this purpose.</p>
-</div>
-<h2 id="kmip-parameters">KMIP parameters<a class="headerlink" href="#kmip-parameters" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-servername"></a> <a href="#security-kmip-servername">security.kmip.serverName</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipServerName</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The hostname or IP address of the KMIP server. Multiple KMIP servers are supported as the comma-separated list, e.g. <code>kmip1.example.com,kmip2.example.com</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-port"></a> <a href="#security-kmip-port">security.kmip.port</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipPort</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>number</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The port used to communicate with the KMIP server. When undefined, the default port <code>5696</code> is used</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-servercafile"></a> <a href="#security-kmip-servercafile">security.kmip.serverCAFile</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipServerCAFile</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The path to the certificate of the root authority that issued the certificate for the KMIP server. Required only if the root certificate is not trusted by default on the machine the database server works on.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-clientcertificatefile"></a> <a href="#security-kmip-clientcertificatefile">security.kmip.clientCertificateFile</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipClientCertificateFile</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The path to the PEM file with the KMIP client private key and the certificate chain. The database server uses this PEM file to authenticate the KMIP server</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-keyidentifier"></a> <a href="#security-kmip-keyidentifier">security.kmip.keyIdentifier</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipKeyIdentifier</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>Optional. The identifier of the KMIP key. If not specified, the database server creates a key on the KMIP server and saves its identifier internally for future use. When you specify the identifier, the key with such an ID must exist on the key storage. You can only use this setting for the first time you enable encryption.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-rotatemasterkey"></a> <a href="#security-kmip-rotatemasterkey">security.kmip.rotateMasterKey</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipRotateMasterKey</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>Controls master keys rotation. When enabled, generates the new master key and re-encrypts the keystore.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-clientcertificatepassword"></a> <a href="#security-kmip-clientcertificatepassword">security.kmip.clientCertificatePassword</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipClientCertificatePassword</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-connectretries"></a> <a href="#security-kmip-connectretries">security.kmip.connectRetries</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipConnectRetries</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>Defines how many times to retry the initial connection to the KMIP server. The max number of connection attempts equals to <code>connectRetries + 1</code>. Default: 0. The option accepts values greater than zero. <br><br>Use it together with the <code>connectTimeoutMS</code> parameter to control how long <code>mongod</code> waits for the response before making the next retry.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-connecttimeoutms"></a> <a href="#security-kmip-connecttimeoutms">security.kmip.connectTimeoutMS</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipConnectTimeoutMS</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The time to wait for the response from the KMIP server. Min value: 1000. Default: 5000. <br><br>If the <code>connectRetries</code> setting is specified, the <code>mongod</code> waits up to the value specified with <code>connectTimeoutMS</code> for each retry.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="key-rotation">Key rotation<a class="headerlink" href="#key-rotation" title="Permanent link">&para;</a></h2>
-<p>Percona Server for MongoDB supports the <a href="https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation">master key rotation</a>. This enables users to comply with data security regulations when using KMIP.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<h3 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">&para;</a></h3>
-<p>Make sure you have obtained the root certificate, and the keypair for the KMIP server and the <code>mongod</code> client. For testing purposes you can use the <a href="https://www.openssl.org/">OpenSSL</a> to issue self-signed certificates. For production use we recommend you use the valid certificates issued by the key management appliance.</p>
-<h3 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h3>
-<p>To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, edit the <code>/etc/mongod.conf</code> configuration file as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">kmip</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">serverName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;kmip_server_name&gt;</span>
-<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;kmip_port&gt;</span>
-<span class="w">    </span><span class="nt">clientCertificateFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;/path/client_certificate.pem&gt;</span>
-<span class="w">    </span><span class="nt">serverCAFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;/path/ca.pem&gt;</span>
-<span class="w">    </span><span class="nt">keyIdentifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;key_name&gt;</span>
-</code></pre></div>
-<p>Alternatively, you can start Percona Server for MongoDB using the command line as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span>--enableEncryption<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kmipServerName<span class="w"> </span>&lt;kmip_servername&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kmipPort<span class="w"> </span>&lt;kmip_port&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kmipServerCAFile<span class="w"> </span>&lt;path_to_ca_file&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kmipClientCertificateFile<span class="w"> </span>&lt;path_to_client_certificate&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kmipKeyIdentifier<span class="w"> </span>&lt;kmip_identifier&gt;
-</code></pre></div>
+<p><a class="md-button" href="install/install-pro.html">Install PSMDB Pro</a></p>
+<p>Community users can receive all these solutions by <a href="install/source.html">building Percona Server for MongoDB from the same source code</a>.  </p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2238,7 +1960,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 30, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 14, 2023</span>
   </span>
 
     
@@ -2248,7 +1970,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 14, 2023</span>
   </span>
 
     

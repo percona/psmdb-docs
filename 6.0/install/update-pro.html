@@ -8,34 +8,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB adds support for secure transfer of keys using the OASIS Key Management Interoperability Protocol (KMIP). The KMIP implementation was tested with the PyKMIP server and the HashiCorp Vault Enterprise KMIP Secrets Engine.">
+        <meta name="description" content="Are you a Percona Customer already and are you ready to enjoy all the benefits of Percona Server for MongoDB Pro?">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/kmip.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/install/update-pro.html">
       
       
-        <link rel="prev" href="vault.html">
+        <link rel="prev" href="upgrade-from-mongodb.html">
       
       
-        <link rel="next" href="keyfile.html">
+        <link rel="next" href="minor-upgrade.html">
       
       
-      <link rel="icon" href="_images/percona-favicon.ico">
+      <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
     
     
       
-        <title>Use KMIP - Percona Server for MongoDB 6.0</title>
+        <title>Upgrade to PSMDB Pro - Percona Server for MongoDB 6.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -58,13 +58,13 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -88,7 +88,7 @@
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 6.0 - Use KMIP" />
+<meta property="og:title" content="Percona Server for MongoDB 6.0 - Upgrade to PSMDB Pro" />
 <meta property="og:image" content="https://docs.percona.com/percona-distribution-for-mongodb/4.4/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
 </head>
@@ -115,7 +115,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-the-key-management-interoperability-protocol-kmip" class="md-skip">
+        <a href="#upgrade-to-percona-server-for-mongodb-pro" class="md-skip">
           Skip to content
         </a>
       
@@ -137,7 +137,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 6.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -154,7 +154,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Use KMIP
+              Upgrade to PSMDB Pro
             
           </span>
         </div>
@@ -274,7 +274,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 6.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 6.0
@@ -301,7 +301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -321,7 +321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -341,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="psmdb-pro.html" class="md-nav__link">
+      <a href="../psmdb-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -398,7 +398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -419,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
+      <a href="apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
+      <a href="yum.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -461,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
+      <a href="tarball.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -482,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/source.html" class="md-nav__link">
+      <a href="source.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -503,7 +503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
+      <a href="docker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -524,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/install-pro.html" class="md-nav__link">
+      <a href="install-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -549,21 +549,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -577,7 +575,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -628,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -694,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -715,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -781,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -802,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -823,7 +821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -844,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -865,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -886,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -907,7 +905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -928,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -949,7 +947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -975,21 +973,19 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
@@ -1003,7 +999,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Encryption
@@ -1017,7 +1013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1038,11 +1034,335 @@
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Use Vault
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kmip.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Use KMIP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keyfile.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Use local keyfile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migrate from keyfile to Vault
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fips.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FIPS compliance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../audit-logging.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Auditing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rate-limit.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Profiling rate limit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log-redaction.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Log redaction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Additional text search algorithm - ngram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Manage PSMDB
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Manage PSMDB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-parameter.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tune parameters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Upgrade
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Upgrade
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="upgrade-from-50.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upgrade from 5.0 to 6.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="upgrade-from-mongodb.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upgrade from MongoDB Community
   </span>
   
 
@@ -1072,18 +1392,18 @@
           
   
   <span class="md-ellipsis">
-    Use KMIP
+    Upgrade to PSMDB Pro
   </span>
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="kmip.html" class="md-nav__link md-nav__link--active">
+      <a href="update-pro.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Use KMIP
+    Upgrade to PSMDB Pro
   </span>
   
 
@@ -1107,43 +1427,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#kmip-parameters" class="md-nav__link">
+  <a href="#preconditions" class="md-nav__link">
     <span class="md-ellipsis">
-      KMIP parameters
+      Preconditions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-rotation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key rotation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Considerations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#procedure" class="md-nav__link">
     <span class="md-ellipsis">
       Procedure
@@ -1151,9 +1443,13 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#downgrade-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downgrade considerations
+    </span>
+  </a>
   
 </li>
       
@@ -1182,327 +1478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="keyfile.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Use local keyfile
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Migrate from keyfile to Vault
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="fips.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    FIPS compliance
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Auditing
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Profiling rate limit
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Log redaction
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Additional text search algorithm - ngram
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Manage PSMDB
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            Manage PSMDB
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Tune parameters
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Upgrade
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
-            <span class="md-nav__icon md-icon"></span>
-            Upgrade
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/upgrade-from-50.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Upgrade from 5.0 to 6.0
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Upgrade from MongoDB Community
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/update-pro.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Upgrade to PSMDB Pro
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/minor-upgrade.html" class="md-nav__link">
+      <a href="minor-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1531,7 +1507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="uninstall.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1596,7 +1572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="../release_notes/index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1617,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.11-8.html" class="md-nav__link">
+      <a href="../release_notes/6.0.11-8.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1638,7 +1614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.9-7.html" class="md-nav__link">
+      <a href="../release_notes/6.0.9-7.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1659,7 +1635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.8-6.html" class="md-nav__link">
+      <a href="../release_notes/6.0.8-6.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1680,7 +1656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.6-5.html" class="md-nav__link">
+      <a href="../release_notes/6.0.6-5.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1701,7 +1677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.5-4.html" class="md-nav__link">
+      <a href="../release_notes/6.0.5-4.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1722,7 +1698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.4-3.html" class="md-nav__link">
+      <a href="../release_notes/6.0.4-3.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1743,7 +1719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.3-2.html" class="md-nav__link">
+      <a href="../release_notes/6.0.3-2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1764,7 +1740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.2-1.html" class="md-nav__link">
+      <a href="../release_notes/6.0.2-1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1792,7 +1768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1812,7 +1788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1832,7 +1808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1880,43 +1856,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#kmip-parameters" class="md-nav__link">
+  <a href="#preconditions" class="md-nav__link">
     <span class="md-ellipsis">
-      KMIP parameters
+      Preconditions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-rotation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key rotation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#considerations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Considerations
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#procedure" class="md-nav__link">
     <span class="md-ellipsis">
       Procedure
@@ -1924,9 +1872,13 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#downgrade-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Downgrade considerations
+    </span>
+  </a>
   
 </li>
       
@@ -1954,7 +1906,7 @@
                   
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/kmip.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/install/update-pro.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1963,249 +1915,113 @@
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/kmip.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/install/update-pro.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="using-the-key-management-interoperability-protocol-kmip">Using the Key Management Interoperability Protocol (KMIP)<a class="headerlink" href="#using-the-key-management-interoperability-protocol-kmip" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB adds support for secure transfer of keys using the <a href="https://docs.oasis-open.org/kmip/kmip-spec/v2.0/os/kmip-spec-v2.0-os.html">OASIS Key Management Interoperability Protocol (KMIP)</a>. The KMIP implementation was tested with the <a href="https://pykmip.readthedocs.io/en/latest/server.html">PyKMIP server</a> and the <a href="https://www.vaultproject.io/docs/secrets/kmip">HashiCorp Vault Enterprise KMIP Secrets Engine</a>.</p>
-<p>KMIP enables the communication between key management systems and the database server. KMIP provides the following benefits:</p>
-<ul>
-<li>Streamlines encryption key management</li>
-<li>Eliminates redundant key management processes</li>
-</ul>
-<p>You can specify multiple KMIP servers for failover. On startup, Percona Server for MongoDB connects to the servers in the order listed and selects the one with which the connection is successful.</p>
-<p>Starting with version 6.0.2-1, the <code>kmipKeyIdentifier</code> option is no longer mandatory. When left blank, the database server creates a key on the KMIP server and uses that for encryption. When you specify the identifier, the key with such an ID must exist on the key storage.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Starting with version 6.0.6-5, the master key is stored in a raw-byte format. If you set up Percona Server for MongoDB 6.0.6-5 with data-at-rest encryption using KMIP and wish to downgrade to some previous version, this downgrade is not possible via binary replacement. Consider using the <a href="https://docs.percona.com/percona-backup-mongodb/usage/start-backup.html">logical backup and restore via Percona Backup for MongoDB</a> for this purpose.</p>
+<h1 id="upgrade-to-percona-server-for-mongodb-pro">Upgrade to Percona Server for MongoDB Pro<a class="headerlink" href="#upgrade-to-percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h1>
+<p>Are you a Percona Customer already and are you ready to enjoy all the <a href="../psmdb-pro.html">benefits of Percona Server for MongoDB Pro</a>? </p>
+<p>This document provides instructions how you can upgrade from Percona Server for MongoDB Basic to Percona Server for MongoDB Pro.</p>
+<h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
+<p>Request the access to the Pro repository from Percona Support. You will receive the client ID and the access token.</p>
+<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Stop the <code>mongod</code> service</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+</code></pre></div>
+</li>
+<li>
+<p>Configure the repository</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu</label><label for="__tabbed_1_2">On RHEL and derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Create the <code>/etc/apt/sources.list.d/psmdb-pro.list</code> configuration file with the following contents</p>
+<div class="highlight"><span class="filename">/etc/apt/sources.list.d/psmdb-pro.list</span><pre><span></span><code><span class="na">deb http</span><span class="o">:</span><span class="s">//repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-60-pro/apt/ OPERATING_SYSTEM main</span>
+</code></pre></div>
+</li>
+<li>
+<p>Update the local cache</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div>
+</li>
+</ol>
 </div>
-<h2 id="kmip-parameters">KMIP parameters<a class="headerlink" href="#kmip-parameters" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-servername"></a> <a href="#security-kmip-servername">security.kmip.serverName</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipServerName</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The hostname or IP address of the KMIP server. Multiple KMIP servers are supported as the comma-separated list, e.g. <code>kmip1.example.com,kmip2.example.com</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-port"></a> <a href="#security-kmip-port">security.kmip.port</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipPort</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>number</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The port used to communicate with the KMIP server. When undefined, the default port <code>5696</code> is used</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-servercafile"></a> <a href="#security-kmip-servercafile">security.kmip.serverCAFile</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipServerCAFile</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The path to the certificate of the root authority that issued the certificate for the KMIP server. Required only if the root certificate is not trusted by default on the machine the database server works on.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-clientcertificatefile"></a> <a href="#security-kmip-clientcertificatefile">security.kmip.clientCertificateFile</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipClientCertificateFile</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The path to the PEM file with the KMIP client private key and the certificate chain. The database server uses this PEM file to authenticate the KMIP server</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-keyidentifier"></a> <a href="#security-kmip-keyidentifier">security.kmip.keyIdentifier</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipKeyIdentifier</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>Optional. The identifier of the KMIP key. If not specified, the database server creates a key on the KMIP server and saves its identifier internally for future use. When you specify the identifier, the key with such an ID must exist on the key storage. You can only use this setting for the first time you enable encryption.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-rotatemasterkey"></a> <a href="#security-kmip-rotatemasterkey">security.kmip.rotateMasterKey</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipRotateMasterKey</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>boolean</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>Controls master keys rotation. When enabled, generates the new master key and re-encrypts the keystore.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-clientcertificatepassword"></a> <a href="#security-kmip-clientcertificatepassword">security.kmip.clientCertificatePassword</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipClientCertificatePassword</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>string</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The password for the KMIP client private key or certificate. Use this parameter only if the KMIP client private key or certificate is encrypted.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-connectretries"></a> <a href="#security-kmip-connectretries">security.kmip.connectRetries</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipConnectRetries</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>Defines how many times to retry the initial connection to the KMIP server. The max number of connection attempts equals to <code>connectRetries + 1</code>. Default: 0. The option accepts values greater than zero. <br><br>Use it together with the <code>connectTimeoutMS</code> parameter to control how long <code>mongod</code> waits for the response before making the next retry.</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="security-kmip-connecttimeoutms"></a> <a href="#security-kmip-connecttimeoutms">security.kmip.connectTimeoutMS</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>kmipConnectTimeoutMS</code></td>
-</tr>
-<tr>
-<td><strong>Type</strong></td>
-<td>int</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>The time to wait for the response from the KMIP server. Min value: 1000. Default: 5000. <br><br>If the <code>connectRetries</code> setting is specified, the <code>mongod</code> waits up to the value specified with <code>connectTimeoutMS</code> for each retry.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="key-rotation">Key rotation<a class="headerlink" href="#key-rotation" title="Permanent link">&para;</a></h2>
-<p>Percona Server for MongoDB supports the <a href="https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation">master key rotation</a>. This enables users to comply with data security regulations when using KMIP.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<h3 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">&para;</a></h3>
-<p>Make sure you have obtained the root certificate, and the keypair for the KMIP server and the <code>mongod</code> client. For testing purposes you can use the <a href="https://www.openssl.org/">OpenSSL</a> to issue self-signed certificates. For production use we recommend you use the valid certificates issued by the key management appliance.</p>
-<h3 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h3>
-<p>To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, edit the <code>/etc/mongod.conf</code> configuration file as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">kmip</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">serverName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;kmip_server_name&gt;</span>
-<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;kmip_port&gt;</span>
-<span class="w">    </span><span class="nt">clientCertificateFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;/path/client_certificate.pem&gt;</span>
-<span class="w">    </span><span class="nt">serverCAFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;/path/ca.pem&gt;</span>
-<span class="w">    </span><span class="nt">keyIdentifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;key_name&gt;</span>
+<div class="tabbed-block">
+<p>Create the <code>/etc/yum.repos.d/psmdb-pro.repo</code> configuration file with the following contents</p>
+<div class="highlight"><span class="filename">/etc/yum.repos.d/psmdb-pro.repo</span><pre><span></span><code><span class="k">[psmdb-6.0-pro]</span>
+<span class="na">name</span><span class="o">=</span><span class="s">PSMDB_6.0_PRO</span>
+<span class="na">baseurl</span><span class="o">=</span><span class="s">http://repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-60-pro/yum/main/$releasever/RPMS/x86_64</span>
+<span class="na">enabled</span><span class="o">=</span><span class="s">1</span>
+<span class="na">gpgkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://repo.percona.com/yum/PERCONA-PACKAGING-KEY</span>
 </code></pre></div>
-<p>Alternatively, you can start Percona Server for MongoDB using the command line as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span>--enableEncryption<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kmipServerName<span class="w"> </span>&lt;kmip_servername&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kmipPort<span class="w"> </span>&lt;kmip_port&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kmipServerCAFile<span class="w"> </span>&lt;path_to_ca_file&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kmipClientCertificateFile<span class="w"> </span>&lt;path_to_client_certificate&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--kmipKeyIdentifier<span class="w"> </span>&lt;kmip_identifier&gt;
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Install Percona Server for MongoDB packages</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On RHEL 8+ and derivatives</label><label for="__tabbed_2_3">On RHEL 7 and derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>percona-server-mongodb-pro
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>percona-server-mongodb-pro
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Back up the <code>/etc/mongod.conf</code> configuration file</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>/etc/mongod.conf<span class="w"> </span>/etc/mongod.conf.bkp
+</code></pre></div>
+</li>
+<li>
+<p>Remove Percona Server for MongoDB basic packages</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span>percona-server-mongodb*
+</code></pre></div>
+</li>
+<li>
+<p>Install Percona Server for MongoDB Pro packages</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>percona-server-mongodb-pro
+</code></pre></div>
+</li>
+<li>
+<p>Restore the configuration file from the backup</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cp<span class="w"> </span>/etc/mongod.conf.bkp<span class="w"> </span>/etc/mongod.conf
+</code></pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Start the server</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemct<span class="w"> </span>start<span class="w"> </span>mongod
+</code></pre></div>
+</li>
+</ol>
+<h2 id="downgrade-considerations">Downgrade considerations<a class="headerlink" href="#downgrade-considerations" title="Permanent link">&para;</a></h2>
+<p>The downgrade to Percona Server for MongoDB basic of version <strong>6.0.12 and higher</strong> is done automatically by <a href="yum.html#install-percona-server-for-mongodb-packages">installing the basic packages</a>. </p>
+<p>If you wish to downgrade from Percona Server for MongoDB Pro to Percona Server for MongoDB basic of version <strong>lower than 6.0.12</strong>, do the following:</p>
+<ol>
+<li>
+<p>Remove the Pro packages</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span>percona-server-mongodb-pro*
+</code></pre></div>
+</li>
+<li>
+<p><a href="yum.html#install-percona-server-for-mongodb-packages">Install Percona Server for MongoDB basic packages of the desired version</a></p>
+</li>
+</ol>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2238,7 +2054,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 30, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 14, 2023</span>
   </span>
 
     
@@ -2248,7 +2064,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 14, 2023</span>
   </span>
 
     
@@ -2412,14 +2228,14 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
     
   </body>
