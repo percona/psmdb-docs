@@ -9,35 +9,30 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Docker images of Percona Server for MongoDB are hosted publicly on Docker Hub at
-https://hub.docker.com/r/percona/percona-server-mongodb/.">
+        <meta name="description" content="Percona telemetry fills in the gaps in our understanding of how you use Percona Server for MongoDB to improve our products. Participation in this anonymous program is optional. You can opt-out if you prefer to not share this information.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/4.4/install/docker.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/4.4/telemetry.html">
       
       
-        <link rel="prev" href="source.html">
       
       
-        <link rel="next" href="../inmemory.html">
-      
-      
-      <link rel="icon" href="../_images/percona-favicon.ico">
+      <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
     
     
       
-        <title>Run Percona Server for MongoDB in a Docker container - Percona Server for MongoDB 4.4</title>
+        <title>Telemetry on Percona Server for MongoDB - Percona Server for MongoDB 4.4</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -60,13 +55,13 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="../css/percona.css">
+      <link rel="stylesheet" href="css/percona.css">
     
-      <link rel="stylesheet" href="../css/nocopy.css">
+      <link rel="stylesheet" href="css/nocopy.css">
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="css/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -89,7 +84,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Server for MongoDB 4.4 - Run Percona Server for MongoDB in a Docker container" />
+                 <meta property="og:title" content="Percona Server for MongoDB 4.4 - Telemetry on Percona Server for MongoDB" />
                  <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/4.4/_images/mongodb.png">
                  <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
                 </head>
@@ -117,7 +112,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
     <div data-md-component="skip">
       
         
-        <a href="#run-percona-server-for-mongodb-in-a-docker-container" class="md-skip">
+        <a href="#telemetry-on-percona-server-for-mongodb" class="md-skip">
           Skip to content
         </a>
       
@@ -139,7 +134,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 4.4" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 4.4" data-md-component="logo">
       
-  <img src="../_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -156,7 +151,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Run Percona Server for MongoDB in a Docker container
+              Telemetry on Percona Server for MongoDB
             
           </span>
         </div>
@@ -278,7 +273,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 4.4" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 4.4" data-md-component="logo">
       
-  <img src="../_images/percona-logo.svg" alt="logo">
+  <img src="_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 4.4
@@ -305,7 +300,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -325,7 +320,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../comparison.html" class="md-nav__link">
+      <a href="comparison.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -342,21 +337,19 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -370,7 +363,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Install PSMDB
@@ -384,7 +377,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="install/index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -405,7 +398,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="apt.html" class="md-nav__link">
+      <a href="install/apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -426,7 +419,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="yum.html" class="md-nav__link">
+      <a href="install/yum.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -447,7 +440,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="tarball.html" class="md-nav__link">
+      <a href="install/tarball.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -468,7 +461,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="source.html" class="md-nav__link">
+      <a href="install/source.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -486,30 +479,10 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Run Percona Server for MongoDB in a Docker container
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="docker.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="install/docker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -518,55 +491,6 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#connecting-from-another-docker-container" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connecting from another Docker container
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connecting-with-the-mongo-shell" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connecting with the mongo shell
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -660,7 +584,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../inmemory.html" class="md-nav__link">
+      <a href="inmemory.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -726,7 +650,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../hot-backup.html" class="md-nav__link">
+      <a href="hot-backup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -747,7 +671,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../backup-cursor.html" class="md-nav__link">
+      <a href="backup-cursor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -813,7 +737,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../authentication.html" class="md-nav__link">
+      <a href="authentication.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -834,7 +758,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../enable-auth.html" class="md-nav__link">
+      <a href="enable-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -855,7 +779,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../sasl-auth.html" class="md-nav__link">
+      <a href="sasl-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -876,7 +800,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../x509-ldap.html" class="md-nav__link">
+      <a href="x509-ldap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -897,7 +821,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../kerberos.html" class="md-nav__link">
+      <a href="kerberos.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -918,7 +842,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../aws-iam.html" class="md-nav__link">
+      <a href="aws-iam.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -939,7 +863,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../aws-iam-setup.html" class="md-nav__link">
+      <a href="aws-iam-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,7 +884,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../authorization.html" class="md-nav__link">
+      <a href="authorization.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -981,7 +905,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../ldap-setup.html" class="md-nav__link">
+      <a href="ldap-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1047,7 +971,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../data-at-rest-encryption.html" class="md-nav__link">
+      <a href="data-at-rest-encryption.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1068,7 +992,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../vault.html" class="md-nav__link">
+      <a href="vault.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1089,7 +1013,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../kmip.html" class="md-nav__link">
+      <a href="kmip.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1110,7 +1034,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../keyfile.html" class="md-nav__link">
+      <a href="keyfile.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1131,7 +1055,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../encryption-mode-switch.html" class="md-nav__link">
+      <a href="encryption-mode-switch.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1160,7 +1084,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../audit-logging.html" class="md-nav__link">
+      <a href="audit-logging.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1181,7 +1105,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../rate-limit.html" class="md-nav__link">
+      <a href="rate-limit.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1202,7 +1126,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../log-redaction.html" class="md-nav__link">
+      <a href="log-redaction.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1223,7 +1147,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../ngram-full-text-search.html" class="md-nav__link">
+      <a href="ngram-full-text-search.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1288,7 +1212,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../set-parameter.html" class="md-nav__link">
+      <a href="set-parameter.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1346,7 +1270,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="upgrade-from-42.html" class="md-nav__link">
+      <a href="install/upgrade-from-42.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1367,7 +1291,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1388,7 +1312,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="minor-upgrade.html" class="md-nav__link">
+      <a href="install/minor-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1417,7 +1341,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="uninstall.html" class="md-nav__link">
+      <a href="install/uninstall.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1482,7 +1406,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/index.html" class="md-nav__link">
+      <a href="release_notes/index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1503,7 +1427,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.25-24.html" class="md-nav__link">
+      <a href="release_notes/4.4.25-24.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1524,7 +1448,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.24-23.html" class="md-nav__link">
+      <a href="release_notes/4.4.24-23.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1545,7 +1469,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.23-22.html" class="md-nav__link">
+      <a href="release_notes/4.4.23-22.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1566,7 +1490,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.22-21.html" class="md-nav__link">
+      <a href="release_notes/4.4.22-21.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1587,7 +1511,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.21-20.html" class="md-nav__link">
+      <a href="release_notes/4.4.21-20.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1608,7 +1532,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.19-19.html" class="md-nav__link">
+      <a href="release_notes/4.4.19-19.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1629,7 +1553,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.18-18.html" class="md-nav__link">
+      <a href="release_notes/4.4.18-18.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1650,7 +1574,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.17-17.html" class="md-nav__link">
+      <a href="release_notes/4.4.17-17.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1671,7 +1595,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.16-16.html" class="md-nav__link">
+      <a href="release_notes/4.4.16-16.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1692,7 +1616,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.15-15.html" class="md-nav__link">
+      <a href="release_notes/4.4.15-15.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1713,7 +1637,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.14-14.html" class="md-nav__link">
+      <a href="release_notes/4.4.14-14.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1734,7 +1658,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.13-13.html" class="md-nav__link">
+      <a href="release_notes/4.4.13-13.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1755,7 +1679,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.12-12.html" class="md-nav__link">
+      <a href="release_notes/4.4.12-12.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1776,7 +1700,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.10-11.html" class="md-nav__link">
+      <a href="release_notes/4.4.10-11.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1797,7 +1721,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.9-10.html" class="md-nav__link">
+      <a href="release_notes/4.4.9-10.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1818,7 +1742,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.8-9.html" class="md-nav__link">
+      <a href="release_notes/4.4.8-9.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1839,7 +1763,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.6-8.html" class="md-nav__link">
+      <a href="release_notes/4.4.6-8.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1860,7 +1784,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.5-7.html" class="md-nav__link">
+      <a href="release_notes/4.4.5-7.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1881,7 +1805,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.4-6.html" class="md-nav__link">
+      <a href="release_notes/4.4.4-6.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1902,7 +1826,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.3-5.html" class="md-nav__link">
+      <a href="release_notes/4.4.3-5.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1923,7 +1847,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.2-4.html" class="md-nav__link">
+      <a href="release_notes/4.4.2-4.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1944,7 +1868,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.1-3.html" class="md-nav__link">
+      <a href="release_notes/4.4.1-3.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1965,7 +1889,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.1-2.html" class="md-nav__link">
+      <a href="release_notes/4.4.1-2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1986,7 +1910,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/4.4.0-1.html" class="md-nav__link">
+      <a href="release_notes/4.4.0-1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2014,7 +1938,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../glossary.html" class="md-nav__link">
+      <a href="glossary.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2034,7 +1958,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../copyright.html" class="md-nav__link">
+      <a href="copyright.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2054,7 +1978,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
   
   
     <li class="md-nav__item">
-      <a href="../trademark-policy.html" class="md-nav__link">
+      <a href="trademark-policy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2102,18 +2026,18 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#connecting-from-another-docker-container" class="md-nav__link">
+  <a href="#what-information-is-collected" class="md-nav__link">
     <span class="md-ellipsis">
-      Connecting from another Docker container
+      What information is collected
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#connecting-with-the-mongo-shell" class="md-nav__link">
+  <a href="#disable-telemetry" class="md-nav__link">
     <span class="md-ellipsis">
-      Connecting with the mongo shell
+      Disable telemetry
     </span>
   </a>
   
@@ -2143,7 +2067,7 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
                   
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/install/docker.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/telemetry.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2152,247 +2076,52 @@ https://hub.docker.com/r/percona/percona-server-mongodb/.">
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/install/docker.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/telemetry.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="run-percona-server-for-mongodb-in-a-docker-container">Run Percona Server for MongoDB in a Docker container<a class="headerlink" href="#run-percona-server-for-mongodb-in-a-docker-container" title="Permanent link">&para;</a></h1>
-<p>Docker images of Percona Server for MongoDB are hosted publicly on Docker Hub at
-<a href="https://hub.docker.com/r/percona/percona-server-mongodb/">https://hub.docker.com/r/percona/percona-server-mongodb/</a>.</p>
-<p>For more information about using Docker, see the <a href="https://docs.docker.com/">Docker Docs</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Make sure that you are using the latest version of Docker.  The ones provided via <code>apt</code> and <code>yum</code> may be outdated and cause errors.</p>
-<p>By default, Docker will pull the image from Docker Hub if it is not available locally.</p>
-<p>We gather <a href="telemetry.md">Telemetry data</a> to understand the use of the software and improve our products.</p>
-</div>
-<p>To run the latest Percona Server for MongoDB 4.4 in a Docker container, run the following command as the root user or via <code>sudo</code>:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On x86_64 platforms</label><label for="__tabbed_1_2">On ARM64 platforms</label></div>
+<h1 id="telemetry-on-percona-server-for-mongodb">Telemetry on Percona Server for MongoDB<a class="headerlink" href="#telemetry-on-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
+<p>Percona telemetry fills in the gaps in our understanding of how you use Percona Server for MongoDB to improve our products. Participation in this anonymous program is optional. You can opt-out if you prefer to not share this information.</p>
+<h2 id="what-information-is-collected">What information is collected<a class="headerlink" href="#what-information-is-collected" title="Permanent link">&para;</a></h2>
+<p>Currently, telemetry is added only to the Percona packages and Docker images. It collects only information about the installation environment. Future releases may add additional telemetry metrics.</p>
+<p>Be assured that access to this raw data is rigorously controlled. Percona does not collect personal data. All data is anonymous and cannot be traced to a specific user. To learn more about our privacy practices, read the <a href="https://www.percona.com/privacy-policy#h.e34c40q8sb1a">Percona Privacy statement</a>.</p>
+<p>The following is an example of the collected data:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c416c3ee-48cd-471c-9733-37c2886f8231&quot;</span><span class="p">,</span>
+<span class="nt">&quot;product_family&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PRODUCT_FAMILY_PSMDB&quot;</span><span class="p">,</span>
+<span class="nt">&quot;instanceId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6aef422e-56a7-4530-af9d-94cc02198343&quot;</span><span class="p">,</span>
+<span class="nt">&quot;createTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-11-01T10:46:23Z&quot;</span><span class="p">,</span>
+<span class="nt">&quot;metrics&quot;</span><span class="p">:</span>
+<span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deployment&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PACKAGE&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pillar_version&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4.4.26-25&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OS&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Oracle Linux Server 8.8&quot;</span><span class="p">},</span>
+<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hardware_arch&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;x86_64 x86_64&quot;</span><span class="p">}]}]</span>
+</code></pre></div>
+<h2 id="disable-telemetry">Disable telemetry<a class="headerlink" href="#disable-telemetry" title="Permanent link">&para;</a></h2>
+<p>Starting with Percona Server for MongoDB 4.4.26-25, telemetry is enabled by default. If you decide not to send usage data to Percona, you can set the <code>PERCONA_TELEMETRY_DISABLE=1</code> environment variable for either the root user or in the operating system prior to the installation process.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian-derived distribution</label><label for="__tabbed_1_2">Red Hat-derived distribution</label><label for="__tabbed_1_3">Docker</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<p>Add the environment variable before the install process.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Add the environment variable before the install process.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Add the environment variable when running a command in a new container.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
-percona/percona-server-mongodb:4.4
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>percona/percona-server-mongodb:&lt;TAG&gt;
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>The Docker image is available starting with version 4.4.24-23.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
-percona/percona-server-mongodb:&lt;TAG&gt;-arm64
-</code></pre></div>
-<p>Replace the <code>&lt;TAG&gt;</code> with the desired version (for example, 4.4.24-23-arm64)</p>
 </div>
 </div>
 </div>
-<p>The command does the following:</p>
-<ul>
-<li>
-<p>The <code>docker run</code> command instructs the <code>docker</code> daemon
-to run a container from an image.</p>
-</li>
-<li>
-<p>The <code>-d</code> option starts the container in detached mode
-(that is, in the background).</p>
-</li>
-<li>
-<p>The <code>--name</code> option assigns a custom name for the container
-that you can use to reference the container within a Docker network.
-In this case: <code>psmdb</code>.</p>
-</li>
-<li>
-<p>The <code>--restart</code> option defines the container’s restart policy.
-Setting it to <code>always</code> ensures that the Docker daemon
-will start the container on startup
-and restart it if the container exits.</p>
-</li>
-<li>
-<p><code>percona/percona-server-mongodb:4.4</code>/<code>percona/percona-server-mongodb:&lt;TAG&gt;-arm64</code> is the name and version tag
-of the image to derive the container from.</p>
-</li>
-</ul>
-<h2 id="connecting-from-another-docker-container">Connecting from another Docker container<a class="headerlink" href="#connecting-from-another-docker-container" title="Permanent link">&para;</a></h2>
-<p>The Percona Server for MongoDB container exposes standard MongoDB port (27017),
-which can be used for connection from an application
-running in another container.</p>
-<p>For example, to set up a replica set for testing purposes, you have the following options:</p>
-<ul>
-<li>Interconnect the <code>mongod</code> nodes in containers on a default <code>bridge</code> network. In this scenario, containers communicate with each other by their IP address.</li>
-<li>Create a <a href="https://docs.docker.com/network/bridge/">user-defined network</a> and interconnect the <code>mongod</code> nodes on it. In this scenario, containers communicate with each other by name.</li>
-<li>Automate the container provisioning and the replica set setup via the <a href="https://docs.docker.com/compose/">Docker Compose tool</a>.</li>
-</ul>
-<p>In the following example, <code>rs101</code>, <code>rs102</code>, <code>rs103</code> are the container names for Percona Server for MongoDB and <code>rs</code> is the replica set name.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Bridge network</label><label for="__tabbed_2_2">User-defined network</label><label for="__tabbed_2_3">Docker Compose</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>When you start Docker, a default <code>bridge</code> network is created and all containers are automatically attached to it unless otherwise specified. </p>
-<ol>
-<li>
-<p>Start the containers and expose different ports</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs101<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w">  </span>percona/percona-server-mongodb:4.4<span class="w"> </span>--port<span class="o">=</span><span class="m">27017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
-$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs102<span class="w"> </span>-p<span class="w"> </span><span class="m">28017</span>:28017<span class="w">  </span>percona/percona-server-mongodb:4.4<span class="w"> </span>--port<span class="o">=</span><span class="m">28017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
-$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs103<span class="w"> </span>-p<span class="w"> </span><span class="m">29017</span>:29017<span class="w">  </span>percona/percona-server-mongodb:4.4<span class="w"> </span>--port<span class="o">=</span><span class="m">29017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
-</code></pre></div>
-</li>
-<li>
-<p>Check that the containers are started</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>container<span class="w"> </span>ls
-</code></pre></div>
-<p>Output:</p>
-<div class="no-copy highlight"><pre><span></span><code>CONTAINER ID  IMAGE                                         COMMAND               CREATED         STATUS             PORTS                     NAMES
-3a4b70cd386b  percona/percona-server-mongodb:4.4  --port=27017 --re...  3 minutes ago   Up 3 minutes ago   0.0.0.0:27017-&gt;27017/tcp  rs101
-c9b40a00e32b  percona/percona-server-mongodb:4.4  --port=28017 --re...  11 seconds ago  Up 11 seconds ago  0.0.0.0:28017-&gt;28017/tcp  rs102
-b8aebc00309e  percona/percona-server-mongodb:4.4  --port=29017 --re...  3 seconds ago   Up 3 seconds ago   0.0.0.0:29017-&gt;29017/tcp  rs103
-</code></pre></div>
-</li>
-<li>
-<p>Get the IP addresses of each container</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>inspect<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span><span class="w"> </span>rs101
-$<span class="w"> </span>docker<span class="w"> </span>inspect<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span><span class="w"> </span>rs102
-$<span class="w"> </span>docker<span class="w"> </span>inspect<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span><span class="w"> </span>rs103
-</code></pre></div>
-</li>
-<li>
-<p>Interconnect the containers and initiate the replica set. Replace <code>rs101SERVER</code>, <code>rs102SERVER</code> and <code>rs103SERVER</code> with the IP address of each respective container.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongo<span class="w"> </span>--eval<span class="w"> </span><span class="s1">&#39;config={&quot;_id&quot;:&quot;rs&quot;,&quot;members&quot;:[{&quot;_id&quot;:0,&quot;host&quot;:&quot;rs101SERVER:27017&quot;},{&quot;_id&quot;:1,&quot;host&quot;:&quot;rs102SERVER:28017&quot;},{&quot;_id&quot;:2,&quot;host&quot;:&quot;rs103SERVER:29017&quot;}]};rs.initiate(config);&#39;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Check your setup</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongo<span class="w"> </span>--eval<span class="w"> </span><span class="s1">&#39;rs.status()&#39;</span>
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<p>You can isolate desired containers in a user-defined network and provide DNS resolution across them so that they communicate with each other by hostname.</p>
-<ol>
-<li>
-<p>Create the network:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>my-network
-</code></pre></div>
-</li>
-<li>
-<p>Start the containers and connect them to your network, exposing different ports</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs101<span class="w"> </span>--net<span class="w"> </span>my-network<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w">  </span>percona/percona-server-mongodb:4.4<span class="w"> </span>--port<span class="o">=</span><span class="m">27017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
-$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs102<span class="w"> </span>--net<span class="w"> </span>my-network<span class="w"> </span>-p<span class="w"> </span><span class="m">28017</span>:28017<span class="w">  </span>percona/percona-server-mongodb:4.4<span class="w"> </span>--port<span class="o">=</span><span class="m">28017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
-$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs103<span class="w"> </span>--net<span class="w"> </span>my-network<span class="w"> </span>-p<span class="w"> </span><span class="m">29017</span>:29017<span class="w">  </span>percona/percona-server-mongodb:4.4<span class="w"> </span>--port<span class="o">=</span><span class="m">29017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
-</code></pre></div>
-<p>Alternatively, you can connect the already running containers to your network:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>network<span class="w"> </span>connect<span class="w"> </span>my-network<span class="w"> </span>rs101<span class="w"> </span>rs102<span class="w"> </span>rs103
-</code></pre></div>
-</li>
-<li>
-<p>Interconnect the containers and initiate the replica set. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongo<span class="w"> </span>--eval<span class="w"> </span><span class="s1">&#39;config={&quot;_id&quot;:&quot;rs&quot;,&quot;members&quot;:[{&quot;_id&quot;:0,&quot;host&quot;:&quot;rs101:27017&quot;},{&quot;_id&quot;:1,&quot;host&quot;:&quot;rs102:28017&quot;},{&quot;_id&quot;:2,&quot;host&quot;:&quot;rs103:29017&quot;}]};rs.initiate(config);&#39;</span>
-</code></pre></div>
-</li>
-<li>
-<p>Check your setup</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongo<span class="w"> </span>--eval<span class="w"> </span><span class="s1">&#39;rs.status()&#39;</span>
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<p>As the precondition, you need to have Docker Engine and Docker Compose on your machine. Refer to <a href="https://docs.docker.com/compose/install/">Docker documentation</a> for how to get Docker Compose.</p>
-<ol>
-<li>
-<p>Create a compose file and define the services in it.</p>
-<div class="highlight"><span class="filename">docker-compose.yaml</span><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">rs101</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">percona/percona-server-mongodb:4.4</span>
-<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs101</span>
-<span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs101</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;27017:27017&quot;</span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-network</span>
-<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;--port=27017</span><span class="nv"> </span><span class="s">--replSet</span><span class="nv"> </span><span class="s">rs&quot;</span>
-
-<span class="w">  </span><span class="nt">rs102</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">percona/percona-server-mongodb:4.4</span>
-<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs102</span>
-<span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs102</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;28017:28017&quot;</span><span class="w">    </span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-network</span>
-<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;--port=28017</span><span class="nv"> </span><span class="s">--replSet</span><span class="nv"> </span><span class="s">rs&quot;</span>
-
-<span class="w">  </span><span class="nt">rs103</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">percona/percona-server-mongodb:4.4</span>
-<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs103</span>
-<span class="w">    </span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs103</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;29017:29017&quot;</span><span class="w">    </span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-network</span>
-<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;--port=29017</span><span class="nv"> </span><span class="s">--replSet</span><span class="nv"> </span><span class="s">rs&quot;</span>
-
-<span class="w">  </span><span class="nt">rs-init</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">percona/percona-server-mongodb:4.4</span>
-<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs-init</span>
-<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;no&quot;</span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-network</span>
-<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs101</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs102</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rs103</span>
-<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
-<span class="w">      </span><span class="no">mongo --host rs101:27017 --eval </span>
-<span class="w">      </span><span class="no">&#39;</span>
-<span class="w">      </span><span class="no">config = {</span>
-<span class="w">      </span><span class="no">&quot;_id&quot; : &quot;rs&quot;,</span>
-<span class="w">      </span><span class="no">&quot;members&quot; : [</span>
-<span class="w">        </span><span class="no">{</span>
-<span class="w">          </span><span class="no">&quot;_id&quot; : 0,</span>
-<span class="w">          </span><span class="no">&quot;host&quot; : &quot;rs101:27017&quot;</span>
-<span class="w">        </span><span class="no">},</span>
-<span class="w">        </span><span class="no">{</span>
-<span class="w">          </span><span class="no">&quot;_id&quot; : 1,</span>
-<span class="w">          </span><span class="no">&quot;host&quot; : &quot;rs102:28017&quot;</span>
-<span class="w">        </span><span class="no">},</span>
-<span class="w">        </span><span class="no">{</span>
-<span class="w">          </span><span class="no">&quot;_id&quot; : 2,</span>
-<span class="w">          </span><span class="no">&quot;host&quot; : &quot;rs103:29017&quot;</span>
-<span class="w">        </span><span class="no">}</span>
-<span class="w">      </span><span class="no">]</span>
-<span class="w">      </span><span class="no">};</span>
-<span class="w">      </span><span class="no">rs.initiate(config);</span>
-<span class="w">      </span><span class="no">&#39; </span>
-<span class="nt">networks</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">my-network</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
-</code></pre></div>
-</li>
-<li>
-<p>Build and run the replica set with Compose </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
-</code></pre></div>
-</li>
-<li>
-<p>Check your setup</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongo<span class="w"> </span>--eval<span class="w"> </span><span class="s1">&#39;rs.status()&#39;</span>
-</code></pre></div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<h2 id="connecting-with-the-mongo-shell">Connecting with the <code>mongo</code> shell<a class="headerlink" href="#connecting-with-the-mongo-shell" title="Permanent link">&para;</a></h2>
-<p>To start another container with the <code>mongo</code> shell
-that connects to your Percona Server for MongoDB container,
-run the following command: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--link<span class="w"> </span>psmdb<span class="w"> </span>--rm<span class="w"> </span>percona/percona-server-mongodb:4.4<span class="w"> </span>mongo<span class="w"> </span>mongodb://MONGODB_SERVER:PORT/DB_NAME
-</code></pre></div>
-<p>Set <code>MONGODB_SERVER</code>, <code>PORT</code>, and <code>DB_NAME</code> with the IP address of the <code>psmdb</code> container, the port of your MongoDB server (default value is 27017), and the name of the database you want to connect to.</p>
-<p>You can get the IP address by running this command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>inspect<span class="w"> </span>-f<span class="w"> </span><span class="s1">&#39;{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span><span class="w"> </span>psmdb
-</code></pre></div>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2435,7 +2164,7 @@ run the following command: </p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 18, 2023</span>
   </span>
 
     
@@ -2607,14 +2336,14 @@ run the following command: </p>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "search.suggest", "search.share", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "search.suggest", "search.share", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="assets/javascripts/bundle.d7c377c4.min.js"></script>
       
-        <script src="../js/version-select.js"></script>
+        <script src="js/version-select.js"></script>
       
-        <script src="../js/promptremover.js"></script>
+        <script src="js/promptremover.js"></script>
       
     
   </body>
