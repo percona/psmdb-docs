@@ -152,7 +152,7 @@ nav:
       - "From tarballs": install/tarball.md
       - install/source.md
       - "Run in Docker": install/docker.md
-      - "Install PSMDB Pro": install/install-pro.md
+      - "Install Professional builds": install/install-pro.md
   - Features: 
       - Storage:
         - "Percona Memory Engine": "inmemory.md"

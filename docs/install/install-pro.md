@@ -1,10 +1,10 @@
-# Install Pro packages of Percona Server for MongoDB
+# Install Pro builds of Percona Server for MongoDB
 
-This document provides guidelines how to install Pro packages of Percona Server for MongoDB from Percona repositories. [Learn more about PSMDB Pro :material-arrow-top-right:](../psmdb-pro.md).
+This document provides guidelines how to install Pro builds of Percona Server for MongoDB from Percona repositories. [Learn more about Professional builds](../psmdb-pro.md).
 
 ## Procedure
 
-1. Request the access to the pro repository from Percona Support. You will receive the client ID and the access token.
+1. Request the access to the Pro builds repository from Percona Support. You will receive the client ID and the access token.
 
 2. Configure the repository
 
