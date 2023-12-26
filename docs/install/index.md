@@ -27,7 +27,7 @@ Choose how you wish to install Percona Server for MongoDB:
 
     * [on Debian or Ubuntu](apt.md#apt)
     * [on RHEL or derivatives](yum.md#yum)
-    * [install pro builds](install-pro.md)
+    * [install Percona Server for MongoDB Pro](install-pro.md)
 
 * [build from source code](source.md)
 * [from binary tarballs](tarball.md)
