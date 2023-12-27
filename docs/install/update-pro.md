@@ -2,11 +2,11 @@
 
 Are you a Percona Customer already and are you ready to enjoy all the [benefits of Percona Server for MongoDB Pro](../psmdb-pro.md)? 
 
-This document provides instructions how you can upgrade from Percona Server for MongoDB Basic to Percona Server for MongoDB Pro.
+This document provides instructions how you can upgrade from Percona Server for MongoDB to Percona Server for MongoDB Pro.
 
 ## Preconditions 
 
-Request the access to the Pro repository from Percona Support. You will receive the client ID and the access token.
+Request the access to the Percona Server for MongoDB Pro repository from Percona Support. You will receive the client ID and the access token.
 
 ## Procedure
 
@@ -44,7 +44,7 @@ Request the access to the Pro repository from Percona Support. You will receive 
         gpgkey = https://repo.percona.com/yum/PERCONA-PACKAGING-KEY
         ```
 
-3. Install Percona Server for MongoDB packages
+3. Install Percona Server for MongoDB Pro packages
 
     === "On Debian and Ubuntu"
 
@@ -66,7 +66,7 @@ Request the access to the Pro repository from Percona Support. You will receive 
             $ sudo cp /etc/mongod.conf /etc/mongod.conf.bkp
             ```
 
-        2. Remove Percona Server for MongoDB basic packages
+        2. Remove basic packages of Percona Server for MongoDB 
 
             ```{.bash .data-prompt="$"}
             $ sudo yum remove percona-server-mongodb*
@@ -90,7 +90,7 @@ Request the access to the Pro repository from Percona Support. You will receive 
     $ sudo systemct start mongod
     ```
 
-## Downgrade considerations
+## Downgrade considerations on RHEL and derivatives
 
 The downgrade to Percona Server for MongoDB basic of version **6.0.12 and higher** is done automatically by [installing the basic packages](yum.md#install-percona-server-for-mongodb-packages). 
 
