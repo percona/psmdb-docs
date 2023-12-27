@@ -8,36 +8,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB is integrated with HashiCorp Vault. HashiCorp Vault supports different secrets engines. Percona Server for MongoDB only supports the HashiCorp Vault
-back end with KV Secrets Engine - Version 2 (API)
-with versioning enabled.">
+        <meta name="description" content="This document provides guidelines how to install Percona Server for MongoDB Pro from Percona repositories. Learn more about Percona Server for MongoDB Pro.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/vault.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/install/install-pro.html">
       
       
-        <link rel="prev" href="data-at-rest-encryption.html">
+        <link rel="prev" href="docker.html">
       
       
-        <link rel="next" href="kmip.html">
+        <link rel="next" href="../inmemory.html">
       
       
-      <link rel="icon" href="_images/percona-favicon.ico">
+      <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
       
-        <title>Use Vault - Percona Server for MongoDB 7.0</title>
+        <title>Install Professional builds - Percona Server for MongoDB 7.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -60,13 +58,13 @@ with versioning enabled.">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -90,10 +88,10 @@ with versioning enabled.">
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 7.0 - Use Vault" />
+<meta property="og:title" content="Percona Server for MongoDB 7.0 - Install Professional builds" />
 <meta property="og:image" content="https://docs.percona.com/percona-distribution-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
- <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
@@ -104,7 +102,7 @@ with versioning enabled.">
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 
@@ -128,7 +126,7 @@ with versioning enabled.">
     <div data-md-component="skip">
       
         
-        <a href="#hashicorp-vault-integration" class="md-skip">
+        <a href="#install-percona-server-for-mongodb-pro" class="md-skip">
           Skip to content
         </a>
       
@@ -150,7 +148,7 @@ with versioning enabled.">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 7.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -167,7 +165,7 @@ with versioning enabled.">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Use Vault
+              Install Professional builds
             
           </span>
         </div>
@@ -287,7 +285,7 @@ with versioning enabled.">
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 7.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 7.0
@@ -314,7 +312,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -334,7 +332,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -354,7 +352,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="psmdb-pro.html" class="md-nav__link">
+      <a href="../psmdb-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -363,197 +361,6 @@ with versioning enabled.">
   
 
       </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Install PSMDB
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Install PSMDB
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    System requirements
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    On Debian and Ubuntu
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    On RHEL and derivatives
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    From tarballs
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/source.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Build from source code
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Run in Docker
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="install/install-pro.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Install Professional builds
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -576,7 +383,258 @@ with versioning enabled.">
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Install PSMDB
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Install PSMDB
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System requirements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="apt.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    On Debian and Ubuntu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="yum.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    On RHEL and derivatives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tarball.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From tarballs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="source.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build from source code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run in Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Install Professional builds
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="install-pro.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Install Professional builds
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -590,7 +648,7 @@ with versioning enabled.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -641,7 +699,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -707,7 +765,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -728,7 +786,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -794,7 +852,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -815,7 +873,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -836,7 +894,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -857,7 +915,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -878,7 +936,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -899,7 +957,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -920,7 +978,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -941,7 +999,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -962,7 +1020,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -988,21 +1046,19 @@ with versioning enabled.">
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
@@ -1016,7 +1072,7 @@ with versioning enabled.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Encryption
@@ -1030,7 +1086,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1048,30 +1104,10 @@ with versioning enabled.">
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Use Vault
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="vault.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../vault.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1080,94 +1116,6 @@ with versioning enabled.">
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#hashicorp-vault-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      HashiCorp Vault Parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#namespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Namespaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Namespaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#targeting-a-namespace-in-vault-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Targeting a namespace in Vault configuration
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-rotation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key rotation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key rotation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-rotation-in-replica-sets" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key rotation in replica sets
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1180,7 +1128,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1201,7 +1149,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="keyfile.html" class="md-nav__link">
+      <a href="../keyfile.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1222,7 +1170,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1243,7 +1191,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="fips.html" class="md-nav__link">
+      <a href="../fips.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1272,7 +1220,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
+      <a href="../audit-logging.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1293,7 +1241,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
+      <a href="../rate-limit.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1314,7 +1262,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
+      <a href="../log-redaction.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1335,7 +1283,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1400,7 +1348,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1458,7 +1406,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-60.html" class="md-nav__link">
+      <a href="upgrade-from-60.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1479,7 +1427,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="upgrade-from-mongodb.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1500,7 +1448,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="install/update-pro.html" class="md-nav__link">
+      <a href="update-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1521,7 +1469,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="install/minor-upgrade.html" class="md-nav__link">
+      <a href="minor-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1550,7 +1498,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="uninstall.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1615,7 +1563,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="../release_notes/index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1636,7 +1584,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.4-2.html" class="md-nav__link">
+      <a href="../release_notes/7.0.4-2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1657,7 +1605,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.2-1.html" class="md-nav__link">
+      <a href="../release_notes/7.0.2-1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1685,7 +1633,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1705,7 +1653,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="telemetry.html" class="md-nav__link">
+      <a href="../telemetry.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1725,7 +1673,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1745,7 +1693,7 @@ with versioning enabled.">
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1793,59 +1741,11 @@ with versioning enabled.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hashicorp-vault-parameters" class="md-nav__link">
+  <a href="#procedure" class="md-nav__link">
     <span class="md-ellipsis">
-      HashiCorp Vault Parameters
+      Procedure
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#namespaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Namespaces
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Namespaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#targeting-a-namespace-in-vault-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Targeting a namespace in Vault configuration
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-rotation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key rotation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key rotation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-rotation-in-replica-sets" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key rotation in replica sets
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1873,7 +1773,7 @@ with versioning enabled.">
                   
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/vault.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/install/install-pro.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1882,148 +1782,70 @@ with versioning enabled.">
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/vault.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/install/install-pro.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="hashicorp-vault-integration">HashiCorp Vault integration<a class="headerlink" href="#hashicorp-vault-integration" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB is integrated with HashiCorp Vault. HashiCorp Vault supports different secrets engines. Percona Server for MongoDB only supports the HashiCorp Vault
-back end with KV Secrets Engine - Version 2 (API)
-with versioning enabled.</p>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p>Percona Blog: <a href="https://www.percona.com/blog/2020/04/21/using-vault-to-store-the-master-key-for-data-at-rest-encryption-on-percona-server-for-mongodb/">Using Vault to Store the Master Key for Data at Rest Encryption on Percona Server for MongoDB</a></p>
-<p>HashiCorp Vault Documentation: <a href="https://www.vaultproject.io/api/secret/kv/kv-v2.html">How to configure the KV Engine</a></p>
-</div>
-<h2 id="hashicorp-vault-parameters">HashiCorp Vault Parameters<a class="headerlink" href="#hashicorp-vault-parameters" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Command line</th>
-<th>Configuration file</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>vaultServerName</td>
-<td>security.vault.serverName</td>
-<td>string</td>
-<td>The IP address of the Vault server</td>
-</tr>
-<tr>
-<td>vaultPort</td>
-<td>security.vault.port</td>
-<td>int</td>
-<td>The port on the Vault server</td>
-</tr>
-<tr>
-<td>vaultTokenFile</td>
-<td>security.vault.tokenFile</td>
-<td>string</td>
-<td>The path to the vault token file. The token file is used by MongoDB to access HashiCorp Vault. The vault token file consists of the raw vault token and does not include any additional strings or parameters. <br> <br> Example of a vault token file: <br> <br> <code>s.uTrHtzsZnEE7KyHeA797CkWA</code></td>
-</tr>
-<tr>
-<td>vaultSecret</td>
-<td>security.vault.secret</td>
-<td>string</td>
-<td>The path to the Vault secret. The Vault secret path format must be <code>&lt;secrets_engine_mount_path&gt;/data/&lt;custom_path&gt;</code> <br> <br> where: <br> - <code>&lt;secrets_engine_mount_path&gt;</code> is the path to the Key/Value Secrets Engine v2; <br> - <code>data</code> is the mandatory path prefix required by Version 2 API; <br> - <code>&lt;custom_path&gt;</code> is the path to the specific secret. <br> <br> Example: <code>secret_v2/data/psmdb-test/rs1-27017</code> <br><br> Starting with version <a href="https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.md">6.0.5-4</a>, a distinct Vault secret path for every replica set member is no longer mandatory. In earlier versions, it is recommended to use different secret paths for every database node in the entire deployment to avoid issues during the master key rotation.</td>
-</tr>
-<tr>
-<td>vaultSecretVersion</td>
-<td>security.vault.<br>secretVersion</td>
-<td>unsigned long</td>
-<td>(Optional) The version of the Vault secret to use</td>
-</tr>
-<tr>
-<td>vaultRotateMasterKey</td>
-<td>security.vault.<br>rotateMasterKey</td>
-<td>switch</td>
-<td>When enabled, rotates the master key and exits</td>
-</tr>
-<tr>
-<td>vaultServerCAFile</td>
-<td>security.vault.<br>serverCAFile</td>
-<td>string</td>
-<td>The path to the TLS certificate file</td>
-</tr>
-<tr>
-<td>vaultDisableTLSForTesting</td>
-<td>security.vault.<br>disableTLSForTesting</td>
-<td>switch</td>
-<td>Disables secure connection to Vault using SSL/TLS client certificates</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Config file example</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">vault</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">serverName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
-<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8200</span>
-<span class="w">    </span><span class="nt">tokenFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/user/path/token</span>
-<span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/data/hello</span>
-</code></pre></div>
-<p>During the first run of the Percona Server for MongoDB, the process generates a secure key and writes the key to the vault.</p>
-<p>During the subsequent start, the server tries to read the master key from the vault. If the configured secret does not exist, vault responds with HTTP 404 error.</p>
-<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&para;</a></h2>
-<p>Namespaces are isolated environments in Vault that allow for separate secret key and policy management.</p>
-<p>You can use Vault namespaces with Percona Server for MongoDB. Specify the namespace(s) for the <code>security.vault.secret</code> option value as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>&lt;namespace&gt;/secret/data/&lt;secret_path&gt;
-</code></pre></div>
-<p>For example, the path to secret keys for namespace <code>test</code> on  the secrets engine <code>secret</code> will be <code>test/secret/&lt;my_secret_path&gt;</code>.</p>
-<h3 id="targeting-a-namespace-in-vault-configuration">Targeting a namespace in Vault configuration<a class="headerlink" href="#targeting-a-namespace-in-vault-configuration" title="Permanent link">&para;</a></h3>
-<p>You have the following options of how to target a particular namespace when configuring Vault:</p>
-<ol>
-<li>Set the VAULT_NAMESPACE environment variable so that all subsequent commands are executed against that namespace. Use the following command to set the environment variable for the namespace <code>test</code>:</li>
-</ol>
-<p><div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">VAULT_NAMESPACE</span><span class="o">=</span><span class="nb">test</span>
-</code></pre></div>
-2. Provide the namespace with the <code>-namespace</code> flag in commands</p>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p>HashiCorp Vault Documentation:</p>
-<ul>
-<li>
-<p><a href="https://www.vaultproject.io/docs/enterprise/namespaces">Namespaces</a></p>
-</li>
-<li>
-<p><a href="https://learn.hashicorp.com/tutorials/vault/namespaces">Secure Multi-Tenancy with Namespaces</a></p>
-</li>
-</ul>
-</div>
-<h2 id="key-rotation">Key rotation<a class="headerlink" href="#key-rotation" title="Permanent link">&para;</a></h2>
-<p>Key rotation is replacing the old master key with a new one. This process helps to comply with regulatory requirements.</p>
-<p>To rotate the keys for a single <code>mongod</code> instance, do the following:</p>
+<h1 id="install-percona-server-for-mongodb-pro">Install Percona Server for MongoDB Pro<a class="headerlink" href="#install-percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h1>
+<p>This document provides guidelines how to install Percona Server for MongoDB Pro from Percona repositories. <a href="../psmdb-pro.html">Learn more about Percona Server for MongoDB Pro</a>.</p>
+<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Stop the <code>mongod</code> process</p>
+<p>Request the access to the Pro builds repository from Percona Support. You will receive the client ID and the access token.</p>
 </li>
 <li>
-<p>Add <code>--vaultRotateMasterKey</code> option via the command line or <code>security.vault.rotateMasterKey</code> to the config file.</p>
+<p>Configure the repository</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu</label><label for="__tabbed_1_2">On RHEL and derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Create the <code>/etc/apt/sources.list.d/psmdb-pro.list</code> configuration file with the following contents</p>
+<div class="highlight"><span class="filename">/etc/apt/sources.list.d/psmdb-pro.list</span><pre><span></span><code><span class="na">deb http</span><span class="o">:</span><span class="s">//repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-70-pro/apt/ OPERATING_SYSTEM main</span>
+</code></pre></div>
 </li>
 <li>
-<p>Run the <code>mongod</code> process with the selected option, the process will perform the key rotation and exit.</p>
-</li>
-<li>
-<p>Remove the selected option from the startup command or the config file.</p>
-</li>
-<li>
-<p>Start <code>mongod</code> again.</p>
+<p>Update the local cache</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</code></pre></div>
 </li>
 </ol>
-<p>Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the vault. The entire dataset is not re-encrypted.</p>
-<h3 id="key-rotation-in-replica-sets">Key rotation in replica sets<a class="headerlink" href="#key-rotation-in-replica-sets" title="Permanent link">&para;</a></h3>
-<p>Starting with version <a href="https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.md">6.0.5-4</a>, you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The <code>mongod</code> server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.  </p>
-<p>The key rotation steps are the following:</p>
-<ol>
-<li>Rotate the master key for the secondary nodes one by one.</li>
-<li>Step down the primary and wait for another primary to be elected.</li>
-<li>Rotate the master key for the previous primary node.</li>
+</div>
+<div class="tabbed-block">
+<p>Create the <code>/etc/yum.repos.d/psmdb-pro.repo</code> configuration file with the following contents</p>
+<div class="highlight"><span class="filename">/etc/yum.repos.d/psmdb-pro.repo</span><pre><span></span><code><span class="k">[psmdb-7.0-pro]</span>
+<span class="na">name</span><span class="o">=</span><span class="s">PSMDB_7.0_PRO</span>
+<span class="na">baseurl</span><span class="o">=</span><span class="s">http://repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-70-pro/yum/main/$releasever/RPMS/x86_64</span>
+<span class="na">enabled</span><span class="o">=</span><span class="s">1</span>
+<span class="na">gpgkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://repo.percona.com/yum/PERCONA-PACKAGING-KEY</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Install Percona Server for MongoDB Pro packages</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On RHEL and derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>percona-server-mongodb-pro
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>percona-server-mongodb-pro
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Start the server</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemct<span class="w"> </span>start<span class="w"> </span>mongod
+</code></pre></div>
+</li>
 </ol>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
@@ -2056,7 +1878,7 @@ with versioning enabled.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 5, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 27, 2023</span>
   </span>
 
     
@@ -2066,7 +1888,7 @@ with versioning enabled.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 27, 2023</span>
   </span>
 
     
@@ -2230,14 +2052,14 @@ with versioning enabled.</p>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
