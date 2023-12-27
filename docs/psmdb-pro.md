@@ -12,7 +12,7 @@ Find the list of solutions available in Percona Server for MongoDB Pro builds:
 
 | Name                                | Version added | Description  | 
 | ----------------------------------- | ------------- | -------------
-| [FIPS support ](fips.md)| [6.0.9-7](release_notes/6.0.9-7.md) | FIPS mode provides a way to use FIPS-compliant encryption and run the Percona Server for MongoDB with the FIPS-140 certified library for OpenSSL. This helps customers meet minimum security requirements for cryptographic modules and testing in both hardware and software. |
+| [FIPS support ](fips.md)| [7.0.4-2](release_notes/7.0.4-2.md) | FIPS mode provides a way to use FIPS-compliant encryption and run the Percona Server for MongoDB with the FIPS-140 certified library for OpenSSL. This helps customers meet minimum security requirements for cryptographic modules and testing in both hardware and software. |
 
 ## Benefits
 
