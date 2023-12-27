@@ -26,7 +26,8 @@ Choose how you wish to install Percona Server for MongoDB:
 * From Percona repositories (recommended):
 
     * [on Debian or Ubuntu](apt.md#apt)
-    * [on RHEL or CentOS](yum.md#yum)
+    * [on RHEL or derivatives](yum.md#yum)
+    * [install Percona Server for MongoDB Pro](install-pro.md)
 
 * [build from source code](source.md)
 * [from binary tarballs](tarball.md)
@@ -46,4 +47,6 @@ We gather [Telemetry data](../telemetry.md) in Percona packages and Docker image
 If you are already using MongoDB, see [Upgrading from MongoDB](upgrade-from-mongodb.md).
 
 If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 6.0](upgrade-from-60.md).
+
+If you wish to upgrade to Percona Server for MongoDB Pro, see [Upgrade to PSMDB Pro](update-pro.md) guide. 
 
