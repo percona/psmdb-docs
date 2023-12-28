@@ -1,6 +1,6 @@
 # Install Pro packages of Percona Server for MongoDB
 
-This document provides guidelines how to install Pro packages of Percona Server for MongoDB from Percona repositories. [Learn more about PSMDB Pro :material-arrow-top-right:](../psmdb-pro.md).
+This document provides guidelines how to install Percona Server for MongoDB Pro from Percona repositories. [Learn more about Percona Server for MongoDB Pro](../psmdb-pro.md).
 
 ## Procedure
 
@@ -34,7 +34,7 @@ This document provides guidelines how to install Pro packages of Percona Server 
         gpgkey = https://repo.percona.com/yum/PERCONA-PACKAGING-KEY
         ```
 
-3. Install Percona Server for MongoDB packages
+3. Install Percona Server for MongoDB Pro packages
 
     === "On Debian and Ubuntu"
 
