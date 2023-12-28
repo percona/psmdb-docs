@@ -24,7 +24,7 @@
       
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
       
@@ -1445,9 +1445,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#downgrade-considerations" class="md-nav__link">
+  <a href="#downgrade-considerations-on-rhel-and-derivatives" class="md-nav__link">
     <span class="md-ellipsis">
-      Downgrade considerations
+      Downgrade considerations on RHEL and derivatives
     </span>
   </a>
   
@@ -1895,9 +1895,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#downgrade-considerations" class="md-nav__link">
+  <a href="#downgrade-considerations-on-rhel-and-derivatives" class="md-nav__link">
     <span class="md-ellipsis">
-      Downgrade considerations
+      Downgrade considerations on RHEL and derivatives
     </span>
   </a>
   
@@ -1945,9 +1945,9 @@
 
 <h1 id="upgrade-to-percona-server-for-mongodb-pro">Upgrade to Percona Server for MongoDB Pro<a class="headerlink" href="#upgrade-to-percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h1>
 <p>Are you a Percona Customer already and are you ready to enjoy all the <a href="../psmdb-pro.html">benefits of Percona Server for MongoDB Pro</a>? </p>
-<p>This document provides instructions how you can upgrade from Percona Server for MongoDB Basic to Percona Server for MongoDB Pro.</p>
+<p>This document provides instructions how you can upgrade from Percona Server for MongoDB to Percona Server for MongoDB Pro.</p>
 <h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
-<p>Request the access to the Pro repository from Percona Support. You will receive the client ID and the access token.</p>
+<p>Request the access to the Percona Server for MongoDB Pro repository from Percona Support. You will receive the client ID and the access token.</p>
 <h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -1986,7 +1986,7 @@
 </div>
 </li>
 <li>
-<p>Install Percona Server for MongoDB packages</p>
+<p>Install Percona Server for MongoDB Pro packages</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On RHEL 8+ and derivatives</label><label for="__tabbed_2_3">On RHEL 7 and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2005,7 +2005,7 @@
 </code></pre></div>
 </li>
 <li>
-<p>Remove Percona Server for MongoDB basic packages</p>
+<p>Remove basic packages of Percona Server for MongoDB </p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span>percona-server-mongodb*
 </code></pre></div>
 </li>
@@ -2030,7 +2030,7 @@
 </code></pre></div>
 </li>
 </ol>
-<h2 id="downgrade-considerations">Downgrade considerations<a class="headerlink" href="#downgrade-considerations" title="Permanent link">&para;</a></h2>
+<h2 id="downgrade-considerations-on-rhel-and-derivatives">Downgrade considerations on RHEL and derivatives<a class="headerlink" href="#downgrade-considerations-on-rhel-and-derivatives" title="Permanent link">&para;</a></h2>
 <p>The downgrade to Percona Server for MongoDB basic of version <strong>6.0.12 and higher</strong> is done automatically by <a href="yum.html#install-percona-server-for-mongodb-packages">installing the basic packages</a>. </p>
 <p>If you wish to downgrade from Percona Server for MongoDB Pro to Percona Server for MongoDB basic of version <strong>lower than 6.0.12</strong>, do the following:</p>
 <ol>
@@ -2075,7 +2075,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 14, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 28, 2023</span>
   </span>
 
     
