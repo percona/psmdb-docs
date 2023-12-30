@@ -1,12 +1,10 @@
 # Percona Server for MongoDB 6.0 Documentation
 
 Percona Server for MongoDB is a free, enhanced, fully compatible, source available, drop-in replacement
-for MongoDB 6.0 Community Edition with enterprise-grade features.
+for MongoDB 6.0 Community Edition with [enterprise-grade features](comparison.md).
 It requires no changes to MongoDB applications or code.
 
-!!! hint ""
-
-    To see which version of Percona Server for MongoDB you are using check the value of the `psmdbVersion` key in the output of the [buildInfo](https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo) database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.
+[What's new in Percona Server for MongoDB {{release}}](release_notes/{{release}}.md){ .md-button .md-button }
 
 
 !!! important
@@ -24,36 +22,37 @@ It requires no changes to MongoDB applications or code.
 
     The above changes are expected to lead to better performance overall going forward.
 
-[What's new in Percona Server for MongoDB {{release}}](release_notes/{{release}}.md){ .md-button .md-button }
-    
-## Features
+## What's in it for you?
 
-Percona Server for MongoDB provides the following features:
+* Enterprise-grade security features help you ensure your data stays safe
+* High-availability and scalability help you meet your enterprise application needs
+* Get [visibility into user and process actions](audit-logging.md) and [redact sensitive information from log files](log-redaction.md).
+* Enjoy simplified backup and observability management with the natively integrated [Percona Backup for MongoDB](https://docs.percona.com/percona-backup-mongodb/index.html) and [Percona Monitoring and Management](https://www.percona.com/doc/percona-monitoring-and-management/2.x/index.html) solutions.  
+
+<div data-grid markdown><div data-banner markdown>
+
+## :material-progress-download: Installation guides { .title }
+
+Ready to try out Percona Server for MongoDB? Get started quickly with the step-by-step installation instructions.
+
+[Quickstart guides :material-arrow-right:](install/index.md){ .md-button }
+
+</div><div data-banner markdown>
+
+### :fontawesome-solid-gears: Secure access to database { .title }
+
+Define who has access to the database, ensuring only authorized users have access to resources and operations. 
+
+[Authentication :material-arrow-right:](authentication.md){.md-button}
+</div><div data-banner markdown>
+
+### :material-backup-restore: Backup management { .title }
+
+Create physical backups on a running server without notable performance degradation.
+
+[Hot backup :material-arrow-right:](hot-backup.md){ .md-button }
+
+</div>
+</div>    
 
 
-* MongoDB’s default [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) engine
-
-* [Percona Memory Engine](inmemory.md) storage engine
-
-* [Data at Rest Encryption](data-at-rest-encryption.md)
-
-* [External authentication](authentication.md#ext-auth)
-using OpenLDAP or Active Directory
-
-* [AWS IAM authentication](aws-iam.md) (a [technical preview feature](glossary.md#technical-preview-feature))
-
-* [Audit logging](audit-logging.md) to track and query database interactions of users or applications
-
-* [Hot Backup](hot-backup.md) for the default [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/)
-
-* [Profiling Rate Limit](rate-limit.md) to decrease the impact of the profiler on performance
-
-To learn more about the features, available in Percona Server for MongoDB, see [Percona Server for MongoDB Feature Comparison](comparison.md)
-
-
-## Get started
-
-Ready to try out Percona Server for MongoDB?
-
-
-[Install and get started](install/index.md){ .md-button .md-button }

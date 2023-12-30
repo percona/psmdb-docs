@@ -87,8 +87,8 @@ markdown_extensions:
       auto_append:
         - services-banner.md
   pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
       options:
         custom_icons:
           - _resource/overrides/.icons
@@ -143,13 +143,14 @@ extra:
 
 nav:
   - Home: index.md
-  - comparison.md
+  - Feature comparison with MongoDB: comparison.md
   - psmdb-pro.md
-  - Install PSMDB: 
-      - 'System requirements': 'install/index.md'
-      - "On Debian and Ubuntu": install/apt.md
-      - "On RHEL and derivatives": install/yum.md
-      - "From tarballs": install/tarball.md
+  - Installation: 
+      - Quickstart guides: 'install/index.md'
+      - 'System requirements': 'install/system-requirements.md'
+      - "Install on Debian and Ubuntu": install/apt.md
+      - "Install on RHEL and derivatives": install/yum.md
+      - "Install from tarballs": install/tarball.md
       - install/source.md
       - "Run in Docker": install/docker.md
       - "Install PSMDB Pro": install/install-pro.md
@@ -199,6 +200,8 @@ nav:
       - release_notes/6.0.4-3.md
       - release_notes/6.0.3-2.md
       - release_notes/6.0.2-1.md
-  - glossary.md
-  - copyright.md
-  - trademark-policy.md 
+  - faq.md
+  - Reference:
+      - glossary.md
+      - copyright.md
+      - trademark-policy.md 

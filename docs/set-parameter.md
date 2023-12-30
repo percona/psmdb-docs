@@ -34,5 +34,4 @@ in one of the following ways:
 
 ## Parameters
 
-See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v5.0/reference/parameters/#parameters).
->>>>>>> 52c6822... PSMDB-1314 Simplified the Set Parameter guide
+See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v6.0/reference/parameters/#parameters).

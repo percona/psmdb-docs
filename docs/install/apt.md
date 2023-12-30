@@ -1,30 +1,29 @@
 # Install Percona Server for MongoDB on Debian and Ubuntu
 
-This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu. We gather [Telemetry data](telemetry.md) to understand the use of the software and improve our products.
+This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu. 
 
-!!! note
+We gather [Telemetry data](telemetry.md) to understand the use of the software and improve our products.
 
-    Percona Server for MongoDB should work on other DEB-based distributions,
-    but it is tested only on platforms listed on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb) page.
+???+ admonition "Package contents"
 
-## Package contents
-
-| Package                 | Contains                                 |
-| ----------------------- | -----------------------------------------|
-| `percona-server-mongodb`| The `mongosh` shell, import/export tools, other client utilities, server software, default configuration, and `init.d` scripts. |
-| `percona-server-mongodb-server`| The `mongod` server, default configuration files, and `init.d` scripts|
-| `percona-server-mongodb-shell` | The `mongosh` shell |
-| `percona-server-mongodb-mongos`| The `mongos` sharded cluster query router |
-| `percona-server-mongodb-tools` | Mongo tools for high-performance MongoDB fork from Percona|
-| `percona-server-mongodb-dbg`   | Debug symbols for the server|
+    | Package                 | Contains                                 |
+    | ----------------------- | -----------------------------------------|
+    | `percona-server-mongodb`| The `mongosh` shell, import/export tools, other client utilities, server software, default configuration, and `init.d` scripts. |
+    | `percona-server-mongodb-server`| The `mongod` server, default configuration files, and `init.d` scripts|
+    | `percona-server-mongodb-shell` | The `mongosh` shell |
+    | `percona-server-mongodb-mongos`| The `mongos` sharded cluster query router |
+    | `percona-server-mongodb-tools` | Mongo tools for high-performance MongoDB fork from Percona|
+    | `percona-server-mongodb-dbg`   | Debug symbols for the server|
 
 ## Procedure
 
+Before you start, check the [system requirements](system-requirements.md).
+
 ### Configure Percona repository
 
-Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Backup for MongoDB packages and required dependencies smoothly.
+To install from Percona repositories, you need to enable the requires repository first using the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) repository management tool.
 
-1. Fetch **percona-release** packages from Percona web:
+1. Fetch the **percona-release** package:
     
     ```{.bash data-prompt="$"}
     $ wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
@@ -85,22 +84,22 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
          $ sudo apt install percona-server-mongodb=6.0.2-1.buster percona-server-mongodb-mongos=6.0.2-1.buster percona-server-mongodb-shell=6.0.2-1.buster percona-server-mongodb-server=6.0.2-1.buster percona-server-mongodb-tools=6.0.2-1.buster
          ```
 
-## Run Percona Server for MongoDB
-
 By default, Percona Server for MongoDB stores data files in `/var/lib/mongodb/`
 and configuration parameters in `/etc/mongod.conf`.
 
-**Starting the service**
+## Run Percona Server for MongoDB
 
 Percona Server for MongoDB is started automatically after installation unless it encounters errors during the installation process.
 
-You can also manually start it using the following command:
+**Start the service**
+
+You can manually start the service using the following command:
 
 ```{.bash data-prompt="$"}
 $ sudo systemctl start mongod
 ```
 
-**Confirming that the service is running**
+**Confirm that the service is running**
 
 Check the service status using the following command:
 
@@ -108,17 +107,13 @@ Check the service status using the following command:
 $ sudo systemctl status mongod
 ```
 
-**Stopping the service**
-
-Stop the service using the following command:
+**Stop the service**
 
 ```{.bash data-prompt="$"}
 $ sudo systemctl stop mongod
 ```
 
-**Restarting the service**
-
-Restart the service using the following command:
+**Restart the service**
 
 ```{.bash data-prompt="$"}
 $ sudo systemctl restart mongod
