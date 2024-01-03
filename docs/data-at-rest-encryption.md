@@ -4,6 +4,11 @@ Data at rest encryption for the WiredTiger storage engine in MongoDB was
 introduced in MongoDB Enterprise version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
 
+!!! important
+
+    You can only enable data at rest encryption and provide all encryption settings **on an empty database**, when you start the `mongod` instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.
+
+
 ## Differences from upstream
 
 The data encryption at rest in Percona Server for MongoDB is introduced in version 3.6 to be compatible with data encryption at rest interface in MongoDB. In the current release of Percona Server for MongoDB, the data encryption at rest does not include support for Amazon AWS key management service. Instead, Percona Server for MongoDB is [integrated with HashiCorp Vault](vault.md). 
@@ -24,9 +29,6 @@ To manage the master key, use one of the supported key management options:
 
 Note that you can use only one of the key management options at a time. However, you can switch from one management option to another (e.g. from a keyfile to HashiCorp Vault). Refer to [Migrating from Key File Encryption to HashiCorp Vault Encryption](encryption-mode-switch.md) section for details.
 
-!!! important
-
-    You can only enable data at rest encryption and provide all encryption settings on an empty database, when you start the `mongod` instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.
 
 ## Important configuration options
 
@@ -48,7 +50,7 @@ $ mongod ... --encryptionCipherMode AES256-GCM
 
     MongoDB Documentation: [encryptionCipherMode Option](https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-encryptionciphermode)
 
-## Encrypting Rollback Files
+## Encryption of rollback files
 
 Starting from version 3.6, Percona Server for MongoDB also encrypts rollback files when data at rest encryption is enabled. To inspect the contents of these files, use **perconadecrypt**. This is a tool that you run from the command line as follows:
 

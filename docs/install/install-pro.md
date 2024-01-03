@@ -2,13 +2,15 @@
 
 This document provides guidelines how to install Percona Server for MongoDB Pro from Percona repositories. [Learn more about Percona Server for MongoDB Pro](../psmdb-pro.md).
 
+If you already run Percona Server for MongoDB and wish to upgrade to Percona Server for MongoDB Pro, see the [upgrade guide](update-pro.md).
+
 ## Procedure
 
 1. Request the access to the pro repository from Percona Support. You will receive the client ID and the access token.
 
 2. Configure the repository
 
-    === "On Debian and Ubuntu"
+    === ":material-debian: Debian and Ubuntu"
 
         1. Create the `/etc/apt/sources.list.d/psmdb-pro.list` configuration file with the following contents
 
@@ -22,7 +24,7 @@ This document provides guidelines how to install Percona Server for MongoDB Pro 
             $ sudo apt update
             ```
 
-    === "On RHEL and derivatives"
+    === ":material-redhat: RHEL and derivatives"
 
         Create the `/etc/yum.repos.d/psmdb-pro.repo` configuration file with the following contents
 
@@ -36,13 +38,13 @@ This document provides guidelines how to install Percona Server for MongoDB Pro 
 
 3. Install Percona Server for MongoDB Pro packages
 
-    === "On Debian and Ubuntu"
+    === ":material-debian: Debian and Ubuntu"
 
         ```{.bash .data-prompt="$"}
         $ sudo apt install -y percona-server-mongodb-pro
         ```
 
-    === "On RHEL and derivatives"
+    === ":material-redhat: RHEL and derivatives"
 
         ```{.bash .data-prompt="$"}
         $ sudo yum install -y percona-server-mongodb-pro
@@ -53,3 +55,7 @@ This document provides guidelines how to install Percona Server for MongoDB Pro 
     ```{.bash .data-prompt="$"}
     $ sudo systemct start mongod
     ```
+
+## Next steps
+
+[Connect to MongoDB](../connect.md){.md-button}

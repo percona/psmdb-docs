@@ -4,7 +4,7 @@ This document describes how to install Percona Server for MongoDB on RPM-based d
 
 We gather [Telemetry data](telemetry.md) to understand the use of the software and improve our products.
 
-???+ admonition "Package contents"
+??? admonition "Package contents"
 
      | Package                 | Contains                                 |
      | ----------------------- | -----------------------------------------|
@@ -22,6 +22,7 @@ Before you start, check the [system requirements](system-requirements.md).
 ### Configure Percona repository
 
 To install from Percona repositories, you need to enable the requires repository first using the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) repository management tool.
+{.power-number}
 
 1. Install **percona-release**:
 
@@ -45,7 +46,7 @@ To install from Percona repositories, you need to enable the requires repository
    
 ### Install Percona Server for MongoDB packages
 
-=== "Install the latest version"
+=== ":material-run-fast: Install the latest version"
 
       To install the latest version of *Percona Server for MongoDB*, use the following command:
 
@@ -53,9 +54,10 @@ To install from Percona repositories, you need to enable the requires repository
       $ sudo yum install percona-server-mongodb
       ```
 
-=== "Install a specific version"
+=== ":octicons-number-16: Install a specific version"
 
      To install a specific version of *Percona Server for MongoDB*, do the following:
+     {.power-number}
 
      1. List available versions:
 
@@ -138,5 +140,6 @@ Then start the `mongod` service:
 $ sudo systemctl start mongod
 ```
 
+## Next steps
 
-
+[Connect to MongoDB](../connect.md){.md-button}

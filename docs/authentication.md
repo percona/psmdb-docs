@@ -11,7 +11,7 @@ You can use any of these authentication mechanisms supported in Percona Server f
 
 * [SCRAM](#scram) (default)
 * [x.509 certificate authentication](#x509-certificate-authentication)
-* [LDAP authentication with SASL](#ldap-authentication-with-sasl))
+* [LDAP authentication with SASL](#ldap-authentication-with-sasl)
 * [Kerberos Authentication](#kerberos-authentication)
 * [Authentication and authorization with direct binding to LDAP](authorization.md)
 * [AWS IAM authentication](aws-iam.md)

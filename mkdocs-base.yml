@@ -3,7 +3,8 @@
 site_name: Percona Server for MongoDB 6.0
 site_description: Documentation
 site_author: Percona LLC
-copyright: Percona LLC, &#169; 2023
+copyright: >
+  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2023 — <a href="#__consent">Cookie Consent</a>
 
 repo_name: percona/psmdb-docs
 repo_url: https://github.com/percona/psmdb-docs
@@ -18,7 +19,8 @@ theme:
   favicon: _images/percona-favicon.ico
   custom_dir: _resource/overrides/
   font:
-    text: Poppins
+    text: Roboto
+    code: Roboto Mono
   icon:
     edit: material/file-edit-outline
     view: material/file-eye-outline
@@ -27,10 +29,18 @@ theme:
     content.action.view
     content.action.edit
     content.code.copy
+    content.copy.annotate
     search.highlight
     search.share
     
   palette:
+
+    # Automatic mode based on system preferences
+
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
 
     # Light mode
     - media: "(prefers-color-scheme: light)"
@@ -53,6 +63,7 @@ extra_css:
   - css/percona.css
   - css/nocopy.css
   - css/extra.css
+  - css/design.css
 
 extra_javascript:
   - js/version-select.js
@@ -78,7 +89,11 @@ markdown_extensions:
   pymdownx.tabbed: 
       {alternate_style: true}
   pymdownx.tilde: {}
-  pymdownx.superfences: {}
+  pymdownx.superfences: 
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
   pymdownx.highlight:
       linenums: false
   pymdownx.inlinehilite: {}
@@ -86,6 +101,8 @@ markdown_extensions:
       base_path: ["snippets"]
       auto_append:
         - services-banner.md
+  pymdownx.tasklist:
+     custom_checkbox: true
   pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -145,15 +162,19 @@ nav:
   - Home: index.md
   - Feature comparison with MongoDB: comparison.md
   - psmdb-pro.md
-  - Installation: 
+  - Get started: 
       - Quickstart guides: 'install/index.md'
-      - 'System requirements': 'install/system-requirements.md'
-      - "Install on Debian and Ubuntu": install/apt.md
-      - "Install on RHEL and derivatives": install/yum.md
-      - "Install from tarballs": install/tarball.md
-      - install/source.md
-      - "Run in Docker": install/docker.md
-      - "Install PSMDB Pro": install/install-pro.md
+      - Installation:
+        - 'System requirements': 'install/system-requirements.md'
+        - "On Debian and Ubuntu": install/apt.md
+        - "On RHEL and derivatives": install/yum.md
+        - "From tarballs": install/tarball.md
+        - install/source.md
+        - "Run in Docker": install/docker.md
+        - "Install PSMDB Pro": install/install-pro.md
+      - connect.md
+      - crud.md
+      - what-next.md
   - Features: 
       - Storage:
         - "Percona Memory Engine": "inmemory.md"
@@ -181,7 +202,7 @@ nav:
       - rate-limit.md
       - log-redaction.md
       - ngram-full-text-search.md
-  - Manage PSMDB:
+  - Administration:
       - "Tune parameters": "set-parameter.md"
       - Upgrade:
         - "Upgrade from 5.0 to 6.0": "install/upgrade-from-50.md"
@@ -203,5 +224,6 @@ nav:
   - faq.md
   - Reference:
       - glossary.md
+      - telemetry.md
       - copyright.md
       - trademark-policy.md 

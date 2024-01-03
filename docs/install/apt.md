@@ -2,9 +2,9 @@
 
 This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu. 
 
-We gather [Telemetry data](telemetry.md) to understand the use of the software and improve our products.
+We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
-???+ admonition "Package contents"
+??? admonition "Package contents"
 
     | Package                 | Contains                                 |
     | ----------------------- | -----------------------------------------|
@@ -22,6 +22,7 @@ Before you start, check the [system requirements](system-requirements.md).
 ### Configure Percona repository
 
 To install from Percona repositories, you need to enable the requires repository first using the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) repository management tool.
+{.power-number}
 
 1. Fetch the **percona-release** package:
     
@@ -53,7 +54,7 @@ To install from Percona repositories, you need to enable the requires repository
 
 ### Install Percona Server for MongoDB
 
-=== "Install the latest version"
+=== ":material-run-fast: Install the latest version"
 
      Run the following command to install the latest version of Percona Server for MongoDB:
 
@@ -61,10 +62,10 @@ To install from Percona repositories, you need to enable the requires repository
       $ sudo apt install percona-server-mongodb
       ```
 
-=== "Install a specific version"
+=== ":octicons-number-16: Install a specific version"
 
      To install a specific version of Percona Server for MongoDB, do the following:
-
+     {.power-number}
 
      1. List available versions:
 
@@ -119,3 +120,8 @@ $ sudo systemctl stop mongod
 $ sudo systemctl restart mongod
 ```
 
+Congratulations! Your Percona Server for MongoDB is up and running. 
+
+## Next steps
+
+[Connect to MongoDB](../connect.md){.md-button}

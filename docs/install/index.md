@@ -5,7 +5,7 @@ for MongoDB 6.0 Community Edition with [enterprise-grade features](comparison.md
 
 Find the full list of supported platforms for Percona Server for MongoDB on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page.
 
-## Install Percona Server for MongoDB Basic
+## Install Percona Server for MongoDB basic build
 
 You can use any of the easy-install guides but **we recommend using the package manager of your operating system** for a convenient and quick way to try the software first.
 
@@ -25,9 +25,9 @@ You can use any of the easy-install guides but **we recommend using the package 
 
      Check the Docker guide for step-by-step guidelines.
 
-     We gather [Telemetry data](../telemetry.md) in Docker images.
-
      [Run in Docker :material-arrow-right:](docker.md){.md-button}
+
+     We gather [Telemetry data](../telemetry.md) in Docker images.
 
 === ":simple-kubernetes: Kubernetes"
 
