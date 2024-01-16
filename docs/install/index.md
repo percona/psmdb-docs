@@ -7,7 +7,7 @@ Find the full list of supported platforms for Percona Server for MongoDB on the 
 
 ## Install Percona Server for MongoDB basic build
 
-You can use any of the easy-install guides but **we recommend using the package manager of your operating system** for a convenient and quick way to try the software first.
+You can use any of the easy-install guides. We recommend to use **the package manager of your operating system** for a convenient and quick way to install the software for production use. **Use Docker** to try the software first.
 
 === ":simple-windowsterminal: Package manager" 
 

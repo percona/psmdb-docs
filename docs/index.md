@@ -40,11 +40,11 @@ Define who has access to the database and manage their permissions in a single p
 [Authentication :material-arrow-right:](authentication.md){.md-button}
 </div><div data-banner markdown>
 
-### :material-backup-restore: Backup management { .title }
+### :material-backup-restore: Backup and restore { .title }
 
-Create physical backups on a running server without notable performance degradation.
+Make enterprise-level backups and restores with guaranteed data consistency using Percona Backup for MongoDB (PBM). Or, create physical backups on a running server using the built-in [hot backup](hot-backup.md) functionality. 
 
-[Hot backup :material-arrow-right:](hot-backup.md){ .md-button }
+[Get started with PBM :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/installation.html){ .md-button }
 
 </div><div data-banner markdown>
 
