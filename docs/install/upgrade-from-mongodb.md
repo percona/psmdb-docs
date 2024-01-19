@@ -20,7 +20,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
     Before starting the upgrade, we recommend to perform a full backup of your data.
 
 
-=== "Upgrade on Debian and Ubuntu"
+=== ":material-debian: Upgrade on Debian and Ubuntu"
 
      1. Save the current configuration file as the backup:
 
@@ -91,7 +91,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
          $ sudo systemctl start mongod
          ```
 
-=== "Upgrade on Red Hat Enterprise Linux and derivatives"
+=== ":material-redhat: Upgrade on Red Hat Enterprise Linux and derivatives"
 
      1. Stop the `mongod` service:
 

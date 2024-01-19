@@ -207,7 +207,7 @@ nav:
       - Upgrade:
         - "Upgrade from 5.0 to 6.0": "install/upgrade-from-50.md"
         - "Upgrade from MongoDB Community": "install/upgrade-from-mongodb.md"
-        - "Upgrade to PSMDB Pro": install/update-pro.md
+        - "Upgrade to Percona Server for MongoDB Pro": install/update-pro.md
         - install/minor-upgrade.md
       - install/uninstall.md
   - Release notes:

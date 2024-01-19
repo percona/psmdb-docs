@@ -2,7 +2,7 @@
 
 This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives.
 
-We gather [Telemetry data](telemetry.md) to understand the use of the software and improve our products.
+We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
 ??? admonition "Package contents"
 
@@ -142,4 +142,4 @@ $ sudo systemctl start mongod
 
 ## Next steps
 
-[Connect to MongoDB](../connect.md){.md-button}
+[Connect to MongoDB :material-arrow-right:](../connect.md){.md-button}

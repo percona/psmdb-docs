@@ -463,4 +463,4 @@ The steps are the following:
 
 ## Next steps
 
-[Connect to MongoDB](../connect.md){.md-button}
+[Connect to MongoDB :material-arrow-right:](../connect.md){.md-button}

@@ -95,7 +95,7 @@ The steps are the following:
 
 ## Next steps
 
-[Run simple queries](crud.md){.md-button}
+[Run simple queries :material-arrow-right:](crud.md){.md-button}
 
 
 

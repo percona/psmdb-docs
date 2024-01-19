@@ -1,8 +1,8 @@
 # Percona Server for MongoDB 6.0 Documentation
 
-Percona Server for MongoDB is a free, enhanced, fully compatible, source available, drop-in replacement
+Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
 for MongoDB 6.0 Community Edition with [enterprise-grade features](comparison.md).
-It requires no changes to MongoDB applications or code.
+[To migrate to Percona Server for MongoDB](install/upgrade-from-mongodb.md) requires no changes to MongoDB applications or code.
 
 [What's new in Percona Server for MongoDB {{release}}](release_notes/{{release}}.md){ .md-button .md-button }
 

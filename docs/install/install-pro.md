@@ -58,4 +58,4 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
 
 ## Next steps
 
-[Connect to MongoDB](../connect.md){.md-button}
+[Connect to MongoDB :material-arrow-right:](../connect.md){.md-button}

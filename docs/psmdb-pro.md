@@ -2,6 +2,8 @@
 
 Percona Server for MongoDB Pro is a build of Percona Server for MongoDB that contains purpose-built enterprise [features](#features). It is wrapped in packages created and tested by Percona and is available exclusively for Percona customers.
 
+Percona Server for MongpDB Pro is available starting with version [6.0.9-7](release_notes/6.0.9-7.md).
+
 [Become a Percona Customer](https://www.percona.com/about/contact){.md-button}
 
 Non-paying Percona software users can also benefit from Percona Pro Builds, but they’ll have to [build them from the source code](install/source.md) provided by Percona and available to everyone.
