@@ -8,34 +8,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB Pro is a build of Percona Server for MongoDB that contains purpose-built enterprise features. It is wrapped in packages created and tested by Percona and is available exclusively for Percona customers.">
+        <meta name="description" content="Installation">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/psmdb-pro.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.5-3.html">
       
       
-        <link rel="prev" href="comparison.html">
+        <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="install/index.html">
+        <link rel="next" href="7.0.4-2.html">
       
       
-      <link rel="icon" href="_images/percona-favicon.ico">
+      <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
     
     
       
-        <title>Percona Server for MongoDB Pro - Percona Server for MongoDB 7.0</title>
+        <title>Percona Server for MongoDB 7.0.5-3 (2024-01-23) - Percona Server for MongoDB 7.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -58,13 +58,13 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -88,10 +88,10 @@
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 7.0 - Percona Server for MongoDB Pro" />
+<meta property="og:title" content="Percona Server for MongoDB 7.0 - Percona Server for MongoDB 7.0.5-3 (2024-01-23)" />
 <meta property="og:image" content="https://docs.percona.com/percona-distribution-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
- <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
@@ -102,7 +102,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 
@@ -126,7 +126,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-server-for-mongodb-pro" class="md-skip">
+        <a href="#percona-server-for-mongodb-705-3-2024-01-23" class="md-skip">
           Skip to content
         </a>
       
@@ -148,7 +148,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 7.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -165,7 +165,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Server for MongoDB Pro
+              Percona Server for MongoDB 7.0.5-3 (2024-01-23)
             
           </span>
         </div>
@@ -285,7 +285,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 7.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 7.0
@@ -312,7 +312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -332,7 +332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -349,30 +349,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Percona Server for MongoDB Pro
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="psmdb-pro.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../psmdb-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -381,55 +361,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Benefits
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -478,7 +409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
+      <a href="../install/index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -499,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
+      <a href="../install/apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -520,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
+      <a href="../install/yum.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -541,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
+      <a href="../install/tarball.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -562,7 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/source.html" class="md-nav__link">
+      <a href="../install/source.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -583,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
+      <a href="../install/docker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -604,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/install-pro.html" class="md-nav__link">
+      <a href="../install/install-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -706,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -772,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -793,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -859,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -880,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -901,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -922,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -943,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -964,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -985,7 +916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1006,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1027,7 +958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1093,7 +1024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1114,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1135,7 +1066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1156,7 +1087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="keyfile.html" class="md-nav__link">
+      <a href="../keyfile.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1177,7 +1108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1198,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="fips.html" class="md-nav__link">
+      <a href="../fips.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1227,7 +1158,7 @@
   
   
     <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
+      <a href="../audit-logging.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1248,7 +1179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
+      <a href="../rate-limit.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1269,7 +1200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
+      <a href="../log-redaction.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1290,7 +1221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1355,7 +1286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1413,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-60.html" class="md-nav__link">
+      <a href="../install/upgrade-from-60.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1434,7 +1365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1455,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/update-pro.html" class="md-nav__link">
+      <a href="../install/update-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1476,7 +1407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/minor-upgrade.html" class="md-nav__link">
+      <a href="../install/minor-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1505,7 +1436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="../install/uninstall.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1530,19 +1461,21 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1556,7 +1489,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Release notes
@@ -1570,7 +1503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1588,10 +1521,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="release_notes/7.0.5-3.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 7.0.5-3 (2024-01-23)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="7.0.5-3.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1600,6 +1553,46 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Highlights
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1612,7 +1605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.4-2.html" class="md-nav__link">
+      <a href="7.0.4-2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1633,7 +1626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.2-1.html" class="md-nav__link">
+      <a href="7.0.2-1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1661,7 +1654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1681,7 +1674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="telemetry.html" class="md-nav__link">
+      <a href="../telemetry.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1701,7 +1694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1721,7 +1714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1769,18 +1762,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#release-highlights" class="md-nav__link">
     <span class="md-ellipsis">
-      Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Benefits
+      Release Highlights
     </span>
   </a>
   
@@ -1810,7 +1794,7 @@
                   
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/psmdb-pro.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/release_notes/7.0.5-3.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1819,41 +1803,27 @@
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/psmdb-pro.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/release_notes/7.0.5-3.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="percona-server-for-mongodb-pro">Percona Server for MongoDB Pro<a class="headerlink" href="#percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB Pro is a build of Percona Server for MongoDB that contains purpose-built enterprise <a href="#features">features</a>. It is wrapped in packages created and tested by Percona and is available exclusively for Percona customers.</p>
-<p><a class="md-button" href="https://www.percona.com/about/contact">Become a Percona Customer</a></p>
-<p>Non-paying Percona software users can also benefit from Percona Pro Builds, but they’ll have to <a href="install/source.html">build them from the source code</a> provided by Percona and available to everyone.</p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
-<p>Find the list of solutions available in Percona Server for MongoDB Pro builds:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Version added</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="fips.html">FIPS support </a></td>
-<td><a href="release_notes/7.0.4-2.html">7.0.4-2</a></td>
-<td>FIPS mode provides a way to use FIPS-compliant encryption and run the Percona Server for MongoDB with the FIPS-140 certified library for OpenSSL. This helps customers meet minimum security requirements for cryptographic modules and testing in both hardware and software.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">&para;</a></h2>
+<h1 id="percona-server-for-mongodb-705-3-2024-01-23">Percona Server for MongoDB 7.0.5-3 (2024-01-23)<a class="headerlink" href="#percona-server-for-mongodb-705-3-2024-01-23" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="../install/index.html">Installation</a></p>
+<p>Percona Server for MongoDB 7.0.5-3 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
+<p>It is based on <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.5---jan-5--2024">MongoDB Community Edition 7.0.5</a> and supports the upstream protocols and drivers.</p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<p>Improvements and bug fixes, provided by MongoDB and included in Percona Server for MongoDB are the following:</p>
 <ul>
-<li>Save on deploying and maintaining build infrastructure as we do the build and testing for you </li>
-<li>Longer support for older versions of operating systems.  </li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-33494">SERVER-33494</a> - Removed size storer entries upon collection drop</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-80363">SERVER-80363</a> - Explicitly stated that the missing <code>w</code> field from write concern object will be filled with default write concern value</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-83091">SERVER-83091</a> - Fixed infinite loop in lockstep $or plan enumeration</li>
+<li><a href="https://jira.mongodb.org/browse/WT-7929">WT-7929</a> - Investigated a solution to avoid a Full Time Diagnostic Data Capture (FTDC) mechanism to stall during checkpoint</li>
 </ul>
-<p><a class="md-button" href="install/install-pro.html">Install Percona Server for MongoDB Pro</a></p>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.5---jan-5--2024">MongoDB 7.0.5 Community Edition release notes</a>.</p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -1885,7 +1855,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 27, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 23, 2024</span>
   </span>
 
     
@@ -1895,7 +1865,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 27, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 23, 2024</span>
   </span>
 
     
@@ -2059,14 +2029,14 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.7389ff0e.min.js"></script>
+      <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
