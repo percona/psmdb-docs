@@ -4,7 +4,7 @@ site_name: Percona Server for MongoDB 5.0
 site_description: Documentation
 site_author: Percona LLC
 copyright: >
-  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2023 — <a href="#__consent">Cookie Consent</a>
+  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2024 — <a href="#__consent">Cookie Consent</a>
 
 repo_name: percona/psmdb-docs
 repo_url: https://github.com/percona/psmdb-docs
@@ -95,8 +95,8 @@ markdown_extensions:
       auto_append:
         - services-banner.md
   pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
       options:
         custom_icons:
           - _resource/overrides/.icons
@@ -125,7 +125,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-5.0.pdf'
           cover_title: 'Server for MongoDB Documentation 5.0'
-          cover_subtitle: 5.0.23-20 (December 21, 2023)
+          cover_subtitle: 5.0.24-21 (February 2, 2024)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -196,26 +196,30 @@ nav:
       - install/uninstall.md
   - Release notes:
       - Release notes index: release_notes/index.md
-      - release_notes/5.0.23-20.md
-      - release_notes/5.0.22-19.md
-      - release_notes/5.0.21-18.md
-      - release_notes/5.0.20-17.md
-      - release_notes/5.0.19-16.md
-      - release_notes/5.0.18-15.md
-      - release_notes/5.0.17-14.md
-      - release_notes/5.0.15-13.md
-      - release_notes/5.0.14-12.md
-      - release_notes/5.0.13-11.md
-      - release_notes/5.0.11-10.md
-      - release_notes/5.0.10-9.md
-      - release_notes/5.0.9-8.md
-      - release_notes/5.0.8-7.md
-      - release_notes/5.0.7-6.md
-      - release_notes/5.0.6-5.md
-      - release_notes/5.0.5-4.md
-      - release_notes/5.0.4-3.md
-      - release_notes/5.0.3-2.md
-      - release_notes/5.0.2-1.md
+      - release_notes/5.0.24-21.md
+      - 2023 (versions 5.0.15-13 through 5.0.23-20):
+         - release_notes/5.0.23-20.md
+         - release_notes/5.0.22-19.md
+         - release_notes/5.0.21-18.md
+         - release_notes/5.0.20-17.md
+         - release_notes/5.0.19-16.md
+         - release_notes/5.0.18-15.md
+         - release_notes/5.0.17-14.md
+         - release_notes/5.0.15-13.md
+      - 2022 (versions 5.0.6-5 through 5.0.15-13):
+         - release_notes/5.0.14-12.md
+         - release_notes/5.0.13-11.md
+         - release_notes/5.0.11-10.md
+         - release_notes/5.0.10-9.md
+         - release_notes/5.0.9-8.md
+         - release_notes/5.0.8-7.md
+         - release_notes/5.0.7-6.md
+         - release_notes/5.0.6-5.md
+      - 2021 (versions 5.0.2-1 through 5.0.5-4): 
+         - release_notes/5.0.5-4.md
+         - release_notes/5.0.4-3.md
+         - release_notes/5.0.3-2.md
+         - release_notes/5.0.2-1.md
   - glossary.md
   - "Telemetry": telemetry.md
   - copyright.md
