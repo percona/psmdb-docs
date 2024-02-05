@@ -1,4 +1,4 @@
-# Hot Backup
+# Hot backup
 
 Percona Server for MongoDB includes an integrated open source hot backup system for the default
 [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) storage engine.  It creates a physical data backup on a running
@@ -11,7 +11,7 @@ server without notable performance and operating degradation.
 ## Make a backup
 
 To take a hot backup of the database in your current `dbpath`, do the following:
-
+{.power-number}
 
 1. Provide access to the backup directory for the `mongod` user:
 
@@ -88,7 +88,7 @@ the credentials configuration file. By default, it is `~/.aws/credentials`.
 
 #### Example credentials file
 
-```
+```title="~/.aws/credentials"
 [default]
 aws_access_key_id = ABC123XYZ456QQQAAAFFF
 aws_secret_access_key = zuf+secretkey0secretkey1secretkey2

@@ -1,8 +1,9 @@
 # Percona Server for MongoDB 7.0 Documentation
 
-Percona Server for MongoDB is a free, enhanced, fully compatible, source available, drop-in replacement
-for MongoDB 7.0 Community Edition with enterprise-grade features.
-It requires no changes to MongoDB applications or code.
+Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
+for MongoDB 7.0 Community Edition with [enterprise-grade features](comparison.md).
+
+[To migrate to Percona Server for MongoDB](install/upgrade-from-mongodb.md) requires no changes to MongoDB applications or code.
 
 !!! hint ""
 
@@ -11,34 +12,36 @@ It requires no changes to MongoDB applications or code.
 
 [What's new in Percona Server for MongoDB {{release}}](release_notes/{{release}}.md){ .md-button .md-button }
     
-## Features
+<div data-grid markdown><div data-banner markdown>
 
-Percona Server for MongoDB provides the following features:
+## :material-progress-download: Installation guides { .title }
 
+Ready to try out Percona Server for MongoDB? Get started quickly with the step-by-step installation instructions.
 
-* MongoDB’s default [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) engine
+[Quickstart guides :material-arrow-right:](install/index.md){ .md-button }
 
-* [Percona Memory Engine](inmemory.md) storage engine
+</div><div data-banner markdown>
 
-* [Data at Rest Encryption](data-at-rest-encryption.md)
+### :fontawesome-solid-gears: Control database access { .title }
 
-* [External authentication](authentication.md#ext-auth)
-using OpenLDAP or Active Directory
+Define who has access to the database and manage their permissions in a single place like LDAP server, ensuring only authorized users have access to resources and operations. 
 
-* [AWS IAM authentication](aws-iam.md)
+[Authentication :material-arrow-right:](authentication.md){.md-button}
+</div><div data-banner markdown>
 
-* [Audit logging](audit-logging.md) to track and query database interactions of users or applications
+### :material-backup-restore: Backup and restore { .title }
 
-* [Hot Backup](hot-backup.md) for the default [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/)
+Make enterprise-level backups and restores with guaranteed data consistency using Percona Backup for MongoDB (PBM). Or, create physical backups on a running server using the built-in [hot backup](hot-backup.md) functionality. 
 
-* [Profiling Rate Limit](rate-limit.md) to decrease the impact of the profiler on performance
+[Get started with PBM :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/installation.html){ .md-button }
 
-To learn more about the features, available in Percona Server for MongoDB, see [Percona Server for MongoDB Feature Comparison](comparison.md)
+</div><div data-banner markdown>
 
+### :simple-letsencrypt: Secure access to data { .title }
 
-## Get started
+Keep your sensitive data safe, ensuring users only see the data they are authorized to access. 
 
-Ready to try out Percona Server for MongoDB?
+[Data-at-rest encryption :material-arrow-right:](data-at-rest-encryption.md){ .md-button }
 
-
-[Install and get started](install/index.md){ .md-button .md-button }
+</div>
+</div>

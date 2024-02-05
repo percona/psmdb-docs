@@ -10,27 +10,16 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 
     By default, Docker will pull the image from Docker Hub if it is not available locally.
 
-    We gather [Telemetry data](telemetry.md) to understand the use of the software and improve our products.
+    We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
 
 To run the latest Percona Server for MongoDB 7.0 in a Docker container, run the following command as the root user or via `sudo`:
 
-=== "On x86_64 platforms"
+```{.bash data-prompt="$"}
+$ docker run -d --name psmdb --restart always \
+percona/percona-server-mongodb:<TAG>-multi
+```
 
-      ```{.bash data-prompt="$"}
-      $ docker run -d --name psmdb --restart always \
-      percona/percona-server-mongodb:7.0
-      ```
-
-=== "On ARM64 platforms"
-
-      ```{.bash data-prompt="$"}
-      $ docker run -d --name psmdb --restart always \
-      percona/percona-server-mongodb:<TAG>-arm64
-      ```
-     
-      Replace the `<TAG>` with the desired version (for example, 7.0.2-0-arm64)
-   
 The command does the following:
 
 
@@ -49,9 +38,10 @@ Setting it to `always` ensures that the Docker daemon
 will start the container on startup
 and restart it if the container exits.
 
-* `percona/percona-server-mongodb:7.0` / `percona/percona-server-mongodb:<TAG>-arm64` is the name and version tag
-of the image to derive the container from.
+* `percona/percona-server-mongodb` is the name of the image to derive the container from.
 
+* `<TAG>-multi` is the tag specifying the version you need. For example, `{{release}}-multi`. The `multi` part of the tag serves to identify the architecture (x86_64 or ARM64) and pull the respective image. [See the full list of tags](https://hub.docker.com/r/percona/percona-server-mongodb/tags).
+    
 ## Connecting from another Docker container
 
 The Percona Server for MongoDB container exposes standard MongoDB port (27017),
