@@ -9,37 +9,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document describes an example configuration
-suitable only to test out the external authentication functionality
-in a non-production environment.
-Use common sense to adapt these guidelines to your production environment.">
+        <meta name="description" content="Installation">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/4.4/sasl-auth.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/4.4/release_notes/4.4.28-27.html">
       
       
-        <link rel="prev" href="enable-auth.html">
+        <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="x509-ldap.html">
+        <link rel="next" href="4.4.27-26.html">
       
       
-      <link rel="icon" href="_images/percona-favicon.ico">
+      <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.8">
     
     
       
-        <title>Set up LDAP authentication with SASL - Percona Server for MongoDB 4.4</title>
+        <title>Percona Server for MongoDB 4.4.28-27 (2024-02-07) - Percona Server for MongoDB 4.4</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -62,13 +59,13 @@ Use common sense to adapt these guidelines to your production environment.">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -91,7 +88,7 @@ Use common sense to adapt these guidelines to your production environment.">
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Server for MongoDB 4.4 - Set up LDAP authentication with SASL" />
+                 <meta property="og:title" content="Percona Server for MongoDB 4.4 - Percona Server for MongoDB 4.4.28-27 (2024-02-07)" />
                  <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/4.4/_images/mongodb.png">
                  <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
                 </head>
@@ -119,7 +116,7 @@ Use common sense to adapt these guidelines to your production environment.">
     <div data-md-component="skip">
       
         
-        <a href="#set-up-ldap-authentication-with-sasl" class="md-skip">
+        <a href="#percona-server-for-mongodb-4428-27-2024-02-07" class="md-skip">
           Skip to content
         </a>
       
@@ -141,7 +138,7 @@ Use common sense to adapt these guidelines to your production environment.">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 4.4" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 4.4" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -158,7 +155,7 @@ Use common sense to adapt these guidelines to your production environment.">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Set up LDAP authentication with SASL
+              Percona Server for MongoDB 4.4.28-27 (2024-02-07)
             
           </span>
         </div>
@@ -280,7 +277,7 @@ Use common sense to adapt these guidelines to your production environment.">
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.percona.com" title="Percona Server for MongoDB 4.4" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 4.4" data-md-component="logo">
       
-  <img src="_images/percona-logo.svg" alt="logo">
+  <img src="../_images/percona-logo.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 4.4
@@ -307,7 +304,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -327,7 +324,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -384,7 +381,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
+      <a href="../install/index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -405,7 +402,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
+      <a href="../install/apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -426,7 +423,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
+      <a href="../install/yum.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -447,7 +444,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
+      <a href="../install/tarball.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -468,7 +465,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="install/source.html" class="md-nav__link">
+      <a href="../install/source.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -489,7 +486,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
+      <a href="../install/docker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -514,21 +511,19 @@ Use common sense to adapt these guidelines to your production environment.">
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -542,7 +537,7 @@ Use common sense to adapt these guidelines to your production environment.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -593,7 +588,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -659,7 +654,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -680,7 +675,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -706,21 +701,19 @@ Use common sense to adapt these guidelines to your production environment.">
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
           
           <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
@@ -734,7 +727,7 @@ Use common sense to adapt these guidelines to your production environment.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             Authentication
@@ -748,7 +741,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -769,7 +762,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -787,30 +780,10 @@ Use common sense to adapt these guidelines to your production environment.">
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Set up LDAP authentication with SASL
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="sasl-auth.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sasl-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -819,106 +792,6 @@ Use common sense to adapt these guidelines to your production environment.">
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#environment-setup-and-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Environment setup and configuration
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment setup and configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#assumptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Assumptions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-saslauthd" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring saslauthd
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sanity-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sanity check
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-libsasl2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring libsasl2
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-mongod-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring mongod server
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#authenticate-as-an-external-user-in-percona-server-for-mongodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      Authenticate as an external user in Percona Server for MongoDB
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -931,7 +804,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -952,7 +825,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -973,7 +846,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -994,7 +867,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1015,7 +888,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1036,7 +909,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1102,7 +975,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1123,7 +996,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1144,7 +1017,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1165,7 +1038,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="keyfile.html" class="md-nav__link">
+      <a href="../keyfile.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1186,7 +1059,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1215,7 +1088,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
+      <a href="../audit-logging.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1236,7 +1109,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
+      <a href="../rate-limit.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1257,7 +1130,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
+      <a href="../log-redaction.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1278,7 +1151,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1343,7 +1216,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1401,7 +1274,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-42.html" class="md-nav__link">
+      <a href="../install/upgrade-from-42.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1422,7 +1295,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1443,7 +1316,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="install/minor-upgrade.html" class="md-nav__link">
+      <a href="../install/minor-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1472,7 +1345,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="../install/uninstall.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1497,19 +1370,21 @@ Use common sense to adapt these guidelines to your production environment.">
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1523,7 +1398,7 @@ Use common sense to adapt these guidelines to your production environment.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Release notes
@@ -1537,7 +1412,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1555,10 +1430,30 @@ Use common sense to adapt these guidelines to your production environment.">
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="release_notes/4.4.28-27.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 4.4.28-27 (2024-02-07)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="4.4.28-27.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1567,6 +1462,55 @@ Use common sense to adapt these guidelines to your production environment.">
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Highlights
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packaging-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packaging changes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1579,7 +1523,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.27-26.html" class="md-nav__link">
+      <a href="4.4.27-26.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1637,7 +1581,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.26-25.html" class="md-nav__link">
+      <a href="4.4.26-25.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1658,7 +1602,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.25-24.html" class="md-nav__link">
+      <a href="4.4.25-24.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1679,7 +1623,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.24-23.html" class="md-nav__link">
+      <a href="4.4.24-23.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1700,7 +1644,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.23-22.html" class="md-nav__link">
+      <a href="4.4.23-22.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1721,7 +1665,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.22-21.html" class="md-nav__link">
+      <a href="4.4.22-21.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1742,7 +1686,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.21-20.html" class="md-nav__link">
+      <a href="4.4.21-20.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1763,7 +1707,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.19-19.html" class="md-nav__link">
+      <a href="4.4.19-19.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1829,7 +1773,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.18-18.html" class="md-nav__link">
+      <a href="4.4.18-18.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1850,7 +1794,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.17-17.html" class="md-nav__link">
+      <a href="4.4.17-17.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1871,7 +1815,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.16-16.html" class="md-nav__link">
+      <a href="4.4.16-16.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1892,7 +1836,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.15-15.html" class="md-nav__link">
+      <a href="4.4.15-15.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1913,7 +1857,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.14-14.html" class="md-nav__link">
+      <a href="4.4.14-14.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1934,7 +1878,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.13-13.html" class="md-nav__link">
+      <a href="4.4.13-13.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1955,7 +1899,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.12-12.html" class="md-nav__link">
+      <a href="4.4.12-12.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2021,7 +1965,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.10-11.html" class="md-nav__link">
+      <a href="4.4.10-11.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2042,7 +1986,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.9-10.html" class="md-nav__link">
+      <a href="4.4.9-10.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2063,7 +2007,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.8-9.html" class="md-nav__link">
+      <a href="4.4.8-9.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2084,7 +2028,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.6-8.html" class="md-nav__link">
+      <a href="4.4.6-8.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2105,7 +2049,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.5-7.html" class="md-nav__link">
+      <a href="4.4.5-7.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2126,7 +2070,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.4-6.html" class="md-nav__link">
+      <a href="4.4.4-6.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2147,7 +2091,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.3-5.html" class="md-nav__link">
+      <a href="4.4.3-5.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2213,7 +2157,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.2-4.html" class="md-nav__link">
+      <a href="4.4.2-4.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2234,7 +2178,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.1-3.html" class="md-nav__link">
+      <a href="4.4.1-3.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2255,7 +2199,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.1-2.html" class="md-nav__link">
+      <a href="4.4.1-2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2276,7 +2220,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/4.4.0-1.html" class="md-nav__link">
+      <a href="4.4.0-1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2312,7 +2256,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2332,7 +2276,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="telemetry.html" class="md-nav__link">
+      <a href="../telemetry.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2352,7 +2296,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2372,7 +2316,7 @@ Use common sense to adapt these guidelines to your production environment.">
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2420,69 +2364,18 @@ Use common sense to adapt these guidelines to your production environment.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#environment-setup-and-configuration" class="md-nav__link">
+  <a href="#release-highlights" class="md-nav__link">
     <span class="md-ellipsis">
-      Environment setup and configuration
+      Release Highlights
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Environment setup and configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#assumptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Assumptions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-saslauthd" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring saslauthd
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sanity-check" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sanity check
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-libsasl2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring libsasl2
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-mongod-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuring mongod server
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#authenticate-as-an-external-user-in-percona-server-for-mongodb" class="md-nav__link">
+  <a href="#packaging-changes" class="md-nav__link">
     <span class="md-ellipsis">
-      Authenticate as an external user in Percona Server for MongoDB
+      Packaging changes
     </span>
   </a>
   
@@ -2512,7 +2405,7 @@ Use common sense to adapt these guidelines to your production environment.">
                   
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/sasl-auth.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/edit/4.4/docs/release_notes/4.4.28-27.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2521,220 +2414,29 @@ Use common sense to adapt these guidelines to your production environment.">
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/sasl-auth.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/4.4/docs/release_notes/4.4.28-27.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="set-up-ldap-authentication-with-sasl">Set up LDAP authentication with SASL<a class="headerlink" href="#set-up-ldap-authentication-with-sasl" title="Permanent link">&para;</a></h1>
-<p>This document describes an example configuration
-suitable only to test out the external authentication functionality
-in a non-production environment.
-Use common sense to adapt these guidelines to your production environment.</p>
-<p>To learn more about how the authentication works, see <a href="authentication.html#ldap-authentication-sasl">LDAP authentication with SASL</a>.</p>
-<h2 id="environment-setup-and-configuration">Environment setup and configuration<a class="headerlink" href="#environment-setup-and-configuration" title="Permanent link">&para;</a></h2>
-<p>The following components are required:</p>
+<h1 id="percona-server-for-mongodb-4428-27-2024-02-07">Percona Server for MongoDB 4.4.28-27 (2024-02-07)<a class="headerlink" href="#percona-server-for-mongodb-4428-27-2024-02-07" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="../install/index.html">Installation</a></p>
+<p>Percona Server for MongoDB 4.4.28-27 is a source available, highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB 4.4.28 Community Edition enhanced <a href="../comparison.html">with enterprise-grade features</a>.</p>
+<p>It supports protocols and drivers of MongoDB 4.4.28.</p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<p>The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:</p>
 <ul>
-<li>
-<p><code>slapd</code>: OpenLDAP server.</p>
-</li>
-<li>
-<p><code>libsasl2</code> version 2.1.25 or later.</p>
-</li>
-<li>
-<p><code>saslauthd</code>:  Authentication Daemon (distinct from <code>libsasl2</code>).</p>
-</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-77506">SERVER-77506</a> - Fixed the issue with the data and the ShardVersion mismatch for sharded multi-document transactions by adding the check that no chunk has moved for the collection being referenced since transaction started</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-82365">SERVER-82365</a> - Improved cluster balancer performance by optimizing the construction of the balancer&rsquo;s collection distribution status histogram</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-82883">SERVER-82883</a> - Fixed the issue with blocking acquiring read/write tickets by TransactionCoordinator by validating that it can be recovered on step-up and can commit the transaction when there are no storage tickets available</li>
+<li><a href="https://jira.mongodb.org/browse/WT-7929">WT-7929</a> - Investigated a solution to avoid a Full Time Diagnostic Data Capture (FTDC) mechanism to stall during checkpoint</li>
 </ul>
-<p>The following steps will help you configure your environment:</p>
-<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h3>
-<p>Before we move on to the configuration steps, we assume the following:</p>
-<ol>
-<li>
-<p>You have the LDAP server up and running and have configured users on it. The LDAP server is accessible to the server with Percona Server for MongoDB installed. This document focuses on OpenLDAP server. If you use Microsoft Windows Active Directory, see to the <em>Microsoft Windows Active Directory</em> section for <code>saslauthd</code> configuration.</p>
-</li>
-<li>
-<p>You must place these two servers behind a firewall as the communications between them will be in plain text. This is because the SASL mechanism of PLAIN can only be used when authenticating and credentials will be sent in plain text.</p>
-</li>
-<li>
-<p>You have <code>sudo</code> privilege to the server with the <em>Percona Server for MongoDB</em> installed.</p>
-</li>
-</ol>
-<h3 id="configuring-saslauthd">Configuring <code>saslauthd</code><a class="headerlink" href="#configuring-saslauthd" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Install the SASL packages. Depending on your OS, use the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian and Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w">  </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sasl2-bin
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w">  </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cyrus-sasl
-</code></pre></div>
-<p><strong>NOTE</strong>: For Percona Server for MongoDB versions earlier than 4.0.26-21, 4.4.8-9, 4.2.16-17, also install the <code>cyrus-sasl-plain</code> package.</p>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Configure SASL to use <code>ldap</code> as the  authentication mechanism.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Back up the original configuration file before making changes.</p>
-</div>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Debian and Ubuntu</label><label for="__tabbed_2_2">RHEL and derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>Use the following commands to enable the <code>saslauthd</code> to auto-run on startup and to set the <code>ldap</code> value for the <code>--MECHANISMS</code> option:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthdsudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECHANISMS<span class="o">=</span><span class="s2">&quot;pam&quot;</span>/MECHANISMS<span class="o">=</span><span class="s2">&quot;ldap&quot;</span>/g<span class="w"> </span>/etc/default/saslauthd
-$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^START<span class="o">=</span>no/START<span class="o">=</span>yes/g<span class="w"> </span>/etc/default/saslauthd
-</code></pre></div>
-<p>Alternatively, you can edit the <code>/etc/default/sysconfig/saslauthd</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code>START=yes
-MECHANISMS=&quot;ldap
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>Specify the <code>ldap</code> value for the <code>--MECH</code> option using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthd
-</code></pre></div>
-<p>Alternatively, you can edit the /etc/sysconfig/saslauthd configuration file:</p>
-<div class="highlight"><pre><span></span><code>MECH=ldap
-</code></pre></div>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Create the <code>/etc/saslauthd.conf</code> configuration file and specify the settings that <code>saslauthd</code> requires to connect to a local LDAP service:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">OpenLDAP server</label><label for="__tabbed_3_2">Microsoft Windows Active Directory</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>The following is the example configuration file. Note that the server address <strong>MUST</strong> match the OpenLDAP installation:</p>
-<div class="highlight"><pre><span></span><code>ldap_servers: ldap://localhost
-ldap_mech: PLAIN
-ldap_search_base: dc=example,dc=com
-ldap_filter: (cn=%u)
-ldap_bind_dn: cn=admin,dc=example,dc=com
-ldap_password: secret
-</code></pre></div>
-<p>Note the LDAP password (<code>ldap_password</code>) and bind domain name (<code>ldap_bind_dn</code>).
- This allows the <code>saslauthd</code> service to connect to the LDAP service as admin.
- In production, this would not be the case; users should not store administrative passwords in unencrypted files.</p>
-</div>
-<div class="tabbed-block">
-<p>In order for LDAP operations to be performed
- against a Windows Active Directory server,
- a user record must be created to perform the lookups.</p>
-<p>The following example shows configuration parameters for <code>saslauthd</code>
- to communicate with an Active Directory server:</p>
-<div class="highlight"><pre><span></span><code>ldap_servers: ldap://localhost
-ldap_mech: PLAIN
-ldap_search_base: CN=Users,DC=example,DC=com
-ldap_filter: (sAMAccountName=%u)
-ldap_bind_dn: CN=ldapmgr,CN=Users,DC=&lt;AD Domain&gt;,DC=&lt;AD TLD&gt;
-ldap_password: ld@pmgr_Pa55word
-</code></pre></div>
-<p>In order to determine and test the correct search base
- and filter for your Active Directory installation,
- the Microsoft <a href="https://technet.microsoft.com/en-us/library/Cc772839%28v=WS.10%29.aspx">LDP GUI Tool</a>
- can be used to bind and search the LDAP-compatible directory.</p>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Start the <code>saslauthd</code> process and set it to run at restart:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>saslauthd
-$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>saslauthd
-</code></pre></div>
-</li>
-<li>
-<p>Give write permissions to the <code>/run/saslauthd</code> folder for the <code>mongod</code>. Either change permissions to the  <code>/run/saslauthd</code> folder:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/run/saslauthd
-</code></pre></div>
-<p>Or add the <code>mongod</code> user to the <code>sasl</code> group:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>sasl<span class="w"> </span>mongod
-</code></pre></div>
-</li>
-</ol>
-<h3 id="sanity-check">Sanity check<a class="headerlink" href="#sanity-check" title="Permanent link">&para;</a></h3>
-<p>Verify that the <code>saslauthd</code> service can authenticate
-against the users created in the LDAP service:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>testsaslauthd<span class="w"> </span>-u<span class="w"> </span>christian<span class="w"> </span>-p<span class="w"> </span>secret<span class="w">  </span>-f<span class="w"> </span>/var/run/saslauthd/mux
-</code></pre></div>
-<p>This should return <code>0:OK "Success"</code>.
-If it doesn’t, then either the user name and password
-are not in the LDAP service, or <code>sasaluthd</code> is not configured properly.</p>
-<h3 id="configuring-libsasl2">Configuring libsasl2<a class="headerlink" href="#configuring-libsasl2" title="Permanent link">&para;</a></h3>
-<p>The <code>mongod</code> also uses the SASL library for communications. To configure the SASL library, create a configuration file.</p>
-<p>The configuration file <strong>must</strong> be named <code>mongodb.conf</code> and placed in a directory
-where <code>libsasl2</code> can find and read it.
-<code>libsasl2</code> is hard-coded to look in certain directories at build time.
-This location may be different depending on the installation method.</p>
-<p>In the configuration file, specify the following:</p>
-<div class="highlight"><pre><span></span><code>pwcheck_method: saslauthd
-saslauthd_path: /var/run/saslauthd/mux
-log_level: 5
-mech_list: plain
-</code></pre></div>
-<p>The first two entries (<code>pwcheck_method</code> and <code>saslauthd_path</code>)
-are required for <code>mongod</code> to successfully use the <code>saslauthd</code> service.
-The <code>log_level</code> is optional but may help determine configuration errors.</p>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p><a href="https://www.cyrusimap.org/sasl/index.html">SASL documentation</a></p>
-</div>
-<h3 id="configuring-mongod-server">Configuring <code>mongod</code> server<a class="headerlink" href="#configuring-mongod-server" title="Permanent link">&para;</a></h3>
-<p>The configuration consists of the following steps:</p>
-<ul>
-<li>
-<p>Creating a user with the <strong>root</strong> privileges. This user is required to log in to <em>Percona Server for MongoDB</em> after the external authentication is enabled.</p>
-</li>
-<li>
-<p>Editing the configuration file to enable the external authentication</p>
-</li>
-</ul>
-<h4 id="create-a-root-user">Create a root user<a class="headerlink" href="#create-a-root-user" title="Permanent link">&para;</a></h4>
-<p>Create a user with the <strong>root</strong> privileges in the <code>admin</code> database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
-<span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pwd&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$3cr3tP4ssw0rd&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;root&quot;</span><span class="p">]})</span>
-<span class="nx">Successfully</span><span class="w"> </span><span class="nx">added</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div>
-<h4 id="enable-external-authentication">Enable external authentication<a class="headerlink" href="#enable-external-authentication" title="Permanent link">&para;</a></h4>
-<p>Edit the <code>etc/mongod.conf</code> configuration file to enable the external authentication:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
-
-<span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PLAIN,SCRAM-SHA-1</span>
-</code></pre></div>
-<p>Restart the <code>mongod</code> service:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
-</code></pre></div>
-<h4 id="add-an-external-user-to-percona-server-for-mongodb">Add an external user to Percona Server for MongoDB<a class="headerlink" href="#add-an-external-user-to-percona-server-for-mongodb" title="Permanent link">&para;</a></h4>
-<p>User authentication is done by mapping a user object on the LDAP server against a user created in the <code>$external</code> database. Thus, at this step, you create the user in the <code>$external</code> database and they inherit the roles and privileges. Note that the username must exactly match the name of the user object on the LDAP server.</p>
-<p>Connect to Percona Server for MongoDB and authenticate as the root user.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongo<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;$3cr3tP4ssw0rd&#39;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;admin&#39;</span>
-</code></pre></div>
-<p>Use the following command to add an external user to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;$external&quot;</span><span class="p">).</span><span class="nx">createUser</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="nx">user</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;christian&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;read&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">}</span><span class="w"> </span><span class="p">]}</span><span class="w"> </span><span class="p">);</span>
-</code></pre></div>
-<h2 id="authenticate-as-an-external-user-in-percona-server-for-mongodb">Authenticate as an external user in Percona Server for MongoDB<a class="headerlink" href="#authenticate-as-an-external-user-in-percona-server-for-mongodb" title="Permanent link">&para;</a></h2>
-<p>When running the <code>mongo</code> client, a user can authenticate
-against a given database using the following command:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;$external&quot;</span><span class="p">).</span><span class="nx">auth</span><span class="p">({</span><span class="w"> </span><span class="nx">mechanism</span><span class="o">:</span><span class="s2">&quot;PLAIN&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="s2">&quot;christian&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">pwd</span><span class="o">:</span><span class="s2">&quot;secret&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">digestPassword</span><span class="o">:</span><span class="kc">false</span><span class="p">})</span>
-</code></pre></div>
-<p>Alternatively, a user can authenticate while connecting to <em>Percona Server for MongoDB</em>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongo<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN<span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="se">\$</span>external<span class="w"> </span>-u<span class="w"> </span>christian<span class="w"> </span>-p
-</code></pre></div>
-<div class="admonition admonition">
-<p>This section is based on the blog post <a href="https://www.percona.com/blog/2018/12/21/percona-server-for-mongodb-authentication-using-active-directory/">Percona Server for MongoDB Authentication Using Active Directory</a> by <em>Doug Duncan</em>:</p>
-</div>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/4.4/#4.4.28---jan-18--2024">MongoDB 4.4.28 Community Edition release notes</a>.</p>
+<h2 id="packaging-changes">Packaging changes<a class="headerlink" href="#packaging-changes" title="Permanent link">&para;</a></h2>
+<p>Percona Server for MongoDB 4.4.28-27 is no longer available on Ubuntu 18.04 (Bionic Beaver). </p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2767,7 +2469,7 @@ against a given database using the following command:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 7, 2024</span>
   </span>
 
     
@@ -2777,7 +2479,7 @@ against a given database using the following command:</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 7, 2024</span>
   </span>
 
     
@@ -2949,14 +2651,14 @@ against a given database using the following command:</p>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "search.suggest", "search.share", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "search.suggest", "search.share", "navigation.top", "navigation.tracking", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
     
   </body>
