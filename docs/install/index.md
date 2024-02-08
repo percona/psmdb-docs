@@ -18,6 +18,8 @@ Choose how you wish to install Percona Server for MongoDB:
 
 * [Run in Docker](docker.md)
 
+We gather [Telemetry](../telemetry.md) data in Percona packages and Docker images.
+
 
 ## Upgrade instructions
 

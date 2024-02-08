@@ -1,6 +1,5 @@
 # PBM Variables set for HTML output
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
-release: '4.2.24-24'
+release: '4.2.25-25'
 version: '4.2'
-release_date: 2023-03-09
