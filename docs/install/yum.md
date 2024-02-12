@@ -1,29 +1,29 @@
-# Installing Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS
+# Install Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS
 
-This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. We gather [Telemetry data](telemetry.md) to understand the use of the software and improve our products.
+This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. 
 
-!!! note
+We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
-    Percona Server for MongoDB should work on other RPM-based distributions (for example, Amazon Linux AMI and Oracle Linux), but it is tested only on platforms listed on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page. 
+??? admonition "Package contents"
 
-## Package Contents
-
-| Package                 | Contains                                 |
-| ----------------------- | -----------------------------------------|
-| `percona-server-mongodb`| The `mongo` shell, import/export tools, other client
-utilities, server software, default configuration, and `init.d` scripts. |
-| `percona-server-mongodb-server`| The mongod` server, default configuration files, and `init.d` scripts|
-| `percona-server-mongodb-shell` | The `mongo` shell |
-| `percona-server-mongodb-mongos`| The `mongos` sharded cluster query router |
-| `percona-server-mongodb-tools` | Mongo tools for high-performance MongoDB fork from Percona|
-| `percona-server-mongodb-dbg`   | Debug symbols for the server|
+    | Package                 | Contains                                 |
+    | ----------------------- | -----------------------------------------|
+    | `percona-server-mongodb`| The `mongo` shell, import/export tools, other client
+    utilities, server software, default configuration, and `init.d` scripts. |
+    | `percona-server-mongodb-server`| The mongod` server, default configuration files, and `init.d` scripts|
+    | `percona-server-mongodb-shell` | The `mongo` shell |
+    | `percona-server-mongodb-mongos`| The `mongos` sharded cluster query router |
+    | `percona-server-mongodb-tools` | Mongo tools for high-performance MongoDB fork from Percona|
+    | `percona-server-mongodb-dbg`   | Debug symbols for the server|
 
 ## Procedure
 
-Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Backup for MongoDB packages and required dependencies smoothly.
+Before you start, check the [system requirements](system-requirements.md).
 
 ### Configure Percona repository
 
+To install from Percona repositories, first you need to enable the required repository using the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) repository management tool.
+{.power-number}
 
 1. Install **percona-release**:
 
@@ -40,7 +40,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
 ### Install Percona Server for MongoDB packages
 
-=== "Install the latest version"
+=== ":material-run-fast: Install the latest version"
 
       To install the latest version of *Percona Server for MongoDB*, use the following command:
 
@@ -48,9 +48,10 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
       $ sudo yum install percona-server-mongodb
       ```
 
-=== "Install a specific version"
+=== ":octicons-number-16: Install a specific version"
 
      To install a specific version of *Percona Server for MongoDB*, do the following:
+     {.power-number}
 
      1. List available versions:
 
@@ -58,28 +59,30 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
          $ sudo yum list percona-server-mongodb --showduplicates
          ```
 
-        Sample output:
+        ??? example "Sample output"
 
-         ```{.text .no-copy}
-         Available Packages
-         percona-server-mongodb.x86_64   5.0.2-1.el8   psmdb-50-release-x86_64
-         percona-server-mongodb.x86_64   5.0.3-2.el8   psmdb-50-release-x86_64
-         percona-server-mongodb.x86_64   5.0.4-3.el8   psmdb-50-release-x86_64
-         percona-server-mongodb.x86_64   5.0.5-4.el8   psmdb-50-release-x86_64
-         percona-server-mongodb.x86_64   5.0.6-5.el8   psmdb-50-release-x86_64
-         percona-server-mongodb.x86_64   5.0.7-6.el8   psmdb-50-release-x86_64
-         percona-server-mongodb.x86_64   5.0.8-7.el8   psmdb-50-release-x86_64
-         percona-server-mongodb.x86_64   5.0.9-8.el8   psmdb-50-release-x86_64
-         percona-server-mongodb.x86_64   5.0.10-9.el8  psmdb-50-release-x86_64
-         percona-server-mongodb.x86_64   5.0.11-10.el8 psmdb-50-release-x86_64
-         percona-server-mongodb.x86_64   5.0.13-11.el8 psmdb-50-release-x86_64
-         ```
+            ```{.text .no-copy}
+            Available Packages
+            percona-server-mongodb.x86_64   5.0.2-1.el8   psmdb-50-release-x86_64
+            percona-server-mongodb.x86_64   5.0.3-2.el8   psmdb-50-release-x86_64
+            percona-server-mongodb.x86_64   5.0.4-3.el8   psmdb-50-release-x86_64
+            percona-server-mongodb.x86_64   5.0.5-4.el8   psmdb-50-release-x86_64
+            percona-server-mongodb.x86_64   5.0.6-5.el8   psmdb-50-release-x86_64
+            percona-server-mongodb.x86_64   5.0.7-6.el8   psmdb-50-release-x86_64
+            percona-server-mongodb.x86_64   5.0.8-7.el8   psmdb-50-release-x86_64
+            percona-server-mongodb.x86_64   5.0.9-8.el8   psmdb-50-release-x86_64
+            percona-server-mongodb.x86_64   5.0.10-9.el8  psmdb-50-release-x86_64
+            percona-server-mongodb.x86_64   5.0.11-10.el8 psmdb-50-release-x86_64
+            percona-server-mongodb.x86_64   5.0.13-11.el8 psmdb-50-release-x86_64
+            ```
 
      2. Install a specific version packages. For example, to install Percona Server for MongoDB 5.0.13-11, run the following command:
 
          ```{.bash data-prompt="$"}
          $ sudo yum install percona-server-mongodb-5.0.13-11.el8
          ```
+
+By default, Percona Server for MongoDB stores data files in /var/lib/mongodb/ and configuration parameters in /etc/mongod.conf.
 
 ## Run Percona Server for MongoDB
 
@@ -89,10 +92,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
     Please refer to [Configure SELinux](https://docs.mongodb.com/v4.2/tutorial/install-mongodb-on-red-hat/#configure-selinux) section of MongoDB Documentation for policy configuration guidelines.
 
-By default, Percona Server for MongoDB stores data files in `/var/lib/mongodb/`
-and configuration parameters in `/etc/mongod.conf`.
-
-**Starting the service**
+**Start the service**
 
 Percona Server for MongoDB is not started automatically after installation.
 Start it manually using the following command:
@@ -101,7 +101,7 @@ Start it manually using the following command:
 $ sudo systemctl start mongod
 ```
 
-**Confirming that service is running**
+**Confirm that service is running**
 
 Check the service status using the following command: `service mongod status`
 
@@ -109,7 +109,7 @@ Check the service status using the following command: `service mongod status`
 $ sudo systemctl status mongod
 ```
 
-**Stopping the service**
+**Stop the service**
 
 Stop the service using the following command: `service mongod stop`
 
@@ -117,7 +117,7 @@ Stop the service using the following command: `service mongod stop`
 $ sudo systemctl stop mongod
 ```
 
-**Restarting the service**
+**Restart the service**
 
 Restart the service using the following command: `service mongod restart`
 
@@ -142,3 +142,9 @@ For RHEL or CentOS version 7, you can use the `systemctl` utility:
 ```{.bash data-prompt="$"}
 $ sudo systemctl enable mongod
 ```
+
+Congratulations! Your Percona Server for MongoDB is up and running. 
+
+## Next steps
+
+[Connect to MongoDB :material-arrow-right:](../connect.md){.md-button}

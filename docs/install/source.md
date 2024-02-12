@@ -179,3 +179,6 @@ This command builds only the database. Other available targets for the
 
 The built binaries are in the ``percona-server-mongodb`` directory.
 
+## Next steps
+
+[Connect to MongoDB :material-arrow-right:](../connect.md){.md-button}
