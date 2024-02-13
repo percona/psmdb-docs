@@ -11,27 +11,16 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 
     By default, Docker will pull the image from Docker Hub if it is not available locally.
 
-    We gather [Telemetry data](telemetry.md) to understand the use of the software and improve our products.
+    We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
 To run the latest Percona Server for MongoDB 4.4 in a Docker container, run the following command as the root user or via `sudo`:
 
-=== "On x86_64 platforms"
+```{.bash data-prompt="$"}
+$ docker run -d --name psmdb --restart always \
+percona/percona-server-mongodb:<TAG>-multi
+```
 
-     ```{.bash data-prompt="$"}
-     $ docker run -d --name psmdb --restart always \
-     percona/percona-server-mongodb:4.4
-     ```
-
-=== "On ARM64 platforms"
-
-    The Docker image is available starting with version 4.4.24-23.
-
-      ```{.bash data-prompt="$"}
-      $ docker run -d --name psmdb --restart always \
-      percona/percona-server-mongodb:<TAG>-arm64
-      ```
-     
-      Replace the `<TAG>` with the desired version (for example, 4.4.24-23-arm64)
+Replace the `<TAG>` with the desired version (for example, 4.4.24-23-multi)
 
 The command does the following:
 
@@ -51,10 +40,25 @@ Setting it to `always` ensures that the Docker daemon
 will start the container on startup
 and restart it if the container exits.
 
-* `percona/percona-server-mongodb:4.4`/`percona/percona-server-mongodb:<TAG>-arm64` is the name and version tag
-of the image to derive the container from.
+* The `<TAG>-multi` is the tag specifying the version you need. For example, `{{release}}-multi`. The `multi` part of the tag serves to identify the architecture (x86_64 or ARM64) and pull the respective image. [See the full list of tags](https://hub.docker.com/r/percona/percona-server-mongodb/tags).
 
-## Connecting from another Docker container
+## Access container shell
+
+Run the following command to start the bash session and run commands inside the container:
+
+```{.bash data-prompt="$"}
+$ docker exec -it <container-name>
+```
+
+where `<container-name>` is the name of your database container.
+
+For example, to connect to Percona Serer for MongoDB, run:
+
+```{.bash data-prompt="$"}
+$ mongo
+```
+
+## Connect from another Docker container
 
 The Percona Server for MongoDB container exposes standard MongoDB port (27017),
 which can be used for connection from an application
@@ -85,7 +89,7 @@ In the following example, `rs101`, `rs102`, `rs103` are the container names for 
         $ docker container ls
         ```         
 
-        Output:
+        ??? example "Sample output"
 
         ```{.text .no-copy}
         CONTAINER ID  IMAGE                                         COMMAND               CREATED         STATUS             PORTS                     NAMES
@@ -239,7 +243,7 @@ In the following example, `rs101`, `rs102`, `rs103` are the container names for 
          $ docker exec -ti rs101 mongo --eval 'rs.status()'
          ```
 
-## Connecting with the `mongo` shell
+## Connect with the `mongo` shell
 
 To start another container with the `mongo` shell
 that connects to your Percona Server for MongoDB container,

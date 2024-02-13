@@ -4,15 +4,15 @@ Find links to the binary tarball under the *Generic Linux* menu item on the [Per
 
 There are two tarballs available:
 
-* `percona-server-mongodb-<version>-x86_64.glibc2.17.tar.gz` is the general tarball, compatible with any [supported operating system](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb) except Ubuntu 22.04.
+* `percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz` is the general tarball, compatible with any [supported operating system](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb) except Ubuntu 22.04.
 
-* `percona-server-mongodb-<version>-x86_64.glibc2.35.tar.gz` is the tarball for Ubuntu 22.04.
+* `percona-server-mongodb-{{release}}-x86_64.glibc2.35.tar.gz` is the tarball for Ubuntu 22.04.
 
 ## Preconditions
 
 The following packages are required for the installation.
 
-=== "On Debian and Ubuntu"
+=== ":material-debian: On Debian and Ubuntu"
      
      * `libcurl4`
 
@@ -21,7 +21,7 @@ The following packages are required for the installation.
      * `libsasl2-modules-gssapi-mit`
 
 
-=== "On Red hat Enterprise Linux and derivatives"
+=== ":material-redhat: On Red hat Enterprise Linux and derivatives"
 
      * `libcurl`
 
@@ -33,8 +33,10 @@ Check that they are installed in your operating system. Otherwise install them.
 
 ## Procedure
 
-1. Fetch and extract the correct binary tarball. For example, if you
-are running Debian 10 (“buster”):
+The steps below describe the installation on Debian 10 (“buster”).
+{.power-number}
+
+1. Fetch and extract the binary tarball:
 
     ```{.bash data-prompt="$"}
     $ wget https://downloads.percona.com/downloads/percona-server-mongodb-4.4/percona-server-mongodb-4.4.15-15/binary/tarball/percona-server-mongodb-4.4.15-15-x86_64.glibc2.17.tar.gz
@@ -56,3 +58,7 @@ are running Debian 10 (“buster”):
 
 4. Make sure that you have read and write permissions for the data
 directory and run **mongod**.
+
+## Next steps
+
+[Connect to MongoDB :material-arrow-right:](../connect.md){.md-button}

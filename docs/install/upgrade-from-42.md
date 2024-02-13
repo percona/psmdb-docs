@@ -14,7 +14,7 @@ This document describes this method for the in-place upgrade (where your existin
 
     Perform a full backup of your data and configuration files before upgrading.
 
-=== "Upgrade on Debian and Ubuntu"
+=== ":material-debian: Upgrade on Debian and Ubuntu"
 
      1. Stop the `mongod` service:
 
@@ -48,7 +48,7 @@ This document describes this method for the in-place upgrade (where your existin
 
      For more information, see [Installing Percona Server for MongoDB on Debian and Ubuntu](apt.md).
 
-=== "Upgrade on Red Hat Enterprise Linux and derivatives"
+=== ":material-redhat: Upgrade on Red Hat Enterprise Linux and derivatives"
 
      1. Stop the `mongod` service:
 
