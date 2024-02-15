@@ -191,7 +191,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
     cd /tmp/psmdb
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-    --branch=release-7.0.4-2 --psm_ver=7.0.4 --psm_release=2 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --get_sources=1 --build_tarball=1
+    --branch=release-7.0.4-2 --psm_ver=7.0.4 --psm_release=2 --mongo_tools_tag=100.7.0 --get_sources=1 --build_tarball=1
     '
     ```
      
@@ -225,7 +225,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
     set -o xtrace
     cd /tmp/psmdb
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
-    bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git --branch=release-67.0.4-2 --psm_ver=7.0.4 --psm_release=2 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --get_sources=1'
+    bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git --branch=release-67.0.4-2 --psm_ver=7.0.4 --psm_release=2 --mongo_tools_tag=100.7.0 --get_sources=1'
     ```
 
 2. Build source packages. These packages include the source code and patches and are used to build binary packages.
@@ -242,7 +242,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_deb=1
+            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --build_src_deb=1
             '
             ```    
 
@@ -266,7 +266,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_rpm=1
+            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --build_src_rpm=1
             '
             ```    
 
@@ -291,7 +291,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --full-featured=1 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_deb=1
+            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --full-featured=1 --build_src_deb=1
             '
             ```    
 
@@ -315,7 +315,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --full-featured=1 --jemalloc_tag=psmdb-3.2.11-3.1 --build_src_rpm=1
+            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --full-featured=1 --build_src_rpm=1
             '
             ```    
 
@@ -343,7 +343,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_deb=1
+            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --build_deb=1
             '
             ```
 
@@ -371,7 +371,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-7.0.4-2 --psm_ver=7.0.4 --psm_release=2 --mongo_tools_tag=100.7.0 --jemalloc_tag=psmdb-3.2.11-3.1 --build_rpm=1
+            --branch=release-7.0.4-2 --psm_ver=7.0.4 --psm_release=2 --mongo_tools_tag=100.7.0 --build_rpm=1
             '
             ```
 
@@ -404,7 +404,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --full-featured=1 --jemalloc_tag=psmdb-3.2.11-3.1 --build_deb=1
+            --branch=release-7.0.4-2 --psm_ver=7.0.4--psm_release=2 --mongo_tools_tag=100.7.0 --full-featured=1 --build_deb=1
             '
             ```
 
@@ -432,7 +432,7 @@ Use the following instructions to build [tarballs](#tarballs) or [packages](#pac
             cd /tmp/psmdb
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
             bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-7.0.4-2 --psm_ver=7.0.4 --psm_release=2 --mongo_tools_tag=100.7.0 --full-featured=1 --jemalloc_tag=psmdb-3.2.11-3.1 --build_rpm=1
+            --branch=release-7.0.4-2 --psm_ver=7.0.4 --psm_release=2 --mongo_tools_tag=100.7.0 --full-featured=1 --build_rpm=1
             '
             ```
 
