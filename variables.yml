@@ -3,4 +3,5 @@
 
 release: '6.0.12-9'
 version: '6.0'
+mongosh: '2.2.1'
 

@@ -39,21 +39,21 @@ The steps below describe the installation on Debian 10 (“buster”).
 1. Fetch and the binary tarballs:
 
     ```{.bash data-prompt="$"}
-    $ wget https://www.percona.com/downloads/percona-server-mongodb-6.0/percona-server-mongodb-6.0.2-1/binary/tarball/percona-server-mongodb-6.0.2-1-x86_64.glibc2.17.tar.gz\
-    $ wget https://www.percona.com/downloads/percona-server-mongodb-6.0/percona-server-mongodb-6.0.2-1/binary/tarball/percona-mongodb-mongosh-1.6.0-x86_64.tar.gz
+    $ wget https://www.percona.com/downloads/percona-server-mongodb-6.0/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz\
+    $ wget https://www.percona.com/downloads/percona-server-mongodb-6.0/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
     ```
 2. Extract the tarballs
 
     ```{.bash data-prompt='$'} 
-    $ tar -xf percona-server-mongodb-6.0.2-1-x86_64.glibc2.17.tar.gz
-    $ tar -xf percona-mongodb-mongosh-1.6.0-x86_64.tar.gz
+    $ tar -xf percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz
+    $ tar -xf percona-mongodb-mongosh-{{release}}-x86_64.tar.gz
     ```
 
 
 3. Add the location of the binaries to the `PATH` variable:
 
     ```{.bash data-prompt="$"}
-    $ export PATH=~/percona-server-mongodb-6.0.2-1/bin/:~/percona-mongodb-mongosh-1.6.0/bin/:$PATH
+    $ export PATH=~/percona-server-mongodb-{{release}}/bin/:~/percona-mongodb-mongosh-{{mongosh}}/bin/:$PATH
     ```
 
 
