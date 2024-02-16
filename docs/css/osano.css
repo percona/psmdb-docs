@@ -1,0 +1,64 @@
+.osano-cm-dialog--type_bar {
+color: #000;
+background: #fff;
+box-shadow: 0 0 0 100vmax rgba(0,0,0,0.66)
+}
+
+
+.osano-cm-dialog {
+background: var(--md-default-bg-color);
+color: var(--md-typeset-color);	
+}
+
+.osano-cm-save {
+	background: var(--md-accent-bg-color);
+}
+
+.osano-cm-button {
+background-color: unset;
+border-color: var(--md-accent-fg-color);
+color: var(--md-accent-fg-color);
+border-radius: 10rem;
+}
+
+.osano-cm-button:focus, .osano-cm-button:hover {
+background-color: var(--md-accent-fg-color);
+border-color: var(--md-accent-fg-color);
+color: var(--md-accent-bg-color);
+}
+
+.osano-cm-dialog__close:hover {
+stroke: #ebebeb;
+}
+
+.osano-cm-link {
+	color: var(--md-typeset-a-color);
+}
+
+.osano-cm-link:hover, .osano-cm-link:active {
+    --webkit-tap-highlight-color: transparent;
+    color: var(--md-typeset-a-color);
+}
+
+.osano-cm-toggle__input:disabled:checked + .osano-cm-toggle__switch, .osano-cm-toggle__input:disabled:checked:focus + .osano-cm-toggle__switch, .osano-cm-toggle__input:disabled:checked:hover + .osano-cm-toggle__switch {
+background-color: var(--md-accent-fg-color);
+border-color: var(--md-accent-fg-color);
+}
+
+.osano-cm-toggle__input:checked + .osano-cm-toggle__switch {
+background-color: var(--md-accent-fg-color);
+border-color: var(--md-accent-fg-color);
+}
+
+.osano-cm-toggle__switch {
+background-color: var(--md-footer-bg-color);
+}
+
+
+.osano-cm-disclosure__toggle:hover, .osano-cm-disclosure__toggle:active, .osano-cm-expansion-panel__toggle:hover, .osano-cm-expansion-panel__toggle:active {
+color: var(--md-typeset-a-color);
+}
+
+.osano-cm-disclosure__toggle, .osano-cm-expansion-panel__toggle {
+color: var(--md-typeset-a-color);
+}
