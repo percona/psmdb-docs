@@ -46,7 +46,7 @@ The steps below describe the installation on Debian 10 (“buster”).
 
     ```{.bash data-prompt='$'} 
     $ tar -xf percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz
-    $ tar -xf percona-mongodb-mongosh-{{release}}-x86_64.tar.gz
+    $ tar -xf percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
     ```
 
 
