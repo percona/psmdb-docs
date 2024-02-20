@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document provides guidelines how to install Percona Server for MongoDB Pro from Percona repositories. Learn more about Percona Server for MongoDB Pro.">
+        <meta name="description" content="This document provides guidelines how to install Percona Server for MongoDB Pro from Percona repositories and from binary tarballs. Learn more about Percona Server for MongoDB Pro.">
       
       
         <meta name="author" content="Percona LLC">
@@ -572,11 +572,53 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#preconditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preconditions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-from-percona-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install from Percona repository
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-from-binary-tarballs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install from binary tarballs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install from binary tarballs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preconditions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preconditions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#procedure" class="md-nav__link">
     <span class="md-ellipsis">
       Procedure
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1713,11 +1755,53 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#preconditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preconditions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-from-percona-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install from Percona repository
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-from-binary-tarballs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install from binary tarballs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install from binary tarballs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preconditions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preconditions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#procedure" class="md-nav__link">
     <span class="md-ellipsis">
       Procedure
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1762,20 +1846,16 @@
 
 
 <h1 id="install-pro-packages-of-percona-server-for-mongodb">Install Pro packages of Percona Server for MongoDB<a class="headerlink" href="#install-pro-packages-of-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
-<p>This document provides guidelines how to install Percona Server for MongoDB Pro from Percona repositories. <a href="../psmdb-pro.html">Learn more about Percona Server for MongoDB Pro</a>.</p>
-<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
+<p>This document provides guidelines how to install Percona Server for MongoDB Pro from Percona repositories and from binary tarballs. <a href="../psmdb-pro.html">Learn more about Percona Server for MongoDB Pro</a>.</p>
+<h2 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">&para;</a></h2>
 <p>Request the access to the pro repository from Percona Support. You will receive the client ID and the access token.</p>
-</li>
-<li>
-<p>Configure the repository</p>
+<h2 id="install-from-percona-repository">Install from Percona repository<a class="headerlink" href="#install-from-percona-repository" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">On Debian and Ubuntu</label><label for="__tabbed_1_2">On RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
 <li>
-<p>Create the <code>/etc/apt/sources.list.d/psmdb-pro.list</code> configuration file with the following contents</p>
+<p>Configure the repository. Create the <code>/etc/apt/sources.list.d/psmdb-pro.list</code> configuration file with the following contents:</p>
 <div class="highlight"><span class="filename">/etc/apt/sources.list.d/psmdb-pro.list</span><pre><span></span><code><span class="na">deb http</span><span class="o">:</span><span class="s">//repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-60-pro/apt/ OPERATING_SYSTEM main</span>
 </code></pre></div>
 </li>
@@ -1784,39 +1864,107 @@
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
 </code></pre></div>
 </li>
+<li>
+<p>Install Percona Server for MongoDB Pro packages</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>percona-server-mongodb-pro
+</code></pre></div>
+</li>
+<li>
+<p>Start the server</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+</code></pre></div>
+</li>
 </ol>
 </div>
 <div class="tabbed-block">
-<p>Create the <code>/etc/yum.repos.d/psmdb-pro.repo</code> configuration file with the following contents</p>
+<ol>
+<li>
+<p>Configure the repository. Create the <code>/etc/yum.repos.d/psmdb-pro.repo</code> configuration file with the following contents:</p>
 <div class="highlight"><span class="filename">/etc/yum.repos.d/psmdb-pro.repo</span><pre><span></span><code><span class="k">[psmdb-6.0-pro]</span>
 <span class="na">name</span><span class="o">=</span><span class="s">PSMDB_6.0_PRO</span>
 <span class="na">baseurl</span><span class="o">=</span><span class="s">http://repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-60-pro/yum/main/$releasever/RPMS/x86_64</span>
 <span class="na">enabled</span><span class="o">=</span><span class="s">1</span>
 <span class="na">gpgkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://repo.percona.com/yum/PERCONA-PACKAGING-KEY</span>
 </code></pre></div>
-</div>
-</div>
-</div>
 </li>
 <li>
 <p>Install Percona Server for MongoDB Pro packages</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On RHEL and derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>percona-server-mongodb-pro
-</code></pre></div>
-</div>
-<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>percona-server-mongodb-pro
 </code></pre></div>
-</div>
-</div>
-</div>
 </li>
 <li>
 <p>Start the server</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemct<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<h2 id="install-from-binary-tarballs">Install from binary tarballs<a class="headerlink" href="#install-from-binary-tarballs" title="Permanent link">&para;</a></h2>
+<p>Binary tarballs are available starting with version 6.0.13-10 for the following operating systems:</p>
+<ul>
+<li>Ubuntu 22.04 (Jammy Jellyfish)</li>
+<li>Red Hat Enterprise Linux 9</li>
+</ul>
+<h3 id="preconditions_1">Preconditions<a class="headerlink" href="#preconditions_1" title="Permanent link">&para;</a></h3>
+<p>The following packages are required for the installation.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">On Debian and Ubuntu</label><label for="__tabbed_2_2">On Red hat Enterprise Linux and derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>
+<p><code>libcurl4</code></p>
+</li>
+<li>
+<p><code>libsasl2-modules</code></p>
+</li>
+<li>
+<p><code>libsasl2-modules-gssapi-mit</code></p>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>
+<p><code>libcurl</code></p>
+</li>
+<li>
+<p><code>cyrus-sasl-gssapi</code></p>
+</li>
+<li>
+<p><code>cyrus-sasl-plain</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<h3 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h3>
+<p>The steps below describe the installation on Ubuntu 22.04.</p>
+<ol>
+<li>
+<p>Download the tarballs from the pro repository </p>
+<p><div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-60-pro/tarballs/percona-server-mongodb-pro-6.0.13-10-x86_64.jammy.tar.gz<span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-60-pro/tarballs/percona-mongodb-mongosh-2.2.1-x86_64.tar.gz
+</code></pre></div>
+2. Extract the tarballs</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-6.0.13-10-x86_64.jammy.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.2.1-x86_64.tar.gz
+</code></pre></div>
+</li>
+<li>
+<p>Add the location of the binaries to the <code>PATH</code> variable:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-6.0.13-10-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.2.1/bin/:<span class="nv">$PATH</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the default data directory:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/data/db
+</code></pre></div>
+</li>
+<li>
+<p>Make sure that you have read and write permissions for the data
+directory and run <code>mongod</code>.</p>
 </li>
 </ol>
 <div data-banner="data-banner">
@@ -1851,7 +1999,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 28, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 20, 2024</span>
   </span>
 
     
