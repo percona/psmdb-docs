@@ -24,7 +24,7 @@
       
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
     
     
       
@@ -32,7 +32,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1597,11 +1597,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/6.0.12-9.html" class="md-nav__link">
+      <a href="../release_notes/6.0.13-10.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Percona Server for MongoDB 6.0.12-9 (2023-12-14)
+    Percona Server for MongoDB 6.0.13-10 (2024-02-20)
   </span>
   
 
@@ -1618,11 +1618,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/6.0.11-8.html" class="md-nav__link">
+      <a href="../2023 (versions 6.0.5-4 through 6.0.12-9) - release_notes/6.0.12-9.md - release_notes/6.0.11-8.md - release_notes/6.0.9-7.md - release_notes/6.0.8-6.md - release_notes/6.0.6-5.md - release_notes/6.0.5-4.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Percona Server for MongoDB 6.0.11-8 (2023-10-19)
+    None
   </span>
   
 
@@ -1639,137 +1639,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/6.0.9-7.html" class="md-nav__link">
+      <a href="../2022 (versions 6.0.2-1 through 6.0.4-3) - release_notes/6.0.4-3.md - release_notes/6.0.3-2.md - release_notes/6.0.2-1.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Percona Server for MongoDB 6.0.9-7 (2023-09-14)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../release_notes/6.0.8-6.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Percona Server for MongoDB 6.0.8-6 (2023-08-08)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../release_notes/6.0.6-5.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Percona Server for MongoDB 6.0.6-5 (2023-05-25)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../release_notes/6.0.5-4.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Percona Server for MongoDB 6.0.5-4 (2023-03-29)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../release_notes/6.0.4-3.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Percona Server for MongoDB 6.0.4-3 (2023-01-30)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../release_notes/6.0.3-2.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Percona Server for MongoDB 6.0.3-2 (2022-12-07)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../release_notes/6.0.2-1.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Percona Server for MongoDB 6.0.2-1 (2022-10-31)
+    None
   </span>
   
 
@@ -2015,7 +1889,10 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 </table>
 <h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
 <h3 id="configure-percona-repository">Configure Percona repository<a class="headerlink" href="#configure-percona-repository" title="Permanent link">&para;</a></h3>
-<p>Percona provides the <a href="https://docs.percona.com/percona-software-repositories/index.html"><code>percona-release</code></a> configuration tool that simplifies operating repositories and enables to install and update both Percona Backup for MongoDB packages and required dependencies smoothly.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">x86_64</label><label for="__tabbed_1_2">ARM64</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Percona provides the <a href="https://docs.percona.com/percona-software-repositories/index.html"><code>percona-release</code></a> configuration tool that simplifies operating repositories and enables to install and update both Percona Backup for MongoDB packages and required dependencies smoothly.    </p>
 <ol>
 <li>
 <p>Fetch <strong>percona-release</strong> packages from Percona web:</p>
@@ -2023,25 +1900,33 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 </code></pre></div>
 </li>
 <li>
-<p>Install the downloaded package with <strong>dpkg</strong>:</p>
+<p>Install the downloaded package with <strong>dpkg</strong>:    </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
 </code></pre></div>
 <p>After you install this package, you have the access to Percona repositories. You
-can check the repository setup in the <code>/etc/apt/sources.list.d/percona-release.list</code> file.</p>
+can check the repository setup in the <code>/etc/apt/sources.list.d/percona-release.list</code> file.    </p>
 </li>
 <li>
-<p>Enable the repository:</p>
+<p>Enable the repository:    </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-60<span class="w"> </span>release
 </code></pre></div>
 </li>
 <li>
-<p>Remember to update the local cache:</p>
+<p>Remember to update the local cache:    </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
 </code></pre></div>
 </li>
 </ol>
+</div>
+<div class="tabbed-block">
+<p>Create the <code>/etc/apt/sources.list.d/percona-psmdb-60-release.list</code> configuration file with the following contents:</p>
+<div class="highlight"><span class="filename">/etc/apt/sources.list.d/percona-psmdb-60-release.list</span><pre><span></span><code><span class="na">deb http</span><span class="o">:</span><span class="s">//repo.percona.com/psmdb-60/apt OPERATING_SYSTEM main</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="install-percona-server-for-mongodb">Install Percona Server for MongoDB<a class="headerlink" href="#install-percona-server-for-mongodb" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Install the latest version</label><label for="__tabbed_1_2">Install a specific version</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Install the latest version</label><label for="__tabbed_2_2">Install a specific version</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Run the following command to install the latest version of Percona Server for MongoDB:</p>
@@ -2120,7 +2005,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 14, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 20, 2024</span>
   </span>
 
     
