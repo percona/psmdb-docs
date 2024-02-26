@@ -191,14 +191,14 @@ nav:
   - Release notes:
       - "Release notes index": "release_notes/index.md"
       - release_notes/6.0.13-10.md
-      - 2023 (versions 6.0.5-4 through 6.0.12-9)
+      - 2023 (versions 6.0.5-4 through 6.0.12-9):
          - release_notes/6.0.12-9.md
          - release_notes/6.0.11-8.md
          - release_notes/6.0.9-7.md
          - release_notes/6.0.8-6.md
          - release_notes/6.0.6-5.md
          - release_notes/6.0.5-4.md
-      - 2022 (versions 6.0.2-1 through 6.0.4-3)
+      - 2022 (versions 6.0.2-1 through 6.0.4-3):
          - release_notes/6.0.4-3.md
          - release_notes/6.0.3-2.md
          - release_notes/6.0.2-1.md
