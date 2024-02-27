@@ -61,6 +61,7 @@ extra_css:
   - css/percona.css
   - css/nocopy.css
   - css/extra.css
+  - css/osano.css
 
 extra_javascript:
   - js/version-select.js
@@ -142,13 +143,6 @@ extra:
     provider: mike
   homepage:
     https://docs.percona.com
-  consent:
-    title: Cookie consent
-    description: >- 
-      We use cookies to personalize content and ads, to provide social media
-      features, and to analyze our traffic. 
-      <a class="reference external" href="https://www.percona.com/20180524-cookie-policy" target="_blank">Percona Privacy Policy</a>.
-      Learn more about <a class="reference external" href="https://www.percona.com/20180524-cookie-policy" target="_blank">Percona Cookie Policy</a>.
 
 
 nav:
