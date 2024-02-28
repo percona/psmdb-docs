@@ -4,17 +4,17 @@ You can find links to the binary tarballs under the *Generic Linux* menu item on
 
 There are the following tarballs available:
 
-* `percona-server-mongodb-<version>-x86_64.glibc2.17.tar.gz` is the general tarball, compatible with any [supported operating system](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb) except Ubuntu 22.04.
+* `percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz` is the general tarball, compatible with any [supported operating system](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb) except Ubuntu 22.04.
 
-* `percona-server-mongodb-<version>-x86_64.glibc2.35.tar.gz` is the tarball for Ubuntu 22.04.
+* `percona-server-mongodb-{{release}}-x86_64.glibc2.35.tar.gz` is the tarball for Ubuntu 22.04.
 
-* `percona-mongodb-mongosh-<version>-x86_64.tar.gz` is the tarball for `mongosh` shell.
+* `percona-mongodb-mongosh-{{release}}-x86_64.tar.gz` is the tarball for `mongosh` shell.
 
 ## Preconditions
 
 The following packages are required for the installation.
 
-=== "On Debian and Ubuntu"
+=== ":material-debian: On Debian and Ubuntu"
      
      * `libcurl4`
 
@@ -23,7 +23,7 @@ The following packages are required for the installation.
      * `libsasl2-modules-gssapi-mit`
 
 
-=== "On Red hat Enterprise Linux and derivatives"
+=== ":material-redhat: On Red hat Enterprise Linux and derivatives"
 
      * `libcurl`
 
@@ -35,6 +35,7 @@ The following packages are required for the installation.
 ## Procedure
 
 The steps below describe the installation on Debian 10 (“buster”).
+{.power-number}
 
 1. Fetch and the binary tarballs:
 
@@ -67,3 +68,6 @@ The steps below describe the installation on Debian 10 (“buster”).
 5. Make sure that you have read and write permissions for the data
 directory and run `mongod`.
 
+## Next steps
+
+[Connect to MongoDB :material-arrow-right:](../connect.md){.md-button}

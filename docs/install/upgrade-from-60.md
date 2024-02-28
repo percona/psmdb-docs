@@ -21,7 +21,7 @@ Before the upgrade, do the following:
 
 2. In Percona Server for MongoDB 7.0, journaling is enabled by default. Both the `storage.journal.enabled` configuration option and the corresponding `--journal`, `--no-journal` command-line options are ignored. You receive the corresponding warning during the server start after the upgrade. To get rid of this warning, change your configuration to remove the journaling options. 
 
-=== "Upgrade on Debian and Ubuntu"
+=== ":material-debian: Upgrade on Debian and Ubuntu"
 
      1. Stop the `mongod` service:
 
@@ -55,7 +55,7 @@ Before the upgrade, do the following:
 
      For more information, see [Installing Percona Server for MongoDB on Debian and Ubuntu](apt.md).
 
-=== "Upgrade on Red Hat Enterprise Linux and derivatives"
+=== ":material-redhat: Upgrade on Red Hat Enterprise Linux and derivatives"
 
      1. Stop the `mongod` service:
 
