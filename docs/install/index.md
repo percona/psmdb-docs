@@ -1,48 +1,60 @@
-# Installing Percona Server for MongoDB
+# Quickstart guides
 
-Percona provides installation packages of Percona Server for MongoDB for the most 64-bit Linux distributions. Find the full list of supported platforms on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page.
+Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
+for MongoDB 4.4 Community Edition with [enterprise-grade features](../comparison.md).
+
+Find the full list of supported platforms for Percona Server for MongoDB on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page.
+
+## Install Percona Server for MongoDB
+
+You can use any of the easy-install guides. We recommend to use **the package manager of your operating system** for a convenient and quick way to install the software for production use. **Use Docker** to try the software first.
+
+=== ":simple-windowsterminal: Package manager" 
+
+    Use the package manager of your operating system to install Percona Server for MongoDB:
+
+    [on Debian and Ubuntu :material-arrow-right:](apt.md){ .md-button }
+    [on RHEL and derivatives :material-arrow-right:](yum.md){ .md-button }
+
+    We gather [Telemetry data](../telemetry.md) in Percona packages.
 
 
-## System requirements
+=== ":simple-docker: Docker"
 
-Percona Server for MongoDB has the same [system requirements](https://www.mongodb.com/docs/v5.0/administration/production-notes/#x86_64) as the MongoDB Community Edition.
+     Get our Docker image and spin up Percona Server for MongoDB for a quick evaluation. 
 
-Starting in MongoDB 5.0, `mongod`, `mongos`, and the legacy `mongo` shell are supported on x86_64 platforms that must meet these minimum micro-architecture requirements:
+     Check the Docker guide for step-by-step guidelines.
 
-* Only Oracle Linux running the Red Hat Compatible Kernel (RHCK) is supported. MongoDB does not support the Unbreakable Enterprise Kernel (UEK).
+     [Run in Docker :material-arrow-right:](docker.md){.md-button}
 
-* MongoDB 5.0 and above requires use of the AVX instruction set, available on 
-[select Intel and AMD processors](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX). 
+     We gather [Telemetry data](../telemetry.md) in Docker images.
 
+=== ":simple-kubernetes: Kubernetes"
 
-### ARM64
+    **Percona Operator for Kubernetes** is a controller introduced to simplify complex deployments that require meticulous and secure database expertise. 
 
-Percona Server for MongoDB requires the ARMv8.2-A or later microarchitecture. 
+    Check the Quickstart guides how to deploy and run Percona Server for MongoDB on Kubernetes with Percona Operator for MongoDB.
 
-Currently, only [Docker images](https://hub.docker.com/r/percona/percona-server-mongodb/) are available.
+    [Deploy in Kubernetes Quickstart :material-arrow-right:](https://docs.percona.com/percona-operator-for-mongodb/quickstart.html){.md-button}
 
-## Installation instructions
+=== ":octicons-file-code-16: Build from source"
 
-Choose how you wish to install Percona Server for MongoDB:
+    Have a full control over the installation by building Percona Server for MongoDB from source code.
 
-* From Percona repositories (recommended):
-    
-    * [On Debian or Ubuntu](apt.md)
-    * [On RHEL or CentOS](yum.md)
+    Check the guide below for step-by-step instructions.
 
-* [build from source code](source.md)
-* [from binary tarballs](tarball.md)
-* Manually from [Percona website](https://www.percona.com/downloads/percona-server-mongodb-4.4/)
+    [Build from source :material-arrow-right:](source.md){.md-button}
 
-   *NOTE*: Make sure that all dependencies are satisfied.
+=== ":octicons-download-16: Manual download"
 
-* [Run in a Docker](docker.md).
+    If you need to install Percona Server for MongoDB offline or prefer a specific version of it, check out the link below for a step-by-step guide and get access to the downloads directory.
 
-We gather [Telemetry data](../telemetry.md) in Percona packages and Docker images.
+    Note that for this scenario you must make sure that all dependencies are satisfied.
+
+    [Install from tarballs :material-arrow-right:](tarball.md){.md-button}
 
 ## Upgrade instructions
 
-If you are currently using MongoDB, see [Upgrading from MongoDB](upgrade-from-mongodb.md#upgrade-from-mongodb).
+If you are currently using MongoDB Community Edition, see [Upgrading from MongoDB](upgrade-from-mongodb.md).
 
-If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 4.2](upgrade-from-42.md#upgrade-from-42).
-
+If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 4.2](upgrade-from-42.md).

@@ -11,7 +11,7 @@ server without notable performance and operating degradation.
 ## Make a backup
 
 To take a hot backup of the database in your current `dbpath`, do the following:
-
+{.power-number}
 
 1. Provide access to the backup directory for the `mongod` user:
 
@@ -88,7 +88,7 @@ the credentials configuration file. By default, it is `~/.aws/credentials`.
 
 #### Example credentials file
 
-```
+```title="~/.aws/credentials"
 [default]
 aws_access_key_id = ABC123XYZ456QQQAAAFFF
 aws_secret_access_key = zuf+secretkey0secretkey1secretkey2
@@ -130,9 +130,9 @@ useVirtualAddressing: false}})
  
     AWS Documentation: [Providing AWS Credentials](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/credentials.html)
 
-## Restoring data from backup
+## Restore data from backup
 
-### Restoring from backup on a standalone server
+### Restore from backup on a standalone server
 
 To restore your database on a standalone server, stop the `mongod` service, clean out the data directory and copy files from the backup directory to the data directory. The `mongod` user requires access to those files to start the service. Therefore, make the `mongod` user the owner of the data directory and all files and subdirectories under it, and restart the `mongod` service.
 
@@ -140,7 +140,8 @@ To restore your database on a standalone server, stop the `mongod` service, clea
 
     If you try to restore the node into the existing replica set and there is more recent data, the restored node detects that it is out of date with the other replica set members, deletes the data and makes an initial sync.
 
-Run the following commands as root or by using the `sudo` command
+Run the following commands as root or by using the `sudo` command:
+{.power-number}
 
 1. Stop the `mongod` service
 
@@ -172,7 +173,7 @@ Run the following commands as root or by using the `sudo` command
     $ systemctl start mongod
     ```
 
-### Restoring from backup in a replica set
+### Restore from backup in a replica set
 
 The recommended way to restore the replica set from a backup is to restore it into a standalone node and then initiate it as the first member of a new replica set.
 
@@ -181,7 +182,7 @@ The recommended way to restore the replica set from a backup is to restore it in
     If you try to restore the node into the existing replica set and there is more recent data, the restored node detects that it is out of date with the other replica set members, deletes the data and makes an initial sync.
 
 Run the following commands as root or by using the **sudo** command
-
+{.power-number}
 
 
 1. Stop the `mongod` service:

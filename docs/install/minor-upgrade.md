@@ -1,7 +1,7 @@
 # Minor upgrade of Percona Server for MongoDB
 
 To upgrade Percona Server for MongoDB to the latest version, follow these steps:
-
+{.power-number}
 
 1. Stop the `mongod` service:
 

@@ -18,7 +18,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
 
     Before starting the upgrade, we recommend to perform a full backup of your data.
 
-=== "Upgrade on Debian and Ubuntu"
+=== ":material-debian: Upgrade on Debian and Ubuntu"
 
      1. Save the current configuration file as the backup:
 
@@ -38,17 +38,17 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
          $ sudo dpkg -l | grep mongod
          ```
 
-         Output:
+         ??? example "Sample output"
 
-         ```{.text .no-copy}
-         ii  mongodb-org                      4.4.15                       amd64        MongoDB open source document-oriented database system (metapackage)
-         ii  mongodb-org-database             4.4.15                       amd64        MongoDB open source document-oriented database system (metapackage)
-         ii  mongodb-org-database-tools-extra 4.4.15                       amd64        Extra MongoDB database tools
-         ii  mongodb-org-mongos               4.4.15                       amd64        MongoDB sharded cluster query router
-         ii  mongodb-org-server               4.4.15                       amd64        MongoDB database server
-         ii  mongodb-org-shell                4.4.15                       amd64        MongoDB shell client
-         ii  mongodb-org-tools                4.4.15                       amd64        MongoDB tools
-         ```
+             ```{.text .no-copy}
+             ii  mongodb-org                      4.4.15                       amd64        MongoDB open source document-oriented database system (metapackage)
+             ii  mongodb-org-database             4.4.15                       amd64        MongoDB open source document-oriented database system (metapackage)
+             ii  mongodb-org-database-tools-extra 4.4.15                       amd64        Extra MongoDB database tools
+             ii  mongodb-org-mongos               4.4.15                       amd64        MongoDB sharded cluster query router
+             ii  mongodb-org-server               4.4.15                       amd64        MongoDB database server
+             ii  mongodb-org-shell                4.4.15                       amd64        MongoDB shell client
+             ii  mongodb-org-tools                4.4.15                       amd64        MongoDB tools
+             ```
 
      4. Remove the installed packages:
 
@@ -89,7 +89,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
          $ sudo systemctl restart mongod
          ```
 
-=== "Upgrade on Red Hat Enterprise Linux and derivatives"
+=== ":material-redhat: Upgrade on Red Hat Enterprise Linux and derivatives"
 
      1. Stop the `mongod` service:
 
@@ -103,17 +103,17 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
          $ sudo rpm -qa | grep mongo
          ```
 
-         Output:
+         ??? example "Sample output"
 
-         ```{.text .no-copy}
-         mongodb-org-shell-4.4.15-1.el8.x86_64
-         mongodb-org-database-4.4.15-1.el8.x86_64
-         mongodb-org-4.4.15-1.el8.x86_64
-         mongodb-database-tools-100.4.1-1.x86_64
-         mongodb-org-server-4.4.15-1.el8.x86_64
-         mongodb-org-mongos-4.4.15-1.el8.x86_64
-         mongodb-org-tools-4.4.15-1.el8.x86_64
-         ```
+             ```{.text .no-copy}
+             mongodb-org-shell-4.4.15-1.el8.x86_64
+             mongodb-org-database-4.4.15-1.el8.x86_64
+             mongodb-org-4.4.15-1.el8.x86_64
+             mongodb-database-tools-100.4.1-1.x86_64
+             mongodb-org-server-4.4.15-1.el8.x86_64
+             mongodb-org-mongos-4.4.15-1.el8.x86_64
+             mongodb-org-tools-4.4.15-1.el8.x86_64
+             ```
 
      3. Remove the installed packages:
 

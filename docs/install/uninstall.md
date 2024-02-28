@@ -4,7 +4,7 @@ To completely remove Percona Server for MongoDB you need to remove all the insta
 
 Follow the instructions, relevant to your operating system:
 
-=== "Uninstall on Debian and Ubuntu"
+=== ":material-debian: Uninstall on Debian and Ubuntu"
 
      You can remove Percona Server for MongoDB packages with one of the following commands:
 
@@ -22,19 +22,19 @@ Follow the instructions, relevant to your operating system:
 
      2. Remove the packages. There are two options.
 
-         === "Keep the configuration and data files"
+        === ":material-file-outline: Keep the configuration and data files"
 
              ```{.bash data-prompt="$"}
              $ sudo apt remove percona-server-mongodb*
              ```
 
-         === "Delete configuration and data files"
+        === ":material-file-remove-outline: Delete configuration and data files"
 
-              ```{.bash data-prompt="$"}
-              $ sudo apt purge percona-server-mongodb*
-              ```
+             ```{.bash data-prompt="$"}
+             $ sudo apt purge percona-server-mongodb*
+             ```
 
-=== "Uninstall on Red Hat Enterprise Linux and derivatives"
+=== ":material-redhat: Uninstall on Red Hat Enterprise Linux and derivatives"
 
      1. Stop the `mongod` service:
 

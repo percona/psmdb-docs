@@ -25,7 +25,7 @@ storage:
 You can configure Percona Memory Engine using either command-line options or
 corresponding parameters in the `/etc/mongod.conf` file. The following are the configuration examples:
 
-=== "Configuration file"
+=== ":octicons-file-code-24: Configuration file"
     
     The configuration file is formatted in YAML
 
@@ -38,7 +38,7 @@ corresponding parameters in the `/etc/mongod.conf` file. The following are the c
           statisticsLogDelaySecs: 0
     ```
 
-=== "Command line"
+=== ":material-console: Command line"
 
      Setting parameters in the configuration file is the same as
      starting the `mongod` daemon with the following options:
@@ -54,10 +54,18 @@ corresponding parameters in the `/etc/mongod.conf` file. The following are the c
 The following options are available (with corresponding YAML configuration file
 parameters):
 
-| Command line         | Configuration file | Default | Description  |
-| -------------------- | ------------------ | ------- | ------------ |
-| `--inMemorySizeGB()` | `storage.inMemory.engineConfig.inMemorySizeGB`| 50% of total memory minus 1024 MB, but not less than 256 MB | Specifies the maximum memory in gigabytes to use for data|
-| `--inMemoryStatisticsLogDelaySecs()` | `storage.inMemory.engineConfig.statisticsLogDelaySecs` | 0 | Specifies the number of seconds between writes to statistics log.  If 0 is specified then statistics are not logged|
+| Configuration file | {{ optionlink('storage.inMemory.engineConfig.inMemorySizeGB') }}|
+|--------------------| ---------------|
+| **Command line**   | `inMemorySizeGB()` |
+| **Default**        | 50% of total memory minus 1024 MB, but not less than 256 MB | 
+| **Description**    | Specifies the maximum memory in gigabytes to use for data |
+
+| Configuration file | {{ optionlink('storage.inMemory.engineConfig.statisticsLogDelaySecs') }}|
+|--------------------| ---------------|
+| **Command line**   | `inMemoryStatisticsLogDelaySecs()()` |
+| **Default**        | 0 | 
+| **Description**    | Specifies the number of seconds between writes to statistics log.  A 0 value means statistics are not logged |
+
 
 ## Switching storage engines
 
@@ -133,7 +141,7 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
 
 #### Switch to Percona Memory Engine with data migration and compatibility
 
-=== "Standalone instance"
+=== ":material-monitor: Standalone instance"
 
     For a standalone instance or a single-node replica set, use the `mongodump` and `mongorestore` utilities:
 
@@ -170,7 +178,7 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
         $ mongorestore <dumpDir>
         ```
 
-=== "Replica set"
+=== ":material-monitor-multiple: Replica set"
 
     Use the “rolling restart” process.
 
