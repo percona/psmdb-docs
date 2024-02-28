@@ -19,16 +19,24 @@ theme:
   favicon: _images/percona-favicon.ico
   custom_dir: _resource/overrides/
   font:
-    text: Poppins
+    text: Roboto
+    code: Roboto Mono
   
   features:
     content.action.view
     content.action.edit
     content.code.copy
+    content.copy.annotate
     search.highlight
     search.share
     
   palette:
+    # Automatic mode based on system preferences
+
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
 
     # Light mode
     - media: "(prefers-color-scheme: light)"
@@ -61,6 +69,7 @@ extra_css:
   - css/percona.css
   - css/nocopy.css
   - css/extra.css
+  - css/design.css
   - css/osano.css
 
 extra_javascript:
@@ -87,7 +96,11 @@ markdown_extensions:
   pymdownx.tabbed: 
       {alternate_style: true}
   pymdownx.tilde: {}
-  pymdownx.superfences: {}
+  pymdownx.superfences: 
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
   pymdownx.highlight:
       linenums: false
   pymdownx.inlinehilite: {}
@@ -95,6 +108,8 @@ markdown_extensions:
       base_path: ["snippets"]
       auto_append:
         - services-banner.md
+  pymdownx.tasklist:
+     custom_checkbox: true
   pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -147,19 +162,24 @@ extra:
 
 nav:
   - Home: index.md
-  - comparison.md
-  - Install PSMDB: 
-      - 'Overview': 'install/index.md'
-      - install/apt.md
-      - install/yum.md
-      - install/tarball.md
-      - install/source.md
-      - install/docker.md
+  - 'Feature comparison with MongoDB': comparison.md
+  - Get started: 
+      - Quickstart guides: 'install/index.md'
+      - Installation:
+        - 'System requirements': 'install/system-requirements.md'
+        - "On Debian and Ubuntu": install/apt.md
+        - "On RHEL and derivatives": install/yum.md
+        - "From tarballs": install/tarball.md
+        - install/source.md
+        - "Run in Docker": install/docker.md
+      - connect.md
+      - crud.md
+      - what-next.md
   - Features: 
       - Storage:
         - "Percona Memory Engine": "inmemory.md"
       - Backup:
-        - "Hot Backup": "hot-backup.md"
+        - "Hot backup": "hot-backup.md"
         - backup-cursor.md
       - Authentication:
         - "Authentication overview": "authentication.md"
@@ -181,7 +201,7 @@ nav:
       - rate-limit.md
       - log-redaction.md
       - ngram-full-text-search.md
-  - Manage PSMDB:
+  - Administration:
       - "Tune parameters": "set-parameter.md"
       - Upgrade:
         - "Upgrade from 4.4 to 5.0": "install/upgrade-from-44.md"
@@ -214,7 +234,9 @@ nav:
          - release_notes/5.0.4-3.md
          - release_notes/5.0.3-2.md
          - release_notes/5.0.2-1.md
-  - glossary.md
-  - "Telemetry": telemetry.md
-  - copyright.md
-  - trademark-policy.md 
+  - faq.md
+  - Reference:
+      - glossary.md
+      - telemetry.md
+      - copyright.md
+      - trademark-policy.md 
