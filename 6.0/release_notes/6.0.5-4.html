@@ -50,8 +50,8 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -64,6 +64,8 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
       <link rel="stylesheet" href="../css/nocopy.css">
     
       <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="../css/design.css">
     
       <link rel="stylesheet" href="../css/osano.css">
     
@@ -109,7 +111,7 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
     
     
     
-    <body dir="ltr" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -170,9 +172,19 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
       </label>
     
@@ -180,7 +192,7 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
@@ -328,7 +340,7 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
         
   
   <span class="md-ellipsis">
-    Percona Server for MongoDB feature comparison
+    Feature comparison with MongoDB
   </span>
   
 
@@ -378,7 +390,7 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
             
   
   <span class="md-ellipsis">
-    Install PSMDB
+    Get started
   </span>
   
 
@@ -388,7 +400,7 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Install PSMDB
+            Get started
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -400,6 +412,62 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
   
     <li class="md-nav__item">
       <a href="../install/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quickstart guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/system-requirements.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -530,6 +598,77 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
   
   <span class="md-ellipsis">
     Install PSMDB Pro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connect.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connect to Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crud.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulate data in Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-next.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's next?
   </span>
   
 
@@ -1243,7 +1382,7 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
             
   
   <span class="md-ellipsis">
-    Manage PSMDB
+    Administration
   </span>
   
 
@@ -1253,7 +1392,7 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Manage PSMDB
+            Administration
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1366,7 +1505,7 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
         
   
   <span class="md-ellipsis">
-    Upgrade to PSMDB Pro
+    Upgrade to Percona Server for MongoDB Pro
   </span>
   
 
@@ -1890,6 +2029,61 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
   
   
     <li class="md-nav__item">
+      <a href="../faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../glossary.html" class="md-nav__link">
         
   
@@ -1902,9 +2096,31 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../telemetry.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telemetry on Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
@@ -1922,9 +2138,10 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -1939,6 +2156,14 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.">
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2241,7 +2466,7 @@ fully-compatible, drop-in replacement for MongoDB 6.0.5 Community Edition.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>

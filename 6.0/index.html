@@ -8,9 +8,9 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB is a free, enhanced, fully compatible, source available, drop-in replacement
+        <meta name="description" content="Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
 for MongoDB 6.0 Community Edition with enterprise-grade features.
-It requires no changes to MongoDB applications or code.">
+To migrate to Percona Server for MongoDB requires no changes to MongoDB applications or code.">
       
       
         <meta name="author" content="Percona LLC">
@@ -49,8 +49,8 @@ It requires no changes to MongoDB applications or code.">
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -63,6 +63,8 @@ It requires no changes to MongoDB applications or code.">
       <link rel="stylesheet" href="css/nocopy.css">
     
       <link rel="stylesheet" href="css/extra.css">
+    
+      <link rel="stylesheet" href="css/design.css">
     
       <link rel="stylesheet" href="css/osano.css">
     
@@ -106,7 +108,7 @@ It requires no changes to MongoDB applications or code.">
     
     
     
-    <body dir="ltr" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -167,9 +169,19 @@ It requires no changes to MongoDB applications or code.">
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
       </label>
     
@@ -177,7 +189,7 @@ It requires no changes to MongoDB applications or code.">
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
@@ -349,20 +361,44 @@ It requires no changes to MongoDB applications or code.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#installation-guides" class="md-nav__link">
     <span class="md-ellipsis">
-      Features
+       Installation guides
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#control-database-access" class="md-nav__link">
+    <span class="md-ellipsis">
+       Control database access
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#backup-and-restore" class="md-nav__link">
     <span class="md-ellipsis">
-      Get started
+       Backup and restore
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secure-access-to-data" class="md-nav__link">
+    <span class="md-ellipsis">
+       Secure access to data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -394,7 +430,7 @@ It requires no changes to MongoDB applications or code.">
         
   
   <span class="md-ellipsis">
-    Percona Server for MongoDB feature comparison
+    Feature comparison with MongoDB
   </span>
   
 
@@ -444,7 +480,7 @@ It requires no changes to MongoDB applications or code.">
             
   
   <span class="md-ellipsis">
-    Install PSMDB
+    Get started
   </span>
   
 
@@ -454,7 +490,7 @@ It requires no changes to MongoDB applications or code.">
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Install PSMDB
+            Get started
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -466,6 +502,62 @@ It requires no changes to MongoDB applications or code.">
   
     <li class="md-nav__item">
       <a href="install/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quickstart guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/system-requirements.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -596,6 +688,77 @@ It requires no changes to MongoDB applications or code.">
   
   <span class="md-ellipsis">
     Install PSMDB Pro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="connect.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connect to Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="crud.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulate data in Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="what-next.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's next?
   </span>
   
 
@@ -1309,7 +1472,7 @@ It requires no changes to MongoDB applications or code.">
             
   
   <span class="md-ellipsis">
-    Manage PSMDB
+    Administration
   </span>
   
 
@@ -1319,7 +1482,7 @@ It requires no changes to MongoDB applications or code.">
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Manage PSMDB
+            Administration
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1432,7 +1595,7 @@ It requires no changes to MongoDB applications or code.">
         
   
   <span class="md-ellipsis">
-    Upgrade to PSMDB Pro
+    Upgrade to Percona Server for MongoDB Pro
   </span>
   
 
@@ -1865,6 +2028,61 @@ It requires no changes to MongoDB applications or code.">
   
   
     <li class="md-nav__item">
+      <a href="faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="glossary.html" class="md-nav__link">
         
   
@@ -1877,9 +2095,31 @@ It requires no changes to MongoDB applications or code.">
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="telemetry.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telemetry on Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
@@ -1897,9 +2137,10 @@ It requires no changes to MongoDB applications or code.">
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -1914,6 +2155,14 @@ It requires no changes to MongoDB applications or code.">
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1953,20 +2202,44 @@ It requires no changes to MongoDB applications or code.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#installation-guides" class="md-nav__link">
     <span class="md-ellipsis">
-      Features
+       Installation guides
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#control-database-access" class="md-nav__link">
+    <span class="md-ellipsis">
+       Control database access
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#get-started" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#backup-and-restore" class="md-nav__link">
     <span class="md-ellipsis">
-      Get started
+       Backup and restore
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secure-access-to-data" class="md-nav__link">
+    <span class="md-ellipsis">
+       Secure access to data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2011,12 +2284,10 @@ It requires no changes to MongoDB applications or code.">
 
 
 <h1 id="percona-server-for-mongodb-60-documentation">Percona Server for MongoDB 6.0 Documentation<a class="headerlink" href="#percona-server-for-mongodb-60-documentation" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB is a free, enhanced, fully compatible, source available, drop-in replacement
-for MongoDB 6.0 Community Edition with enterprise-grade features.
-It requires no changes to MongoDB applications or code.</p>
-<div class="admonition hint">
-<p>To see which version of Percona Server for MongoDB you are using check the value of the <code>psmdbVersion</code> key in the output of the <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo">buildInfo</a> database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.</p>
-</div>
+<p>Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
+for MongoDB 6.0 Community Edition with <a href="comparison.html">enterprise-grade features</a>.
+<a href="install/upgrade-from-mongodb.html">To migrate to Percona Server for MongoDB</a> requires no changes to MongoDB applications or code.</p>
+<p><a class="md-button md-button" href="release_notes/6.0.13-10.html">What&rsquo;s new in Percona Server for MongoDB 6.0.13-10</a></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p><strong>Changes to Chunk Management and Balancing</strong></p>
@@ -2035,40 +2306,28 @@ It requires no changes to MongoDB applications or code.</p>
 </ul>
 <p>The above changes are expected to lead to better performance overall going forward.</p>
 </div>
-<p><a class="md-button md-button" href="release_notes/6.0.13-10.html">What&rsquo;s new in Percona Server for MongoDB 6.0.13-10</a></p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
-<p>Percona Server for MongoDB provides the following features:</p>
-<ul>
-<li>
-<p>MongoDB’s default <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> engine</p>
-</li>
-<li>
-<p><a href="inmemory.html">Percona Memory Engine</a> storage engine</p>
-</li>
-<li>
-<p><a href="data-at-rest-encryption.html">Data at Rest Encryption</a></p>
-</li>
-<li>
-<p><a href="authentication.html#ext-auth">External authentication</a>
-using OpenLDAP or Active Directory</p>
-</li>
-<li>
-<p><a href="aws-iam.html">AWS IAM authentication</a> (a <a href="glossary.html#technical-preview-feature">technical preview feature</a>)</p>
-</li>
-<li>
-<p><a href="audit-logging.html">Audit logging</a> to track and query database interactions of users or applications</p>
-</li>
-<li>
-<p><a href="hot-backup.html">Hot Backup</a> for the default <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a></p>
-</li>
-<li>
-<p><a href="rate-limit.html">Profiling Rate Limit</a> to decrease the impact of the profiler on performance</p>
-</li>
-</ul>
-<p>To learn more about the features, available in Percona Server for MongoDB, see <a href="comparison.html">Percona Server for MongoDB Feature Comparison</a></p>
-<h2 id="get-started">Get started<a class="headerlink" href="#get-started" title="Permanent link">&para;</a></h2>
-<p>Ready to try out Percona Server for MongoDB?</p>
-<p><a class="md-button md-button" href="install/index.html">Install and get started</a></p>
+<div data-grid="data-grid">
+<div data-banner markdown>
+<h2 class="title" id="installation-guides"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2.03c4.73.47 8.5 4.22 8.95 8.97A9.976 9.976 0 0 1 13 21.93v-2c3.64-.43 6.5-3.32 6.96-6.96A7.994 7.994 0 0 0 13 4.05V2.03m-2 .03v2c-1.43.2-2.78.78-3.9 1.68L5.67 4.26A9.827 9.827 0 0 1 11 2.06M4.26 5.67 5.69 7.1A8.017 8.017 0 0 0 4.05 11h-2c.2-1.96.95-3.81 2.21-5.33M2.06 13h2c.18 1.42.75 2.77 1.63 3.9l-1.42 1.43A10.04 10.04 0 0 1 2.06 13m5.04 5.37c1.13.88 2.48 1.45 3.9 1.63v2c-1.96-.21-3.82-1-5.33-2.26l1.43-1.37M12 16.5 7.5 12H11V8h2v4h3.5L12 16.5Z"/></svg></span> Installation guides<a class="headerlink" href="#installation-guides" title="Permanent link">&para;</a></h2>
+<p>Ready to try out Percona Server for MongoDB? Get started quickly with the step-by-step installation instructions.</p>
+<p><a class="md-button" href="install/index.html">Quickstart guides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></a></p>
+</div>
+<div data-banner="data-banner">
+<h3 class="title" id="control-database-access"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M308.5 135.3c7.1-6.3 9.9-16.2 6.2-25-2.3-5.3-4.8-10.5-7.6-15.5l-3.1-5.4c-3-5-6.3-9.9-9.8-14.6-5.7-7.6-15.7-10.1-24.7-7.1L241.3 77c-10.7-8.8-23-16-36.2-20.9l-6.1-29c-1.9-9.3-9.1-16.7-18.5-17.8-6.6-.9-13.3-1.3-20.1-1.3h-.7c-6.8 0-13.5.4-20.1 1.2-9.4 1.1-16.6 8.6-18.5 17.8L115 56.1c-13.3 5-25.5 12.1-36.2 20.9l-28.3-9.2c-9-3-19-.5-24.7 7.1-3.5 4.7-6.8 9.6-9.9 14.6l-3 5.3c-2.8 5-5.3 10.2-7.6 15.6-3.7 8.7-.9 18.6 6.2 25l22.2 19.8c-1.1 6.7-1.7 13.7-1.7 20.8s.6 14.1 1.7 20.9l-22.2 19.8c-7.1 6.3-9.9 16.2-6.2 25 2.3 5.3 4.8 10.5 7.6 15.6l3 5.2c3 5.1 6.3 9.9 9.9 14.6 5.7 7.6 15.7 10.1 24.7 7.1l28.2-9.3c10.7 8.8 23 16 36.2 20.9l6.1 29.1c1.9 9.3 9.1 16.7 18.5 17.8 6.7.8 13.5 1.2 20.4 1.2s13.7-.4 20.4-1.2c9.4-1.1 16.6-8.6 18.5-17.8l6.1-29.1c13.3-5 25.5-12.1 36.2-20.9l28.2 9.3c9 3 19 .5 24.7-7.1 3.5-4.7 6.8-9.5 9.8-14.6l3.1-5.4c2.8-5 5.3-10.2 7.6-15.5 3.7-8.7.9-18.6-6.2-25l-22.2-19.8c1.1-6.8 1.7-13.8 1.7-20.9s-.6-14.1-1.7-20.9l22.2-19.8zM112 176a48 48 0 1 1 96 0 48 48 0 1 1-96 0zm392.7 324.5c6.3 7.1 16.2 9.9 25 6.2 5.3-2.3 10.5-4.8 15.5-7.6l5.4-3.1c5-3 9.9-6.3 14.6-9.8 7.6-5.7 10.1-15.7 7.1-24.7l-9.3-28.2c8.8-10.7 16-23 20.9-36.2L613 391c9.3-1.9 16.7-9.1 17.8-18.5.8-6.7 1.2-13.5 1.2-20.4s-.4-13.7-1.2-20.4c-1.1-9.4-8.6-16.6-17.8-18.5l-29.1-6.2c-5-13.3-12.1-25.5-20.9-36.2l9.3-28.2c3-9 .5-19-7.1-24.7-4.7-3.5-9.6-6.8-14.6-9.9l-5.3-3c-5-2.8-10.2-5.3-15.6-7.6-8.7-3.7-18.6-.9-25 6.2l-19.8 22.2c-6.8-1.1-13.8-1.7-20.9-1.7s-14.1.6-20.9 1.7l-19.8-22.2c-6.3-7.1-16.2-9.9-25-6.2-5.3 2.3-10.5 4.8-15.6 7.6l-5.2 3c-5.1 3-9.9 6.3-14.6 9.9-7.6 5.7-10.1 15.7-7.1 24.7l9.3 28.2c-8.8 10.7-16 23-20.9 36.2l-29.1 6c-9.3 1.9-16.7 9.1-17.8 18.5-.8 6.7-1.2 13.5-1.2 20.4s.4 13.7 1.2 20.4c1.1 9.4 8.6 16.6 17.8 18.5l29.1 6.1c5 13.3 12.1 25.5 20.9 36.2l-9.3 28.2c-3 9-.5 19 7.1 24.7 4.7 3.5 9.5 6.8 14.6 9.8l5.4 3.1c5 2.8 10.2 5.3 15.5 7.6 8.7 3.7 18.6.9 25-6.2l19.8-22.2c6.8 1.1 13.8 1.7 20.9 1.7s14.1-.6 20.9-1.7l19.8 22.2zM464 304a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg></span> Control database access<a class="headerlink" href="#control-database-access" title="Permanent link">&para;</a></h3>
+<p>Define who has access to the database and manage their permissions in a single place like LDAP server, ensuring only authorized users have access to resources and operations. </p>
+<p><a class="md-button" href="authentication.html">Authentication <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></a></p>
+</div>
+<div data-banner="data-banner">
+<h3 class="title" id="backup-and-restore"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9H0l4 4 4-4H5a7 7 0 0 1 7-7 7 7 0 0 1 7 7 7 7 0 0 1-7 7c-1.5 0-2.91-.5-4.06-1.3L6.5 19.14A9.115 9.115 0 0 0 12 21a9 9 0 0 0 9-9 9 9 0 0 0-9-9m2 9a2 2 0 0 0-2-2 2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2Z"/></svg></span> Backup and restore<a class="headerlink" href="#backup-and-restore" title="Permanent link">&para;</a></h3>
+<p>Make enterprise-level backups and restores with guaranteed data consistency using Percona Backup for MongoDB (PBM). Or, create physical backups on a running server using the built-in <a href="hot-backup.html">hot backup</a> functionality. </p>
+<p><a class="md-button" href="https://docs.percona.com/percona-backup-mongodb/installation.html">Get started with PBM <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></a></p>
+</div>
+<div data-banner="data-banner">
+<h3 class="title" id="secure-access-to-data"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.991 0a.883.883 0 0 0-.871.817v3.02a.883.883 0 0 0 .88.884.883.883 0 0 0 .88-.88V.816A.883.883 0 0 0 11.991 0zm7.705 3.109a.88.88 0 0 0-.521.174L16.8 5.231a.88.88 0 0 0 .559 1.563.88.88 0 0 0 .56-.2l2.37-1.951a.88.88 0 0 0-.594-1.534zM4.32 3.122a.883.883 0 0 0-.611 1.52l2.37 1.951a.876.876 0 0 0 .56.2v-.002a.88.88 0 0 0 .56-1.56L4.828 3.283a.883.883 0 0 0-.508-.16zm7.66 3.228a5.046 5.046 0 0 0-5.026 5.045v1.488H5.787a.967.967 0 0 0-.965.964v9.189a.967.967 0 0 0 .965.964h12.426a.967.967 0 0 0 .964-.964v-9.19a.967.967 0 0 0-.964-.963h-1.168v-1.488A5.046 5.046 0 0 0 11.98 6.35zm.012 2.893a2.152 2.152 0 0 1 2.16 2.152v1.488H9.847v-1.488a2.152 2.152 0 0 1 2.145-2.152zm7.382.503a.883.883 0 1 0 .07 1.763h3.027a.883.883 0 0 0 0-1.76h-3.027a.883.883 0 0 0-.07-.003zM1.529 9.75a.883.883 0 0 0 0 1.76h2.999a.883.883 0 0 0 0-1.76zm10.46 6.774a1.28 1.28 0 0 1 .64 2.393v1.245a.63.63 0 0 1-1.259 0v-1.245a1.28 1.28 0 0 1 .619-2.393z"/></svg></span> Secure access to data<a class="headerlink" href="#secure-access-to-data" title="Permanent link">&para;</a></h3>
+<p>Keep your sensitive data safe, ensuring users only see the data they are authorized to access. </p>
+<p><a class="md-button" href="data-at-rest-encryption.html">Data-at-rest encryption <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></a></p>
+</div>
+<p></div>    </p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2101,7 +2360,7 @@ using OpenLDAP or Active Directory</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 8, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
   </span>
 
     
@@ -2202,7 +2461,7 @@ using OpenLDAP or Active Directory</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>

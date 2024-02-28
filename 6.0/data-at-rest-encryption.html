@@ -51,8 +51,8 @@ files can be decrypted and read by parties with the decryption key.">
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -65,6 +65,8 @@ files can be decrypted and read by parties with the decryption key.">
       <link rel="stylesheet" href="css/nocopy.css">
     
       <link rel="stylesheet" href="css/extra.css">
+    
+      <link rel="stylesheet" href="css/design.css">
     
       <link rel="stylesheet" href="css/osano.css">
     
@@ -110,7 +112,7 @@ files can be decrypted and read by parties with the decryption key.">
     
     
     
-    <body dir="ltr" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -171,9 +173,19 @@ files can be decrypted and read by parties with the decryption key.">
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
       </label>
     
@@ -181,7 +193,7 @@ files can be decrypted and read by parties with the decryption key.">
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
@@ -329,7 +341,7 @@ files can be decrypted and read by parties with the decryption key.">
         
   
   <span class="md-ellipsis">
-    Percona Server for MongoDB feature comparison
+    Feature comparison with MongoDB
   </span>
   
 
@@ -379,7 +391,7 @@ files can be decrypted and read by parties with the decryption key.">
             
   
   <span class="md-ellipsis">
-    Install PSMDB
+    Get started
   </span>
   
 
@@ -389,7 +401,7 @@ files can be decrypted and read by parties with the decryption key.">
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Install PSMDB
+            Get started
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -401,6 +413,62 @@ files can be decrypted and read by parties with the decryption key.">
   
     <li class="md-nav__item">
       <a href="install/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quickstart guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/system-requirements.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -531,6 +599,77 @@ files can be decrypted and read by parties with the decryption key.">
   
   <span class="md-ellipsis">
     Install PSMDB Pro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="connect.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connect to Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="crud.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulate data in Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="what-next.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's next?
   </span>
   
 
@@ -1075,13 +1214,13 @@ files can be decrypted and read by parties with the decryption key.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#encrypting-rollback-files" class="md-nav__link">
+  <a href="#encryption-of-rollback-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Encrypting Rollback Files
+      Encryption of rollback files
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Encrypting Rollback Files">
+    <nav class="md-nav" aria-label="Encryption of rollback files">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1341,7 +1480,7 @@ files can be decrypted and read by parties with the decryption key.">
             
   
   <span class="md-ellipsis">
-    Manage PSMDB
+    Administration
   </span>
   
 
@@ -1351,7 +1490,7 @@ files can be decrypted and read by parties with the decryption key.">
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Manage PSMDB
+            Administration
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1464,7 +1603,7 @@ files can be decrypted and read by parties with the decryption key.">
         
   
   <span class="md-ellipsis">
-    Upgrade to PSMDB Pro
+    Upgrade to Percona Server for MongoDB Pro
   </span>
   
 
@@ -1897,6 +2036,61 @@ files can be decrypted and read by parties with the decryption key.">
   
   
     <li class="md-nav__item">
+      <a href="faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="glossary.html" class="md-nav__link">
         
   
@@ -1909,9 +2103,31 @@ files can be decrypted and read by parties with the decryption key.">
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="telemetry.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telemetry on Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
@@ -1929,9 +2145,10 @@ files can be decrypted and read by parties with the decryption key.">
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -1946,6 +2163,14 @@ files can be decrypted and read by parties with the decryption key.">
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2003,13 +2228,13 @@ files can be decrypted and read by parties with the decryption key.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#encrypting-rollback-files" class="md-nav__link">
+  <a href="#encryption-of-rollback-files" class="md-nav__link">
     <span class="md-ellipsis">
-      Encrypting Rollback Files
+      Encryption of rollback files
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Encrypting Rollback Files">
+    <nav class="md-nav" aria-label="Encryption of rollback files">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2070,6 +2295,10 @@ files can be decrypted and read by parties with the decryption key.">
 <p>Data at rest encryption for the WiredTiger storage engine in MongoDB was
 introduced in MongoDB Enterprise version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You can only enable data at rest encryption and provide all encryption settings <strong>on an empty database</strong>, when you start the <code>mongod</code> instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.</p>
+</div>
 <h2 id="differences-from-upstream">Differences from upstream<a class="headerlink" href="#differences-from-upstream" title="Permanent link">&para;</a></h2>
 <p>The data encryption at rest in Percona Server for MongoDB is introduced in version 3.6 to be compatible with data encryption at rest interface in MongoDB. In the current release of Percona Server for MongoDB, the data encryption at rest does not include support for Amazon AWS key management service. Instead, Percona Server for MongoDB is <a href="vault.html">integrated with HashiCorp Vault</a>. </p>
 <p>Starting with release 6.0.2-1, Percona Server for MongoDB supports the secure transfer of keys using <a href="kmip.html">Key Management Interoperability Protocol (KMIP)</a>. This allows users to store encryption keys in their favorite KMIP-compatible key manager when they set up encryption at rest.</p>
@@ -2092,10 +2321,6 @@ files can be decrypted and read by parties with the decryption key.</p>
 </li>
 </ul>
 <p>Note that you can use only one of the key management options at a time. However, you can switch from one management option to another (e.g. from a keyfile to HashiCorp Vault). Refer to <a href="encryption-mode-switch.html">Migrating from Key File Encryption to HashiCorp Vault Encryption</a> section for details.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>You can only enable data at rest encryption and provide all encryption settings on an empty database, when you start the <code>mongod</code> instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.</p>
-</div>
 <h2 id="important-configuration-options">Important configuration options<a class="headerlink" href="#important-configuration-options" title="Permanent link">&para;</a></h2>
 <p>Percona Server for MongoDB supports the <code>encryptionCipherMode</code> option where you choose one of the following cipher modes:</p>
 <ul>
@@ -2115,7 +2340,7 @@ demonstrates how to apply the AES256-GCM cipher mode when starting the
 <p class="admonition-title">See also</p>
 <p>MongoDB Documentation: <a href="https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-encryptionciphermode">encryptionCipherMode Option</a></p>
 </div>
-<h2 id="encrypting-rollback-files">Encrypting Rollback Files<a class="headerlink" href="#encrypting-rollback-files" title="Permanent link">&para;</a></h2>
+<h2 id="encryption-of-rollback-files">Encryption of rollback files<a class="headerlink" href="#encryption-of-rollback-files" title="Permanent link">&para;</a></h2>
 <p>Starting from version 3.6, Percona Server for MongoDB also encrypts rollback files when data at rest encryption is enabled. To inspect the contents of these files, use <strong>perconadecrypt</strong>. This is a tool that you run from the command line as follows:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>perconadecrypt<span class="w"> </span>--encryptionKeyFile<span class="w"> </span>FILE<span class="w">  </span>--inputPath<span class="w"> </span>FILE<span class="w"> </span>--outputPath<span class="w"> </span>FILE<span class="w"> </span><span class="o">[</span>--encryptionCipherMode<span class="w"> </span>MODE<span class="o">]</span>
 </code></pre></div>
@@ -2181,7 +2406,7 @@ the encryption. By default, the <code>--encryptionCipherMode</code> option uses 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
   </span>
 
     
@@ -2282,7 +2507,7 @@ the encryption. By default, the <code>--encryptionCipherMode</code> option uses 
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>

@@ -8,22 +8,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The ngram text search algorithm is useful for searching text for a specific string
-of characters in a field of a collection. This feature can be used to find exact sub-string matches, which provides an alternative to parsing text from languages other than the list of European languages already supported by MongoDB Community’s full text search engine. It
-may also turn out to be more convenient when working with the text where symbols
-like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimiters.">
+        <meta name="description" content="After you connected to Percona Server for MongoDB, let’s insert some data and operate with it.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/ngram-full-text-search.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/crud.html">
       
       
-        <link rel="prev" href="log-redaction.html">
+        <link rel="prev" href="connect.html">
       
       
-        <link rel="next" href="set-parameter.html">
+        <link rel="next" href="what-next.html">
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
@@ -31,7 +28,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
     
     
       
-        <title>Additional text search algorithm - ngram - Percona Server for MongoDB 6.0</title>
+        <title>Manipulate data in Percona Server for MongoDB - Percona Server for MongoDB 6.0</title>
       
     
     
@@ -95,7 +92,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 6.0 - Additional text search algorithm - ngram" />
+<meta property="og:title" content="Percona Server for MongoDB 6.0 - Manipulate data in Percona Server for MongoDB" />
 <meta property="og:image" content="https://docs.percona.com/percona-distribution-for-mongodb/4.4/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
 </head>
@@ -122,7 +119,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
     <div data-md-component="skip">
       
         
-        <a href="#additional-text-search-algorithm-ngram" class="md-skip">
+        <a href="#manipulate-data-in-percona-server-for-mongodb" class="md-skip">
           Skip to content
         </a>
       
@@ -161,7 +158,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Additional text search algorithm - ngram
+              Manipulate data in Percona Server for MongoDB
             
           </span>
         </div>
@@ -375,17 +372,19 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -399,7 +398,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Get started
@@ -642,10 +641,30 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="crud.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Manipulate data in Percona Server for MongoDB
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="crud.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -654,6 +673,82 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#insert-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insert data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -691,19 +786,17 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -717,7 +810,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -1341,30 +1434,10 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Additional text search algorithm - ngram
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="ngram-full-text-search.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="ngram-full-text-search.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,46 +1446,6 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Usage
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2176,9 +2209,45 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
+  <a href="#insert-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Usage
+      Insert data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
     </span>
   </a>
   
@@ -2208,7 +2277,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
                   
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/ngram-full-text-search.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/crud.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2217,37 +2286,144 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/ngram-full-text-search.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/crud.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="additional-text-search-algorithm-ngram">Additional text search algorithm - ngram<a class="headerlink" href="#additional-text-search-algorithm-ngram" title="Permanent link">&para;</a></h1>
-<p>The <a href="https://en.wikipedia.org/wiki/N-gram">ngram</a> text search algorithm is useful for searching text for a specific string
-of characters in a field of a collection. This feature can be used to find exact sub-string matches, which provides an alternative to parsing text from languages other than the list of European languages already supported by MongoDB Community’s full text search engine. It
-may also turn out to be more convenient when working with the text where symbols
-like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimiters.</p>
-<p>Unlike MongoDB full text search engine, <em>ngram</em> search algorithm uses only the following token delimiter
-characters that do not count as word characters in human languages:</p>
+<h1 id="manipulate-data-in-percona-server-for-mongodb">Manipulate data in Percona Server for MongoDB<a class="headerlink" href="#manipulate-data-in-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
+<p>After you connected to Percona Server for MongoDB, let&rsquo;s insert some data and operate with it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To secure the data, you may wish to use <a href="data-at-rest-encryption.html">data-at-rest encryption</a>. Note that you can only enable it on an empty database. Otherwise you must clean up the data directory first.</p>
+<p>See the following documentation for data-at-rest encryption:</p>
 <ul>
-<li>Horizontal tab</li>
-<li>Vertical tab</li>
-<li>Line feed</li>
-<li>Carriage return</li>
-<li>Space</li>
+<li><a href="vault.html">Using HashiCorp Vault server</a></li>
+<li><a href="kmip.html">Using KMIP server</a></li>
+<li><a href="keyfile.html">Using a local keyfile</a></li>
 </ul>
-<p>The <em>ngram</em> text search is slower than MongoDB full text search.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>To use <em>ngram</em>, create a text index on
-a collection setting the <code>default_language</code> parameter to <strong>ngram</strong>:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span><span class="s2">&quot;text&quot;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">default_language</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ngram&quot;</span><span class="p">})</span>
+</div>
+<h2 class="power-number" id="insert-data">Insert data<a class="headerlink" href="#insert-data" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>For example, let&rsquo;s add an item to the <code>fruits</code> collection. Use the <code>insertOne()</code> command for this purpose:</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">insertOne</span><span class="p">(</span>
+<span class="w">     </span><span class="p">{</span><span class="nx">item</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">qty</span><span class="o">:</span><span class="w"> </span><span class="mf">50</span><span class="p">}</span>
+<span class="w">     </span><span class="p">)</span>
 </code></pre></div>
-<p><em>ngram</em> search algorithm treats special characters like individual terms. Therefore, you don’t have to enclose the search string in escaped double quotes (<code>\\"</code>) to query the text index. For example, to search for documents that contain the date <code>2021-02-12</code>, specify the following:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">$text</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$search</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2021-02-12&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
+<p>If there is no <code>fruits</code> collection in the database, it will be created during the command execution.    </p>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="err">ack</span><span class="kc">n</span><span class="err">owledged</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="err">i</span><span class="kc">nserte</span><span class="err">dId</span><span class="p">:</span><span class="w"> </span><span class="err">Objec</span><span class="kc">t</span><span class="err">Id(&#39;</span><span class="mi">659</span><span class="err">c</span><span class="mi">2</span><span class="err">b</span><span class="mi">846252</span><span class="err">b</span><span class="kc">fa</span><span class="err">d</span><span class="mi">93</span><span class="kc">f</span><span class="err">c</span><span class="mi">1578</span><span class="err">&#39;)</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>However, both <em>ngram</em> and MongoDB full text search engine treat words with the hyphen-minus <code>-</code> sign  in front of them as negated (e.g. “-coffee”)  and exclude such words from the search results.</p>
+</details>
+</li>
+<li>
+<p>Now, let&rsquo;s add more fruits to the <code>fruits</code> collection using the <code>insertMany()</code> command:</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">([</span>
+<span class="w">     </span><span class="p">{</span><span class="nx">item</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;banana&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;kg&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">qty</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="p">},</span><span class="w"> </span>
+<span class="w">     </span><span class="p">{</span><span class="nx">item</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;peach&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">weight</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;kg&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">qty</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span><span class="p">}</span>
+<span class="w">     </span><span class="p">])</span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="err">ack</span><span class="kc">n</span><span class="err">owledged</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="err">i</span><span class="kc">nserte</span><span class="err">dIds</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">&#39;</span><span class="mi">0</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">Objec</span><span class="kc">t</span><span class="err">Id(&#39;</span><span class="mi">659</span><span class="err">c</span><span class="mi">2</span><span class="err">bc</span><span class="mi">46252</span><span class="err">b</span><span class="kc">fa</span><span class="err">d</span><span class="mi">93</span><span class="kc">f</span><span class="err">c</span><span class="mi">1579</span><span class="err">&#39;)</span><span class="p">,</span>
+<span class="w">    </span><span class="err">&#39;</span><span class="mi">1</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">Objec</span><span class="kc">t</span><span class="err">Id(&#39;</span><span class="mi">659</span><span class="err">c</span><span class="mi">2</span><span class="err">bc</span><span class="mi">46252</span><span class="err">b</span><span class="kc">fa</span><span class="err">d</span><span class="mi">93</span><span class="kc">f</span><span class="err">c</span><span class="mi">157</span><span class="err">a&#39;)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</li>
+</ol>
+<p>See <a href="https://www.mongodb.com/docs/manual/tutorial/insert-documents/">Insert documents</a> for more information about data insertion.</p>
+<h2 id="query-data">Query data<a class="headerlink" href="#query-data" title="Permanent link">&para;</a></h2>
+<p>Run the following command to query data in MongoDB:</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">find</span><span class="p">()</span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="err">Objec</span><span class="kc">t</span><span class="err">Id(&#39;</span><span class="mi">659</span><span class="err">c</span><span class="mi">2</span><span class="err">b</span><span class="mi">846252</span><span class="err">b</span><span class="kc">fa</span><span class="err">d</span><span class="mi">93</span><span class="kc">f</span><span class="err">c</span><span class="mi">1578</span><span class="err">&#39;)</span><span class="p">,</span><span class="w"> </span><span class="err">i</span><span class="kc">te</span><span class="err">m</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;apple&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">q</span><span class="kc">t</span><span class="err">y</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="err">Objec</span><span class="kc">t</span><span class="err">Id(&#39;</span><span class="mi">659</span><span class="err">c</span><span class="mi">2</span><span class="err">bc</span><span class="mi">46252</span><span class="err">b</span><span class="kc">fa</span><span class="err">d</span><span class="mi">93</span><span class="kc">f</span><span class="err">c</span><span class="mi">1579</span><span class="err">&#39;)</span><span class="p">,</span>
+<span class="w">    </span><span class="err">i</span><span class="kc">te</span><span class="err">m</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;ba</span><span class="kc">nana</span><span class="err">&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="err">weigh</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;kg&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="err">q</span><span class="kc">t</span><span class="err">y</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="err">Objec</span><span class="kc">t</span><span class="err">Id(&#39;</span><span class="mi">659</span><span class="err">c</span><span class="mi">2</span><span class="err">bc</span><span class="mi">46252</span><span class="err">b</span><span class="kc">fa</span><span class="err">d</span><span class="mi">93</span><span class="kc">f</span><span class="err">c</span><span class="mi">157</span><span class="err">a&#39;)</span><span class="p">,</span>
+<span class="w">    </span><span class="err">i</span><span class="kc">te</span><span class="err">m</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;peach&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="err">weigh</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;kg&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="err">q</span><span class="kc">t</span><span class="err">y</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+</details>
+<p>Refer to the <a href="https://www.mongodb.com/docs/manual/tutorial/query-documents/">Query documents</a> documentation to for more information about reading data.</p>
+<h2 id="update-data">Update data<a class="headerlink" href="#update-data" title="Permanent link">&para;</a></h2>
+<p class="power-number">Let&rsquo;s update the <code>apples</code> entry by adding weight to it. </p>
+<ol>
+<li>
+<p>Use the <code>updateOne()</code> command for that:</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">(</span>
+<span class="w">    </span><span class="p">{</span><span class="s2">&quot;item&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;apple&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span><span class="nx">$set</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;weight&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;kg&quot;</span><span class="p">}}</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="err">ack</span><span class="kc">n</span><span class="err">owledged</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="err">i</span><span class="kc">nserte</span><span class="err">dId</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="err">ma</span><span class="kc">t</span><span class="err">chedCou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="err">modi</span><span class="kc">f</span><span class="err">iedCou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="err">upser</span><span class="kc">te</span><span class="err">dCou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>Query the collection to check the updated document:</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">item</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;apple&quot;</span><span class="p">})</span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="err">Objec</span><span class="kc">t</span><span class="err">Id(&#39;</span><span class="mi">659</span><span class="err">c</span><span class="mi">2</span><span class="err">b</span><span class="mi">846252</span><span class="err">b</span><span class="kc">fa</span><span class="err">d</span><span class="mi">93</span><span class="kc">f</span><span class="err">c</span><span class="mi">1578</span><span class="err">&#39;)</span><span class="p">,</span>
+<span class="w">    </span><span class="err">i</span><span class="kc">te</span><span class="err">m</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;apple&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="err">q</span><span class="kc">t</span><span class="err">y</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
+<span class="w">    </span><span class="err">weigh</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;kg&#39;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+</details>
+</li>
+</ol>
+<p>See <a href="https://www.mongodb.com/docs/manual/reference/update-methods/">Update methods</a> documentation for other available data update methods</p>
+<h2 id="delete-data">Delete data<a class="headerlink" href="#delete-data" title="Permanent link">&para;</a></h2>
+<p>Run the following command to delete all documents where the quantity is less than 30 kg:</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">deteleMany</span><span class="p">(</span>
+<span class="w">    </span><span class="p">{</span><span class="s2">&quot;qty&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">$lt</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="err">ack</span><span class="kc">n</span><span class="err">owledged</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="err">dele</span><span class="kc">te</span><span class="err">dCou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+</details>
+<p>Learn more about deleting data in <a href="https://www.mongodb.com/docs/manual/reference/delete-methods/">Delete methods</a> documentation.</p>
+<p>Congratulations! You have used basic create, read, update and delete (CRUD) operations to manipulate data in Percona Server for MongoDB. See <a href="https://www.mongodb.com/docs/manual/core/crud/">MongoDB CRUD Concepts</a> manual to learn more about CRUD operations.</p>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="what-next.html">What&rsquo;s next? <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></a></p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2280,7 +2456,7 @@ a collection setting the <code>default_language</code> parameter to <strong>ngra
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
   </span>
 
     
@@ -2290,7 +2466,7 @@ a collection setting the <code>default_language</code> parameter to <strong>ngra
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
   </span>
 
     

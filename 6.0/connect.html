@@ -8,22 +8,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The ngram text search algorithm is useful for searching text for a specific string
-of characters in a field of a collection. This feature can be used to find exact sub-string matches, which provides an alternative to parsing text from languages other than the list of European languages already supported by MongoDB Community’s full text search engine. It
-may also turn out to be more convenient when working with the text where symbols
-like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimiters.">
+        <meta name="description" content="After you have successfully installed and started Percona Server for MongoDB, let’s connect to it.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/ngram-full-text-search.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/connect.html">
       
       
-        <link rel="prev" href="log-redaction.html">
+        <link rel="prev" href="install/install-pro.html">
       
       
-        <link rel="next" href="set-parameter.html">
+        <link rel="next" href="crud.html">
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
@@ -31,7 +28,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
     
     
       
-        <title>Additional text search algorithm - ngram - Percona Server for MongoDB 6.0</title>
+        <title>Connect to Percona Server for MongoDB - Percona Server for MongoDB 6.0</title>
       
     
     
@@ -95,7 +92,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 6.0 - Additional text search algorithm - ngram" />
+<meta property="og:title" content="Percona Server for MongoDB 6.0 - Connect to Percona Server for MongoDB" />
 <meta property="og:image" content="https://docs.percona.com/percona-distribution-for-mongodb/4.4/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
 </head>
@@ -122,7 +119,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
     <div data-md-component="skip">
       
         
-        <a href="#additional-text-search-algorithm-ngram" class="md-skip">
+        <a href="#connect-to-percona-server-for-mongodb" class="md-skip">
           Skip to content
         </a>
       
@@ -161,7 +158,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Additional text search algorithm - ngram
+              Connect to Percona Server for MongoDB
             
           </span>
         </div>
@@ -375,17 +372,19 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -399,7 +398,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Get started
@@ -621,10 +620,30 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="connect.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Connect to Percona Server for MongoDB
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="connect.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -633,6 +652,46 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -691,19 +750,17 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -717,7 +774,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -1341,30 +1398,10 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Additional text search algorithm - ngram
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="ngram-full-text-search.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="ngram-full-text-search.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1373,46 +1410,6 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Usage
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2176,9 +2173,9 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
+  <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Usage
+      Next steps
     </span>
   </a>
   
@@ -2208,7 +2205,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
                   
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/ngram-full-text-search.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/connect.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2217,37 +2214,105 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/ngram-full-text-search.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/connect.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="additional-text-search-algorithm-ngram">Additional text search algorithm - ngram<a class="headerlink" href="#additional-text-search-algorithm-ngram" title="Permanent link">&para;</a></h1>
-<p>The <a href="https://en.wikipedia.org/wiki/N-gram">ngram</a> text search algorithm is useful for searching text for a specific string
-of characters in a field of a collection. This feature can be used to find exact sub-string matches, which provides an alternative to parsing text from languages other than the list of European languages already supported by MongoDB Community’s full text search engine. It
-may also turn out to be more convenient when working with the text where symbols
-like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimiters.</p>
-<p>Unlike MongoDB full text search engine, <em>ngram</em> search algorithm uses only the following token delimiter
-characters that do not count as word characters in human languages:</p>
-<ul>
-<li>Horizontal tab</li>
-<li>Vertical tab</li>
-<li>Line feed</li>
-<li>Carriage return</li>
-<li>Space</li>
-</ul>
-<p>The <em>ngram</em> text search is slower than MongoDB full text search.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>To use <em>ngram</em>, create a text index on
-a collection setting the <code>default_language</code> parameter to <strong>ngram</strong>:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span><span class="s2">&quot;text&quot;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">default_language</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ngram&quot;</span><span class="p">})</span>
+<h1 id="connect-to-percona-server-for-mongodb">Connect to Percona Server for MongoDB<a class="headerlink" href="#connect-to-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
+<p>After you have successfully installed and started Percona Server for MongoDB, let&rsquo;s connect to it.</p>
+<p>By default, access control is disabled in MongoDB. We recommend enabling it so that users must verify their identity to be able to connect to the database. Percona Server for MongoDB supports several <a href="authentication.html">authentication methods</a>. We will use the default one, <a href="authentication.html#scram">SCRAM</a>, to configure authentication.</p>
+<p class="power-number">The steps are the following:</p>
+<ol>
+<li>
+<p>Connect to Percona Server for MongoDB instance without authentication:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh
 </code></pre></div>
-<p><em>ngram</em> search algorithm treats special characters like individual terms. Therefore, you don’t have to enclose the search string in escaped double quotes (<code>\\"</code>) to query the text index. For example, to search for documents that contain the date <code>2021-02-12</code>, specify the following:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">$text</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$search</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2021-02-12&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 6598270a3a0c418751550ded
+Connecting to:      mongodb://127.0.0.1:27017/?directConnection=true&amp;serverSelectionTimeoutMS=2000&amp;appName=mongosh+2.0.0
+Using MongoDB:      6.0.13-10
+Using Mongosh:      2.0.0    
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/    
+
+test&gt;
 </code></pre></div>
-<p>However, both <em>ngram</em> and MongoDB full text search engine treat words with the hyphen-minus <code>-</code> sign  in front of them as negated (e.g. “-coffee”)  and exclude such words from the search results.</p>
+</details>
+</li>
+<li>
+<p>Create the administrative user in the <code>admin</code> database:</p>
+<ol>
+<li>
+<p>Switch to the <code>admin</code> database</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>switched to db admin
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>Create the user:</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">(</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">pwd</span><span class="o">:</span><span class="w"> </span><span class="nx">passwordPrompt</span><span class="p">(),</span><span class="w"> </span><span class="c1">// or cleartext password</span>
+<span class="w">      </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;userAdminAnyDatabase&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;readWriteAnyDatabase&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+</li>
+</ol>
+</li>
+<li>
+<p>Shutdown the <code>mongod</code> instance and exit <code>mongosh</code></p>
+<div class="highlight" data-prompt=">"><pre><span></span><code>&gt;<span class="w"> </span>db.adminCommand<span class="o">(</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>shutdown:<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">}</span><span class="w"> </span><span class="o">)</span>
+</code></pre></div>
+</li>
+<li>
+<p>Enable authentication</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5Z"/><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04Zm3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"/></svg></span> Command line</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12h16m0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16m-7 14v-2h5v2h-5m-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59l3.99-4Z"/></svg></span> Configuration file</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Start the server with authentication enabled using the following command: </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span>--auth<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>--dbpath<span class="w"> </span>/var/lib/mongodb<span class="w"> </span>--fork<span class="w"> </span>--syslog
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Edit the configuration file</p>
+<div class="highlight"><span class="filename">/etc/mongod.conf</span><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
+</code></pre></div>
+</li>
+<li>
+<p>Start the <code>mongod</code> service</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+</code></pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Connect to Percona Server for MongoDB and authenticate.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w">  </span>--authenticationDatabase<span class="w"> </span><span class="se">\</span>
+<span class="s2">&quot;admin&quot;</span><span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="w"> </span>-p
+</code></pre></div>
+</li>
+</ol>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="crud.html">Run simple queries <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></a></p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2280,7 +2345,7 @@ a collection setting the <code>default_language</code> parameter to <strong>ngra
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
   </span>
 
     
@@ -2290,7 +2355,7 @@ a collection setting the <code>default_language</code> parameter to <strong>ngra
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
   </span>
 
     

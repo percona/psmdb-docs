@@ -51,8 +51,8 @@ server without notable performance and operating degradation.">
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -65,6 +65,8 @@ server without notable performance and operating degradation.">
       <link rel="stylesheet" href="css/nocopy.css">
     
       <link rel="stylesheet" href="css/extra.css">
+    
+      <link rel="stylesheet" href="css/design.css">
     
       <link rel="stylesheet" href="css/osano.css">
     
@@ -110,7 +112,7 @@ server without notable performance and operating degradation.">
     
     
     
-    <body dir="ltr" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -171,9 +173,19 @@ server without notable performance and operating degradation.">
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
       </label>
     
@@ -181,7 +193,7 @@ server without notable performance and operating degradation.">
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
@@ -329,7 +341,7 @@ server without notable performance and operating degradation.">
         
   
   <span class="md-ellipsis">
-    Percona Server for MongoDB feature comparison
+    Feature comparison with MongoDB
   </span>
   
 
@@ -379,7 +391,7 @@ server without notable performance and operating degradation.">
             
   
   <span class="md-ellipsis">
-    Install PSMDB
+    Get started
   </span>
   
 
@@ -389,7 +401,7 @@ server without notable performance and operating degradation.">
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Install PSMDB
+            Get started
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -401,6 +413,62 @@ server without notable performance and operating degradation.">
   
     <li class="md-nav__item">
       <a href="install/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quickstart guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/system-requirements.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -531,6 +599,77 @@ server without notable performance and operating degradation.">
   
   <span class="md-ellipsis">
     Install PSMDB Pro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="connect.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connect to Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="crud.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulate data in Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="what-next.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's next?
   </span>
   
 
@@ -791,19 +930,19 @@ server without notable performance and operating degradation.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#restoring-data-from-backup" class="md-nav__link">
+  <a href="#restore-data-from-backup" class="md-nav__link">
     <span class="md-ellipsis">
-      Restoring data from backup
+      Restore data from backup
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Restoring data from backup">
+    <nav class="md-nav" aria-label="Restore data from backup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#restoring-from-backup-on-a-standalone-server" class="md-nav__link">
+  <a href="#restore-from-a-backup-on-a-standalone-server" class="md-nav__link">
     <span class="md-ellipsis">
-      Restoring from backup on a standalone server
+      Restore from a backup on a standalone server
     </span>
   </a>
   
@@ -1383,7 +1522,7 @@ server without notable performance and operating degradation.">
             
   
   <span class="md-ellipsis">
-    Manage PSMDB
+    Administration
   </span>
   
 
@@ -1393,7 +1532,7 @@ server without notable performance and operating degradation.">
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Manage PSMDB
+            Administration
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1506,7 +1645,7 @@ server without notable performance and operating degradation.">
         
   
   <span class="md-ellipsis">
-    Upgrade to PSMDB Pro
+    Upgrade to Percona Server for MongoDB Pro
   </span>
   
 
@@ -1939,6 +2078,61 @@ server without notable performance and operating degradation.">
   
   
     <li class="md-nav__item">
+      <a href="faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="glossary.html" class="md-nav__link">
         
   
@@ -1951,9 +2145,31 @@ server without notable performance and operating degradation.">
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="telemetry.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telemetry on Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
@@ -1971,9 +2187,10 @@ server without notable performance and operating degradation.">
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -1988,6 +2205,14 @@ server without notable performance and operating degradation.">
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2078,19 +2303,19 @@ server without notable performance and operating degradation.">
 </li>
       
         <li class="md-nav__item">
-  <a href="#restoring-data-from-backup" class="md-nav__link">
+  <a href="#restore-data-from-backup" class="md-nav__link">
     <span class="md-ellipsis">
-      Restoring data from backup
+      Restore data from backup
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Restoring data from backup">
+    <nav class="md-nav" aria-label="Restore data from backup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#restoring-from-backup-on-a-standalone-server" class="md-nav__link">
+  <a href="#restore-from-a-backup-on-a-standalone-server" class="md-nav__link">
     <span class="md-ellipsis">
-      Restoring from backup on a standalone server
+      Restore from a backup on a standalone server
     </span>
   </a>
   
@@ -2150,7 +2375,7 @@ server without notable performance and operating degradation.">
   
 
 
-<h1 id="hot-backup">Hot Backup<a class="headerlink" href="#hot-backup" title="Permanent link">&para;</a></h1>
+<h1 id="hot-backup">Hot backup<a class="headerlink" href="#hot-backup" title="Permanent link">&para;</a></h1>
 <p>Percona Server for MongoDB includes an integrated open source hot backup system for the default
 <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> storage engine.  It creates a physical data backup on a running
 server without notable performance and operating degradation.</p>
@@ -2159,7 +2384,7 @@ server without notable performance and operating degradation.</p>
 <p>Hot backups are done on <code>mongod</code> servers independently, without synchronizing them across replica set members and shards in a cluster. To ensure data consistency during backups and restores, we recommend using <a href="https://docs.percona.com/percona-backup-mongodb/index.html">Percona Backup for MongoDB</a>.</p>
 </div>
 <h2 id="make-a-backup">Make a backup<a class="headerlink" href="#make-a-backup" title="Permanent link">&para;</a></h2>
-<p>To take a hot backup of the database in your current <code>dbpath</code>, do the following:</p>
+<p class="power-number">To take a hot backup of the database in your current <code>dbpath</code>, do the following:</p>
 <ol>
 <li>
 <p>Provide access to the backup directory for the <code>mongod</code> user:</p>
@@ -2260,7 +2485,7 @@ these are used as credentials.</p>
 <p>If the <em>access key id</em> parameter is not specified then the credentials are loaded from
 the credentials configuration file. By default, it is <code>~/.aws/credentials</code>.</p>
 <h4 id="example-credentials-file">Example credentials file<a class="headerlink" href="#example-credentials-file" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>[default]
+<div class="highlight"><span class="filename">~/.aws/credentials</span><pre><span></span><code>[default]
 aws_access_key_id = ABC123XYZ456QQQAAAFFF
 aws_secret_access_key = zuf+secretkey0secretkey1secretkey2
 [localminio]
@@ -2289,9 +2514,8 @@ aws_secret_access_key = secretaccesskey1secretaccesskey2secretaccesskey3
 <p class="admonition-title">See also</p>
 <p>AWS Documentation: <a href="https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/credentials.html">Providing AWS Credentials</a></p>
 </div>
-<h2 id="restoring-data-from-backup">Restoring data from backup<a class="headerlink" href="#restoring-data-from-backup" title="Permanent link">&para;</a></h2>
-<h3 id="restoring-from-backup-on-a-standalone-server">Restoring from backup on a standalone server<a class="headerlink" href="#restoring-from-backup-on-a-standalone-server" title="Permanent link">&para;</a></h3>
-<p>To restore your database on a standalone server, stop the <code>mongod</code> service, clean out the data directory and copy files from the backup directory to the data directory. The <code>mongod</code> user requires access to those files to start the service. Therefore, make the <code>mongod</code> user the owner of the data directory and all files and subdirectories under it, and restart the <code>mongod</code> service.</p>
+<h2 id="restore-data-from-backup">Restore data from backup<a class="headerlink" href="#restore-data-from-backup" title="Permanent link">&para;</a></h2>
+<h3 id="restore-from-a-backup-on-a-standalone-server">Restore from a backup on a standalone server<a class="headerlink" href="#restore-from-a-backup-on-a-standalone-server" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you try to restore the node into the existing replica set and there is more recent data, the restored node detects that it is out of date with the other replica set members, deletes the data and makes an initial sync.</p>
@@ -2419,7 +2643,7 @@ $<span class="w"> </span>cp<span class="w"> </span>-RT<span class="w"> </span>&l
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 31, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
   </span>
 
     
@@ -2520,7 +2744,7 @@ $<span class="w"> </span>cp<span class="w"> </span>-RT<span class="w"> </span>&l
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
