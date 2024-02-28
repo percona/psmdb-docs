@@ -51,5 +51,5 @@ This document provides guidelines how to install Percona Server for MongoDB Pro 
 4. Start the server
 
     ```{.bash .data-prompt="$"}
-    $ sudo systemct start mongod
+    $ sudo systemctl start mongod
     ```
