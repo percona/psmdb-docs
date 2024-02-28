@@ -3,7 +3,7 @@
 Percona Server for MongoDB includes several parameters that can be changed
 in one of the following ways:
 
-=== "Configuration file"
+=== ":octicons-file-code-24: Configuration file"
 
      Use the `setParameter` admonitions in the configuration file
      for persistent changes in production:     
@@ -13,7 +13,7 @@ in one of the following ways:
        <parameter>: <value>
      ```
 
-=== "Command line"
+=== ":material-console: Command line"
 
      Use the `--setParameter` command line option arguments when running the `mongod` process for development or testing purposes:      
 
@@ -22,7 +22,7 @@ in one of the following ways:
       --setParameter <parameter>=<value>
      ```
 
-=== "The `setParameter` command"
+=== ":simple-mongodb: The `setParameter` command"
 
      Use the `setParameter` command on the `admin` database
          to make changes at runtime:         
@@ -34,5 +34,4 @@ in one of the following ways:
 
 ## Parameters
 
-See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v5.0/reference/parameters/#parameters).
->>>>>>> 52c6822... PSMDB-1314 Simplified the Set Parameter guide
+See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v6.0/reference/parameters/#parameters).

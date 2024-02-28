@@ -1,12 +1,10 @@
 # Percona Server for MongoDB 6.0 Documentation
 
-Percona Server for MongoDB is a free, enhanced, fully compatible, source available, drop-in replacement
-for MongoDB 6.0 Community Edition with enterprise-grade features.
-It requires no changes to MongoDB applications or code.
+Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
+for MongoDB 6.0 Community Edition with [enterprise-grade features](comparison.md).
+[To migrate to Percona Server for MongoDB](install/upgrade-from-mongodb.md) requires no changes to MongoDB applications or code.
 
-!!! hint ""
-
-    To see which version of Percona Server for MongoDB you are using check the value of the `psmdbVersion` key in the output of the [buildInfo](https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo) database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.
+[What's new in Percona Server for MongoDB {{release}}](release_notes/{{release}}.md){ .md-button .md-button }
 
 
 !!! important
@@ -23,37 +21,40 @@ It requires no changes to MongoDB applications or code.
     * Ranges (formerly chunks) are no longer auto-split. They are split only when they move across shards for distribution purposes. The auto-splitter process is currently still available but it serves no purpose and does nothing active to the data. This also means that the Enable/Disable AutoSplit helpers should no longer be used. 
 
     The above changes are expected to lead to better performance overall going forward.
+  
 
-[What's new in Percona Server for MongoDB {{release}}](release_notes/{{release}}.md){ .md-button .md-button }
-    
-## Features
+<div data-grid markdown><div data-banner markdown>
 
-Percona Server for MongoDB provides the following features:
+## :material-progress-download: Installation guides { .title }
+
+Ready to try out Percona Server for MongoDB? Get started quickly with the step-by-step installation instructions.
+
+[Quickstart guides :material-arrow-right:](install/index.md){ .md-button }
+
+</div><div data-banner markdown>
+
+### :fontawesome-solid-gears: Control database access { .title }
+
+Define who has access to the database and manage their permissions in a single place like LDAP server, ensuring only authorized users have access to resources and operations. 
+
+[Authentication :material-arrow-right:](authentication.md){.md-button}
+</div><div data-banner markdown>
+
+### :material-backup-restore: Backup and restore { .title }
+
+Make enterprise-level backups and restores with guaranteed data consistency using Percona Backup for MongoDB (PBM). Or, create physical backups on a running server using the built-in [hot backup](hot-backup.md) functionality. 
+
+[Get started with PBM :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/installation.html){ .md-button }
+
+</div><div data-banner markdown>
+
+### :simple-letsencrypt: Secure access to data { .title }
+
+Keep your sensitive data safe, ensuring users only see the data they are authorized to access. 
+
+[Data-at-rest encryption :material-arrow-right:](data-at-rest-encryption.md){ .md-button }
+
+</div>
+</div>    
 
 
-* MongoDB’s default [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) engine
-
-* [Percona Memory Engine](inmemory.md) storage engine
-
-* [Data at Rest Encryption](data-at-rest-encryption.md)
-
-* [External authentication](authentication.md#ext-auth)
-using OpenLDAP or Active Directory
-
-* [AWS IAM authentication](aws-iam.md) (a [technical preview feature](glossary.md#technical-preview-feature))
-
-* [Audit logging](audit-logging.md) to track and query database interactions of users or applications
-
-* [Hot Backup](hot-backup.md) for the default [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/)
-
-* [Profiling Rate Limit](rate-limit.md) to decrease the impact of the profiler on performance
-
-To learn more about the features, available in Percona Server for MongoDB, see [Percona Server for MongoDB Feature Comparison](comparison.md)
-
-
-## Get started
-
-Ready to try out Percona Server for MongoDB?
-
-
-[Install and get started](install/index.md){ .md-button .md-button }
