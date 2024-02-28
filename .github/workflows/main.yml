@@ -44,6 +44,6 @@ jobs:
       - name: Deploy docs
         run: |
           mike deploy 6.0 -b publish -p
-          mike retitle 6.0 "6.0.12-9" -b publish -p
+          mike retitle 6.0 "6.0.13-10" -b publish -p
 
 

@@ -21,35 +21,44 @@ Before you start, check the [system requirements](system-requirements.md).
 
 ### Configure Percona repository
 
-To install from Percona repositories, you need to enable the requires repository first using the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) repository management tool.
-{.power-number}
+=== "x86_64"
 
-1. Fetch the **percona-release** package:
+    Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    
+
+    1. Fetch **percona-release** packages from Percona web:
+        
+        ```{.bash data-prompt="$"}
+        $ wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
+        ```    
+
+    2. Install the downloaded package with **dpkg**:    
+
+        ```{.bash data-prompt="$"}
+        $ sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
+        ```    
+
+        After you install this package, you have the access to Percona repositories. You
+        can check the repository setup in the `/etc/apt/sources.list.d/percona-release.list` file.    
     
-    ```{.bash data-prompt="$"}
-    $ wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
-    ```
 
-2. Install the downloaded package with **dpkg**:
+    3. Enable the repository:    
 
-    ```{.bash data-prompt="$"}
-    $ sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
-    ```
+        ```{.bash data-prompt="$"}
+        $ sudo percona-release enable psmdb-60 release
+        ```    
 
-    After you install this package, you have the access to Percona repositories. You
-    can check the repository setup in the `/etc/apt/sources.list.d/percona-release.list` file.
+    4. Remember to update the local cache:    
 
+        ```{.bash data-prompt="$"}
+        $ sudo apt update
+        ```
 
-3. Enable the repository:
+=== "ARM64"
 
-    ```{.bash data-prompt="$"}
-    $ sudo percona-release enable psmdb-60 release
-    ```
+    Create the `/etc/apt/sources.list.d/percona-psmdb-60-release.list ` configuration file with the following contents:
 
-4. Remember to update the local cache:
-
-    ```{.bash data-prompt="$"}
-    $ sudo apt update
+    ```ini title='/etc/apt/sources.list.d/percona-psmdb-60-release.list'
+    deb http://repo.percona.com/psmdb-60/apt OPERATING_SYSTEM main
     ```
 
 ### Install Percona Server for MongoDB

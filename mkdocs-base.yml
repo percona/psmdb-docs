@@ -3,8 +3,9 @@
 site_name: Percona Server for MongoDB 6.0
 site_description: Documentation
 site_author: Percona LLC
-copyright: >
-  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2023 — <a href="#__consent">Cookie Consent</a>
+
+copyright: Percona LLC, &#169; 2024
+
 
 repo_name: percona/psmdb-docs
 repo_url: https://github.com/percona/psmdb-docs
@@ -64,6 +65,8 @@ extra_css:
   - css/nocopy.css
   - css/extra.css
   - css/design.css
+  - css/osano.css
+
 
 extra_javascript:
   - js/version-select.js
@@ -134,7 +137,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-6.0.pdf'
           cover_title: 'Server for MongoDB Documentation 6.0'
-          cover_subtitle: 6.0.12-9 (December 14, 2023)
+          cover_subtitle: 6.0.13-10 (February 20, 2024)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -151,12 +154,6 @@ extra:
     provider: mike
   homepage:
     https://docs.percona.com
-  consent:
-    title: Cookie consent
-    description: >- 
-      We use cookies to personalize content and ads, to provide social media
-      features, and to analyze our traffic. <a class="reference external" href="https://www.percona.com/20180524-cookie-policy" target="_blank">Percona Privacy Policy</a>.
-      Learn more about <a class="reference external" href="https://www.percona.com/20180524-cookie-policy" target="_blank">Percona Cookie Policy</a>.
 
 nav:
   - Home: index.md
@@ -212,15 +209,18 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
-      - release_notes/6.0.12-9.md
-      - release_notes/6.0.11-8.md
-      - release_notes/6.0.9-7.md
-      - release_notes/6.0.8-6.md
-      - release_notes/6.0.6-5.md
-      - release_notes/6.0.5-4.md
-      - release_notes/6.0.4-3.md
-      - release_notes/6.0.3-2.md
-      - release_notes/6.0.2-1.md
+      - release_notes/6.0.13-10.md
+      - 2023 (versions 6.0.5-4 through 6.0.12-9):
+         - release_notes/6.0.12-9.md
+         - release_notes/6.0.11-8.md
+         - release_notes/6.0.9-7.md
+         - release_notes/6.0.8-6.md
+         - release_notes/6.0.6-5.md
+         - release_notes/6.0.5-4.md
+      - 2022 (versions 6.0.2-1 through 6.0.4-3):
+         - release_notes/6.0.4-3.md
+         - release_notes/6.0.3-2.md
+         - release_notes/6.0.2-1.md
   - faq.md
   - Reference:
       - glossary.md
