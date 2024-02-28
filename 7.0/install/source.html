@@ -49,8 +49,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -63,6 +63,8 @@
       <link rel="stylesheet" href="../css/nocopy.css">
     
       <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="../css/design.css">
     
       <link rel="stylesheet" href="../css/osano.css">
     
@@ -117,7 +119,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -178,9 +180,19 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
       </label>
     
@@ -188,7 +200,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
@@ -336,7 +348,7 @@
         
   
   <span class="md-ellipsis">
-    Percona Server for MongoDB feature comparison
+    Feature comparison with MongoDB
   </span>
   
 
@@ -388,7 +400,7 @@
             
   
   <span class="md-ellipsis">
-    Install PSMDB
+    Get started
   </span>
   
 
@@ -398,7 +410,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Install PSMDB
+            Get started
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -410,6 +422,64 @@
   
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quickstart guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="system-requirements.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -631,6 +701,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get-expert-help" class="md-nav__link">
     <span class="md-ellipsis">
       Get expert help
@@ -680,7 +759,78 @@
         
   
   <span class="md-ellipsis">
-    Install Professional builds
+    Install Percona Server for MongoDB Pro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connect.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connect to Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crud.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulate data in Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-next.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's next?
   </span>
   
 
@@ -1394,7 +1544,7 @@
             
   
   <span class="md-ellipsis">
-    Manage PSMDB
+    Administration
   </span>
   
 
@@ -1404,7 +1554,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Manage PSMDB
+            Administration
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1517,7 +1667,7 @@
         
   
   <span class="md-ellipsis">
-    Upgrade to PSMDB Pro
+    Upgrade to Percona Server for MongoDB Pro
   </span>
   
 
@@ -1717,6 +1867,61 @@
   
   
     <li class="md-nav__item">
+      <a href="../faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../glossary.html" class="md-nav__link">
         
   
@@ -1729,9 +1934,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -1741,7 +1947,7 @@
         
   
   <span class="md-ellipsis">
-    Telemetry
+    Telemetry on Percona Server for MongoDB
   </span>
   
 
@@ -1749,9 +1955,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -1769,9 +1976,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -1786,6 +1994,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1915,6 +2131,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get-expert-help" class="md-nav__link">
     <span class="md-ellipsis">
       Get expert help
@@ -1958,8 +2183,8 @@
 <p>This document guides you though the steps how to build Percona Server for MongoDB from source code.</p>
 <h2 id="available-builds">Available builds<a class="headerlink" href="#available-builds" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Professional (Pro) builds. These builds include <a href="../psmdb-pro.html">solutions</a> that are typically demanded by large enterprises. They are included into packages built by Percona and are available to Percona Customers. <a href="https://www.percona.com/about/contact">Learn how to become a Customer</a>. </li>
-<li>Basic builds. These include all Percona Server for MongoDB functionality except the solutions in Pro builds. The packages built by Percona are available to anyone.</li>
+<li>Pro builds. These builds include <a href="../psmdb-pro.html">features</a> that are typically demanded by large enterprises. They are included into packages built by Percona and are available to Percona Customers. <a href="https://www.percona.com/about/contact">Learn how to become a Customer</a>. </li>
+<li>Basic builds. These include all Percona Server for MongoDB functionality except the features in Pro builds. The packages built by Percona are available to anyone.</li>
 </ul>
 <h3 id="build-options">Build options<a class="headerlink" href="#build-options" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1996,7 +2221,7 @@
 <li>About 13 GB of disk space for the core binaries (<code>mongod</code>, <code>mongos</code>, and <code>mongo</code>) and about 600 GB for the <code>install-all</code> target.</li>
 </ul>
 <h3 id="build-steps">Build steps<a class="headerlink" href="#build-steps" title="Permanent link">&para;</a></h3>
-<h4 id="install-python-and-python-modules">Install Python and Python modules<a class="headerlink" href="#install-python-and-python-modules" title="Permanent link">&para;</a></h4>
+<h4 class="power-number" id="install-python-and-python-modules">Install Python and Python modules<a class="headerlink" href="#install-python-and-python-modules" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p>Make sure the <code>python3</code>, <code>python3-dev</code>, <code>python3-pip</code> Python packages are installed on your machine. Otherwise, install them using the package manager of your operating system.</p>
@@ -2021,7 +2246,7 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 </li>
 </ol>
 <h4 id="install-operating-system-dependencies">Install operating system dependencies<a class="headerlink" href="#install-operating-system-dependencies" title="Permanent link">&para;</a></h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">RHEL / CentOS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> Debian/Ubuntu</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84.01-.12 0-.24-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>The following command installs the dependencies for Ubuntu 22.04:</p>
@@ -2035,7 +2260,7 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 </div>
 </div>
 </div>
-<h4 id="build-aws-software-development-kit-for-c-library">Build AWS Software Development Kit for C++ library<a class="headerlink" href="#build-aws-software-development-kit-for-c-library" title="Permanent link">&para;</a></h4>
+<h4 class="power-number" id="build-aws-software-development-kit-for-c-library">Build AWS Software Development Kit for C++ library<a class="headerlink" href="#build-aws-software-development-kit-for-c-library" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p>Clone the AWS Software Development Kit for C++ repository</p>
@@ -2075,7 +2300,7 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 </code></pre></div>
 </li>
 </ol>
-<h4 id="build-percona-server-for-mongodb">Build Percona Server for MongoDB<a class="headerlink" href="#build-percona-server-for-mongodb" title="Permanent link">&para;</a></h4>
+<h4 class="power-number" id="build-percona-server-for-mongodb">Build Percona Server for MongoDB<a class="headerlink" href="#build-percona-server-for-mongodb" title="Permanent link">&para;</a></h4>
 <ol>
 <li>
 <p>Change directory to <code>percona-server-mongodb</code> </p>
@@ -2084,7 +2309,7 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 </li>
 <li>
 <p>Build Percona Server for MongoDB from <code>buildscripts/scons.py</code></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Basic build</label><label for="__tabbed_2_2">Pro build</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M224 256a128 128 0 1 0 0-256 128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3 0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3h-91.4z"/></svg></span> Basic build</label><label for="__tabbed_2_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M96 128a128 128 0 1 0 256 0 128 128 0 1 0-256 0zm94.5 200.2 18.6 31-33.3 123.9-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7h386.6c17 0 30.7-13.8 30.7-30.7 0-75.5-51.9-138.9-121.9-156.4-8.1-2-15.9 3.3-17.9 11.3l-36 146.9-33.3-123.9 18.6-31c6.4-10.7-1.3-24.2-13.7-24.2h-39.5c-12.4 0-20.1 13.6-13.7 24.2z"/></svg></span> Pro build</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>buildscripts/scons.py<span class="w"> </span>--disable-warnings-as-errors<span class="w"> </span>--release<span class="w"> </span>--ssl<span class="w"> </span>--opt<span class="o">=</span>on<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span>--all<span class="k">)</span><span class="w"> </span>--use-sasl-client<span class="w"> </span>--wiredtiger<span class="w"> </span>--audit<span class="w"> </span>--inmemory<span class="w"> </span>--hotbackup<span class="w"> </span><span class="nv">CPPPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="nv">LIBPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib </span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib64&quot;</span><span class="w"> </span>install-mongod<span class="w"> </span>install-mongos
@@ -2133,6 +2358,7 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 <p class="admonition-title">Note</p>
 <p>You can build only Percona Server for MongoDB basic tarballs with the build script. Percona Server for MongoDB Pro tarballs are not supported.</p>
 </div>
+<p class="power-number">To build tarballs, the steps are the following:</p>
 <ol>
 <li>
 <p>The following command builds tarballs of Percona Server for MongoDB 7.0.4-2 on CentOS 7. Change the Docker image and the values for <code>--branch</code>, <code>--psm_ver</code>, <code>--psm_release</code> flags to build tarballs of a different version and on a different operating system.</p>
@@ -2157,13 +2383,16 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 <p>Check that tarballs are built:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/tarball/
 </code></pre></div>
-<p>Sample output:</p>
+<details class="example">
+<summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>total 88292
 -rw-r--r--. 1 root root 90398894 Jul  1 10:58 percona-server-mongodb-7.0.4-2.x86_64.glibc2.17.tar.gz
 </code></pre></div>
+</details>
 </li>
 </ol>
 <h4 id="packages">Packages<a class="headerlink" href="#packages" title="Permanent link">&para;</a></h4>
+<p class="power-number">The steps are the following:</p>
 <ol>
 <li>
 <p>Build the source tarball. It serves as the base for source packages. It is important to build source tarball using the oldest supported operating system, which is CentOS 7.</p>
@@ -2177,10 +2406,10 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 <li>
 <p>Build source packages. These packages include the source code and patches and are used to build binary packages.</p>
 <p>Note that to build source packages you still have to use the oldest supported operating system: CentOS 7 for RPMs and Ubuntu 18.04 (Bionic Beaver) for DEB packages. </p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Basic build</label><label for="__tabbed_3_2">Pro build</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M224 256a128 128 0 1 0 0-256 128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3 0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3h-91.4z"/></svg></span> Basic build</label><label for="__tabbed_3_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M96 128a128 128 0 1 0 256 0 128 128 0 1 0-256 0zm94.5 200.2 18.6 31-33.3 123.9-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7h386.6c17 0 30.7-13.8 30.7-30.7 0-75.5-51.9-138.9-121.9-156.4-8.1-2-15.9 3.3-17.9 11.3l-36 146.9-33.3-123.9 18.6-31c6.4-10.7-1.3-24.2-13.7-24.2h-39.5c-12.4 0-20.1 13.6-13.7 24.2z"/></svg></span>  Pro build</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">DEB</label><label for="__tabbed_4_2">RPM</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> DEB</label><label for="__tabbed_4_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84.01-.12 0-.24-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> RPM</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:bionic<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
@@ -2194,9 +2423,11 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 <p>Check that source packages are created    </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/source_deb/
 </code></pre></div>
-<p>Sample output:    </p>
+<details class="example">
+<summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_7.0.4.orig.tar.gz
 </code></pre></div>
+</details>
 </div>
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>centos:7<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
@@ -2210,15 +2441,17 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 <p>Check that source packages are created    </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/srpm/
 </code></pre></div>
-<p>Sample output:    </p>
+<details class="example">
+<summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-7.0.4-2.generic.src.rpm
 </code></pre></div>
+</details>
 </div>
 </div>
 </div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">DEB</label><label for="__tabbed_5_2">RPM</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> DEB</label><label for="__tabbed_5_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84.01-.12 0-.24-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> RPM</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:bionic<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
@@ -2232,9 +2465,11 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 <p>Check that source packages are created    </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/source_deb/
 </code></pre></div>
-<p>Sample output:    </p>
+<details class="example">
+<summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-pro_7.0.4.orig.tar.gz
 </code></pre></div>
+</details>
 </div>
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>centos:7<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
@@ -2248,9 +2483,11 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 <p>Check that source packages are created    </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/srpm/
 </code></pre></div>
-<p>Sample output:    </p>
+<details class="example">
+<summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-pro-7.0.4-2.generic.src.rpm
 </code></pre></div>
+</details>
 </div>
 </div>
 </div>
@@ -2260,10 +2497,10 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 </li>
 <li>
 <p>Build Percona Server for MongoDB packages. Here you can use the operating system of your choice. In the commands below, we use Oracle Linux 9 for RPMs and Ubuntu 22.04 (Jammy Jellyfish) for DEB packages.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Basic build</label><label for="__tabbed_6_2">Pro build</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M224 256a128 128 0 1 0 0-256 128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3 0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3h-91.4z"/></svg></span> Basic build</label><label for="__tabbed_6_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M96 128a128 128 0 1 0 256 0 128 128 0 1 0-256 0zm94.5 200.2 18.6 31-33.3 123.9-36-146.9c-2-8.1-9.8-13.4-17.9-11.3C51.9 342.4 0 405.8 0 481.3c0 17 13.8 30.7 30.7 30.7h386.6c17 0 30.7-13.8 30.7-30.7 0-75.5-51.9-138.9-121.9-156.4-8.1-2-15.9 3.3-17.9 11.3l-36 146.9-33.3-123.9 18.6-31c6.4-10.7-1.3-24.2-13.7-24.2h-39.5c-12.4 0-20.1 13.6-13.7 24.2z"/></svg></span> Pro build</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">DEB</label><label for="__tabbed_7_2">RPM</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> DEB</label><label for="__tabbed_7_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84.01-.12 0-.24-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span>  RPM</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:jammy<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
@@ -2277,13 +2514,15 @@ $<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </spa
 <p>Check that packages are created</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/deb/
 </code></pre></div>
-<p>Sample output:</p>
+<details class="example">
+<summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-dbg_7.0.4-2.jammy_amd64.deb  
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos_7.0.4-2.jammy_amd64.deb 
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server_7.0.4-2.jammy_amd64.deb 
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_7.0.4-2.jammy_amd64.deb  
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_7.0.4-2.jammy_amd64.deb
 </code></pre></div>
+</details>
 </div>
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>oraclelinux:9<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
@@ -2297,7 +2536,8 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_7.0.4-2.jamm
 <p>Check that packages are created</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/srpm/
 </code></pre></div>
-<p>Sample output:</p>
+<details class="example">
+<summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-7.0.4-2.el8.x86_64.rpm  
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-7.0.4-2.el8.x86_64.rpm 
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-7.0.4-2.el8.x86_64.rpm    
@@ -2307,12 +2547,13 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debug
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-7.0.4-2.el8.x86_64.rpm 
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-7.0.4-2.el8.x86_64.rpm
 </code></pre></div>
+</details>
 </div>
 </div>
 </div>
 </div>
 <div class="tabbed-block">
-<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">DEB</label><label for="__tabbed_8_2">RPM</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> DEB</label><label for="__tabbed_8_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84.01-.12 0-.24-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span>  RPM</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>ubuntu:jammy<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
@@ -2326,13 +2567,15 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debugi
 <p>Check that packages are created</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/deb/
 </code></pre></div>
-<p>Sample output:</p>
+<details class="example">
+<summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-dbg_7.0.4-2.jammy_amd64.deb  
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro_7.0.4-2.jammy_amd64.deb 
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-pro_7.0.4-2.jammy_amd64.deb 
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_7.0.4-2.jammy_amd64.deb  
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro_7.0.4-2.jammy_amd64.deb
 </code></pre></div>
+</details>
 </div>
 <div class="tabbed-block">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>oraclelinux:9<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
@@ -2346,7 +2589,8 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro_7.0.4-2.
 <p>Check that packages are created</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>/tmp/psmdb/test/srpm/
 </code></pre></div>
-<p>Sample output:</p>
+<details class="example">
+<summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-7.0.4-2.el8.x86_64.rpm  
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-debugsource-7.0.4-2.el8.x86_64.rpm 
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro-7.0.4-2.el8.x86_64.rpm    
@@ -2356,6 +2600,7 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-pro-d
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-7.0.4-2.el8.x86_64.rpm 
 rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-7.0.4-2.el8.x86_64.rpm
 </code></pre></div>
+</details>
 </div>
 </div>
 </div>
@@ -2364,6 +2609,8 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debugi
 </div>
 </li>
 </ol>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="../connect.html">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></a></p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2395,7 +2642,7 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debugi
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 16, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
   </span>
 
     
@@ -2496,7 +2743,7 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debugi
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy search.highlight search.share", "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
