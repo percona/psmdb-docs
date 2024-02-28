@@ -9,7 +9,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu. We gather Telemetry data to understand the use of the software and improve our products.">
+        <meta name="description" content="This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu.">
       
       
         <meta name="author" content="Percona LLC">
@@ -18,7 +18,7 @@
         <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/5.0/install/apt.html">
       
       
-        <link rel="prev" href="index.html">
+        <link rel="prev" href="system-requirements.html">
       
       
         <link rel="next" href="yum.html">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Installing Percona Server for MongoDB on Debian and Ubuntu - Percona Server for MongoDB 5.0</title>
+        <title>On Debian and Ubuntu - Percona Server for MongoDB 5.0</title>
       
     
     
@@ -50,8 +50,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Poppins";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
@@ -64,6 +64,8 @@
       <link rel="stylesheet" href="../css/nocopy.css">
     
       <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="../css/design.css">
     
       <link rel="stylesheet" href="../css/osano.css">
     
@@ -90,7 +92,7 @@
                  
                  
                  <meta property="og:type" content="website" />
-                 <meta property="og:title" content="Percona Server for MongoDB 5.0 - Installing Percona Server for MongoDB on Debian and Ubuntu" />
+                 <meta property="og:title" content="Percona Server for MongoDB 5.0 - On Debian and Ubuntu" />
                  <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/5.0/_images/mongodb.png">
                  <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
                 </head>
@@ -109,7 +111,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -154,7 +156,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installing Percona Server for MongoDB on Debian and Ubuntu
+              On Debian and Ubuntu
             
           </span>
         </div>
@@ -164,17 +166,25 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             </label>
           
         
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_3">
           
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
             </label>
           
@@ -317,7 +327,7 @@
         
   
   <span class="md-ellipsis">
-    Percona Server for MongoDB feature comparison
+    Feature comparison with MongoDB
   </span>
   
 
@@ -349,7 +359,7 @@
             
   
   <span class="md-ellipsis">
-    Install PSMDB
+    Get started
   </span>
   
 
@@ -359,7 +369,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Install PSMDB
+            Get started
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -374,7 +384,65 @@
         
   
   <span class="md-ellipsis">
-    Overview
+    Quickstart guides
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="system-requirements.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System requirements
   </span>
   
 
@@ -404,7 +472,7 @@
           
   
   <span class="md-ellipsis">
-    Installing Percona Server for MongoDB on Debian and Ubuntu
+    On Debian and Ubuntu
   </span>
   
 
@@ -415,7 +483,7 @@
         
   
   <span class="md-ellipsis">
-    Installing Percona Server for MongoDB on Debian and Ubuntu
+    On Debian and Ubuntu
   </span>
   
 
@@ -437,15 +505,6 @@
       On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#package-contents" class="md-nav__link">
-    <span class="md-ellipsis">
-      Package contents
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#procedure" class="md-nav__link">
@@ -481,9 +540,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-percona-server-for-mongodb" class="md-nav__link">
+  <a href="#run-percona-server-for-mongodb" class="md-nav__link">
     <span class="md-ellipsis">
-      Running Percona Server for MongoDB
+      Run Percona Server for MongoDB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
     </span>
   </a>
   
@@ -518,7 +586,7 @@
         
   
   <span class="md-ellipsis">
-    Installing Percona Server for MongoDB on Red Hat Enterprise Linux and CentOS
+    On RHEL and derivatives
   </span>
   
 
@@ -539,7 +607,7 @@
         
   
   <span class="md-ellipsis">
-    Installing Percona Server for MongoDB from binary tarball
+    From tarballs
   </span>
   
 
@@ -581,7 +649,78 @@
         
   
   <span class="md-ellipsis">
-    Running Percona Server for MongoDB in a Docker Container
+    Run in Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connect.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Connect to Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../crud.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manipulate data in Percona Server for MongoDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-next.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What's next?
   </span>
   
 
@@ -743,7 +882,7 @@
         
   
   <span class="md-ellipsis">
-    Hot Backup
+    Hot backup
   </span>
   
 
@@ -1274,7 +1413,7 @@
             
   
   <span class="md-ellipsis">
-    Manage PSMDB
+    Administration
   </span>
   
 
@@ -1284,7 +1423,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            Manage PSMDB
+            Administration
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2083,6 +2222,61 @@
   
   
     <li class="md-nav__item">
+      <a href="../faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../glossary.html" class="md-nav__link">
         
   
@@ -2095,9 +2289,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -2107,7 +2302,7 @@
         
   
   <span class="md-ellipsis">
-    Telemetry
+    Telemetry on Percona Server for MongoDB
   </span>
   
 
@@ -2115,9 +2310,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -2135,9 +2331,10 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
@@ -2152,6 +2349,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2191,15 +2396,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#package-contents" class="md-nav__link">
-    <span class="md-ellipsis">
-      Package contents
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#procedure" class="md-nav__link">
     <span class="md-ellipsis">
       Procedure
@@ -2233,9 +2429,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-percona-server-for-mongodb" class="md-nav__link">
+  <a href="#run-percona-server-for-mongodb" class="md-nav__link">
     <span class="md-ellipsis">
-      Running Percona Server for MongoDB
+      Run Percona Server for MongoDB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
     </span>
   </a>
   
@@ -2282,13 +2487,10 @@
 
 
 <h1 id="installing-percona-server-for-mongodb-on-debian-and-ubuntu">Installing Percona Server for MongoDB on Debian and Ubuntu<a class="headerlink" href="#installing-percona-server-for-mongodb-on-debian-and-ubuntu" title="Permanent link">&para;</a></h1>
-<p>This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu. We gather <a href="telemetry.md">Telemetry data</a> to understand the use of the software and improve our products.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Percona Server for MongoDB should work on other DEB-based distributions,
-but it is tested only on platforms listed on the <a href="https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb">Percona Software and Platform Lifecycle</a> page.</p>
-</div>
-<h2 id="package-contents">Package contents<a class="headerlink" href="#package-contents" title="Permanent link">&para;</a></h2>
+<p>This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu. </p>
+<p>We gather <a href="../telemetry.html">Telemetry data</a> to understand the use of the software and improve our products.</p>
+<details class="admonition">
+<summary>Package contents</summary>
 <table>
 <thead>
 <tr>
@@ -2323,9 +2525,11 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 </tr>
 </tbody>
 </table>
+</details>
 <h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
+<p>Before you start, check the <a href="system-requirements.html">system requirements</a>.</p>
 <h3 id="configure-percona-repository">Configure Percona repository<a class="headerlink" href="#configure-percona-repository" title="Permanent link">&para;</a></h3>
-<p>Percona provides the <a href="https://docs.percona.com/percona-software-repositories/index.html"><code>percona-release</code></a> configuration tool that simplifies operating repositories and enables to install and update both Percona Backup for MongoDB packages and required dependencies smoothly.</p>
+<p class="power-number">To install from Percona repositories, first you need to enable the required repository using the <a href="https://docs.percona.com/percona-software-repositories/index.html"><code>percona-release</code></a> repository management tool.</p>
 <ol>
 <li>
 <p>Fetch <strong>percona-release</strong> packages from Percona web:</p>
@@ -2336,10 +2540,8 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 <p>Install the downloaded package with <strong>dpkg</strong>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
 </code></pre></div>
-</li>
-</ol>
 <p>After you install this package, you have the access to Percona repositories. You can check the repository setup in the <code>/etc/apt/sources.list.d/percona-release.list</code> file.</p>
-<ol>
+</li>
 <li>
 <p>Enable the repository:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-50<span class="w"> </span>release
@@ -2352,7 +2554,7 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 </li>
 </ol>
 <h3 id="install-percona-server-for-mongodb">Install Percona Server for MongoDB<a class="headerlink" href="#install-percona-server-for-mongodb" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Install the latest version</label><label for="__tabbed_1_2">Install a specific version</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 5.5a2 2 0 0 0 2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2 2 2 0 0 0 2 2m-3.6 13.9 1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3A7.298 7.298 0 0 0 22 13v-2c-1.76.03-3.4-.89-4.3-2.4l-1-1.6c-.36-.6-1-1-1.7-1-.3 0-.5.1-.8.1L9 8.3V13h2V9.6l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4M4 9a1 1 0 0 1-1-1 1 1 0 0 1 1-1h3v2H4m1-4a1 1 0 0 1-1-1 1 1 0 0 1 1-1h5v2H5m-2 8a1 1 0 0 1-1-1 1 1 0 0 1 1-1h4v2H3Z"/></svg></span> Install the latest version</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9 4.75A.75.75 0 0 1 9.75 4h4a.75.75 0 0 1 .53 1.28l-1.89 1.892c.312.076.604.18.867.319.742.391 1.244 1.063 1.244 2.005 0 .653-.231 1.208-.629 1.627-.386.408-.894.653-1.408.777-1.01.243-2.225.063-3.124-.527a.751.751 0 0 1 .822-1.254c.534.35 1.32.474 1.951.322.306-.073.53-.201.67-.349.129-.136.218-.32.218-.596 0-.308-.123-.509-.444-.678-.373-.197-.98-.318-1.806-.318a.75.75 0 0 1-.53-1.28l1.72-1.72H9.75A.75.75 0 0 1 9 4.75Zm-3.587 5.763c-.35-.05-.77.113-.983.572a.75.75 0 1 1-1.36-.632c.508-1.094 1.589-1.565 2.558-1.425 1 .145 1.872.945 1.872 2.222 0 1.433-1.088 2.192-1.79 2.681-.308.216-.571.397-.772.573H7a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75c0-.69.3-1.211.67-1.61.348-.372.8-.676 1.15-.92.8-.56 1.18-.904 1.18-1.474 0-.473-.267-.69-.587-.737ZM5.604.089A.75.75 0 0 1 6 .75v4.77h.711a.75.75 0 0 1 0 1.5H3.759a.75.75 0 0 1 0-1.5H4.5V2.15l-.334.223a.75.75 0 0 1-.832-1.248l1.5-1a.75.75 0 0 1 .77-.037Z"/></svg></span> Install a specific version</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Run the following command to install the latest version of Percona Server for MongoDB:</p>
@@ -2366,7 +2568,8 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 <p>List available versions:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-cache<span class="w"> </span>madison<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
-<p>Sample output:</p>
+<details class="example">
+<summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">5</span>.0.13-11.jammy<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-50/apt<span class="w"> </span>jammy/main<span class="w"> </span>amd64<span class="w"> </span>Packages
 percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">5</span>.0.11-10.jammy<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-50/apt<span class="w"> </span>jammy/main<span class="w"> </span>amd64<span class="w"> </span>Packages
 percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">5</span>.0.10-9.jammy<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-50/apt<span class="w"> </span>jammy/main<span class="w"> </span>amd64<span class="w"> </span>Packages
@@ -2376,6 +2579,7 @@ percona-server-mongodb<span class="w"> </span><span class="p">|</span><span clas
 percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="m">5</span>.0.10-9<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-50/apt<span class="w"> </span>jammy/main<span class="w"> </span>Sources
 percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w">    </span><span class="m">5</span>.0.9-8<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-50/apt<span class="w"> </span>jammy/main<span class="w"> </span>Sources
 </code></pre></div>
+</details>
 </li>
 <li>
 <p>Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 5.0.13-11, run the following command:</p>
@@ -2390,26 +2594,29 @@ percona-server-mongodb-tools<span class="o">=</span><span class="m">5</span>.0.1
 </div>
 </div>
 </div>
-<h2 id="running-percona-server-for-mongodb">Running Percona Server for MongoDB<a class="headerlink" href="#running-percona-server-for-mongodb" title="Permanent link">&para;</a></h2>
 <p>By default, Percona Server for MongoDB stores data files in <code>/var/lib/mongodb/</code>
 and configuration parameters in <code>/etc/mongod.conf</code>.</p>
-<p><strong>Starting the service</strong></p>
+<h2 id="run-percona-server-for-mongodb">Run Percona Server for MongoDB<a class="headerlink" href="#run-percona-server-for-mongodb" title="Permanent link">&para;</a></h2>
+<p><strong>Start the service</strong></p>
 <p>Percona Server for MongoDB is started automatically after installation unless it encounters errors during the installation process.</p>
 <p>You can also manually start it using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
-<p><strong>Confirming that the service is running</strong></p>
+<p><strong>Confirm that the service is running</strong></p>
 <p>Check the service status using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
 </code></pre></div>
-<p><strong>Stopping the service</strong></p>
+<p><strong>Stop the service</strong></p>
 <p>Stop the service using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
-<p><strong>Restarting the service</strong></p>
+<p><strong>Restart the service</strong></p>
 <p>Restart the service using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
+<p>Congratulations! Your Percona Server for MongoDB is up and running. </p>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="../connect.html">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg></span></a></p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2442,7 +2649,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 9, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
   </span>
 
     
