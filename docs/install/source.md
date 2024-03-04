@@ -16,7 +16,7 @@ This document guides you though the steps how to build Percona Server for MongoD
 
 To build Percona Server for MongoDB manually, you need the following:
 
-- A modern C++ compiler capable of compiling C++17 like GCC 8.2 or newer 
+- A modern C++ compiler capable of compiling C++20. You may use GCC 11.3 or newer 
 - Amazon AWS Software Development Kit for C++ library 
 - Python 3.7.x and Pip modules. 
 - The set of dependencies for your operating system. The following table lists dependencies for Ubuntu 22.04 and Red Hat Enterprise 9 and compatible derivatives:
