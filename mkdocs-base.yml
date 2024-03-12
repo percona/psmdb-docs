@@ -136,7 +136,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-4.4.pdf'
           cover_title: 'Server for MongoDB Documentation 4.4'
-          cover_subtitle: 4.4.28-27 (February 7, 2024)
+          cover_subtitle: 4.4.29-28 (March, 2024)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -205,6 +205,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": release_notes/index.md
+      - release_notes/4.4.29-28.md
       - release_notes/4.4.28-27.md
       - release_notes/4.4.27-26.md
       - 2023 (versions 4.4.19-19 through 4.4.26-25):
