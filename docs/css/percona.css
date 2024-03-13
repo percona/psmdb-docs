@@ -175,3 +175,8 @@ i[warning] {
 i[warning] [class*="moji"] {
     color: #ff9100;
 }
+
+.md-banner--warning {
+--md-warning-bg-color: #F0B336;
+--md-warning-fg-color: black;
+}
