@@ -205,13 +205,11 @@ on all the collections in the `test` database:
 
 ## Enabling auditing of authorization success
 
-By default, only authorization failures for the `authCheck` action
-are logged by the audit system. `authCheck` is for authorization by
-role-based access control, it does not concern authentication at logins.
+By default, the audit system logs only authorization failures for the `authCheck` action. The `authCheck` action refers to the operations a user is or is not authorized to perform on the server according to the privileges outlined in the roles assigned to the user.
 
 To enable logging of authorization successes,
 set the `auditAuthorizationSuccess` parameter to `true`. Audit events
-will then be triggered by every command, including CRUD ones.
+will then be triggered by every command that requires authorization, including CRUD ones.
 
 !!! warning 
 
@@ -236,3 +234,59 @@ You can also add it to the configuration file as follows:
 setParameter:
   auditAuthorizationSuccess: true
 ```
+
+??? example "Example of the audit message"
+
+    ```json
+    {
+      "atype": "authCheck",
+      "ts": {
+        "$date": "2024-03-13T06:28:04.631-04:00"
+      },
+      "local": {
+        "ip": "172.17.0.2",
+        "port": 20040
+      },
+      "remote": {
+        "ip": "127.0.0.1",
+        "port": 52128
+      },
+      "users": [
+        {
+          "user": "admin",
+          "db": "admin"
+        }
+      ],
+      "roles": [
+        {
+          "role": "clusterAdmin",
+          "db": "admin"
+        },
+        {
+          "role": "readWriteAnyDatabase",
+          "db": "admin"
+        },
+        {
+          "role": "userAdminAnyDatabase",
+          "db": "admin"
+        }
+      ],
+      "param": {
+        "command": "insert",
+        "ns": "audit_authz_insert.foo",
+        "args": {
+          "insert": "foo",
+          "ordered": true,
+          "lsid": {
+            "id": {
+              "$binary": "nfnnHQo0RDOtI6722FlP5w==",
+              "$type": "04"
+            }
+          },
+          "$db": "audit_authz_insert"
+        }
+      },
+      "result": 0
+    }
+    ```
+
