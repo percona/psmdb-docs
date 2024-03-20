@@ -19,7 +19,7 @@ This document describes how to install Percona Server for MongoDB on RPM-based d
 
 ## Procedure
 
-Before you start, check the [system requirements](system-requirements.md).
+Before you start, check the [system requirements](../system-requirements.md).
 
 ### Configure Percona repository
 
