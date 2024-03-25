@@ -1,6 +1,6 @@
 # Percona Server for MongoDB 4.4 release notes
 
-* [Percona Server for MongoDB 4.4.29-28 (2024-03-)](4.4.29-28.md)
+* [Percona Server for MongoDB 4.4.29-28 (2024-04-02)](4.4.29-28.md)
 
 * [Percona Server for MongoDB 4.4.28-27 (2024-02-07)](4.4.28-27.md)
 
