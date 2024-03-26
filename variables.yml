@@ -1,7 +1,8 @@
 # PBM Variables set for HTML output
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
-release: '6.0.13-10'
+release: '6.0.14-11'
 version: '6.0'
-mongosh: '2.1.1'
+mongosh: '2.1.5'
+
 
