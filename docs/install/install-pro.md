@@ -63,10 +63,16 @@ Request the access to the pro repository from Percona Support. You will receive 
 
 ## Install from binary tarballs
 
-Binary tarballs are available starting with version 6.0.13-10 for the following operating systems:
+Binary tarballs are available for the following operating systems:
+
+Starting with version 6.0.13-10:
 
 * Ubuntu 22.04 (Jammy Jellyfish)
 * Red Hat Enterprise Linux 9
+
+Starting with 6.0.14-11: 
+
+* Red Hat Enterprise Linux 8 
 
 ### Preconditions
 
