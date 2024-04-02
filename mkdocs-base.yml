@@ -141,7 +141,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-5.0.pdf'
           cover_title: 'Server for MongoDB Documentation 5.0'
-          cover_subtitle: 5.0.25-22 (March , 2024)
+          cover_subtitle: 5.0.26-22 (April 9, 2024)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -210,7 +210,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - Release notes index: release_notes/index.md
-      - release_notes/5.0.25-22.md
+      - release_notes/5.0.26-22.md
       - release_notes/5.0.24-21.md
       - 2023 (versions 5.0.15-13 through 5.0.23-20):
          - release_notes/5.0.23-20.md
