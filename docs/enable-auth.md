@@ -35,8 +35,8 @@ To enable access control manually:
 
 2. Run the following command on the `admin` database:
 
-    ```javascript
-    > db.createUser({user: 'USER', pwd: 'PASSWORD', roles: ['root'] });
+    ```{.javascript data-prompt=">"}
+    > db.createUser({user: 'USER', pwd: 'PASSWORD', roles: ['dbAdmin'] });
     ```
 
 3. Restart the `mongod` service:
