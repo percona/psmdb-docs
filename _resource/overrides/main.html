@@ -11,6 +11,10 @@ by adding marketing-requested elements
 {{ super() }}
 {% endblock %}
 
+{% block outdated %}
+              <div>This documentation is for the end of life version of Percona Server for MongoDB 4.4 which is no longer supported. <br><strong><a href="https://www.percona.com/blog/mongodb-4-4-eol-with-5-0-not-far-behind/">Learn more about MongoDB 4.4 end of life implications</a>.</strong> See the <strong><a href= {{ '../' ~ base_url }}>current documentation</a></strong>. </div>
+             {% endblock %}
+
 {% block extrahead %}
 {{ super() }}
 
