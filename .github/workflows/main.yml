@@ -45,5 +45,5 @@ jobs:
         run: |
           mike deploy 7.0 -b publish -p
           mike set-default 7.0 -b publish -p
-          mike retitle 7.0 "7.0.7-4" -b publish -p
+          mike retitle 7.0 "7.0 (LATEST)" -b publish -p
 
