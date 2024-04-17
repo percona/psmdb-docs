@@ -165,16 +165,17 @@ nav:
   - 'Feature comparison with MongoDB': comparison.md
   - Get started: 
       - Quickstart guides: 'install/index.md'
-      - Installation:
+      - 1. Installation:
         - 'System requirements': 'install/system-requirements.md'
         - "On Debian and Ubuntu": install/apt.md
         - "On RHEL and derivatives": install/yum.md
         - "From tarballs": install/tarball.md
         - install/source.md
         - "Run in Docker": install/docker.md
-      - connect.md
-      - crud.md
-      - what-next.md
+        - "Install Percona Server for MongoDB Pro": install/install-pro.md
+      - "2. Connect to Percona Server for MongoDB": connect.md
+      - "3. Manipulate data in Percona Server for MongoDB": crud.md
+      - "4. What's next?": what-next.md
   - Features: 
       - Storage:
         - "Percona Memory Engine": "inmemory.md"
