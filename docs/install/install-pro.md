@@ -4,9 +4,7 @@ This document provides guidelines how to install Percona Server for MongoDB Pro 
 
 If you already run Percona Server for MongoDB and wish to upgrade to Percona Server for MongoDB Pro, see the [upgrade guide](update-pro.md).
 
-## Before you start
-
-Request the access to the pro repository from Percona Support. You will receive the client ID and the access token.
+--8<-- "token.md"
 
 ## Install from Percona repository
 
@@ -15,7 +13,7 @@ Request the access to the pro repository from Percona Support. You will receive 
     1. Configure the repository. Create the `/etc/apt/sources.list.d/psmdb-pro.list` configuration file with the following contents:
 
         ```ini title="/etc/apt/sources.list.d/psmdb-pro.list"
-        deb http://repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-70-pro/apt/ OPERATING_SYSTEM main
+        deb http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/apt/ OPERATING_SYSTEM main
         ```
 
     2. Update the local cache
@@ -42,7 +40,7 @@ Request the access to the pro repository from Percona Support. You will receive 
         ```ini title="/etc/yum.repos.d/psmdb-pro.repo"
         [psmdb-7.0-pro]
         name=PSMDB_7.0_PRO
-        baseurl=http://repo.percona.com/private/[CLIENTID]-[TOKEN]/psmdb-70-pro/yum/main/$releasever/RPMS/x86_64
+        baseurl=http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/yum/main/$releasever/RPMS/x86_64
         enabled=1
         gpgkey = https://repo.percona.com/yum/PERCONA-PACKAGING-KEY
         ```
