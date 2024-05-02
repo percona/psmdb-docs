@@ -1,5 +1,5 @@
 Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
-for MongoDB {{version}} Community Edition with [enterprise-grade features](../comparison.md).
+for MongoDB 7.0 Community Edition with [enterprise-grade features](../comparison.md).
 
 Find the full list of supported platforms for Percona Server for MongoDB on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page.
 
