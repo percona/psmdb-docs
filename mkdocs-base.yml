@@ -16,8 +16,8 @@ use_directory_urls: false
 # Theme setup
 theme:
   name: material
-  logo: _images/percona-logo.svg
-  favicon: _images/percona-favicon.ico
+  logo: _images/mongodb-mark.svg
+  favicon: _images/mongodb-fav.svg
   custom_dir: _resource/overrides/
   font:
     text: Roboto
@@ -66,6 +66,8 @@ extra_css:
   - css/extra.css
   - css/design.css
   - css/osano.css
+  - css/mongodb.css
+  - css/landing.css
 
 
 extra_javascript:
@@ -152,8 +154,7 @@ plugins:
 extra:
   version:
     provider: mike
-  homepage:
-    https://docs.percona.com
+#  homepage: https://docs.percona.com
 
 nav:
   - Home: index.md
