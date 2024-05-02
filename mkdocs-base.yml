@@ -139,7 +139,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-6.0.pdf'
           cover_title: 'Server for MongoDB Documentation 6.0'
-          cover_subtitle: 6.0.14-11 (March 26, 2024)
+          cover_subtitle: 6.0.15-12 (April 30, 2024)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -162,17 +162,17 @@ nav:
   - psmdb-pro.md
   - Get started: 
       - Quickstart guides: 'install/index.md'
-      - Installation:
-        - 'System requirements': 'system-requirements.md'
+      - 1. Installation:
+        - 'System requirements': 'install/system-requirements.md'
         - "On Debian and Ubuntu": install/apt.md
         - "On RHEL and derivatives": install/yum.md
         - "From tarballs": install/tarball.md
         - install/source.md
         - "Run in Docker": install/docker.md
-        - "Install PSMDB Pro": install/install-pro.md
-      - connect.md
-      - crud.md
-      - what-next.md
+        - "Install Percona Server for MongoDB Pro": install/install-pro.md
+      - "2. Connect to Percona Server for MongoDB": connect.md
+      - "3. Manipulate data in Percona Server for MongoDB": crud.md
+      - "4. What's next?": what-next.md
   - Features: 
       - Storage:
         - "Percona Memory Engine": "inmemory.md"
@@ -210,6 +210,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
+      - release_notes/6.0.15-12.md
       - release_notes/6.0.14-11.md
       - release_notes/6.0.13-10.md
       - 2023 (versions 6.0.5-4 through 6.0.12-9):
