@@ -15,7 +15,7 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
         1. Configure the repository. Create the `/etc/apt/sources.list.d/psmdb-pro.list` configuration file with the following contents:    
 
             ```ini title="/etc/apt/sources.list.d/psmdb-pro.list"
-            deb http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-60-pro/apt/ OPERATING_SYSTEM main
+            deb http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-60-pro/apt/ [OPERATING_SYSTEM] main
             ```    
 
         2. Update the local cache    
