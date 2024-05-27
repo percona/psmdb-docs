@@ -40,7 +40,7 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
         ```ini title="/etc/yum.repos.d/psmdb-pro.repo"
         [psmdb-7.0-pro]
         name=PSMDB_7.0_PRO
-        baseurl=http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/yum/main/$releasever/RPMS/x86_64
+        baseurl=http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/yum/release/$releasever/RPMS/x86_64
         enabled=1
         gpgkey = https://repo.percona.com/yum/PERCONA-PACKAGING-KEY
         ```
