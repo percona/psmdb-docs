@@ -64,7 +64,7 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
 
     === ":material-debian: Debian and Ubuntu"    
 
-        1. Configure the repository. Create the `/etc/apt/sources.list.d/percona-psmdb-60-release.list` configuration file with the following contents:    
+        1. Configure the repository. Create the `/etc/apt/sources.list.d/percona-psmdb-70-release.list` configuration file with the following contents:    
 
             ```ini title="/etc/apt/sources.list.d/percona-psmdb-70-release.list"
             deb http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/apt/ [OPERATING_SYSTEM] main
