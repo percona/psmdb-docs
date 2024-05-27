@@ -8,54 +8,109 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
 
 ## Install from Percona repository
 
-=== ":material-debian: Debian and Ubuntu"
+=== "x86_64"
 
-    1. Configure the repository. Create the `/etc/apt/sources.list.d/psmdb-pro.list` configuration file with the following contents:
+    === ":material-debian: Debian and Ubuntu"    
 
-        ```ini title="/etc/apt/sources.list.d/psmdb-pro.list"
-        deb http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/apt/ OPERATING_SYSTEM main
-        ```
+        1. Configure the repository. Create the `/etc/apt/sources.list.d/psmdb-pro.list` configuration file with the following contents:    
 
-    2. Update the local cache
+            ```ini title="/etc/apt/sources.list.d/psmdb-pro.list"
+            deb http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/apt/ [OPERATING_SYSTEM] main
+            ```    
 
-        ```{.bash .data-prompt="$"}
-        $ sudo apt update
-        ```
+        2. Update the local cache    
 
-    3. Install Percona Server for MongoDB Pro packages
+            ```{.bash .data-prompt="$"}
+            $ sudo apt update
+            ```    
 
-        ```{.bash .data-prompt="$"}
-        $ sudo apt install -y percona-server-mongodb-pro
-        ```
+        3. Install Percona Server for MongoDB Pro packages    
 
-    4. Start the server
+            ```{.bash .data-prompt="$"}
+            $ sudo apt install -y percona-server-mongodb-pro
+            ```    
 
-        ```{.bash .data-prompt="$"}
-        $ sudo systemctl start mongod
-        ```
-=== ":material-redhat: RHEL and derivatives"
+        4. Start the server    
 
-    1. Configure the repository. Create the `/etc/yum.repos.d/psmdb-pro.repo` configuration file with the following contents:
+            ```{.bash .data-prompt="$"}
+            $ sudo systemctl start mongod
+            ```    
 
-        ```ini title="/etc/yum.repos.d/psmdb-pro.repo"
-        [psmdb-7.0-pro]
-        name=PSMDB_7.0_PRO
-        baseurl=http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/yum/main/$releasever/RPMS/x86_64
-        enabled=1
-        gpgkey = https://repo.percona.com/yum/PERCONA-PACKAGING-KEY
-        ```
+    === ":material-redhat: RHEL and derivatives"    
 
-    2. Install Percona Server for MongoDB Pro packages
+        1. Configure the repository. Create the `/etc/yum.repos.d/psmdb-pro.repo` configuration file with the following contents:    
 
-        ```{.bash .data-prompt="$"}
-        $ sudo yum install -y percona-server-mongodb-pro
-        ```
-        
-    3. Start the server
+            ```ini title="/etc/yum.repos.d/psmdb-pro.repo"
+            [psmdb-7.0-pro]
+            name=PSMDB_7.0_PRO
+            baseurl=http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/yum/release/$releasever/RPMS/x86_64
+            enabled=1
+            gpgkey = https://repo.percona.com/yum/PERCONA-PACKAGING-KEY
+            ```    
 
-        ```{.bash .data-prompt="$"}
-        $ sudo systemctl start mongod
-        ```
+        2. Install Percona Server for MongoDB Pro packages    
+
+            ```{.bash .data-prompt="$"}
+            $ sudo yum install -y percona-server-mongodb-pro
+            ```
+            
+        3. Start the server    
+
+            ```{.bash .data-prompt="$"}
+            $ sudo systemctl start mongod
+            ```
+
+=== "ARM64"
+
+    === ":material-debian: Debian and Ubuntu"    
+
+        1. Configure the repository. Create the `/etc/apt/sources.list.d/percona-psmdb-70-release.list` configuration file with the following contents:    
+
+            ```ini title="/etc/apt/sources.list.d/percona-psmdb-70-release.list"
+            deb http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/apt/ [OPERATING_SYSTEM] main
+            ```    
+
+        2. Update the local cache    
+
+            ```{.bash .data-prompt="$"}
+            $ sudo apt update
+            ```    
+
+        3. Install Percona Server for MongoDB Pro packages    
+
+            ```{.bash .data-prompt="$"}
+            $ sudo apt install -y percona-server-mongodb-pro
+            ```    
+
+        4. Start the server    
+
+            ```{.bash .data-prompt="$"}
+            $ sudo systemctl start mongod
+            ```    
+
+    === ":material-redhat: RHEL and derivatives"    
+
+        1. Configure the repository. Create the `/etc/yum.repos.d/psmdb-pro.repo` configuration file with the following contents:    
+
+            ```ini title="/etc/yum.repos.d/psmdb-pro.repo"
+            [psmdb-7.0-pro]
+            name=PSMDB_7.0_PRO
+            baseurl=http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/yum/release/$releasever/RPMS/aarch64/
+            enabled=1
+            gpgkey = https://repo.percona.com/yum/PERCONA-PACKAGING-KEY
+            ```    
+
+        2. Install Percona Server for MongoDB Pro packages    
+
+            ```{.bash .data-prompt="$"}
+            $ sudo yum install -y percona-server-mongodb-pro
+            ```
+            
+        3. Start the server    
+
+            ```{.bash .data-prompt="$"}
+            $ sudo systemctl start mongod
+            ```
 
 ## Install from binary tarballs
 
@@ -67,7 +122,7 @@ Starting with version 7.0.7-4:
 * Red Hat Enterprise Linux 9
 * Debian 12 (bookworm)
 
-Starting with version 7.0.8-5
+Starting with version 7.0.8-5:
 
 * Red Hat Enterprise Linux 8
 
