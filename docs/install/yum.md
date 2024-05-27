@@ -56,7 +56,7 @@ Before you start, check the [system requirements](../system-requirements.md).
     Create the `/etc/yum.repos.d/percona-psmdb-70-release.repo` configuration file with the following contents:
 
     ```ini title='/etc/yum.repos.d/percona-psmdb-70-release.repo'
-    [psmdb-60-release-aarch64]
+    [psmdb-70-release-aarch64]
     name = Percona Server for MongoDB 7.0 release/aarch64 YUM repository
     baseurl = http://repo.percona.com/psmdb-70/yum/release/$releasever/RPMS/aarch64
     enabled = 1
