@@ -7,17 +7,17 @@ This file contains information about different user events
 including authentication, authorization failures, and so on.
 
 To enable audit logging, specify where to send audit events
-using the [`--auditDestination`](#-auditdestination) option on the command line
+using the [`--auditDestination`](#auditdestination) option on the command line
 or the `auditLog.destination` variable in the configuration file.
 
 If you want to output events to a file,
 also specify the format of the file
-using the [`--auditFormat`](#-auditformat) option
+using the [`--auditFormat`](#auditformat) option
 or the `auditLog.format` variable,
-and the path to the file using the [`--auditPath`](#-auditpath) option
+and the path to the file using the [`--auditPath`](#auditpath) option
 or the `auditLog.path` variable.
 
-To filter recorded events, use the [`--auditFilter`](#-auditfilter) option
+To filter recorded events, use the [`--auditFilter`](#auditfilter) option
 or the `auditLog.filter` variable.
 
 For example, to log only events from a user named **tim**
@@ -74,10 +74,10 @@ The following options control audit logging:
 
 | Command line          | Configuration file     | Type   | Description  |
 | --------------------- | ---------------------- | ------ | ------------ |
-| `--auditDestination()`| `auditLog.destination` | string | Enables auditing and specifies where to send audit events: <br> - `console`: Output audit events to `stdout`. <br> - `file`: Output audit events to a file specified by the `--auditPath` option in a format specified by the `--auditFormat` option. <br> - `syslog`: Output audit events to `syslog`|
-| `--auditFilter()`    | `auditLog.filter`       | string | Specifies a filter to apply to incoming audit events, enabling the administrator to only capture a subset of them. The value must be interpreted as a query object with the following syntax: <br><br>`{ <field1>: <expression1>, ... }` <br><br> Audit log events that match this query will be logged. Events that do not match this query will be ignored. <br> For more information, see [Audit filter examples](#audit-file-examples)|
-| `--auditFormat()`    | `auditLog.format`       | string | Specifies the format of the audit log file, if you set the `--auditDestination` option to `file`. <br> The default value is `JSON`. Alternatively, you can set it to `BSON`|
-| `--auditPath()`      | `auditLog.path`         | string | Specifies the fully qualified path to the file where audit log events are written, if you set the `--auditDestination` option to `file`. <br> If this option is not specified, then the `auditLog.json` file is created in the server’s configured log path. If log path is not configured on the server, then the `auditLog.json` file is created in the current directory (from which `mongod` was started). <br><br> **NOTE**: This file will rotate in the same manner as the system log path, either on server reboot or using the `logRotate` command. The time of rotation will be added to the old file’s name.
+| <span id="auditdestination">`--auditDestination()`</span>| `auditLog.destination` | string | Enables auditing and specifies where to send audit events: <br> - `console`: Output audit events to `stdout`. <br> - `file`: Output audit events to a file specified by the `--auditPath` option in a format specified by the `--auditFormat` option. <br> - `syslog`: Output audit events to `syslog`|
+| <span id="auditfilter">`--auditFilter()`<span> | `auditLog.filter`       | string | Specifies a filter to apply to incoming audit events, enabling the administrator to only capture a subset of them. The value must be interpreted as a query object with the following syntax: <br><br>`{ <field1>: <expression1>, ... }` <br><br> Audit log events that match this query will be logged. Events that do not match this query will be ignored. <br> For more information, see [Audit filter examples](#audit-file-examples)|
+| <span id="auditformat">`--auditFormat()`</span>    | `auditLog.format`       | string | Specifies the format of the audit log file, if you set the `--auditDestination` option to `file`. <br> The default value is `JSON`. Alternatively, you can set it to `BSON`|
+| <span id="auditpath">`--auditPath()`</span>| `auditLog.path`         | string | Specifies the fully qualified path to the file where audit log events are written, if you set the `--auditDestination` option to `file`. <br> If this option is not specified, then the `auditLog.json` file is created in the server’s configured log path. If log path is not configured on the server, then the `auditLog.json` file is created in the current directory (from which `mongod` was started). <br><br> **NOTE**: This file will rotate in the same manner as the system log path, either on server reboot or using the `logRotate` command. The time of rotation will be added to the old file’s name.
 
 ## Audit message syntax
 
