@@ -41,8 +41,8 @@ The following table helps you understand what tarball to download based on the g
 
 | Type | Name | Description |
 |---|---|---|
-| Full | percona-server-mongodb-{{release}}-x86_64.<glibc-version>.tar.gz | Contains all files available |
-| Minimal | percona-server-mongodb-{{release}}-x86_64.<glibc-version>-minimal.tar.gz| Contains binaries and libraries |
+| Full | percona-server-mongodb-{{release}}-x86_64.<glibc-version>.tar.gz | Contains binaries and libraries |
+| Minimal | percona-server-mongodb-{{release}}-x86_64.<glibc-version>-minimal.tar.gz| Contains binaries and libraries without debug symbols|
 | Checksum| percona-server-mongodb-{{release}}-x86_64.<glibc-version>-minimal.tar.gz.sha256sum | Contains the MD5 checksum to verify the integrity of the files after extraction|
 
 
