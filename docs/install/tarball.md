@@ -8,6 +8,44 @@ There are two tarballs available:
 
 * `percona-server-mongodb-{{release}}-x86_64.glibc2.35.tar.gz` is the tarball for Ubuntu 22.04.
 
+To check which `glibc` version your system is using, run the following command:
+
+```{.bash data-prompt="$"}
+$ ldd --version
+```
+
+??? example "Sample output"
+
+    ```{.text .no-copy}
+    ldd (GNU libc) 2.28
+    Copyright (C) 2018 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    Written by Roland McGrath and Ulrich Drepper.
+    ```
+
+## What tarballs to choose
+
+The following table helps you understand what tarball to download based on the glibc version of your operating system.
+
+| Operating system | Tarball to download | glibc version  |
+|------------------|---------------------|----------------|
+| Ubuntu 22.04         | percona-server-mongodb-{{release}}-x86_64.glibc2.35.tar.gz     | glibc2.35 |
+| Ubuntu 20.04         | percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz     | glibc2.31 |
+| Debian 11            | percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz     | glibc2.31 |
+| Debian 10            | percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz     | glibc2.28 |   
+| Red Hat Enterprise 8 | percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz     | glibc2.28 |
+| Red Hat Enterprise 7 | percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz     | glibc2.17 |
+
+### Tarball types
+
+| Type | Name | Description |
+|---|---|---|
+| Full | percona-server-mongodb-{{release}}-x86_64.<glibc-version>.tar.gz | Contains binaries and libraries |
+| Minimal | percona-server-mongodb-{{release}}-x86_64.<glibc-version>-minimal.tar.gz| Contains binaries and libraries without debug symbols|
+| Checksum| percona-server-mongodb-{{release}}-x86_64.<glibc-version>-minimal.tar.gz.sha256sum | Contains the MD5 checksum to verify the integrity of the files after extraction|
+
+
 ## Preconditions
 
 The following packages are required for the installation.
