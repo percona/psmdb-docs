@@ -34,6 +34,7 @@ The following table helps you understand what tarball to download based on the g
 |------------------|---------------------|----------------|
 | Ubuntu 22.04         | percona-server-mongodb-{{release}}-x86_64.glibc2.35.tar.gz     | glibc2.35 |
 | Ubuntu 20.04         | percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz     | glibc2.31 |
+| Debian 12            | percona-server-mongodb-{{release}}-x86_64.glibc2.35.tar.gz     | glibc2.36 |
 | Debian 11            | percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz     | glibc2.31 |
 | Debian 10            | percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz     | glibc2.28 |   
 | Red Hat Enterprise 9 | percona-server-mongodb-{{release}}-x86_64.glibc2.17.tar.gz     | glibc2.34 |
