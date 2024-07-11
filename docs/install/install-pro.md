@@ -58,11 +58,19 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
         REPO_TOKEN=<Your PRO repository token>
         ```    
 
-3. Install Percona Server for MongoDB Pro packages    
+3. Install Percona Server for MongoDB Pro packages:
 
-    ```{.bash .data-prompt="$"}
-    $ sudo apt install -y percona-server-mongodb-pro
-    ```    
+    === ":material-debian: Debian and Ubuntu"
+
+        ```{.bash .data-prompt="$"}
+        $ sudo apt install -y percona-server-mongodb-pro
+        ```    
+
+    === ":material-redhat: RHEL and derivatives"
+
+        ```{.bash .data-prompt="$"}
+        $ sudo yum install -y percona-server-mongodb-pro
+        ```
 
 4. Start the server    
 
