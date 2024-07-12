@@ -40,7 +40,7 @@ Telemetry subsystem extends the functionality of the database. It can be impleme
 
 * Self-contained extensions
 
-Percona Server for MongoDB has built-in Telemetry subsystem implemented separately for `mongod` and `mongos` instances. It is enabled by default during the initial database deployment.
+Percona Server for MongoDB has a built-in Telemetry subsystem implemented separately for `mongod` and `mongos` instances. It is enabled by default during the initial database deployment.
 
 Telemetry subsystem does not collect the following information:
 
