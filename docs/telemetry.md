@@ -50,7 +50,7 @@ Telemetry subsystem does not collect the following information:
 
 * any user-entered value
 
-The Telemetry subsystem sends metrics gathered from the database instance to the Metrics file. This information is collected every 24 hours. Each connection creates a new Metrics file. When the file date exceeds seven days, the component removes the outdated files before creating the new file.
+The Telemetry subsystem sends metrics gathered from the database instance to the Metrics file. This information is collected every 24 hours. Each collection creates a new Metrics file. When the file date exceeds seven days, the component removes the outdated files before creating the new file.
 
 The component creates a file in the local file system using a timestamp as the name with a `.json` extension.
 
@@ -214,9 +214,9 @@ $ sudo systemctl stop percona-telemetry-agent
 
 Even after stopping the telemetry agent service, a different part of the software (Telemetry subsystem) continues to create the Metrics file related to telemetry every day and saves that file for seven days.
 
-### To disable the Telemetry subsystem
+### To stop the Metrics file creation
 
-You can disable the Telemetry subsystem by running the `setParameter` command in one of the following ways:
+You can disable the Telemetry subsystem temporarily by running the `setParameter` command in one of the following ways:
 
 === ":octicons-file-code-24: Configuration file"
 
@@ -242,15 +242,16 @@ You can disable the Telemetry subsystem by running the `setParameter` command in
 === ":simple-mongodb: `setParameter` command"    
 
     Use the `setParameter` command on the `admin` database
-    to make changes at runtime. The changes affect the server until restart:    
-
+    to make changes at runtime. 
     ```{.javascript data-prompt=">"}
     > db.adminCommand({setParameter: 1, "perconaTelemetry": false})
     ```
 
+The changes apply until the server restart.
+
 !!! tip
 
-    If you wish to re-enable Telemetry subsystem, set the `perconaTelemetry` to `true` for the `setParameter` command.
+    If you wish to re-enable the Telemetry subsystem, set the `perconaTelemetry` to `true` for the `setParameter` command.
 
 
 ### To disable in Docker
