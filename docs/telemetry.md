@@ -32,7 +32,7 @@ The telemetry also uses the Percona Platform with the following components:
 
 ### Telemetry subsystem
 
-Telemetry subsystem extends the functionality of the database. It can be implemented in the following ways, depending on the database:
+The Telemetry subsystem extends the functionality of the database. It can be implemented in the following ways, depending on the database:
 
 * Modification to the source code
 
