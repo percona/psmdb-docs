@@ -1,6 +1,6 @@
 # Telemetry on Percona Server for MongoDB
 
-Percona wants to learn more about how people use their software. This telemetry feature helps them understand what features users use the most, if there are any problems, and how Percona can improve their software in the future. 
+Percona wants to learn more about how people use their software. This telemetry feature helps them understand what features users use the most if there are any problems, and how Percona can improve their software in the future. 
 
 You can choose not to share this information. Participation in this program is completely voluntary. If you're uncomfortable sharing this anonymous data, you can [disable telemetry](#disable-telemetry).
 
