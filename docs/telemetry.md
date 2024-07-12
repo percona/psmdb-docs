@@ -60,7 +60,7 @@ Percona stores the Metrics file in one of the following directories on the local
 
 * Telemetry root path - `/usr/local/percona/telemetry`
 
-* Percona Server for MongoDB has two root paths, since telemetry subsystem is enabled both for the `mongod` and `mongos` instances. The paths are the following:  
+* Percona Server for MongoDB has two root paths since the telemetry subsystem is enabled both for the `mongod` and `mongos` instances. The paths are the following:  
 
     * `mongod` root path -  `${telemetry root path}/psmdb/`
     * `mongos` root path -  `${telemetry root path}/psmdbs/`
