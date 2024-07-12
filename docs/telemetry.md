@@ -50,7 +50,7 @@ Telemetry subsystem does not collect the following information:
 
 * any user-entered value
 
-Telemetry subsystem sends metrics gathered from the database instance to the Metrics file. This information is collected every 24 hours. Each connection creates a new Metrics file. When the file date exceeds seven days, the component removes the outdated files before creating the new file.
+The Telemetry subsystem sends metrics gathered from the database instance to the Metrics file. This information is collected every 24 hours. Each connection creates a new Metrics file. When the file date exceeds seven days, the component removes the outdated files before creating the new file.
 
 The component creates a file in the local file system using a timestamp as the name with a `.json` extension.
 
