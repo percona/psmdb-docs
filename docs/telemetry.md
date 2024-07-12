@@ -164,7 +164,7 @@ The following operating system-level metrics are sent with each check:
 | Key | Description |
 |---|---|
 | "OS" | The name of the operating system |
-| "hardware_arch" | The type of processed used in the environment |
+| "hardware_arch" | The type of process used in the environment |
 | "deployment" | How the application was deployed. <br> The possible values could be "PACKAGE" or "DOCKER". |
 | "installed_packages" | A list of the installed Percona packages.|
 
