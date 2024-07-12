@@ -214,7 +214,7 @@ $ sudo systemctl stop percona-telemetry-agent
 
 Even after stopping the telemetry agent service, a different part of the software (Telemetry subsystem) continues to create the Metrics file related to telemetry every day and saves that file for seven days.
 
-### To disable Telemetry subsystem
+### To disable the Telemetry subsystem
 
 You can disable the Telemetry subsystem by running the `setParameter` command in one of the following ways:
 
