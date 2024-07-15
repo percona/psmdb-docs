@@ -214,14 +214,14 @@ $ sudo systemctl stop percona-telemetry-agent
 
 Even after stopping the telemetry agent service, a different part of the software (Telemetry subsystem) continues to create the Metrics file related to telemetry every day and saves that file for seven days.
 
-### To stop the Metrics file creation
+### Disable the Telemetry subsystem
 
-You can disable the Telemetry subsystem temporarily by running the `setParameter` command in one of the following ways:
+To disable the Telemetry subsystem, set the `perconaTelemetry` server parameter to `false`. You can do this in one of the following ways:
 
 === ":octicons-file-code-24: Configuration file"
 
     Use the `setParameter` admonitions in the configuration file
-    for persistent changes in production:    
+    for persistent changes:    
 
     ```yaml
     setParameter:
@@ -230,7 +230,7 @@ You can disable the Telemetry subsystem temporarily by running the `setParameter
 
 === ":material-console: Command line"
 
-    Use the `--setParameter` command line option arguments for both `mongod` and `mongos` processes:    
+    Use the `--setParameter` command line option arguments for both `mongod` and `mongos` processes. The command applies the changes persistently:    
 
     ```{.bash data-prompt="$"}
     $ mongod \
@@ -242,19 +242,18 @@ You can disable the Telemetry subsystem temporarily by running the `setParameter
 === ":simple-mongodb: `setParameter` command"    
 
     Use the `setParameter` command on the `admin` database
-    to make changes at runtime. 
+    to make changes at runtime. The changes apply until the server restart.
+
     ```{.javascript data-prompt=">"}
     > db.adminCommand({setParameter: 1, "perconaTelemetry": false})
     ```
-
-The changes apply until the server restart.
 
 !!! tip
 
     If you wish to re-enable the Telemetry subsystem, set the `perconaTelemetry` to `true` for the `setParameter` command.
 
 
-### To disable in Docker
+### To disable telemetry in Docker
 
 When you start a container, the telemetry is enabled by default. To disable it, add the environment variable when running a command in a new container.
     
