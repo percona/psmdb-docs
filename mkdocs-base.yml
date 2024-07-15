@@ -138,7 +138,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-7.0.pdf'
           cover_title: 'Server for MongoDB Documentation 7.0'
-          cover_subtitle: 7.0.12-7 (July 17, 2024)
+          cover_subtitle: 7.0.12-7 (July 18, 2024)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
