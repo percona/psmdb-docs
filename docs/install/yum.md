@@ -23,47 +23,28 @@ Before you start, check the [system requirements](../system-requirements.md).
 
 ### Configure Percona repository
 
-=== "x86_64"
+Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    
 
-    Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    
+1. Install **percona-release**:     
 
-     1. Install **percona-release**:     
-
-         ```{.bash data-prompt="$"}
-         $ sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-         ```
-         
-         Example output     
-
-         ```{ .sh .no-copy }
-         Retrieving https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-         Preparing...                ########################################### [100%]
-         1:percona-release        ########################################### [100%]
-         ```     
-
-     2. Enable the repository: 
-        
-         ```{.bash data-prompt="$"}
-         $ sudo percona-release enable psmdb-70 release
-         ```
-        
-         !!! admonition "See also"     
-
-             [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/index.html)
-
-=== "ARM64"
-
-    Create the `/etc/yum.repos.d/percona-psmdb-70-release.repo` configuration file with the following contents:
-
-    ```ini title='/etc/yum.repos.d/percona-psmdb-70-release.repo'
-    [psmdb-70-release-aarch64]
-    name = Percona Server for MongoDB 7.0 release/aarch64 YUM repository
-    baseurl = http://repo.percona.com/psmdb-70/yum/release/$releasever/RPMS/aarch64
-    enabled = 1
-    gpgcheck = 1
-    gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
+    ```{.bash data-prompt="$"}
+    $ sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
     ```
-   
+         
+    ??? example "Example output"
+
+        ```{.bash .no-copy }
+        Retrieving https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+        Preparing...                ########################################### [100%]
+        1:percona-release        ########################################### [100%]
+        ```     
+
+2. Enable the repository: 
+        
+    ```{.bash data-prompt="$"}
+    $ sudo percona-release enable psmdb-70 release
+    ```
+
 ### Install Percona Server for MongoDB packages
 
 === ":material-run-fast: Install the latest version"
