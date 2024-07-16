@@ -45,7 +45,7 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
         Run the following command and pass your credentials to the Pro repository:
 
         ```{.bash .data-prompt="$"}
-        $ sudo percona-release enable psmdb-70-pro release --user_name <Your Customer ID> --repo_token  <Your PRO repository token>
+        $ sudo percona-release enable psmdb-70-pro release --user_name=<Your Customer ID> --repo_token=<Your PRO repository token>
         ```
 
     === ":octicons-file-code-24: Configuration file"
