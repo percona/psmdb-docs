@@ -21,46 +21,26 @@ Before you start, check the [system requirements](system-requirements.md).
 
 ### Configure Percona repository
 
+Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    
 
-=== "x86_64"
+1. Install **percona-release**:     
 
-    Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    
-
-     1. Install **percona-release**:     
-
-         ```{.bash data-prompt="$"}
-         $ sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-         ```
+    ```{.bash data-prompt="$"}
+    $ sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+    ```
          
-         Example output     
+    ??? example "Example output"
 
-         ```{ .sh .no-copy }
-         Retrieving https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-         Preparing...                ########################################### [100%]
-         1:percona-release        ########################################### [100%]
-         ```     
+        ```{.bash .no-copy }
+        Retrieving https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+        Preparing...                ########################################### [100%]
+        1:percona-release        ########################################### [100%]
+        ```     
 
-     2. Enable the repository: 
+2. Enable the repository: 
         
-         ```{.bash data-prompt="$"}
-         $ sudo percona-release enable psmdb-60 release
-         ```
-        
-         !!! admonition "See also"     
-
-             [Percona Software Repositories Documentation](https://www.percona.com/doc/percona-repo-config/index.html)
-
-=== "ARM64"
-
-    Create the `/etc/yum.repos.d/percona-psmdb-60-release.repo` configuration file with the following contents:
-
-    ```ini title='/etc/yum.repos.d/percona-psmdb-60-release.repo'
-    [psmdb-60-release-aarch64]
-    name = Percona Server for MongoDB 6.0 release/aarch64 YUM repository
-    baseurl = http://repo.percona.com/psmdb-60/yum/release/$releasever/RPMS/aarch64
-    enabled = 1
-    gpgcheck = 1
-    gpgkey = file:///etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
+    ```{.bash data-prompt="$"}
+    $ sudo percona-release enable psmdb-60 release
     ```
 
 ### Install Percona Server for MongoDB packages
@@ -89,13 +69,13 @@ Before you start, check the [system requirements](system-requirements.md).
          ```{.bash .no-copy}
              Available Packages
          
-         percona-server-mongodb.x86_64    6.0.2-1.el8       psmdb-60-release-x86_64
+         percona-server-mongodb.x86_64    {{release}}.el8       psmdb-60-release-x86_64
          ```
 
-     2. Install a specific version packages. For example, to install *Percona Server for MongoDB* 6.0.2-1, run the following command:
+     2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-server-mongodb-6.0.2-1.el8
+        $ sudo yum install percona-server-mongodb-{{release}}.el8
         ```
 
 By default, Percona Server for MongoDB stores data files in `/var/lib/mongodb/`

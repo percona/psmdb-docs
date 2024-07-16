@@ -21,44 +21,32 @@ Before you start, check the [system requirements](system-requirements.md).
 
 ### Configure Percona repository
 
-=== "x86_64"
+Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    
 
-    Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    
-
-    1. Fetch **percona-release** packages from Percona web:
+1. Fetch `percona-release` packages from Percona web:
         
-        ```{.bash data-prompt="$"}
-        $ wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
-        ```    
+    ```{.bash data-prompt="$"}
+    $ wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
+    ```    
 
-    2. Install the downloaded package with **dpkg**:    
+2. Install the downloaded package with **dpkg**:    
 
-        ```{.bash data-prompt="$"}
-        $ sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
-        ```    
+    ```{.bash data-prompt="$"}
+    $ sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
+    ```    
 
-        After you install this package, you have the access to Percona repositories. You
-        can check the repository setup in the `/etc/apt/sources.list.d/percona-release.list` file.    
+    After you install this package, you have the access to Percona repositories. You can check the repository setup in the `/etc/apt/sources.list.d/percona-release.list` file.    
     
+3. Enable the repository:    
 
-    3. Enable the repository:    
+    ```{.bash data-prompt="$"}
+    $ sudo percona-release enable psmdb-60 release
+    ```    
 
-        ```{.bash data-prompt="$"}
-        $ sudo percona-release enable psmdb-60 release
-        ```    
+4. Remember to update the local cache:    
 
-    4. Remember to update the local cache:    
-
-        ```{.bash data-prompt="$"}
-        $ sudo apt update
-        ```
-
-=== "ARM64"
-
-    Create the `/etc/apt/sources.list.d/percona-psmdb-60-release.list ` configuration file with the following contents:
-
-    ```ini title='/etc/apt/sources.list.d/percona-psmdb-60-release.list'
-    deb http://repo.percona.com/psmdb-60/apt OPERATING_SYSTEM main
+    ```{.bash data-prompt="$"}
+    $ sudo apt update
     ```
 
 ### Install Percona Server for MongoDB
@@ -85,13 +73,13 @@ Before you start, check the [system requirements](system-requirements.md).
          Sample output:
 
          ```{.bash .no-copy}
-         percona-server-mongodb | 6.0.2-1.buster | http://repo.percona.com/psmdb-60/apt buster/main amd64 Packages
+         percona-server-mongodb | {{release}}.jammy | http://repo.percona.com/psmdb-60/apt jammy/main amd64 Packages
          ```
 
-      2. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 6.0.2-1, run the following command:
+      2. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB {{release}}, run the following command:
 
          ```{.bash data-prompt="$"}
-         $ sudo apt install percona-server-mongodb=6.0.2-1.buster percona-server-mongodb-mongos=6.0.2-1.buster percona-server-mongodb-shell=6.0.2-1.buster percona-server-mongodb-server=6.0.2-1.buster percona-server-mongodb-tools=6.0.2-1.buster
+         $ sudo apt install percona-server-mongodb={{release}}.jammy percona-server-mongodb-mongos={{release}}.jammy percona-server-mongodb-shell={{release}}.jammy percona-server-mongodb-server={{release}}.jammy percona-server-mongodb-tools={{release}}.jammy
          ```
 
 By default, Percona Server for MongoDB stores data files in `/var/lib/mongodb/`
