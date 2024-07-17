@@ -220,7 +220,7 @@ To disable the Telemetry subsystem, set the `perconaTelemetry` server parameter 
 
 === ":octicons-file-code-24: Configuration file"
 
-    Use the `setParameter` admonitions in the configuration file
+    Use the `setParameter.perconaTelemetry` parameter in the configuration file
     for persistent changes:    
 
     ```yaml
@@ -230,7 +230,7 @@ To disable the Telemetry subsystem, set the `perconaTelemetry` server parameter 
 
 === ":material-console: Command line"
 
-    Use the `--setParameter` command line option arguments for both `mongod` and `mongos` processes. The command applies the changes persistently:    
+    Use the `--setParameter` command line option arguments for both `mongod` and `mongos` processes. The server starts with the telemetry subsystem disabled:    
 
     ```{.bash data-prompt="$"}
     $ mongod \
