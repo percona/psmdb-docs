@@ -16,13 +16,15 @@ Percona collects information using the following components:
 
 * The Metrics file stores the metrics and is a standalone file located on the database host's file system.
 
-* The Telemetry Agent is an independent process running on your database host's operating system and carries out the following tasks:
+* The Telemetry agent is an independent process running on your database host's operating system and carries out the following tasks:
 
     * Collects OS-level metrics
 
     * Reads the Metrics file, adds the OS-level metrics
 
     * Sends the full set of metrics to the Percona Platform
+
+    * Collects the list of installed Percona packages using the local package manager
 
 The telemetry also uses the Percona Platform with the following components:
 
@@ -50,9 +52,9 @@ Telemetry subsystem does not collect the following information:
 
 * any user-entered value
 
-The Telemetry subsystem sends metrics gathered from the database instance to the Metrics file. This information is collected every 24 hours. Each collection creates a new Metrics file. When the file date exceeds seven days, the component removes the outdated files before creating the new file.
+The Telemetry subsystem collects metrics from the database instance daily to the Metrics file. It creates a new Metrics file for each collection. Before generating a new file, the Telemetry subsystem deletes the Metrics files that are older than seven days. This process ensures that only the most recent week's data is maintained.
 
-The component creates a file in the local file system using a timestamp as the name with a `.json` extension.
+The Telemetry subsystem creates a file in the local file system using a timestamp as the name with a `.json` extension.
 
 ### Metrics file
 
@@ -70,8 +72,6 @@ Percona stores the Metrics file in one of the following directories on the local
 * PXC root path - `${telemetry root path}/pxc/`
 
 * PG root path - `${telemetry root path}/pg/`
-
-* Percona ToolKit - `${telemetry root path}/toolkit/`
 
 Percona archives the telemetry history in `${telemetry root path}/history/`.
 
@@ -116,11 +116,13 @@ The Metrics file uses the Javascript Object Notation (JSON) format. Percona rese
     }
     ```
 
-### Telemetry Agent
+### Telemetry agent
 
-The Percona Telemetry agent functions as a dedicated OS daemon process. The service name on the operating system is `percona-telemetry-agent`. The agent can create, read, write, and delete files in the `${telemetry root path}` and only interacts with JSON files.
+The Percona Telemetry agent runs as a dedicated OS daemon process `percona-telemetry-agent`. It creates, reads, writes, and deletes JSON files in the [`${telemetry root path}`](#metrics-file). You can find the agent's log file at `/var/log/percona/telemetry-agent.log`.
 
-The agent sends the collected information as a file to the Percona Platform every 24 hours. If the attempt fails, the agent tries again after a defined period with a limit of five attempts. After a successful transmission, the agent deletes the file.
+During the installation of a Linux package, the package manager also installs mandatory dependencies. The Telemetry agent is a mandatory dependency for Percona Server for MongoDB. Removing the Telemetry agent also removes the database.
+
+The Telemetry agent sends the collected information as a file to the Percona Platform every 24 hours. If the attempt fails, the agent tries again after a defined period with a limit of five attempts. After a successful transmission, the agent saves the sent Metrics file to the history folder and deletes the database-created file.
 
 The agent does not send anything if no Percona-specific files are in the target directory.
 
