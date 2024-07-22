@@ -40,7 +40,6 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
          ```
 
          ??? example "Sample output"
-
              ```{.text .no-copy}
              ii  mongodb-org                      7.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
              ii  mongodb-org-database             7.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
