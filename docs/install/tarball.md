@@ -24,25 +24,19 @@ Install the following dependencies required to install Percona Server for MongoD
 === ":material-redhat: RHEL and derivatives"
 
     ```{.bash data-prompt="$"}
-    $ sudo yum install libcurl cyrus-sasl-gssapi cyrus-sasl-plain openssl xz-libs
+    $ sudo yum install openldap cyrus-sasl-gssapi curl
     ```
 
-=== ":material-ubuntu: Ubuntu 22.04"
+=== ":material-ubuntu: Ubuntu"
 
     ```{.bash data-prompt="$"}
-    $ sudo apt-get install libcurl4 libgssapi-krb5-2 libldap-2.5-0 libwrap0 libsasl2-2 libsasl2-modules libsasl2-modules-gssapi-mit snmp openssl liblzma5
-    ```
-
-=== ":material-ubuntu: Ubuntu 20.04"
-
-    ```{.bash data-prompt="$"}
-    $ sudo apt-get install libcurl4 openssl liblzma5
+    $ sudo apt install curl libsasl2-modules-gssapi-mit
     ```
 
 === ":material-debian: Debian"
      
     ```{.bash data-prompt="$"}
-    $ sudo apt install libcurl4 openssl liblzma5
+    $ sudo apt curl libsasl2-modules-gssapi-mit
     ```
 
 ## Procedure
