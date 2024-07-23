@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona telemetry fills in the gaps in our understanding of how you use Percona Server for MongoDB to improve our products. Participation in this anonymous program is optional. You can opt-out if you prefer to not share this information.">
+        <meta name="description" content="Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements.">
       
       
         <meta name="author" content="Percona LLC">
@@ -28,7 +28,7 @@
     
     
       
-        <title>Telemetry on Percona Server for MongoDB - Percona Server for MongoDB 7.0</title>
+        <title>Telemetry and data collection - Percona Server for MongoDB 7.0</title>
       
     
     
@@ -94,7 +94,7 @@
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 7.0 - Telemetry on Percona Server for MongoDB" />
+<meta property="og:title" content="Percona Server for MongoDB 7.0 - Telemetry and data collection" />
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
  <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
@@ -132,7 +132,7 @@ document$.subscribe(() => { lightbox.reload() });
     <div data-md-component="skip">
       
         
-        <a href="#telemetry-on-percona-server-for-mongodb" class="md-skip">
+        <a href="#telemetry-and-data-collection" class="md-skip">
           Skip to content
         </a>
       
@@ -229,7 +229,7 @@ document$.subscribe(() => { lightbox.reload() });
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Telemetry on Percona Server for MongoDB
+              Telemetry and data collection
             
           </span>
         </div>
@@ -1943,7 +1943,7 @@ document$.subscribe(() => { lightbox.reload() });
           
   
   <span class="md-ellipsis">
-    Telemetry on Percona Server for MongoDB
+    Telemetry and data collection
   </span>
   
 
@@ -1954,7 +1954,7 @@ document$.subscribe(() => { lightbox.reload() });
         
   
   <span class="md-ellipsis">
-    Telemetry on Percona Server for MongoDB
+    Telemetry and data collection
   </span>
   
 
@@ -1987,11 +1987,128 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
       
         <li class="md-nav__item">
+  <a href="#what-is-not-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is NOT collected
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-telemetry-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why telemetry matters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#telemetry-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telemetry components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Telemetry components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#telemetry-subsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telemetry Subsystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrics-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metrics File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telemetry-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telemetry Agent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#disable-telemetry" class="md-nav__link">
     <span class="md-ellipsis">
       Disable telemetry
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Disable telemetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-the-telemetry-collected-during-the-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable the telemetry collected during the installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable-telemetry-for-the-installed-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable telemetry for the installed software
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disable telemetry for the installed software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-telemetry-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable Telemetry Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telemetry-agent-dependencies-and-removal-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telemetry Agent dependencies and removal considerations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-the-telemetry-subsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable the Telemetry Subsystem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2106,11 +2223,128 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
       
         <li class="md-nav__item">
+  <a href="#what-is-not-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is NOT collected
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-telemetry-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why telemetry matters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#telemetry-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telemetry components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Telemetry components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#telemetry-subsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telemetry Subsystem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metrics-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metrics File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telemetry-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telemetry Agent
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#disable-telemetry" class="md-nav__link">
     <span class="md-ellipsis">
       Disable telemetry
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Disable telemetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-the-telemetry-collected-during-the-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable the telemetry collected during the installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable-telemetry-for-the-installed-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable telemetry for the installed software
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disable telemetry for the installed software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-telemetry-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable Telemetry Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telemetry-agent-dependencies-and-removal-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Telemetry Agent dependencies and removal considerations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-the-telemetry-subsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable the Telemetry Subsystem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2156,33 +2390,310 @@ document$.subscribe(() => { lightbox.reload() });
   
 
 
-<h1 id="telemetry-on-percona-server-for-mongodb">Telemetry on Percona Server for MongoDB<a class="headerlink" href="#telemetry-on-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
-<p>Percona telemetry fills in the gaps in our understanding of how you use Percona Server for MongoDB to improve our products. Participation in this anonymous program is optional. You can opt-out if you prefer to not share this information.</p>
+<h1 id="telemetry-and-data-collection">Telemetry and data collection<a class="headerlink" href="#telemetry-and-data-collection" title="Permanent link">&para;</a></h1>
+<p>Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements. </p>
+<p>Currently, telemetry is added only to the Percona packages for both basic and Pro builds and to Docker images. </p>
 <h2 id="what-information-is-collected">What information is collected<a class="headerlink" href="#what-information-is-collected" title="Permanent link">&para;</a></h2>
-<p>Currently, telemetry is added only to the Percona packages and Docker images. It collects only information about the installation environment. Future releases may add additional telemetry metrics.</p>
-<p>Be assured that access to this raw data is rigorously controlled. Percona does not collect personal data. All data is anonymous and cannot be traced to a specific user. To learn more about our privacy practices, read the <a href="https://www.percona.com/privacy-policy#h.e34c40q8sb1a">Percona Privacy statement</a>.</p>
-<p>The following is an example of the collected data:</p>
-<div class="highlight"><pre><span></span><code><span class="p">[{</span><span class="nt">&quot;id&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c416c3ee-48cd-471c-9733-37c2886f8231&quot;</span><span class="p">,</span>
-<span class="nt">&quot;product_family&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PRODUCT_FAMILY_PSMDB&quot;</span><span class="p">,</span>
-<span class="nt">&quot;instanceId&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6aef422e-56a7-4530-af9d-94cc02198343&quot;</span><span class="p">,</span>
-<span class="nt">&quot;createTime&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-11-01T10:46:23Z&quot;</span><span class="p">,</span>
-<span class="nt">&quot;metrics&quot;</span><span class="p">:</span>
-<span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;deployment&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PACKAGE&quot;</span><span class="p">},</span>
-<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pillar_version&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7.0.3-2&quot;</span><span class="p">},</span>
-<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OS&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Oracle Linux Server 8.8&quot;</span><span class="p">},</span>
-<span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;hardware_arch&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;x86_64 x86_64&quot;</span><span class="p">}]}]</span>
-</code></pre></div>
-<h2 id="disable-telemetry">Disable telemetry<a class="headerlink" href="#disable-telemetry" title="Permanent link">&para;</a></h2>
-<p>Starting with Percona Server for MongoDB 7.0.4-2, telemetry is enabled by default. If you decide not to send usage data to Percona, you can set the <code>PERCONA_TELEMETRY_DISABLE=1</code> environment variable for either the root user or in the operating system prior to the installation process.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian-derived distribution</label><label for="__tabbed_1_2">Red Hat-derived distribution</label><label for="__tabbed_1_3">Docker</label></div>
+<p>Telemetry collects the following information:</p>
+<ul>
+<li>The information about the installation environment when you install the software.</li>
+<li>The information about the operating system such as OS name, the architecture, the list of Percona packages. See more in the <a href="#telemetry-agent">Telemetry Agent section</a>.</li>
+<li>The metrics from the database instance. See more in the <a href="#telemetry-subsystem">Telemetry Subsystem section</a>.</li>
+</ul>
+<h2 id="what-is-not-collected">What is NOT collected<a class="headerlink" href="#what-is-not-collected" title="Permanent link">&para;</a></h2>
+<p>Percona protects your privacy and doesn&rsquo;t collect any personal information about you like database names, user names or credentials or any user-entered values. </p>
+<p>All collected data is anonymous, meaning it can&rsquo;t be traced back to any individual user. To learn more about how Percona handles your data, read the <a href="https://www.percona.com/privacy-policy">Percona Privacy statement</a>.</p>
+<p>You control whether to share this information. Participation in this program is completely voluntary. If don&rsquo;t want to share anonymous data, you can <a href="#disable-telemetry">disable telemetry</a>.</p>
+<h2 id="why-telemetry-matters">Why telemetry matters<a class="headerlink" href="#why-telemetry-matters" title="Permanent link">&para;</a></h2>
+<p>Benefits for Percona:</p>
+<table>
+<thead>
+<tr>
+<th>Advantages</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>See how people use your software</td>
+<td>Telemetry collects anonymous data on how users interact with our software. This tells developers which features are popular, which ones are confusing, and if anything is causing crashes.</td>
+</tr>
+<tr>
+<td>Identify issues early</td>
+<td>Telemetry can catch bugs or performance problems before they become widespread.</td>
+</tr>
+</tbody>
+</table>
+<p>Benefits for users in the long run:</p>
+<table>
+<thead>
+<tr>
+<th>Advantages</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Faster bug fixes</td>
+<td>With telemetry data, developers can pinpoint issues affecting specific users and prioritize fixing them quickly.</td>
+</tr>
+<tr>
+<td>Improved features</td>
+<td>Telemetry helps developers understand user needs and preferences. This allows them to focus on features that will be genuinely useful and improve your overall experience.</td>
+</tr>
+<tr>
+<td>Improved user experience</td>
+<td>By identifying and resolving issues early, telemetry helps create a more stable and reliable software experience for everyone.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="telemetry-components">Telemetry components<a class="headerlink" href="#telemetry-components" title="Permanent link">&para;</a></h2>
+<p>Percona collects information using the following components:</p>
+<ul>
+<li>
+<p>Telemetry script that sends the information about the software and the environment where it is installed. This information is collected only once during the installation.</p>
+</li>
+<li>
+<p>The Telemetry Subsystem collects the necessary metrics directly from the database and stores them in a Metrics File.</p>
+</li>
+<li>
+<p>The Metrics File stores the metrics and is a standalone file located on the database host&rsquo;s file system.</p>
+</li>
+<li>
+<p>The Telemetry Agent is an independent process running on your database host&rsquo;s operating system and carries out the following tasks:</p>
+<ul>
+<li>
+<p>Collects OS-level metrics</p>
+</li>
+<li>
+<p>Reads the Metrics File, adds the OS-level metrics</p>
+</li>
+<li>
+<p>Sends the full set of metrics to the Percona Platform</p>
+</li>
+<li>
+<p>Collects the list of installed Percona packages using the local package manager</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>The telemetry also uses the Percona Platform with the following components:</p>
+<ul>
+<li>
+<p>Telemetry Service - offers an API endpoint for sending telemetry. The service handles incoming requests. This service saves the data into Telemetry Storage.</p>
+</li>
+<li>
+<p>Telemetry Storage - stores all telemetry data for the long term.</p>
+</li>
+</ul>
+<h3 id="telemetry-subsystem">Telemetry Subsystem<a class="headerlink" href="#telemetry-subsystem" title="Permanent link">&para;</a></h3>
+<p>The Telemetry Subsystem extends the functionality of the database. It is built-in in Percona Server for MongoDB and is implemented separately for <code>mongod</code> and <code>mongos</code> instances. The Telemetry Subsystem is enabled by default during the initial database deployment.</p>
+<p>The Telemetry Subsystem collects metrics from the database instance daily to the Metrics File. It creates a new Metrics File for each collection. Before generating a new file, the Telemetry Subsystem deletes the Metrics Files that are older than seven days. This process ensures that only the most recent week&rsquo;s data is maintained.</p>
+<p>The Telemetry Subsystem creates a file in the local file system using a timestamp as the name with a <code>.json</code> extension.</p>
+<h3 id="metrics-file">Metrics File<a class="headerlink" href="#metrics-file" title="Permanent link">&para;</a></h3>
+<p>The Metrics File is a JSON file with the metrics collected by the Telemetry Subsystem. </p>
+<h4 id="locations">Locations<a class="headerlink" href="#locations" title="Permanent link">&para;</a></h4>
+<p>Percona stores the Metrics File in one of the following directories on the local file system. The location depends on the product.</p>
+<ul>
+<li>
+<p>Telemetry root path - <code>/usr/local/percona/telemetry</code></p>
+</li>
+<li>
+<p>Percona Server for MongoDB has two root paths since the telemetry Subsystem is enabled both for the <code>mongod</code> and <code>mongos</code> instances. The paths are the following:  </p>
+<ul>
+<li><code>mongod</code> root path -  <code>${telemetry root path}/psmdb/</code></li>
+<li><code>mongos</code> root path -  <code>${telemetry root path}/psmdbs/</code></li>
+</ul>
+</li>
+<li>
+<p>PS root path -   <code>${telemetry root path}/ps/</code></p>
+</li>
+<li>
+<p>PXC root path - <code>${telemetry root path}/pxc/</code></p>
+</li>
+<li>
+<p>PG root path - <code>${telemetry root path}/pg/</code></p>
+</li>
+</ul>
+<p>Percona archives the telemetry history in <code>${telemetry root path}/history/</code>.</p>
+<h4 id="metrics-file-format">Metrics File format<a class="headerlink" href="#metrics-file-format" title="Permanent link">&para;</a></h4>
+<p>The Metrics File uses the Javascript Object Notation (JSON) format. Percona reserves the right to extend the current set of JSON structure attributes in the future.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><code>mongod</code> Metrics File</label><label for="__tabbed_1_2"><code>mongos</code> Metrics File</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Add the environment variable before the install process.</p>
+<p>The following is an example of the collected data generated by the <code>mongod</code> instance of the config server replica set of the sharded cluster:    </p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mongod&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;pillar_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;pro_features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;db_instance_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;65e9977d58deb2f66faa591c&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;db_internal_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;65e9977d58deb2f66faa591c&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;db_cluster_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;65e997cb58deb2f66faa5954&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;shard_svr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;config_svr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;uptime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;102&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;storage_engine&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;wiredTiger&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;db_replication_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;65e997cb58deb2f66faa5944&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;replication_state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PRIMARY&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>The following is an example of the collected data generated by the <code>mongos</code> instance. </p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mongos&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;pillar_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;pro_features&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;db_instance_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6690fea9066216c6d9d77044&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;uptime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;db_cluster_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6690fea65d86eb061c0bd728&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="telemetry-agent">Telemetry Agent<a class="headerlink" href="#telemetry-agent" title="Permanent link">&para;</a></h3>
+<p>The Percona Telemetry Agent runs as a dedicated OS daemon process <code>percona-telemetry-agent</code>. It creates, reads, writes, and deletes JSON files in the <a href="#locations"><code>${telemetry root path}</code></a>. You can find the agent&rsquo;s log file at <code>/var/log/percona/telemetry-agent.log</code>.</p>
+<p>The agent does not send anything if there are no Percona-specific files in the target directory.</p>
+<p>The following is an example of a Telemetry Agent payload:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;reports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;B5BDC47B-B717-4EF5-AEDF-41A17C9C18BB&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;createTime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-09-01T10:56:49Z&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;instanceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;B5BDC47B-B717-4EF5-AEDF-41A17C9C18BA&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;productFamily&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PRODUCT_FAMILY&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;metrics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OS&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Ubuntu&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pillar_version&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7.0.0&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The agent sends information about the database and metrics.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&ldquo;id&rdquo;</td>
+<td>A generated Universally Unique Identifier (UUID) version 4</td>
+</tr>
+<tr>
+<td>&ldquo;createTime&rdquo;</td>
+<td>UNIX timestamp</td>
+</tr>
+<tr>
+<td>&ldquo;instanceId&rdquo;</td>
+<td>The DB Host ID. The value can be taken from the <code>instanceId</code>, the <code>/usr/local/percona/telemetry_uuid</code> or generated as a UUID version 4 if the file is absent.</td>
+</tr>
+<tr>
+<td>&ldquo;productFamily&rdquo;</td>
+<td>The value from the file path</td>
+</tr>
+<tr>
+<td>&ldquo;metrics&rdquo;</td>
+<td>An array of key:value pairs collected from the Metrics File.</td>
+</tr>
+</tbody>
+</table>
+<p>The following operating system-level metrics are sent with each check:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&ldquo;OS&rdquo;</td>
+<td>The name of the operating system</td>
+</tr>
+<tr>
+<td>&ldquo;hardware_arch&rdquo;</td>
+<td>The type of process used in the environment</td>
+</tr>
+<tr>
+<td>&ldquo;deployment&rdquo;</td>
+<td>How the application was deployed. <br> The possible values could be &ldquo;PACKAGE&rdquo; or &ldquo;DOCKER&rdquo;.</td>
+</tr>
+<tr>
+<td>&ldquo;installed_packages&rdquo;</td>
+<td>A list of the installed Percona packages.</td>
+</tr>
+</tbody>
+</table>
+<p>The information includes the following:</p>
+<ul>
+<li>
+<p>Package name</p>
+</li>
+<li>
+<p>Package version - the same format as Red Hat Enterprise Linux or Debian</p>
+</li>
+<li>
+<p>Package repository - if possible</p>
+</li>
+</ul>
+<p>The package names must fit the following pattern:</p>
+<ul>
+<li>
+<p><code>percona-*</code></p>
+</li>
+<li>
+<p><code>Percona-*</code></p>
+</li>
+<li>
+<p><code>proxysql*</code></p>
+</li>
+<li>
+<p><code>pmm</code></p>
+</li>
+<li>
+<p><code>etcd*</code></p>
+</li>
+<li>
+<p><code>haproxy</code></p>
+</li>
+<li>
+<p><code>patroni</code></p>
+</li>
+<li>
+<p><code>pg*</code></p>
+</li>
+<li>
+<p><code>postgis</code></p>
+</li>
+<li>
+<p><code>wal2json</code></p>
+</li>
+</ul>
+<h2 id="disable-telemetry">Disable telemetry<a class="headerlink" href="#disable-telemetry" title="Permanent link">&para;</a></h2>
+<p>Telemetry is enabled by default when you install the software. It is also included in the software packages (Telemetry Subsystem and Telemetry Agent) and enabled by default.</p>
+<p>If you don&rsquo;t want to send the telemetry data, here&rsquo;s how: </p>
+<h3 id="disable-the-telemetry-collected-during-the-installation">Disable the telemetry collected during the installation<a class="headerlink" href="#disable-the-telemetry-collected-during-the-installation" title="Permanent link">&para;</a></h3>
+<p>If you decide not to send usage data to Percona when you install the software, you can set the <code>PERCONA_TELEMETRY_DISABLE=1</code> environment variable for either the root user or in the operating system prior to the installation process.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Debian-derived distribution</label><label for="__tabbed_2_2">Red Hat-derived distribution</label><label for="__tabbed_2_3">Docker</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Add the environment variable before the installation process.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>Add the environment variable before the install process.</p>
+<p>Add the environment variable before the installation process.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 </div>
@@ -2192,8 +2703,73 @@ document$.subscribe(() => { lightbox.reload() });
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>percona/percona-server-mongodb:&lt;TAG&gt;
 </code></pre></div>
+<p>The command does the following:</p>
+<ul>
+<li><code>docker run</code> - This is the command to run a Docker container.</li>
+<li><code>-d</code> - This flag specifies that the container should run in detached mode (in the background).</li>
+<li><code>--name psmdb</code> - Assigns the name “psmdb” to the container.</li>
+<li><code>--restart always</code> - Configures the container to restart automatically if it stops or crashes.</li>
+<li><code>-e PERCONA_TELEMETRY_DISABLE=1</code> - Sets an environment variable within the container. In this case, it disables telemetry for Percona Server for MongoDB.</li>
+<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>7.0.11-6-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
+</ul>
 </div>
 </div>
+</div>
+<h2 id="disable-telemetry-for-the-installed-software">Disable telemetry for the installed software<a class="headerlink" href="#disable-telemetry-for-the-installed-software" title="Permanent link">&para;</a></h2>
+<p>Percona software you installed includes the telemetry feature that collects information about how you use this software. It is enabled by default. To turn  off telemetry, you need to disable both the Telemetry Agent and the Telemetry Subsystem.</p>
+<h3 id="disable-telemetry-agent">Disable Telemetry Agent<a class="headerlink" href="#disable-telemetry-agent" title="Permanent link">&para;</a></h3>
+<p>In the first 24 hours, no information is collected or sent.</p>
+<p>You can either disable the Telemetry Agent temporarily or permanently.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Disable temporarily</label><label for="__tabbed_3_2">Disable permanently</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Turn off Telemetry Agent temporarily until the next server restart with this command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>percona-telemetry-agent
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Turn off Telemetry Agent permanently with this command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>percona-telemetry-agent
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Even after stopping the Telemetry Agent service, a different part of the software (Telemetry Subsystem) continues to create the Metrics File related to telemetry every day and saves that file for seven days.</p>
+<h3 id="telemetry-agent-dependencies-and-removal-considerations">Telemetry Agent dependencies and removal considerations<a class="headerlink" href="#telemetry-agent-dependencies-and-removal-considerations" title="Permanent link">&para;</a></h3>
+<p>If you decide to remove the Telemetry Agent, this also removes the database. That&rsquo;s because the Telemetry Agent is a mandatory dependency for Percona Server for MongoDB. </p>
+<p>On YUM-based systems, the system removes the Telemetry Agent package when you remove the last dependency package.</p>
+<p>On APT-based systems, you must use the &lsquo;&ndash;autoremove&rsquo; option to remove all dependencies, as the system doesn&rsquo;t automatically remove the Telemetry Agent when you remove the database package.</p>
+<p>The &lsquo;&ndash;autoremove&rsquo; option only removes unnecessary dependencies. It doesn&rsquo;t remove dependencies required by other packages or guarantee the removal of all package-associated dependencies.</p>
+<h3 id="disable-the-telemetry-subsystem">Disable the Telemetry Subsystem<a class="headerlink" href="#disable-the-telemetry-subsystem" title="Permanent link">&para;</a></h3>
+<p>To disable the Telemetry Subsystem, set the <code>perconaTelemetry</code> server parameter to <code>false</code>. You can do this in one of the following ways:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5Z"/><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04Zm3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"/></svg></span> Configuration file</label><label for="__tabbed_4_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12h16m0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16m-7 14v-2h5v2h-5m-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59l3.99-4Z"/></svg></span> Command line</label><label for="__tabbed_4_3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0 1 11.91 24h.481a28.48 28.48 0 0 1 .51-3.07c.417-.296.604-.463.85-.693a11.342 11.342 0 0 0 3.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/></svg></span> <code>setParameter</code> command</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Use the <code>setParameter.perconaTelemetry</code> parameter in the configuration file
+for persistent changes:    </p>
+<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">perconaTelemetry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Use the <code>--setParameter</code> command line option arguments for both <code>mongod</code> and <code>mongos</code> processes. The server starts with the telemetry Subsystem disabled:    </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--setParameter<span class="w"> </span><span class="nv">perconaTelemetry</span><span class="o">=</span><span class="nb">false</span>
+$<span class="w"> </span>mongos<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--setParameter<span class="w"> </span><span class="nv">perconaTelemetry</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Use the <code>setParameter</code> command on the <code>admin</code> database
+to make changes at runtime. The changes apply until the server restart.</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;perconaTelemetry&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">})</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you wish to re-enable the Telemetry Subsystem, set the <code>perconaTelemetry</code> to <code>true</code> for the <code>setParameter</code> command.</p>
 </div>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
@@ -2226,7 +2802,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 23, 2024</span>
   </span>
 
     
