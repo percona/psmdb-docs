@@ -21,10 +21,10 @@ There are the following tarballs available:
 
 Install the following dependencies required to install Percona Server for MongoDB from tarballs.
 
-=== ":material-debian: Debian"
-     
+=== ":material-redhat: RHEL and derivatives"
+
     ```{.bash data-prompt="$"}
-    $ sudo apt install libcurl4 openssl liblzma5
+    $ sudo yum install libcurl cyrus-sasl-gssapi cyrus-sasl-plain openssl xz-libs
     ```
 
 === ":material-ubuntu: Ubuntu 22.04"
@@ -39,15 +39,15 @@ Install the following dependencies required to install Percona Server for MongoD
     $ sudo apt-get install libcurl4 openssl liblzma5
     ```
 
-=== ":material-redhat: Red hat Enterprise Linux and derivatives"
-
+=== ":material-debian: Debian"
+     
     ```{.bash data-prompt="$"}
-    $ sudo yum install libcurl cyrus-sasl-gssapi cyrus-sasl-plain openssl xz-libs
+    $ sudo apt install libcurl4 openssl liblzma5
     ```
 
 ## Procedure
 
-The steps below describe the installation on Ubuntu 22.04 (“Jammy”).
+Follow these steps to install Percona Server for MongoDB from a tarball:
 {.power-number}
 
 1. Fetch and the binary tarballs:
@@ -56,6 +56,7 @@ The steps below describe the installation on Ubuntu 22.04 (“Jammy”).
     $ wget https://www.percona.com/downloads/percona-server-mongodb-6.0/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz\
     $ wget https://www.percona.com/downloads/percona-server-mongodb-6.0/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
     ```
+
 2. Extract the tarballs
 
     ```{.bash data-prompt='$'} 
@@ -63,20 +64,17 @@ The steps below describe the installation on Ubuntu 22.04 (“Jammy”).
     $ tar -xf percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
     ```
 
-
 3. Add the location of the binaries to the `PATH` variable:
 
     ```{.bash data-prompt="$"}
     $ export PATH=~/percona-server-mongodb-{{release}}/bin/:~/percona-mongodb-mongosh-{{mongosh}}/bin/:$PATH
     ```
 
-
 4. Create the default data directory:
 
     ```{.bash data-prompt="$"}
     $ mkdir -p /data/db
     ```
-
 
 5. Make sure that you have read and write permissions for the data
 directory and run `mongod`.
