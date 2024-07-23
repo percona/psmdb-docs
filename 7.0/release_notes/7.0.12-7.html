@@ -8,34 +8,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Authentication is the process of verifying a client’s identity. Normally, a client needs to authenticate themselves against the MongoDB server user database before doing any work or reading any data from a mongod or mongos instance.">
+        <meta name="description" content="Installation">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.12-7.html">
       
       
-        <link rel="prev" href="backup-cursor.html">
+        <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="enable-auth.html">
+        <link rel="next" href="7.0.11-6.html">
       
       
-      <link rel="icon" href="_images/mongodb-fav.svg">
+      <link rel="icon" href="../_images/mongodb-fav.svg">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
     
     
       
-        <title>Authentication overview - Percona Server for MongoDB 7.0</title>
+        <title>Percona Server for MongoDB 7.0.12-7 (2024-07-23) - Percona Server for MongoDB 7.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -58,19 +58,19 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-      <link rel="stylesheet" href="css/design.css">
+      <link rel="stylesheet" href="../css/design.css">
     
-      <link rel="stylesheet" href="css/osano.css">
+      <link rel="stylesheet" href="../css/osano.css">
     
-      <link rel="stylesheet" href="css/mongodb.css">
+      <link rel="stylesheet" href="../css/mongodb.css">
     
-      <link rel="stylesheet" href="css/landing.css">
+      <link rel="stylesheet" href="../css/landing.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -94,10 +94,10 @@
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 7.0 - Authentication overview" />
+<meta property="og:title" content="Percona Server for MongoDB 7.0 - Percona Server for MongoDB 7.0.12-7 (2024-07-23)" />
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
- <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -106,7 +106,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body>
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
@@ -132,7 +132,7 @@ document$.subscribe(() => { lightbox.reload() });
     <div data-md-component="skip">
       
         
-        <a href="#authentication" class="md-skip">
+        <a href="#percona-server-for-mongodb-7012-7-2024-07-23" class="md-skip">
           Skip to content
         </a>
       
@@ -201,14 +201,14 @@ document$.subscribe(() => { lightbox.reload() });
 
     <!-- Link to home -->
     <a
-      href="index.html"
+      href="../index.html"
       title="Percona Server for MongoDB 7.0"
       class="md-header__button md-logo"
       aria-label="Percona Server for MongoDB 7.0"
       data-md-component="logo"
     >
       
-  <img src="_images/mongodb-mark.svg" alt="logo">
+  <img src="../_images/mongodb-mark.svg" alt="logo">
 
     </a>
 
@@ -221,7 +221,7 @@ document$.subscribe(() => { lightbox.reload() });
     <!-- Header title -->
     <div class="md-header__title">
       <div class="md-header__ellipsis">
-        <a href="index.html" class="md-header__topic">
+        <a href="../index.html" class="md-header__topic">
           <span class="md-ellipsis">
             Percona Server for MongoDB 7.0
           </span>
@@ -229,7 +229,7 @@ document$.subscribe(() => { lightbox.reload() });
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentication overview
+              Percona Server for MongoDB 7.0.12-7 (2024-07-23)
             
           </span>
         </div>
@@ -371,9 +371,9 @@ document$.subscribe(() => { lightbox.reload() });
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Percona Server for MongoDB 7.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
+    <a href="../index.html" title="Percona Server for MongoDB 7.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
       
-  <img src="_images/mongodb-mark.svg" alt="logo">
+  <img src="../_images/mongodb-mark.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 7.0
@@ -400,7 +400,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -420,7 +420,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,7 +440,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="psmdb-pro.html" class="md-nav__link">
+      <a href="../psmdb-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -495,7 +495,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
+      <a href="../install/index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -551,7 +551,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="system-requirements.html" class="md-nav__link">
+      <a href="../system-requirements.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -572,7 +572,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
+      <a href="../install/apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -593,7 +593,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
+      <a href="../install/yum.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -614,7 +614,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
+      <a href="../install/tarball.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -635,7 +635,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/source.html" class="md-nav__link">
+      <a href="../install/source.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -656,7 +656,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
+      <a href="../install/docker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -677,7 +677,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/install-pro.html" class="md-nav__link">
+      <a href="../install/install-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -706,7 +706,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="connect.html" class="md-nav__link">
+      <a href="../connect.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -727,7 +727,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="crud.html" class="md-nav__link">
+      <a href="../crud.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -748,7 +748,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="what-next.html" class="md-nav__link">
+      <a href="../what-next.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -773,19 +773,17 @@ document$.subscribe(() => { lightbox.reload() });
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -799,7 +797,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -848,7 +846,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -912,7 +910,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -933,7 +931,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -959,19 +957,17 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
@@ -985,7 +981,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             Authentication
@@ -996,30 +992,10 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Authentication overview
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="authentication.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../authentication.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1028,82 +1004,6 @@ document$.subscribe(() => { lightbox.reload() });
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#scram" class="md-nav__link">
-    <span class="md-ellipsis">
-      SCRAM
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#x509-certificate-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      x.509 certificate authentication
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ldap-authentication-with-sasl" class="md-nav__link">
-    <span class="md-ellipsis">
-      LDAP authentication with SASL
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kerberos-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kerberos authentication
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1116,7 +1016,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1137,7 +1037,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1158,7 +1058,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1179,7 +1079,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1200,7 +1100,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1221,7 +1121,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1242,7 +1142,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1263,7 +1163,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1327,7 +1227,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1348,7 +1248,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1369,7 +1269,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1390,7 +1290,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="keyfile.html" class="md-nav__link">
+      <a href="../keyfile.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1411,7 +1311,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1432,7 +1332,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="fips.html" class="md-nav__link">
+      <a href="../fips.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1461,7 +1361,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
+      <a href="../audit-logging.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1482,7 +1382,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
+      <a href="../rate-limit.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1503,7 +1403,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
+      <a href="../log-redaction.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1524,7 +1424,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1587,7 +1487,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1643,7 +1543,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-60.html" class="md-nav__link">
+      <a href="../install/upgrade-from-60.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1664,7 +1564,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1685,7 +1585,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/update-pro.html" class="md-nav__link">
+      <a href="../install/update-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1706,7 +1606,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/minor-upgrade.html" class="md-nav__link">
+      <a href="../install/minor-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1735,7 +1635,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="../install/uninstall.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1760,17 +1660,19 @@ document$.subscribe(() => { lightbox.reload() });
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1784,7 +1686,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Release notes
@@ -1798,7 +1700,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1816,10 +1718,30 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="release_notes/7.0.12-7.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 7.0.12-7 (2024-07-23)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="7.0.12-7.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1828,6 +1750,46 @@ document$.subscribe(() => { lightbox.reload() });
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Highlights
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1840,7 +1802,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.11-6.html" class="md-nav__link">
+      <a href="7.0.11-6.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1861,7 +1823,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.8-5.html" class="md-nav__link">
+      <a href="7.0.8-5.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1882,7 +1844,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.7-4.html" class="md-nav__link">
+      <a href="7.0.7-4.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1903,7 +1865,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.5-3.html" class="md-nav__link">
+      <a href="7.0.5-3.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1924,7 +1886,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.4-2.html" class="md-nav__link">
+      <a href="7.0.4-2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1945,7 +1907,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.2-1.html" class="md-nav__link">
+      <a href="7.0.2-1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1973,7 +1935,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="faq.html" class="md-nav__link">
+      <a href="../faq.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2028,7 +1990,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2049,7 +2011,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="telemetry.html" class="md-nav__link">
+      <a href="../telemetry.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2070,7 +2032,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2091,7 +2053,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2147,45 +2109,9 @@ document$.subscribe(() => { lightbox.reload() });
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#scram" class="md-nav__link">
+  <a href="#release-highlights" class="md-nav__link">
     <span class="md-ellipsis">
-      SCRAM
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#x509-certificate-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      x.509 certificate authentication
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ldap-authentication-with-sasl" class="md-nav__link">
-    <span class="md-ellipsis">
-      LDAP authentication with SASL
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#kerberos-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      Kerberos authentication
+      Release Highlights
     </span>
   </a>
   
@@ -2217,7 +2143,7 @@ document$.subscribe(() => { lightbox.reload() });
                   
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/authentication.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/release_notes/7.0.12-7.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2226,111 +2152,28 @@ document$.subscribe(() => { lightbox.reload() });
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/authentication.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/release_notes/7.0.12-7.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
   
 
 
-<h1 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h1>
-<p>Authentication is the process of verifying a client’s identity. Normally, a client needs to authenticate themselves against the MongoDB server user database before doing any work or reading any data from a <code>mongod</code> or <code>mongos</code> instance.</p>
-<p>By default, Percona Server for MongoDB provides a <abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr> authentication mechanism where clients authenticate themselves by providing their user credentials.
-In addition, you can integrate Percona Server for MongoDB with a separate service, such as OpenLDAP or Active Directory. This enables users to access the database with the same credentials they use for their emails or workstations.</p>
-<p>You can use any of these authentication mechanisms supported in Percona Server for MongoDB:</p>
+<h1 id="percona-server-for-mongodb-7012-7-2024-07-23">Percona Server for MongoDB 7.0.12-7 (2024-07-23)<a class="headerlink" href="#percona-server-for-mongodb-7012-7-2024-07-23" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="../install/index.html">Installation</a></p>
+<p>Percona Server for MongoDB 7.0.12-7 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.12.</p>
+<p>Percona Server for MongoDB 7.0.12-7 includes the improvements and bug fixes of <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.12---jun-28--2024">MongoDB 7.0.12 Community Edition</a> and supports its protocols and drivers.</p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<p>This release of Percona Server for MongoDB includes the enhanced telemetry feature and provides comprehensive information about how telemetry works, its components and metrics as well as updated methods how to disable telemetry. Read more in <a href="../telemetry.html">Telemetry on Percona Server for MongoDB</a></p>
+<p>Improvements and bug fixes, provided by MongoDB and included in Percona Server for MongoDB are the following:</p>
 <ul>
-<li><a href="#scram"><abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr></a> (default)</li>
-<li><a href="#x509-certificate-authentication">x.509 certificate authentication</a></li>
-<li><a href="#ldap-authentication-with-sasl">LDAP authentication with SASL</a></li>
-<li><a href="#kerberos-authentication">Kerberos Authentication</a></li>
-<li><a href="authorization.html">Authentication and authorization with direct binding to LDAP</a></li>
-<li><a href="aws-iam.html">AWS IAM authentication</a></li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-64574">SERVER-64574</a> - Upgraded the MozJS/SpiderMonkey engine that MongoDB uses to execute server-side JavaScript code within the database server to the latest ESR (Extended Support Release)</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-86674">SERVER-86674</a> - Made sure an old heartbeat that is being processed when primary catchup starts does not cause the primary catchup to think it&rsquo;s already caught up</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-90485">SERVER-90485</a> - Fixed the sorting of results produced by the <code>$unwind</code> aggregation with the array index field specified</li>
+<li><a href="https://jira.mongodb.org/browse/WT-12736">WT-12736</a> - Marked the page clean in WiredTiger after re-instantiating the page with prepared updates to avoid reconciling the page every time</li>
 </ul>
-<h2 id="scram"><abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr><a class="headerlink" href="#scram" title="Permanent link">&para;</a></h2>
-<p><abbr title="Salted Challenge Response Authentication Mechanism">SCRAM</abbr> is the default authentication mechanism. Percona Server for MongoDB verifies the credentials against the user’s name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see <a href="enable-auth.html#enable-auth">Enable authentication</a>.</p>
-<h2 id="x509-certificate-authentication">x.509 certificate authentication<a class="headerlink" href="#x509-certificate-authentication" title="Permanent link">&para;</a></h2>
-<p>This authentication mechanism enables a client to authenticate in Percona Server for MongoDB by providing an x.509 certificate instead of user credentials. Each certificate contains the <code>subject</code> field defined in the <abbr title="Distinguished Name">DN</abbr> format. In Percona Server for MongoDB, each certificate has a corresponding user record in the <code>$external</code> database. When a user connects to the database, Percona Server for MongoDB matches the <code>subject</code> value against the usernames defined in the <code>$external</code> database.</p>
-<p>For production use, we recommend using valid <abbr title="Certified Authority">CA</abbr> certificates. For testing purposes, you can generate and use self-signed certificates.</p>
-<p>x.509 authentication is compatible with with <a href="authorization.html">LDAP authorization</a> to enable you to control user access and operations in Percona Server for MongoDB. For configuration guidelines, refer to <a href="x509-ldap.html">Set up x.509 authentication and LDAP authorization</a>.</p>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p>MongoDB Documentation: <a href="https://docs.mongodb.com/manual/core/security-x.509/">x.509</a></p>
-<p>Percona Blog: <a href="https://www.percona.com/blog/2019/10/28/setting-up-mongodb-with-member-x509-auth-and-ssl-easy-rsa/">Setting up MongoDB with Member x509 auth and SSL + easy-rsa</a></p>
-</div>
-<h2 id="ldap-authentication-with-sasl">LDAP authentication with SASL<a class="headerlink" href="#ldap-authentication-with-sasl" title="Permanent link">&para;</a></h2>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>LDAP authentication with SASL means that both the client and the server establish a SASL session using the SASL library. Then authentication (bind) requests are sent to the LDAP server through the SASL authentication daemon (<code>saslauthd</code>) that acts as a remote proxy for the <code>mongod</code> server.</p>
-<p>The following components are necessary for external authentication to work:</p>
-<ul>
-<li>
-<p><strong>LDAP Server</strong>: Remotely stores all user credentials
-(i.e. user name and associated password).</p>
-</li>
-<li>
-<p><strong>SASL Daemon</strong>: Used as a MongoDB server-local proxy
-for the remote LDAP service.</p>
-</li>
-<li>
-<p><strong>SASL Library</strong>: Used by the MongoDB client and server
-to create data necessary for the authentication mechanism.</p>
-</li>
-</ul>
-<p>The following image illustrates this architecture:</p>
-<p><a class="glightbox" href="_images/psmdb-ext-auth.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="_images/psmdb-ext-auth.png" /></a></p>
-<p>An authentication session uses the following sequence:</p>
-<ol>
-<li>A <code>mongosh</code> client connects to a running <code>mongod</code> instance.</li>
-<li>The client creates a <code>PLAIN</code> authentication request
-using the SASL library.</li>
-<li>The client then sends this SASL request to the server
-as a special mongo command.</li>
-<li>The <code>mongod</code> server receives this SASL message,
-with its authentication request payload.</li>
-<li>The server then creates a SASL session scoped to this client,
-using its own reference to the SASL library.</li>
-<li>Then the server passes the authentication payload to the SASL library,
-which in turn passes it on to the <code>saslauthd</code> daemon.</li>
-<li>The <code>saslauthd</code> daemon passes the payload on to the LDAP service
-to get a YES or NO authentication response
-(in other words, does this user exist and is the password correct).</li>
-<li>The YES/NO response moves back from <code>saslauthd</code>,
-through the SASL library, to <code>mongod</code>.</li>
-<li>The <code>mongod</code> server uses this YES/NO response
-to authenticate the client or reject the request.</li>
-<li>If successful, the client has authenticated and can proceed.</li>
-</ol>
-<p>For configuration instructions, refer to <a href="sasl-auth.html">Setting up LDAP authentication with SASL</a>.</p>
-<h2 id="kerberos-authentication">Kerberos authentication<a class="headerlink" href="#kerberos-authentication" title="Permanent link">&para;</a></h2>
-<p>Percona Server for MongoDB supports Kerberos authentication starting from release 6.0.2-1.</p>
-<p>This authentication mechanism involves the use of a Key Distribution Center (KDC) - a symmetric encryption component which operates with tickets. A ticket is a small amount of encrypted data which is used for authentication. It is issued for a user session and has a limited lifetime.</p>
-<p>When using Kerberos authentication, you also operate with principals and realms.</p>
-<p>A realm is the logical network, similar to a domain, for all Kerberos nodes under the same master KDC.</p>
-<p>A principal is a user or a service which is known to Kerberos. A principal name is used for authentication in Kerberos. A service principal represents the service, e.g. <code>mongodb</code>. A user principal represents the user. The user principal name corresponds to the username in the <code>$external</code> database in Percona Server for MongoDB.</p>
-<p>The following diagram shows the authentication workflow:</p>
-<p><a class="glightbox" href="_images/Kerberos_auth.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="_images/Kerberos_auth.png" /></a></p>
-<p>The sequence is the following:</p>
-<ol>
-<li>
-<p>A <code>mongo</code> client sends the Ticket-Grantng Ticket (TGT) request to the Key Distribution Center (KDC)</p>
-</li>
-<li>
-<p>The KDC issues the ticket and sends it to the <code>mongo</code> client.</p>
-</li>
-<li>
-<p>The <code>mongo</code> client sends the authentication request to the <code>mongod</code> server presenting the ticket.</p>
-</li>
-<li>
-<p>The <code>mongod</code> server validates the ticket in the KDC.</p>
-</li>
-<li>
-<p>Upon successful ticket validation, the authentication request is approved and the user is authenticated.</p>
-</li>
-</ol>
-<p>Kerberos authentication in Percona Server for MongoDB is implemented the same way as in MongoDB Enterprise.</p>
-<div class="admonition admonition">
-<p class="admonition-title">See also</p>
-<p>MongoDB Documentation: <a href="https://docs.mongodb.com/manual/core/kerberos/">Kerberos Authentication</a></p>
-</div>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.12---jun-28--2024">MongoDB 7.0.12 Community Edition release notes</a>.</p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2362,7 +2205,7 @@ to authenticate the client or reject the request.</li>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 23, 2024</span>
   </span>
 
     
@@ -2372,7 +2215,7 @@ to authenticate the client or reject the request.</li>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 23, 2024</span>
   </span>
 
     
@@ -2470,16 +2313,16 @@ to authenticate the client or reject the request.</li>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
     
 
