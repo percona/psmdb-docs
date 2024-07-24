@@ -4,4 +4,10 @@ FIPS (Federal Information Processing Standard) is the US government computer sec
 
 The FIPS compliance in Percona Server for MongoDB is implemented in the same way, as in MongoDB Enterprise. It is available [Percona Server for MongoDB Pro out of the box](psmdb-pro.md) starting with version 6.0.9-7. You can also receive this functionality by [building Percona Server for MongoDB from source code](install/source.md).
 
+## Platform support
+
+Starting with Percona Server for MongoDB 6.0.9-7, you can run FIPS mode on all [supported operating systems](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb). To run FIPS mode for Percona Server for MongoDB, your Linux system must be configured with the OpenSSL library FIPS certified module.
+
+Note, that FIPS modules on Ubuntu 24.04 are not available yet as they are awaiting final certification by CMVP.
+
 See [Configure MongoDB for FIPS](https://www.mongodb.com/docs/v6.0/tutorial/configure-fips/) in MongoDB documentation for configuration guidelines. 
