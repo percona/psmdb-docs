@@ -1,10 +1,10 @@
 # Install Percona Server for MongoDB from binary tarball
 
-You can find links to the binary tarballs under the *Generic Linux* menu item on the [Percona website](https://www.percona.com/downloads/percona-server-mongodb-7.0/)
+You can find links to the binary tarballs under the *Generic Linux* menu item on the [Percona website](https://www.percona.com/downloads/percona-server-mongodb-6.0/)
 
 There are the following tarballs available:
 
-`percona-server-mongodb-{{release}}-x86_64.<operating-system>.tar.gz` is the  tarball for a [supported operating system](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb).
+* `percona-server-mongodb-{{release}}-x86_64.<operating-system>.tar.gz` is the  tarball for a [supported operating system](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb).
 
 * `percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz` is the tarball for `mongosh` shell.
 
@@ -34,7 +34,7 @@ Install the following dependencies required to install Percona Server for MongoD
     ```
 
 === ":material-debian: Debian"
-
+     
     ```{.bash data-prompt="$"}
     $ sudo apt curl libsasl2-modules-gssapi-mit
     ```

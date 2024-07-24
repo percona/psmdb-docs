@@ -13,7 +13,7 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
     We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
 
-To run the latest Percona Server for MongoDB 7.0 in a Docker container, run the following command as the root user or via `sudo`:
+To run the latest Percona Server for MongoDB {{version}} in a Docker container, run the following command as the root user or via `sudo`:
 
 ```{.bash data-prompt="$"}
 $ docker run -d --name psmdb --restart always \
@@ -65,9 +65,9 @@ For ARM64 architectures, change the image to `percona/percona-server-mongodb:<TA
     1.  Start the containers and expose different ports
 
          ```{.bash data-prompt="$"}
-         $ docker run --rm -d --name rs101 -p 27017:27017  percona/percona-server-mongodb:7.0 --port=27017 --replSet rs
-         $ docker run --rm -d --name rs102 -p 28017:28017  percona/percona-server-mongodb:7.0 --port=28017 --replSet rs
-         $ docker run --rm -d --name rs103 -p 29017:29017  percona/percona-server-mongodb:7.0 --port=29017 --replSet rs
+         $ docker run --rm -d --name rs101 -p 27017:27017  percona/percona-server-mongodb:8.0 --port=27017 --replSet rs
+         $ docker run --rm -d --name rs102 -p 28017:28017  percona/percona-server-mongodb:8.0 --port=28017 --replSet rs
+         $ docker run --rm -d --name rs103 -p 29017:29017  percona/percona-server-mongodb:8.0 --port=29017 --replSet rs
          ```
     2. Check that the containers are started
 
@@ -79,9 +79,9 @@ For ARM64 architectures, change the image to `percona/percona-server-mongodb:<TA
 
         ```{.text .no-copy}
         CONTAINER ID  IMAGE                                         COMMAND               CREATED         STATUS             PORTS                     NAMES
-        3a4b70cd386b  percona/percona-server-mongodb:7.0  --port=27017 --re...  3 minutes ago   Up 3 minutes ago   0.0.0.0:27017->27017/tcp  rs101
-        c9b40a00e32b  percona/percona-server-mongodb:7.0  --port=28017 --re...  11 seconds ago  Up 11 seconds ago  0.0.0.0:28017->28017/tcp  rs102
-        b8aebc00309e  percona/percona-server-mongodb:7.0  --port=29017 --re...  3 seconds ago   Up 3 seconds ago   0.0.0.0:29017->29017/tcp  rs103
+        3a4b70cd386b  percona/percona-server-mongodb:8.0  --port=27017 --re...  3 minutes ago   Up 3 minutes ago   0.0.0.0:27017->27017/tcp  rs101
+        c9b40a00e32b  percona/percona-server-mongodb:8.0  --port=28017 --re...  11 seconds ago  Up 11 seconds ago  0.0.0.0:28017->28017/tcp  rs102
+        b8aebc00309e  percona/percona-server-mongodb:8.0  --port=29017 --re...  3 seconds ago   Up 3 seconds ago   0.0.0.0:29017->29017/tcp  rs103
         ```
 
     3. Get the IP addresses of each container
@@ -118,9 +118,9 @@ For ARM64 architectures, change the image to `percona/percona-server-mongodb:<TA
     2. Start the containers and connect them to your network, exposing different ports
 
         ```{.bash data-prompt="$"}
-        $ docker run --rm -d --name rs101 --net my-network -p 27017:27017  percona/percona-server-mongodb:7.0 --port=27017 --replSet rs
-        $ docker run --rm -d --name rs102 --net my-network -p 28017:28017  percona/percona-server-mongodb:7.0 --port=28017 --replSet rs
-        $ docker run --rm -d --name rs103 --net my-network -p 29017:29017  percona/percona-server-mongodb:7.0 --port=29017 --replSet rs
+        $ docker run --rm -d --name rs101 --net my-network -p 27017:27017  percona/percona-server-mongodb:8.0 --port=27017 --replSet rs
+        $ docker run --rm -d --name rs102 --net my-network -p 28017:28017  percona/percona-server-mongodb:8.0 --port=28017 --replSet rs
+        $ docker run --rm -d --name rs103 --net my-network -p 29017:29017  percona/percona-server-mongodb:8.0 --port=29017 --replSet rs
         ```
 
         Alternatively, you can connect the already running containers to your network:
@@ -151,7 +151,7 @@ For ARM64 architectures, change the image to `percona/percona-server-mongodb:<TA
         version: "3"
         services:
           rs101:
-            image: percona/percona-server-mongodb:7.0
+            image: percona/percona-server-mongodb:8.0
             container_name: rs101
             hostname: rs101
             ports:
@@ -161,7 +161,7 @@ For ARM64 architectures, change the image to `percona/percona-server-mongodb:<TA
             command: "--port=27017 --replSet rs"
             
           rs102:
-            image: percona/percona-server-mongodb:7.0
+            image: percona/percona-server-mongodb:8.0
             container_name: rs102
             hostname: rs102
             ports:
@@ -171,7 +171,7 @@ For ARM64 architectures, change the image to `percona/percona-server-mongodb:<TA
             command: "--port=28017 --replSet rs"
             
           rs103:
-            image: percona/percona-server-mongodb:7.0
+            image: percona/percona-server-mongodb:8.0
             container_name: rs103
             hostname: rs103
             ports:
@@ -181,7 +181,7 @@ For ARM64 architectures, change the image to `percona/percona-server-mongodb:<TA
             command: "--port=29017 --replSet rs"
             
           rs-init:
-            image: percona/percona-server-mongodb:7.0
+            image: percona/percona-server-mongodb:8.0
             container_name: rs-init
             restart: "no"
             networks:

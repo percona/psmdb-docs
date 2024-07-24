@@ -42,13 +42,13 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
         ??? example "Sample output"
 
             ```{.text .no-copy}
-            ii  mongodb-org                      7.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
-            ii  mongodb-org-database             7.0.2                       amd64        MongoDB open source document-oriented database system (metapackage)
-            ii  mongodb-org-database-tools-extra 7.0.2                       amd64        Extra MongoDB database tools
-            ii  mongodb-org-mongos               7.0.2                       amd64        MongoDB sharded cluster query router
-            ii  mongodb-org-server               7.0.2                       amd64        MongoDB database server
-            ii  mongodb-org-shell                7.0.2                       amd64        MongoDB shell client
-            ii  mongodb-org-tools                7.0.2                       amd64        MongoDB tools
+            ii  mongodb-org                      8.0.0                       amd64        MongoDB open source document-oriented database system (metapackage)
+            ii  mongodb-org-database             8.0.0                       amd64        MongoDB open source document-oriented database system (metapackage)
+            ii  mongodb-org-database-tools-extra 8.0.0                       amd64        Extra MongoDB database tools
+            ii  mongodb-org-mongos               8.0.0                       amd64        MongoDB sharded cluster query router
+            ii  mongodb-org-server               8.0.0                       amd64        MongoDB database server
+            ii  mongodb-org-shell                8.0.0                       amd64        MongoDB shell client
+            ii  mongodb-org-tools                8.0.0                       amd64        MongoDB tools
             ```
 
      4. Remove the installed packages:
@@ -107,26 +107,26 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
         ??? example "Sample output"
 
             ```{.text .no-copy}
-            mongodb-org-shell-7.0.2-1.el9.x86_64
-            mongodb-org-database-7.0.2-1.el9.x86_64
-            mongodb-org-7.0.2-1.el8.x86_64
+            mongodb-org-shell-8.0.0-1.el9.x86_64
+            mongodb-org-database-8.0.0-1.el9.x86_64
+            mongodb-org-8.0.0-1.el8.x86_64
             mongodb-database-tools-100.4.1-1.x86_64
-            mongodb-org-server-7.0.2-1.el9.x86_64
-            mongodb-org-mongos-7.0.2-1.el9.x86_64
-            mongodb-org-tools-7.0.2-1.el9.x86_64
+            mongodb-org-server-8.0.0-1.el9.x86_64
+            mongodb-org-mongos-8.0.0-1.el9.x86_64
+            mongodb-org-tools-8.0.0-1.el9.x86_64
             ```
 
      3. Remove the installed packages:
 
          ```{.bash data-prompt="$"}
          $ sudo yum remove \
-         mongodb-org-shell-7.0.2-1.el9.x86_64
-         mongodb-org-database-7.0.2-1.el9.x86_64
-         mongodb-org-7.0.2-1.el9.x86_64
+         mongodb-org-shell-8.0.0-1.el9.x86_64
+         mongodb-org-database-8.0.0-1.el9.x86_64
+         mongodb-org-8.0.0-1.el9.x86_64
          mongodb-database-tools-100.4.1-1.x86_64
-         mongodb-org-server-7.0.2-1.el8.x86_64
-         mongodb-org-mongos-7.0.2-1.el8.x86_64
-         mongodb-org-tools-7.0.2-1.el8.x86_64
+         mongodb-org-server-8.0.0-1.el8.x86_64
+         mongodb-org-mongos-8.0.0-1.el8.x86_64
+         mongodb-org-tools-8.0.0-1.el8.x86_64
          ```
      
      4. [Install Percona Server for MongoDB](yum.md). If you a Percona Customer, you can [install Percona Server for MongoDB Pro](install-pro.md)
@@ -163,10 +163,10 @@ To upgrade a replica set or a sharded cluster, use the [rolling restart](../glos
 
     MongoDB Documentation:
 
-    * [Upgrade a Replica Set](https://docs.mongodb.com/manual/release-notes/7.0-upgrade-replica-set/)
-    * [Upgrade a Sharded Cluster](https://docs.mongodb.com/manual/release-notes/7.0-upgrade-sharded-cluster/)
+    * [Upgrade a Replica Set](https://docs.mongodb.com/manual/release-notes/8.0-upgrade-replica-set/)
+    * [Upgrade a Sharded Cluster](https://docs.mongodb.com/manual/release-notes/8.0-upgrade-sharded-cluster/)
 
 ## Upgrading to Percona Server for MongoDB with data at rest encryption enabled
 
-Steps to upgrade from MongoDB 6.0 Community Edition with data encryption enabled to Percona Server for MongoDB are different. `mongod` requires an empty `dbPath` data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the [Switching storage engines](../inmemory.md#switching-storage-engines) for more information on migration of encrypted data. [Contact us](https://www.percona.com/about-percona/contact#us) for working at the detailed migration steps, if further assistance is needed.
+Steps to upgrade from MongoDB 8.0 Community Edition with data encryption enabled to Percona Server for MongoDB are different. `mongod` requires an empty `dbPath` data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the [Switching storage engines](../inmemory.md#switching-storage-engines) for more information on migration of encrypted data. [Contact us](https://www.percona.com/about-percona/contact#us) for working at the detailed migration steps, if further assistance is needed.
 

@@ -39,25 +39,24 @@ By default, Percona Server for MongoDB establishes the TLS connection when bindi
 
 1. Place the certificate in the `certs` directory. The path to the `certs` directory is:
 
-    * On Debian / Ubuntu: `/etc/ssl/certs/`
-
-    * On RHEL / CentOS: `/etc/openldap/certs/`
+    * On RHEL / derivatives: `/etc/openldap/certs/`
+    * On : Debian / Ubuntu: `/etc/ssl/certs/`
 
 2. Specify the path to the certificates in the `ldap.conf` file:
 
-    === "Debian / Ubuntu"
-
-         ```
-         tee -a /etc/openldap/ldap.conf <<EOF
-         TLS_CACERT /etc/ssl/certs/my_CA.crt
-         EOF
-         ```
-
-    === "RHEL and derivatives"
+    === ":material-redhat: RHEL and derivatives"
 
          ```
          tee -a /etc/openldap/ldap.conf <<EOF
          TLS_CACERT /etc/openldap/certs/my_CA.crt
+         EOF
+         ```
+
+    === ":material-debian: Debian / Ubuntu"
+
+         ```
+         tee -a /etc/openldap/ldap.conf <<EOF
+         TLS_CACERT /etc/ssl/certs/my_CA.crt
          EOF
          ```
 

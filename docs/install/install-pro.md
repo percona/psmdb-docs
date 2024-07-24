@@ -26,7 +26,7 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
 
         3. Update the local cache    
 
-            ```{.bash .data-prompt="$"}
+            ```{.bash data-prompt="$"}
             $ sudo apt update
             ```
 
@@ -45,7 +45,7 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
         Run the following command and pass your credentials to the Pro repository:
 
         ```{.bash .data-prompt="$"}
-        $ sudo percona-release enable psmdb-70-pro release --user_name=<Your Customer ID> --repo_token=<Your PRO repository token>
+        $ sudo percona-release enable psmdb-80-pro release --user_name=<Your Customer ID> --repo_token=<Your PRO repository token>
         ```
 
     === ":octicons-file-code-24: Configuration file"
@@ -53,7 +53,7 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
         Create the `/root/.percona-private-repos.config` configuration file with the following content:
 
         ```ini title="/root/.percona-private-repos.config"
-        [psmdb-70-pro]
+        [psmdb-80-pro]
         USER_NAME=<Your Customer ID>
         REPO_TOKEN=<Your PRO repository token>
         ```    
@@ -120,8 +120,8 @@ The steps below describe the installation on Ubuntu 22.04.
 1. Download the tarballs from the pro repository 
 
     ```{.bash data-prompt="$"}
-    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-pro-{{release}}-x86_64.jammy.tar.gz\
-    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-80-pro/tarballs/percona-server-mongodb-pro-{{release}}-x86_64.jammy.tar.gz\
+    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-80-pro/tarballs/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
     ```
 2. Extract the tarballs
 

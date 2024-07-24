@@ -21,7 +21,7 @@ This document provides instructions how you can upgrade from Percona Server for 
         1. Create the `/etc/apt/sources.list.d/psmdb-pro.list` configuration file with the following contents
 
             ```ini title="/etc/apt/sources.list.d/psmdb-pro.list"
-            deb http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/apt/ OPERATING_SYSTEM main
+            deb http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-80-pro/apt/ OPERATING_SYSTEM main
             ```
 
         2. Update the local cache
@@ -35,9 +35,9 @@ This document provides instructions how you can upgrade from Percona Server for 
         Create the `/etc/yum.repos.d/psmdb-pro.repo` configuration file with the following contents
 
         ```ini title="/etc/yum.repos.d/psmdb-pro.repo"
-        [psmdb-7.0-pro]
-        name=PSMDB_7.0_PRO
-        baseurl=http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-70-pro/yum/main/$releasever/RPMS/x86_64
+        [psmdb-8.0-pro]
+        name=PSMDB_8.0_PRO
+        baseurl=http://repo.percona.com/private/[TOKENID]-[TOKEN]/psmdb-80-pro/yum/main/$releasever/RPMS/x86_64
         enabled=1
         gpgkey = https://repo.percona.com/yum/PERCONA-PACKAGING-KEY
         ```
@@ -88,19 +88,3 @@ This document provides instructions how you can upgrade from Percona Server for 
     $ sudo systemct start mongod
     ```
 
-## Downgrade considerations on RHEL and derivatives
-
-The downgrade to the basic build of Percona Server for MongoDB of version **7.0.4 and higher** is done automatically by [installing the basic build packages](yum.md#install-percona-server-for-mongodb-packages). 
-
-If you wish to downgrade from Percona Server for MongoDB Pro to the basic build of Percona Server for MongoDB version **lower than 7.0.4**, do the following:
-{.power-number }
-
-1. Remove the Pro packages
-
-    ```{.bash .data-prompt="$"}
-    $ sudo yum remove percona-server-mongodb-pro*
-    ```
-
-2. [Install Percona Server for MongoDB basic packages of the desired version](yum.md#install-percona-server-for-mongodb-packages)
-
-        

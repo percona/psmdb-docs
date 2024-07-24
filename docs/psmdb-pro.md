@@ -2,7 +2,7 @@
 
 Percona Server for MongoDB Pro is a build of Percona Server for MongoDB that contains purpose-built enterprise [features](#features). It is wrapped in packages created and tested by Percona and is available exclusively for Percona customers.
 
-Percona Server for MongpDB Pro is available starting with version [7.0.4-2](release_notes/7.0.4-2.md).
+Percona Server for MongpDB Pro is available starting with version [7.0.4-2](release_notes/https://docs.percona.com/percona-server-for-mongodb/release_notes/7.0.4-2.html).
 
 [Become a Percona Customer](https://www.percona.com/about/contact){.md-button}
 
@@ -14,7 +14,7 @@ Find the list of solutions available in Percona Server for MongoDB Pro builds:
 
 | Name                                | Version added | Description  | 
 | ----------------------------------- | ------------- | -------------
-| [FIPS support ](fips.md)| [7.0.4-2](release_notes/7.0.4-2.md) | FIPS mode provides a way to use FIPS-compliant encryption and run the Percona Server for MongoDB with the FIPS-140 certified library for OpenSSL. This helps customers meet minimum security requirements for cryptographic modules and testing in both hardware and software. |
+| [FIPS support ](fips.md)| [7.0.4-2](https://docs.percona.com/percona-server-for-mongodb/release_notes/7.0.4-2.html) | FIPS mode provides a way to use FIPS-compliant encryption and run the Percona Server for MongoDB with the FIPS-140 certified library for OpenSSL. This helps customers meet minimum security requirements for cryptographic modules and testing in both hardware and software. |
 
 ## Benefits
 
