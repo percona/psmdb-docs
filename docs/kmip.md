@@ -73,11 +73,33 @@ Starting with version 5.0.11-10, the `kmipKeyIdentifier` option is no longer man
 | **Type**            | int|
 | **Description**     | The time to wait for the response from the KMIP server. Min value: 1000. Default: 5000. <br><br>If the `connectRetries` setting is specified, the `mongod` waits up to the value specified with `connectTimeoutMS` for each retry.|
 
-# Key rotation
+| Configuration file  | {{optionlink('security.kmip.activateKeys')}}|
+|-------------------- | --------------------|
+| **Command line**    | `kmipActivateKeys`|
+| **Type**            | boolean|
+| **Description**     | Controls the transition of the master key from the Pre-Active to the Active state. Enabled by default. Available starting with version 5.0.28-24.|
 
-Starting with release 5.0.8-7, the support for [master key rotation](https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation) is added. This enables users to comply with data security regulations when using KMIP.
+| Configuration file  | {{optionlink('security.kmip.keyStatePollingSeconds')}}|
+|-------------------- | --------------------|
+| **Command line**    | `kmipKeyStatePollingSeconds`|
+| **Type**            | int|
+| **Description**     | Sets the period in seconds to check the state of the master encryption key. Default: 900. If the master key for a node is in the state other than Pre-Active or Active, the node logs the error and shuts down. Available starting with version 5.0.28-24.|
 
-# Configuration
+
+## Key rotation
+
+Starting with version 5.0.8-7, the support for [master key rotation](https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation) is added. This enables users to comply with data security regulations when using KMIP.
+
+## Key state polling
+
+When Percona Server for MongoDB generates a new master encryption key for every node, it automatically registers the key on the KMIP server with a `Pre-Active` state. Starting with version 5.0.28-24, Percona Server for MongoDB automatically activates the master encryption key and checks (polls) its state within a defined period. If a master encryption key for a node is not in the `Active` state, the node reports an error and shuts down. This process helps security engineers identify the nodes that require out-of-schedule master key rotation.
+
+The `security.kmip.activateKeys` configuration file option controls the transition of the master encryption key to the `Active` state as the startup. This option is enabled by default and is mandatory for the server to start starting with version 8.0.0. The `security.kmip.keyStatePollingSeconds` configuration file option sets the period, in seconds, to poll the master key state. 
+
+The master key state polling functionality is particularly useful in cluster deployments with hundreds of nodes. If some master keys are compromised, security engineers change their state from Active so that the nodes encrypted with these keys identify themselves. This approach allows the security engineers to rotate master keys only on the affected nodes instead of the entire cluster, thus reducing maintenance time and administrative efforts while improving overall cluster health and security.
+
+
+## Configuration
 
 ### Considerations
 
@@ -97,6 +119,8 @@ security:
     clientKeyFile: </path/client_key.pem>
     serverCAFile: </path/ca.pem>
     keyIdentifier: <key_name>
+    activateKeys: true
+    keyStatePollingSeconds: 900
 ```
 
 Alternatively, you can start Percona Server for MongoDB using the command line as follows:
@@ -109,6 +133,8 @@ $ mongod --enableEncryption \
   --kmipClientCertificateFile <path_to_client_certificate> \
   --kmipClientKeyFile <path_to_client_private_key> \
   --kmipKeyIdentifier <kmip_identifier>
+  --kmipActivateKeys true \
+  --kmipKeyStatePollingSeconds 900
 ```
 
 # Minor upgrade of Percona Server for MongoDB to version 5.0.11-10 and higher
