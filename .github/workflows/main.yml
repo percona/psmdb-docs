@@ -12,12 +12,17 @@ jobs:
     steps: 
       #Pull the latest changes
       - name: Chekout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          sparse-checkout: |
+            docs
+            snippets
+            _resource
+    
       #Prepare the env
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
       
