@@ -95,8 +95,8 @@ markdown_extensions:
   pymdownx.details: {}
   pymdownx.mark: {}
   pymdownx.smartsymbols: {}
-  pymdownx.tabbed: 
-      {alternate_style: true}
+  pymdownx.tabbed: {}
+#      {alternate_style: true}
   pymdownx.tilde: {}
   pymdownx.superfences: 
     custom_fences:
