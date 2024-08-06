@@ -40,9 +40,13 @@ Starting with version 5.0.8-7, the support for [master key rotation](https://www
 
 ## Key state polling
 
-When a Percona Server for MongoDB node generates a new master encryption key, it automatically registers the key on the KMIP server with the `Pre-Active` state. Starting with version 5.0.28-24, Percona Server for MongoDB automatically activates the master encryption key and checks (polls) its state within a defined period. If a master encryption key for a node is not in the `Active` state, the node reports an error and shuts down. This process helps security engineers identify the nodes that require out-of-schedule master key rotation.
+When a Percona Server for MongoDB node generates a new master encryption key, it registers the key on the KMIP server with the `Pre-Active` state. Starting with version 5.0.28-24, Percona Server for MongoDB automatically activates the master encryption key and periodically checks (polls) its state. If a master encryption key for a node is not in the `Active` state, the node reports an error and shuts down. This process helps security engineers identify the nodes that require out-of-schedule master key rotation.
 
-The `security.kmip.activateKeys` configuration file option checks if the newly created master key is transitioned to the `Active` state at startup. This option is enabled by default. The `security.kmip.keyStatePollingSeconds` configuration file option sets the period, in seconds, to poll the master key state. [Read more about key handling during the upgrade](#to-version-5028-24-and-higher).
+Key state polling es enabled by default and is regulated by these configuration file options: `kmip.activateKeys` and `kmip.keyStatePollingSeconds`.
+
+The following diagram illustrates the master key lifecycle with key state polling:
+
+![image](_images/kmip-state-polling.jpg)
 
 The master key state polling functionality is particularly useful in cluster deployments with hundreds of nodes. If some master keys are compromised, security engineers change their state from `Active` so that the nodes encrypted with these keys identify themselves. This approach allows the security engineers to rotate master keys only on the affected nodes instead of the entire cluster, thus reducing the mean time to resolve (MTTR) compromised encryption key incidents.
 
@@ -110,13 +114,13 @@ The master key state polling functionality is particularly useful in cluster dep
 |-------------------- | --------------------|
 | **Command line**    | `kmipActivateKeys`|
 | **Type**            | boolean|
-| **Description**     | Checks if the newly created master key is transitioned to the Active state. Enabled by default. Available starting with version 5.0.28-24.|
+| **Description**     | When enabled, Percona Server for MongoDB activates a newly created master encryption key or verifies that the existing master key is in the Active state at startup. It also initiates the key state polling. Enabled by default. Available starting with version 5.0.28-24.|
 
 | Configuration file  | {{optionlink('security.kmip.keyStatePollingSeconds')}}|
 |-------------------- | --------------------|
 | **Command line**    | `kmipKeyStatePollingSeconds`|
 | **Type**            | int|
-| **Description**     | Sets the period in seconds to check the state of the master encryption key. Default: 900. If the master encryption key for a node is not in the Active state, the node logs the error and shuts down. Available starting with version 5.0.28-24.|
+| **Description**     | The period in seconds to check the state of the master encryption key. Default: 900. If the master encryption key is not in the Active state, the node logs the error and shuts down. Available starting with version 5.0.28-24.|
 
 
 
@@ -141,8 +145,6 @@ security:
     clientKeyFile: </path/client_key.pem>
     serverCAFile: </path/ca.pem>
     keyIdentifier: <key_name>
-    activateKeys: true
-    keyStatePollingSeconds: 900
 ```
 
 Alternatively, you can start Percona Server for MongoDB using the command line as follows:
@@ -155,8 +157,6 @@ $ mongod --enableEncryption \
   --kmipClientCertificateFile <path_to_client_certificate> \
   --kmipClientKeyFile <path_to_client_private_key> \
   --kmipKeyIdentifier <kmip_identifier>
-  --kmipActivateKeys true \
-  --kmipKeyStatePollingSeconds 900
 ```
 
 ## Upgrade considerations
@@ -175,11 +175,8 @@ For replica sets, data must be re-encrypted with the **new** key during the upgr
 
 ### To version 5.0.28-24 and higher
 
-Percona Server for MongoDB 5.0.28 and subsequent versions tolerate already existing `Pre-Active` master keys as follows: if at startup Percona Server for MongoDB detects that the data directory is encrypted with an existing master key in the `Pre-Active` state, it logs a warning and continues to operate as usual. In that case, Percona Server for MongoDB does not do periodic key state polling regardless the value specified for the [`kmipKeyStatePollingSeconds`](#securoty-kmip-keystatepollingseconds) option. [Read more about key state polling](#key-state-polling).
+Percona Server for MongoDB 5.0.28 and subsequent versions tolerate already existing `Pre-Active` master keys as follows: if at startup Percona Server for MongoDB detects that the data directory is encrypted with an existing master key in the `Pre-Active` state, it logs a warning and continues to operate as usual. In that case, Percona Server for MongoDB does not do periodic key state polling regardless the value specified for the [`kmipKeyStatePollingSeconds`](#security-kmip-keystatepollingseconds) option. [Read more about key state polling](#key-state-polling).
 
-We recommend to rotate a master encryption key and explicitly set the [`security.kmip.activateKeys`](#security-kmip-activatekeys) configuration file option to ensure that only the active keys are used. This one-time operation smooths the major upgrade flow.
-
-An active master encryption key is mandatory since Percona Server for MongoDB 8.0.0. To get an active master encryption key, rotate it after installing Percona Server for MongoDB 8.0.x but before starting the server. 
-
+We recommend to either rotate a master encryption key or manually change the existing key to the Active state. You can also explicitly set the [`security.kmip.activateKeys`](#security-kmip-activatekeys) configuration file option to ensure that only the active keys are used. This one-time operation smooths the major upgrade flow.
 
 
