@@ -46,7 +46,7 @@ Key state polling es enabled by default and is regulated by these configuration 
 
 The following diagram illustrates the master key lifecycle with key state polling:
 
-![image](_images/kmip-state-polling.jpg)
+![image](_images/kmip-state-polling.png)
 
 The master key state polling functionality is particularly useful in cluster deployments with hundreds of nodes. If some master keys are compromised, security engineers change their state from `Active` so that the nodes encrypted with these keys identify themselves. This approach allows the security engineers to rotate master keys only on the affected nodes instead of the entire cluster, thus reducing the mean time to resolve (MTTR) compromised encryption key incidents.
 
