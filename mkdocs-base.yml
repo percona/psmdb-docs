@@ -27,8 +27,13 @@ theme:
     content.action.edit
     content.code.copy
     content.copy.annotate
+    content.tabs.link
     search.highlight
     search.share
+    search.suggest
+    navigation.top
+    navigation.tracking 
+ 
     
   palette:
     # Automatic mode based on system preferences
@@ -52,16 +57,8 @@ theme:
         icon: material/toggle-switch
         name: Switch to light mode
   
-  features:
-    - search.highlight
-    - search.suggest
-    - search.share
-    - navigation.top
-    - navigation.tracking 
-    - content.tabs.link   
-    - content.action.edit
-    - content.action.view
-    - content.code.copy
+  
+
 
 extra_css:
   - https://unicons.iconscout.com/release/v3.0.3/css/line.css
@@ -95,8 +92,8 @@ markdown_extensions:
   pymdownx.details: {}
   pymdownx.mark: {}
   pymdownx.smartsymbols: {}
-  pymdownx.tabbed: 
-      {alternate_style: true}
+  pymdownx.tabbed: {}
+#      {alternate_style: true}
   pymdownx.tilde: {}
   pymdownx.superfences: 
     custom_fences:
@@ -128,6 +125,7 @@ plugins:
   git-revision-date-localized: 
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
+  glightbox: {}
   meta-descriptions:
     export_csv: false
     quiet: false

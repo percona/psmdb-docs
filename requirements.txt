@@ -15,3 +15,5 @@ mkdocs-htmlproofer-plugin
 mkdocs-meta-descriptions-plugin
 mike
 mkdocs-git-committers-plugin-2
+mkdocs-glightbox
+
