@@ -1,5 +1,7 @@
 # Percona Server for MongoDB 5.0 Release Notes
 
+* [Percona Server for MongoDB 5.0.28-24 ({{date.5_0_28}})](5.0.28-24.md)
+
 * [Percona Server for MongoDB 5.0.27-23 (2024-06-19)](5.0.27-23.md)
 
 * [Percona Server for MongoDB 5.0.26-22 (2024-04-09)](5.0.26-22.md)
