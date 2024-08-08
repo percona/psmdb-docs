@@ -2693,14 +2693,12 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
 <li>
 <p>Install the dependencies for your operating system. </p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian/Ubuntu</label><label for="__tabbed_1_2">RHEL/CentOS</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Debian/Ubuntu</label><div class="tabbed-content">
 <p>The following command installs the dependencies for Ubuntu 20.04: </p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3<span class="w"> </span>python3-dev<span class="w"> </span>python3-pip<span class="w"> </span>scons<span class="w"> </span>gcc<span class="w"> </span>g++<span class="w"> </span>cmake<span class="w"> </span>curl<span class="w"> </span>libssl-dev<span class="w"> </span>libldap2-dev<span class="w"> </span>libkrb5-dev<span class="w"> </span>libcurl4-openssl-dev<span class="w"> </span>libsasl2-dev<span class="w"> </span>liblz4-dev<span class="w"> </span>libpcap-dev<span class="w"> </span>libbz2-dev<span class="w"> </span>libsnappy-dev<span class="w"> </span>zlib1g-dev<span class="w"> </span>libzlcore-dev<span class="w"> </span>libsasl2-dev<span class="w"> </span>liblzma-dev<span class="w"> </span>libext2fs-dev<span class="w"> </span>e2fslibs-dev<span class="w"> </span>bear
 </code></pre></div>
 </div>
-<div class="tabbed-block">
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">RHEL/CentOS</label><div class="tabbed-content">
 <ol>
 <li>
 <p>The following command installs the dependencies for CentOS 7:</p>
@@ -2730,7 +2728,6 @@ $<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span
 </ul>
 </li>
 </ol>
-</div>
 </div>
 </div>
 </li>
@@ -2780,20 +2777,17 @@ $<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </s
 </li>
 <li>
 <p>Generate build files using <code>cmake</code> </p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Debian/Ubuntu</label><label for="__tabbed_2_2">RHEL/CentOS 7</label><label for="__tabbed_2_3">RHEL/CentOS 8</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Debian/Ubuntu</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>-DBUILD_ONLY<span class="o">=</span><span class="s2">&quot;s3;transfer&quot;</span><span class="w"> </span>-DBUILD_SHARED_LIBS<span class="o">=</span>OFF<span class="w"> </span>-DMINIMIZE_SIZE<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">RHEL/CentOS 7</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cmake3<span class="w"> </span>..<span class="w"> </span>-DCMAKE_C_COMPILER<span class="o">=</span>/opt/rh/devtoolset-8/root/usr/bin/gcc<span class="w">  </span>-DCMAKE_CXX_COMPILER<span class="o">=</span>/opt/rh/devtoolset-8/root/usr/bin/g++<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>-DBUILD_ONLY<span class="o">=</span><span class="s2">&quot;s3;transfer&quot;</span><span class="w"> </span>-DBUILD_SHARED_LIBS<span class="o">=</span>OFF<span class="w"> </span>-DMINIMIZE_SIZE<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">RHEL/CentOS 8</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cmake<span class="w"> </span>..<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>-DBUILD_ONLY<span class="o">=</span><span class="s2">&quot;s3;transfer&quot;</span><span class="w"> </span>-DBUILD_SHARED_LIBS<span class="o">=</span>OFF<span class="w"> </span>-DMINIMIZE_SIZE<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
-</div>
 </div>
 </div>
 </li>
@@ -2812,20 +2806,17 @@ $<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </s
 </li>
 <li>
 <p>Build Percona Server for MongoDB from <code>buildscripts/scons.py</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Debian/Ubuntu</label><label for="__tabbed_3_2">RHEL/CentOS 7</label><label for="__tabbed_3_3">RHEL/CentOS 8</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-set" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Debian/Ubuntu</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>buildscripts/scons.py<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span>--all<span class="k">)</span><span class="w"> </span>--jlink<span class="o">=</span><span class="m">2</span><span class="w"> </span>--disable-warnings-as-errors<span class="w"> </span>--ssl<span class="w"> </span>--opt<span class="o">=</span>on<span class="w"> </span>--use-sasl-client<span class="w"> </span>--wiredtiger<span class="w"> </span>--audit<span class="w"> </span>--inmemory<span class="w"> </span>--hotbackup<span class="w"> </span><span class="nv">CPPPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="nv">LIBPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib&quot;</span><span class="w"> </span>install-mongod
 </code></pre></div>
 </div>
-<div class="tabbed-block">
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">RHEL/CentOS 7</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>python3<span class="w"> </span>buildscripts/scons.py<span class="w"> </span><span class="nv">CC</span><span class="o">=</span>/opt/rh/devtoolset-8/root/usr/bin/gcc<span class="w"> </span><span class="nv">CXX</span><span class="o">=</span>/opt/rh/devtoolset-8/root/usr/bin/g++<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span>--all<span class="k">)</span><span class="w"> </span>--jlink<span class="o">=</span><span class="m">2</span><span class="w"> </span>--install-mode<span class="o">=</span>legacy<span class="w"> </span>--disable-warnings-as-errors<span class="w"> </span>--ssl<span class="w"> </span>--opt<span class="o">=</span>on<span class="w"> </span>--use-sasl-client<span class="w"> </span>--wiredtiger<span class="w"> </span>--audit<span class="w"> </span>--inmemory<span class="w"> </span>--hotbackup<span class="w"> </span><span class="nv">CPPPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="nv">LIBPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib&quot;</span><span class="w">  </span>mongod
 </code></pre></div>
 </div>
-<div class="tabbed-block">
+<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">RHEL/CentOS 8</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>buildscripts/scons.py<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="w"> </span>--all<span class="k">)</span><span class="w"> </span>--jlink<span class="o">=</span><span class="m">2</span><span class="w"> </span>--install-mode<span class="o">=</span>legacy<span class="w"> </span>--disable-warnings-as-errors<span class="w"> </span>--ssl<span class="w"> </span>--opt<span class="o">=</span>on<span class="w"> </span>--use-sasl-client<span class="w"> </span>--wiredtiger<span class="w"> </span>--audit<span class="w"> </span>--inmemory<span class="w"> </span>--hotbackup<span class="w"> </span><span class="nv">CPPPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/include&quot;</span><span class="w"> </span><span class="nv">LIBPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">AWS_LIBS</span><span class="si">}</span><span class="s2">/lib64&quot;</span><span class="w"> </span>mongod
 </code></pre></div>
-</div>
 </div>
 </div>
 </li>
