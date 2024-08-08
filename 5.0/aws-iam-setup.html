@@ -2682,17 +2682,22 @@ document$.subscribe(() => { lightbox.reload() });
 </ol>
 <h3 id="create-users-in-external-database">Create users in <code>$external</code> database<a class="headerlink" href="#create-users-in-external-database" title="Permanent link">&para;</a></h3>
 <p>During the authentication, Percona Server for MongoDB matches the ARN of the <abbr title="Identity Access Management">IAM</abbr> user or role retrieved from <abbr title="Amazon Web Service">AWS</abbr> STS against the user created in the <code>$external</code> database. Thus, the username for this user must include their ARN  and have the following format:</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">User authentication</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">User authentication</label><label for="__tabbed_1_2">Role authentication</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>arn:aws:iam::&lt;ARN&gt;:user/&lt;user_name&gt;
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Role authentication</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>arn:aws:iam::&lt;ARN&gt;:role/&lt;role_name&gt;
 </code></pre></div>
 </div>
 </div>
+</div>
 <p>Create a user and assign the required roles to them. Specify the ARN and names in the following example commands:</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">User authentication</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">User authentication</label><label for="__tabbed_2_2">Role authentication</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">$external</span>
 <span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">(</span>
 <span class="w">   </span><span class="p">{</span>
@@ -2702,7 +2707,7 @@ document$.subscribe(() => { lightbox.reload() });
 <span class="p">)</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Role authentication</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">$external</span>
 <span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">(</span>
 <span class="w">   </span><span class="p">{</span>
@@ -2711,6 +2716,7 @@ document$.subscribe(() => { lightbox.reload() });
 <span class="w">   </span><span class="p">}</span>
 <span class="p">)</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <h3 id="enable-authentication">Enable authentication<a class="headerlink" href="#enable-authentication" title="Permanent link">&para;</a></h3>
@@ -2749,7 +2755,9 @@ document$.subscribe(() => { lightbox.reload() });
 <p>See the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#id_credentials_region-endpoints">list of <abbr title="Amazon Web Service">AWS</abbr> endpoints</a>.</p>
 <h2 id="authenticate-in-percona-server-for-mongodb-using-aws-iam">Authenticate in Percona Server for MongoDB using <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr><a class="headerlink" href="#authenticate-in-percona-server-for-mongodb-using-aws-iam" title="Permanent link">&para;</a></h2>
 <p>To test the authentication, use either of the following methods:</p>
-<div class="tabbed-set" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">MongoDB connection string</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">MongoDB connection string</label><label for="__tabbed_3_2">Environment variables</label><label for="__tabbed_3_3"><abbr title="Amazon Web Service">AWS</abbr> resource metadata</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>Replace <code>&lt;aws_access_key_id&gt;</code>, <code>&lt;aws_secret_access_key&gt;</code> and <code>psmdb.example.com</code> with actual values in the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongo<span class="w"> </span><span class="s1">&#39;mongodb://&lt;aws_access_key_id&gt;:&lt;aws_secret_access_key&gt;:@psmdb.example.com/admin?authSource=$external&amp;authMechanism=MONGODB-AWS&#39;</span>
 </code></pre></div>
@@ -2757,7 +2765,7 @@ document$.subscribe(() => { lightbox.reload() });
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongo<span class="w"> </span><span class="s1">&#39;mongodb://&lt;aws_access_key_id&gt;:&lt;aws_secret_access_key&gt;:@psmdb.example.com/admin?authSource=$external&amp;authMechanism=MONGODB-AWS&amp;authMechanismProperties=AWS_SESSION_TOKEN:&lt;aws_session_token&gt;&#39;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Environment variables</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>Set <abbr title="Amazon Web Service">AWS</abbr> environment variables:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s1">&#39;&lt;aws_access_key_id&gt;&#39;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s1">&#39;&lt;aws_secret_access_key&gt;&#39;</span>
@@ -2767,10 +2775,11 @@ document$.subscribe(() => { lightbox.reload() });
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongo<span class="w"> </span><span class="s1">&#39;mongodb://psmdb.example.com/testdb?authSource=$external&amp;authMechanism=MONGODB-AWS&#39;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3"><abbr title="Amazon Web Service">AWS</abbr> resource metadata</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>If your application is running on the <abbr title="Amazon Web Service">AWS</abbr> resource, it receives the credentials from the resource metadata. To connect to Percona Server for MongoDB, run the command as follows:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongo<span class="w"> </span>--authenticationMechanism<span class="o">=</span>MONGODB-AWS<span class="w"> </span>--authenticationDatabase<span class="o">=</span><span class="s1">&#39;$external&#39;</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <p>Upon successful authentication, the result should look like the following: </p>

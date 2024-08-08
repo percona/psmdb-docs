@@ -2880,29 +2880,35 @@ auditLog:
 such as <code>$eq</code>, <code>$in</code>, <code>$gt</code>, <code>$lt</code>, <code>$ne</code>, and others
 to log multiple event types.</p>
 <p>For example, to log only the <code>dropCollection</code> and <code>dropDatabase</code> events:</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Command line</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Command line</label><label for="__tabbed_1_2">Config file</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>--auditDestination<span class="w"> </span>file<span class="w"> </span>--auditFilter<span class="w"> </span><span class="s1">&#39;{ atype: { $in: [ &quot;dropCollection&quot;, &quot;dropDatabase&quot; ] } }&#39;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Config file</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">auditLog</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
 <span class="w">  </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{</span><span class="nv"> </span><span class="s">atype:</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$in:</span><span class="nv"> </span><span class="s">[</span><span class="nv"> </span><span class="s">&quot;dropCollection&quot;,</span><span class="nv"> </span><span class="s">&quot;dropDatabase&quot;</span><span class="nv"> </span><span class="s">]</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}&#39;</span>
 </code></pre></div>
 </div>
 </div>
+</div>
 <h3 id="regular-expressions">Regular expressions<a class="headerlink" href="#regular-expressions" title="Permanent link">&para;</a></h3>
 <p>Another way to specify multiple event types is using regular expressions.</p>
 <p>For example, to filter all <code>drop</code> operations:</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Command line</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Command line</label><label for="__tabbed_2_2">Config file</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>--auditDestination<span class="w"> </span>file<span class="w"> </span>--auditFilter<span class="w"> </span><span class="s1">&#39;{ &quot;atype&quot; : /^drop.*/ }&#39;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Config file</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">auditLog</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
 <span class="w">  </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{</span><span class="nv"> </span><span class="s">&quot;atype&quot;</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">/^drop.*/</span><span class="nv"> </span><span class="s">}&#39;</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <h3 id="read-and-write-operations">Read and write operations<a class="headerlink" href="#read-and-write-operations" title="Permanent link">&para;</a></h3>
@@ -2915,17 +2921,20 @@ on all the collections in the <code>test</code> database:</p>
 <p class="admonition-title">Note</p>
 <p>The dot (<code>.</code>) after the database name in the regular expression must be escaped with two backslashes (<code>\\\\</code>).</p>
 </div>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Command line</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Command line</label><label for="__tabbed_3_2">Config file</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>--setParameter<span class="w"> </span><span class="nv">auditAuthorizationSuccess</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--auditDestination<span class="w"> </span>file<span class="w"> </span>--auditFilter<span class="w"> </span><span class="s1">&#39;{ atype: &quot;authCheck&quot;, &quot;param.command&quot;: { $in: [ &quot;find&quot;, &quot;insert&quot;, &quot;delete&quot;, &quot;update&quot;, &quot;findandmodify&quot; ] }, &quot;param.ns&quot;: /^test\\./ } }&#39;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Config file</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">auditLog</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
 <span class="w">  </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{</span><span class="nv"> </span><span class="s">atype:</span><span class="nv"> </span><span class="s">&quot;authCheck&quot;,</span><span class="nv"> </span><span class="s">&quot;param.command&quot;:</span><span class="nv"> </span><span class="s">{</span><span class="nv"> </span><span class="s">$in:</span><span class="nv"> </span><span class="s">[</span><span class="nv"> </span><span class="s">&quot;find&quot;,</span><span class="nv"> </span><span class="s">&quot;insert&quot;,</span><span class="nv"> </span><span class="s">&quot;delete&quot;,</span><span class="nv"> </span><span class="s">&quot;update&quot;,</span><span class="nv"> </span><span class="s">&quot;findandmodify&quot;</span><span class="nv"> </span><span class="s">]</span><span class="nv"> </span><span class="s">},</span><span class="nv"> </span><span class="s">&quot;param.ns&quot;:</span><span class="nv"> </span><span class="s">/^test\\./</span><span class="nv"> </span><span class="s">}</span><span class="nv"> </span><span class="s">}&#39;</span>
 
 <span class="nt">setParameter</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> auditAuthorizationSuccess</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="w"> </span><span class="p p-Indicator">}</span>
 </code></pre></div>
+</div>
 </div>
 </div>
 <h2 id="enabling-auditing-of-authorization-success">Enabling auditing of authorization success<a class="headerlink" href="#enabling-auditing-of-authorization-success" title="Permanent link">&para;</a></h2>
