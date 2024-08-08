@@ -6,14 +6,49 @@ KMIP enables the communication between key management systems and the database s
 
 * Streamlines encryption key management
 * Eliminates redundant key management processes
+* Reduces the mean time to resolve (MTTR) compromised encryption key incidents via [key state polling](#key-state-polling)
+
+???+ admonition "Version changes"
+
+     The following table lists the changes in the KMIP implementation in Percona Server for MongoDB and the versions that introduced those changes:     
+
+     |Version         | Description |
+     |----------------|-------------|
+     | [6.0.17-14](release_notes/6.0.17-14.md)| [Key state polling](#key-state-polling).|
+
+
+## Support for multiple KMIP servers
 
 You can specify multiple KMIP servers for failover. On startup, Percona Server for MongoDB connects to the servers in the order listed and selects the one with which the connection is successful.
+
+
+## Optional key identifier
 
 Starting with version 6.0.2-1, the `kmipKeyIdentifier` option is no longer mandatory. When left blank, the database server creates a key on the KMIP server and uses that for encryption. When you specify the identifier, the key with such an ID must exist on the key storage.
 
 !!! note
 
     Starting with version 6.0.6-5, the master key is stored in a raw-byte format. If you set up Percona Server for MongoDB 6.0.6-5 with data-at-rest encryption using KMIP and wish to downgrade to some previous version, this downgrade is not possible via binary replacement. Consider using the [logical backup and restore via Percona Backup for MongoDB](https://docs.percona.com/percona-backup-mongodb/usage/start-backup.html) for this purpose.
+
+## Key rotation
+
+Percona Server for MongoDB supports [master key rotation](https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation). This enables users to comply with data security regulations when using KMIP.
+
+## Key state polling
+
+When a Percona Server for MongoDB node generates a new master encryption key, it registers the key on the KMIP server with the `Pre-Active` state. Starting with version 6.0.17-14, Percona Server for MongoDB automatically activates the master encryption key and periodically checks (polls) its state. If a master encryption key for a node is not in the `Active` state, the node reports an error and shuts down. This process helps security engineers identify the nodes that require out-of-schedule master key rotation.
+
+Key state polling es enabled by default and is regulated by these configuration file options: `kmip.activateKeys` and `kmip.keyStatePollingSeconds`.
+
+The following diagram illustrates the master key lifecycle with key state polling:
+
+![image](_images/kmip-state-polling.png)
+
+The master key state polling functionality is particularly useful in cluster deployments with hundreds of nodes. If some master keys are compromised, security engineers change their state from `Active` so that the nodes encrypted with these keys identify themselves. This approach allows the security engineers to rotate master keys only on the affected nodes instead of the entire cluster, thus reducing the mean time to resolve (MTTR) compromised encryption key incidents.
+
+!!! admonition "See also"
+
+    Percona Blog: [Improve the Security of a Percona Server for MongoDB Deployment with KMIP Key State Polling]() by Konstantin Trushin.
 
 ## KMIP parameters
 
@@ -71,9 +106,17 @@ Starting with version 6.0.2-1, the `kmipKeyIdentifier` option is no longer manda
 | **Type**            | int|
 | **Description**     | The time to wait for the response from the KMIP server. Min value: 1000. Default: 5000. <br><br>If the `connectRetries` setting is specified, the `mongod` waits up to the value specified with `connectTimeoutMS` for each retry.|
 
-## Key rotation
+| Configuration file  | {{optionlink('security.kmip.activateKeys')}}|
+|-------------------- | --------------------|
+| **Command line**    | `kmipActivateKeys`|
+| **Type**            | boolean|
+| **Description**     | When enabled, Percona Server for MongoDB activates a newly created master encryption key or verifies that the existing master key is in the Active state at startup. It also initiates the key state polling. Enabled by default. Available starting with version 6.0.17-14.|
 
-Percona Server for MongoDB supports the [master key rotation](https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation). This enables users to comply with data security regulations when using KMIP.
+| Configuration file  | {{optionlink('security.kmip.keyStatePollingSeconds')}}|
+|-------------------- | --------------------|
+| **Command line**    | `kmipKeyStatePollingSeconds`|
+| **Type**            | int|
+| **Description**     | The period in seconds to check the state of the master encryption key. Default: 900. If the master encryption key is not in the Active state, the node logs the error and shuts down. Available starting with version 6.0.17-14.|
 
 ## Configuration
 
@@ -106,4 +149,12 @@ $ mongod --enableEncryption \
   --kmipClientCertificateFile <path_to_client_certificate> \
   --kmipKeyIdentifier <kmip_identifier>
 ```
+
+## Upgrade considerations
+
+### To version 6.0.17-14 and higher
+
+Percona Server for MongoDB 6.0.17-14 and subsequent versions tolerate already existing `Pre-Active` master keys as follows: if at startup Percona Server for MongoDB detects that the data directory is encrypted with an existing master key in the `Pre-Active` state, it logs a warning and continues to operate as usual. In that case, Percona Server for MongoDB does not do periodic key state polling regardless the value specified for the [`kmipKeyStatePollingSeconds`](#security-kmip-keystatepollingseconds) option. [Read more about key state polling](#key-state-polling).
+
+We recommend to either rotate a master encryption key or manually change the existing key to the Active state. You can also explicitly set the [`security.kmip.activateKeys`](#security-kmip-activatekeys) configuration file option to ensure that only the active keys are used. This one-time operation smooths the major upgrade flow.
 
