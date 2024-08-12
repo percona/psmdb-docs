@@ -52,7 +52,7 @@ The master key state polling functionality is particularly useful in cluster dep
 
 !!! admonition "See also"
 
-    Percona Blog: [Improve the Security of a Percona Server for MongoDB Deployment with KMIP Key State Polling]() by Konstantin Trushin.
+    Percona Blog: [Improve the Security of a Percona Server for MongoDB Deployment with KMIP Key State Polling](https://www.percona.com/blog/improve-the-security-of-a-percona-server-for-mongodb-deployment-with-kmip-key-state-polling/?utm_source=employee&utm_medium=share&utm_campaign=advocacy) by Konstantin Trushin.
 
 ## KMIP parameters
 
