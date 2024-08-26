@@ -14,7 +14,7 @@ KMIP enables the communication between key management systems and the database s
 
      |Version         | Description |
      |----------------|-------------|
-     | [7.0.14-8](release_notes/5.0.28-24.md)| [Key state polling](#key-state-polling).|
+     | [7.0.14-8](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.14-8.md)| [Key state polling](#key-state-polling).|
 
 
 ## Support for multiple KMIP servers
@@ -96,7 +96,6 @@ The master key state polling functionality is particularly useful in cluster dep
 | **Type**               | int | 
 | **Description**        | Defines how many times to retry the initial connection to the KMIP server. The max number of connection attempts equals to `connectRetries + 1`. Default: 0. The option accepts values greater than zero. <br><br>Use it together with the `connectTimeoutMS` parameter to control how long `mongod` waits for the response before making the next retry.|
 
-<<<<<<< HEAD
 | Configuration file  | {{ optionlink('security.kmip.connectTimeoutMS')}} | 
 |--------------------| --------------------|
 | **Command line**        | kmipConnectTimeoutMS      |
@@ -155,8 +154,12 @@ To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, the 
 
 ## Upgrade considerations
 
-### To version 7.0.14-8 and higher
+Percona Server for MongoDB requires that the master encryption key is in the Active state before decrypting the data directory on startup. Therefore, rotate the master encryption **key after installing the new version but before starting the server** as follows:
+ 
+* Set the `security.kmip.rotateMasterKey` option to `true` in the configuration file; alternatively, set the `--kmipRotateMasterKey` command line option
+* Start `mongod` and wait till it exits after doing the key rotation
+* Remove `security.kmip.rotateMasterKey` from the configuration file or `--kmipRotateMasterKey` from the command line.
 
-Percona Server for MongoDB 7.0.14-8 and subsequent versions tolerate already existing `Pre-Active` master keys as follows: if at startup Percona Server for MongoDB detects that the data directory is encrypted with an existing master key in the `Pre-Active` state, it logs a warning and continues to operate as usual. In that case, Percona Server for MongoDB does not do periodic key state polling regardless the value specified for the [`kmipKeyStatePollingSeconds`](#security-kmip-keystatepollingseconds) option. [Read more about key state polling](#key-state-polling).
+Start the `mongod` instance as usual. 
 
-We recommend to either rotate a master encryption key or manually change the existing key to the Active state. You can also explicitly set the [`security.kmip.activateKeys`](#security-kmip-activatekeys) configuration file option to ensure that only the active keys are used. This one-time operation smooths the major upgrade flow.
+This is the one-time action; further upgrades won't need that.  
