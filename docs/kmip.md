@@ -34,7 +34,7 @@ Percona Server for MongoDB supports the [master key rotation](https://www.mongod
 
 When a Percona Server for MongoDB node generates a new master encryption key, it registers the key on the KMIP server with the `Pre-Active` state. Starting with version 7.0.14-8, Percona Server for MongoDB automatically activates the master encryption key and periodically checks (polls) its state. If a master encryption key for a node is not in the `Active` state, the node reports an error and shuts down. This process helps security engineers identify the nodes that require out-of-schedule master key rotation.
 
-Key state polling es enabled by default and is regulated by these configuration file options: `kmip.activateKeys` and `kmip.keyStatePollingSeconds`.
+Key state polling is enabled by default and is regulated by these configuration file options: `kmip.activateKeys` and `kmip.keyStatePollingSeconds`.
 
 The following diagram illustrates the master key lifecycle with key state polling:
 
