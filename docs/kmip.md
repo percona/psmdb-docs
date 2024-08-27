@@ -14,7 +14,7 @@ KMIP enables the communication between key management systems and the database s
 
      |Version         | Description |
      |----------------|-------------|
-     | [7.0.14-8](release_notes/5.0.28-24.md)| [Key state polling](#key-state-polling).|
+     | [7.0.14-8](release_notes/7.0.14-8.md)| [Key state polling](#key-state-polling).|
 
 
 ## Support for multiple KMIP servers
@@ -34,7 +34,7 @@ Percona Server for MongoDB supports the [master key rotation](https://www.mongod
 
 When a Percona Server for MongoDB node generates a new master encryption key, it registers the key on the KMIP server with the `Pre-Active` state. Starting with version 7.0.14-8, Percona Server for MongoDB automatically activates the master encryption key and periodically checks (polls) its state. If a master encryption key for a node is not in the `Active` state, the node reports an error and shuts down. This process helps security engineers identify the nodes that require out-of-schedule master key rotation.
 
-Key state polling es enabled by default and is regulated by these configuration file options: `kmip.activateKeys` and `kmip.keyStatePollingSeconds`.
+Key state polling is enabled by default and is regulated by these configuration file options: `kmip.activateKeys` and `kmip.keyStatePollingSeconds`.
 
 The following diagram illustrates the master key lifecycle with key state polling:
 
@@ -96,7 +96,6 @@ The master key state polling functionality is particularly useful in cluster dep
 | **Type**               | int | 
 | **Description**        | Defines how many times to retry the initial connection to the KMIP server. The max number of connection attempts equals to `connectRetries + 1`. Default: 0. The option accepts values greater than zero. <br><br>Use it together with the `connectTimeoutMS` parameter to control how long `mongod` waits for the response before making the next retry.|
 
-<<<<<<< HEAD
 | Configuration file  | {{ optionlink('security.kmip.connectTimeoutMS')}} | 
 |--------------------| --------------------|
 | **Command line**        | kmipConnectTimeoutMS      |
