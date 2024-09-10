@@ -3,7 +3,7 @@
 
 release: '6.0.17-14'
 version: '6.0'
-mongosh: '2.2.10'
+mongosh: '2.3.0'
 
 date:
   6_0_16: '2024-07-30'
