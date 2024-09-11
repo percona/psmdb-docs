@@ -9,4 +9,5 @@ __pycache__
 site/
 
 #git committers cache
+.cache/
 .cache/plugin/git-committers/page-authors.json
