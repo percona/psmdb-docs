@@ -115,14 +115,15 @@ The following packages are required for the installation.
 
 ### Procedure
 
-The steps below describe the installation on Ubuntu 22.04.
+The steps below describe the installation on Ubuntu 22.04. Replace the link to the tarball for your desired operating system in the following steps:
 
-1. Download the tarballs from the pro repository 
+1. Download the tarballs from the Pro repository 
 
     ```{.bash data-prompt="$"}
-    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-pro-{{release}}-x86_64.jammy.tar.gz\
-    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-{{release}}/percona-server-mongodb-pro-{{release}}-x86_64.jammy.tar.gz \
+    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-{{mongosh}}/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
     ```
+
 2. Extract the tarballs
 
     ```{.bash data-prompt='$'} 
