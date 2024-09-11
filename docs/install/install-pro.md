@@ -50,13 +50,19 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
 
     === ":octicons-file-code-24: Configuration file"
 
-        Create the `/root/.percona-private-repos.config` configuration file with the following content:
+        1. Create the `/root/.percona-private-repos.config` configuration file with the following content:
 
-        ```ini title="/root/.percona-private-repos.config"
-        [psmdb-80-pro]
-        USER_NAME=<Your Customer ID>
-        REPO_TOKEN=<Your PRO repository token>
-        ```    
+            ```ini title="/root/.percona-private-repos.config"
+            [psmdb-80-pro]
+            USER_NAME=<Your Customer ID>
+            REPO_TOKEN=<Your PRO repository token>
+            ```    
+
+        2. Enable the repository    
+
+            ```{.bash .data-prompt="$"}
+            $ sudo percona-release enable psmdb-80-pro release
+            ``` 
 
 3. Install Percona Server for MongoDB Pro packages:
 
@@ -82,14 +88,9 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
 
 Binary tarballs are available for the following operating systems:
 
-Starting with version 7.0.7-4:
-
 * Ubuntu 22.04 (Jammy Jellyfish)
 * Red Hat Enterprise Linux 9
 * Debian 12 (bookworm)
-
-Starting with version 7.0.8-5:
-
 * Red Hat Enterprise Linux 8
 
 ### Preconditions
@@ -115,14 +116,15 @@ The following packages are required for the installation.
 
 ### Procedure
 
-The steps below describe the installation on Ubuntu 22.04.
+The steps below describe the installation on Ubuntu 22.04. Replace the link to the tarball for your desired operating system in the following steps:
 
-1. Download the tarballs from the pro repository 
+1. Download the tarballs from the Pro repository 
 
     ```{.bash data-prompt="$"}
-    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-80-pro/tarballs/percona-server-mongodb-pro-{{release}}-x86_64.jammy.tar.gz\
-    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-80-pro/tarballs/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-80-pro/tarballs/percona-server-mongodb-{{release}}/percona-server-mongodb-pro-{{release}}-x86_64.jammy.tar.gz \
+    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-{{mongosh}}/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
     ```
+
 2. Extract the tarballs
 
     ```{.bash data-prompt='$'} 
