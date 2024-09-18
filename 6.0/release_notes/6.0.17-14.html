@@ -14,13 +14,13 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.11-8.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.17-14.html">
       
       
-        <link rel="prev" href="6.0.12-9.html">
+        <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="6.0.9-7.html">
+        <link rel="next" href="6.0.16-13.html">
       
       
       <link rel="icon" href="../_images/mongodb-fav.svg">
@@ -28,7 +28,7 @@
     
     
       
-        <title>Percona Server for MongoDB 6.0.11-8 (2023-10-19) - Percona Server for MongoDB 6.0</title>
+        <title>Percona Server for MongoDB 6.0.17-14 (2024-09-18) - Percona Server for MongoDB 6.0</title>
       
     
     
@@ -96,7 +96,7 @@
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 6.0 - Percona Server for MongoDB 6.0.11-8 (2023-10-19)" />
+<meta property="og:title" content="Percona Server for MongoDB 6.0 - Percona Server for MongoDB 6.0.17-14 (2024-09-18)" />
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/6.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
 </head>
@@ -123,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-server-for-mongodb-6011-8-2023-10-19" class="md-skip">
+        <a href="#percona-server-for-mongodb-6017-14-2024-09-18" class="md-skip">
           Skip to content
         </a>
       
@@ -220,7 +220,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Server for MongoDB 6.0.11-8 (2023-10-19)
+              Percona Server for MongoDB 6.0.17-14 (2024-09-18)
             
           </span>
         </div>
@@ -1709,10 +1709,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="6.0.17-14.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 6.0.17-14 (2024-09-18)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="6.0.17-14.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1721,6 +1741,103 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Highlights
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Release Highlights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reduce-mean-time-to-resolve-mttr-compromised-encryption-key-incidents-in-kmip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reduce mean time to resolve (MTTR) compromised encryption key incidents in KMIP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upstream-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upstream Improvements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packaging-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packaging Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changelog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improvements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1814,19 +1931,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_7" >
         
           
           <label class="md-nav__link" for="__nav_7_7" id="__nav_7_7_label" tabindex="0">
@@ -1840,7 +1955,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7_7">
             <span class="md-nav__icon md-icon"></span>
             2023 (versions 6.0.5-4 through 6.0.12-9)
@@ -1872,30 +1987,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Percona Server for MongoDB 6.0.11-8 (2023-10-19)
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="6.0.11-8.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="6.0.11-8.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1904,55 +1999,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#release-highlights" class="md-nav__link">
-    <span class="md-ellipsis">
-      Release Highlights
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#new-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      New Features
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2350,14 +2396,62 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Release Highlights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reduce-mean-time-to-resolve-mttr-compromised-encryption-key-incidents-in-kmip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reduce mean time to resolve (MTTR) compromised encryption key incidents in KMIP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upstream-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upstream Improvements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#new-features" class="md-nav__link">
+  <a href="#packaging-notes" class="md-nav__link">
     <span class="md-ellipsis">
-      New Features
+      Packaging Notes
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Changelog
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changelog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Improvements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2387,7 +2481,7 @@
                   
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/release_notes/6.0.11-8.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/release_notes/6.0.17-14.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2396,43 +2490,40 @@
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/release_notes/6.0.11-8.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/release_notes/6.0.17-14.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="percona-server-for-mongodb-6011-8-2023-10-19">Percona Server for MongoDB 6.0.11-8 (2023-10-19)<a class="headerlink" href="#percona-server-for-mongodb-6011-8-2023-10-19" title="Permanent link">&para;</a></h1>
+<h1 id="percona-server-for-mongodb-6017-14-2024-09-18">Percona Server for MongoDB 6.0.17-14 (2024-09-18)<a class="headerlink" href="#percona-server-for-mongodb-6017-14-2024-09-18" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="../install/index.html">Installation</a></p>
-<p>Percona Server for MongoDB 6.0.11-8 is an enhanced, source-available, and highly-scalable database that is a
-fully-compatible, drop-in replacement for <a href="https://www.mongodb.com/docs/manual/release-notes/6.0/#6.0.10---sep-14--2023">MongoDB 6.0.10 Community Edition</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/6.0/#6.0.11---oct-11--2023">MongoDB 6.0.11 Community Edition</a>.</p>
-<p>It supports protocols and drivers of both  MongoDB 6.0.10 and MongoDB 6.0.11</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>We don&rsquo;t recommend this version for production use due to the issue with routing sharding time series collections <a href="https://jira.mongodb.org/browse/SERVER-80203">SERVER-80203</a> which could result in metadata inconsistency. The routing issue is observed when documents have the shard key containing the embedded object composed of multiple fields. </p>
-<p>The issue affects time series sharded collections starting in MongoDB version 5.0.6 through versions 5.0.21, 6.0.11 and 7.0.2. It is fixed upstream in versions 5.0.22, 6.0.12 and 7.0.4 and included in Percona Server for MongoDB 5.0.22-19, 6.0.12-9 and 7.0.4-2.</p>
-<p>If you are using time series collections, upgrade to the fixed version of MongoDB / Percona Server for MongoDB as soon as possible and follow closely the upstream recommendations outlined in <a href="https://jira.mongodb.org/browse/SERVER-80203">SERVER-80203</a> for remediation steps.</p>
-</div>
+<p>Percona Server for MongoDB 6.0.17-14 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB Community Edition 6.0.17. </p>
+<p>It is based on <a href="https://www.mongodb.com/docs/manual/release-notes/6.0/#6.0.17---aug-21--2024">MongoDB 6.0.17 Community Edition</a> and supports the upstream protocols and drivers.</p>
 <h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You can now configure the retry behavior for Percona Server for MongoDB to connect to the KMIP server when using <a href="../kmip.html">data-at-rest encryption</a>.  </li>
-</ul>
+<h3 id="reduce-mean-time-to-resolve-mttr-compromised-encryption-key-incidents-in-kmip">Reduce mean time to resolve (MTTR) compromised encryption key incidents in KMIP<a class="headerlink" href="#reduce-mean-time-to-resolve-mttr-compromised-encryption-key-incidents-in-kmip" title="Permanent link">&para;</a></h3>
+<p>Starting with this release, Percona Server for MongoDB automatically activates all new master encryption keys at startup and periodically checks (polls) their status in a KMIP server. If a master encryption key for a node transitions to the state other than Active, the node reports an error and shuts down. This method allows security engineers to quickly identify which nodes require out-of-schedule master key rotation, such as in the case of compromised keys, without needing to rotate keys for the entire cluster. </p>
+<p>Learn more about key state polling from <a href="../kmip.html#key-state-polling">the documentation</a>  </p>
+<h3 id="upstream-improvements">Upstream Improvements<a class="headerlink" href="#upstream-improvements" title="Permanent link">&para;</a></h3>
 <p>Improvements and bug fixes, provided by MongoDB and included in Percona Server for MongoDB are the following:</p>
 <ul>
-<li><a href="https://jira.mongodb.org/browse/SERVER-71627">SERVER-71627</a> - Improved performance of updating the routing table and prevented blocking client requests during refresh for clusters with 1 million of chunks.</li>
-<li><a href="https://jira.mongodb.org/browse/SERVER-73394">SERVER-73394</a> - Removed the <code>operationBlockedByRefresh</code> metric from the <code>serverStatus</code> command output.</li>
-<li><a href="https://jira.mongodb.org/browse/SERVER-77183">SERVER-77183</a> - Fixed incorrect results when <code>$project</code> is followed by <code>$group</code> and the group doesn’t require full document</li>
-<li><a href="https://jira.mongodb.org/browse/SERVER-79771">SERVER-79771</a> - Made Resharding Operation Resilient to NetworkInterfaceExceededTimeLimit</li>
-<li><a href="https://jira.mongodb.org/browse/SERVER-58534">SERVER-58534</a> - Collect the Feature Compatibility Version (FCV) in Full Time Diagnostic Data Capture (FTDC) to simplify diagnostics.</li>
-<li><a href="https://jira.mongodb.org/browse/SERVER-69244">SERVER-69244</a> - Fixed the issue with the <code>$merge</code> operation failing when used in sharding clusters with the read concern set to &ldquo;majority&rdquo;.</li>
-<li><a href="https://jira.mongodb.org/browse/SERVER-79498">SERVER-79498</a> - Introduced <code>vectorSearch</code> aggregation stage</li>
-<li><a href="https://jira.mongodb.org/browse/SERVER-80021">SERVER-80021</a> - Fixed the conversion form string to doubleValue to not lose precision and be able to rountrip and retrieve the same value back.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-85892">SERVER-85892</a> - Fixed the error in the <code>$merge</code> operation produced by the pipeline after the <code>$documents</code> stage by correcting the namespace for pipeline validation</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-91195">SERVER-91195</a> - Provided a generic backportable solution not to miss top-level timeseries collection options</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-91362">SERVER-91362</a> - Fixed performance issues by not copying a JavaScript “scope” object if a cached JsExecution object already exists in a query thread</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-91406">SERVER-91406</a> - Allowed the <code>$match</code> aggregation stage to move ahead of mongoS change stream stages</li>
+<li><a href="https://jira.mongodb.org/browse/WT-12708">WT-12708</a> - Fixed the issue with ineffective queuing of the pages by the eviction server in WoredTiger by introducing retries to find the ref in memory and thus avoiding returning NULL from the random descent function.</li>
 </ul>
-<p>Find the full list of new features and improvements in the release notes for <a href="https://www.mongodb.com/docs/manual/release-notes/6.0/#6.0.10---sep-14--2023">MongoDB 6.0.10 Community Edition</a> and [https://www.mongodb.com/docs/manual/release-notes/6.0/#6.0.11&mdash;oct-11&ndash;2023).</p>
-<h2 id="new-features">New Features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h2>
+<p>Find the full list of new features and improvements in the release notes for <a href="https://www.mongodb.com/docs/manual/release-notes/6.0/#6.0.17---aug-21--2024">MongoDB 6.0.17 Community Edition</a>.</p>
+<h2 id="packaging-notes">Packaging Notes<a class="headerlink" href="#packaging-notes" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://jira.percona.com/browse/PSMDB-1241">PSMDB-1241</a> - Implement the <code>connectRetries</code> and the <code>connectTimeoutMS</code> configuration file options</li>
+<li>Percona Server for MongoDB 6.0.17-14 is no longer supported for Ubuntu 18.04 (Bionic Beaver), Debian 10 and Red Hat Enterprise 7 and derivatives as these operating systems reached End-Of-Life.</li>
+</ul>
+<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h2>
+<h3 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://perconadev.atlassian.net/browse/PSMDB-1283">PSMDB-1283</a> - Add the ability to activate master encryption keys in KMIP server and check their state.</li>
 </ul>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
@@ -2465,7 +2556,7 @@ fully-compatible, drop-in replacement for <a href="https://www.mongodb.com/docs/
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 18, 2024</span>
   </span>
 
     
@@ -2475,7 +2566,7 @@ fully-compatible, drop-in replacement for <a href="https://www.mongodb.com/docs/
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 19, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 18, 2024</span>
   </span>
 
     
