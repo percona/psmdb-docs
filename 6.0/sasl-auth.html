@@ -27,7 +27,7 @@ Use common sense to adapt these guidelines to your production environment.">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
     
     
       
@@ -2524,16 +2524,13 @@ Use common sense to adapt these guidelines to your production environment.</p>
 <ol>
 <li>
 <p>Install the SASL packages. Depending on your OS, use the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian and Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Debian and Ubuntu</label><div class="tabbed-content">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w">  </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sasl2-bin
 </code></pre></div>
 </div>
-<div class="tabbed-block">
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">RHEL and derivatives</label><div class="tabbed-content">
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w">  </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cyrus-sasl
 </code></pre></div>
-</div>
 </div>
 </div>
 </li>
@@ -2543,9 +2540,7 @@ Use common sense to adapt these guidelines to your production environment.</p>
 <p class="admonition-title">Note</p>
 <p>Back up the original configuration file before making changes.</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Debian and Ubuntu</label><label for="__tabbed_2_2">RHEL and derivatives</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Debian and Ubuntu</label><div class="tabbed-content">
 <p>Use the following commands to enable the <code>saslauthd</code> to auto-run on startup and to set the <code>ldap</code> value for the <code>--MECHANISMS</code> option:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthdsudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECHANISMS<span class="o">=</span><span class="s2">&quot;pam&quot;</span>/MECHANISMS<span class="o">=</span><span class="s2">&quot;ldap&quot;</span>/g<span class="w"> </span>/etc/default/saslauthd
 $<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^START<span class="o">=</span>no/START<span class="o">=</span>yes/g<span class="w"> </span>/etc/default/saslauthd
@@ -2555,7 +2550,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>
 MECHANISMS=&quot;ldap
 </code></pre></div>
 </div>
-<div class="tabbed-block">
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">RHEL and derivatives</label><div class="tabbed-content">
 <p>Specify the <code>ldap</code> value for the <code>--MECH</code> option using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthd
 </code></pre></div>
@@ -2564,13 +2559,10 @@ MECHANISMS=&quot;ldap
 </code></pre></div>
 </div>
 </div>
-</div>
 </li>
 <li>
 <p>Create the <code>/etc/saslauthd.conf</code> configuration file and specify the settings that <code>saslauthd</code> requires to connect to a local LDAP service:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">OpenLDAP server</label><label for="__tabbed_3_2">Microsoft Windows Active Directory</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">OpenLDAP server</label><div class="tabbed-content">
 <p>The following is the example configuration file. Note that the server address <strong>MUST</strong> match the OpenLDAP installation:</p>
 <div class="highlight"><pre><span></span><code>ldap_servers: ldap://localhost
 ldap_mech: PLAIN
@@ -2583,7 +2575,7 @@ ldap_password: secret
  This allows the <code>saslauthd</code> service to connect to the LDAP service as admin.
  In production, this would not be the case; users should not store administrative passwords in unencrypted files.</p>
 </div>
-<div class="tabbed-block">
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Microsoft Windows Active Directory</label><div class="tabbed-content">
 <p>In order for LDAP operations to be performed
  against a Windows Active Directory server,
  a user record must be created to perform the lookups.</p>
@@ -2600,7 +2592,6 @@ ldap_password: ld@pmgr_Pa55word
  and filter for your Active Directory installation,
  the Microsoft <a href="https://technet.microsoft.com/en-us/library/Cc772839%28v=WS.10%29.aspx">LDP GUI Tool</a>
  can be used to bind and search the LDAP-compatible directory.</p>
-</div>
 </div>
 </div>
 </li>
@@ -2832,7 +2823,7 @@ against a given database using the following command:</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
