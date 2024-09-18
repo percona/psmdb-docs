@@ -4,30 +4,43 @@ Data at rest encryption for the WiredTiger storage engine in MongoDB was
 introduced in MongoDB Enterprise version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
 
+<<<<<<< HEAD
 !!! important
 
     You can only enable data at rest encryption and provide all encryption settings **on an empty database**, when you start the `mongod` instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.
 
 
+=======
+>>>>>>> 7826e7ea... PSMDB-1283 Added KMIP key state polling (#896)
 ## Differences from upstream
 
 The data encryption at rest in Percona Server for MongoDB is introduced in version 3.6 to be compatible with data encryption at rest interface in MongoDB. In the current release of Percona Server for MongoDB, the data encryption at rest does not include support for Amazon AWS key management service. Instead, Percona Server for MongoDB is [integrated with HashiCorp Vault](vault.md). 
 
 Starting with release 6.0.2-1, Percona Server for MongoDB supports the secure transfer of keys using [Key Management Interoperability Protocol (KMIP)](kmip.md). This allows users to store encryption keys in their favorite KMIP-compatible key manager when they set up encryption at rest.
 
-Two types of keys are used for data at rest encryption:
+
+## Workflow
+
+!!! important
+
+    You can only enable data at rest encryption and provide all encryption settings on an empty database, when you start the mongod instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.
+
+Each node of Percona Server for MongoDB generates a random, individual key for every database. It encrypts every database with an individual key and puts those keys into the special, so-called key database. Then each node of Percona Server for MongoDB randomly generates a unique master encryption key and encrypts the key database with this key. 
+
+Thus, two types of keys are used for data at rest encryption:
 
 * Database keys to encrypt data. They are stored internally, near the data that they encrypt.
 
 * The master key to encrypt database keys. It is kept separately from the data and database keys and requires external management.
 
-To manage the master key, use one of the supported key management options:
+To manage the master encryption key, use one of the supported key management options:
 
 * Integration with an external key server (recommended). Percona Server for MongoDB is [integrated with HashiCorp Vault](vault.md) for this purpose and supports the secure transfer of keys using [Key Management Interoperability Protocol (KMIP)](kmip.md).
 
 * [Local key management using a keyfile](keyfile.md).
 
 Note that you can use only one of the key management options at a time. However, you can switch from one management option to another (e.g. from a keyfile to HashiCorp Vault). Refer to [Migrating from Key File Encryption to HashiCorp Vault Encryption](encryption-mode-switch.md) section for details.
+
 
 
 ## Important configuration options
