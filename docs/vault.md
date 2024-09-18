@@ -10,7 +10,18 @@ with versioning enabled.
 
     HashiCorp Vault Documentation: [How to configure the KV Engine](https://www.vaultproject.io/api/secret/kv/kv-v2.html)
 
-## HashiCorp Vault Parameters
+??? admonition "Version changes"
+
+    The following table lists the changes in the implementation of HashiCorp Vault integration with Percona Server for MongoDB and the versions that introduced those changes:
+
+    | Version         | Description |
+    |-----------------|-------------|
+    | [5.0.15-13](release_notes/5.0.15-13.md) | Key rotation in replica sets | 
+    | [5.0.29-25](release_notes/5.0.29-25.md) | Key loss prevention during rotation |
+
+
+
+## HashiCorp Vault parameters
 
 | Command line         | Configuration file        | Type   | Description  |
 | -------------------- | ------------------------- | ------ | ------------ |
@@ -60,7 +71,7 @@ You have the following options of how to target a particular namespace when conf
    ```{.bash data-prompt="$"}
    $ export VAULT_NAMESPACE=test
    ```
-2. Provide the namespace with the `-namespace` flag in commands
+2. Provide the namespace with the `--namespace` flag in commands
 
 !!! admonition "See also"
 
@@ -99,3 +110,12 @@ The key rotation steps are the following:
 1. Rotate the master key for the secondary nodes one by one.
 2. Step down the primary and wait for another primary to be elected.
 3. Rotate the master key for the previous primary node.
+
+### Prevent key loss during rotation
+
+Starting with version 5.0.29-25, Percona Server for MongoDB checks if the number of secret versions has reached the maximum (10 by default) before adding a new master key to the Vault server as a versioned secret. You configure this number using the max_versions parameter on the Vault server.
+
+If the number of secrets exceeds the maximum, Percona Server for MongoDB logs an error and exits. This prevents the Vault server from dropping the oldest secret version and the encryption key it stores.
+
+To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has read permissions for the secret’s metadata and the secrets engine configuration.
+
