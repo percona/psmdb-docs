@@ -33,6 +33,8 @@ with versioning enabled.
 | vaultRotateMasterKey | security.vault.<br>rotateMasterKey| switch | When enabled, rotates the master key and exits |
 | vaultServerCAFile    | security.vault.<br>serverCAFile | string | The path to the TLS certificate file |
 | vaultDisableTLSForTesting | security.vault.<br>disableTLSForTesting | switch | Disables secure connection to Vault using SSL/TLS client certificates|
+| vaultCheckMaxVersions  | security.vault.<br>checkMaxVersions| boolean | Verifies that the current number of secret versions has not reached the maximum, defined by the `max_versions` parameter for the secret or the secrets engine on the Vault server. If the number of versions has reached the maximum, the server logs an error and exits. Enabled by default. Available starting with version 5.0.29-25.|
+
 
 **Config file example**
 
