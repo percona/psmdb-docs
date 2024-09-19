@@ -2494,7 +2494,9 @@ running in another container.</p>
 </ul>
 <p>The following example demonstrates the setup on x86_64 platforms. The <code>rs101</code>, <code>rs102</code>, <code>rs103</code> are the container names for Percona Server for MongoDB and <code>rs</code> is the replica set name. </p>
 <p>For ARM64 architectures, change the image to <code>percona/percona-server-mongodb:&lt;TAG&gt;-arm64</code>.</p>
-<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Bridge network</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Bridge network</label><label for="__tabbed_1_2">User-defined network</label><label for="__tabbed_1_3">Docker Compose</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>When you start Docker, a default <code>bridge</code> network is created and all containers are automatically attached to it unless otherwise specified. </p>
 <ol>
 <li>
@@ -2534,7 +2536,7 @@ $<span class="w"> </span>docker<span class="w"> </span>inspect<span class="w"> <
 </li>
 </ol>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">User-defined network</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>You can isolate desired containers in a user-defined network and provide DNS resolution across them so that they communicate with each other by hostname.</p>
 <ol>
 <li>
@@ -2564,7 +2566,7 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
 </li>
 </ol>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Docker Compose</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>As the precondition, you need to have Docker Engine and Docker Compose on your machine. Refer to <a href="https://docs.docker.com/compose/install/">Docker documentation</a> for how to get Docker Compose.</p>
 <ol>
 <li>
@@ -2649,6 +2651,7 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
 </code></pre></div>
 </li>
 </ol>
+</div>
 </div>
 </div>
 <h3 id="connecting-with-the-mongosh-shell">Connecting with the <code>mongosh</code> shell<a class="headerlink" href="#connecting-with-the-mongosh-shell" title="Permanent link">&para;</a></h3>

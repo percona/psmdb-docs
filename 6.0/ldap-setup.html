@@ -2558,17 +2558,20 @@ member: cn=bob,dc=percona,dc=com
 </li>
 <li>
 <p>Specify the path to the certificates in the <code>ldap.conf</code> file:</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Debian / Ubuntu</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian / Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>tee -a /etc/openldap/ldap.conf &lt;&lt;EOF
 TLS_CACERT /etc/ssl/certs/my_CA.crt
 EOF
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">RHEL and derivatives</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>tee -a /etc/openldap/ldap.conf &lt;&lt;EOF
 TLS_CACERT /etc/openldap/certs/my_CA.crt
 EOF
 </code></pre></div>
+</div>
 </div>
 </div>
 </li>
@@ -2630,7 +2633,9 @@ EOF
 <p>Using the <code>--ldapUserToDNMapping</code> configuration parameter allows you to do this. You specify the match pattern as a regexp to capture a username. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.</p>
 <p>If you don’t know what the substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out.</p>
 <p>Note that you can use only the <code>query</code> or the <code>substitution</code> stage, the combination of two is not allowed.</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Substitution</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Substitution</label><label for="__tabbed_2_2">LDAP query</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <ol>
 <li>
 <p>Edit the Percona Server for MongoDB configuration file (by default, <code>/etc/mongod.conf</code>) and specify the <code>userToDNMapping</code> parameter:</p>
@@ -2667,7 +2672,7 @@ EOF
 </li>
 </ol>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">LDAP query</label><div class="tabbed-content">
+<div class="tabbed-block">
 <ol>
 <li>
 <p>Edit the Percona Server for MongoDB configuration file (by default, <code>/etc/mongod.conf</code>) and specify the <code>userToDNMapping</code> parameter:</p>
@@ -2705,6 +2710,7 @@ EOF
 </ol>
 </div>
 </div>
+</div>
 <h3 id="active-directory-configuration">Active Directory configuration<a class="headerlink" href="#active-directory-configuration" title="Permanent link">&para;</a></h3>
 <p>Microsoft Active Directory uses a different schema for user and group definition. To illustrate Percona Server for MongoDB configuration, we will use the following <abbr title="Active Directory">AD</abbr> users:</p>
 <div class="highlight"><pre><span></span><code>dn:CN=alice,CN=Users,DC=testusers,DC=percona,DC=com
@@ -2723,7 +2729,9 @@ dn:CN=otherusers,CN=Users,DC=percona,DC=com
 member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </code></pre></div>
 <p>Use one of the given Percona Server for MongoDB configurations for user authentication and authorization in Active Directory:</p>
-<div class="tabbed-set" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">No username transformation</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">No username transformation</label><label for="__tabbed_3_2">Username substitution</label><label for="__tabbed_3_3">LDAP query</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <ol>
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
@@ -2748,7 +2756,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 </ol>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Username substitution</label><div class="tabbed-content">
+<div class="tabbed-block">
 <ol>
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
@@ -2780,7 +2788,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 </ol>
 </div>
-<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">LDAP query</label><div class="tabbed-content">
+<div class="tabbed-block">
 <ol>
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
@@ -2811,6 +2819,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </code></pre></div>
 </li>
 </ol>
+</div>
 </div>
 </div>
 <p>Modify one of this example configuration to match your deployment.</p>
