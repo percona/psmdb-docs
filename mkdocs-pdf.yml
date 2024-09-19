@@ -7,7 +7,6 @@ copyright: Percona LLC, &#169; 2024
 markdown_extensions:
   pymdownx.tabbed: {}
   admonition: {}
-
   pymdownx.superfences: {}
  
 extra_css:
