@@ -1,6 +1,8 @@
 
 # Percona Server for MongoDB 7.0 release notes
 
+* [Percona Server for MongoDB 7.0.14-8 ({{date.7_0_14}})](7.0.14-8.md)
+
 * [Percona Server for MongoDB 7.0.12-7 (2024-07-23)](7.0.12-7.md)
 
 * [Percona Server for MongoDB 7.0.11-6 (2024-06-03)](7.0.11-6.md)
