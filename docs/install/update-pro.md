@@ -71,13 +71,19 @@ This document provides instructions how you can upgrade from Percona Server for 
 
         === ":octicons-file-code-24: Configuration file"            
 
-            Create the `/root/.percona-private-repos.config` configuration file with the following content:            
+            1. Create the `/root/.percona-private-repos.config` configuration file with the following content:            
 
-            ```ini title="/root/.percona-private-repos.config"
-            [psmdb-60-pro]
-            USER_NAME=<Your Customer ID>
-            REPO_TOKEN=<Your PRO repository token>
-            ```            
+                ```ini title="/root/.percona-private-repos.config"
+                [psmdb-60-pro]
+                USER_NAME=<Your Customer ID>
+                REPO_TOKEN=<Your PRO repository token>
+                ```  
+
+            2. Enable the repository
+
+                ```{.bash .data-prompt="$"}
+                $ sudo percona-release enable psmdb-60-pro release
+                ```
 
     4. Install Percona Server for MongoDB Pro packages
 
