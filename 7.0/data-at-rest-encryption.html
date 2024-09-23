@@ -26,7 +26,7 @@ files can be decrypted and read by parties with the decryption key.">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
     
     
       
@@ -34,7 +34,7 @@ files can be decrypted and read by parties with the decryption key.">
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.06209087.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
@@ -1290,6 +1290,15 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
       
         <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#important-configuration-options" class="md-nav__link">
     <span class="md-ellipsis">
       Important configuration options
@@ -2155,6 +2164,15 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
       
         <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#important-configuration-options" class="md-nav__link">
     <span class="md-ellipsis">
       Important configuration options
@@ -2233,14 +2251,16 @@ document$.subscribe(() => { lightbox.reload() });
 <p>Data at rest encryption for the WiredTiger storage engine in MongoDB was
 introduced in MongoDB Enterprise version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>You can only enable data at rest encryption and provide all encryption settings on an empty database, when you start the <code>mongod</code> instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.</p>
-</div>
 <h2 id="differences-from-upstream">Differences from upstream<a class="headerlink" href="#differences-from-upstream" title="Permanent link">&para;</a></h2>
 <p>The data encryption at rest in Percona Server for MongoDB is introduced in version 3.6 to be compatible with data encryption at rest interface in MongoDB. In the current release of Percona Server for MongoDB, the data encryption at rest does not include support for Amazon AWS key management service. Instead, Percona Server for MongoDB is <a href="vault.html">integrated with HashiCorp Vault</a>. </p>
 <p>Starting with release 6.0.2-1, Percona Server for MongoDB supports the secure transfer of keys using <a href="kmip.html">Key Management Interoperability Protocol (KMIP)</a>. This allows users to store encryption keys in their favorite KMIP-compatible key manager when they set up encryption at rest.</p>
-<p>Two types of keys are used for data at rest encryption:</p>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You can only enable data at rest encryption and provide all encryption settings on an empty database, when you start the mongod instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.</p>
+</div>
+<p>Each node of Percona Server for MongoDB generates a random, individual key for every database. It encrypts every database with an individual key and puts those keys into the special, so-called key database. Then each node of Percona Server for MongoDB randomly generates a unique master encryption key and encrypts the key database with this key. </p>
+<p>Thus, two types of keys are used for data at rest encryption:</p>
 <ul>
 <li>
 <p>Database keys to encrypt data. They are stored internally, near the data that they encrypt.</p>
@@ -2249,7 +2269,7 @@ files can be decrypted and read by parties with the decryption key.</p>
 <p>The master key to encrypt database keys. It is kept separately from the data and database keys and requires external management.</p>
 </li>
 </ul>
-<p>To manage the master key, use one of the supported key management options:</p>
+<p>To manage the master encryption key, use one of the supported key management options:</p>
 <ul>
 <li>
 <p>Integration with an external key server (recommended). Percona Server for MongoDB is <a href="vault.html">integrated with HashiCorp Vault</a> for this purpose and supports the secure transfer of keys using <a href="kmip.html">Key Management Interoperability Protocol (KMIP)</a>.</p>
@@ -2344,7 +2364,7 @@ the encryption. By default, the <code>--encryptionCipherMode</code> option uses 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 23, 2024</span>
   </span>
 
     

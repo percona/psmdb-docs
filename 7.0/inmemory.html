@@ -27,7 +27,7 @@ memory to hold the data set, and ensure that the server does not shut down.">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.35">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
     
     
       
@@ -35,7 +35,7 @@ memory to hold the data set, and ensure that the server does not shut down.">
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.06209087.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
@@ -2314,9 +2314,7 @@ configuration file (by default, <code>/etc/mongod.conf</code>):</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>You can configure Percona Memory Engine using either command-line options or
 corresponding parameters in the <code>/etc/mongod.conf</code> file. The following are the configuration examples:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"/><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"/></svg></span> Configuration file</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"/></svg></span> Command line</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"/><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"/></svg></span> Configuration file</label><div class="tabbed-content">
 <p>The configuration file is formatted in YAML</p>
 <div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span>
@@ -2326,14 +2324,13 @@ corresponding parameters in the <code>/etc/mongod.conf</code> file. The followin
 <span class="w">      </span><span class="nt">statisticsLogDelaySecs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </code></pre></div>
 </div>
-<div class="tabbed-block">
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"/></svg></span> Command line</label><div class="tabbed-content">
 <p>Setting parameters in the configuration file is the same as
  starting the <code>mongod</code> daemon with the following options:</p>
 <div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--storageEngine<span class="o">=</span>inMemory<span class="w"> </span><span class="se">\</span>
 --inMemorySizeGB<span class="o">=</span><span class="m">140</span><span class="w"> </span><span class="se">\</span>
 --inMemoryStatisticsLogDelaySecs<span class="o">=</span><span class="m">0</span>
 </code></pre></div>
-</div>
 </div>
 </div>
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
@@ -2445,9 +2442,7 @@ parameters):</p>
 </li>
 </ol>
 <h4 id="switch-to-percona-memory-engine-with-data-migration-and-compatibility">Switch to Percona Memory Engine with data migration and compatibility<a class="headerlink" href="#switch-to-percona-memory-engine-with-data-migration-and-compatibility" title="Permanent link">&para;</a></h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Standalone instance</label><label for="__tabbed_2_2">Replica set</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Standalone instance</label><div class="tabbed-content">
 <p>For a standalone instance or a single-node replica set, use the <code>mongodump</code> and <code>mongorestore</code> utilities:</p>
 <ol>
 <li>
@@ -2481,7 +2476,7 @@ value for the <code>storage.engine</code> variable. Set the engine-specific sett
 </li>
 </ol>
 </div>
-<div class="tabbed-block">
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Replica set</label><div class="tabbed-content">
 <p>Use the “rolling restart” process.</p>
 <ol>
 <li>
@@ -2516,7 +2511,6 @@ value for the <code>storage.engine</code> variable. Set the engine-specific sett
 <p>Repeat the procedure to switch the remaining nodes to Percona Memory Engine.</p>
 </li>
 </ol>
-</div>
 </div>
 </div>
 <h3 id="data-at-rest-encryption">Data at rest encryption<a class="headerlink" href="#data-at-rest-encryption" title="Permanent link">&para;</a></h3>
