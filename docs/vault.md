@@ -48,7 +48,7 @@ security:
     secret: secret/data/hello
 ```
 
-Starting with 5.0.29-28, Percona Server for MongoDB checks the number of the secrets on the Vault server before adding a new one thus [preventing the loss of the old master key](#master-key-loss-prevention). For these checks, Percona Server for MongoDB requires read permissions for the secret’s metadata and the secrets engine configuration. You configure these permissions within the access policy on the Vault server.
+Starting with 5.0.29-25, Percona Server for MongoDB checks the number of the secrets on the Vault server before adding a new one thus [preventing the loss of the old master key](#master-key-loss-prevention). For these checks, Percona Server for MongoDB requires read permissions for the secret’s metadata and the secrets engine configuration. You configure these permissions within the access policy on the Vault server.
 
 Find the sample policy configuration below:
 
