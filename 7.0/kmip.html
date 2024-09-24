@@ -2639,7 +2639,9 @@ document$.subscribe(() => { lightbox.reload() });
 <h3 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">&para;</a></h3>
 <p>Make sure you have obtained the root certificate, and the keypair for the KMIP server and the <code>mongod</code> client. For testing purposes you can use the <a href="https://www.openssl.org/">OpenSSL</a> to issue self-signed certificates. For production use we recommend you use the valid certificates issued by the key management appliance.</p>
 <p>To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, the options are:</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Configuration file</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Configuration file</label><label for="__tabbed_1_2">Command line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <p>Edit the <code>/etc/mongod.conf</code> configuration file as follows:    </p>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -2651,7 +2653,7 @@ document$.subscribe(() => { lightbox.reload() });
 <span class="w">    </span><span class="nt">keyIdentifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;key_name&gt;</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Command line</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>Start Percona Server for MongoDB using the command line as follows:    </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span>--enableEncryption<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--kmipServerName<span class="w"> </span>&lt;kmip_servername&gt;<span class="w"> </span><span class="se">\</span>
@@ -2660,6 +2662,7 @@ document$.subscribe(() => { lightbox.reload() });
 <span class="w">  </span>--kmipClientCertificateFile<span class="w"> </span>&lt;path_to_client_certificate&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--kmipKeyIdentifier<span class="w"> </span>&lt;kmip_identifier&gt;
 </code></pre></div>
+</div>
 </div>
 </div>
 <h2 id="upgrade-considerations">Upgrade considerations<a class="headerlink" href="#upgrade-considerations" title="Permanent link">&para;</a></h2>
