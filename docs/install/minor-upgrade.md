@@ -1,6 +1,6 @@
 # Minor upgrade of Percona Server for MongoDB
 
-If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](../kmip.md#upgrade-considerations)
+If you are using data-at-rest-encryption, check the upgrade considerations for [the KMIP server](../kmip.md#upgrade-considerations) and for the [Vault server](../vault.md#upgrade-considerations)
 
 To upgrade Percona Server for MongoDB to the latest version, follow these steps:
 
