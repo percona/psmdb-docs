@@ -4,14 +4,6 @@ Data at rest encryption for the WiredTiger storage engine in MongoDB was
 introduced in MongoDB Enterprise version 3.2 to ensure that encrypted data
 files can be decrypted and read by parties with the decryption key.
 
-<<<<<<< HEAD
-!!! important
-
-    You can only enable data at rest encryption and provide all encryption settings **on an empty database**, when you start the `mongod` instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.
-
-
-=======
->>>>>>> 7826e7ea... PSMDB-1283 Added KMIP key state polling (#896)
 ## Differences from upstream
 
 The data encryption at rest in Percona Server for MongoDB is introduced in version 3.6 to be compatible with data encryption at rest interface in MongoDB. In the current release of Percona Server for MongoDB, the data encryption at rest does not include support for Amazon AWS key management service. Instead, Percona Server for MongoDB is [integrated with HashiCorp Vault](vault.md). 
