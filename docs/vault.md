@@ -48,6 +48,8 @@ security:
     secret: secret/data/hello
 ```
 
+#### Vault access policy configuration
+
 Starting with 5.0.29-25, Percona Server for MongoDB checks the number of the secrets on the Vault server before adding a new one thus [preventing the loss of the old master key](#master-key-loss-prevention). For these checks, Percona Server for MongoDB requires read permissions for the secret’s metadata and the secrets engine configuration. You configure these permissions within the access policy on the Vault server.
 
 Find the sample policy configuration below:
@@ -136,5 +138,10 @@ Starting with version 5.0.29-25, Percona Server for MongoDB checks if the number
 
 If the number of secrets reaches the maximum, Percona Server for MongoDB logs an error and exits. This prevents the Vault server from dropping the oldest secret version and the encryption key it stores.
 
-To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has [read permissions for the secret’s metadata and the secrets engine configuration](#config-file-example).
+To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has [read permissions for the secret’s metadata and the secrets engine configuration](#vault-access-policy-configuration).
 
+## Upgrade considerations
+
+After upgrading to Percona Server for MongoDB 5.0.29-25, configure the read permissions for it within the access policy on the Vault server. These permissions are required to check for the number of secrets versions to prevent the master key loss. 
+
+See [the policy configuration example](#vault-access-policy-configuration).
