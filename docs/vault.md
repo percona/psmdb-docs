@@ -10,20 +10,24 @@ with versioning enabled.
 
     HashiCorp Vault Documentation: [How to configure the KV Engine](https://www.vaultproject.io/api/secret/kv/kv-v2.html)
 
-## HashiCorp Vault Parameters
+
+
+## HashiCorp Vault parameters
 
 | Command line         | Configuration file        | Type   | Description  |
 | -------------------- | ------------------------- | ------ | ------------ |
 | vaultServerName      | security.vault.serverName | string | The IP address of the Vault server|
 | vaultPort            | security.vault.port       | int    | The port on the Vault server|
-| vaultTokenFile       | security.vault.tokenFile  | string | The path to the vault token file. The token file is used by MongoDB to access HashiCorp Vault. The vault token file consists of the raw vault token and does not include any additional strings or parameters. <br> <br> Example of a vault token file: <br> <br> `s.uTrHtzsZnEE7KyHeA797CkWA`|
-| vaultSecret          | security.vault.secret     | string | The path to the Vault secret. The Vault secret path format must be ```<secrets_engine_mount_path>/data/<custom_path>``` <br> <br> where: <br> - ``<secrets_engine_mount_path>`` is the path to the Key/Value Secrets Engine v2; <br> - ``data`` is the mandatory path prefix required by Version 2 API; <br> - ``<custom_path>`` is the path to the specific secret. <br> <br> Example: `secret_v2/data/psmdb-test/rs1-27017` <br><br> Starting with version [6.0.5-4](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.md), a distinct Vault secret path for every replica set member is no longer mandatory. In earlier versions, it is recommended to use different secret paths for every database node in the entire deployment to avoid issues during the master key rotation.|
+| vaultTokenFile       | security.vault.tokenFile  | string | The path to the vault token file. The token file is used by MongoDB to access HashiCorp Vault. The vault token file consists of the raw Vault token and does not include any additional strings or parameters. <br> <br> Example of a Vault token file: <br> <br> `s.uTrHtzsZnEE7KyHeA797CkWA`|
+| vaultSecret          | security.vault.secret     | string | The path to the Vault secret. The Vault secret path format must be ```<secrets_engine_mount_path>/data/<custom_path>``` <br> <br> where: <br> - ``<secrets_engine_mount_path>`` is the path to the Key/Value Secrets Engine v2; <br> - ``data`` is the mandatory path prefix required by Version 2 API; <br> - ``<custom_path>`` is the path to the specific secret. <br> <br> Example: `secret_v2/data/psmdb-test/rs1-27017` <br><br> A distinct Vault secret path for every replica set member is not mandatory. In previous versions, it is recommended to use different secret paths for every database node in the entire deployment to avoid issues during the master key rotation.|
 | vaultSecretVersion | security.vault.<br>secretVersion | unsigned long | (Optional) The version of the Vault secret to use | 
 | vaultRotateMasterKey | security.vault.<br>rotateMasterKey| switch | When enabled, rotates the master key and exits |
 | vaultServerCAFile    | security.vault.<br>serverCAFile | string | The path to the TLS certificate file |
 | vaultDisableTLSForTesting | security.vault.<br>disableTLSForTesting | switch | Disables secure connection to Vault using SSL/TLS client certificates|
+| vaultCheckMaxVersions  | security.vault.<br>checkMaxVersions| boolean | Verifies that the current number of secret versions has not reached the maximum, defined by the `max_versions` parameter for the secret or the secrets engine on the Vault server. If the number of versions has reached the maximum, the server logs an error and exits. Enabled by default. Available starting with version 8.0.0-1.|
 
-**Config file example**
+
+### Config file example
 
 ```yaml
 security:
@@ -35,9 +39,27 @@ security:
     secret: secret/data/hello
 ```
 
-During the first run of the Percona Server for MongoDB, the process generates a secure key and writes the key to the vault.
+#### Vault access policy configuration
 
-During the subsequent start, the server tries to read the master key from the vault. If the configured secret does not exist, vault responds with HTTP 404 error.
+Percona Server for MongoDB checks the number of the secrets on the Vault server before adding a new one thus [preventing the loss of the old master key](#master-key-loss-prevention). For these checks, Percona Server for MongoDB requires read permissions for the secret’s metadata and the secrets engine configuration. You configure these permissions within the access policy on the Vault server.
+
+Find the sample policy configuration below:
+
+```json
+path "secret/data/*" {
+  capabilities = ["create","read","update","delete"]
+}
+path "secret/metadata/*" {
+  capabilities = ["read"]
+}
+path "secret/config" {
+  capabilities = ["read"]
+}
+```
+
+During the first run of the Percona Server for MongoDB, the process generates a new random master encryption key. Then, it wraps it into a secret and puts the latter on a Vault server at the configured path. Vault increments the value of the `current_version`, associates the resulting value with a new secret, and returns the version. Percona Server for MongoDB then saves the full path and the version in the metadata and uses them later to get the key from the Vault server.
+
+During the subsequent start, the server tries to read the master key from the Vault. If the configured secret does not exist, Vault responds with the HTTP 404 error.
 
 ## Namespaces
 
@@ -55,12 +77,12 @@ For example, the path to secret keys for namespace `test` on  the secrets engine
 
 You have the following options of how to target a particular namespace when configuring Vault:
 
-1. Set the VAULT_NAMESPACE environment variable so that all subsequent commands are executed against that namespace. Use the following command to set the environment variable for the namespace `test`:
+1. Set the `VAULT_NAMESPACE` environment variable so that all subsequent commands are executed against that namespace. Use the following command to set the environment variable for the namespace `test`:
 
    ```{.bash data-prompt="$"}
    $ export VAULT_NAMESPACE=test
    ```
-2. Provide the namespace with the `-namespace` flag in commands
+2. Provide the namespace with the `--namespace` flag in commands
 
 !!! admonition "See also"
 
@@ -86,11 +108,11 @@ To rotate the keys for a single `mongod` instance, do the following:
 
 5. Start `mongod` again.
 
-Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the vault. The entire dataset is not re-encrypted.
+Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the Vault. The entire dataset is not re-encrypted.
 
 ### Key rotation in replica sets
 
-Starting with version [6.0.5-4](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.md), you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The `mongod` server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.  
+Starting with version [6.0.5-4](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.md), you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The `mongod` server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.
 
 The key rotation steps are the following:
 
@@ -98,3 +120,16 @@ The key rotation steps are the following:
 2. Step down the primary and wait for another primary to be elected.
 3. Rotate the master key for the previous primary node.
 
+### Master key loss prevention
+
+Percona Server for MongoDB checks if the number of secret versions has reached the maximum (10 by default) before adding a new master key to the Vault server as a versioned secret. You configure this number using the `max_versions` parameter on the Vault server.
+
+If the number of secrets reaches the maximum, Percona Server for MongoDB logs an error and exits. This prevents the Vault server from dropping the oldest secret version and the encryption key it stores.
+
+To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has [read permissions for the secret’s metadata and the secrets engine configuration](#vault-access-policy-configuration).
+
+## Upgrade considerations
+
+If you upgraded to Percona Server for MongoDB 8.0.x from version 7.0.14-9 or earlier, where there is no check for the number of secrets versions on the Vault server, configure the read permissions for Percona Server for MongoDB within the access policy on the Vault server after the upgrade. 
+
+See [the policy configuration example](#vault-access-policy-configuration).
