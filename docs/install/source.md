@@ -278,7 +278,29 @@ The steps are the following:
                 ```{.text .no-copy}
                 rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_8.0.0.orig.tar.gz
                 ```
-            
+        === ":material-redhat: RPM"    
+
+            ```{.bash data-prompt="$"}
+            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb centos:7 sh -c '
+            set -o xtrace
+            cd /tmp/psmdb
+            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+            --branch=release-8.0.0-1 --psm_ver=8.0.8--psm_release=2 --mongo_tools_tag=100.7.0 --build_src_rpm=1
+            '
+            ```    
+
+            Check that source packages are created    
+
+            ```{.bash data-prompt="$"}
+            $ ls -la /tmp/psmdb/test/srpm/
+            ```    
+
+            ??? example "Sample output"   
+
+                ```{.text .no-copy}
+                rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-8.0.8-1.generic.src.rpm
+                ```    
     
     === ":fontawesome-solid-user-tie:  Pro build" 
 

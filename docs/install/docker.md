@@ -236,7 +236,7 @@ that connects to your Percona Server for MongoDB container,
 run the following command: 
 
 ```{.bash data-prompt="$"}
-$ docker run -it --link psmdb --rm percona/percona-server-mongodb:7.0 mongosh mongodb://MONGODB_SERVER:PORT/DB_NAME
+$ docker run -it --link psmdb --rm percona/percona-server-mongodb:8.0 mongosh mongodb://MONGODB_SERVER:PORT/DB_NAME
 ```
 
 Set `MONGODB_SERVER`, `PORT`, and `DB_NAME` with the IP address of the `psmdb` container, the port of your MongoDB Server (default value is 27017), and the name of the database you want to connect to.
