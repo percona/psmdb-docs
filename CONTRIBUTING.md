@@ -1,4 +1,3 @@
-
 # Contributing Guide
 
 Thank you for deciding to contribute and help us improve Percona Server for MongoDB documentation!
@@ -30,10 +29,12 @@ There are several active versions of the documentation. Each version has a branc
 
 - 3.6 (EOL)
 - 4.0 (EOL)
-- 4.2
-- 4.4
+- 4.2 (EOL)
+- 4.4 (EOL)
 - 5.0
 - 6.0
+- 7.0
+- 8.0
 
 The .md files are in the ``docs`` directory. 
 
@@ -78,7 +79,7 @@ git fetch upstream
 git merge upstream/<branch>
 ```
 
-Make sure that your local branch and the branch you merge changes from are the same. So if you are on ``6.0`` branch, merge changes from ``upstream/6.0``.
+Make sure that your local branch and the branch you merge changes from are the same. So if you are on ``0.0`` branch, merge changes from ``upstream/8.0``.
 
 5. Create a separate branch for your changes
 
@@ -129,21 +130,30 @@ The PDF document is in the ``site/pdf`` folder.
 
 #### Install MkDocs and build locally
 
+In order not to break your running workflows, it's recommended to install MkDocs in a virtual environment.
+
 1. Install [pip](https://pip.pypa.io/en/stable/installing/)
 2. Install [MkDocs](https://www.mkdocs.org/getting-started/#installation).
-3. While in the root directory of the doc project, run the following command to build the documentation:
+3. Install all required dependencies:
+   
+```sh
+pip install -r requirements.txt
+```
+
+4. While in the root directory of the doc project, run the following command to build the documentation:
 
 ```sh
 mkdocs build 
 ```
-4. Go to the ``site`` directory and open the ``index.html`` file in your web browser to see the documentation.
-5. To automatically rebuild the documentation and reload the browser as you make changes, run the following command:
+
+5. Go to the ``site`` directory and open the ``index.html`` file in your web browser to see the documentation.
+6. To automatically rebuild the documentation and reload the browser as you make changes, run the following command:
 
 ```sh
 mkdocs serve 
 ```
 
-6. To build the PDF documentation, do the following:
+7. To build the PDF documentation, do the following:
    - Install [mkdocs-with-pdf plugin](https://pypi.org/project/mkdocs-with-pdf/)
    - Run the following command
 
