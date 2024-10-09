@@ -1,6 +1,6 @@
 # MkDocs configuration for builds with material theme
 
-site_name: Percona Server for MongoDB 7.0
+site_name: Percona Server for MongoDB 8.0
 site_description: Documentation
 site_author: Percona LLC
 copyright: >
@@ -9,7 +9,7 @@ copyright: >
 
 repo_name: percona/psmdb-docs
 repo_url: https://github.com/percona/psmdb-docs
-edit_uri: edit/7.0/docs/
+edit_uri: edit/8.0/docs/
 
 use_directory_urls: false
 
@@ -33,6 +33,7 @@ theme:
     content.copy.annotate
     search.highlight
     search.share
+    search.suggest
     
   palette:
     
@@ -89,8 +90,8 @@ markdown_extensions:
   pymdownx.details: {}
   pymdownx.mark: {}
   pymdownx.smartsymbols: {}
-  pymdownx.tabbed: {}
-#      {alternate_style: true}
+  pymdownx.tabbed: 
+      {alternate_style: true}
   pymdownx.tilde: {}
   pymdownx.superfences: 
     custom_fences:
@@ -128,7 +129,12 @@ plugins:
     enable_checks: false
     min_length: 50
     max_length: 160
-  glightbox: {}
+  glightbox: 
+    touchNavigation: false
+  git-committers:
+    enabled: !ENV [CI, false]
+    repository: percona/psmdb-docs
+    branch: "8.0"
   macros:
       include_yaml:
         - 'variables.yml' # Use in markdown as '{{ VAR }}'
@@ -136,9 +142,9 @@ plugins:
 #      glob:
 #         - file.md
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
-          output_path: '_pdf/PerconaServerforMongoDB-7.0.pdf'
-          cover_title: 'Server for MongoDB Documentation 7.0'
-          cover_subtitle: 7.0.12-7 (July 23, 2024)
+          output_path: '_pdf/PerconaServerforMongoDB-8.0.pdf'
+          cover_title: 'Server for MongoDB Documentation 8.0'
+          cover_subtitle: 
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
@@ -202,19 +208,13 @@ nav:
   - Administration:
       - "Tune parameters": "set-parameter.md"
       - Upgrade:
-        - "Upgrade from 6.0 to 7.0": "install/upgrade-from-60.md"
+        - "Upgrade from 7.0 to 8.0": "install/upgrade-from-70.md"
         - "Upgrade from MongoDB Community": "install/upgrade-from-mongodb.md"
         - "Upgrade to Percona Server for MongoDB Pro": install/update-pro.md
         - install/minor-upgrade.md
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
-      - release_notes/7.0.12-7.md
-      - release_notes/7.0.11-6.md
-      - release_notes/7.0.8-5.md
-      - release_notes/7.0.7-4.md
-      - release_notes/7.0.5-3.md
-      - release_notes/7.0.4-2.md
       - release_notes/7.0.2-1.md
   - faq.md
   - Reference:
