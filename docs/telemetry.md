@@ -105,7 +105,7 @@ The Metrics File uses the Javascript Object Notation (JSON) format. Percona rese
     ```json
     {
         "source": "mongod",
-        "pillar_version": "8.0.0",
+        "pillar_version": "8.0.1",
         "pro_features": [],
         "db_instance_id": "65e9977d58deb2f66faa591c",
         "db_internal_id": "65e9977d58deb2f66faa591c",
@@ -126,7 +126,7 @@ The Metrics File uses the Javascript Object Notation (JSON) format. Percona rese
     ```json
     {
         "source": "mongos",
-        "pillar_version": "8.0.0",
+        "pillar_version": "8.0.1",
         "pro_features": [],
         "db_instance_id": "6690fea9066216c6d9d77044",
         "uptime": "4",
@@ -157,7 +157,7 @@ The following is an example of a Telemetry Agent payload:
         },
         {
           "key": "pillar_version",
-          "value": "8.0.0"
+          "value": "8.0.1"
         }
       ]
     }

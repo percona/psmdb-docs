@@ -42,13 +42,13 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
         ??? example "Sample output"
 
             ```{.text .no-copy}
-            ii  mongodb-org                      8.0.0                       amd64        MongoDB open source document-oriented database system (metapackage)
-            ii  mongodb-org-database             8.0.0                       amd64        MongoDB open source document-oriented database system (metapackage)
-            ii  mongodb-org-database-tools-extra 8.0.0                       amd64        Extra MongoDB database tools
-            ii  mongodb-org-mongos               8.0.0                       amd64        MongoDB sharded cluster query router
-            ii  mongodb-org-server               8.0.0                       amd64        MongoDB database server
-            ii  mongodb-org-shell                8.0.0                       amd64        MongoDB shell client
-            ii  mongodb-org-tools                8.0.0                       amd64        MongoDB tools
+            ii  mongodb-org                      8.0.1                       amd64        MongoDB open source document-oriented database system (metapackage)
+            ii  mongodb-org-database             8.0.1                       amd64        MongoDB open source document-oriented database system (metapackage)
+            ii  mongodb-org-database-tools-extra 8.0.1                       amd64        Extra MongoDB database tools
+            ii  mongodb-org-mongos               8.0.1                       amd64        MongoDB sharded cluster query router
+            ii  mongodb-org-server               8.0.1                       amd64        MongoDB database server
+            ii  mongodb-org-shell                8.0.1                       amd64        MongoDB shell client
+            ii  mongodb-org-tools                8.0.1                       amd64        MongoDB tools
             ```
 
      4. Remove the installed packages:
@@ -107,26 +107,26 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
         ??? example "Sample output"
 
             ```{.text .no-copy}
-            mongodb-org-shell-8.0.0-1.el9.x86_64
-            mongodb-org-database-8.0.0-1.el9.x86_64
-            mongodb-org-8.0.0-1.el8.x86_64
+            mongodb-org-shell-8.0.1-1.el9.x86_64
+            mongodb-org-database-8.0.1-1.el9.x86_64
+            mongodb-org-8.0.1-1.el8.x86_64
             mongodb-database-tools-100.4.1-1.x86_64
-            mongodb-org-server-8.0.0-1.el9.x86_64
-            mongodb-org-mongos-8.0.0-1.el9.x86_64
-            mongodb-org-tools-8.0.0-1.el9.x86_64
+            mongodb-org-server-8.0.1-1.el9.x86_64
+            mongodb-org-mongos-8.0.1-1.el9.x86_64
+            mongodb-org-tools-8.0.1-1.el9.x86_64
             ```
 
      3. Remove the installed packages:
 
          ```{.bash data-prompt="$"}
          $ sudo yum remove \
-         mongodb-org-shell-8.0.0-1.el9.x86_64
-         mongodb-org-database-8.0.0-1.el9.x86_64
-         mongodb-org-8.0.0-1.el9.x86_64
+         mongodb-org-shell-8.0.1-1.el9.x86_64
+         mongodb-org-database-8.0.1-1.el9.x86_64
+         mongodb-org-8.0.1-1.el9.x86_64
          mongodb-database-tools-100.4.1-1.x86_64
-         mongodb-org-server-8.0.0-1.el8.x86_64
-         mongodb-org-mongos-8.0.0-1.el8.x86_64
-         mongodb-org-tools-8.0.0-1.el8.x86_64
+         mongodb-org-server-8.0.1-1.el8.x86_64
+         mongodb-org-mongos-8.0.1-1.el8.x86_64
+         mongodb-org-tools-8.0.1-1.el8.x86_64
          ```
      
      4. [Install Percona Server for MongoDB](yum.md). If you a Percona Customer, you can [install Percona Server for MongoDB Pro](install-pro.md)

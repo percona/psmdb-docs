@@ -13,7 +13,7 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
     We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
 
-To run the latest Percona Server for MongoDB {{version}} in a Docker container, run the following command as the root user or via `sudo`:
+To run the latest Percona Server for MongoDB 8.0 in a Docker container, run the following command as the root user or via `sudo`:
 
 ```{.bash data-prompt="$"}
 $ docker run -d --name psmdb --restart always \
