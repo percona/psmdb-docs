@@ -1,10 +1,10 @@
 # Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
 
-This document describes how to install {{psmdb.full_name}} on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
+This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
 !!! note
 
-    {{psmdb.full_name}} should work on other RPM-based distributions (for example, Amazon Linux AMI and Oracle Linux), but it is tested only on platforms listed on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page. 
+    Percona Server for MongoDB should work on other RPM-based distributions (for example, Amazon Linux AMI and Oracle Linux), but it is tested only on platforms listed on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page. 
 
 ??? admonition "Package contents"
 
@@ -23,7 +23,7 @@ Before you start, check the [system requirements](../system-requirements.md).
 
 ### Configure Percona repository
 
-Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both {{psmdb.full_name}} packages and required dependencies smoothly.    
+Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    
 
 1. Install **percona-release**:     
 
@@ -45,11 +45,11 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
     $ sudo percona-release enable psmdb-80 release
     ```
 
-### Install {{psmdb.full_name}} packages
+### Install Percona Server for MongoDB packages
 
 === ":material-run-fast: Install the latest version"
 
-      To install the latest version of *{{psmdb.full_name}}*, use the following command:
+      To install the latest version of *Percona Server for MongoDB*, use the following command:
 
       ```{.bash data-prompt="$"}
       $ sudo yum install percona-server-mongodb
@@ -57,7 +57,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
 === ":octicons-number-16: Install a specific version"
 
-     To install a specific version of *{{psmdb.full_name}}*, do the following:
+     To install a specific version of *Percona Server for MongoDB*, do the following:
 
      1. List available versions:
 
@@ -73,20 +73,20 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
          percona-server-mongodb.x86_64    {{release}}.el9       psmdb-80-release-x86_64
          ```
 
-     2. Install a specific version packages. For example, to install *{{psmdb.full_name}}* {{release}}, run the following command:
+     2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
 
         ```{.bash data-prompt="$"}
         $ sudo yum install percona-server-mongodb-{{release}}.el9
         ```
 
-By default, {{psmdb.full_name}} stores data files in `/var/lib/mongodb/`
+By default, Percona Server for MongoDB stores data files in `/var/lib/mongodb/`
 and configuration parameters in `/etc/mongod.conf`.
 
 ## Enable Transparent Hugepages (THP)
 
 Enable Transparent Hugepages (THP) before starting Percona Server for MongoDB 8.0. THP is required to use the new TCMalloc version with MongoDB. For how to enable THP, see [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/upcoming/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-) section of documentation.
 
-## Run {{psmdb.full_name}}
+## Run Percona Server for MongoDB
 
 !!! note
 
@@ -94,12 +94,12 @@ Enable Transparent Hugepages (THP) before starting Percona Server for MongoDB 8.
 
     Please refer to [Configure SELinux](https://docs.mongodb.com/v8.0/tutorial/install-mongodb-on-red-hat/#configure-selinux) section of MongoDB Documentation for policy configuration guidelines.
 
-By default, {{psmdb.full_name}} stores data files in `/var/lib/mongodb/`
+By default, Percona Server for MongoDB stores data files in `/var/lib/mongodb/`
 and configuration parameters in `/etc/mongod.conf`.
 
 **Start the service**
 
-{{psmdb.full_name}} is not started automatically after installation.
+Percona Server for MongoDB is not started automatically after installation.
 Start it manually using the following command:
 
 ```{.bash data-prompt="$"}
