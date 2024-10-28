@@ -79,7 +79,7 @@ git fetch upstream
 git merge upstream/<branch>
 ```
 
-Make sure that your local branch and the branch you merge changes from are the same. So if you are on ``0.0`` branch, merge changes from ``upstream/8.0``.
+Make sure that your local branch and the branch you merge changes from are the same. So if you are on ``8.0`` branch, merge changes from ``upstream/8.0``.
 
 5. Create a separate branch for your changes
 
