@@ -32,49 +32,11 @@ To build Percona Server for MongoDB manually, you need the following:
 
 ### Build steps
 
-#### Install Python and Python modules {.power-number}
-
-1. Make sure the `python3`, `python3-dev`, `python3-pip` Python packages are installed on your machine. Otherwise, install them using the package manager of your operating system.
-
-2. Create and activate the virtual environment for Poetry - a Python dependency management and packaging tool for Percona Server for MongoDB. It is a good practice to isolate Poetry from the rest of your system in a virtual environment to ensure that its dependencies are not accidentally upgraded nor uninstalled. Run the following commands and specify the path to your virtual environment in a `<venv_path>`:
-
-    ```{.bash data-prompt="$"} 
-    $ python3 -m venv <venv_path> --prompt mongo
-    $ source <venv_path>/bin/activate 
-    ```
-
-3. Clone Percona Server for MongoDB repository
-
-    ```{.bash data-prompt="$"}
-    $ git clone https://github.com/percona/percona-server-mongodb.git
-    ```
-
-4. Switch to the Percona Server for MongoDB branch that you are building
-   and install Poetry
-
-    ```{.bash data-prompt="$"}
-    $ cd percona-server-mongodb && git checkout v8.0
-    $ python3 -m pip install 'poetry==1.5.1'
-    ```
-
-5. Install Python dependencies:
-
-    ```{.bash data-prompt="$"}
-    $ python3 -m poetry install --no-root --sync
-    ```
-
-6. Define Percona Server for MongoDB version (8.0.1 for the time of
-   writing this document)
-
-    ```{.bash data-prompt="$"}
-    $ echo '{"version": "8.0.1"}' > version.json
-    ```
-
 #### Install operating system dependencies
 
 === ":material-redhat: RHEL and derivatives"
 
-    The following command installs the dependencies for CentOS 9:
+    The following command installs the dependencies for Oracle Linux 9:
 
     ```{.bash data-prompt="$"}
     $ sudo yum -y install gcc gcc-c++ cmake curl binutils-devel openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel
@@ -134,37 +96,86 @@ To build Percona Server for MongoDB manually, you need the following:
     $ make install
     ```
 
+#### Clone Percona Server for MongoDB repository
+
+1. Exit the AWS SDK build directory. You should end up in the directory
+   where you started the build process.
+
+   ```{.bash data-prompt="$"}
+   $ cd ../..
+   ```
+
+2. Clone Percona Server for MongoDB repository
+
+    ```{.bash data-prompt="$"}
+    $ git clone https://github.com/percona/percona-server-mongodb.git
+    ```
+
+3. Switch to the Percona Server for MongoDB branch that you are building:
+
+    ```{.bash data-prompt="$"}
+    $ cd percona-server-mongodb && git checkout v8.0
+    ```
+
+4. Define Percona Server for MongoDB version (8.0.1 for the time of
+   writing this document)
+
+    ```{.bash data-prompt="$"}
+    $ echo '{"version": "8.0.1"}' > version.json
+    ```
+    
+#### Install Python and Python modules {.power-number}
+
+1. Make sure the `python3`, `python3-dev`, `python3-pip` Python packages are installed on your machine. Otherwise, install them using the package manager of your operating system.
+
+2. Create and activate the virtual environment for Poetry - a Python dependency management and packaging tool for Percona Server for MongoDB. It is a good practice to isolate Poetry from the rest of your system in a virtual environment to ensure that its dependencies are not accidentally upgraded nor uninstalled. Run the following commands and specify the path to your virtual environment in a `<venv_path>`. The `--prompt` flag helps you visually distinguish your virtual environment from the base Python installation.:
+
+    ```{.bash data-prompt="$"} 
+    $ python3 -m venv <venv_path> --prompt mongo
+    $ source <venv_path>/bin/activate 
+    ```
+
+3. Install Poetry
+
+    ```{.bash data-prompt="$"}
+    (mongo) $ python3 -m pip install 'poetry==1.5.1'
+    ```
+
+4. Check that you are in the ``percona-server-mongodb`` directory and in the ``8.0`` Git branch and  install Python dependencies with Poetry:
+
+    ```{.bash data-prompt="$"}
+    (mongo) $ python3 -m poetry install --no-root --sync
+    ```
+
 #### Build Percona Server for MongoDB {.power-number}
 
-1. Change directory to ``percona-server-mongodb`` 
-   
+To build Percona Server for MongoDB, you must be in the `percona-server-mongodb` directory.
+
+You can build either of the [available builds](#available-builds). Add the `--full-featured` flag for Pro builds or omit it for Basic builds. 
+
+Build Percona Server for MongoDB from ``buildscripts/scons.py``
+     
+=== ":fontawesome-solid-user: Basic build"
+
     ```{.bash data-prompt="$"}
-    $ cd percona-server-mongodb
+    $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all)--use-sasl-client --wiredtiger --audit --inmemory --hotbackup CPPPATH="${AWS_LIBS}/include"LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
     ``` 
 
-2. Build Percona Server for MongoDB from ``buildscripts/scons.py``
-     
-    === ":fontawesome-solid-user: Basic build"
+=== ":fontawesome-solid-user-tie: Pro build"
 
-        ```{.bash data-prompt="$"}
-        $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup CPPPATH="${AWS_LIBS}/include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
-        ``` 
+    ```{.bash data-prompt="$"}
+    $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all)--use-sasl-client --wiredtiger --audit --inmemory --hotbackup --full-featured CPPPATH="${AWS_LIBS}include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
+    ``` 
 
-    === ":fontawesome-solid-user-tie: Pro build"
-
-        ```{.bash data-prompt="$"}
-        $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup --full-featured CPPPATH="${AWS_LIBS}/include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
-        ``` 
-
-   This command builds core components of the database. Other available targets for the
-   ``scons`` command are:  
+This command builds core components of the database. Other available targets for the
+``scons`` command are:  
   
-   - `install-mongod`
-   - `install-mongos`
-   - `install-servers` (includes mongod and mongos)
-   - `install-core` (includes mongod and mongos)
-   - `install-devcore` (includes mongod, mongos, and jstestshell (formerly mongo shell))
-   - `install-all`
+- `install-mongod`
+- `install-mongos`
+- `install-servers` (includes mongod and mongos)
+- `install-core` (includes mongod and mongos)
+- `install-devcore` (includes mongod, mongos, and jstestshell (formerly mongo shell))
+- `install-all`
 
 The built binaries are in the ``percona-server-mongodb`` directory.
 
