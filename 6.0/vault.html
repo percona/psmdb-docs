@@ -1295,9 +1295,24 @@ with versioning enabled.">
         <li class="md-nav__item">
   <a href="#hashicorp-vault-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      HashiCorp Vault Parameters
+      HashiCorp Vault parameters
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="HashiCorp Vault parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config-file-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config file example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1339,6 +1354,15 @@ with versioning enabled.">
   <a href="#key-rotation-in-replica-sets" class="md-nav__link">
     <span class="md-ellipsis">
       Key rotation in replica sets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-key-loss-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Master key loss prevention
     </span>
   </a>
   
@@ -2387,9 +2411,24 @@ with versioning enabled.">
         <li class="md-nav__item">
   <a href="#hashicorp-vault-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      HashiCorp Vault Parameters
+      HashiCorp Vault parameters
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="HashiCorp Vault parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config-file-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config file example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2431,6 +2470,15 @@ with versioning enabled.">
   <a href="#key-rotation-in-replica-sets" class="md-nav__link">
     <span class="md-ellipsis">
       Key rotation in replica sets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#master-key-loss-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Master key loss prevention
     </span>
   </a>
   
@@ -2492,7 +2540,29 @@ with versioning enabled.</p>
 <p>Percona Blog: <a href="https://www.percona.com/blog/2020/04/21/using-vault-to-store-the-master-key-for-data-at-rest-encryption-on-percona-server-for-mongodb/">Using Vault to Store the Master Key for Data at Rest Encryption on Percona Server for MongoDB</a></p>
 <p>HashiCorp Vault Documentation: <a href="https://www.vaultproject.io/api/secret/kv/kv-v2.html">How to configure the KV Engine</a></p>
 </div>
-<h2 id="hashicorp-vault-parameters">HashiCorp Vault Parameters<a class="headerlink" href="#hashicorp-vault-parameters" title="Permanent link">&para;</a></h2>
+<details class="admonition">
+<summary>Version changes</summary>
+<p>The following table lists the changes in the implementation of HashiCorp Vault integration with Percona Server for MongoDB and the versions that introduced those changes:</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="release_notes/6.0.5-4.html">6.0.5-4</a></td>
+<td>Key rotation in replica sets</td>
+</tr>
+<tr>
+<td><a href="release_notes/6.0.18-15.md">6.0.18-15</a></td>
+<td>Master key loss prevention</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="hashicorp-vault-parameters">HashiCorp Vault parameters<a class="headerlink" href="#hashicorp-vault-parameters" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -2551,9 +2621,15 @@ with versioning enabled.</p>
 <td>switch</td>
 <td>Disables secure connection to Vault using SSL/TLS client certificates</td>
 </tr>
+<tr>
+<td>vaultCheckMaxVersions</td>
+<td>security.vault.<br>checkMaxVersions</td>
+<td>boolean</td>
+<td>Verifies that the current number of secret versions has not reached the maximum, defined by the <code>max_versions</code> parameter for the secret or the secrets engine on the Vault server. If the number of versions has reached the maximum, the server logs an error and exits. Enabled by default. Available starting with version 6.0.18-15.</td>
+</tr>
 </tbody>
 </table>
-<p><strong>Config file example</strong></p>
+<h3 id="config-file-example">Config file example<a class="headerlink" href="#config-file-example" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">vault</span><span class="p">:</span>
@@ -2562,8 +2638,20 @@ with versioning enabled.</p>
 <span class="w">    </span><span class="nt">tokenFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/user/path/token</span>
 <span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/data/hello</span>
 </code></pre></div>
-<p>During the first run of the Percona Server for MongoDB, the process generates a secure key and writes the key to the vault.</p>
-<p>During the subsequent start, the server tries to read the master key from the vault. If the configured secret does not exist, vault responds with HTTP 404 error.</p>
+<p>Starting with 6.0.18-15, Percona Server for MongoDB checks the number of the secrets on the Vault server before adding a new one thus <a href="#master-key-loss-prevention">preventing the loss of the old master key</a>. For these checks, Percona Server for MongoDB requires read permissions for the secret’s metadata and the secrets engine configuration. You configure these permissions within the access policy on the Vault server.</p>
+<p>Find the sample policy configuration below:</p>
+<div class="highlight"><pre><span></span><code><span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">&quot;secret/data/*&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">capabili</span><span class="kc">t</span><span class="err">ies</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;create&quot;</span><span class="p">,</span><span class="s2">&quot;read&quot;</span><span class="p">,</span><span class="s2">&quot;update&quot;</span><span class="p">,</span><span class="s2">&quot;delete&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">&quot;secret/metadata/*&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">capabili</span><span class="kc">t</span><span class="err">ies</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;read&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">&quot;secret/config&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">capabili</span><span class="kc">t</span><span class="err">ies</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;read&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>During the first run of the Percona Server for MongoDB, the process generates a new random master encryption key. Then, it wraps it into a secret and puts the latter on a Vault server at the configured path. Vault increments the value of the <code>current_version</code>, associates the resulting value with a new secret, and returns the version. Percona Server for MongoDB then saves the full path and the version in the metadata and uses them later to get the key from the Vault server.</p>
+<p>During the subsequent start, the server tries to read the master key from the Vault. If the configured secret does not exist, Vault responds with the HTTP 404 error.</p>
 <h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&para;</a></h2>
 <p>Namespaces are isolated environments in Vault that allow for separate secret key and policy management.</p>
 <p>You can use Vault namespaces with Percona Server for MongoDB. Specify the namespace(s) for the <code>security.vault.secret</code> option value as follows:</p>
@@ -2620,6 +2708,10 @@ with versioning enabled.</p>
 <li>Step down the primary and wait for another primary to be elected.</li>
 <li>Rotate the master key for the previous primary node.</li>
 </ol>
+<h3 id="master-key-loss-prevention">Master key loss prevention<a class="headerlink" href="#master-key-loss-prevention" title="Permanent link">&para;</a></h3>
+<p>Starting with version 6.0.18-15, Percona Server for MongoDB checks if the number of secret versions has reached the maximum (10 by default) before adding a new master key to the Vault server as a versioned secret. You configure this number using the <code>max_versions</code> parameter on the Vault server.</p>
+<p>If the number of secrets reaches the maximum, Percona Server for MongoDB logs an error and exits. This prevents the Vault server from dropping the oldest secret version and the encryption key it stores.</p>
+<p>To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has <a href="#config-file-example">read permissions for the secret’s metadata and the secrets engine configuration</a>.</p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2651,7 +2743,7 @@ with versioning enabled.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 5, 2024</span>
   </span>
 
     
