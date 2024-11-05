@@ -63,7 +63,7 @@ path "secret/config" {
 }
 ```
 
-During the first run of the Percona Server for MongoDB, the process generates a secure key and writes the key to the vault.
+During the first run of the Percona Server for MongoDB, the process generates a new random master encryption key. Then, it wraps it into a secret and puts the latter on a Vault server at the configured path. Vault increments the value of the `current_version`, associates the resulting value with a new secret, and returns the version. Percona Server for MongoDB then saves the full path and the version in the metadata and uses them later to get the key from the Vault server.
 
 During the subsequent start, the server tries to read the master key from the vault. If the configured secret does not exist, vault responds with HTTP 404 error.
 
