@@ -22,6 +22,10 @@ ul li p {
   color: #2cbea2;
 }
 
+.md-banner--warning {
+--md-warning-bg-color: #F0B336;
+--md-warning-fg-color: black;
+}
 .md-typeset {
   font-size: .7rem;
   line-height: 1.5;
