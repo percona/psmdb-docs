@@ -13,25 +13,5 @@
     "version": "5.0",
     "title": "5.0 (EOL)",
     "aliases": []
-  },
-  {
-    "version": "4.4",
-    "title": "4.4 (EOL)",
-    "aliases": []
-  },
-  {
-    "version": "4.2",
-    "title": "4.2 (EOL)",
-    "aliases": []
-  },
-  {
-    "version": "4.0",
-    "title": "4.0 (EOL)",
-    "aliases": []
-  },
-  {
-    "version": "3.6",
-    "title": "3.6 (EOL)",
-    "aliases": []
   }
 ]
