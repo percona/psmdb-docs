@@ -105,54 +105,81 @@ The following packages are required for the installation.
 === ":material-debian: On Debian and Ubuntu"
      
      * `libcurl4`
-
      * `libsasl2-modules`
-
      * `libsasl2-modules-gssapi-mit`
 
 
 === ":material-redhat: On RHEL and derivatives"
 
      * `libcurl`
-
      * `cyrus-sasl-gssapi`
-
      * `cyrus-sasl-plain`
-
+     
 ### Procedure
 
-The steps below describe the installation on Ubuntu 22.04. Replace the link to the tarball for your desired operating system in the following steps:
+=== ":material-debian: On Debian and Ubuntu"
 
-1. Download the tarballs from the Pro repository 
+    The steps below describe the installation on Ubuntu 22.04. Replace the link to the tarball for your desired operating system in the following steps:
 
-    ```{.bash data-prompt="$"}
-    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-{{release}}/percona-server-mongodb-pro-{{release}}-x86_64.jammy.tar.gz \
-    $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-{{mongosh}}/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
-    ```
+    1. Download the tarballs from the Pro repository 
 
-2. Extract the tarballs
+        ```{.bash data-prompt="$"}
+        $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-{{release}}/percona-server-mongodb-pro-{{release}}-x86_64.jammy.tar.gz \
+        $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-{{mongosh}}/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+        ```
 
-    ```{.bash data-prompt='$'} 
-    $ tar -xf percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz
-    $ tar -xf percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
-    ```
+    2. Extract the tarballs
 
-3. Add the location of the binaries to the `PATH` variable:
+        ```{.bash data-prompt='$'} 
+        $ tar -xf percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz
+        $ tar -xf percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+        ```
 
-    ```{.bash data-prompt="$"}
-    $ export PATH=~/percona-server-mongodb-pro-{{release}}-x86_64.jammy/bin/:~/percona-mongodb-mongosh-{{mongosh}}/bin/:$PATH
-    ```
+    3. Add the location of the binaries to the `PATH` variable:
 
+        ```{.bash data-prompt="$"}
+        $ export PATH=~/percona-server-mongodb-pro-{{release}}-x86_64.jammy/bin/:~/percona-mongodb-mongosh-{{mongosh}}/bin/:$PATH
+        ```
 
-4. Create the default data directory:
+     4. Create the default data directory:
 
-    ```{.bash data-prompt="$"}
-    $ mkdir -p /data/db
-    ```
+        ```{.bash data-prompt="$"}
+        $ mkdir -p /data/db
+        ```
 
+    5. Make sure that you have read and write permissions for the data directory and run `mongod`.
 
-5. Make sure that you have read and write permissions for the data
-directory and run `mongod`.
+=== ":material-redhat: On RHEL and derivatives"
+
+    The steps below describe the installation on Red Hat 9.0. Replace the link to the tarball for your desired operating system in the following steps:
+
+    1. Download the tarballs from the Pro repository 
+
+        ```{.bash data-prompt="$"}
+        $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-{{release}}/percona-server-mongodb-pro-{{release}}-x86_64.ol9.tar.gz \
+        $ wget https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-{{mongosh}}/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+        ```
+
+    2. Extract the tarballs
+
+        ```{.bash data-prompt='$'} 
+        $ tar -xf percona-server-mongodb-{{release}}-x86_64.ol9.tar.gz
+        $ tar -xf percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+        ```
+
+    3. Add the location of the binaries to the `PATH` variable:
+
+        ```{.bash data-prompt="$"}
+        $ export PATH=~/percona-server-mongodb-pro-{{release}}-x86_64.ol9/bin/:~/percona-mongodb-mongosh-{{mongosh}}/bin/:$PATH
+        ```
+
+     4. Create the default data directory:
+
+        ```{.bash data-prompt="$"}
+        $ mkdir -p /data/db
+        ```
+
+    5. Make sure that you have read and write permissions for the data directory and run `mongod`.
 
 ## Next steps
 
