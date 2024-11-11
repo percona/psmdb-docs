@@ -24,7 +24,7 @@
       
       
       <link rel="icon" href="../_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
     
     
       
@@ -2210,8 +2210,7 @@ document$.subscribe(() => { lightbox.reload() });
 <p>We gather <a href="../telemetry.html">Telemetry data</a> to understand the use of the software and improve our products.</p>
 </div>
 <p>To run the latest Percona Server for MongoDB 7.0 in a Docker container, run the following command as the root user or via <code>sudo</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
-percona/percona-server-mongodb:&lt;TAG&gt;-multi
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span>percona/percona-server-mongodb:&lt;TAG&gt;-multi
 </code></pre></div>
 <p>The command does the following:</p>
 <ul>
@@ -2227,6 +2226,9 @@ to run a container from an image.</p>
 <p>The <code>--name</code> option assigns a custom name for the container
 that you can use to reference the container within a Docker network.
 In this case: <code>psmdb</code>.</p>
+</li>
+<li>
+<p>The <code>-p</code> option binds the container&rsquo;s port <code>27017</code> to TCP port <code>27017</code> on all host network interfaces. This makes the container accessible externally.</p>
 </li>
 <li>
 <p>The <code>--restart</code> option defines the container’s restart policy.
@@ -2290,7 +2292,7 @@ $<span class="w"> </span>docker<span class="w"> </span>inspect<span class="w"> <
 </li>
 <li>
 <p>Check your setup</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">&#39;rs.status()&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">&#39;rs.status()&#39;</span>
 </code></pre></div>
 </li>
 </ol>
@@ -2320,7 +2322,7 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
 </li>
 <li>
 <p>Check your setup</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">&#39;rs.status()&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">&#39;rs.status()&#39;</span>
 </code></pre></div>
 </li>
 </ol>
@@ -2406,7 +2408,7 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
 </li>
 <li>
 <p>Check your setup</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">&#39;rs.status()&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">&#39;rs.status()&#39;</span>
 </code></pre></div>
 </li>
 </ol>
@@ -2455,7 +2457,7 @@ run the following command: </p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 11, 2024</span>
   </span>
 
     
