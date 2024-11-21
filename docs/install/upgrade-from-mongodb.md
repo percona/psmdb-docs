@@ -74,15 +74,13 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
             $ sudo chown -R mongod:mongod <custom-systemLog.path>
             ```
 
-         * Make sure the configuration file includes the following configuration:
+         * Check the configuration file for the following configuration and remove it when upgrading to Percona Server for MongoDb 7.0.15 and onwards:
 
             ```yaml
             processManagement:
                fork: true
                pidFilePath: /var/run/mongod.pid
             ```
-
-            **Troubleshooting tip**: The `pidFilePath` setting in `mongod.conf` must match the `PIDFile` option in the `systemd mongod` service unit. Otherwise, the service will kill the `mongod` process after a timeout.
 
      7. Restart the `mongod` service:
 
@@ -141,15 +139,13 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
             $ sudo chown -R mongod:mongod <custom-systemLog.path>
             ```
 
-         * Make sure the configuration file includes the following configuration:
+         * Check the configuration file for the following configuration and remove it when upgrading to Percona Server for MongoDb 7.0.15 and onwards:
 
             ```yaml
             processManagement:
                fork: true
                pidFilePath: /var/run/mongod.pid
             ```
-
-            **Troubleshooting tip**: The `pidFilePath` setting in `mongod.conf` must match the `PIDFile` option in the `systemd mongod` service unit. Otherwise, the service will kill the `mongod` process after a timeout.
 
     6. Restart the `mongod` service:
 
@@ -168,5 +164,5 @@ To upgrade a replica set or a sharded cluster, use the [rolling restart](../glos
 
 ## Upgrading to Percona Server for MongoDB with data at rest encryption enabled
 
-Steps to upgrade from MongoDB 6.0 Community Edition with data encryption enabled to Percona Server for MongoDB are different. `mongod` requires an empty `dbPath` data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the [Switching storage engines](../inmemory.md#switching-storage-engines) for more information on migration of encrypted data. [Contact us](https://www.percona.com/about-percona/contact#us) for working at the detailed migration steps, if further assistance is needed.
+Steps to upgrade from MongoDB 7.0 Community Edition with data encryption enabled to Percona Server for MongoDB are different. `mongod` requires an empty `dbPath` data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the [Switching storage engines](../inmemory.md#switching-storage-engines) for more information on migration of encrypted data. [Contact us](https://www.percona.com/about-percona/contact#us) for working at the detailed migration steps, if further assistance is needed.
 

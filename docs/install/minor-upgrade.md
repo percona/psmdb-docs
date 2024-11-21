@@ -11,9 +11,17 @@ To upgrade Percona Server for MongoDB to the latest version, follow these steps:
     $ sudo systemctl stop mongod
     ```
 
-2. [Install the latest version packages](index.md). Use the command relevant to your operating system.
+2. Check the configuration file for the following configuration and remove it:
 
-3. Start the `mongod` service:
+    ```yaml
+    processManagement:
+       fork: true
+       pidFilePath: /var/run/mongod.pid
+    ```
+    
+3. [Install the latest version packages](index.md). Use the command relevant to your operating system.
+
+4. Start the `mongod` service:
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl start mongod
