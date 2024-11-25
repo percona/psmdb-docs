@@ -4,7 +4,7 @@
 
 release: '7.0.15-9'
 version: '7.0'
-mongosh: '2.3.2024-09-23'
+mongosh: '2.3.2'
 
 
 date:
