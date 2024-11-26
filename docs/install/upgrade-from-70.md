@@ -47,13 +47,21 @@ Before the upgrade, do the following:
          $ sudo apt update
          ```
 
-     4. Install Percona Server for MongoDB 8.0 packages:
+     4. Remove the following configuration from the configuration file, if you have it:
+
+         ```yaml
+         processManagement:
+            fork: true
+            pidFilePath: /var/run/mongod.pid
+         ```
+         
+     5. Install Percona Server for MongoDB 8.0 packages:
 
          ```{.bash data-prompt="$"}
          $ sudo apt install percona-server-mongodb
          ```
 
-     5. Start the `mongod` instance:
+     6. Start the `mongod` instance:
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl start mongod
@@ -75,13 +83,21 @@ Before the upgrade, do the following:
          $ sudo percona-release enable psmdb-80
          ``` 
 
-     3. Install Percona Server for MongoDB 8.0 packages:
+     3. Remove the following configuration from the configuration file, if you have it:
+
+         ```yaml
+         processManagement:
+            fork: true
+            pidFilePath: /var/run/mongod.pid
+         ```
+
+     4. Install Percona Server for MongoDB 8.0 packages:
 
          ```{.bash data-prompt="$"}
          $ sudo yum install percona-server-mongodb
          ```
 
-     4. Start the `mongod` instance:
+     5. Start the `mongod` instance:
 
          ```{.bash data-prompt="$"}
          $ sudo systemctl start mongod

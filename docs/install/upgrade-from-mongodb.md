@@ -74,15 +74,13 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
             $ sudo chown -R mongod:mongod <custom-systemLog.path>
             ```
 
-         * Make sure the configuration file includes the following configuration:
+         * Remove the following configuration from the configuration file if you have it:
 
             ```yaml
             processManagement:
                fork: true
                pidFilePath: /var/run/mongod.pid
             ```
-
-            **Troubleshooting tip**: The `pidFilePath` setting in `mongod.conf` must match the `PIDFile` option in the `systemd mongod` service unit. Otherwise, the service will kill the `mongod` process after a timeout.
 
      7. Restart the `mongod` service:
 
