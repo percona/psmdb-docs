@@ -8,35 +8,35 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.
-To enable log redaction, run mongod with the --redactClientLogData option.">
+        <meta name="description" content="Installation
+Upgrade from MongoDB Community">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/log-redaction.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.19-16.html">
       
       
-        <link rel="prev" href="rate-limit.html">
+        <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="ngram-full-text-search.html">
+        <link rel="next" href="6.0.18-15.html">
       
       
-      <link rel="icon" href="_images/mongodb-fav.svg">
+      <link rel="icon" href="../_images/mongodb-fav.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
     
     
       
-        <title>Log redaction - Percona Server for MongoDB 6.0</title>
+        <title>Percona Server for MongoDB 6.0.19-16 (2024-11-27) - Percona Server for MongoDB 6.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -59,21 +59,21 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-      <link rel="stylesheet" href="css/design.css">
+      <link rel="stylesheet" href="../css/design.css">
     
-      <link rel="stylesheet" href="css/osano.css">
+      <link rel="stylesheet" href="../css/osano.css">
     
-      <link rel="stylesheet" href="css/mongodb.css">
+      <link rel="stylesheet" href="../css/mongodb.css">
     
-      <link rel="stylesheet" href="css/landing.css">
+      <link rel="stylesheet" href="../css/landing.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -97,7 +97,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 6.0 - Log redaction" />
+<meta property="og:title" content="Percona Server for MongoDB 6.0 - Percona Server for MongoDB 6.0.19-16 (2024-11-27)" />
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/6.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
 </head>
@@ -124,7 +124,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
     <div data-md-component="skip">
       
         
-        <a href="#log-redaction" class="md-skip">
+        <a href="#percona-server-for-mongodb-6019-16-2024-11-27" class="md-skip">
           Skip to content
         </a>
       
@@ -193,14 +193,14 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
 
     <!-- Link to home -->
     <a
-      href="index.html"
+      href="../index.html"
       title="Percona Server for MongoDB 6.0"
       class="md-header__button md-logo"
       aria-label="Percona Server for MongoDB 6.0"
       data-md-component="logo"
     >
       
-  <img src="_images/mongodb-mark.svg" alt="logo">
+  <img src="../_images/mongodb-mark.svg" alt="logo">
 
     </a>
 
@@ -213,7 +213,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
     <!-- Header title -->
     <div class="md-header__title">
       <div class="md-header__ellipsis">
-        <a href="index.html" class="md-header__topic">
+        <a href="../index.html" class="md-header__topic">
           <span class="md-ellipsis">
             Percona Server for MongoDB 6.0
           </span>
@@ -221,7 +221,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Log redaction
+              Percona Server for MongoDB 6.0.19-16 (2024-11-27)
             
           </span>
         </div>
@@ -363,9 +363,9 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Percona Server for MongoDB 6.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
+    <a href="../index.html" title="Percona Server for MongoDB 6.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
       
-  <img src="_images/mongodb-mark.svg" alt="logo">
+  <img src="../_images/mongodb-mark.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 6.0
@@ -392,7 +392,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -412,7 +412,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -432,7 +432,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="psmdb-pro.html" class="md-nav__link">
+      <a href="../psmdb-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -487,7 +487,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
+      <a href="../install/index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -543,7 +543,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/system-requirements.html" class="md-nav__link">
+      <a href="../install/system-requirements.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -564,7 +564,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
+      <a href="../install/apt.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -585,7 +585,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
+      <a href="../install/yum.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -606,7 +606,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
+      <a href="../install/tarball.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -627,7 +627,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/source.html" class="md-nav__link">
+      <a href="../install/source.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -648,7 +648,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
+      <a href="../install/docker.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -669,7 +669,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/install-pro.html" class="md-nav__link">
+      <a href="../install/install-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -698,7 +698,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="connect.html" class="md-nav__link">
+      <a href="../connect.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -719,7 +719,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="crud.html" class="md-nav__link">
+      <a href="../crud.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -740,7 +740,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="what-next.html" class="md-nav__link">
+      <a href="../what-next.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -765,19 +765,17 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -791,7 +789,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -840,7 +838,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -904,7 +902,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -925,7 +923,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -989,7 +987,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1010,7 +1008,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1031,7 +1029,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1052,7 +1050,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,7 +1071,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1094,7 +1092,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1115,7 +1113,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1136,7 +1134,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1157,7 +1155,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1221,7 +1219,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1242,7 +1240,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1263,7 +1261,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1284,7 +1282,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="keyfile.html" class="md-nav__link">
+      <a href="../keyfile.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1305,7 +1303,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1326,7 +1324,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="fips.html" class="md-nav__link">
+      <a href="../fips.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1355,7 +1353,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
+      <a href="../audit-logging.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1376,7 +1374,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
+      <a href="../rate-limit.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1394,30 +1392,10 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Log redaction
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="log-redaction.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../log-redaction.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1426,37 +1404,6 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#get-expert-help" class="md-nav__link">
-    <span class="md-ellipsis">
-      Get expert help
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1469,7 +1416,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1532,7 +1479,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1588,7 +1535,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-50.html" class="md-nav__link">
+      <a href="../install/upgrade-from-50.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1609,7 +1556,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1630,7 +1577,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/update-pro.html" class="md-nav__link">
+      <a href="../install/update-pro.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1651,7 +1598,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/minor-upgrade.html" class="md-nav__link">
+      <a href="../install/minor-upgrade.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1680,7 +1627,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="../install/uninstall.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1705,17 +1652,19 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1729,7 +1678,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Release notes
@@ -1743,7 +1692,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1761,10 +1710,30 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="release_notes/6.0.19-16.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 6.0.19-16 (2024-11-27)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="6.0.19-16.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1773,6 +1742,61 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Highlights
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Release Highlights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upstream-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upstream Improvements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-expert-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get expert help
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1785,7 +1809,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.18-15.html" class="md-nav__link">
+      <a href="6.0.18-15.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1806,7 +1830,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.17-14.html" class="md-nav__link">
+      <a href="6.0.17-14.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1827,7 +1851,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.16-13.html" class="md-nav__link">
+      <a href="6.0.16-13.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1848,7 +1872,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.15-12.html" class="md-nav__link">
+      <a href="6.0.15-12.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1869,7 +1893,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.14-11.html" class="md-nav__link">
+      <a href="6.0.14-11.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1890,7 +1914,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.13-10.html" class="md-nav__link">
+      <a href="6.0.13-10.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1946,7 +1970,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.12-9.html" class="md-nav__link">
+      <a href="6.0.12-9.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1967,7 +1991,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.11-8.html" class="md-nav__link">
+      <a href="6.0.11-8.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1988,7 +2012,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.9-7.html" class="md-nav__link">
+      <a href="6.0.9-7.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2009,7 +2033,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.8-6.html" class="md-nav__link">
+      <a href="6.0.8-6.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2030,7 +2054,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.6-5.html" class="md-nav__link">
+      <a href="6.0.6-5.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2051,7 +2075,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.5-4.html" class="md-nav__link">
+      <a href="6.0.5-4.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2115,7 +2139,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.4-3.html" class="md-nav__link">
+      <a href="6.0.4-3.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2136,7 +2160,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.3-2.html" class="md-nav__link">
+      <a href="6.0.3-2.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2157,7 +2181,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.2-1.html" class="md-nav__link">
+      <a href="6.0.2-1.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2193,7 +2217,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="faq.html" class="md-nav__link">
+      <a href="../faq.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2248,7 +2272,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2269,7 +2293,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="telemetry.html" class="md-nav__link">
+      <a href="../telemetry.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2290,7 +2314,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2311,7 +2335,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2367,6 +2391,30 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release Highlights
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Release Highlights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upstream-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upstream Improvements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#get-expert-help" class="md-nav__link">
     <span class="md-ellipsis">
       Get expert help
@@ -2392,7 +2440,7 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
                   
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/log-redaction.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/release_notes/6.0.19-16.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2401,37 +2449,32 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/log-redaction.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/release_notes/6.0.19-16.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="log-redaction">Log redaction<a class="headerlink" href="#log-redaction" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.
-To enable log redaction, run <code>mongod</code> with the <code>--redactClientLogData</code> option.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Metadata such as error or operation codes, line numbers, and source file names remain visible in the logs.</p>
+<h1 id="percona-server-for-mongodb-6019-16-2024-11-27">Percona Server for MongoDB 6.0.19-16 (2024-11-27)<a class="headerlink" href="#percona-server-for-mongodb-6019-16-2024-11-27" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="../install/index.html">Installation</a>
+<a class="md-button" href="../install/upgrade-from-mongodb.html">Upgrade from MongoDB Community</a></p>
+<p>Percona Server for MongoDB 6.0.19-16 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB Community Edition. </p>
+<p>It is based on <a href="https://www.mongodb.com/docs/manual/release-notes/6.0/#6.0.19---oct-24--2024">MongoDB 6.0.19 Community Edition</a> and supports the upstream protocols and drivers.</p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This release of Percona Server for MongoDB includes a fix for a security vulnerability <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-10921">CVE-2024-10921</a>. This vulnerability allowed an authorized user to trigger server crashes or receive the contents of the buffer over-reads of the server memory by sending specially crafted requests that constructed malformed BSON in MongoDB. The issue is fixed and included in Percona Server for MongoDB 6.0.19-16. If you wish to <a href="../install/upgrade-from-50.html">upgrade to the following major version</a>, the fix is also included in Percona Server for MongoDB 7.0.15-9.    </p>
+<p>Users running any minor version of Percona Server for MongoDB 6.0.x before 6.0.19-16 should upgrade to this version as soon as possible. </p>
 </div>
-<p>Log redaction is important for complying with security requirements,
-but it can make troubleshooting and diagnostics more difficult
-due to the lack of data related to the log event.
-For this reason, debug messages are not redacted
-even when log redaction is enabled.
-Keep this in mind when switching between log levels.</p>
-<p>You can permanently enable log redaction
-by adding the following to the configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">redactClientLogData</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div>
-<p>To enable log redaction at runtime,
-use the <code>setParameter</code> command as follows:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span>
-<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">redactClientLogData</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
-<span class="p">)</span>
-</code></pre></div>
+<h3 id="upstream-improvements">Upstream Improvements<a class="headerlink" href="#upstream-improvements" title="Permanent link">&para;</a></h3>
+<p>The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:</p>
+<ul>
+<li><a href="https://jira.mongodb.org/browse/SERVER-96419">SERVER-96419</a> - Fixed the issue with improper neutralization of null bytes that may have led to buffer over-reads in MongoDB Server.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-95279">SERVER-95279</a> - Use a new C++ type for BSON field names to ensure validity.</li>
+</ul>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/6.0/#6.0.19---oct-24--2024">MongoDB 6.0.19 Community Edition release notes</a>.</p>
 <div data-banner="data-banner">
 <h2 class="title" id="get-expert-help">Get expert help<a class="headerlink" href="#get-expert-help" title="Permanent link">&para;</a></h2>
 <p>If you need assistance, visit the community forum for comprehensive and free database knowledge, or contact our Percona Database Experts for professional support and services.</p>
@@ -2503,7 +2546,7 @@ use the <code>setParameter</code> command as follows:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 3, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 28, 2024</span>
   </span>
 
     
@@ -2513,7 +2556,7 @@ use the <code>setParameter</code> command as follows:</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 28, 2024</span>
   </span>
 
     
@@ -2611,16 +2654,16 @@ use the <code>setParameter</code> command as follows:</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
     
 
