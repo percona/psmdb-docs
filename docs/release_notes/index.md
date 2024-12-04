@@ -1,5 +1,20 @@
 # Percona Server for MongoDB 5.0 Release Notes
 
+!!! important
+
+    ## Past release limitations
+
+    Support of Percona Server for MongoDB 5.0 is already end-of-life. We continue to provide services for it under the conditions of our [Percona Services Lifecycle Policy](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb){:target="_blank"}. However, we no longer provide bug fixes, new builds or new packages for this version. 
+    We recommend you to upgrade to the newer major version if you encounter issues. 
+
+    Find the known issues for this release in the following table:
+
+    | Issue              | Affected versions |
+    | ------------------ | ----------------- |
+    | [SERVER-96419](https://jira.mongodb.org/browse/SERVER-96419) Fixes the security vulnerability [CVE-2024-10921](https://nvd.nist.gov/vuln/detail/CVE-2024-10921). This vulnerability allowed an authorized user to trigger server crashes or receive the contents of the buffer over-reads of the server memory by sending specially crafted requests that constructed malformed BSON in MongoDB. | 5.0.5-4 - 5.0.29-25|
+
+
+
 * [Percona Server for MongoDB 5.0.29-25 ({{date.5_0_29}})](5.0.29-25.md)
 
 * [Percona Server for MongoDB 5.0.28-24 ({{date.5_0_28}})](5.0.28-24.md)
