@@ -31,7 +31,7 @@ There are several active versions of the documentation. Each version has a branc
 - 4.0 (EOL)
 - 4.2 (EOL)
 - 4.4 (EOL)
-- 5.0
+- 5.0 (EOL)
 - 6.0
 - 7.0
 - 8.0
