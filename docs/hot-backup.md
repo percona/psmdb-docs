@@ -61,7 +61,7 @@ This method requires that you provide the *bucket* field in the *s3* object:
 ```{.javascript data-prompt=">"}
 > use admin
 ...
-> db.runCommand({createBackup: 1, s3: {bucket: "backup20190510", path: <some_optional_path>} })
+> db.runCommand({createBackup: 1, s3: {bucket: "backup20240510", path: <some_optional_path>} })
 ```
 
 In addition to the mandatory `bucket` field, the `s3` object may contain the following fields:

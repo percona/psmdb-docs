@@ -137,13 +137,13 @@ to log multiple event types.
 For example, to log only the `dropCollection` and `dropDatabase` events:
 
 
-=== "Command line" 
+=== ":octicons-file-code-24: Command line" 
 
      ```bash
      --auditDestination file --auditFilter '{ atype: { $in: [ "dropCollection", "dropDatabase" ] } }'
      ```
 
-=== "Config file"
+=== ":material-console: Configuration file"
 
      ```yaml
      auditLog:
@@ -158,13 +158,13 @@ Another way to specify multiple event types is using regular expressions.
 For example, to filter all `drop` operations:
 
 
-=== "Command line"
+=== ":octicons-file-code-24: Command line"
 
      ```bash
      --auditDestination file --auditFilter '{ "atype" : /^drop.*/ }'
      ```
 
-=== "Config file"
+=== ":material-console: Configuration file"
 
      ```yaml
      auditLog:
@@ -186,14 +186,14 @@ on all the collections in the `test` database:
     The dot (`.`) after the database name in the regular expression must be escaped with two backslashes (`\\\\`).
 
 
-=== "Command line"
+=== ":octicons-file-code-24: Command line"
 
      ```bash
      --setParameter auditAuthorizationSuccess=true --auditDestination file --auditFilter '{ atype: "authCheck", "param.command": { $in: [ "find", "insert", "delete", "update", "findandmodify" ] }, "param.ns": /^test\\./ } }'
      ```
 
 
-=== "Config file"
+=== ":material-console: Configuration file"
 
      ```yaml
      auditLog:

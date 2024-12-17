@@ -16,7 +16,7 @@ LDAP authorization is compatible with the following authentication mechanisms:
 
 ## Authentication and authorization with direct binding to LDAP
 
-Starting with release 6.0.2-1, you can configure Percona Server for MongoDB to communicate with the LDAP server directly to authenticate and also authorize users.
+You can configure Percona Server for MongoDB to communicate with the LDAP server directly to authenticate and authorize users.
 
 The advantage of using this mechanism is that it is easy to setup and does not require pre-creating users  in the dummy `$external` database. Nevertheless, the `--authenticationDatabase` connection argument will still need to be specified as `$external`.
 
@@ -78,13 +78,13 @@ You can change the connection pool size either at the server startup or dynamica
 
 For example, to set the number of connections in the pool to 5, use the [setParameter](set-parameter.md) command:
 
-=== "Command line"
+=== ":material-console: Command line"
 
      ```{.javascript data-prompt=">"}
      > db.adminCommand( { setParameter: 1, ldapConnectionPoolSizePerHost: 5  } )
      ```
 
-=== "Configuration file"
+=== ":octicons-file-code-24: Configuration file"
  
      ```yaml
      setParameter:

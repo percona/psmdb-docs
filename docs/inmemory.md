@@ -145,7 +145,7 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
 
     For a standalone instance or a single-node replica set, use the `mongodump` and `mongorestore` utilities:
 
-    1. Export the dataDir contents
+    1. Export the `dataDir` contents
 
         ```{.bash data-prompt="$"}
         $ mongodump --out <dumpDir>

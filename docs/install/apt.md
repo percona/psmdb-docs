@@ -45,7 +45,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 3. Enable the repository:    
 
     ```{.bash data-prompt="$"}
-    $ sudo percona-release enable psmdb-70 release
+    $ sudo percona-release enable psmdb-80 release
     ```    
 
 4. Remember to update the local cache:    
@@ -79,17 +79,21 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
          Sample output:
 
          ```{.bash .no-copy}
-         percona-server-mongodb | 7.0.2-1.bullseye | http://repo.percona.com/psmdb-70/apt bullseye/main amd64 Packages
+         percona-server-mongodb | {{release}}.bullseye | http://repo.percona.com/psmdb-80/apt bullseye/main amd64 Packages
          ```
 
-      2. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 7.0.2-1, run the following command:
+      2. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB {{release}}, run the following command:
 
          ```{.bash data-prompt="$"}
-         $ sudo apt install percona-server-mongodb=7.0.2-1.bullseye percona-server-mongodb-mongos=7.0.2-1.bullseye percona-server-mongodb-shell=7.0.2-1.bullseye percona-server-mongodb-server=7.0.2-1.bullseye percona-server-mongodb-tools=7.0.2-1.bullseye
+         $ sudo apt install percona-server-mongodb={{release}}.bullseye percona-server-mongodb-mongos={{release}}.bullseye percona-server-mongodb-shell={{release}}.bullseye percona-server-mongodb-server={{release}}.bullseye percona-server-mongodb-tools={{release}}.bullseye
          ```
 
 By default, Percona Server for MongoDB stores data files in `/var/lib/mongodb/`
 and configuration parameters in `/etc/mongod.conf`.
+
+## Enable Transparent Hugepages (THP)
+
+Enable Transparent Hugepages (THP) before starting Percona Server for MongoDB 8.0. THP is required to use the new TCMalloc version with MongoDB. For how to enable THP, see [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/upcoming/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-) section of documentation.
 
 ## Run Percona Server for MongoDB
 
