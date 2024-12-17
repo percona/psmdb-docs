@@ -58,21 +58,21 @@ The `mongod` server must have access to the keytab file to authenticate. To keep
 
 4. Set the `KRB5_KTNAME` variable in the environment file for the `mongod` process.
 
-    === "Debian and Ubuntu"
+    === ":material-redhat: RHEL and derivatives"
 
-         Edit the environment file at the path `/etc/default/mongod` and specify the `KRB5_KTNAME` variable:
+         Edit the environment file at the path `/etc/sysconfig/mongod` and specify the `KRB5_KTNAME` variable:
 
-         ```init
+         ```
          KRB5_KTNAME=/etc/mongodb.keytab
          ```
 
          If you have a different path to the keytab file, specify it accordingly.
 
-    === "RHEL and derivatives"
+    === ":material-debian: Debian and Ubuntu"
 
-         Edit the environment file at the path `/etc/sysconfig/mongod` and specify the `KRB5_KTNAME` variable:
+         Edit the environment file at the path `/etc/default/mongod` and specify the `KRB5_KTNAME` variable:
 
-         ```
+         ```init
          KRB5_KTNAME=/etc/mongodb.keytab
          ```
 

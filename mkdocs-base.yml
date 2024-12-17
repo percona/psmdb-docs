@@ -34,6 +34,7 @@ theme:
     content.tooltips
     search.highlight
     search.share
+    search.suggest
     
   palette:
     
@@ -90,8 +91,8 @@ markdown_extensions:
   pymdownx.details: {}
   pymdownx.mark: {}
   pymdownx.smartsymbols: {}
-  pymdownx.tabbed: {}
-#      {alternate_style: true}
+  pymdownx.tabbed: 
+      {alternate_style: true}
   pymdownx.tilde: {}
   pymdownx.superfences: 
     custom_fences:
@@ -129,7 +130,12 @@ plugins:
     enable_checks: false
     min_length: 50
     max_length: 160
-  glightbox: {}
+  glightbox: 
+    touchNavigation: false
+  git-committers:
+    enabled: !ENV [CI, false]
+    repository: percona/psmdb-docs
+    branch: "8.0"
   macros:
       include_yaml:
         - 'variables.yml' # Use in markdown as '{{ VAR }}'
@@ -203,7 +209,7 @@ nav:
   - Administration:
       - "Tune parameters": "set-parameter.md"
       - Upgrade:
-        - "Upgrade from 6.0 to 7.0": "install/upgrade-from-60.md"
+        - "Upgrade from 7.0 to 8.0": "install/upgrade-from-70.md"
         - "Upgrade from MongoDB Community": "install/upgrade-from-mongodb.md"
         - "Upgrade to Percona Server for MongoDB Pro": install/update-pro.md
         - install/minor-upgrade.md

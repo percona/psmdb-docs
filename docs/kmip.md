@@ -122,7 +122,7 @@ Make sure you have obtained the root certificate, and the keypair for the KMIP s
 
 To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, the options are:
 
-=== "Configuration file"
+=== ":octicons-file-code-24: Configuration file"
 
 
     Edit the `/etc/mongod.conf` configuration file as follows:    
@@ -138,7 +138,7 @@ To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, the 
         keyIdentifier: <key_name>
     ```
 
-=== "Command line" 
+=== ":material-console: Command line" 
 
     Start Percona Server for MongoDB using the command line as follows:    
 

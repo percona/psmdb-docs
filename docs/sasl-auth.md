@@ -35,16 +35,16 @@ Before we move on to the configuration steps, we assume the following:
 
 1. Install the SASL packages. Depending on your OS, use the following command:
 
-    === "Debian and Ubuntu"
-
-         ```{.bash data-prompt="$"}
-         $ sudo  apt install -y sasl2-bin
-         ```
-
-    === "RHEL and derivatives"
+    === ":material-redhat: RHEL and derivatives"
 
          ```{.bash data-prompt="$"}
          $ sudo  yum install -y cyrus-sasl
+         ```
+
+    === ":material-debian: Debian and Ubuntu"
+
+         ```{.bash data-prompt="$"}
+         $ sudo  apt install -y sasl2-bin
          ```
 
 2. Configure SASL to use `ldap` as the  authentication mechanism.
@@ -53,7 +53,21 @@ Before we move on to the configuration steps, we assume the following:
 
         Back up the original configuration file before making changes.
 
-    === "Debian and Ubuntu"
+    === ":material-redhat: RHEL and derivatives"
+
+         Specify the `ldap` value for the `--MECH` option using the following command:
+
+         ```{.bash data-prompt="$"}
+         $ sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthd
+         ```
+
+         Alternatively, you can edit the /etc/sysconfig/saslauthd configuration file:
+
+         ```init
+         MECH=ldap
+         ```
+    
+    === ":material-debian: Debian and Ubuntu"
 
          Use the following commands to enable the `saslauthd` to auto-run on startup and to set the `ldap` value for the `--MECHANISMS` option:
 
@@ -67,20 +81,6 @@ Before we move on to the configuration steps, we assume the following:
          ```init
          START=yes
          MECHANISMS="ldap
-         ```
-
-    === "RHEL and derivatives"
-
-         Specify the `ldap` value for the `--MECH` option using the following command:
-
-         ```{.bash data-prompt="$"}
-         $ sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthd
-         ```
-
-         Alternatively, you can edit the /etc/sysconfig/saslauthd configuration file:
-
-         ```init
-         MECH=ldap
          ```
 
 3. Create the `/etc/saslauthd.conf` configuration file and specify the settings that `saslauthd` requires to connect to a local LDAP service:

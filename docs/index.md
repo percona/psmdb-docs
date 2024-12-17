@@ -1,7 +1,7 @@
-# Percona Server for MongoDB 7.0 Documentation
+# Percona Server for MongoDB 8.0 Documentation
 
 Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
-for MongoDB 7.0 Community Edition with [enterprise-grade features](comparison.md).
+for MongoDB 8.0 Community Edition with [enterprise-grade features](comparison.md).
 
 [To migrate to Percona Server for MongoDB](install/upgrade-from-mongodb.md) requires no changes to MongoDB applications or code.
 
