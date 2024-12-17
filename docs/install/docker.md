@@ -16,8 +16,7 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 To run the latest Percona Server for MongoDB 8.0 in a Docker container, run the following command as the root user or via `sudo`:
 
 ```{.bash data-prompt="$"}
-$ docker run -d --name psmdb --restart always \
-percona/percona-server-mongodb:<TAG>-multi
+$ docker run -d --name psmdb -p 27017:27017 --restart always percona/percona-server-mongodb:<TAG>-multi
 ```
 
 The command does the following:
@@ -32,6 +31,8 @@ to run a container from an image.
 * The `--name` option assigns a custom name for the container
 that you can use to reference the container within a Docker network.
 In this case: `psmdb`.
+
+* The `-p` option binds the container's port `27017` to TCP port `27017` on all host network interfaces. This makes the container accessible externally.
 
 * The `--restart` option defines the container’s restart policy.
 Setting it to `always` ensures that the Docker daemon
