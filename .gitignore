@@ -7,4 +7,5 @@ __pycache__
 # Local Netlify folder
 .netlify
 site/
-.cache/plugin/git-committers/page-authors.json
+.cache/
+
