@@ -157,8 +157,8 @@ extra:
 
 nav:
   - Home: index.md
-  - Feature comparison with MongoDB: comparison.md
   - psmdb-pro.md
+  - get-help.md
   - Get started: 
       - Quickstart guides: 'install/index.md'
       - 1. Installation:
@@ -173,6 +173,7 @@ nav:
       - "3. Manipulate data in Percona Server for MongoDB": crud.md
       - "4. What's next?": what-next.md
   - Features: 
+      - Feature comparison with MongoDB: comparison.md
       - Storage:
         - "Percona Memory Engine": "inmemory.md"
       - Backup:
@@ -224,4 +225,5 @@ nav:
       - telemetry.md
       - copyright.md
       - trademark-policy.md 
+  - Join Percona Squad: "https://squad.percona.com/mongodb"
 
