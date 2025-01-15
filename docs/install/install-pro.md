@@ -44,7 +44,7 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
 
         Run the following command and pass your credentials to the Pro repository:
 
-        ```{.bash .data-prompt="$"}
+        ```{.bash data-prompt="$"}
         $ sudo percona-release enable psmdb-80-pro release --user_name=<Your Customer ID> --repo_token=<Your PRO repository token>
         ```
 
@@ -60,7 +60,7 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
 
         2. Enable the repository    
 
-            ```{.bash .data-prompt="$"}
+            ```{.bash data-prompt="$"}
             $ sudo percona-release enable psmdb-80-pro release
             ``` 
 
@@ -68,19 +68,19 @@ If you already run Percona Server for MongoDB and wish to upgrade to Percona Ser
 
     === ":material-debian: Debian and Ubuntu"
 
-        ```{.bash .data-prompt="$"}
+        ```{.bash data-prompt="$"}
         $ sudo apt install -y percona-server-mongodb-pro
         ```    
 
     === ":material-redhat: RHEL and derivatives"
 
-        ```{.bash .data-prompt="$"}
+        ```{.bash data-prompt="$"}
         $ sudo yum install -y percona-server-mongodb-pro
         ```
 
 4. Start the server    
 
-    ```{.bash .data-prompt="$"}
+    ```{.bash data-prompt="$"}
     $ sudo systemctl start mongod
     ```    
 
