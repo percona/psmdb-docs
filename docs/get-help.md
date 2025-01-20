@@ -2,7 +2,7 @@
 
 This guide is packed with information, but it can't cover everything you need to know about Percona Server for MongoDB. It also won't cover every scenario you might come across.
 
-Think of this guide as a solid starting point. There's always more to learn, and you'll keep discovering new things as you get hands-on experience. And remember, the more you experiment and work with Percona Server for MongoDB, the more confident and skilled you’'ll become. Don't be afraid to try things out and ask questions when you get stuck.
+Think of this guide as a solid starting point. There's always more to learn, and you'll keep discovering new things as you get hands-on experience. And remember, the more you experiment and work with Percona Server for MongoDB, the more confident and skilled you'll become. Don't be afraid to try things out and ask questions when you get stuck.
 
 Working with a database can get complicated. It involves understanding how to store, manage, and organize data effectively, so it's available when you need it and protected when you don't. You have to think about the structure, like how collections and documents work, and then consider the performance side, such as how quickly queries return results. It also means dealing with security, ensuring that sensitive information is well-guarded, and handling the right access levels. Plus, if the database grows or changes, maintaining it without losing data or causing downtime adds more challenges. Overall, it's a balance between designing, tuning, and keeping everything running smoothly.
 
