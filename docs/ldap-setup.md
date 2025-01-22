@@ -4,20 +4,11 @@ This document describes an example configuration of LDAP authentication and auth
 
 ## Assumptions
 
-1. The setup of an LDAP server is out of scope of this document. We assume that you are familiar with the LDAP server schema.
-
-2. You have the LDAP server up and running and it is accessible to the servers with Percona Server for MongoDB installed.
-
-3. This document primarily focuses on OpenLDAP used as the LDAP server and the examples are given based on the OpenLDAP format. If you are using Active Directory, refer to the [Active Directory configuration](#active-directory-configuration) section.
-
-4. You have the `sudo` privilege to the server with the Percona Server for MongoDB installed.
-
-## Prerequisites
-
-* In this setup we use anonymous binds to the LDAP server. If your LDAP server disallows anonymous binds, create the user that Percona Server for MongoDB will use to connect to and query the LDAP server. Define this user’s credentials for the `security.ldap.bind.queryUser` and `security.ldap.bind.queryPassword`  parameters in the `mongod.conf` configuration file.
-
-
-* In this setup, we use the following OpenLDAP groups:
+* The setup of an LDAP server is out of scope of this document. We assume that you are familiar with the LDAP server schema.
+* An explanation of [RFC4514](https://www.ietf.org/rfc/rfc4514.txt), [RFC4515](https://tools.ietf.org/html/rfc4515), [RFC4516](https://tools.ietf.org/html/rfc4516), or LDAP queries is out of scope. Please review the RFC directly or use your preferred LDAP resource.
+* You have the LDAP server up and running and it is accessible to the servers with Percona Server for MongoDB installed.
+* This document primarily focuses on OpenLDAP used as the LDAP server and the examples are given based on the OpenLDAP format. If you are using Active Directory, refer to the [Active Directory configuration](#active-directory-configuration) section.
+* In examples below, we use anonymous binds to the LDAP server and the following OpenLDAP groups:
 
 ```text
 dn: cn=testusers,dc=percona,dc=com
@@ -30,6 +21,12 @@ objectClass: groupOfNames
 cn: otherusers
 member: cn=bob,dc=percona,dc=com
 ```
+
+## Prerequisites 
+- To configure LDAP, you must have the `sudo` privilege to the server with the {{ product.psmdb_full_name }} installed.
+- If your LDAP server disallows anonymous binds, create the user that Percona Server for MongoDB will use to connect to and query the LDAP server. Afterwards, set that username and password using`security.ldap.bind.queryUser` and `security.ldap.bind.queryPassword` parameters in the `mongod.conf` configuration file. If username or any part of it will end up substituted as distinguished name it must be escaped according to [RFC 4514](https://tools.ietf.org/html/rfc4514). It may happen when: 
+    - A username is a fully distinguished name and can be substituted directly into the `security.ldap.authz.queryTemplate` parameter without using any transformation via `security.ldap.userToDNMapping`.
+    - A username represents an email address or fullname and after transformation via `security.ldap.userToDNMapping` some parts of it may become part of distinguished name substituted into the  `security.ldap.authz.queryTemplate` parameter.
 
 ## Setup procedure
 
@@ -129,13 +126,23 @@ This section assumes that users connect to Percona Server for MongoDB by providi
 
 #### Access with username transformation
 
-If users connect to Percona Server for MongoDB with usernames that are not LDAP , you need to transform these usernames to be accepted by the LDAP server.
+If users connect to Percona Server for MongoDB with usernames that are not LDAP, you need to transform these usernames to be accepted by the LDAP server.
 
 Using the `--ldapUserToDNMapping` configuration parameter allows you to do this. You specify the match pattern as a regexp to capture a username. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.
 
-If you don’t know what the substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out.
+If you don’t know what the Substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out.
 
-Note that you can use only the `query` or the `substitution` stage, the combination of two is not allowed.
+Not, you can use only the `LDAP query` or the `Substitution` stage, the combination of two is not allowed.
+
+??? tip admonition "Escaping special characters"
+    **`substitution` parameter**<br />
+    The result of the substitution becomes the value of the `{USER}` placeholder, which is a `{USER}` value in the `security.ldap.authz.queryTemplate` parameter. Escaping requirements depend on the part of the query template that will be substituted. For example, the result of substitution will be full or part of a distinguished name. According to [RFC4514](https://www.ietf.org/rfc/rfc4514.txt), you must escape special characters in the `substitution` parameter. Using other escaping mechanisms in this parameter is unnecessary because {{ product.psmdb_full_name }} applies the necessary escaping as outlined in [RFC4515](https://tools.ietf.org/html/rfc4515) and [RFC4516](https://tools.ietf.org/html/rfc4516) while substituting the `security.ldap.authz.queryTemplate` parameter.<br />
+    **`ldapQuery` and `queryTemplate` parameters**<br />
+    To properly escape special characters, follow these steps:<br />
+    1. Escape special characters in full or partially distinguished names in the query according to [RFC 4514](https://www.ietf.org/rfc/rfc4514.txt).<br />
+    2. Next, escape special characters within the LDAP search filter portion of the query, as outlined in [RFC 4515](https://www.ietf.org/rfc/rfc4515.txt).<br />
+    3. Then, escape special characters in the query according to [RFC 4516](https://www.ietf.org/rfc/rfc4516.txt). Note that you do not need to escape question marks if they are being used to separate parts of the query.<br />
+    4. Finally, if you plan to use the result in a YAML configuration file, you may need to escape characters according to the [YAML specification](https://yaml.org/spec/).
 
 === "Substitution"
 
@@ -165,16 +172,16 @@ Note that you can use only the `query` or the `substitution` stage, the combinat
 
          Modify the given example configuration to match your deployment.
 
-     2. Restart the `mongod` service:
+    2. Restart the `mongod` service:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl restart mongod
-         ```  
-     3. Test the access to Percona Server for MongoDB:
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl restart mongod
+        ```  
+    3. Test the access to Percona Server for MongoDB:
 
-         ```{.bash data-prompt="$"}
-         $ mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
-         ```
+        ```{.bash data-prompt="$"}
+        $ mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+        ```
 
 === "LDAP query"
     

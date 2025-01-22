@@ -5,7 +5,9 @@
 release: '8.0.4-1'
 version: '8.0'
 mongosh: '2.3.2'
-
+product:
+  psmdb_full_name:  Percona Server for MongoDB
 date:
   8_0_4 : "2024-12-17"
+  
 
