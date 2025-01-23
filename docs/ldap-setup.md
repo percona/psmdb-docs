@@ -5,7 +5,7 @@ This document describes an example configuration of LDAP authentication and auth
 ## Assumptions
 
 * The setup of an LDAP server is out of scope of this document. We assume that you are familiar with the LDAP server schema.
-* An explanation of [RFC4514](https://www.ietf.org/rfc/rfc4514.txt), [RFC4515](https://tools.ietf.org/html/rfc4515), [RFC4516](https://tools.ietf.org/html/rfc4516), or LDAP queries is out of scope. Please review the RFC directly or use your preferred LDAP resource.
+* An explanation of [RFC4514](https://www.ietf.org/rfc/rfc4514.txt), [RFC4515](https://tools.ietf.org/html/rfc4515), [RFC4516](https://tools.ietf.org/html/rfc4516), or LDAP queries is out of scope of this setup. Please review the RFC directly or use your preferred LDAP resource.
 * You have the LDAP server up and running and it is accessible to the servers with Percona Server for MongoDB installed.
 * This document primarily focuses on OpenLDAP used as the LDAP server and the examples are given based on the OpenLDAP format. If you are using Active Directory, refer to the [Active Directory configuration](#active-directory-configuration) section.
 * In examples below, we use anonymous binds to the LDAP server and the following OpenLDAP groups:
@@ -132,11 +132,11 @@ Using the `--ldapUserToDNMapping` configuration parameter allows you to do this.
 
 If you don’t know what the Substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out.
 
-Not, you can use only the `LDAP query` or the `Substitution` stage, the combination of two is not allowed.
+Note that you can use only the `LDAP query` or the `Substitution` stage, and you cannot combine the two.
 
 ??? tip admonition "Escaping special characters"
     **`substitution` parameter**<br />
-    The result of the substitution becomes the value of the `{USER}` placeholder, which is a `{USER}` value in the `security.ldap.authz.queryTemplate` parameter. Escaping requirements depend on the part of the query template that will be substituted. For example, the result of substitution will be full or part of a distinguished name. According to [RFC4514](https://www.ietf.org/rfc/rfc4514.txt), you must escape special characters in the `substitution` parameter. Using other escaping mechanisms in this parameter is unnecessary because {{ product.psmdb_full_name }} applies the necessary escaping as outlined in [RFC4515](https://tools.ietf.org/html/rfc4515) and [RFC4516](https://tools.ietf.org/html/rfc4516) while substituting the `security.ldap.authz.queryTemplate` parameter.<br />
+    The result of the substitution becomes the value of the `{USER}` placeholder, which is a `{USER}` value in the `security.ldap.authz.queryTemplate` parameter. Escaping requirements depend on the part of the query template that will be substituted. For example, the result of substitution can be full distinguished name or part of it. In this case according to [RFC4514](https://www.ietf.org/rfc/rfc4514.txt), you must escape special characters in the `substitution` parameter. Using other escaping mechanisms in this parameter is unnecessary because {{ product.psmdb_full_name }} applies the necessary escaping as outlined in [RFC4515](https://tools.ietf.org/html/rfc4515) and [RFC4516](https://tools.ietf.org/html/rfc4516) while substituting the `security.ldap.authz.queryTemplate` parameter.<br />
     **`ldapQuery` and `queryTemplate` parameters**<br />
     To properly escape special characters, follow these steps:<br />
     1. Escape special characters in full or partially distinguished names in the query according to [RFC 4514](https://www.ietf.org/rfc/rfc4514.txt).<br />
