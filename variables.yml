@@ -2,10 +2,11 @@
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
 
-release: '8.0.4-1'
+release: '8.0.4-2'
 version: '8.0'
 mongosh: '2.3.2'
 
 date:
+  8_0_4_2 : "2025-02-12"
   8_0_4 : "2024-12-17"
 
