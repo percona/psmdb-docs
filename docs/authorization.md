@@ -61,14 +61,16 @@ So having an array of documents, Percona Server for MongoDB tries to match each 
 
 ### Escaping special characters in usernames
 
-A username can contain special characters in any of its parts. An example of a special character is the `@` sign in an email. 
+A username can contain special characters in any of its parts. A special character is any character which is not alphanumeric and not an ASCII character. 
 
 These characters must be escaped to formulate the correct LDAP query on the following stages: 
-
-* To search for the user in the LDAP server whose username is the LDAP distinguished name. 
+ 
 * To transform a username to the LDAP DN, and the matched pattern of a username must be first queried in the LDAP server to become the DN.
+* To retrieve the groups a user is the member of.
 
 Additionally, the username pattern to match for the transformation can have special characters that must be escaped too.
+
+What exactly characters require escaping depends on the Percona Server for MongoDB configuration. Namely, on the configuration of the LDAP query template and the regular expressions inside the `--ldapUserToDNMapping` parameter.
 
 The escaping rules are described in the following documents:
 
@@ -81,7 +83,7 @@ Their explanation is out of the scope of the Percona Server For MongoDB document
 To summarize, username escaping happens in the following cases:
 
 * When a username is defined as the LDAP DN and has special characters in any of its parts. 
-* When a username must be transformed to the LDAP DN and the username pattern for the transportation has special characters
+* When a username must be transformed to the LDAP DN and the username pattern for the transformation has special characters
 * When the transformed LDAP DN value contains special characters in any of its parts. 
 
 

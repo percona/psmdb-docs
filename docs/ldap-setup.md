@@ -5,7 +5,7 @@ This document describes an example configuration of LDAP authentication and auth
 ## Assumptions
 
 * The setup of an LDAP server is out of scope of this document. We assume that you are familiar with the LDAP server schema.
-* If usernames contain special characters, they must be escaped as described in [RFC4514](https://www.ietf.org/rfc/rfc4514.txt), [RFC4515](https://tools.ietf.org/html/rfc4515), [RFC4516](https://tools.ietf.org/html/rfc4516). An explanation of escaping rules or LDAP queries is out of scope of this setup. Please review the RFC directly or use your preferred LDAP resource.
+* If usernames contain special characters, they must be escaped as described in [RFC4514](https://www.ietf.org/rfc/rfc4514.txt), [RFC4515](https://tools.ietf.org/html/rfc4515), [RFC4516](https://tools.ietf.org/html/rfc4516). The usage of particular escaping rules depends on  the part of the LDAP query which will contain the substituted value. An explanation of escaping rules or LDAP queries is out of scope of this setup. Please review the RFC directly or use your preferred LDAP resource.
 * You have the LDAP server up and running and it's accessible to the servers with Percona Server for MongoDB installed.
 * This document primarily focuses on OpenLDAP used as the LDAP server and the examples are given based on the OpenLDAP format. If you are using Active Directory, refer to the [Active Directory configuration](#active-directory-configuration) section.
 * In examples below, we use anonymous binds to the LDAP server and the following OpenLDAP groups:
