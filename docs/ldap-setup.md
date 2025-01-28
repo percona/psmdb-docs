@@ -128,7 +128,7 @@ This section assumes that users connect to Percona Server for MongoDB by providi
 
 #### Access with username transformation
 
-If users connect to Percona Server for MongoDB with usernames that are not LDAP, you need to transform these usernames to be accepted by the LDAP server. f usernames contain special characters, these [characters must be escaped](#escaping-special-characters). 
+If users connect to Percona Server for MongoDB with usernames that are not LDAP, you need to transform these usernames to be accepted by the LDAP server. If usernames contain special characters, these [characters must be escaped](#escaping-special-characters). 
 
 Using the `--ldapUserToDNMapping` configuration parameter allows you to do this. You specify the match pattern as a regexp to capture a username. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.
 
