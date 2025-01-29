@@ -61,7 +61,7 @@ So having an array of documents, Percona Server for MongoDB tries to match each 
 
 ### Escaping special characters in usernames
 
-A username can contain special characters in any of its parts. A special character is any character which is not alphanumeric and not an ASCII character. 
+A username can contain special characters in any of its parts. A special character is any character which is not alphanumeric or not an ASCII character. 
 
 These characters must be escaped to formulate the correct LDAP query on the following stages: 
  
