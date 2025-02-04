@@ -4,7 +4,7 @@ site_name: Percona Server for MongoDB 6.0
 site_description: Documentation
 site_author: Percona LLC
 
-copyright: Percona LLC, &#169; 2024
+copyright: Percona LLC, &#169; 2025
 
 
 repo_name: percona/psmdb-docs
@@ -139,7 +139,7 @@ plugins:
   with-pdf: # https://github.com/orzih/mkdocs-with-pdf
           output_path: '_pdf/PerconaServerforMongoDB-6.0.pdf'
           cover_title: 'Server for MongoDB Documentation 6.0'
-          cover_subtitle: 6.0.20-17 (February 11, 2025)
+          cover_subtitle: 6.0.20-17 (February 12, 2025)
           author: 'Percona Technical Documentation Team'
           cover_logo: docs/_images/Percona_Logo_Color.png
           debug_html: false
