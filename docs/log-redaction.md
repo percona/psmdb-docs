@@ -1,11 +1,12 @@
 # Log redaction
 
 Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.
+
 To enable log redaction, run `mongod` with the `--redactClientLogData` option.
 
 !!! note 
 
-    Metadata such as error or operation codes, line numbers, and source file names remain visible in the logs.
+    Metadata such as error or operation codes, line numbers, and source file names remain visible in the logs. 
 
 Log redaction is important for complying with security requirements,
 but it can make troubleshooting and diagnostics more difficult
@@ -30,3 +31,61 @@ use the `setParameter` command as follows:
   { setParameter: 1, redactClientLogData : true }
 )
 ```
+
+!!! note 
+
+    If you enable the profiler, the query is still logged to the `system.profile` collection without any redaction
+
+    
+## Example
+
+This is an example of a log entry with redaction enabled:
+
+```
+{
+  "t": {
+    "$date": "2025-02-11T15:37:16.902+00:00"
+  },
+  "s": "I",
+  "c": "COMMAND",
+  "id": 51803,
+  "svc": "S",
+  "ctx": "conn1592",
+  "msg": "Slow query",
+  "attr": {
+    "type": "command",
+    "isFromUserConnection": true,
+    "ns": "admin.mytestcol",
+    "collectionType": "admin",
+    "appName": "mongosh 2.3.2",
+    "command": {
+      "insert": "###",
+      "documents": [
+        {
+          "a": "###",
+          "b": "###",
+          "c": "###",
+          "_id": "###"
+        }
+      ],
+      "ordered": "###",
+      "lsid": {
+        "id": "###"
+      },
+      "txnNumber": "###",
+      "$clusterTime": {
+        "clusterTime": "###",
+        "signature": {
+          "hash": "###",
+          "keyId": "###"
+        }
+      },
+      "$readPreference": {
+        "mode": "###"
+      },
+      "$db": "###"
+    }
+...
+```
+
+As you can see, the field names are still visible but the values are hidden. Some other fields like the `readPreference` are also obfuscated.
