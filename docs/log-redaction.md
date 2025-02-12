@@ -88,4 +88,4 @@ This is an example of a log entry with redaction enabled:
 ...
 ```
 
-As you can see, the field names are still visible but the values are hidden. Some other fields like the `readPreference` are also obfuscated.
+As you can see, the field names are still visible but the values are hidden. Some other fields like the `readPreference` are also hidden.
