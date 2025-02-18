@@ -9,3 +9,5 @@ mongosh: '2.3.2'
 date:
   8_0_4 : "2024-12-17"
 
+product:
+  full_name: "Percona Server for MongoDB"
