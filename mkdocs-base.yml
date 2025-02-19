@@ -163,6 +163,7 @@ nav:
       - Quickstart guides: 'install/index.md'
       - 1. Installation:
         - 'System requirements': 'system-requirements.md'
+        - install/cloud-deployments.md
         - "On Debian and Ubuntu": install/apt.md
         - "On RHEL and derivatives": install/yum.md
         - "On Amazon Linux 2023": install/amazon-linux.md
