@@ -8,8 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.
-To enable log redaction, run mongod with the --redactClientLogData option.">
+        <meta name="description" content="Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.">
       
       
         <meta name="author" content="Percona LLC">
@@ -1491,6 +1490,18 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Log redaction
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="log-redaction.html" class="md-nav__link md-nav__link--active">
         
   
@@ -1501,6 +1512,36 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2527,6 +2568,23 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                   <div class="md-sidebar__inner">
@@ -2571,11 +2629,11 @@ To enable log redaction, run mongod with the --redactClientLogData option.">
 
 
 <h1 id="log-redaction">Log redaction<a class="headerlink" href="#log-redaction" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.
-To enable log redaction, run <code>mongod</code> with the <code>--redactClientLogData</code> option.</p>
+<p>Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.</p>
+<p>To enable log redaction, run <code>mongod</code> with the <code>--redactClientLogData</code> option.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Metadata such as error or operation codes, line numbers, and source file names remain visible in the logs.</p>
+<p>Metadata such as error or operation codes, line numbers, and source file names remain visible in the logs. </p>
 </div>
 <p>Log redaction is important for complying with security requirements,
 but it can make troubleshooting and diagnostics more difficult
@@ -2594,6 +2652,58 @@ use the <code>setParameter</code> command as follows:</p>
 <span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">redactClientLogData</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
 <span class="p">)</span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you enable the profiler, the query is still logged to the <code>system.profile</code> collection without any redaction.</p>
+</div>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<p>This is an example of a log entry with redaction enabled:</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;t&quot;: {
+    &quot;$date&quot;: &quot;2025-02-11T15:37:16.902+00:00&quot;
+  },
+  &quot;s&quot;: &quot;I&quot;,
+  &quot;c&quot;: &quot;COMMAND&quot;,
+  &quot;id&quot;: 51803,
+  &quot;svc&quot;: &quot;S&quot;,
+  &quot;ctx&quot;: &quot;conn1592&quot;,
+  &quot;msg&quot;: &quot;Slow query&quot;,
+  &quot;attr&quot;: {
+    &quot;type&quot;: &quot;command&quot;,
+    &quot;isFromUserConnection&quot;: true,
+    &quot;ns&quot;: &quot;admin.mytestcol&quot;,
+    &quot;collectionType&quot;: &quot;admin&quot;,
+    &quot;appName&quot;: &quot;mongosh 2.3.2&quot;,
+    &quot;command&quot;: {
+      &quot;insert&quot;: &quot;###&quot;,
+      &quot;documents&quot;: [
+        {
+          &quot;a&quot;: &quot;###&quot;,
+          &quot;b&quot;: &quot;###&quot;,
+          &quot;c&quot;: &quot;###&quot;,
+          &quot;_id&quot;: &quot;###&quot;
+        }
+      ],
+      &quot;ordered&quot;: &quot;###&quot;,
+      &quot;lsid&quot;: {
+        &quot;id&quot;: &quot;###&quot;
+      },
+      &quot;txnNumber&quot;: &quot;###&quot;,
+      &quot;$clusterTime&quot;: {
+        &quot;clusterTime&quot;: &quot;###&quot;,
+        &quot;signature&quot;: {
+          &quot;hash&quot;: &quot;###&quot;,
+          &quot;keyId&quot;: &quot;###&quot;
+        }
+      },
+      &quot;$readPreference&quot;: {
+        &quot;mode&quot;: &quot;###&quot;
+      },
+      &quot;$db&quot;: &quot;###&quot;
+    }
+...
+</code></pre></div>
+<p>As you can see, the field names are still visible but the values are hidden. Some other fields like the <code>readPreference</code> are also hidden.</p>
 
 
 
@@ -2616,7 +2726,7 @@ use the <code>setParameter</code> command as follows:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 3, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 19, 2025</span>
   </span>
 
     
