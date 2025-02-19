@@ -6,6 +6,8 @@ release: '7.0.16-10'
 version: '7.0'
 mongosh: '2.3.2'
 
+product:
+  psmdb_full_name:  Percona Server for MongoDB
 
 date:
   7_0_16: '2025-02-19'
