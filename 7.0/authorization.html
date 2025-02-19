@@ -1276,6 +1276,15 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
         
           <li class="md-nav__item">
+  <a href="#escaping-special-characters-in-usernames" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escaping special characters in usernames
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ldap-referrals" class="md-nav__link">
     <span class="md-ellipsis">
       LDAP referrals
@@ -1336,7 +1345,7 @@ document$.subscribe(() => { lightbox.reload() });
         
   
   <span class="md-ellipsis">
-    Set up LDAP authentication and authorization using NativeLDAP
+    Macro Rendering Error
     
   </span>
   
@@ -2344,6 +2353,15 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
         
           <li class="md-nav__item">
+  <a href="#escaping-special-characters-in-usernames" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escaping special characters in usernames
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ldap-referrals" class="md-nav__link">
     <span class="md-ellipsis">
       LDAP referrals
@@ -2483,6 +2501,28 @@ document$.subscribe(() => { lightbox.reload() });
 </ul>
 <p>Both <code>substitution</code> and <code>ldapQuery</code> should contain placeholders to insert parts of the original username – those placeholders are replaced with regular expression submatches found on the <code>match</code> stage.</p>
 <p>So having an array of documents, Percona Server for MongoDB tries to match each document against the provided name and if it matches, the name is replaced either with the substitution string or with the result of the LDAP query.</p>
+<h3 id="escaping-special-characters-in-usernames">Escaping special characters in usernames<a class="headerlink" href="#escaping-special-characters-in-usernames" title="Permanent link">&para;</a></h3>
+<p>A username can contain special characters in any of its parts. A special character is any character which is not alphanumeric and not an ASCII character. </p>
+<p>These characters must be escaped to formulate the correct LDAP query on the following stages: </p>
+<ul>
+<li>To transform a username to the LDAP <abbr title="Distinguished Name">DN</abbr>, and the matched pattern of a username must be first queried in the LDAP server to become the <abbr title="Distinguished Name">DN</abbr>.</li>
+<li>To retrieve the groups a user is the member of.</li>
+</ul>
+<p>Additionally, the username pattern to match for the transformation can have special characters that must be escaped too.</p>
+<p>What exactly characters require escaping depends on the Percona Server for MongoDB configuration. Namely, on the configuration of the LDAP query template and the regular expressions inside the <code>--ldapUserToDNMapping</code> parameter.</p>
+<p>The escaping rules are described in the following documents:</p>
+<ul>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc4514">RFC 4514 | LDAP: Distinguished Names</a> - Escaping in Distinguished Names </li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc4515">RFC 4515 | LDAP: String Representation of Search Filters</a> - LDAP search filters utilize its own escaping mechanism </li>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc4516">RFC 4516 | LDAP: Uniform Resource Locator</a> - General URL escaping rules. </li>
+</ul>
+<p>Their explanation is out of the scope of the Percona Server For MongoDB documentation. Please review the RFC directly or use your preferred LDAP resource.</p>
+<p>To summarize, username escaping happens in the following cases:</p>
+<ul>
+<li>When a username is defined as the LDAP <abbr title="Distinguished Name">DN</abbr> and has special characters in any of its parts. </li>
+<li>When a username must be transformed to the LDAP <abbr title="Distinguished Name">DN</abbr> and the username pattern for the transformation has special characters</li>
+<li>When the transformed LDAP <abbr title="Distinguished Name">DN</abbr> value contains special characters in any of its parts. </li>
+</ul>
 <h3 id="ldap-referrals">LDAP referrals<a class="headerlink" href="#ldap-referrals" title="Permanent link">&para;</a></h3>
 <p>As of version 6.0.2-1, Percona Server for MongoDB supports LDAP referrals as defined in <a href="https://www.rfc-editor.org/rfc/rfc4511.txt">RFC 4511 4.1.10</a>. For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.</p>
 <p>To enable LDAP referrals, set the <code>ldapFollowReferrals</code> server parameter to <code>true</code> using the <a href="set-parameter.html">setParameter</a> command or by editing the configuration file.</p>
@@ -2551,7 +2591,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 4, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 19, 2025</span>
   </span>
 
     
