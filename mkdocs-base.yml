@@ -102,8 +102,8 @@ markdown_extensions:
   pymdownx.inlinehilite: {}
   pymdownx.snippets:
       base_path: ["snippets"]
-      auto_append:
-        - services-banner.md
+#       auto_append:
+#         - services-banner.md
   pymdownx.tasklist:
       custom_checkbox: true
   pymdownx.emoji:
@@ -165,6 +165,7 @@ nav:
         - 'System requirements': 'system-requirements.md'
         - "On Debian and Ubuntu": install/apt.md
         - "On RHEL and derivatives": install/yum.md
+        - "On Amazon Linux 2023": install/amazon-linux.md
         - "From tarballs": install/tarball.md
         - install/source.md
         - "Run in Docker": install/docker.md
