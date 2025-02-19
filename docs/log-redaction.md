@@ -34,7 +34,7 @@ use the `setParameter` command as follows:
 
 !!! note 
 
-    If you enable the profiler, the query is still logged to the `system.profile` collection without any redaction
+    If you enable the profiler, the query is still logged to the `system.profile` collection without any redaction.
 
     
 ## Example
