@@ -1,6 +1,6 @@
-# Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
+# Install Percona Server for MongoDB on Amazon Linux 2023
 
-This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives.
+This guide walks you through the installation of Percona Server for MongoDB on Amazon Linux 2023. 
 
 We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
@@ -9,7 +9,6 @@ We gather [Telemetry data](../telemetry.md) to understand the use of the softwar
 === ":octicons-number-16: Install a specific version"
 
      To install a specific version of *Percona Server for MongoDB*, do the following:
-     {.power-number}
 
      1. List available versions:
 
@@ -22,16 +21,16 @@ We gather [Telemetry data](../telemetry.md) to understand the use of the softwar
          ```{.bash .no-copy}
              Available Packages
          
-         percona-server-mongodb.x86_64    {{release}}.el8       psmdb-60-release-x86_64
+         percona-server-mongodb.aarch64    {{release}}.amzn2023       psmdb-60-release-aarch64
          ```
 
      2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-server-mongodb-{{release}}.el8
+        $ sudo yum install percona-server-mongodb-{{release}}.amzn2023
         ```
 
---8<-- "yum-install.md:75:134"
+--8<-- "yum-install.md:74:140"
 
 ## Next steps
 
