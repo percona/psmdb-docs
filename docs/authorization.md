@@ -43,7 +43,7 @@ The following diagram illustrates the authentication and authorization flow:
 
 ### Username transformation
 
-If clients connect to Percona Server for MongoDB with usernames that are not LDAP DN, these usernames must be converted to the format acceptable by LDAP.
+If clients connect to Percona Server for MongoDB with usernames that are not LDAP DN, these usernames must be transformed to the format acceptable by LDAP.
 
 To achieve this,  the `--ldapUserToDNMapping` parameter is available in Percona Server for MongoDB configuration.
 
@@ -58,6 +58,36 @@ The `--ldapUserToDNMapping` parameter is a JSON string representing an ordered a
 Both `substitution` and `ldapQuery` should contain placeholders to insert parts of the original username – those placeholders are replaced with regular expression submatches found on the `match` stage.
 
 So having an array of documents, Percona Server for MongoDB tries to match each document against the provided name and if it matches, the name is replaced either with the substitution string or with the result of the LDAP query.
+
+### Escaping special characters in usernames
+
+A username can contain special characters in any of its parts. A special character is any character which is not alphanumeric or not an ASCII character. 
+
+These characters must be escaped to formulate the correct LDAP query on the following stages: 
+ 
+* To transform a username to the LDAP DN, and the matched pattern of a username must be first queried in the LDAP server to become the DN.
+* To retrieve the groups a user is the member of.
+
+Additionally, the username pattern to match for the transformation can have special characters that must be escaped too.
+
+What exactly characters require escaping depends on the Percona Server for MongoDB configuration. Namely, on the configuration of the LDAP query template and the regular expressions inside the `--ldapUserToDNMapping` parameter.
+
+The escaping rules are described in the following documents:
+
+* [RFC 4514 | LDAP: Distinguished Names](https://datatracker.ietf.org/doc/html/rfc4514) - Escaping in Distinguished Names 
+* [RFC 4515 | LDAP: String Representation of Search Filters](https://datatracker.ietf.org/doc/html/rfc4515) - LDAP search filters utilize its own escaping mechanism 
+* [RFC 4516 | LDAP: Uniform Resource Locator](https://datatracker.ietf.org/doc/html/rfc4516) - General URL escaping rules. 
+
+Their explanation is out of the scope of the Percona Server For MongoDB documentation. Please review the RFC directly or use your preferred LDAP resource.
+
+To summarize, username escaping happens in the following cases:
+
+* When a username is defined as the LDAP DN and has special characters in any of its parts. 
+* When a username must be transformed to the LDAP DN and the username pattern for the transformation has special characters
+* When the transformed LDAP DN value contains special characters in any of its parts. 
+
+
+
 
 ### LDAP referrals
 
