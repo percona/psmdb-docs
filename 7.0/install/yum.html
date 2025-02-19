@@ -20,7 +20,7 @@
         <link rel="prev" href="apt.html">
       
       
-        <link rel="next" href="tarball.html">
+        <link rel="next" href="amazon-linux.html">
       
       
       <link rel="icon" href="../_images/mongodb-fav.svg">
@@ -724,6 +724,28 @@ document$.subscribe(() => { lightbox.reload() });
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="amazon-linux.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    On Amazon Linux 2023
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2427,11 +2449,10 @@ document$.subscribe(() => { lightbox.reload() });
 <p>This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. We gather <a href="../telemetry.html">Telemetry data</a> to understand the use of the software and improve our products.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Percona Server for MongoDB should work on other RPM-based distributions (for example, Amazon Linux AMI and Oracle Linux), but it is tested only on platforms listed on the <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">Percona Software and Platform Lifecycle</a> page. </p>
+<p>Percona Server for MongoDB should work on other RPM-based distributions (for example, Oracle Linux), but it is tested only on platforms listed on the <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">Percona Software and Platform Lifecycle</a> page. </p>
 </div>
 <details class="admonition">
 <summary>Package contents</summary>
-</details>
 <table>
 <thead>
 <tr>
@@ -2466,8 +2487,9 @@ document$.subscribe(() => { lightbox.reload() });
 </tr>
 </tbody>
 </table>
+</details>
 <h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
-<p>Before you start, check the <a href="../system-requirements.html">system requirements</a>.</p>
+<p>Before you start, check the <a href="system-requirements.md">system requirements</a>.</p>
 <h3 id="configure-percona-repository">Configure Percona repository<a class="headerlink" href="#configure-percona-repository" title="Permanent link">&para;</a></h3>
 <p>Percona provides the <a href="https://docs.percona.com/percona-software-repositories/index.html"><code>percona-release</code></a> configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    </p>
 <ol>
@@ -2507,12 +2529,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>.0.2-1.el9<span class="w">       </span>psmdb-70-release-x86_64
+percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>.0.15-9.el9<span class="w">       </span>psmdb-70-release-x86_64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.2-1, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.2-1.el9
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.15-9, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.15-9.el9
 </code></pre></div>
 </li>
 </ol>
@@ -2527,23 +2549,21 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
 <p>If you use SELinux in enforcing mode, you must customize your SELinux user policies to allow access to certain <code>/sys</code> and <code>/proc</code> files for OS-level statistics. Also, you must customize directory and port access policies if you are using non-default locations.</p>
 <p>Please refer to <a href="https://docs.mongodb.com/v6.0/tutorial/install-mongodb-on-red-hat/#configure-selinux">Configure SELinux</a> section of MongoDB Documentation for policy configuration guidelines.</p>
 </div>
-<p>By default, Percona Server for MongoDB stores data files in <code>/var/lib/mongodb/</code>
-and configuration parameters in <code>/etc/mongod.conf</code>.</p>
 <p><strong>Start the service</strong></p>
 <p>Percona Server for MongoDB is not started automatically after installation.
 Start it manually using the following command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Confirm that service is running</strong></p>
-<p>Check the service status using the following command: <code>service mongod status</code></p>
+<p>Check the service status using the following command: </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Stop the service</strong></p>
-<p>Stop the service using the following command: <code>service mongod stop</code></p>
+<p>Stop the service using the following command: </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Restart the service</strong></p>
-<p>Restart the service using the following command: <code>service mongod restart</code></p>
+<p>Restart the service using the following command: </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
 <h3 id="run-after-reboot">Run after reboot<a class="headerlink" href="#run-after-reboot" title="Permanent link">&para;</a></h3>
@@ -2579,7 +2599,7 @@ after you reboot the system.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 16, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 19, 2025</span>
   </span>
 
     
