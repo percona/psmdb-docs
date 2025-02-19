@@ -24,13 +24,12 @@ This document describes an example configuration of LDAP authentication and auth
 
 ## Prerequisites 
 
-- To configure LDAP, you must have the `sudo` privilege to the server with the Percona Server for MongoDB installed.
+- To configure LDAP, you must have the `sudo` privilege to the server with the {{ product.psmdb_full_name }} installed.
 
 - If your LDAP server disallows anonymous binds, create the user that Percona Server for MongoDB will use to connect to and query the LDAP server. Afterwards, set that username and password using the `security.ldap.bind.queryUser` and `security.ldap.bind.queryPassword` parameters in the `mongod.conf` configuration file. If the username or any part of it ends up substituted as distinguished name, it must be escaped according to [RFC 4514](https://tools.ietf.org/html/rfc4514). It may happen when: 
 
     - A username is a fully distinguished name and can be substituted directly into the LDAP query without using any transformation. The LDAP query is defined within the `security.ldap.authz.queryTemplate` configuration parameter.
     - A username represents an email address or a full name and requires transformation to LDAP DN. The transformation rules are defined via the `security.ldap.userToDNMapping` configuration parameter. After the transformation, some parts of the username may become part of distinguished name substituted into the `security.ldap.authz.queryTemplate` parameter.
-
 
 ## Setup procedure
 
@@ -41,24 +40,23 @@ By default, Percona Server for MongoDB establishes the TLS connection when bindi
 1. Place the certificate in the `certs` directory. The path to the `certs` directory is:
 
     * On RHEL / derivatives: `/etc/openldap/certs/`
-
     * On Debian / Ubuntu: `/etc/ssl/certs/`
 
 2. Specify the path to the certificates in the `ldap.conf` file:
 
-    === "Debian / Ubuntu"
-
-         ```
-         tee -a /etc/openldap/ldap.conf <<EOF
-         TLS_CACERT /etc/ssl/certs/my_CA.crt
-         EOF
-         ```
-
-    === "RHEL and derivatives"
+    === ":material-redhat: RHEL and derivatives"
 
          ```
          tee -a /etc/openldap/ldap.conf <<EOF
          TLS_CACERT /etc/openldap/certs/my_CA.crt
+         EOF
+         ```
+
+    === ":material-debian: Debian / Ubuntu"
+
+         ```
+         tee -a /etc/openldap/ldap.conf <<EOF
+         TLS_CACERT /etc/ssl/certs/my_CA.crt
          EOF
          ```
 
@@ -134,9 +132,9 @@ If users connect to Percona Server for MongoDB with usernames that are not LDAP,
 
 Using the `--ldapUserToDNMapping` configuration parameter allows you to do this. You specify the match pattern as a regexp to capture a username. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.
 
-If you don’t know what the Substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out.
+If you don't know what the Substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out. 
 
-Note that you can use only the `LDAPquery` or the `Substitution` stage, and you cannot combine the two.
+Note that you can use only the `LDAP query` or the `Substitution` stage, and you cannot combine the two.
 
 === "Substitution"
 
@@ -166,16 +164,16 @@ Note that you can use only the `LDAPquery` or the `Substitution` stage, and you 
 
          Modify the given example configuration to match your deployment.
 
-     2. Restart the `mongod` service:
+    2. Restart the `mongod` service:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl restart mongod
-         ```  
-     3. Test the access to Percona Server for MongoDB:
+        ```{.bash data-prompt="$"}
+        $ sudo systemctl restart mongod
+        ```  
+    3. Test the access to Percona Server for MongoDB:
 
-         ```{.bash data-prompt="$"}
-         $ mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
-         ```
+        ```{.bash data-prompt="$"}
+        $ mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+        ```
 
 === "LDAP query"
     
@@ -216,7 +214,6 @@ Note that you can use only the `LDAPquery` or the `Substitution` stage, and you 
          ```{.bash data-prompt="$"}
          mongosh -u "alice" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
          ```
-
 #### Escaping special characters
 
 The **`substitution` parameter**
@@ -257,6 +254,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 ```
 
 Use one of the given Percona Server for MongoDB configurations for user authentication and authorization in Active Directory. Read about [escaping special characters in usernames](#escaping-special-characters) to modify the configuration accordingly.
+
 
 === "No username transformation"
 
@@ -350,7 +348,9 @@ Use one of the given Percona Server for MongoDB configurations for user authenti
          $ mongosh -u "alice" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
          ```
 
-Modify one of this example configuration to match your deployment.
+Modify one of this example configuration to match your deployment. 
+
+
 
 !!! admonition ""
     
@@ -361,4 +361,3 @@ Modify one of this example configuration to match your deployment.
 
 *[DN]: Distinguished Name
 *[AD]: Active Directory
-
