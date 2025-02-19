@@ -445,7 +445,7 @@ document$.subscribe(() => { lightbox.reload() });
         
   
   <span class="md-ellipsis">
-    Get more help
+    Get help from Percona
     
   </span>
   
@@ -1898,6 +1898,28 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
+      <a href="../release_notes/8.0.4-2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 8.0.4-2 (2025-02-19)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../release_notes/8.0.4-1.html" class="md-nav__link">
         
   
@@ -2213,7 +2235,7 @@ document$.subscribe(() => { lightbox.reload() });
 <p>There are the following tarballs available:</p>
 <ul>
 <li>
-<p><code>percona-server-mongodb-8.0.4-1-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
+<p><code>percona-server-mongodb-8.0.4-2-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
 </li>
 <li>
 <p><code>percona-mongodb-mongosh-2.3.2-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</p>
@@ -2231,17 +2253,17 @@ document$.subscribe(() => { lightbox.reload() });
 <tbody>
 <tr>
 <td>Full</td>
-<td>percona-server-mongodb-8.0.4-1-x86_64.<operating-system>.tar.gz</td>
+<td>percona-server-mongodb-8.0.4-2-x86_64.<operating-system>.tar.gz</td>
 <td>Contains binaries and libraries</td>
 </tr>
 <tr>
 <td>Minimal</td>
-<td>percona-server-mongodb-8.0.4-1-x86_64.<operating-system>-minimal.tar.gz</td>
+<td>percona-server-mongodb-8.0.4-2-x86_64.<operating-system>-minimal.tar.gz</td>
 <td>Contains binaries and libraries without debug symbols</td>
 </tr>
 <tr>
 <td>Checksum</td>
-<td>percona-server-mongodb-8.0.4-1-x86_64.<operating-system>-minimal.tar.gz.sha256sum</td>
+<td>percona-server-mongodb-8.0.4-2-x86_64.<operating-system>-minimal.tar.gz.sha256sum</td>
 <td>Contains the MD5 checksum to verify the integrity of the files after the extraction</td>
 </tr>
 </tbody>
@@ -2269,17 +2291,17 @@ document$.subscribe(() => { lightbox.reload() });
 <ol>
 <li>
 <p>Fetch the binary tarballs:</p>
-<p><div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.4-1/binary/tarball/percona-server-mongodb-8.0.4-1-x86_64.jammy.tar.gz<span class="se">\</span>
-$<span class="w"> </span>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.4-1/binary/tarball/percona-mongodb-mongosh-2.3.2-x86_64.tar.gz
+<p><div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.4-2/binary/tarball/percona-server-mongodb-8.0.4-2-x86_64.jammy.tar.gz<span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.4-2/binary/tarball/percona-mongodb-mongosh-2.3.2-x86_64.tar.gz
 </code></pre></div>
 2. Extract the tarballs</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-8.0.4-1-x86_64.jammy.tar.gz
-$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-8.0.4-1-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-8.0.4-2-x86_64.jammy.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-8.0.4-2-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-8.0.4-1/bin/:~/percona-mongodb-mongosh-2.3.2/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-8.0.4-2/bin/:~/percona-mongodb-mongosh-2.3.2/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
