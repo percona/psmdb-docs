@@ -170,7 +170,7 @@ nav:
       - Quickstart guides: 'install/index.md'
       - 1. Installation:
         - 'System requirements': 'system-requirements.md'
-        - 'Virtual hardware recommendations for cloud deployments': 'cloud-deployments.md'
+        - install/cloud-deployments.md
         - "On Debian and Ubuntu": install/apt.md
         - "On RHEL and derivatives": install/yum.md
         - "From tarballs": install/tarball.md
