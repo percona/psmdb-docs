@@ -59,6 +59,33 @@ Both `substitution` and `ldapQuery` should contain placeholders to insert parts 
 
 So having an array of documents, Percona Server for MongoDB tries to match each document against the provided name and if it matches, the name is replaced either with the substitution string or with the result of the LDAP query.
 
+### Escaping special characters in usernames
+
+A username can contain special characters in any of its parts. A special character is any character which is not alphanumeric and not an ASCII character. 
+
+These characters must be escaped to formulate the correct LDAP query on the following stages: 
+
+* To transform a username to the LDAP DN, and the matched pattern of a username must be first queried in the LDAP server to become the DN.
+* To retrieve the groups a user is the member of.
+
+Additionally, the username pattern to match for the transformation can have special characters that must be escaped too.
+
+What exactly characters require escaping depends on the Percona Server for MongoDB configuration. Namely, on the configuration of the LDAP query template and the regular expressions inside the `--ldapUserToDNMapping` parameter.
+
+The escaping rules are described in the following documents:
+
+* [RFC 4514 | LDAP: Distinguished Names](https://datatracker.ietf.org/doc/html/rfc4514) - Escaping in Distinguished Names 
+* [RFC 4515 | LDAP: String Representation of Search Filters](https://datatracker.ietf.org/doc/html/rfc4515) - LDAP search filters utilize its own escaping mechanism 
+* [RFC 4516 | LDAP: Uniform Resource Locator](https://datatracker.ietf.org/doc/html/rfc4516) - General URL escaping rules. 
+
+Their explanation is out of the scope of the Percona Server For MongoDB documentation. Please review the RFC directly or use your preferred LDAP resource.
+
+To summarize, username escaping happens in the following cases:
+
+* When a username is defined as the LDAP DN and has special characters in any of its parts. 
+* When a username must be transformed to the LDAP DN and the username pattern for the transformation has special characters
+* When the transformed LDAP DN value contains special characters in any of its parts. 
+
 ### LDAP referrals
 
 As of version 6.0.2-1, Percona Server for MongoDB supports LDAP referrals as defined in [RFC 4511 4.1.10](https://www.rfc-editor.org/rfc/rfc4511.txt). For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.
