@@ -14,7 +14,10 @@ If you have thoughts, feedback, or ideas to share, the community team would like
 
 ## Percona experts
 
-[Percona experts](https://www.percona.com/services/consulting) bring years of experience in tackling tough database performance issues and design challenges. We understand your challenges when managing complex database environments. That's why we offer various services to help you simplify your operations and achieve your goals.
+Percona experts bring years of experience in tackling tough database performance issues and design challenges.
+
+<div data-tf-live="01JKGYFJTGGS7SBK5M26BGT0VX"></div><script src="//embed.typeform.com/next/embed.js"></script>
+We understand your challenges when managing complex database environments. That's why we offer various services to help you simplify your operations and achieve your goals.
 
 | Service                    | Description                                                                                                                                                           |
 |----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
