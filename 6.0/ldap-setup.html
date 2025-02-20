@@ -24,7 +24,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
     
     
       
@@ -553,6 +553,28 @@
   
   <span class="md-ellipsis">
     System requirements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/cloud-deployments.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Virtual hardware recommendations for cloud deployments
     
   </span>
   
@@ -2773,7 +2795,7 @@ member: cn=bob,dc=percona,dc=com
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p>To configure LDAP, you must have the <code>sudo</code> privilege to the server with the Percona Server for MongoDB installed.</p>
+<p>To configure LDAP, you must have the <code>sudo</code> privilege to the server with the {{ no such element: dict object[&lsquo;psmdb_full_name&rsquo;] }} installed.</p>
 </li>
 <li>
 <p>If your LDAP server disallows anonymous binds, create the user that Percona Server for MongoDB will use to connect to and query the LDAP server. Afterwards, set that username and password using the <code>security.ldap.bind.queryUser</code> and <code>security.ldap.bind.queryPassword</code> parameters in the <code>mongod.conf</code> configuration file. If the username or any part of it ends up substituted as distinguished name, it must be escaped according to <a href="https://tools.ietf.org/html/rfc4514">RFC 4514</a>. It may happen when: </p>
@@ -2951,7 +2973,7 @@ EOF
 </div>
 <h4 id="escaping-special-characters">Escaping special characters<a class="headerlink" href="#escaping-special-characters" title="Permanent link">&para;</a></h4>
 <p>The <strong><code>substitution</code> parameter</strong></p>
-<p>The result of the substitution becomes the value of the <code>{USER}</code> placeholder, which is a <code>{USER}</code> value in the <code>security.ldap.authz.queryTemplate</code> parameter. Escaping requirements depend on the part of the query template that will be substituted. For example, the result of the substitution can be a full distinguished name or a part of it. In this case, according to <a href="https://www.ietf.org/rfc/rfc4514.txt">RFC4514</a>, you must escape special characters in the <code>substitution</code> parameter. Using other escaping mechanisms in this parameter is unnecessary because Percona Server for MongoDB applies the necessary escaping as outlined in <a href="https://tools.ietf.org/html/rfc4515">RFC4515</a> and <a href="https://tools.ietf.org/html/rfc4516">RFC4516</a> while substituting the <code>security.ldap.authz.queryTemplate</code> parameter.</p>
+<p>The result of the substitution becomes the value of the <code>{USER}</code> placeholder, which is a <code>{USER}</code> value in the <code>security.ldap.authz.queryTemplate</code> parameter. Escaping requirements depend on the part of the query template that will be substituted. For example, the result of the substitution can be a full distinguished name or a part of it. In this case, according to <a href="https://www.ietf.org/rfc/rfc4514.txt">RFC4514</a>, you must escape special characters in the <code>substitution</code> parameter. Using other escaping mechanisms in this parameter is unnecessary because {{ no such element: dict object[&lsquo;psmdb_full_name&rsquo;] }} applies the necessary escaping as outlined in <a href="https://tools.ietf.org/html/rfc4515">RFC4515</a> and <a href="https://tools.ietf.org/html/rfc4516">RFC4516</a> while substituting the <code>security.ldap.authz.queryTemplate</code> parameter.</p>
 <p>The <strong><code>ldapQuery</code> and <code>queryTemplate</code> parameters</strong></p>
 <p>To properly escape special characters, follow these steps:</p>
 <ol>
