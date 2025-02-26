@@ -25,8 +25,8 @@ To build Percona Server for MongoDB manually, you need the following:
 
    | Linux Distribution              | Dependencies
    | --------------------------------|---------------------------
-   | RedHat Enterprise Linux/CentOS 9| gcc gcc-c++ cmake curl binutils-devel openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel|  
-   | Debian/Ubuntu                   | gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libpcap-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev liblzma-dev ibext2fs-dev e2fslibs-dev bear| 
+   | RedHat Enterprise Linux/CentOS 9| gcc gcc-c++ cmake curl binutils-devel openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel|
+   | Debian/Ubuntu                   | gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libpcap-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev liblzma-dev libext2fs-dev e2fslibs-dev bear|
 
 - About 13 GB of disk space for the core binaries (`mongod`, `mongos`, and `mongo`) and about 600 GB for the `install-all` target.
 
@@ -47,7 +47,7 @@ To build Percona Server for MongoDB manually, you need the following:
     The following command installs the dependencies for Ubuntu 22.04:
 
     ```{.bash data-prompt="$"}
-    $ gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libpcap-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev liblzma-dev ibext2fs-dev e2fslibs-dev bear
+    $ sudo apt install -y gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libpcap-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev liblzma-dev libext2fs-dev e2fslibs-dev bear
     ```
 
 #### Build AWS Software Development Kit for C++ library {.power-number}
@@ -158,13 +158,13 @@ Build Percona Server for MongoDB from ``buildscripts/scons.py``
 === ":fontawesome-solid-user: Basic build"
 
     ```{.bash data-prompt="$"}
-    (mongo) $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all)--use-sasl-client --wiredtiger --audit --inmemory --hotbackup CPPPATH="${AWS_LIBS}/include"LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
+    (mongo) $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup CPPPATH="${AWS_LIBS}/include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
     ``` 
 
 === ":fontawesome-solid-user-tie: Pro build"
 
     ```{.bash data-prompt="$"}
-    (mongo) $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all)--use-sasl-client --wiredtiger --audit --inmemory --hotbackup --full-featured CPPPATH="${AWS_LIBS}include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
+    (mongo) $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup --full-featured CPPPATH="${AWS_LIBS}include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
     ``` 
 
 This command builds core components of the database. Other available targets for the
