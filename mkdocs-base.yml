@@ -214,6 +214,8 @@ nav:
         - aws-iam-setup.md
         - authorization.md
         - ldap-setup.md
+        - oidc.md
+        - oidc-setup.md
       - Encryption:
         - "Data at rest encryption": "data-at-rest-encryption.md"
         - "Use Vault": vault.md

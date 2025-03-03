@@ -26,7 +26,7 @@ This authentication mechanism enables a client to authenticate in Percona Server
 
 For production use, we recommend using valid CA certificates. For testing purposes, you can generate and use self-signed certificates.
 
-x.509 authentication is compatible with with [LDAP authorization](authorization.md) to enable you to control user access and operations in Percona Server for MongoDB. For configuration guidelines, refer to [Set up x.509 authentication and LDAP authorization](x509-ldap.md).
+x.509 authentication is compatible with [LDAP authorization](authorization.md) to enable you to control user access and operations in Percona Server for MongoDB. For configuration guidelines, refer to [Set up x.509 authentication and LDAP authorization](x509-ldap.md).
 
 !!! admonition "See also"
 
@@ -36,7 +36,7 @@ x.509 authentication is compatible with with [LDAP authorization](authorization.
 
 ## LDAP authentication with SASL
 
-## Overview
+### Overview
 
 LDAP authentication with SASL means that both the client and the server establish a SASL session using the SASL library. Then authentication (bind) requests are sent to the LDAP server through the SASL authentication daemon (`saslauthd`) that acts as a remote proxy for the `mongod` server.
 
@@ -81,8 +81,6 @@ For configuration instructions, refer to [Setting up LDAP authentication with SA
 
 ## Kerberos authentication
 
-Percona Server for MongoDB supports Kerberos authentication starting from release 6.0.2-1.
-
 This authentication mechanism involves the use of a Key Distribution Center (KDC) - a symmetric encryption component which operates with tickets. A ticket is a small amount of encrypted data which is used for authentication. It is issued for a user session and has a limited lifetime.
 
 When using Kerberos authentication, you also operate with principals and realms.
@@ -112,6 +110,19 @@ Kerberos authentication in Percona Server for MongoDB is implemented the same wa
 !!! admonition "See also"
 
     MongoDB Documentation: [Kerberos Authentication](https://docs.mongodb.com/manual/core/kerberos/)
+
+## OIDC / OAuth 2.0 authentication and authorization
+
+Percona Server for MongoDB supports OpenID Connect (OIDC) as an authentication mechanism which extends the OAuth 2.0 authorization framework. You can configure SSO for Percona Server for MongoDB using an external IP provider so that users and applications are authenticated and authorized without sharing their credentials. As a result you streamline authentication and authorization flow and increase security within your system.  
+
+This functionality is available with [Percona Server for MongoDB Pro](psmdb-pro.md). [Reach out to us](https://www.percona.com/about/contact) to become a Percona Customer.
+
+Read more about OIDC in the following sections:
+
+* [OIDC / OAuth2.0](oidc.md)
+* [Configure OIDC authentication](oidc-setup.md)
+
+
 
 *[SCRAM]: Salted Challenge Response Authentication Mechanism
 *[CA]: Certified Authority
