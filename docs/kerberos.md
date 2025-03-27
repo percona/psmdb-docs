@@ -4,7 +4,7 @@ This document provides configuration steps for setting up [Kerberos Authenticati
 
 ## Assumptions
 
-The setup of the Kerberos server itself is outside the scope of this document. Please refer to the [Kerberos documentation](https://web.mit.edu/kerberos/krb5-latest/doc/admin/install_kdc.html) for the installation and configuration steps relevant to your operating system.
+The setup of the Kerberos server itself is not included in this document. Please refer to the [Kerberos documentation](https://web.mit.edu/kerberos/krb5-latest/doc/admin/install_kdc.html) for the installation and configuration steps relevant to your operating system.
 
 We assume that you have successfully completed the following steps:
 
@@ -18,7 +18,7 @@ We assume that you have successfully completed the following steps:
 
 ## Add user principals to Percona Server for MongoDB
 
-To authenticate, users must exist in the Kerberos and Percona Server for MongoDB servers with names that match exactly.
+To authenticate, users must exist in the Kerberos and Percona Server for MongoDB servers. Their usernames must match exactly.
 
 After you have defined the user principals in the Kerberos server, add them to the `$external` database in Percona Server for MongoDB and assign required roles:
 
