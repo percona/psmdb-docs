@@ -72,7 +72,7 @@ To create the roles, use the following command:
 
 ```javascript
 var admin = db.getSiblingDB("admin")
-db.createRole(
+admin.createRole(
    {
      role: "cn=testusers,dc=percona,dc=com",
      privileges: [],
@@ -80,7 +80,7 @@ db.createRole(
    }
 )
 
-db.createRole(
+admin.createRole(
    {
      role: "cn=otherusers,dc=percona,dc=com",
      privileges: [],
