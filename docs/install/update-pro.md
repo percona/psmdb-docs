@@ -95,7 +95,7 @@ This document provides instructions how you can upgrade from Percona Server for 
 
 
         ```{.bash .data-prompt="$"}
-        $ sudo yum install -y percona-server-mongodb-pro
+        $ sudo yum install -y percona-server-mongodb-pro --allowerasing
         ```    
 
     5. Start the server    
