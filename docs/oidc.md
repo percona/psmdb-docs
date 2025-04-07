@@ -12,7 +12,7 @@ Currently, Percona Server for MongoDB supports [Okta :octicons-link-external-16:
 
 Percona Server for MongoDB supports two authentication workflows with OIDC:
 
-* **Authorization code**: a `mongo` client (for example, `mongosh` or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the default authentication workflow.
+* **Authorization code with Proof Key for Code Exchange (PKCE)**: a MongoDB client (for example, `mongosh` or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the default authentication workflow.
 
 * **Device authentication**: instead of redirecting a user to authenticate on a login portal directly, a `mongo` client receives the URL of the login portal and the authentication code. The user follows the URL and enters the  authentication code. The example use case for such a workflow is when both a `mongo` client and Percona Server for MongoDB run in a cloud environment and the client needs to authenticate in Percona Server for MongoDB without managing long-term credentials like passwords. 
  
