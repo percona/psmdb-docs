@@ -47,7 +47,7 @@ This document provides instructions how you can upgrade from Percona Server for 
     4. Install Percona Server for MongoDB Pro packages
 
         ```{.bash .data-prompt="$"}
-        $ sudo apt install -y percona-server-mongodb-pro
+        $ sudo apt install -y percona-server-mongodb-pro 
         ```
 
     5. Start the server            
@@ -96,7 +96,7 @@ This document provides instructions how you can upgrade from Percona Server for 
         === ":material-redhat: On RHEL 8+ and derivatives"    
 
             ```{.bash .data-prompt="$"}
-            $ sudo yum install -y percona-server-mongodb-pro
+            $ sudo yum install -y percona-server-mongodb-pro --allowerasing
             ```    
 
         === ":material-redhat: On RHEL 7 and derivatives"    
