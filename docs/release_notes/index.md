@@ -1,5 +1,7 @@
 # Percona Server for MongoDB 6.0 Release Notes
 
+* [Percona Server for MongoDB 6.0.21-18 ({{date.6_0_21}})](6.0.21-18.md)
+
 * [Percona Server for MongoDB 6.0.20-17 ({{date.6_0_20}})](6.0.20-17.md)
 
 * [Percona Server for MongoDB 6.0.19-16 ({{date.6_0_19}})](6.0.19-16.md)
