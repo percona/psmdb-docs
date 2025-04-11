@@ -17,7 +17,7 @@ You can contribute to documentation in the following ways:
 
 ## Contribute to documentation yourself
 
-Percona Distribution for PostgreSQL documentation is written in [Markdown](https://www.markdownguide.org/basic-syntax/) language, so you can 
+Percona Distribution for MongoDB documentation is written in [Markdown](https://www.markdownguide.org/basic-syntax/) language, so you can 
 [edit it online via GitHub](#edit-documentation-online-vi-github). If you wish to have more control over the doc process, jump to how to [edit documentation locally](#edit-documentation-locally). 
 
 To contribute to the documentation, you should be familiar with the following technologies:
@@ -28,18 +28,15 @@ To contribute to the documentation, you should be familiar with the following te
 
 There are several active versions of the documentation. Each version has a branch in the repository named accordingly:
 
-- 3.6 (EOL)
-- 4.0 (EOL)
-- 4.2
-- 4.4
-- 5.0
 - 6.0
+- 7.0
+- 8.0
 
 The .md files are in the ``docs`` directory. 
 
 ### Edit documentation online via GitHub
 
-1. Click the **Edit this page** link on the sidebar. The source ``.md`` file of the page opens in GitHub editor in your browser. If you haven’t worked with the repository before, GitHub creates a [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) of it for you.
+1. Click the **Edit this page** link on the sidebar. The source ``.md`` file of the page opens in GitHub editor in your browser. If you haven't worked with the repository before, GitHub creates a [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) of it for you.
 
 2. Edit the page. You can check your changes on the **Preview** tab.
 
@@ -49,7 +46,7 @@ The .md files are in the ``docs`` directory.
 	 - Select the **Create a new branch for this commit and start a pull request** option
 	 - Click **Propose changes**.
 
-4. GitHub creates a branch and a commit for your changes. It loads a new page on which you can open a pull request to Percona. The page shows the base branch - the one you offer your changes for, your commit message and a diff - a visual representation of your changes against the original page.  This allows you to make a last-minute review. When you are ready, click the **Create pull request** button.
+4. GitHub creates a branch and a commit for your changes. It loads a new page on which you can open a pull request to Percona. The page shows the base branch - the one you offer your changes for, your commit message and a diff - a visual representation of your changes against the original page. This allows you to make a last-minute review. When you are ready, click the **Create pull request** button.
 5. Someone from our team reviews the pull request and if everything is correct, merges it into the documentation. Then it gets published on the site.
 
 ### Edit documentation locally
@@ -119,13 +116,11 @@ docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md mkdocs build
 docker run --rm -p 8000:8000 -v $(pwd):/docs perconalab/pmm-doc-md mkdocs serve -a 0.0.0.0:8000
 ```
 
-5. To create a PDF version of the documentation, run the following command:
+Paste the 0.0.0.0:8000 in your browser and you will see the documentation. The page reloads automatically as you make changes.
 
-```sh
-docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md mkdocs build -f mkdocs-pdf.yml
-```
+The doc project also includes a single-page HTML output for a PDF document. It is accessible at the `0.0.0.0:8000/percona-server-for-mongodb/print_page.html`.
 
-The PDF document is in the ``site/pdf`` folder.
+Save this page as a PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF or just Save and select PDF as the output format.
 
 #### Install MkDocs and build locally
 
@@ -143,15 +138,8 @@ mkdocs build
 mkdocs serve 
 ```
 
-6. To build the PDF documentation, do the following:
-   - Install [mkdocs-with-pdf plugin](https://pypi.org/project/mkdocs-with-pdf/)
-   - Run the following command
+6. To build the PDF documentation, open the `site/print_page.html` in your browser. Save it as PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF or just Save and select PDF as the output format.
 
-   ```sh
-   mkdocs build -f mkdocs-pdf.yml
-   ```
-
-The PDF document is in the ``site/pdf`` folder.
 
 ## Repository structure
 
@@ -159,18 +147,15 @@ The repository includes the following directories and files:
 
 - `mkdocs-base.yml` - the base configuration file. It includes general settings and documentation structure.
 - `mkdocs.yml` - configuration file. Contains the settings for building the docs with Material theme.
-- `mkdocs-pdf.yml` - configuration file. Contains the settings for building the PDF docs.
 - `docs`:
   - `*.md` - Source markdown files.
   - `_images` - Images, logos and favicons
+  - `_templates` - The template for the PDF cover page
   - `css` - Styles
   - `js` - Javascript files
 - `_resource`:
-   - `templates`:
-     - ``styles.scss`` - Styling for PDF documents
-   - `theme`:
-      - `main.html` - The layout template for hosting the documentation on Percona website
-   - overrides - The folder with the Material theme template customization for builds
+   - overrides - The folder with the Material theme template customization for HTML builds
+- `_resourcepdf` - The folder with customized templates for PDF output
 - `.github`:
    - `workflows`:
       - `main.yml` - The workflow configuration for building documentation with a GitHub action. (The documentation is built with `mike` tool to a dedicated `publish` branch)
