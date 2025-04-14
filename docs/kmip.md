@@ -122,7 +122,7 @@ The master key state polling functionality is particularly useful in cluster dep
 |-------------------- | --------------------|
 | **Command line**    | `kmipUseLegacyProtocol`|
 | **Type**            | boolean|
-| **Description**     | When `true`, sets the KMIP protocol version 1.0 or 1.1. This option has no effect, because Percona Server for MongoDB uses KMIP version 1.0 by default. It exists for compatibility with MongoDB Enterprise Edition to to align configuration files and simplify the migration process to Percona Server for MongoDB. Available starting with version 6.0.21-18. |
+| **Description**     | When `true`, sets the KMIP protocol version 1.0 or 1.1. This option has no effect, because Percona Server for MongoDB uses KMIP version 1.0 by default. It exists for compatibility with MongoDB Enterprise Advanced to align configuration files and simplify the migration process to Percona Server for MongoDB. Available starting with version 6.0.21-18. |
 
 ## Configuration
 
