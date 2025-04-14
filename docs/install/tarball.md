@@ -47,7 +47,7 @@ Follow these steps to install Percona Server for MongoDB from a tarball:
 1. Fetch the binary tarballs:
 
     ```{.bash data-prompt="$"}
-    wget https://www.percona.com/downloads/percona-server-mongodb-6.0/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz\
+    wget https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz\
     $ wget https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
     ```
 2. Extract the tarballs
