@@ -12,6 +12,11 @@ For more information, see [Compatibility Changes in MongoDB 6.0](https://www.mon
 
 3. If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](../kmip.md#upgrade-considerations)
 
+4. If you run Amazon Linux 2023, consider the following:
+
+    --8<-- "al-compatibility.md"
+
+
 We recommend to upgrade Percona Server for MongoDB from official Percona repositories using [`percona-release` repository management tool](https://docs.percona.com/percona-software-repositories/index.html) and
 the corresponding package manager for your system. 
 

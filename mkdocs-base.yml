@@ -35,7 +35,6 @@ theme:
     - navigation.tracking 
     - navigation.instant
     - navigation.instant.progress
-    - navigation.indexes
     - content.tooltips
     - content.tabs.link
     - content.action.edit
