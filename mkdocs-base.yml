@@ -27,14 +27,20 @@ theme:
     view: material/file-eye-outline
   
   features:
-    content.action.view
-    content.action.edit
-    content.code.copy
-    content.copy.annotate
-    content.tooltips
-    search.highlight
-    search.share
-    search.suggest
+    - search.highlight
+    - search.share
+    - search.suggest
+    - navigation.top
+    - navigation.tracking 
+    - navigation.instant
+    - navigation.instant.progress
+    - content.tooltips
+    - content.tabs.link
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
     
   palette:
     

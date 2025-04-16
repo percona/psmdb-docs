@@ -4,6 +4,11 @@ This guide walks you through the installation of Percona Server for MongoDB on A
 
 We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
+## Compatibility with Amazon Linux 2023
+
+--8<-- "al-compatibility.md"
+
+
 --8<-- "yum-install.md:1:48"
 
 === ":octicons-number-16: Install a specific version"
