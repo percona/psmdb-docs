@@ -64,7 +64,7 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
 
 5. Set the `KRB5_KTNAME` variable in the environment file for the `mongod` process.
 
-    === ":material-redhat: RHEL, CentOS, RockyLinux, Amazon Linux"
+    === ":material-redhat: RHEL and derivatives"
 
          Edit the environment file at the path `/etc/sysconfig/mongod` and specify the `KRB5_KTNAME` variable:
 
