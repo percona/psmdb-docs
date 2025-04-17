@@ -51,17 +51,18 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
     ```
 
 3. Change the ownership to the `keytab` file. The user name and group name depend on your deployment type:
-   
+
     === ":material-linux: Non-containerized Linux"
 
          ```{.bash data-prompt="$"}
             $ sudo chown mongod:mongod /etc/mongodb.keytab
          ```
+
     === ":material-docker: Docker container images"
 
          ```{.bash data-prompt="$"}
             $ sudo chown mongodb:mongodb /etc/mongodb.keytab
-         ```        
+         ```    
 
 5. Set the `KRB5_KTNAME` variable in the environment file for the `mongod` process.
 
