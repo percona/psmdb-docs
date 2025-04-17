@@ -50,15 +50,15 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
     $ cp /etc/krb5.keytab /etc/mongodb.keytab
     ```
 
-3. Change the ownership to the `keytab` file. The user name and group name depend on your deployment type:
+3. Change the ownership to the `keytab` file. The user name and group name depend on how PSMDB was installed:
 
-    === ":material-linux: Non-containerized Linux"
+    === ":material-linux: Tarball or RPM/DEB packages"
 
          ```{.bash data-prompt="$"}
             $ sudo chown mongod:mongod /etc/mongodb.keytab
          ```
 
-    === ":material-docker: Docker container images"
+    === ":material-docker: Percona Docker container images"
 
          ```{.bash data-prompt="$"}
             $ sudo chown mongodb:mongodb /etc/mongodb.keytab
