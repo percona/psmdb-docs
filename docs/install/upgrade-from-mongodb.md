@@ -13,7 +13,7 @@ An in-place upgrade is suitable for most environments except the ones that use e
     MongoDB creates a user that belongs to two groups, which is a potential security risk. This is fixed in Percona Server for MongoDB: the user is included only in the `mongod` group. To avoid problems with current MongoDB setups, existing user group membership is not changed when you migrate to Percona Server for MongoDB.  Instead, a new `mongod` user is created during installation, and it belongs to the `mongod` group.
 
 
-This procedure describes an in-place upgrade of a `mongod` instance. If you are using data at rest encryption, refer to the [Upgrading to Percona Server for MongoDB with data at rest encryption enabled](upgrading-to-percona-server-for-mongodb-with-data-at-rest-encryption-enabled) section.
+This procedure describes an in-place upgrade of a `mongod` instance. If you are using data at rest encryption, refer to the [Upgrading to Percona Server for MongoDB with data at rest encryption enabled](#upgrading-to-percona-server-for-mongodb-with-data-at-rest-encryption-enabled) section.
 
 !!! important 
 
