@@ -54,6 +54,10 @@
       
     
     
+      <link rel="stylesheet" href="../css/print-site.css">
+    
+      <link rel="stylesheet" href="../css/print-site-material.css">
+    
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -89,21 +93,6 @@
     
     
     
-
-                 
-                 
-                 
-                 
-
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 6.0 - Percona Server for MongoDB 6.0.11-8 (2023-10-19)" />
-<meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/6.0/_images/mongodb.png">
-<meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
-</head>
-<body>
-</body>
-
-
   </head>
   
   
@@ -2923,9 +2912,23 @@ fully-compatible, drop-in replacement for <a href="https://www.mongodb.com/docs/
                 
 
           <script>
-                  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-                  posthog.init('phc_7unoI9J6Fm0SMrfDp35xNOpCRTkOAibbffQwdGWbHnL',{api_host:'https://eu.posthog.com'})
-          </script>
+window.addEventListener('beforeprint', (event) => { 
+  for (const detailEl of document.querySelectorAll('details')) {
+    if (detailEl.getAttribute('open') == null) {
+      detailEl.setAttribute('data-was-closed', 'true')
+    }
+    detailEl.setAttribute('open', '')
+  }
+})
+window.addEventListener('afterprint', (event) => {
+   for (const detailEl of document.querySelectorAll('details')) {
+     if (detailEl.getAttribute('data-was-closed') != null) {
+       detailEl.removeAttribute('data-was-closed')
+       detailEl.removeAttribute('open')
+     }
+   }
+})
+</script>
 
           
               </article>
@@ -2979,15 +2982,14 @@ fully-compatible, drop-in replacement for <a href="https://www.mongodb.com/docs/
       <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-<script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
-
       <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../js/print-site.js"></script>
       
         <script src="../js/version-select.js"></script>
       
         <script src="../js/promptremover.js"></script>
       
     
-
   </body>
 </html>
