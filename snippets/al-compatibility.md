@@ -4,7 +4,7 @@ The following table shows Percona Server for MongoDB versions that are supported
 
 | Percona Server for MongoDB version | Amazon Linux 2023 version |
 |------------------------------------|---------------------------|
-| 7.0.4-2                            | 2023.6.x and earlier      |
+| 7.0.16-10                          | 2023.6.x and earlier      |
 | 7.0.18-11                          | 2023.7.x and newer        |
 
 To upgrade Percona Server for MongoDB, make sure that you run a compatible version of Amazon Linux 2023. Use the [update instructions :octicons-link-external-16:](https://docs.aws.amazon.com/linux/al2023/ug/updating.html) to update the operating system.
