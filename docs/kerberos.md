@@ -52,7 +52,7 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
 
 3. Change the ownership to the `keytab` file. The user name and group name depend on how PSMDB was installed:
 
-    === ":material-linux: Tarball or RPM/DEB packages"
+    === ":material-linux: RPM/DEB packages or tarballs"
 
          ```{.bash data-prompt="$"}
             $ sudo chown mongod:mongod /etc/mongodb.keytab
