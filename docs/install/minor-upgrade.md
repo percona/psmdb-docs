@@ -27,4 +27,4 @@ To upgrade Percona Server for MongoDB to the latest version, follow these steps:
     $ sudo systemctl start mongod
     ```
 
-To upgrade a replica set or a sharded cluster, use the [rolling restart](../glossary.md#term-Rolling-restart) method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.
+To upgrade a replica set or a sharded cluster, use the [rolling restart](../glossary.md#rolling-restart) method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.
