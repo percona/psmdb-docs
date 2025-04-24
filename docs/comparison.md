@@ -4,7 +4,7 @@ Percona Server for MongoDB 7.0 is based on [MongoDB Community Edition 7.0](https
 
 |                        | PSMDB  | MongoDB  |
 |------------------------| ------ | -------- |
-| **Storage Engines**    | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br> - [Percona Memory Engine](inmemory.md) | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br>- [In-Memory](https://docs.mongodb.com/v6.0/core/inmemory/) (Enterprise only)|
+| **Storage Engines**    | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br> - [Percona Memory Engine](inmemory.md) | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br>- [In-Memory](https://docs.mongodb.com/v7.0/core/inmemory/) (Enterprise only)|
 | **Encryption-at-Rest** | - Key servers = [Hashicorp Vault](vault.md), [KMIP](kmip.md) <br> - Fully open source | - Key server = KMIP <br> - Enterprise only |
 | **Hot Backup**         | [YES](hot-backup.md) (replica set) | NO  |
 | **LDAP Authentication**| (legacy) [LDAP authentication with SASL](authentication.md) | Enterprise only |
@@ -18,4 +18,4 @@ Percona Server for MongoDB 7.0 is based on [MongoDB Community Edition 7.0](https
 
 ## Profiling Rate Limiting
 
-Profiling Rate Limiting was added to *Percona Server for MongoDB* in v3.4 with the `--rateLimit` argument. Since v3.6, MongoDB Community (and Enterprise) Edition includes a similar option [slowOpSampleRate](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate). Please see [Profiling Rate Limit](rate-limit.md#rate-limit) for more information.
+Profiling Rate Limiting was added to *Percona Server for MongoDB* in v3.4 with the `--rateLimit` argument. Since v3.6, MongoDB Community (and Enterprise) Edition includes a similar option [slowOpSampleRate](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate). Please see [Profiling Rate Limit](rate-limit.md) for more information.
