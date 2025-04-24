@@ -8,7 +8,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="If you are using data-at-rest-encryption with KMIP server, check the upgrade considerations">
+        <meta name="description" content="Documentation">
       
       
         <meta name="author" content="Percona LLC">
@@ -1795,6 +1795,19 @@ document$.subscribe(() => { lightbox.reload() });
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Minor upgrade of Percona Server for MongoDB
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="minor-upgrade.html" class="md-nav__link md-nav__link--active">
         
   
@@ -1806,6 +1819,45 @@ document$.subscribe(() => { lightbox.reload() });
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upgrade-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrade considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1901,6 +1953,29 @@ document$.subscribe(() => { lightbox.reload() });
   
   <span class="md-ellipsis">
     Release notes index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release_notes/7.0.18-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 7.0.18-11 (2025-04-24)
     
   </span>
   
@@ -2357,6 +2432,32 @@ document$.subscribe(() => { lightbox.reload() });
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#upgrade-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upgrade considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                   <div class="md-sidebar__inner">
@@ -2401,8 +2502,36 @@ document$.subscribe(() => { lightbox.reload() });
 
 
 <h1 id="minor-upgrade-of-percona-server-for-mongodb">Minor upgrade of Percona Server for MongoDB<a class="headerlink" href="#minor-upgrade-of-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
-<p>If you are using data-at-rest-encryption with KMIP server, check the <a href="../kmip.html#upgrade-considerations">upgrade considerations</a></p>
-<p>To upgrade Percona Server for MongoDB to the latest version, follow these steps:</p>
+<h2 id="upgrade-considerations">Upgrade considerations<a class="headerlink" href="#upgrade-considerations" title="Permanent link">&para;</a></h2>
+<ol>
+<li>If you are using data-at-rest-encryption with KMIP server, check the <a href="../kmip.html#upgrade-considerations">upgrade considerations</a></li>
+<li>
+<p>If you run Amazon Linux 2023, consider the following:</p>
+<p>We build and test Percona Server for MongoDB only on the latest versions of Amazon Linux 2023. Because of the way Amazon Linux updates their libraries, Percona Server for MongoDB works only on specific Amazon Linux versions. </p>
+<p>The following table shows Percona Server for MongoDB versions that are supported on specific versions of Amazon Linux 2023:</p>
+<table>
+<thead>
+<tr>
+<th>Percona Server for MongoDB version</th>
+<th>Amazon Linux 2023 version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7.0.16-10</td>
+<td>2023.6.x and earlier</td>
+</tr>
+<tr>
+<td>7.0.18-11</td>
+<td>2023.7.x and newer</td>
+</tr>
+</tbody>
+</table>
+<p>To upgrade Percona Server for MongoDB, make sure that you run a compatible version of Amazon Linux 2023. Use the <a href="https://docs.aws.amazon.com/linux/al2023/ug/updating.html">update instructions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> to update the operating system.</p>
+</li>
+</ol>
+<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
+<p class="power-number">To upgrade Percona Server for MongoDB to the latest version, follow these steps:</p>
 <ol>
 <li>
 <p>Stop the <code>mongod</code> service:</p>
@@ -2441,7 +2570,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 23, 2024 11:37:26">September 23, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 13:16:36">April 24, 2025</span>
   </span>
 
     
