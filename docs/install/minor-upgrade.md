@@ -1,9 +1,16 @@
 # Minor upgrade of Percona Server for MongoDB
 
-If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](../kmip.md#upgrade-considerations)
+## Upgrade considerations
+
+1. If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](../kmip.md#upgrade-considerations)
+2. If you run Amazon Linux 2023, consider the following:
+
+    --8<-- "al-compatibility.md"
+
+## Procedure
 
 To upgrade Percona Server for MongoDB to the latest version, follow these steps:
-
+{.power-number}
 
 1. Stop the `mongod` service:
 
