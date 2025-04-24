@@ -8058,25 +8058,25 @@ in the MongoDB configuration file:</p>
 </thead>
 <tbody>
 <tr>
-<td><span id="auditdestination"><code>--auditDestination()</code></span></td>
+<td><span id="auditdestination"><code>--auditDestination</code></span></td>
 <td><code>auditLog.destination</code></td>
 <td>string</td>
 <td>Enables auditing and specifies where to send audit events: <br> - <code>console</code>: Output audit events to <code>stdout</code>. <br> - <code>file</code>: Output audit events to a file specified by the <code>--auditPath</code> option in a format specified by the <code>--auditFormat</code> option. <br> - <code>syslog</code>: Output audit events to <code>syslog</code></td>
 </tr>
 <tr>
-<td><span id="auditfilter"><code>--auditFilter()</code><span></td>
+<td><span id="auditfilter"><code>--auditFilter</code><span></td>
 <td><code>auditLog.filter</code></td>
 <td>string</td>
 <td>Specifies a filter to apply to incoming audit events, enabling the administrator to only capture a subset of them. The value must be interpreted as a query object with the following syntax: <br><br><code>{ &lt;field1&gt;: &lt;expression1&gt;, ... }</code> <br><br> Audit log events that match this query will be logged. Events that do not match this query will be ignored. <br> For more information, see <a href="#audit-logging-audit-filter-examples">Audit filter examples</a></td>
 </tr>
 <tr>
-<td><span id="auditformat"><code>--auditFormat()</code></span></td>
+<td><span id="auditformat"><code>--auditFormat</code></span></td>
 <td><code>auditLog.format</code></td>
 <td>string</td>
 <td>Specifies the format of the audit log file, if you set the <code>--auditDestination</code> option to <code>file</code>. <br> The default value is <code>JSON</code>. Alternatively, you can set it to <code>BSON</code></td>
 </tr>
 <tr>
-<td><span id="auditpath"><code>--auditPath()</code></span></td>
+<td><span id="auditpath"><code>--auditPath</code></span></td>
 <td><code>auditLog.path</code></td>
 <td>string</td>
 <td>Specifies the fully qualified path to the file where audit log events are written, if you set the <code>--auditDestination</code> option to <code>file</code>. <br> If this option is not specified, then the <code>auditLog.json</code> file is created in the server’s configured log path. If log path is not configured on the server, then the <code>auditLog.json</code> file is created in the current directory (from which <code>mongod</code> was started). <br><br> <strong>NOTE</strong>: This file will rotate in the same manner as the system log path, either on server reboot or using the <code>logRotate</code> command. The time of rotation will be added to the old file’s name.</td>
