@@ -50,7 +50,7 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
     $ cp /etc/krb5.keytab /etc/mongodb.keytab
     ```
 
-3. Change the ownership to the `keytab` file. The user name and group name depend on how PSMDB was installed:
+3. Change the ownership to the `keytab` file. The user name and group name depend on how you installed Percona Server for MongoDB:
 
     === ":material-linux: RPM/DEB packages or tarballs"
 
