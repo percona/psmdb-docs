@@ -1973,12 +1973,7 @@ Upgrade from MongoDB Community">
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#debug-symbols-added-in-percona-server-for-mongodb-pro-binaries" class="md-nav__link">
     <span class="md-ellipsis">
       Debug symbols added in Percona Server for MongoDB Pro binaries
@@ -1986,16 +1981,15 @@ Upgrade from MongoDB Community">
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#compatibility-with-amazon-linux-2023" class="md-nav__link">
     <span class="md-ellipsis">
       Compatibility with Amazon Linux 2023
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Compatibility with Amazon Linux 2023">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#upstream-improvements" class="md-nav__link">
@@ -2542,12 +2536,7 @@ Upgrade from MongoDB Community">
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#debug-symbols-added-in-percona-server-for-mongodb-pro-binaries" class="md-nav__link">
     <span class="md-ellipsis">
       Debug symbols added in Percona Server for MongoDB Pro binaries
@@ -2555,16 +2544,15 @@ Upgrade from MongoDB Community">
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#compatibility-with-amazon-linux-2023" class="md-nav__link">
     <span class="md-ellipsis">
       Compatibility with Amazon Linux 2023
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Compatibility with Amazon Linux 2023">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#upstream-improvements" class="md-nav__link">
@@ -2683,10 +2671,10 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>You can output logging information either to a syslog, a file or to print in the console. Now Percona Server for MongoDB correctly parses the specified destination and creates a logging file only if you explicitly defined the <code>file</code> as its value. This helps keep the system clean from unnecessary files</li>
 <li>By default, Percona Server for MongoDB saves the log file at the server&rsquo;s configured log path or to a directory from where <code>mongod</code> was started if the server&rsquo;s log path is undefined. You can also set a custom path to output a log file. For both cases, Percona Server for MongoDB checks if the audit log file can be opened for writing to ensure that logging information is written and available. </li>
 </ul>
-<h2 id="debug-symbols-added-in-percona-server-for-mongodb-pro-binaries">Debug symbols added in Percona Server for MongoDB Pro binaries<a class="headerlink" href="#debug-symbols-added-in-percona-server-for-mongodb-pro-binaries" title="Permanent link">&para;</a></h2>
+<h3 id="debug-symbols-added-in-percona-server-for-mongodb-pro-binaries">Debug symbols added in Percona Server for MongoDB Pro binaries<a class="headerlink" href="#debug-symbols-added-in-percona-server-for-mongodb-pro-binaries" title="Permanent link">&para;</a></h3>
 <p>With this release, <a href="../psmdb-pro.html">Percona Server for MongoDB Pro</a> packages and binary tarballs include binaries that contain debug symbols. This changes makes Percona Server for MongoDB Pro compatible for runtime instrumentation to collect more detailed telemetry data and have improved monitoring. </p>
 <p>By integrating Percona Server for MongoDB Pro with advanced monitoring tools that use debug symbols, you have a deeper visibility into the server and receive detailed diagnostic data and logs.</p>
-<h2 id="compatibility-with-amazon-linux-2023">Compatibility with Amazon Linux 2023<a class="headerlink" href="#compatibility-with-amazon-linux-2023" title="Permanent link">&para;</a></h2>
+<h3 id="compatibility-with-amazon-linux-2023">Compatibility with Amazon Linux 2023<a class="headerlink" href="#compatibility-with-amazon-linux-2023" title="Permanent link">&para;</a></h3>
 <p>We build and test Percona Server for MongoDB only on the latest versions of Amazon Linux 2023. Because of the way Amazon Linux updates their libraries, Percona Server for MongoDB 7.0.18-11 is compatible only with Amazon Linux 2023.7.x and won&rsquo;t work on Amazon Linux 2023.6.x and older. </p>
 <p>To upgrade to 7.0.18-11, make sure that you run Amazon Linux 2023.7.x. Use the <a href="https://docs.aws.amazon.com/linux/al2023/ug/updating.html">update instructions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
 <h3 id="upstream-improvements">Upstream Improvements<a class="headerlink" href="#upstream-improvements" title="Permanent link">&para;</a></h3>
@@ -2758,7 +2746,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 13:16:36">April 24, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 16:14:37">April 24, 2025</span>
   </span>
 
     
