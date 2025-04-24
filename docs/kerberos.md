@@ -50,13 +50,21 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
     $ cp /etc/krb5.keytab /etc/mongodb.keytab
     ```
 
-3. Change the ownership to the `keytab` file
+3. Change the ownership to the `keytab` file. The user name and group name depend on how you installed Percona Server for MongoDB:
 
-    ```{.bash data-prompt="$"}
-    $ sudo chown mongodb:mongodb /etc/mongodb.keytab
-    ```
+    === ":material-linux: RPM/DEB packages or tarballs"
 
-4. Set the `KRB5_KTNAME` variable in the environment file for the `mongod` process.
+         ```{.bash data-prompt="$"}
+            $ sudo chown mongod:mongod /etc/mongodb.keytab
+         ```
+
+    === ":material-docker: Percona Docker container images"
+
+         ```{.bash data-prompt="$"}
+            $ sudo chown mongodb:mongodb /etc/mongodb.keytab
+         ```    
+
+5. Set the `KRB5_KTNAME` variable in the environment file for the `mongod` process.
 
     === ":material-redhat: RHEL and derivatives"
 
@@ -78,7 +86,7 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
 
          If you have a different path to the keytab file, specify it accordingly.
 
-5. Restart the `mongod` service
+6. Restart the `mongod` service
 
     ```{.bash data-prompt="$"}
     $ sudo systemctl start mongod
