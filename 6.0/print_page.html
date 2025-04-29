@@ -1658,6 +1658,29 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="mongos-config.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure a systemd unit file for mongos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -1667,10 +1690,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
             
   
   
@@ -1683,8 +1706,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             Upgrade
           </label>
@@ -3129,7 +3152,16 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-6-2" class="md-nav__link">
+  <a href="#mongos-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure a systemd unit file for mongos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-6-3" class="md-nav__link">
     <span class="md-ellipsis">
       Upgrade
     </span>
@@ -6630,13 +6662,23 @@ $<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </s
 </code></pre></div>
 </li>
 <li>
-<p>Change the ownership to the <code>keytab</code> file</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>mongodb:mongodb<span class="w"> </span>/etc/mongodb.keytab
+<p>Change the ownership to the <code>keytab</code> file. The user name and group name depend on how you installed Percona Server for MongoDB:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="kerberos-__tabbed_1_1" name="kerberos-__tabbed_1" type="radio" /><input id="kerberos-__tabbed_1_2" name="kerberos-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="kerberos-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.62 8.35c-.42.28-1.75 1.04-1.95 1.19-.39.31-.75.29-1.14-.01-.2-.16-1.53-.92-1.95-1.19-.48-.31-.45-.7.08-.92 1.64-.69 3.28-.64 4.91.03.49.21.51.6.05.9m7.22 7.28c-.93-2.09-2.2-3.99-3.84-5.66a4.3 4.3 0 0 1-1.06-1.88c-.1-.33-.17-.67-.24-1.01-.2-.88-.29-1.78-.7-2.61-.73-1.58-2-2.4-3.84-2.47-1.81.05-3.16.81-3.95 2.4-.21.43-.36.88-.46 1.34-.17.76-.32 1.55-.5 2.32-.15.65-.45 1.21-.96 1.71-1.61 1.57-2.9 3.37-3.88 5.35-.14.29-.28.58-.37.88-.19.66.29 1.12.99.96.44-.09.88-.18 1.3-.31.41-.15.57-.05.67.35.65 2.15 2.07 3.66 4.24 4.5 4.12 1.56 8.93-.66 9.97-4.58.07-.27.17-.37.47-.27.46.14.93.24 1.4.35.49.09.85-.16.92-.64.03-.26-.06-.49-.16-.73"/></svg></span> RPM/DEB packages or tarballs</label><label for="kerberos-__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.81 10.25c-.06-.04-.56-.43-1.64-.43-.28 0-.56.03-.84.08-.21-1.4-1.38-2.11-1.43-2.14l-.29-.17-.18.27c-.24.36-.43.77-.51 1.19-.2.8-.08 1.56.33 2.21-.49.28-1.29.35-1.46.35H2.62c-.34 0-.62.28-.62.63 0 1.15.18 2.3.58 3.38.45 1.19 1.13 2.07 2 2.61.98.6 2.59.94 4.42.94.79 0 1.61-.07 2.42-.22 1.12-.2 2.2-.59 3.19-1.16A8.3 8.3 0 0 0 16.78 16c1.05-1.17 1.67-2.5 2.12-3.65h.19c1.14 0 1.85-.46 2.24-.85.26-.24.45-.53.59-.87l.08-.24zm-17.96.99h1.76c.08 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16H3.85c-.09 0-.16.07-.16.16v1.58c.01.09.07.16.16.16m2.43 0h1.76c.08 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16H6.28c-.09 0-.16.07-.16.16v1.58c.01.09.07.16.16.16m2.47 0h1.75c.1 0 .17-.07.17-.16V9.5c0-.08-.06-.16-.17-.16H8.75c-.08 0-.15.07-.15.16v1.58c0 .09.06.16.15.16m2.44 0h1.77c.08 0 .15-.07.15-.16V9.5c0-.08-.06-.16-.15-.16h-1.77c-.08 0-.15.07-.15.16v1.58c0 .09.07.16.15.16M6.28 9h1.76c.08 0 .16-.09.16-.18V7.25c0-.09-.07-.16-.16-.16H6.28c-.09 0-.16.06-.16.16v1.57c.01.09.07.18.16.18m2.47 0h1.75c.1 0 .17-.09.17-.18V7.25c0-.09-.06-.16-.17-.16H8.75c-.08 0-.15.06-.15.16v1.57c0 .09.06.18.15.18m2.44 0h1.77c.08 0 .15-.09.15-.18V7.25c0-.09-.07-.16-.15-.16h-1.77c-.08 0-.15.06-.15.16v1.57c0 .09.07.18.15.18m0-2.28h1.77c.08 0 .15-.07.15-.16V5c0-.1-.07-.17-.15-.17h-1.77c-.08 0-.15.06-.15.17v1.56c0 .08.07.16.15.16m2.46 4.52h1.76c.09 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16h-1.76c-.08 0-.15.07-.15.16v1.58c0 .09.07.16.15.16"/></svg></span> Percona Docker container images</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="w">   </span>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span class="w"> </span>/etc/mongodb.keytab
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="w">   </span>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>mongodb:mongodb<span class="w"> </span>/etc/mongodb.keytab
+</code></pre></div>
+</div>
+</div>
+</div>
 </li>
 <li>
 <p>Set the <code>KRB5_KTNAME</code> variable in the environment file for the <code>mongod</code> process.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="kerberos-__tabbed_1_1" name="kerberos-__tabbed_1" type="radio" /><input id="kerberos-__tabbed_1_2" name="kerberos-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="kerberos-__tabbed_1_1">Debian and Ubuntu</label><label for="kerberos-__tabbed_1_2">RHEL and derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="kerberos-__tabbed_2_1" name="kerberos-__tabbed_2" type="radio" /><input id="kerberos-__tabbed_2_2" name="kerberos-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="kerberos-__tabbed_2_1">Debian and Ubuntu</label><label for="kerberos-__tabbed_2_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Edit the environment file at the path <code>/etc/default/mongod</code> and specify the <code>KRB5_KTNAME</code> variable:</p>
@@ -8544,11 +8586,112 @@ in one of the following ways:</p>
 </div>
 </div>
 <h2 id="set-parameter-parameters">Parameters<a class="headerlink" href="#set-parameter-parameters" title="Permanent link">&para;</a></h2>
-<p>See what parameters you can define in the <a href="https://www.mongodb.com/docs/v6.0/reference/parameters/#parameters">parameters list</a>.</p></section>
-                    <section class='print-page md-section' id='section-6-2' heading-number='6.2'>
-                        <h1>Upgrade<a class='headerlink' href='#section-6-2' title='Permanent link'></a>
+<p>See what parameters you can define in the <a href="https://www.mongodb.com/docs/v6.0/reference/parameters/#parameters">parameters list</a>.</p></section><section class="print-page" id="mongos-config" heading-number="6.2"><h1 id="mongos-config-configure-a-systemd-unit-file-for-mongos">Configure a systemd unit file for <code>mongos</code><a class="headerlink" href="#mongos-config-configure-a-systemd-unit-file-for-mongos" title="Permanent link">&para;</a></h1>
+<p><code>mongos</code> provides the entry point for an application to connect to a sharded cluster. To automate the <code>mongos</code> process management, you can use a system unit file. This file defines how the <code>mongos</code> service should behave when the system boots, shuts down, or encounters an issue. </p>
+<p>This document provides a sample configuration for a <code>mongos</code> systemd unit file that you can use and/or modify to meet your specific needs. For security considerations, cluster components use a keyfile for internal authentication.</p>
+<h2 id="mongos-config-before-you-start">Before you start<a class="headerlink" href="#mongos-config-before-you-start" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Ensure you have a working config server replica set and shards. Refer to the <a href="https://www.mongodb.com/docs/manual/tutorial/deploy-sharded-cluster-with-keyfile-access-control/#create-the-config-server-replica-set">deployment documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for guidelines</p>
+</li>
+<li>
+<p>Check that you have fulfilled all prerequisites in your system:</p>
+<ul>
+<li>/var/log/mongo directory is created</li>
+<li>If SELinux is in use, /var/run/mongos.pid is added to the policy so mongos process can create it</li>
+</ul>
+</li>
+<li>
+<p>Get the shared key file from any existing member of the cluster. Refer to the <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-security.keyFile">MongoDB documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for how to create keyfiles. </p>
+</li>
+</ol>
+<h2 id="mongos-config-procedure">Procedure<a class="headerlink" href="#mongos-config-procedure" title="Permanent link">&para;</a></h2>
+<p class="power-number">The steps are the following:</p>
+<ol>
+<li>
+<p>Create a <code>mongos</code> user and a group. This user will own the <code>mongos</code> process. Use the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>groupadd<span class="w"> </span>mongos<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>-r<span class="w"> </span>-s<span class="w"> </span>/bin/false<span class="w"> </span>-g<span class="w"> </span>mongos<span class="w"> </span>mongos
+</code></pre></div>
+</li>
+<li>
+<p>Create the environment file at the path <code>/etc/sysconfig/mongos</code> and specify the following environment variables within:</p>
+<div class="highlight"><span class="filename">/etc/sysconfig/mongos</span><pre><span></span><code><span class="na">OPTIONS</span><span class="o">=</span><span class="s">&quot;-f /etc/mongos.conf&quot;</span>
+<span class="na">STDOUT</span><span class="o">=</span><span class="s">&quot;/var/log/mongo/mongos.stdout&quot;</span>
+<span class="na">STDERR</span><span class="o">=</span><span class="s">&quot;/var/log/mongo/mongos.stderr&quot;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create a <code>mongos</code> configuration file at the path <code>/etc/mongos.conf</code>. In the following example configuration, replace the <code>security.keyfile</code> with the path to your keyfile and specify the name of the config server replica set and its members in the format <code>hostname:port</code>:</p>
+<div class="highlight"><span class="filename">/etc/mongos.conf</span><pre><span></span><code><span class="c1"># where to write logging data.</span>
+<span class="nt">systemLog</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
+<span class="w">  </span><span class="nt">logAppend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log/mongo/mongos.log</span>
+
+<span class="nt">processManagement</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">fork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">pidFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/mongos.pid</span>
+
+<span class="c1"># network interfaces</span>
+<span class="nt">net</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">27017</span>
+<span class="w">  </span><span class="nt">bindIp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+
+<span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">keyFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/mongos.key</span>
+
+<span class="nt">sharding</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">configDB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">configRS/cfg1.example.com:27017,cfg2.example.com:27017,cfg3.example.com:27017</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the systemd unit file at the path <code>/usr/lib/systemd/system/mongos.service</code>. Specify the following configuration:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tee<span class="w"> </span>/usr/lib/systemd/system/mongos.service<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">[Unit]</span>
+<span class="s">Description=High-performance, schema-free document-oriented database</span>
+<span class="s">After=time-sync.target network.target    </span>
+
+<span class="s">[Service]</span>
+<span class="s">Type=forking</span>
+<span class="s">User=mongos</span>
+<span class="s">Group=mongos</span>
+<span class="s">PermissionsStartOnly=true</span>
+<span class="s">LimitFSIZE=infinity</span>
+<span class="s">LimitCPU=infinity</span>
+<span class="s">LimitAS=infinity</span>
+<span class="s">LimitNOFILE=64000</span>
+<span class="s">LimitNPROC=64000</span>
+<span class="s">EnvironmentFile=/etc/sysconfig/mongos</span>
+<span class="s">ExecStart=/usr/bin/env bash -c &quot;/usr/bin/mongos $OPTIONS &gt; ${STDOUT} 2&gt; ${STDERR}&quot;</span>
+<span class="s">PIDFile=/var/run/mongos.pid    </span>
+
+<span class="s">[Install]</span>
+<span class="s">WantedBy=multi-user.target</span>
+<span class="s">EOF</span>
+</code></pre></div>
+</li>
+<li>
+<p>Grant read/write access for the <code>mongos</code> user to the following directories and files:</p>
+<p><div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongos:mongos<span class="w"> </span>/var/log/mongo<span class="w"> </span><span class="se">\</span>
+/var/run/mongos.pid<span class="w"> </span><span class="se">\</span>
+/etc/mongos.conf<span class="w"> </span><span class="se">\</span>
+/etc/sysconfig/mongos<span class="w"> </span><span class="se">\</span>
+&lt;path-to-keyfile&gt;
+</code></pre></div>
+6. Reload the systemd daemon to apply the changes:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</code></pre></div>
+</li>
+<li>
+<p>Start the <code>mongos</code> service:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongos
+</code></pre></div>
+</li>
+</ol></section>
+                    <section class='print-page md-section' id='section-6-3' heading-number='6.3'>
+                        <h1>Upgrade<a class='headerlink' href='#section-6-3' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="install-upgrade-from-50" heading-number="6.2.1"><h1 id="install-upgrade-from-50-upgrading-from-percona-server-for-mongodb-50-to-60">Upgrading from Percona Server for MongoDB 5.0 to 6.0<a class="headerlink" href="#install-upgrade-from-50-upgrading-from-percona-server-for-mongodb-50-to-60" title="Permanent link">&para;</a></h1>
+                    <section class="print-page" id="install-upgrade-from-50" heading-number="6.3.1"><h1 id="install-upgrade-from-50-upgrading-from-percona-server-for-mongodb-50-to-60">Upgrading from Percona Server for MongoDB 5.0 to 6.0<a class="headerlink" href="#install-upgrade-from-50-upgrading-from-percona-server-for-mongodb-50-to-60" title="Permanent link">&para;</a></h1>
 <h2 id="install-upgrade-from-50-considerations">Considerations<a class="headerlink" href="#install-upgrade-from-50-considerations" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -8665,7 +8808,7 @@ data and configuration files are preserved).</p>
 <li><a href="https://docs.mongodb.com/manual/release-notes/6.0-upgrade-replica-set/">Upgrade a Replica Set</a></li>
 <li><a href="https://docs.mongodb.com/manual/release-notes/6.0-upgrade-sharded-cluster/">Upgrade a Sharded Cluster</a></li>
 </ul>
-</div></section><section class="print-page" id="install-upgrade-from-mongodb" heading-number="6.2.2"><h1 id="install-upgrade-from-mongodb-upgrade-from-mongodb-community-edition-to-percona-server-for-mongodb">Upgrade from MongoDB Community Edition to Percona Server for MongoDB<a class="headerlink" href="#install-upgrade-from-mongodb-upgrade-from-mongodb-community-edition-to-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
+</div></section><section class="print-page" id="install-upgrade-from-mongodb" heading-number="6.3.2"><h1 id="install-upgrade-from-mongodb-upgrade-from-mongodb-community-edition-to-percona-server-for-mongodb">Upgrade from MongoDB Community Edition to Percona Server for MongoDB<a class="headerlink" href="#install-upgrade-from-mongodb-upgrade-from-mongodb-community-edition-to-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
 <p>This document provides instructions for an in-place upgrade from MongoDB Community Edition to Percona Server for MongoDB.</p>
 <p>An in-place upgrade is done by keeping the existing data in the server and replacing the MongoDB binaries. Afterwards, you restart the <code>mongod</code> service with the same <code>dbpath</code> data directory.</p>
 <p>An in-place upgrade is suitable for most environments except the ones that use ephemeral storage and/or host addresses.</p>
@@ -8822,7 +8965,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 </ul>
 </div>
 <h2 id="install-upgrade-from-mongodb-upgrading-to-percona-server-for-mongodb-with-data-at-rest-encryption-enabled">Upgrading to Percona Server for MongoDB with data at rest encryption enabled<a class="headerlink" href="#install-upgrade-from-mongodb-upgrading-to-percona-server-for-mongodb-with-data-at-rest-encryption-enabled" title="Permanent link">&para;</a></h2>
-<p>Steps to upgrade from MongoDB 6.0 Community Edition with data encryption enabled to Percona Server for MongoDB are different. <code>mongod</code> requires an empty <code>dbPath</code> data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the <a href="#inmemory-switching-storage-engines">Switching storage engines</a> for more information on migration of encrypted data. <a href="https://www.percona.com/about-percona/contact#us">Contact us</a> for working at the detailed migration steps, if further assistance is needed.</p></section><section class="print-page" id="install-update-pro" heading-number="6.2.3"><h1 id="install-update-pro-upgrade-to-percona-server-for-mongodb-pro">Upgrade to Percona Server for MongoDB Pro<a class="headerlink" href="#install-update-pro-upgrade-to-percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h1>
+<p>Steps to upgrade from MongoDB 6.0 Community Edition with data encryption enabled to Percona Server for MongoDB are different. <code>mongod</code> requires an empty <code>dbPath</code> data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the <a href="#inmemory-switching-storage-engines">Switching storage engines</a> for more information on migration of encrypted data. <a href="https://www.percona.com/about-percona/contact#us">Contact us</a> for working at the detailed migration steps, if further assistance is needed.</p></section><section class="print-page" id="install-update-pro" heading-number="6.3.3"><h1 id="install-update-pro-upgrade-to-percona-server-for-mongodb-pro">Upgrade to Percona Server for MongoDB Pro<a class="headerlink" href="#install-update-pro-upgrade-to-percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h1>
 <p>Are you a Percona Customer already and are you ready to enjoy all the <a href="#psmdb-pro">benefits of Percona Server for MongoDB Pro</a>? </p>
 <p>This document provides instructions how you can upgrade from Percona Server for MongoDB to Percona Server for MongoDB Pro.</p>
 <h2 id="install-update-pro-get-the-access-token-to-the-pro-repository">Get the access token to the Pro repository<a class="headerlink" href="#install-update-pro-get-the-access-token-to-the-pro-repository" title="Permanent link">&para;</a></h2>
@@ -8986,7 +9129,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 <li>
 <p><a href="#install-yum-install-percona-server-for-mongodb-packages">Install Percona Server for MongoDB basic packages of the desired version</a></p>
 </li>
-</ol></section><section class="print-page" id="install-minor-upgrade" heading-number="6.2.4"><h1 id="install-minor-upgrade-minor-upgrade-of-percona-server-for-mongodb">Minor upgrade of Percona Server for MongoDB<a class="headerlink" href="#install-minor-upgrade-minor-upgrade-of-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
+</ol></section><section class="print-page" id="install-minor-upgrade" heading-number="6.3.4"><h1 id="install-minor-upgrade-minor-upgrade-of-percona-server-for-mongodb">Minor upgrade of Percona Server for MongoDB<a class="headerlink" href="#install-minor-upgrade-minor-upgrade-of-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
 <h2 id="install-minor-upgrade-upgrade-considerations">Upgrade considerations<a class="headerlink" href="#install-minor-upgrade-upgrade-considerations" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -9034,7 +9177,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 </code></pre></div>
 </li>
 </ol>
-<p>To upgrade a replica set or a sharded cluster, use the <a href="#glossary-rolling-restart">rolling restart</a> method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.</p></section></section><section class="print-page" id="install-uninstall" heading-number="6.3"><h1 id="install-uninstall-uninstall-percona-server-for-mongodb">Uninstall Percona Server for MongoDB<a class="headerlink" href="#install-uninstall-uninstall-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
+<p>To upgrade a replica set or a sharded cluster, use the <a href="#glossary-rolling-restart">rolling restart</a> method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.</p></section></section><section class="print-page" id="install-uninstall" heading-number="6.4"><h1 id="install-uninstall-uninstall-percona-server-for-mongodb">Uninstall Percona Server for MongoDB<a class="headerlink" href="#install-uninstall-uninstall-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
 <p>To completely remove Percona Server for MongoDB you need to remove all the installed packages, data and configuration files. If you need the data, consider making a backup before uninstalling Percona Server for MongoDB.</p>
 <p>Follow the instructions, relevant to your operating system:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="install-uninstall-__tabbed_1_1" name="install-uninstall-__tabbed_1" type="radio" /><input id="install-uninstall-__tabbed_1_2" name="install-uninstall-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="install-uninstall-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18.5 10.57-.2.37c.26-.78.11-1.63.15-2.37l-.07-.02c-.07-1.85-1.67-3.82-3.09-4.48-1.23-.57-3.12-.67-3.99-.24.12-.11.6-.15.45-.23-1.37.13-1.06.47-2.11.74-.29.28.86-.22.23.16-.56.13-.82-.12-1.65.74.07.12.53-.35.15.12-.79-.09-2.48 1.8-2.84 2.42l.19.04c-.31.77-.72 1.26-.77 1.72-.08 1.14-.45 3.21.08 3.85l-.06.53.23.45-.12.01c.58 1.83.62.04 1.39 1.94-.11-.04-.23-.08-.39-.32-.02.19.24.69.54 1.08l-.12.14c.16.31.32.38.43.49-.63-.35.57 1.13.7 1.32l.1-.17c-.02.24.17.56.53 1.01l.3-.01c.13.24.58.68.85.7l-.18.24c.69.2.33.29 1.18.59l-.17-.3c.43.37.56.7 1.17.98.85.3.96.18 1.82.43-.73 0-1.59 0-2.17-.22-3.96-1.07-7.56-5.72-7.32-10.5-.06-.97.1-2.18-.06-2.42.22-.74.48-1.64 1.01-2.71-.04-.07.09.21.36-.24.16-.36.29-.75.5-1.1l.1-.03c.11-.61 1.43-1.55 1.85-2.02v.18c.86-.81 2.4-1.35 3.26-1.73-.23.25.51-.03 1.04-.06l-.49.28c.63-.16.6.07 1.25-.03-.23.03-.5.1-.46.16.72.08.84-.22 1.51 0l-.05-.2c.94.34 1.13.28 2.14.82.36.01.4-.22.93 0 .1.16-.02.19.64.59.07-.03-.13-.22-.27-.37 1.3.71 2.75 2.22 3.18 3.84-.41-.74-.04.39-.18.33.18.49.33 1 .43 1.53-.12-.43-.39-1.48-.86-2.15-.03.43-.6-.3-.29.66.22.34.05-.35.34.25 0 .29.11.58.18.95-.1-.02-.22-.41-.3-.31.1.5.27.72.33.76-.03.08-.12-.08-.12.24.04.74.21.43.29.46-.09.37-.41.79-.25 1.42l-.2-.56c-.05.53.11.63-.13 1.28.18-.6.16-1.1-.01-.85.09.82-.65 1.45-.58 1.98l-.21-.29c-.57.83-.01.45-.4 1.06.14-.23-.07-.08.11-.36-.12.01-.55.53-.94.83-1.54 1.23-3.39 1.4-5.15.73h-.01c.01-.04 0-.09-.12-.17-1.51-1.15-2.4-2.13-2.11-4.41.25-.17.31-1.12.84-1.45.32-.71 1.28-1.36 2.31-1.38 1.05-.06 1.94.56 2.39 1.14-.82-.75-2.14-.98-3.28-.43-1.15.53-1.84 1.8-1.76 3.07.06-.07.1-.02.12-.18-.03 2.47 2.66 4.28 4.6 3.37l.03.05c.78-.22.68-.39 1.19-.75-.04.09-.34.3-.16.3.25-.06 1.03-.79 1.42-1.13.17-.38-.1-.23.15-.69l.3-.15c.17-.48.35-.75.35-1.32"/></svg></span> Uninstall on Debian and Ubuntu</label><label for="install-uninstall-__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"/></svg></span> Uninstall on Red Hat Enterprise Linux and derivatives</label></div>
@@ -10415,16 +10558,18 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
 .print-site-enumerate-headings #section-6 > h1:before { content: '6 ' }
 .print-site-enumerate-headings #set-parameter > h1:before { content: '6.1 ' }
 
-.print-site-enumerate-headings #section-6-2 > h1:before { content: '6.2 ' }
-.print-site-enumerate-headings #install-upgrade-from-50 > h1:before { content: '6.2.1 ' }
+.print-site-enumerate-headings #mongos-config > h1:before { content: '6.2 ' }
 
-.print-site-enumerate-headings #install-upgrade-from-mongodb > h1:before { content: '6.2.2 ' }
+.print-site-enumerate-headings #section-6-3 > h1:before { content: '6.3 ' }
+.print-site-enumerate-headings #install-upgrade-from-50 > h1:before { content: '6.3.1 ' }
 
-.print-site-enumerate-headings #install-update-pro > h1:before { content: '6.2.3 ' }
+.print-site-enumerate-headings #install-upgrade-from-mongodb > h1:before { content: '6.3.2 ' }
 
-.print-site-enumerate-headings #install-minor-upgrade > h1:before { content: '6.2.4 ' }
+.print-site-enumerate-headings #install-update-pro > h1:before { content: '6.3.3 ' }
 
-.print-site-enumerate-headings #install-uninstall > h1:before { content: '6.3 ' }
+.print-site-enumerate-headings #install-minor-upgrade > h1:before { content: '6.3.4 ' }
+
+.print-site-enumerate-headings #install-uninstall > h1:before { content: '6.4 ' }
 
 .print-site-enumerate-headings #section-7 > h1:before { content: '7 ' }
 .print-site-enumerate-headings #release_notes-index > h1:before { content: '7.1 ' }
