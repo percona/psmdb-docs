@@ -88,22 +88,22 @@ The steps are the following:
 5. Grant read/write access for the `mongos` user to the following directories and files:
 
     ```{.bash data-prompt="$"}
-	$ chown -R mongos:mongos /var/log/mongo \
+	$ sudo chown -R mongos:mongos /var/log/mongo \
     /var/run/mongos.pid \
 	/etc/mongos.conf \
 	/etc/sysconfig/mongos \
     <path-to-keyfile>
-	$ chown mongos:mongos /usr/lib/systemd/system/mongos.service
+	$ sudo chown mongos:mongos /usr/lib/systemd/system/mongos.service
 	```
 6. Reload the systemd daemon to apply the changes:
 
 	```{.bash data-prompt="$"}
-	$ systemctl daemon-reload
+	$ sudo systemctl daemon-reload
 	```
 
 7. Start the `mongos` service:
 
 	```{.bash data-prompt="$"}
-	$ systemctl start mongos
+	$ sudo systemctl start mongos
 	```
 
