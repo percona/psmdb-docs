@@ -93,7 +93,6 @@ The steps are the following:
 	/etc/mongos.conf \
 	/etc/sysconfig/mongos \
     <path-to-keyfile>
-	$ sudo chown mongos:mongos /usr/lib/systemd/system/mongos.service
 	```
 6. Reload the systemd daemon to apply the changes:
 
