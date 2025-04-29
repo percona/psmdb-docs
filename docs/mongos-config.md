@@ -27,7 +27,7 @@ The steps are the following:
 
 2. Create the environment file at the path `/etc/sysconfig/mongos` and specify the following environment variables within:
 
-    ```ini title=/etc/sysconfig/mongos
+    ```ini title="/etc/sysconfig/mongos"
     OPTIONS="-f /etc/mongos.conf"
     STDOUT="/var/log/mongo/mongos.stdout"
     STDERR="/var/log/mongo/mongos.stderr"
@@ -35,7 +35,7 @@ The steps are the following:
 
 3. Create a `mongos` configuration file at the path `/etc/mongos.conf`. In the following example configuration, replace the `security.keyfile` with the path to your keyfile and specify the name of the config server replica set and its members in the format `hostname:port`:
 
-    ```yaml title=/etc/mongos.conf
+    ```yaml title="/etc/mongos.conf"
     # where to write logging data.
     systemLog:
       destination: file
@@ -94,6 +94,7 @@ The steps are the following:
 	/etc/sysconfig/mongos \
     <path-to-keyfile>
 	```
+
 6. Reload the systemd daemon to apply the changes:
 
 	```{.bash data-prompt="$"}
