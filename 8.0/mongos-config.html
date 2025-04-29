@@ -2343,31 +2343,34 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
 <li>
 <p>Create the environment file at the path <code>/etc/sysconfig/mongos</code> and specify the following environment variables within:</p>
-<p><code>ini title=/etc/sysconfig/mongos
-OPTIONS="-f /etc/mongos.conf"
-STDOUT="/var/log/mongo/mongos.stdout"
-STDERR="/var/log/mongo/mongos.stderr"</code></p>
+<div class="highlight"><span class="filename">/etc/sysconfig/mongos</span><pre><span></span><code><span class="na">OPTIONS</span><span class="o">=</span><span class="s">&quot;-f /etc/mongos.conf&quot;</span>
+<span class="na">STDOUT</span><span class="o">=</span><span class="s">&quot;/var/log/mongo/mongos.stdout&quot;</span>
+<span class="na">STDERR</span><span class="o">=</span><span class="s">&quot;/var/log/mongo/mongos.stderr&quot;</span>
+</code></pre></div>
 </li>
 <li>
 <p>Create a <code>mongos</code> configuration file at the path <code>/etc/mongos.conf</code>. In the following example configuration, replace the <code>security.keyfile</code> with the path to your keyfile and specify the name of the config server replica set and its members in the format <code>hostname:port</code>:</p>
-<p>```yaml title=/etc/mongos.conf</p>
-<h1 id="where-to-write-logging-data">where to write logging data.<a class="headerlink" href="#where-to-write-logging-data" title="Permanent link">&para;</a></h1>
-<p>systemLog:
-  destination: file
-  logAppend: true
-  path: /var/log/mongo/mongos.log</p>
-<p>processManagement:
-  fork: true
-  pidFilePath: /var/run/mongos.pid</p>
-<h1 id="network-interfaces">network interfaces<a class="headerlink" href="#network-interfaces" title="Permanent link">&para;</a></h1>
-<p>net:
-  port: 27017
-  bindIp: 127.0.0.1</p>
-<p>security:
-  keyFile: /etc/mongos.key</p>
-<p>sharding:
-  configDB: configRS/cfg1.example.com:27017,cfg2.example.com:27017,cfg3.example.com:27017
-```</p>
+<div class="highlight"><span class="filename">/etc/mongos.conf</span><pre><span></span><code><span class="c1"># where to write logging data.</span>
+<span class="nt">systemLog</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
+<span class="w">  </span><span class="nt">logAppend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log/mongo/mongos.log</span>
+
+<span class="nt">processManagement</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">fork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">pidFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/mongos.pid</span>
+
+<span class="c1"># network interfaces</span>
+<span class="nt">net</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">27017</span>
+<span class="w">  </span><span class="nt">bindIp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+
+<span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">keyFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/mongos.key</span>
+
+<span class="nt">sharding</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">configDB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">configRS/cfg1.example.com:27017,cfg2.example.com:27017,cfg3.example.com:27017</span>
+</code></pre></div>
 </li>
 <li>
 <p>Create the systemd unit file at the path <code>/usr/lib/systemd/system/mongos.service</code>. Specify the following configuration:</p>
@@ -2397,13 +2400,15 @@ STDERR="/var/log/mongo/mongos.stderr"</code></p>
 </li>
 <li>
 <p>Grant read/write access for the <code>mongos</code> user to the following directories and files:</p>
-<p><div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongos:mongos<span class="w"> </span>/var/log/mongo<span class="w"> </span><span class="se">\</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongos:mongos<span class="w"> </span>/var/log/mongo<span class="w"> </span><span class="se">\</span>
 /var/run/mongos.pid<span class="w"> </span><span class="se">\</span>
 /etc/mongos.conf<span class="w"> </span><span class="se">\</span>
 /etc/sysconfig/mongos<span class="w"> </span><span class="se">\</span>
 &lt;path-to-keyfile&gt;
 </code></pre></div>
-6. Reload the systemd daemon to apply the changes:</p>
+</li>
+<li>
+<p>Reload the systemd daemon to apply the changes:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
 </code></pre></div>
 </li>
@@ -2435,7 +2440,7 @@ STDERR="/var/log/mongo/mongos.stderr"</code></p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 29, 2025 13:30:59">April 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 29, 2025 18:33:25">April 29, 2025</span>
   </span>
 
     
