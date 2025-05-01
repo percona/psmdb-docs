@@ -79,6 +79,7 @@ The following options control audit logging:
 | <span id="auditformat">`--auditFormat`</span>    | `auditLog.format`       | string | Specifies the format of the audit log file, if you set the `--auditDestination` option to `file`. <br> The default value is `JSON`. Alternatively, you can set it to `BSON`|
 | <span id="auditpath">`--auditPath`</span>| `auditLog.path`         | string | Specifies the fully qualified path to the file where audit log events are written, if you set the `--auditDestination` option to `file`. <br> If this option is not specified, then the `auditLog.json` file is created in the server’s configured log path. If log path is not configured on the server, then the `auditLog.json` file is created in the current directory (from which `mongod` was started). <br><br> **NOTE**: This file will rotate in the same manner as the system log path, either on server reboot or using the `logRotate` command. The time of rotation will be added to the old file’s name.
 
+
 ## Audit message syntax
 
 Audit logging writes messages in JSON format with the following syntax:

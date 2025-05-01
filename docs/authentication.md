@@ -18,7 +18,7 @@ You can use any of these authentication mechanisms supported in Percona Server f
 
 ## SCRAM
 
-SCRAM is the default authentication mechanism. Percona Server for MongoDB verifies the credentials against the user’s name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see [Enable authentication](enable-auth.md#enable-auth).
+SCRAM is the default authentication mechanism. Percona Server for MongoDB verifies the credentials against the user’s name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see [Enable authentication](enable-auth.md).
 
 ## x.509 certificate authentication
 

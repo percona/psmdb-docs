@@ -18,4 +18,4 @@ Percona Server for MongoDB 8.0 is based on [MongoDB Community Edition 8.0](https
 
 ## Profiling Rate Limiting
 
-Profiling Rate Limiting was added to *Percona Server for MongoDB* in v3.4 with the `--rateLimit` argument. Since v3.6, MongoDB Community (and Enterprise) Edition includes a similar option [slowOpSampleRate](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate). Please see [Profiling Rate Limit](rate-limit.md#rate-limit) for more information.
+Profiling Rate Limiting was added to *Percona Server for MongoDB* in v3.4 with the `--rateLimit` argument. Since v3.6, MongoDB Community (and Enterprise) Edition includes a similar option [slowOpSampleRate](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate). Please see [Profiling Rate Limit](rate-limit.md) for more information.

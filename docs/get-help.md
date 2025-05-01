@@ -10,7 +10,7 @@ We recommend visiting our [Community Forum](https://forums.percona.com/t/welcome
 
 Want a more dynamic conversation or real-time interaction? Check out our community on [Discord](http://per.co.na/discord). It has database specialists and enthusiasts discussing everything from performance tuning to architecture best practices.
 
-If you have thoughts, feedback, or ideas to share, the community team would like to hear from you at [community-team@percona.com](community-team@percona.com). We're always excited to connect and improve everyone's experience.
+If you have thoughts, feedback, or ideas to share, the community team would like to hear from you at [community-team@percona.com](mailto:community-team@percona.com). We're always excited to connect and improve everyone's experience.
 
 ## Percona experts
 
