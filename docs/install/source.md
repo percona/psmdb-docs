@@ -96,14 +96,14 @@ To build Percona Server for MongoDB manually, you need the following:
     $ make install
     ```
 
-#### Clone Percona Server for MongoDB repository
+#### Clone Percona Server for MongoDB repository {.power-number}
 
 1. Exit the AWS SDK build directory. You should end up in the directory
    where you started the build process.
 
-   ```{.bash data-prompt="$"}
-   $ cd ../..
-   ```
+    ```{.bash data-prompt="$"}
+    $ cd ../..
+    ```
 
 2. Clone Percona Server for MongoDB repository
 
@@ -190,7 +190,7 @@ To use the build script you need the following:
 * Docker up and running on your machine
 * About 200GB of disk space
 
-### Prepare the build environment
+### Prepare the build environment {.power-number}
 
 1. Create the folder where all build actions take place. For the steps below we use the `/tmp/psmdb/test` folder.
 2. Navigate to the build folder and download the build script. Replace the `<tag>` placeholder with the required version of Percona Server for MongoDB:
@@ -226,11 +226,11 @@ To build tarballs, the steps are the following:
      
     The command does the following:
 
-    * runs Docker daemon as the root user using the RHEL 9 image
+    * runs Docker daemon as the root user using the CentOS 7 image
     * mounts the build directory into the container
     * establishes the shell session inside the container
     * inside the container, navigates to the build directory and runs the build script to install dependencies 
-    * runs the build script again to build the tarball for the PSMDB version 8.0.1-1
+    * runs the build script again to build the tarball for the Percona Server for MongoDB version 8.0.1-1
 
 2. Check that tarballs are built:
 
@@ -264,229 +264,116 @@ The steps are the following:
 
     Note that to build source packages you still have to use the oldest supported operating system: CentOS 7 for RPMs and Ubuntu 18.04 (Bionic Beaver) for DEB packages. 
 
-    === ":fontawesome-solid-user: Basic build" 
+    === ":material-debian: DEB"    
 
-        === ":material-debian: DEB"    
+        ```{.bash data-prompt="$"}
+        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:bionic sh -c '
+        set -o xtrace
+        cd /tmp/psmdb
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+        --branch=release-8.0.1-1 --psm_ver=8.0.1--psm_release=1 --mongo_tools_tag=100.4.1 --build_src_deb=1
+        '
+        ```    
 
-            ```{.bash data-prompt="$"}
-            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:bionic sh -c '
-            set -o xtrace
-            cd /tmp/psmdb
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-8.0.1-1 --psm_ver=8.0.1--psm_release=1 --mongo_tools_tag=100.4.1 --build_src_deb=1
-            '
-            ```    
+        Check that source packages are created    
 
-            Check that source packages are created    
+        ```{.bash data-prompt="$"}
+        $ ls -la /tmp/psmdb/test/source_deb/
+        ```    
 
-            ```{.bash data-prompt="$"}
-            $ ls -la /tmp/psmdb/test/source_deb/
-            ```    
+        ??? example "Sample output"
 
-            ??? example "Sample output"
-
-                ```{.text .no-copy}
-                rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_8.0.1.orig.tar.gz
-                ```
+            ```{.text .no-copy}
+            rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_8.0.1.orig.tar.gz
+            ```
                 
-        === ":material-redhat: RPM"    
+    === ":material-redhat: RPM"    
 
-            ```{.bash data-prompt="$"}
-            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb centos:7 sh -c '
-            set -o xtrace
-            cd /tmp/psmdb
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-8.0.1-1 --psm_ver=8.0.1--psm_release=1 --mongo_tools_tag=100.7.0 --build_src_rpm=1
-            '
+        ```{.bash data-prompt="$"}
+        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb centos:7 sh -c '
+        set -o xtrace
+        cd /tmp/psmdb
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+        --branch=release-8.0.1-1 --psm_ver=8.0.1--psm_release=1 --mongo_tools_tag=100.7.0 --build_src_rpm=1
+        '
+        ```    
+
+        Check that source packages are created    
+
+        ```{.bash data-prompt="$"}
+        $ ls -la /tmp/psmdb/test/srpm/
+        ```    
+
+        ??? example "Sample output"   
+
+            ```{.text .no-copy}
+            rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-8.0.1-1.generic.src.rpm
             ```    
-
-            Check that source packages are created    
-
-            ```{.bash data-prompt="$"}
-            $ ls -la /tmp/psmdb/test/srpm/
-            ```    
-
-            ??? example "Sample output"   
-
-                ```{.text .no-copy}
-                rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-8.0.1-1.generic.src.rpm
-                ```    
-    
-    === ":fontawesome-solid-user-tie:  Pro build" 
-
-        === ":material-debian: DEB"    
-
-            ```{.bash data-prompt="$"}
-            docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:bionic sh -c '
-            set -o xtrace
-            cd /tmp/psmdb
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-8.0.1-1 --psm_ver=8.0.1--psm_release=1 --mongo_tools_tag=100.4.1 --full-featured=1 --build_src_deb=1
-            '
-            ```    
-
-            Check that source packages are created    
-
-            ```{.bash data-prompt="$"}
-            $ ls -la /tmp/psmdb/test/source_deb/
-            ```    
-
-            ??? example "Sample output"
-
-                ```{.text .no-copy}
-                rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-pro_8.0.1.orig.tar.gz
-                ```
-            
-        === ":material-redhat: RPM"    
-
-            ```{.bash data-prompt="$"}
-            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb centos:7 sh -c '
-            set -o xtrace
-            cd /tmp/psmdb
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-8.0.1-1 --psm_ver=8.0.1--psm_release=1 --mongo_tools_tag=100.4.1 --full-featured=1 --build_src_rpm=1
-            '
-            ```    
-
-            Check that source packages are created    
-
-            ```{.bash data-prompt="$"}
-            $ ls -la /tmp/psmdb/test/srpm/
-            ```    
-
-            ??? example "Sample output"
-
-                ```{.text .no-copy}
-                rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-pro-8.0.1-1.generic.src.rpm
-                ```
 
 2. Build Percona Server for MongoDB packages. Here you can use the operating system of your choice. In the commands below, we use Oracle Linux 9 for RPMs and Ubuntu 22.04 (Jammy Jellyfish) for DEB packages.
 
-    === ":fontawesome-solid-user: Basic build"
+    === ":material-debian: DEB"
 
-        === ":material-debian: DEB"
+        ```{.bash data-prompt="$"}
+        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
+        set -o xtrace
+        cd /tmp/psmdb
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+        --branch=release-8.0.1-1 --psm_ver=8.0.1--psm_release=1 --mongo_tools_tag=100.4.1 --build_deb=1
+        '
+        ```
 
-            ```{.bash data-prompt="$"}
-            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
-            set -o xtrace
-            cd /tmp/psmdb
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-8.0.1-1 --psm_ver=8.0.1--psm_release=1 --mongo_tools_tag=100.4.1 --build_deb=1
-            '
+        Check that packages are created
+
+        ```{.bash data-prompt="$"}
+        $ ls -la /tmp/psmdb/test/deb/
+        ```
+
+        ??? example "Sample output"
+
+            ```{.text .no-copy}
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-dbg_8.0.1-1.jammy_amd64.deb  
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos_8.0.1-1.jammy_amd64.deb 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server_8.0.1-1.jammy_amd64.deb 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_8.0.1-1.jammy_amd64.deb  
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_8.0.1-1.jammy_amd64.deb
             ```
-
-            Check that packages are created
-
-            ```{.bash data-prompt="$"}
-            $ ls -la /tmp/psmdb/test/deb/
-            ```
-
-            ??? example "Sample output"
-
-                ```{.text .no-copy}
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-dbg_8.0.1-1.jammy_amd64.deb  
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos_8.0.1-1.jammy_amd64.deb 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server_8.0.1-1.jammy_amd64.deb 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_8.0.1-1.jammy_amd64.deb  
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_8.0.1-1.jammy_amd64.deb
-                ```
         
-        === ":material-redhat:  RPM"
+    === ":material-redhat:  RPM"
 
-            ```{.bash data-prompt="$"}
-            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:9 sh -c '
-            set -o xtrace
-            cd /tmp/psmdb
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-8.0.1-1 --psm_ver=8.0.1 --psm_release=1 --mongo_tools_tag=100.4.1 --build_rpm=1
-            '
+        ```{.bash data-prompt="$"}
+        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:9 sh -c '
+        set -o xtrace
+        cd /tmp/psmdb
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+        bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+        --branch=release-8.0.1-1 --psm_ver=8.0.1 --psm_release=1 --mongo_tools_tag=100.4.1 --build_rpm=1
+        '
+        ```
+
+        Check that packages are created
+
+        ```{.bash data-prompt="$"}
+        $ ls -la /tmp/psmdb/test/srpm/
+        ```
+
+        ??? example "Sample output"
+
+            ```{.text .no-copy}
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-8.0.1-1.el8.x86_64.rpm  
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-7.0.4-2.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-8.0.1-1.el8.x86_64.rpm    
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-8.0.1-1.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-8.0.1-1.el8.x86_64.rpm    
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-8.0.1-1.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-8.0.1-1.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-8.0.1-1.el8.x86_64.rpm
             ```
 
-            Check that packages are created
 
-            ```{.bash data-prompt="$"}
-            $ ls -la /tmp/psmdb/test/srpm/
-            ```
-
-            ??? example "Sample output"
-
-                ```{.text .no-copy}
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-8.0.1-1.el8.x86_64.rpm  
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-7.0.4-2.el8.x86_64.rpm 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-8.0.1-1.el8.x86_64.rpm    
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-8.0.1-1.el8.x86_64.rpm 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-8.0.1-1.el8.x86_64.rpm    
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-8.0.1-1.el8.x86_64.rpm 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-8.0.1-1.el8.x86_64.rpm 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-8.0.1-1.el8.x86_64.rpm
-                ```
-
-    === ":fontawesome-solid-user-tie: Pro build"
-
-        === ":material-debian: DEB"
-
-            ```{.bash data-prompt="$"}
-            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
-            set -o xtrace
-            cd /tmp/psmdb
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-8.0.1-1 --psm_ver=8.0.1 --psm_release=1 --mongo_tools_tag=100.4.1 --full-featured=1 --build_deb=1
-            '
-            ```
-
-            Check that packages are created
-
-            ```{.bash data-prompt="$"}
-            $ ls -la /tmp/psmdb/test/deb/
-            ```
-
-            ??? example "Sample output"
-
-                ```{.text .no-copy}
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-dbg_8.0.1-1.jammy_amd64.deb  
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro_8.0.1-1.jammy_amd64.deb 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-pro_8.0.1-1.jammy_amd64.deb 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_8.0.1-1.jammy_amd64.deb  
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro_8.0.1-1.jammy_amd64.deb
-                ```
-        
-        === ":material-redhat:  RPM"
-
-            ```{.bash data-prompt="$"}
-            $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:9 sh -c '
-            set -o xtrace
-            cd /tmp/psmdb
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
-            bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-            --branch=release-8.0.1-1 --psm_ver=8.0.1 --psm_release=1 --mongo_tools_tag=100.4.1 --full-featured=1 --build_rpm=1
-            '
-            ```
-
-            Check that packages are created
-
-            ```{.bash data-prompt="$"}
-            $ ls -la /tmp/psmdb/test/srpm/
-            ```
-
-            ??? example "Sample output"    
-
-                ```{.text .no-copy}
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-8.0.1-1.el8.x86_64.rpm  
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-pro-debugsource-8.0.1-1.el8.x86_64.rpm 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro-8.0.1-1.el8.x86_64.rpm    
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-pro-debuginfo-8.0.1-1.el8.x86_64.rpm 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-pro-8.0.1-1.el8.x86_64.rpm    
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-pro-debuginfo-8.0.1-1.el8.x86_64.rpm 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-8.0.1-1.el8.x86_64.rpm 
-                rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-8.0.1-1.el8.x86_64.rpm
-                ```
 
 ## Next steps
 
