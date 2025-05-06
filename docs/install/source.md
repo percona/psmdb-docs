@@ -10,7 +10,7 @@ This document guides you though the steps how to build Percona Server for MongoD
 ### Build options
 
 - [Manually](#manual-build) 
-- [Using the build script](#use-the-build-script) 
+- [Using the build script](#use-the-build-script). You can build only Basic builds. 
 
 ## Manual build 
 
