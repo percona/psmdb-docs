@@ -34,5 +34,5 @@ in one of the following ways:
     > db.runCommand( { setParameter: 1, <parameter>: <value> } )
     ```
 
-See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v7.0/reference/parameters/#parameters).
+See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v8.0/reference/parameters/#parameters).
 
