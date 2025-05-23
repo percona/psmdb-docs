@@ -230,7 +230,7 @@ To build tarballs, the steps are the following:
     * mounts the build directory into the container
     * establishes the shell session inside the container
     * inside the container, navigates to the build directory and runs the build script to install dependencies 
-    * runs the build script again to build the tarball for the Percona Server for MongoDB version 8.0.1-1
+    * runs the build script again to build the tarball for the Percona Server for MongoDB version 8.0.4-1
 
 2. Check that tarballs are built:
 
