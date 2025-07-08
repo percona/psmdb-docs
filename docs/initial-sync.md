@@ -4,13 +4,13 @@
 
 When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. 
 
-The default initial sync method is logical, during which Percona Server for MongoDB clones all databases except the `local` database, builds all collection indexes, pulls oplog records and applies the changes to the data set. Read more about [logical initial sync in MongoDB documentation](https://www.mongodb.com/docs/manual/core/replica-set-sync/#logical-initial-sync-process).
+In [Percona Server for MongoDB Pro](psmdb-pro.md), you can choose a file copy-based initial sync for a new node. You must have WiredTiger defined as the storage.
 
-Starting with version 7.0.21-12, you can select **file copy based** as the initial sync method. You must have the WiredTiger storage defined in Percona Server for MongoDB configuration. File copy based initial sync is the physical copying of the data files from source to target. This sync method is faster than logical, which is especially beneficial in heavy write environments. It speeds up cluster scaling and increases restore performance.
+File copy-based initial sync method is a physical copying of the data files from the source to the target. It is much faster than the default [logical initial sync :octicons-link-external-16:](https://www.mongodb.com/docs/manual/core/replica-set-sync/#logical-initial-sync-process), which is especially beneficial in heavy write environments. Using this sync method speeds up cluster scaling and increases restore performance. 
 
-File copy-based initial sync is implemented in a similar way as in MongoDB Advanced and has the same configuration options. For workflow and known limitations, refer to [MongoDB documentation](https://www.mongodb.com/docs/manual/core/replica-set-sync/#file-copy-based-initial-sync). 
+File copy-based initial sync implementation is compatible with that of MongoDB Advanced and has the same [configuration parameters](#configuration-parameters).
 
-To select the initial sync method, specify the following configuration in the configuration file for the target server:
+To select the initial sync method, specify the following configuration in the configuration file for the target node:
 
 ```yaml
 setParameter:
@@ -19,8 +19,40 @@ setParameter:
 
 You can only set this configuration at startup.
 
+## Workflow
 
-File copy based initial sync is available in [Percona Server for MongoDB Pro out of the box](psmdb-pro.md). You can also receive this functionality by [building Percona Server for MongoDB from source code](install/source.md). 
+When you start a new node for the replica set, the workflow is the following:
+
+1. The new node (also referred to as the target node) selects for the source node for the sync. This sync source is typically the node that responded first and has the passing configuration (e.g. it has WiredTiger set as the storage and the same arrangement of files and indexes as the target node.)
+2. The target node opens a `$backupCursor` towards the sync source. The `$backupCursor` returns the list of files to copy and the timestamp of the oplog end in the metadata file.
+3. The file copy starts. During this process the target node lags behind the sync source as it remains operational and its data changes. The sync source node is periodically checked to ensure the time of the lag falls within the dined time.
+4. If the lag between the sync source differs and the target exceeds the defined threshold, the target node opens the `$backupCursorExtended` to retrieve the changes. Depending on the file copy duration, the target node can open `$backupCursorExtended` several times, limited by the maximum number of cycles (3 by default)
+5. When the files are copied and the lag between the sync source and the target is acceptable, the target node closes the `$backupCursor`. 
+6. The node internally moves the downloaded files to the local `dbPath`, applies oplog on top, reconstructs timestamps to ensure data consistency.
+
+## Configuration parameters
+
+These configuration parameters can be used to control the file-copy-based initial sync flow. You can set them only at startup.
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `initialSyncMethod` | string | logical | Specifies which method of initial sync to use. Valid options are: fileCopyBased, logical. |
+| `numInitialSyncAttempts` | integer | 10 | Number of attempts of attempts to make at replica set initial synchronization |
+| `numInitialSyncConnectAttempts` | integer | 10 | The number of attempts to select and connect to a valid sync source |
+| `fileBasedInitialSyncMaxLagSec` | integer | 300 | Specifies the max lag in seconds between the syncing node and the sync source to mark the file copy based initial sync as done successfully |
+| `fileBasedInitialSyncMaxCyclesWithoutProgress` | integer | 3 | Specifies the max number of cycles to clone updates while the lag between the syncing node and the sync source is higher than `fileBasedInitialSyncMaxLagSec` |
+
+
+## Limitations
+
+Using file copy based initial sync has the following limitations:
+
+* Don't run backups on either sync source or syncing nodes
+* Don't write to the `local` database on the syncing node
+* You cannot use the same sync source for multiple syncing nodes
+* If you're using encrypted storage, Percona Server for MongoDB applies the encryption key from the sync source node to secure the data on the syncing node.
+
+
 
 
 
