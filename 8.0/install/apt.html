@@ -2482,23 +2482,23 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 <ol>
 <li>
 <p>Fetch <code>percona-release</code> packages from Percona web:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
 </code></pre></div>
 </li>
 <li>
 <p>Install the downloaded package with <strong>dpkg</strong>:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
 </code></pre></div>
 <p>After you install this package, you have the access to Percona repositories. You can check the repository setup in the <code>/etc/apt/sources.list.d/percona-release.list</code> file.    </p>
 </li>
 <li>
 <p>Enable the repository:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-80<span class="w"> </span>release
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-80<span class="w"> </span>release
 </code></pre></div>
 </li>
 <li>
 <p>Remember to update the local cache:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
 </code></pre></div>
 </li>
 </ol>
@@ -2507,7 +2507,7 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Run the following command to install the latest version of Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2515,7 +2515,7 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 <ol>
 <li>
 <p>List available versions:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>apt-cache<span class="w"> </span>madison<span class="w"> </span>percona-server-mongodb
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-cache<span class="w"> </span>madison<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code>percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">8</span>.0.8-3.bullseye<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-80/apt<span class="w"> </span>bullseye/main<span class="w"> </span>amd64<span class="w"> </span>Packages
@@ -2523,7 +2523,7 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 </li>
 <li>
 <p>Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 8.0.8-3, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb<span class="o">=</span><span class="m">8</span>.0.8-3.bullseye<span class="w"> </span>percona-server-mongodb-mongos<span class="o">=</span><span class="m">8</span>.0.8-3.bullseye<span class="w"> </span>percona-server-mongodb-shell<span class="o">=</span><span class="m">8</span>.0.8-3.bullseye<span class="w"> </span>percona-server-mongodb-server<span class="o">=</span><span class="m">8</span>.0.8-3.bullseye<span class="w"> </span>percona-server-mongodb-tools<span class="o">=</span><span class="m">8</span>.0.8-3.bullseye
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb<span class="o">=</span><span class="m">8</span>.0.8-3.bullseye<span class="w"> </span>percona-server-mongodb-mongos<span class="o">=</span><span class="m">8</span>.0.8-3.bullseye<span class="w"> </span>percona-server-mongodb-shell<span class="o">=</span><span class="m">8</span>.0.8-3.bullseye<span class="w"> </span>percona-server-mongodb-server<span class="o">=</span><span class="m">8</span>.0.8-3.bullseye<span class="w"> </span>percona-server-mongodb-tools<span class="o">=</span><span class="m">8</span>.0.8-3.bullseye
 </code></pre></div>
 </li>
 </ol>
@@ -2538,19 +2538,19 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
 <p><strong>Start the service</strong></p>
 <p>Percona Server for MongoDB is started automatically after installation unless it encounters errors during the installation process.</p>
 <p>You can also manually start it using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Confirm that the service is running</strong></p>
 <p>Check the service status using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Stop the service</strong></p>
 <p>Stop the service using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Restart the service</strong></p>
 <p>Restart the service using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
 <p>Congratulations! Your Percona Server for MongoDB is up and running. </p>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
@@ -2577,7 +2577,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 11, 2025 11:21:29 UTC">July 11, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 11, 2025 12:56:08 UTC">July 11, 2025</span>
   </span>
 
     
@@ -2605,6 +2605,11 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
     
     <nav>
       
+        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+          
+          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&size=72" alt="nastena1606">
+        </a>
+      
         <a href="https://github.com/igroene" class="md-author" title="@igroene">
           
           <img src="https://avatars.githubusercontent.com/u/9805809?v=4&size=72" alt="igroene">
@@ -2613,11 +2618,6 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
         <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
           
           <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
-        </a>
-      
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
-          
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&size=72" alt="nastena1606">
         </a>
       
       
