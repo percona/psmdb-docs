@@ -38,13 +38,13 @@ Before we move on to the configuration steps, we assume the following:
     === ":material-redhat: RHEL and derivatives"
 
          ```{.bash data-prompt="$"}
-         $ sudo  yum install -y cyrus-sasl cyrus-sasl-plain
+         $ sudo  yum install -y cyrus-sasl cyrus-sasl-plain numactl
          ```
 
     === ":material-debian: Debian and Ubuntu"
 
          ```{.bash data-prompt="$"}
-         $ sudo  apt install -y sasl2-bin libsasl2-modules
+         $ sudo  apt install -y sasl2-bin libsasl2-modules libsasl2-modules-gssapi-mit
          ```
 
 2. Configure SASL to use `ldap` as the  authentication mechanism.
