@@ -185,7 +185,7 @@ directory and run `mongod`.
 
 ## Run Percona Server for MongoDB Pro in Docker
 
-You can run Percona Server for MongoDB Pro in Docker using the official image available in a custom registry on [Docker Hub](https://hub.docker.com/r/percona/percona-server-mongodb-pro).
+You can run Percona Server for MongoDB Pro in Docker using the official image available in a private registry on [Docker Hub](https://hub.docker.com/r/percona/percona-server-mongodb-pro).
 
 We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.x
 
