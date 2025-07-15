@@ -149,6 +149,10 @@ The steps below describe the installation on Ubuntu 22.04. Replace the link to t
 5. Make sure that you have read and write permissions for the data
 directory and run `mongod`.
 
+## Next steps
+
+[Connect to MongoDB :material-arrow-right:](../connect.md){.md-button}
+
 ## Run Percona Server for MongoDB Pro in Docker
 
 You can run Percona Server for MongoDB Pro in Docker using the official image available in a private registry on [Docker Hub](https://hub.docker.com/r/percona/percona-server-mongodb-pro).
@@ -167,10 +171,6 @@ To access this image, you must authenticate in DockerHub. For this you must have
     ```
     
     When prompted for a password, enter your access token.
-
-## Next steps
-
-[Connect to MongoDB :material-arrow-right:](../connect.md){.md-button}
 
 
 ### Run Percona Server for MongoDB Pro
