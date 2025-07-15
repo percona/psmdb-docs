@@ -101,7 +101,9 @@ markdown_extensions:
       linenums: false
   pymdownx.inlinehilite: {}
   pymdownx.snippets:
-      base_path: ["snippets"]
+      base_path: 
+        - snippets
+        - docs/install
 #       auto_append:
 #         - services-banner.md
   pymdownx.tasklist:
