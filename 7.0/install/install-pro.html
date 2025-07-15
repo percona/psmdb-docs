@@ -860,7 +860,64 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
       
         <li class="md-nav__item">
+  <a href="#run-percona-server-for-mongodb-pro-in-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Percona Server for MongoDB Pro in Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run Percona Server for MongoDB Pro in Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authenticate-in-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authenticate in Docker Hub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-percona-server-for-mongodb-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Percona Server for MongoDB Pro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-the-container-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access the container shell
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps_1" class="md-nav__link">
     <span class="md-ellipsis">
       Next steps
     </span>
@@ -2559,7 +2616,64 @@ document$.subscribe(() => { lightbox.reload() });
 </li>
       
         <li class="md-nav__item">
+  <a href="#run-percona-server-for-mongodb-pro-in-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Percona Server for MongoDB Pro in Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run Percona Server for MongoDB Pro in Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authenticate-in-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authenticate in Docker Hub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-percona-server-for-mongodb-pro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run Percona Server for MongoDB Pro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-the-container-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access the container shell
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps_1" class="md-nav__link">
     <span class="md-ellipsis">
       Next steps
     </span>
@@ -2808,8 +2922,67 @@ $<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>p
 </div>
 </div>
 </div>
+<h2 id="run-percona-server-for-mongodb-pro-in-docker">Run Percona Server for MongoDB Pro in Docker<a class="headerlink" href="#run-percona-server-for-mongodb-pro-in-docker" title="Permanent link">&para;</a></h2>
+<p>You can run Percona Server for MongoDB Pro in Docker using the official image available in a private registry on <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro">Docker Hub</a>.</p>
+<p>We gather <a href="../telemetry.html">Telemetry data</a> to understand the use of the software and improve our products.x</p>
+<p>To access this image, you must authenticate in DockerHub. For this you must have a valid Percona Server for MongoDB Pro subscription. </p>
+<h3 id="authenticate-in-docker-hub">Authenticate in Docker Hub<a class="headerlink" href="#authenticate-in-docker-hub" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Contact your Percona Representative to get authentication credentials for Docker Hub. You will receive a username and an access token. </li>
+<li>
+<p>Authenticate in Docker Hub:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>--username<span class="w"> </span>&lt;Username&gt;<span class="w"> </span>
+</code></pre></div>
+<p>When prompted for a password, enter your access token.</p>
+</li>
+</ol>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p><a class="md-button" href="../connect.html">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
+<h3 id="run-percona-server-for-mongodb-pro">Run Percona Server for MongoDB Pro<a class="headerlink" href="#run-percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h3>
+<p>To run Percona Server for MongoDB Pro in Docker, use the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb-pro<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span>percona/percona-server-mongodb-pro:&lt;TAG&gt;
+</code></pre></div>
+<p>The command does the following:</p>
+<ul>
+<li>
+<p>The <code>docker run</code> command instructs the <code>docker</code> daemon
+to run a container from an image.</p>
+</li>
+<li>
+<p>The <code>-d</code> option starts the container in detached mode
+(that is, in the background).</p>
+</li>
+<li>
+<p>The <code>--name</code> option assigns a custom name for the container
+that you can use to reference the container within a Docker network.
+In this case: <code>psmdb-pro</code>.</p>
+</li>
+<li>
+<p>The <code>-p</code> option binds the container&rsquo;s port <code>27017</code> to TCP port <code>27017</code> on all host network interfaces. This makes the container accessible externally.</p>
+</li>
+<li>
+<p>The <code>--restart</code> option defines the container’s restart policy.
+Setting it to <code>always</code> ensures that the Docker daemon
+will start the container on startup
+and restart it if the container exits.</p>
+</li>
+<li>
+<p><code>percona/percona-server-mongodb-pro</code> is the name of the image to derive the container from.</p>
+</li>
+<li>
+<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.18-11</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro/tags">See the full list of tags</a>.</p>
+</li>
+</ul>
+<h3 id="access-the-container-shell">Access the container shell<a class="headerlink" href="#access-the-container-shell" title="Permanent link">&para;</a></h3>
+<p>Run the following command to start the bash session and run commands inside the container:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container-name&gt;
+</code></pre></div>
+<p>where <code>&lt;container-name&gt;</code> is the name of your database container.</p>
+<p>For example, to connect to Percona Server for MongoDB, run:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh
+</code></pre></div>
+<h2 id="next-steps_1">Next steps<a class="headerlink" href="#next-steps_1" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="../crud.html">Run simple queries <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
 
 
 
@@ -2832,7 +3005,7 @@ $<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>p
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 20, 2025 09:01:24 UTC">January 20, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 15, 2025 13:21:12 UTC">July 15, 2025</span>
   </span>
 
     

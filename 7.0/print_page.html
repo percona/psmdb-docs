@@ -4317,6 +4317,14 @@ and restart it if the container exits.</p>
 <p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.18-11</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb/tags">See the full list of tags</a>.</p>
 </li>
 </ul>
+<h2 id="install-docker-access-container-shell">Access container shell<a class="headerlink" href="#install-docker-access-container-shell" title="Permanent link">&para;</a></h2>
+<p>Run the following command to start the bash session and run commands inside the container:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container-name&gt;
+</code></pre></div>
+<p>where <code>&lt;container-name&gt;</code> is the name of your database container.</p>
+<p>For example, to connect to Percona Server for MongoDB, run:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh
+</code></pre></div>
 <h2 id="install-docker-connecting-from-another-docker-container">Connecting from another Docker container<a class="headerlink" href="#install-docker-connecting-from-another-docker-container" title="Permanent link">&para;</a></h2>
 <p>The Percona Server for MongoDB container exposes standard MongoDB port (27017),
 which can be used for connection from an application
@@ -4328,7 +4336,6 @@ running in another container.</p>
 <li>Automate the container provisioning and the replica set setup via the <a href="https://docs.docker.com/compose/">Docker Compose tool</a>.</li>
 </ul>
 <p>The following example demonstrates the setup on x86_64 platforms. The <code>rs101</code>, <code>rs102</code>, <code>rs103</code> are the container names for Percona Server for MongoDB and <code>rs</code> is the replica set name. </p>
-<p>For ARM64 architectures, change the image to <code>percona/percona-server-mongodb:&lt;TAG&gt;-arm64</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="install-docker-__tabbed_1_1" name="install-docker-__tabbed_1" type="radio" /><input id="install-docker-__tabbed_1_2" name="install-docker-__tabbed_1" type="radio" /><input id="install-docker-__tabbed_1_3" name="install-docker-__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="install-docker-__tabbed_1_1">Bridge network</label><label for="install-docker-__tabbed_1_2">User-defined network</label><label for="install-docker-__tabbed_1_3">Docker Compose</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -4498,7 +4505,9 @@ run the following command: </p>
 <p>Set <code>MONGODB_SERVER</code>, <code>PORT</code>, and <code>DB_NAME</code> with the IP address of the <code>psmdb</code> container, the port of your MongoDB Server (default value is 27017), and the name of the database you want to connect to.</p>
 <p>You can get the IP address by running this command:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>inspect<span class="w"> </span>-f<span class="w"> </span><span class="s1">&#39;{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span><span class="w"> </span>psmdb
-</code></pre></div></section><section class="print-page" id="install-install-pro" heading-number="4.2.9"><h1 id="install-install-pro-install-percona-server-for-mongodb-pro">Install Percona Server for MongoDB Pro<a class="headerlink" href="#install-install-pro-install-percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h1>
+</code></pre></div>
+<h2 id="install-docker-next-steps">Next steps<a class="headerlink" href="#install-docker-next-steps" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="#crud">Run simple queries <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="install-install-pro" heading-number="4.2.9"><h1 id="install-install-pro-install-percona-server-for-mongodb-pro">Install Percona Server for MongoDB Pro<a class="headerlink" href="#install-install-pro-install-percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h1>
 <p>This document provides guidelines how to install Percona Server for MongoDB Pro from Percona repositories and from binary tarballs. <a href="#psmdb-pro">Learn more about Percona Server for MongoDB Pro</a>.</p>
 <p>If you already run Percona Server for MongoDB and wish to upgrade to Percona Server for MongoDB Pro, see the <a href="#install-update-pro">upgrade guide</a>.</p>
 <h2 id="install-install-pro-get-the-access-token-to-the-pro-repository">Get the access token to the Pro repository<a class="headerlink" href="#install-install-pro-get-the-access-token-to-the-pro-repository" title="Permanent link">&para;</a></h2>
@@ -4694,8 +4703,67 @@ $<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>p
 </div>
 </div>
 </div>
+<h2 id="install-install-pro-run-percona-server-for-mongodb-pro-in-docker">Run Percona Server for MongoDB Pro in Docker<a class="headerlink" href="#install-install-pro-run-percona-server-for-mongodb-pro-in-docker" title="Permanent link">&para;</a></h2>
+<p>You can run Percona Server for MongoDB Pro in Docker using the official image available in a private registry on <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro">Docker Hub</a>.</p>
+<p>We gather <a href="#telemetry">Telemetry data</a> to understand the use of the software and improve our products.x</p>
+<p>To access this image, you must authenticate in DockerHub. For this you must have a valid Percona Server for MongoDB Pro subscription. </p>
+<h3 id="install-install-pro-authenticate-in-docker-hub">Authenticate in Docker Hub<a class="headerlink" href="#install-install-pro-authenticate-in-docker-hub" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Contact your Percona Representative to get authentication credentials for Docker Hub. You will receive a username and an access token. </li>
+<li>
+<p>Authenticate in Docker Hub:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>login<span class="w"> </span>--username<span class="w"> </span>&lt;Username&gt;<span class="w"> </span>
+</code></pre></div>
+<p>When prompted for a password, enter your access token.</p>
+</li>
+</ol>
 <h2 id="install-install-pro-next-steps">Next steps<a class="headerlink" href="#install-install-pro-next-steps" title="Permanent link">&para;</a></h2>
-<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section></section><section class="print-page" id="connect" heading-number="4.3"><h1 id="connect-connect-to-percona-server-for-mongodb">Connect to Percona Server for MongoDB<a class="headerlink" href="#connect-connect-to-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
+<h3 id="install-install-pro-run-percona-server-for-mongodb-pro">Run Percona Server for MongoDB Pro<a class="headerlink" href="#install-install-pro-run-percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h3>
+<p>To run Percona Server for MongoDB Pro in Docker, use the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb-pro<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span>percona/percona-server-mongodb-pro:&lt;TAG&gt;
+</code></pre></div>
+<p>The command does the following:</p>
+<ul>
+<li>
+<p>The <code>docker run</code> command instructs the <code>docker</code> daemon
+to run a container from an image.</p>
+</li>
+<li>
+<p>The <code>-d</code> option starts the container in detached mode
+(that is, in the background).</p>
+</li>
+<li>
+<p>The <code>--name</code> option assigns a custom name for the container
+that you can use to reference the container within a Docker network.
+In this case: <code>psmdb-pro</code>.</p>
+</li>
+<li>
+<p>The <code>-p</code> option binds the container&rsquo;s port <code>27017</code> to TCP port <code>27017</code> on all host network interfaces. This makes the container accessible externally.</p>
+</li>
+<li>
+<p>The <code>--restart</code> option defines the container’s restart policy.
+Setting it to <code>always</code> ensures that the Docker daemon
+will start the container on startup
+and restart it if the container exits.</p>
+</li>
+<li>
+<p><code>percona/percona-server-mongodb-pro</code> is the name of the image to derive the container from.</p>
+</li>
+<li>
+<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.18-11</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro/tags">See the full list of tags</a>.</p>
+</li>
+</ul>
+<h3 id="install-install-pro-access-the-container-shell">Access the container shell<a class="headerlink" href="#install-install-pro-access-the-container-shell" title="Permanent link">&para;</a></h3>
+<p>Run the following command to start the bash session and run commands inside the container:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container-name&gt;
+</code></pre></div>
+<p>where <code>&lt;container-name&gt;</code> is the name of your database container.</p>
+<p>For example, to connect to Percona Server for MongoDB, run:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh
+</code></pre></div>
+<h2 id="install-install-pro-next-steps_1">Next steps<a class="headerlink" href="#install-install-pro-next-steps_1" title="Permanent link">&para;</a></h2>
+<p><a class="md-button" href="#crud">Run simple queries <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section></section><section class="print-page" id="connect" heading-number="4.3"><h1 id="connect-connect-to-percona-server-for-mongodb">Connect to Percona Server for MongoDB<a class="headerlink" href="#connect-connect-to-percona-server-for-mongodb" title="Permanent link">&para;</a></h1>
 <p>After you have successfully installed and started Percona Server for MongoDB, let&rsquo;s connect to it.</p>
 <p>By default, access control is disabled in MongoDB. We recommend enabling it so that users must verify their identity to be able to connect to the database. Percona Server for MongoDB supports several <a href="#authentication">authentication methods</a>. We will use the default one, <a href="#authentication-scram">SCRAM</a>, to configure authentication.</p>
 <p class="power-number">The steps are the following:</p>
