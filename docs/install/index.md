@@ -3,7 +3,7 @@ for MongoDB 7.0 Community Edition with [enterprise-grade features](../comparison
 
 Find the full list of supported platforms for Percona Server for MongoDB on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page.
 
-## Install Percona Server for MongoDB basic
+## Install Percona Server for MongoDB Regular
 
 You can use any of the easy-install guides. We recommend to use **the package manager of your operating system** for a convenient and quick way to install the software for production use. **Use Docker** to try the software first.
 
@@ -13,6 +13,7 @@ You can use any of the easy-install guides. We recommend to use **the package ma
 
     [on Debian and Ubuntu :material-arrow-right:](apt.md){ .md-button }
     [on RHEL and derivatives :material-arrow-right:](yum.md){ .md-button }
+    [on Amazon Linux 2023 :material-arrow-right:](amazon-linux.md){ .md-button }
 
     We gather [Telemetry data](../telemetry.md) in Percona packages.
 

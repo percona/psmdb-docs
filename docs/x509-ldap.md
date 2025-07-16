@@ -1,6 +1,6 @@
 # Set up x.509 authentication and LDAP authorization
 
-[x.509 certificate authentication](authentication.md#x509) is one of the supported authentication mechanisms in Percona Server for MongoDB. It is compatible with [LDAP authorization](authorization.md) to enable you to control user access and operations in your database environment.
+[x.509 certificate authentication](authentication.md#x509-certificate-authentication) is one of the supported authentication mechanisms in Percona Server for MongoDB. It is compatible with [LDAP authorization](authorization.md) to enable you to control user access and operations in your database environment.
 
 This document provides the steps on how to configure and use x.509 certificates for authentication in Percona Server for MongoDB and authorize users in the LDAP server.
 

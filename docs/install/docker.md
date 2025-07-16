@@ -16,8 +16,7 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 To run the latest Percona Server for MongoDB 7.0 in a Docker container, run the following command as the root user or via `sudo`:
 
 ```{.bash data-prompt="$"}
-$ docker run -d --name psmdb --restart always \
-percona/percona-server-mongodb:<TAG>-multi
+$ docker run -d --name psmdb -p 27017:27017 --restart always percona/percona-server-mongodb:<TAG>
 ```
 
 The command does the following:
@@ -33,6 +32,8 @@ to run a container from an image.
 that you can use to reference the container within a Docker network.
 In this case: `psmdb`.
 
+* The `-p` option binds the container's port `27017` to TCP port `27017` on all host network interfaces. This makes the container accessible externally.
+
 * The `--restart` option defines the container’s restart policy.
 Setting it to `always` ensures that the Docker daemon
 will start the container on startup
@@ -40,8 +41,27 @@ and restart it if the container exits.
 
 * `percona/percona-server-mongodb` is the name of the image to derive the container from.
 
-* `<TAG>-multi` is the tag specifying the version you need. For example, `{{release}}-multi`. The `multi` part of the tag serves to identify the architecture (x86_64 or ARM64) and pull the respective image. [See the full list of tags](https://hub.docker.com/r/percona/percona-server-mongodb/tags).
-    
+* `<TAG>` is the tag specifying the version you need. For example, `{{release}}`. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. [See the full list of tags](https://hub.docker.com/r/percona/percona-server-mongodb/tags).
+
+## Access container shell
+
+--8<-- [start:shell]
+
+Run the following command to start the bash session and run commands inside the container:
+
+```{.bash data-prompt="$"}
+$ docker exec -it <container-name>
+```
+
+where `<container-name>` is the name of your database container.
+
+For example, to connect to Percona Server for MongoDB, run:
+
+```{.bash data-prompt="$"}
+$ mongosh
+```
+--8<-- [end:shell]
+
 ## Connecting from another Docker container
 
 The Percona Server for MongoDB container exposes standard MongoDB port (27017),
@@ -55,8 +75,6 @@ For example, to set up a replica set for testing purposes, you have the followin
 * Automate the container provisioning and the replica set setup via the [Docker Compose tool](https://docs.docker.com/compose/).
 
 The following example demonstrates the setup on x86_64 platforms. The `rs101`, `rs102`, `rs103` are the container names for Percona Server for MongoDB and `rs` is the replica set name. 
-
-For ARM64 architectures, change the image to `percona/percona-server-mongodb:<TAG>-arm64`.
 
 === "Bridge network"
 
@@ -102,7 +120,7 @@ For ARM64 architectures, change the image to `percona/percona-server-mongodb:<TA
     4.  Check your setup
 
          ```{.bash data-prompt="$"}
-         $ docker exec -ti rs101 mongosh --eval 'rs.status()'
+         $ docker exec -it rs101 mongosh --eval 'rs.status()'
          ```
 
 === "User-defined network"
@@ -138,7 +156,7 @@ For ARM64 architectures, change the image to `percona/percona-server-mongodb:<TA
     4.  Check your setup
 
          ```{.bash data-prompt="$"}
-         $ docker exec -ti rs101 mongosh --eval 'rs.status()'
+         $ docker exec -it rs101 mongosh --eval 'rs.status()'
          ```
 
 === "Docker Compose"
@@ -226,7 +244,7 @@ For ARM64 architectures, change the image to `percona/percona-server-mongodb:<TA
     3.  Check your setup
 
          ```{.bash data-prompt="$"}
-         $ docker exec -ti rs101 mongosh --eval 'rs.status()'
+         $ docker exec -it rs101 mongosh --eval 'rs.status()'
          ```
 
 ## Connecting with the `mongosh` shell
@@ -248,3 +266,8 @@ You can get the IP address by running this command:
 $ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' psmdb
 ```
 {% endraw %}
+
+## Next steps
+
+[Run simple queries :material-arrow-right:](../crud.md){.md-button}
+
