@@ -2,7 +2,7 @@
 
 Auditing allows administrators to track
 and log user activity on a MongoDB server.
-With auditing enabled, the server will generate an audit log file.
+With auditing enabled, the server generates an audit log file.
 This file contains information about different user events
 including authentication, authorization failures, and so on.
 
@@ -289,4 +289,16 @@ setParameter:
       "result": 0
     }
     ```
+
+## Audit log rotation
+
+When you enable auditing, Percona Server for MongoDB creates a log file and starts writing auditing events there. 
+
+If you restart Percona Server for MongoDB with auditing enabled or manually start log rotation with the `logRotate` command, it rotates the current audit log file as follows:
+
+* Renames the current audit log file by adding a UTC timestamp to a filename 
+* Closes this renamed file
+* Opens a new audit log file and starts writing auditing events to it.
+
+
 
