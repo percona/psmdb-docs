@@ -10,7 +10,7 @@ File copy-based initial sync method is a physical copying of the data files from
 
 File copy-based initial sync implementation is compatible with that of MongoDB Advanced and has the same [configuration parameters](#configuration-parameters).
 
-To select the initial sync method, specify the following configuration in the configuration file for the target node:
+To select the initial sync method, specify the `initialSyncMethod` parameter in the configuration file for the target node:
 
 ```yaml
 setParameter:
@@ -24,10 +24,10 @@ You can only set this server parameter at startup.
 When you start a new node for the replica set, the workflow is the following:
 
 1. The new node (also referred to as the target node) selects the source node for the sync. This sync source is typically the node that responded first and has the passing configuration (e.g. it has WiredTiger set as the storage and the same arrangement of files and indexes as the target node.)
-2. The target node executes a `backup cursor` towards the sync source. The `$backupCursor` returns the list of files to copy and the timestamp of the oplog end in the metadata file.
-3. The file copy starts. During this process the target node lags behind the sync source as it remains operational and its data changes. The sync source node is periodically checked to ensure the time of the lag falls within the dined time.
-4. If the lag between the sync source and the target exceeds the defined threshold, the target node executes the `backup cursor extended` to retrieve the changes. Depending on the file copy duration, the target node can open `$backupCursorExtended` several times, limited by the maximum number of cycles (3 by default)
-5. When the files are copied and the lag between the sync source and the target is acceptable, the target node closes the `backup cursor`. 
+2. The target node opens a backup cursor on the sync source. The backup cursor is used to retrieve the list of files to copy and the timestamp of the oplog end in the metadata file.
+3. The file copy starts. During this process the target node lags behind the sync source as it remains operational and its data changes. The sync source node is periodically checked to ensure the time of the lag falls within the defined time.
+4. If the lag between the sync source and the target exceeds the defined threshold, the target node executes the `$backupCursorExtend` aggregation to retrieve the changes. Depending on the file copy duration, the target node can execute `$backupCursorExtend` several times, limited by the maximum number of cycles (3 by default)
+5. When the files are copied and the lag between the sync source and the target is acceptable, the target node closes the backup cursor. 
 6. The target node internally moves the downloaded files to the local `dbPath`, applies oplog on top, reconstructs timestamps to ensure data consistency.
 
 ## Configuration parameters
