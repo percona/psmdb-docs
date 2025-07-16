@@ -300,5 +300,6 @@ If you restart Percona Server for MongoDB with auditing enabled or manually star
 * Closes this renamed file
 * Opens a new audit log file and starts writing auditing events to it.
 
+Read more about log rotation in [Log rotation in Percona Server for MongoDB](log-rotation.md)
 
 
