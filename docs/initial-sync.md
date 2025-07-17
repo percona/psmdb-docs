@@ -1,6 +1,6 @@
 # File copy based initial sync
 
-!!! admonition "Version added: [7.0.21-12](release_notes/7.0.21-12.md)"
+!!! admonition "Version added: [7.0.22-12](release_notes/7.0.22-12.md)"
 
 When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. 
 
