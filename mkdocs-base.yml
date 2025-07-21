@@ -221,7 +221,9 @@ nav:
         - "Use local keyfile": keyfile.md
         - "Migrate from keyfile to Vault": encryption-mode-switch.md
         - fips.md
-      - audit-logging.md 
+      - Auditing:
+        - Audit logging: audit-logging.md 
+        - Integration with Imperva DSF: imperva.md 
       - rate-limit.md
       - log-redaction.md
       - ngram-full-text-search.md
