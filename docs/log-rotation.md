@@ -6,9 +6,9 @@ Percona Server for MongoDB has server and [audit logs](audit-logging.md). To mai
 
 Percona Server for MongoDB supports several methods for rotating server and audit logs. You can:
 
-- Send a SIGUSR1 signal to the `mongod` or `mongos` process to trigger log rotation. This method is typically used with system log rotation tools like logrotate.
+- Send a SIGUSR1 signal to the `mongod` or `mongos` process to trigger log rotation. This method is typically used with system log rotation tools like `logrotate`.
 
-- Run the logRotate command from mongosh. This must be done individually on each replica set member.
+- Run the `logRotate` command from `mongosh`. This must be done individually on each replica set member.
 
 ## Log rotation considerations
 
@@ -19,13 +19,15 @@ Percona Server for MongoDB does not rotate logs automatically. You must trigger 
 Percona Server for MongoDB supports two log rotation strategies:
 
 * `rename` (default): Renames the current log file by appending a UTC timestamp to the file name. This log file is closed. Percona Server for MongoDB creates a new log file and writes all new log entries to this file.
-* `reopen`: Closes and reopens the log file, expecting an external process (e.g., `logrotate`) to rename the file beforehand.
+* `reopen`: Closes and reopens the log file, expecting an external process (e.g., `logrotate`) to rename the file beforehand. You must use `--logRotate reopen` with the [`--logAppend` :octicons-external-link-16:](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--logappend) option.
 
 You can configure a log rotation behavior using either the `--logRotate` command-line option or the `systemLog.logRotate` setting in the configuration file. 
 
+Learn more about [`logRotate` :octicons-external-link-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-systemLog.logRotate) and [`logAppend` :octicons-external-link-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-systemLog.logAppend) settings.
+
 ## Rotation methods
 
-### Manual log rotation with `logRotate`
+### Log rotation with `logRotate`
 
 To rotate log files, do the following:
 
@@ -54,6 +56,16 @@ To rotate log files, do the following:
         /var/log/mongodb/server1.log.<timestamp>
         ```
 
+### Signal-Based Rotation (Unix Systems)
+
+On Unix-based systems, you can trigger log rotation by sending a SIGUSR1 signal to the running `mongod` or `mongos` process:
+
+```{.bash data-prompt="$"}
+$ kill -SIGUSR1 <PID>
+```
+
+Replace `<PID>` with the process ID of the Percona Server for MongoDB instance.
+
 ### Integration with `logrotate`
 
 You can automate log rotation by integrating Percona Server for MongoDB with the Linux/Unix `logrotate` functionality.
@@ -73,9 +85,8 @@ Here's how to do it:
        postrotate
         /bin/kill -SIGUSR1 $(pidof mongod)
        endscript
-}
     }
-   ```
+    ```
 
 2. Configure Percona Server for MongoDB:
 
@@ -87,15 +98,6 @@ Here's how to do it:
       logRotate: reopen
     ```
 
-This setup ensures that Percona Server for MongoDB works seamlessly with logrotate, allowing external rotation and compression of log files.
+This setup ensures that Percona Server for MongoDB works seamlessly with `logrotate`, allowing external rotation and compression of log files.
 
-### Signal-Based Rotation (Unix Systems)
-
-On Unix-based systems, you can trigger log rotation by sending a SIGUSR1 signal to the running `mongod` process:
-
-```{.bash data-prompt="$"}
-$ kill -SIGUSR1 <PID>
-```
-
-Replace `<PID>` with the process ID of the Percona Server for MongoDB instance.
 
