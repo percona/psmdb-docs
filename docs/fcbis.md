@@ -45,12 +45,13 @@ These configuration parameters can be used to control the file copy-based initia
 
 ## Limitations
 
-Using file copy based initial sync has the following limitations:
+Using file copy-based initial sync has the following limitations:
 
 * Don't run backups on either sync source or syncing nodes
 * Don't write to the `local` database on the syncing node
 * You cannot use the same sync source for multiple target nodes simultaneously because only one backup cursor can exist at any moment.
 * If you're using encrypted storage, Percona Server for MongoDB applies the encryption key from the sync source node to secure the data on the syncing node.
+* You must have WiredTiger defined as the storage engine to run file copy-based initial sync. [Percona memory engine](inmemory.md) engine is not supported.
 
 
 
