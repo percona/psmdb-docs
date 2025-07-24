@@ -65,16 +65,17 @@ Here's how to do it:
 1. Create a `logrotate` configuration file at `/etc/logrotate.d/mongod`.
 
     ```ini
-    /var/log/percona/mongod.log {
-      daily
-      rotate 7
-      compress
-      missingok
-      notifempty
-      create 640 percona percona
-      postrotate
-        kill -SIGUSR1 $(pidof mongod)
-      endscript
+    /var/log/mongo/mongod.log {
+       daily
+       rotate 7
+       compress
+       missingok
+       notifempty
+       create 600 mongod mongod
+       postrotate
+        /bin/kill -SIGUSR1 $(pidof mongod)
+       endscript
+}
     }
    ```
 
