@@ -4,13 +4,11 @@ When you start Percona Server for MongoDB with a `--logpath` or `systemLog.path`
 
 Percona Server for MongoDB has server and [audit logs](audit-logging.md). To maintain system performance, manage disk space, and meet audit and compliance requirements, you must effectively manage these logs. 
 
-Percona Server for MongoDB provides multiple log rotation mechanisms to help you achieve this goal. You can:
+Percona Server for MongoDB supports several methods for rotating server and audit logs. You can:
 
-- Send a SIGUSR1 signal to the `mongod` or `mongos` process.
+- Send a SIGUSR1 signal to the `mongod` or `mongos` process to trigger log rotation. This method is typically used with system log rotation tools like logrotate.
 
-- Run the `logRotate` command on `mongosh`. Note that you must connect to each replica set member and start log rotation for it.
-
-- Use the Linux/Unix `logrotate` utility with proper configuration.
+- Run the logRotate command from mongosh. This must be done individually on each replica set member.
 
 ## Log rotation considerations
 
