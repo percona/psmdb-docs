@@ -11,7 +11,7 @@
 
 ## Procedure
 
-Before you start, check the [system requirements](system-requirements.md).
+Before you start, check the [system requirements](../system-requirements.md).
 
 ### Configure Percona repository
 
