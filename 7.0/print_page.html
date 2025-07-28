@@ -1516,6 +1516,29 @@
   
   
     <li class="md-nav__item">
+      <a href="fcbis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File copy based initial sync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="audit-logging.html" class="md-nav__link">
         
   
@@ -2833,6 +2856,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#fcbis" class="md-nav__link">
+    <span class="md-ellipsis">
+      File copy based initial sync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#audit-logging" class="md-nav__link">
     <span class="md-ellipsis">
       Auditing
@@ -3259,6 +3291,11 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
 <td><a href="#fips">FIPS support </a></td>
 <td><a href="#release_notes-7.0.4-2">7.0.4-2</a></td>
 <td>FIPS mode provides a way to use FIPS-compliant encryption and run the Percona Server for MongoDB with the FIPS-140 certified library for OpenSSL. This helps customers meet minimum security requirements for cryptographic modules and testing in both hardware and software.</td>
+</tr>
+<tr>
+<td><a href="#initial-sync.md">File copy-based initial sync</a></td>
+<td><a href="#release_notes-7.0.22-12.md">7.0.22-12</a></td>
+<td>File copy based initial sync is an additional method of doing an initial sync for a new node in a replica set. For big data sets, this method is faster than the logical sync as it copies physical files rather than cloning data.</td>
 </tr>
 <tr>
 <td>Binaries with debug symbols</td>
@@ -6921,12 +6958,11 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
                         <h1>Encryption<a class='headerlink' href='#section-5-5' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="data-at-rest-encryption" heading-number="5.5.1"><h1 id="data-at-rest-encryption-data-at-rest-encryption">Data at rest encryption<a class="headerlink" href="#data-at-rest-encryption-data-at-rest-encryption" title="Permanent link">&para;</a></h1>
-<p>Data at rest encryption for the WiredTiger storage engine in MongoDB was
-introduced in MongoDB Enterprise version 3.2 to ensure that encrypted data
-files can be decrypted and read by parties with the decryption key.</p>
-<h2 id="data-at-rest-encryption-differences-from-upstream">Differences from upstream<a class="headerlink" href="#data-at-rest-encryption-differences-from-upstream" title="Permanent link">&para;</a></h2>
-<p>The data encryption at rest in Percona Server for MongoDB is introduced in version 3.6 to be compatible with data encryption at rest interface in MongoDB. In the current release of Percona Server for MongoDB, the data encryption at rest does not include support for Amazon AWS key management service. Instead, Percona Server for MongoDB is <a href="#vault">integrated with HashiCorp Vault</a>. </p>
-<p>Starting with release 6.0.2-1, Percona Server for MongoDB supports the secure transfer of keys using <a href="#kmip">Key Management Interoperability Protocol (KMIP)</a>. This allows users to store encryption keys in their favorite KMIP-compatible key manager when they set up encryption at rest.</p>
+<p>Data encryption at rest was introduced in Percona Server for MongoDB 3.6 to maintain compatibility with MongoDB&rsquo;s encryption interface. Percona Server for MongoDB does not support Amazon AWS Key Management Service (KMS). Instead, it offers the following key management integrations:</p>
+<ul>
+<li><a href="#vault">Integration with HashiCorp Vault</a> for secure key management. </li>
+<li><a href="#kmip">Support of secure key transfer via the Key Management Interoperability Protocol (KMIP)</a>. It allows users to store encryption keys in their favorite KMIP-compatible key manager when they set up encryption at rest.</li>
+</ul>
 <h2 id="data-at-rest-encryption-workflow">Workflow<a class="headerlink" href="#data-at-rest-encryption-workflow" title="Permanent link">&para;</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -6972,7 +7008,7 @@ demonstrates how to apply the AES256-GCM cipher mode when starting the
 <p>MongoDB Documentation: <a href="https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-encryptionciphermode">encryptionCipherMode Option</a></p>
 </div>
 <h2 id="data-at-rest-encryption-encryption-of-rollback-files">Encryption of rollback files<a class="headerlink" href="#data-at-rest-encryption-encryption-of-rollback-files" title="Permanent link">&para;</a></h2>
-<p>Starting from version 3.6, Percona Server for MongoDB also encrypts rollback files when data at rest encryption is enabled. To inspect the contents of these files, use <strong>perconadecrypt</strong>. This is a tool that you run from the command line as follows:</p>
+<p>Percona Server for MongoDB encrypts rollback files when data at rest encryption is enabled. To inspect the contents of these files, use <strong>perconadecrypt</strong>. This is a tool that you run from the command line as follows:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>perconadecrypt<span class="w"> </span>--encryptionKeyFile<span class="w"> </span>FILE<span class="w">  </span>--inputPath<span class="w"> </span>FILE<span class="w"> </span>--outputPath<span class="w"> </span>FILE<span class="w"> </span><span class="o">[</span>--encryptionCipherMode<span class="w"> </span>MODE<span class="o">]</span>
 </code></pre></div>
 <p>When decrypting, the cipher mode must match the cipher mode which was used for
@@ -7004,7 +7040,20 @@ the encryption. By default, the <code>--encryptionCipherMode</code> option uses 
 <td>The path to save the decrypted rollback file</td>
 </tr>
 </tbody>
-</table></section><section class="print-page" id="vault" heading-number="5.5.2"><h1 id="vault-hashicorp-vault-integration">HashiCorp Vault integration<a class="headerlink" href="#vault-hashicorp-vault-integration" title="Permanent link">&para;</a></h1>
+</table>
+<h2 id="data-at-rest-encryption-check-encryption-status">Check encryption status<a class="headerlink" href="#data-at-rest-encryption-check-encryption-status" title="Permanent link">&para;</a></h2>
+<p>You can check the encryption status and the current configuration using the following command:</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span><span class="w"> </span>
+</code></pre></div>
+<details class="example">
+<summary>Expected output</summary>
+<div class="no-copy highlight"><pre><span></span><code>{
+  encryptionEnabled: true,
+  encryptionCipherMode: &#39;AES256-CBC&#39;,
+  encryptionKeyId: &#39;local&#39;
+}
+</code></pre></div>
+</details></section><section class="print-page" id="vault" heading-number="5.5.2"><h1 id="vault-hashicorp-vault-integration">HashiCorp Vault integration<a class="headerlink" href="#vault-hashicorp-vault-integration" title="Permanent link">&para;</a></h1>
 <p>Percona Server for MongoDB is integrated with HashiCorp Vault. HashiCorp Vault supports different secrets engines. Percona Server for MongoDB only supports the HashiCorp Vault
 back end with KV Secrets Engine - Version 2 (API)
 with versioning enabled.</p>
@@ -7179,7 +7228,20 @@ with versioning enabled.</p>
 <h3 id="vault-master-key-loss-prevention">Master key loss prevention<a class="headerlink" href="#vault-master-key-loss-prevention" title="Permanent link">&para;</a></h3>
 <p>Starting with version 7.0.15-9, Percona Server for MongoDB checks if the number of secret versions has reached the maximum (10 by default) before adding a new master key to the Vault server as a versioned secret. You configure this number using the <code>max_versions</code> parameter on the Vault server.</p>
 <p>If the number of secrets reaches the maximum, Percona Server for MongoDB logs an error and exits. This prevents the Vault server from dropping the oldest secret version and the encryption key it stores.</p>
-<p>To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has <a href="#vault-config-file-example">read permissions for the secret’s metadata and the secrets engine configuration</a>.</p></section><section class="print-page" id="kmip" heading-number="5.5.3"><h1 id="kmip-using-the-key-management-interoperability-protocol-kmip">Using the Key Management Interoperability Protocol (KMIP)<a class="headerlink" href="#kmip-using-the-key-management-interoperability-protocol-kmip" title="Permanent link">&para;</a></h1>
+<p>To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has <a href="#vault-config-file-example">read permissions for the secret’s metadata and the secrets engine configuration</a>.</p>
+<h2 id="vault-check-encryption-status">Check encryption status<a class="headerlink" href="#vault-check-encryption-status" title="Permanent link">&para;</a></h2>
+<p>You can check the encryption status and the current configuration using the following command:</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span><span class="w"> </span>
+</code></pre></div>
+<details class="example">
+<summary>Expected output</summary>
+<div class="no-copy highlight"><pre><span></span><code>{
+  encryptionEnabled: true,
+  encryptionCipherMode: &#39;AES256-CBC&#39;,
+  encryptionKeyId: &#39;local&#39;
+}
+</code></pre></div>
+</details></section><section class="print-page" id="kmip" heading-number="5.5.3"><h1 id="kmip-using-the-key-management-interoperability-protocol-kmip">Using the Key Management Interoperability Protocol (KMIP)<a class="headerlink" href="#kmip-using-the-key-management-interoperability-protocol-kmip" title="Permanent link">&para;</a></h1>
 <p>Percona Server for MongoDB adds support for secure transfer of keys using the <a href="https://docs.oasis-open.org/kmip/kmip-spec/v2.0/os/kmip-spec-v2.0-os.html">OASIS Key Management Interoperability Protocol (KMIP)</a>. The KMIP implementation was tested with the <a href="https://pykmip.readthedocs.io/en/latest/server.html">PyKMIP server</a> and the <a href="https://www.vaultproject.io/docs/secrets/kmip">HashiCorp Vault Enterprise KMIP Secrets Engine</a>.</p>
 <p>KMIP enables the communication between key management systems and the database server. KMIP provides the following benefits:</p>
 <ul>
@@ -7516,6 +7578,19 @@ with versioning enabled.</p>
 </div>
 </div>
 </div>
+<h2 id="kmip-check-encryption-status">Check encryption status<a class="headerlink" href="#kmip-check-encryption-status" title="Permanent link">&para;</a></h2>
+<p>You can check the encryption status and the current configuration using the following command:</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span><span class="w"> </span>
+</code></pre></div>
+<details class="example">
+<summary>Expected output</summary>
+<div class="no-copy highlight"><pre><span></span><code>{
+  encryptionEnabled: true,
+  encryptionCipherMode: &#39;AES256-CBC&#39;,
+  encryptionKeyId: &#39;local&#39;
+}
+</code></pre></div>
+</details>
 <h2 id="kmip-upgrade-considerations">Upgrade considerations<a class="headerlink" href="#kmip-upgrade-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="kmip-to-version-7014-8-and-higher">To version 7.0.14-8 and higher<a class="headerlink" href="#kmip-to-version-7014-8-and-higher" title="Permanent link">&para;</a></h3>
 <p>Percona Server for MongoDB 7.0.14-8 and subsequent versions tolerate already existing <code>Pre-Active</code> master keys as follows: if at startup Percona Server for MongoDB detects that the data directory is encrypted with an existing master key in the <code>Pre-Active</code> state, it logs a warning and continues to operate as usual. In that case, Percona Server for MongoDB does not do periodic key state polling regardless the value specified for the <a href="#kmip-security-kmip-keystatepollingseconds"><code>kmipKeyStatePollingSeconds</code></a> option. <a href="#kmip-key-state-polling">Read more about key state polling</a>.</p>
@@ -7613,7 +7688,82 @@ d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
 <p>See <a href="https://www.mongodb.com/docs/v7.0/tutorial/configure-fips/">Configure MongoDB for FIPS</a> in MongoDB documentation for configuration guidelines. </p>
 <h2 id="fips-platform-support">Platform support<a class="headerlink" href="#fips-platform-support" title="Permanent link">&para;</a></h2>
 <p>Starting with Percona Server for MongoDB 7.0.4-2, you can run Percona Server for MongoDB in FIPS mode on all <a href="https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb">supported operating systems</a>. To use FIPS mode for Percona Server for MongoDB, your Linux system must be configured with the OpenSSL FIPS certified module.</p>
-<p>Note, that FIPS modules on Ubuntu 24.04 are not available yet as they are awaiting final certification by CMVP.</p></section></section><section class="print-page" id="audit-logging" heading-number="5.6"><h1 id="audit-logging-auditing">Auditing<a class="headerlink" href="#audit-logging-auditing" title="Permanent link">&para;</a></h1>
+<p>Note, that FIPS modules on Ubuntu 24.04 are not available yet as they are awaiting final certification by CMVP.</p></section></section><section class="print-page" id="fcbis" heading-number="5.6"><h1 id="fcbis-file-copy-based-initial-sync">File copy based initial sync<a class="headerlink" href="#fcbis-file-copy-based-initial-sync" title="Permanent link">&para;</a></h1>
+<div class="admonition admonition">
+<p class="admonition-title">Version added: <a href="#release_notes-7.0.22-12.md">7.0.22-12</a></p>
+</div>
+<p>When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. </p>
+<p>In Percona Server for MongoDB, you can choose a file copy-based initial sync for a new node. You must have WiredTiger defined as the storage.</p>
+<p>The file copy-based initial sync method is a physical copying of the data files from the source to the target. It is much faster than the default <a href="https://www.mongodb.com/docs/manual/core/replica-set-sync/#logical-initial-sync-process">logical initial sync <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for big datasets (500GB+), which is especially beneficial in heavy write environments. Using this initial sync method speeds up cluster scaling and increases restore performance. </p>
+<p>File copy-based initial sync implementation is compatible with that of MongoDB Enterprise Advanced and has the same <a href="#fcbis-configuration-parameters">configuration parameters</a>.</p>
+<p>To select the initial sync method, specify the <code>initialSyncMethod</code> parameter in the configuration file for the target node:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">initialSyncMethod</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fileCopyBased</span>
+</code></pre></div>
+<p>You can only set this server parameter at startup.</p>
+<h2 id="fcbis-workflow">Workflow<a class="headerlink" href="#fcbis-workflow" title="Permanent link">&para;</a></h2>
+<p>When you start a new node for the replica set, the workflow is the following:</p>
+<ol>
+<li>The new node (also referred to as the target node) selects the source node for the sync. This sync source is typically the node that responded first and has the passing configuration (e.g. it has WiredTiger set as the storage and the same arrangement of files and indexes as the target node.)</li>
+<li>The target node opens a backup cursor on the sync source. The backup cursor is used to retrieve the list of files to copy and the timestamp of the oplog end in the metadata file.</li>
+<li>The file copy starts. During this process the target node lags behind the sync source as it remains operational and its data changes. The sync source node is periodically checked to ensure the time of the lag falls within the defined time.</li>
+<li>If the lag between the sync source and the target exceeds the defined threshold, the target node executes the <code>$backupCursorExtend</code> aggregation to retrieve the changes. Depending on the file copy duration, the target node can execute <code>$backupCursorExtend</code> several times, limited by the maximum number of cycles (3 by default)</li>
+<li>When the files are copied and the lag between the sync source and the target is acceptable, the target node closes the backup cursor. </li>
+<li>The target node internally moves the downloaded files to the local <code>dbPath</code>, applies oplog on top, reconstructs timestamps to ensure data consistency.</li>
+</ol>
+<h2 id="fcbis-configuration-parameters">Configuration parameters<a class="headerlink" href="#fcbis-configuration-parameters" title="Permanent link">&para;</a></h2>
+<p>These configuration parameters can be used to control the file copy-based initial sync flow. You can set them only at startup.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>initialSyncMethod</code></td>
+<td>string</td>
+<td>logical</td>
+<td>Specifies which method of initial sync to use. Valid options are: fileCopyBased, logical.</td>
+</tr>
+<tr>
+<td><code>numInitialSyncAttempts</code></td>
+<td>integer</td>
+<td>10</td>
+<td>Number of attempts of attempts to make at replica set initial synchronization</td>
+</tr>
+<tr>
+<td><code>numInitialSyncConnectAttempts</code></td>
+<td>integer</td>
+<td>10</td>
+<td>The number of attempts to select and connect to a valid sync source</td>
+</tr>
+<tr>
+<td><code>fileBasedInitialSyncMaxLagSec</code></td>
+<td>integer</td>
+<td>300</td>
+<td>Specifies the max lag in seconds between the syncing node and the sync source to mark the file copy based initial sync as done successfully</td>
+</tr>
+<tr>
+<td><code>fileBasedInitialSyncMaxCyclesWithoutProgress</code></td>
+<td>integer</td>
+<td>3</td>
+<td>Specifies the max number of cycles to clone updates while the lag between the syncing node and the sync source is higher than <code>fileBasedInitialSyncMaxLagSec</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="fcbis-limitations">Limitations<a class="headerlink" href="#fcbis-limitations" title="Permanent link">&para;</a></h2>
+<p>Using file copy-based initial sync has the following limitations:</p>
+<ul>
+<li>Don&rsquo;t run backups on either sync source or syncing nodes</li>
+<li>Don&rsquo;t write to the <code>local</code> database on the syncing node</li>
+<li>You cannot use the same sync source for multiple target nodes simultaneously because only one backup cursor can exist at any moment.</li>
+<li>If you&rsquo;re using encrypted storage, Percona Server for MongoDB applies the encryption key from the sync source node to secure the data on the syncing node.</li>
+<li>You must have WiredTiger defined as the storage engine to run file copy-based initial sync. <a href="#inmemory">Percona memory engine</a> engine is not supported.</li>
+</ul></section><section class="print-page" id="audit-logging" heading-number="5.7"><h1 id="audit-logging-auditing">Auditing<a class="headerlink" href="#audit-logging-auditing" title="Permanent link">&para;</a></h1>
 <p>Auditing allows administrators to track
 and log user activity on a MongoDB server.
 With auditing enabled, the server generates an audit log file.
@@ -7920,7 +8070,7 @@ when running <code>mongod</code> or <code>mongos</code> process:</p>
 <li>Closes this renamed file</li>
 <li>Opens a new audit log file and starts writing auditing events to it.</li>
 </ul>
-<p>Read more about log rotation in <a href="#log-rotation">Log rotation in Percona Server for MongoDB</a></p></section><section class="print-page" id="rate-limit" heading-number="5.7"><h1 id="rate-limit-profiling-rate-limit">Profiling rate limit<a class="headerlink" href="#rate-limit-profiling-rate-limit" title="Permanent link">&para;</a></h1>
+<p>Read more about log rotation in <a href="#log-rotation">Log rotation in Percona Server for MongoDB</a></p></section><section class="print-page" id="rate-limit" heading-number="5.8"><h1 id="rate-limit-profiling-rate-limit">Profiling rate limit<a class="headerlink" href="#rate-limit-profiling-rate-limit" title="Permanent link">&para;</a></h1>
 <p>Percona Server for MongoDB can limit the number of queries collected by the database profiler
 to decrease its impact on performance.
 Rate limit is an integer between 1 and 1000
@@ -8044,7 +8194,7 @@ set the corresponding variables in the MongoDB configuration file
 <p>Each document in the <code>system.profile</code> collection
 includes an additional <code>rateLimit</code> field.
 This field always has the value of <code>1</code> for <em>slow</em> queries
-and the current rate limit value for <em>fast</em> queries.</p></section><section class="print-page" id="log-redaction" heading-number="5.8"><h1 id="log-redaction-log-redaction">Log redaction<a class="headerlink" href="#log-redaction-log-redaction" title="Permanent link">&para;</a></h1>
+and the current rate limit value for <em>fast</em> queries.</p></section><section class="print-page" id="log-redaction" heading-number="5.9"><h1 id="log-redaction-log-redaction">Log redaction<a class="headerlink" href="#log-redaction-log-redaction" title="Permanent link">&para;</a></h1>
 <p>Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.</p>
 <p>To enable log redaction, run <code>mongod</code> with the <code>--redactClientLogData</code> option.</p>
 <div class="admonition note">
@@ -8119,7 +8269,7 @@ use the <code>setParameter</code> command as follows:</p>
     }
 ...
 </code></pre></div>
-<p>As you can see, the field names are still visible but the values are hidden. Some other fields like the <code>readPreference</code> are also hidden.</p></section><section class="print-page" id="ngram-full-text-search" heading-number="5.9"><h1 id="ngram-full-text-search-additional-text-search-algorithm-ngram">Additional text search algorithm - ngram<a class="headerlink" href="#ngram-full-text-search-additional-text-search-algorithm-ngram" title="Permanent link">&para;</a></h1>
+<p>As you can see, the field names are still visible but the values are hidden. Some other fields like the <code>readPreference</code> are also hidden.</p></section><section class="print-page" id="ngram-full-text-search" heading-number="5.10"><h1 id="ngram-full-text-search-additional-text-search-algorithm-ngram">Additional text search algorithm - ngram<a class="headerlink" href="#ngram-full-text-search-additional-text-search-algorithm-ngram" title="Permanent link">&para;</a></h1>
 <p>The <a href="https://en.wikipedia.org/wiki/N-gram">ngram</a> text search algorithm is useful for searching text for a specific string
 of characters in a field of a collection. This feature can be used to find exact sub-string matches, which provides an alternative to parsing text from languages other than the list of European languages already supported by MongoDB Community’s full text search engine. It
 may also turn out to be more convenient when working with the text where symbols
@@ -9874,13 +10024,15 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
 
 .print-site-enumerate-headings #fips > h1:before { content: '5.5.6 ' }
 
-.print-site-enumerate-headings #audit-logging > h1:before { content: '5.6 ' }
+.print-site-enumerate-headings #fcbis > h1:before { content: '5.6 ' }
 
-.print-site-enumerate-headings #rate-limit > h1:before { content: '5.7 ' }
+.print-site-enumerate-headings #audit-logging > h1:before { content: '5.7 ' }
 
-.print-site-enumerate-headings #log-redaction > h1:before { content: '5.8 ' }
+.print-site-enumerate-headings #rate-limit > h1:before { content: '5.8 ' }
 
-.print-site-enumerate-headings #ngram-full-text-search > h1:before { content: '5.9 ' }
+.print-site-enumerate-headings #log-redaction > h1:before { content: '5.9 ' }
+
+.print-site-enumerate-headings #ngram-full-text-search > h1:before { content: '5.10 ' }
 
 .print-site-enumerate-headings #section-6 > h1:before { content: '6 ' }
 .print-site-enumerate-headings #set-parameter > h1:before { content: '6.1 ' }

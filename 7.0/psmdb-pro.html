@@ -1581,6 +1581,29 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
+      <a href="fcbis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File copy based initial sync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="audit-logging.html" class="md-nav__link">
         
   
@@ -2569,6 +2592,11 @@ document$.subscribe(() => { lightbox.reload() });
 <td>FIPS mode provides a way to use FIPS-compliant encryption and run the Percona Server for MongoDB with the FIPS-140 certified library for OpenSSL. This helps customers meet minimum security requirements for cryptographic modules and testing in both hardware and software.</td>
 </tr>
 <tr>
+<td><a href="initial-sync.md">File copy-based initial sync</a></td>
+<td><a href="release_notes/7.0.22-12.md">7.0.22-12</a></td>
+<td>File copy based initial sync is an additional method of doing an initial sync for a new node in a replica set. For big data sets, this method is faster than the logical sync as it copies physical files rather than cloning data.</td>
+</tr>
+<tr>
 <td>Binaries with debug symbols</td>
 <td><a href="release_notes/7.0.18-11.html">7.0.18-11</a></td>
 <td>By including debug symbols in the binary, Percona Server for MongoDB enables deeper integration with monitoring agent-based solutions. These agents can instrument the binary at runtime, providing more detailed telemetry data, such as performance metrics, error tracking, and function-level diagnostics. This enhanced observability allows for better monitoring of system health, faster identification of issues, and more granular insights into how the application performs in production environments.<br> Including this information empowers teams to respond proactively to performance bottlenecks, optimize resource allocation, and improve the overall stability of the application with real-time insights.</td>
@@ -2603,7 +2631,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 13:16:36 UTC">April 24, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2025 13:44:38 UTC">July 28, 2025</span>
   </span>
 
     

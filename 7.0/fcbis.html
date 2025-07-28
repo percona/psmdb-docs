@@ -8,35 +8,34 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
-for MongoDB 7.0 Community Edition with enterprise-grade features.">
+        <meta name="description" content="When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/install/index.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/fcbis.html">
       
       
-        <link rel="prev" href="../get-help.html">
+        <link rel="prev" href="fips.html">
       
       
-        <link rel="next" href="../system-requirements.html">
+        <link rel="next" href="audit-logging.html">
       
       
-      <link rel="icon" href="../_images/mongodb-fav.svg">
+      <link rel="icon" href="_images/mongodb-fav.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>Quickstart guides - Percona Server for MongoDB 7.0</title>
+        <title>File copy based initial sync - Percona Server for MongoDB 7.0</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -55,27 +54,27 @@ for MongoDB 7.0 Community Edition with enterprise-grade features.">
       
     
     
-      <link rel="stylesheet" href="../css/print-site.css">
+      <link rel="stylesheet" href="css/print-site.css">
     
-      <link rel="stylesheet" href="../css/print-site-material.css">
+      <link rel="stylesheet" href="css/print-site-material.css">
     
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="../css/nocopy.css">
+      <link rel="stylesheet" href="css/nocopy.css">
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="css/extra.css">
     
-      <link rel="stylesheet" href="../css/design.css">
+      <link rel="stylesheet" href="css/design.css">
     
-      <link rel="stylesheet" href="../css/osano.css">
+      <link rel="stylesheet" href="css/osano.css">
     
-      <link rel="stylesheet" href="../css/mongodb.css">
+      <link rel="stylesheet" href="css/mongodb.css">
     
-      <link rel="stylesheet" href="../css/landing.css">
+      <link rel="stylesheet" href="css/landing.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -99,10 +98,10 @@ for MongoDB 7.0 Community Edition with enterprise-grade features.">
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 7.0 - Quickstart guides" />
+<meta property="og:title" content="Percona Server for MongoDB 7.0 - File copy based initial sync" />
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
- <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+ <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -111,7 +110,7 @@ for MongoDB 7.0 Community Edition with enterprise-grade features.">
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
 <body>
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
@@ -137,7 +136,7 @@ document$.subscribe(() => { lightbox.reload() });
     <div data-md-component="skip">
       
         
-        <a href="#install-percona-server-for-mongodb-regular" class="md-skip">
+        <a href="#file-copy-based-initial-sync" class="md-skip">
           Skip to content
         </a>
       
@@ -206,14 +205,14 @@ document$.subscribe(() => { lightbox.reload() });
 
     <!-- Link to home -->
     <a
-      href="../index.html"
+      href="index.html"
       title="Percona Server for MongoDB 7.0"
       class="md-header__button md-logo"
       aria-label="Percona Server for MongoDB 7.0"
       data-md-component="logo"
     >
       
-  <img src="../_images/mongodb-mark.svg" alt="logo">
+  <img src="_images/mongodb-mark.svg" alt="logo">
 
     </a>
 
@@ -226,7 +225,7 @@ document$.subscribe(() => { lightbox.reload() });
     <!-- Header title -->
     <div class="md-header__title">
       <div class="md-header__ellipsis">
-        <a href="../index.html" class="md-header__topic">
+        <a href="index.html" class="md-header__topic">
           <span class="md-ellipsis">
             Percona Server for MongoDB 7.0
           </span>
@@ -234,7 +233,7 @@ document$.subscribe(() => { lightbox.reload() });
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Quickstart guides
+              File copy based initial sync
             
           </span>
         </div>
@@ -376,9 +375,9 @@ document$.subscribe(() => { lightbox.reload() });
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="Percona Server for MongoDB 7.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
+    <a href="index.html" title="Percona Server for MongoDB 7.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
       
-  <img src="../_images/mongodb-mark.svg" alt="logo">
+  <img src="_images/mongodb-mark.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 7.0
@@ -405,7 +404,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -427,7 +426,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../psmdb-pro.html" class="md-nav__link">
+      <a href="psmdb-pro.html" class="md-nav__link">
         
   
   
@@ -449,7 +448,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../get-help.html" class="md-nav__link">
+      <a href="get-help.html" class="md-nav__link">
         
   
   
@@ -468,20 +467,18 @@ document$.subscribe(() => { lightbox.reload() });
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -497,7 +494,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Get started
@@ -508,30 +505,10 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Quickstart guides
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="install/index.html" class="md-nav__link">
         
   
   
@@ -542,53 +519,6 @@ document$.subscribe(() => { lightbox.reload() });
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#install-percona-server-for-mongodb-regular" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install Percona Server for MongoDB Regular
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-percona-server-for-mongodb-pro" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install Percona Server for MongoDB Pro
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#upgrade-instructions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Upgrade instructions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -639,7 +569,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../system-requirements.html" class="md-nav__link">
+      <a href="system-requirements.html" class="md-nav__link">
         
   
   
@@ -662,7 +592,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="cloud-deployments.html" class="md-nav__link">
+      <a href="install/cloud-deployments.html" class="md-nav__link">
         
   
   
@@ -685,7 +615,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="apt.html" class="md-nav__link">
+      <a href="install/apt.html" class="md-nav__link">
         
   
   
@@ -708,7 +638,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="yum.html" class="md-nav__link">
+      <a href="install/yum.html" class="md-nav__link">
         
   
   
@@ -731,7 +661,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="amazon-linux.html" class="md-nav__link">
+      <a href="install/amazon-linux.html" class="md-nav__link">
         
   
   
@@ -754,7 +684,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="tarball.html" class="md-nav__link">
+      <a href="install/tarball.html" class="md-nav__link">
         
   
   
@@ -777,7 +707,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="source.html" class="md-nav__link">
+      <a href="install/source.html" class="md-nav__link">
         
   
   
@@ -800,7 +730,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="docker.html" class="md-nav__link">
+      <a href="install/docker.html" class="md-nav__link">
         
   
   
@@ -823,7 +753,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="install-pro.html" class="md-nav__link">
+      <a href="install/install-pro.html" class="md-nav__link">
         
   
   
@@ -854,7 +784,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../connect.html" class="md-nav__link">
+      <a href="connect.html" class="md-nav__link">
         
   
   
@@ -877,7 +807,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../crud.html" class="md-nav__link">
+      <a href="crud.html" class="md-nav__link">
         
   
   
@@ -900,7 +830,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../what-next.html" class="md-nav__link">
+      <a href="what-next.html" class="md-nav__link">
         
   
   
@@ -927,18 +857,20 @@ document$.subscribe(() => { lightbox.reload() });
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -954,7 +886,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -968,7 +900,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../comparison.html" class="md-nav__link">
+      <a href="comparison.html" class="md-nav__link">
         
   
   
@@ -1029,7 +961,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../inmemory.html" class="md-nav__link">
+      <a href="inmemory.html" class="md-nav__link">
         
   
   
@@ -1098,7 +1030,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../hot-backup.html" class="md-nav__link">
+      <a href="hot-backup.html" class="md-nav__link">
         
   
   
@@ -1121,7 +1053,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../backup-cursor.html" class="md-nav__link">
+      <a href="backup-cursor.html" class="md-nav__link">
         
   
   
@@ -1190,7 +1122,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../authentication.html" class="md-nav__link">
+      <a href="authentication.html" class="md-nav__link">
         
   
   
@@ -1213,7 +1145,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../enable-auth.html" class="md-nav__link">
+      <a href="enable-auth.html" class="md-nav__link">
         
   
   
@@ -1236,7 +1168,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../sasl-auth.html" class="md-nav__link">
+      <a href="sasl-auth.html" class="md-nav__link">
         
   
   
@@ -1259,7 +1191,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../x509-ldap.html" class="md-nav__link">
+      <a href="x509-ldap.html" class="md-nav__link">
         
   
   
@@ -1282,7 +1214,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../kerberos.html" class="md-nav__link">
+      <a href="kerberos.html" class="md-nav__link">
         
   
   
@@ -1305,7 +1237,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../aws-iam.html" class="md-nav__link">
+      <a href="aws-iam.html" class="md-nav__link">
         
   
   
@@ -1328,7 +1260,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../aws-iam-setup.html" class="md-nav__link">
+      <a href="aws-iam-setup.html" class="md-nav__link">
         
   
   
@@ -1351,7 +1283,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../authorization.html" class="md-nav__link">
+      <a href="authorization.html" class="md-nav__link">
         
   
   
@@ -1374,7 +1306,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../ldap-setup.html" class="md-nav__link">
+      <a href="ldap-setup.html" class="md-nav__link">
         
   
   
@@ -1443,7 +1375,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../data-at-rest-encryption.html" class="md-nav__link">
+      <a href="data-at-rest-encryption.html" class="md-nav__link">
         
   
   
@@ -1466,7 +1398,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../vault.html" class="md-nav__link">
+      <a href="vault.html" class="md-nav__link">
         
   
   
@@ -1489,7 +1421,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../kmip.html" class="md-nav__link">
+      <a href="kmip.html" class="md-nav__link">
         
   
   
@@ -1512,7 +1444,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../keyfile.html" class="md-nav__link">
+      <a href="keyfile.html" class="md-nav__link">
         
   
   
@@ -1535,7 +1467,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../encryption-mode-switch.html" class="md-nav__link">
+      <a href="encryption-mode-switch.html" class="md-nav__link">
         
   
   
@@ -1558,7 +1490,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../fips.html" class="md-nav__link">
+      <a href="fips.html" class="md-nav__link">
         
   
   
@@ -1586,10 +1518,32 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../fcbis.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    File copy based initial sync
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="fcbis.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1600,6 +1554,55 @@ document$.subscribe(() => { lightbox.reload() });
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1612,7 +1615,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../audit-logging.html" class="md-nav__link">
+      <a href="audit-logging.html" class="md-nav__link">
         
   
   
@@ -1635,7 +1638,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../rate-limit.html" class="md-nav__link">
+      <a href="rate-limit.html" class="md-nav__link">
         
   
   
@@ -1658,7 +1661,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../log-redaction.html" class="md-nav__link">
+      <a href="log-redaction.html" class="md-nav__link">
         
   
   
@@ -1681,7 +1684,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../ngram-full-text-search.html" class="md-nav__link">
+      <a href="ngram-full-text-search.html" class="md-nav__link">
         
   
   
@@ -1749,7 +1752,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../set-parameter.html" class="md-nav__link">
+      <a href="set-parameter.html" class="md-nav__link">
         
   
   
@@ -1772,7 +1775,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../log-rotation.html" class="md-nav__link">
+      <a href="log-rotation.html" class="md-nav__link">
         
   
   
@@ -1795,7 +1798,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../mongos-config.html" class="md-nav__link">
+      <a href="mongos-config.html" class="md-nav__link">
         
   
   
@@ -1856,7 +1859,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="upgrade-from-60.html" class="md-nav__link">
+      <a href="install/upgrade-from-60.html" class="md-nav__link">
         
   
   
@@ -1879,7 +1882,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
         
   
   
@@ -1902,7 +1905,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="update-pro.html" class="md-nav__link">
+      <a href="install/update-pro.html" class="md-nav__link">
         
   
   
@@ -1925,7 +1928,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="minor-upgrade.html" class="md-nav__link">
+      <a href="install/minor-upgrade.html" class="md-nav__link">
         
   
   
@@ -1956,7 +1959,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="uninstall.html" class="md-nav__link">
+      <a href="install/uninstall.html" class="md-nav__link">
         
   
   
@@ -2024,7 +2027,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/index.html" class="md-nav__link">
+      <a href="release_notes/index.html" class="md-nav__link">
         
   
   
@@ -2047,7 +2050,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/7.0.18-11.html" class="md-nav__link">
+      <a href="release_notes/7.0.18-11.html" class="md-nav__link">
         
   
   
@@ -2070,7 +2073,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/7.0.16-10.html" class="md-nav__link">
+      <a href="release_notes/7.0.16-10.html" class="md-nav__link">
         
   
   
@@ -2093,7 +2096,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/7.0.15-9.html" class="md-nav__link">
+      <a href="release_notes/7.0.15-9.html" class="md-nav__link">
         
   
   
@@ -2116,7 +2119,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/7.0.14-8.html" class="md-nav__link">
+      <a href="release_notes/7.0.14-8.html" class="md-nav__link">
         
   
   
@@ -2139,7 +2142,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/7.0.12-7.html" class="md-nav__link">
+      <a href="release_notes/7.0.12-7.html" class="md-nav__link">
         
   
   
@@ -2162,7 +2165,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/7.0.11-6.html" class="md-nav__link">
+      <a href="release_notes/7.0.11-6.html" class="md-nav__link">
         
   
   
@@ -2185,7 +2188,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/7.0.8-5.html" class="md-nav__link">
+      <a href="release_notes/7.0.8-5.html" class="md-nav__link">
         
   
   
@@ -2208,7 +2211,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/7.0.7-4.html" class="md-nav__link">
+      <a href="release_notes/7.0.7-4.html" class="md-nav__link">
         
   
   
@@ -2231,7 +2234,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/7.0.5-3.html" class="md-nav__link">
+      <a href="release_notes/7.0.5-3.html" class="md-nav__link">
         
   
   
@@ -2254,7 +2257,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/7.0.4-2.html" class="md-nav__link">
+      <a href="release_notes/7.0.4-2.html" class="md-nav__link">
         
   
   
@@ -2277,7 +2280,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/7.0.2-1.html" class="md-nav__link">
+      <a href="release_notes/7.0.2-1.html" class="md-nav__link">
         
   
   
@@ -2307,7 +2310,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../faq.html" class="md-nav__link">
+      <a href="faq.html" class="md-nav__link">
         
   
   
@@ -2367,7 +2370,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../glossary.html" class="md-nav__link">
+      <a href="glossary.html" class="md-nav__link">
         
   
   
@@ -2390,7 +2393,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../telemetry.html" class="md-nav__link">
+      <a href="telemetry.html" class="md-nav__link">
         
   
   
@@ -2413,7 +2416,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../copyright.html" class="md-nav__link">
+      <a href="copyright.html" class="md-nav__link">
         
   
   
@@ -2436,7 +2439,7 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
-      <a href="../trademark-policy.html" class="md-nav__link">
+      <a href="trademark-policy.html" class="md-nav__link">
         
   
   
@@ -2506,6 +2509,8 @@ document$.subscribe(() => { lightbox.reload() });
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2514,27 +2519,27 @@ document$.subscribe(() => { lightbox.reload() });
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-percona-server-for-mongodb-regular" class="md-nav__link">
+  <a href="#workflow" class="md-nav__link">
     <span class="md-ellipsis">
-      Install Percona Server for MongoDB Regular
+      Workflow
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-percona-server-for-mongodb-pro" class="md-nav__link">
+  <a href="#configuration-parameters" class="md-nav__link">
     <span class="md-ellipsis">
-      Install Percona Server for MongoDB Pro
+      Configuration parameters
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#upgrade-instructions" class="md-nav__link">
+  <a href="#limitations" class="md-nav__link">
     <span class="md-ellipsis">
-      Upgrade instructions
+      Limitations
     </span>
   </a>
   
@@ -2569,7 +2574,7 @@ document$.subscribe(() => { lightbox.reload() });
 
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/install/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/fcbis.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2578,59 +2583,89 @@ document$.subscribe(() => { lightbox.reload() });
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/install/index.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/fcbis.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-  <h1>Quickstart guides</h1>
-
-<p>Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
-for MongoDB 7.0 Community Edition with <a href="../comparison.html">enterprise-grade features</a>.</p>
-<p>Find the full list of supported platforms for Percona Server for MongoDB on the <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">Percona Software and Platform Lifecycle</a> page.</p>
-<h2 id="install-percona-server-for-mongodb-regular">Install Percona Server for MongoDB Regular<a class="headerlink" href="#install-percona-server-for-mongodb-regular" title="Permanent link">&para;</a></h2>
-<p>You can use any of the easy-install guides. We recommend to use <strong>the package manager of your operating system</strong> for a convenient and quick way to install the software for production use. <strong>Use Docker</strong> to try the software first.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25Zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM7.25 8a.75.75 0 0 1-.22.53l-2.25 2.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L5.44 8 3.72 6.28a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l2.25 2.25c.141.14.22.331.22.53m1.5 1.5h3a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5"/></svg></span> Package manager</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 0 0 .185-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51q-.508.001-1.01.087c-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.75.75 0 0 0-.75.748 11.4 11.4 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137a15.7 15.7 0 0 0 2.93-.266 12.3 12.3 0 0 0 3.823-1.389 10.5 10.5 0 0 0 2.61-2.136c1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg></span> Docker</label><label for="__tabbed_1_3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10.204 14.35.007.01-.999 2.413a5.17 5.17 0 0 1-2.075-2.597l2.578-.437.004.005a.44.44 0 0 1 .484.606zm-.833-2.129a.44.44 0 0 0 .173-.756l.002-.011L7.585 9.7a5.14 5.14 0 0 0-.73 3.255l2.514-.725zm1.145-1.98a.44.44 0 0 0 .699-.337l.01-.005.15-2.62a5.14 5.14 0 0 0-3.01 1.442l2.147 1.523zm.76 2.75.723.349.722-.347.18-.78-.5-.623h-.804l-.5.623.179.779zm1.5-3.095a.44.44 0 0 0 .7.336l.008.003 2.134-1.513a5.2 5.2 0 0 0-2.992-1.442l.148 2.615zm10.876 5.97-5.773 7.181a1.6 1.6 0 0 1-1.248.594l-9.261.003a1.6 1.6 0 0 1-1.247-.596l-5.776-7.18a1.58 1.58 0 0 1-.307-1.34L2.1 5.573c.108-.47.425-.864.863-1.073L11.305.513a1.6 1.6 0 0 1 1.385 0l8.345 3.985c.438.209.755.604.863 1.073l2.062 8.955c.108.47-.005.963-.308 1.34m-3.289-2.057c-.042-.01-.103-.026-.145-.034-.174-.033-.315-.025-.479-.038-.35-.037-.638-.067-.895-.148-.105-.04-.18-.165-.216-.216l-.201-.059a6.5 6.5 0 0 0-.105-2.332 6.5 6.5 0 0 0-.936-2.163c.052-.047.15-.133.177-.159.008-.09.001-.183.094-.282.197-.185.444-.338.743-.522.142-.084.273-.137.415-.242.032-.024.076-.062.11-.089.24-.191.295-.52.123-.736s-.506-.236-.745-.045c-.034.027-.08.062-.111.088-.134.116-.217.23-.33.35-.246.25-.45.458-.673.609-.097.056-.239.037-.303.033l-.19.135a6.55 6.55 0 0 0-4.146-2.003l-.012-.223c-.065-.062-.143-.115-.163-.25-.022-.268.015-.557.057-.905.023-.163.061-.298.068-.475.001-.04-.001-.099-.001-.142 0-.306-.224-.555-.5-.555-.275 0-.499.249-.499.555l.001.014c0 .041-.002.092 0 .128.006.177.044.312.067.475.042.348.078.637.056.906a.55.55 0 0 1-.162.258l-.012.211a6.42 6.42 0 0 0-4.166 2.003l-.18-.128c-.09.012-.18.04-.297-.029-.223-.15-.427-.358-.673-.608-.113-.12-.195-.234-.329-.349l-.111-.088a.6.6 0 0 0-.348-.132.48.48 0 0 0-.398.176c-.172.216-.117.546.123.737l.007.005.104.083c.142.105.272.159.414.242.299.185.546.338.743.522.076.082.09.226.1.288l.16.143a6.46 6.46 0 0 0-1.02 4.506l-.208.06c-.055.072-.133.184-.215.217-.257.081-.546.11-.895.147-.164.014-.305.006-.48.039-.037.007-.09.02-.133.03l-.004.002-.007.002c-.295.071-.484.342-.423.608.061.267.349.429.645.365l.007-.001.01-.003.129-.029c.17-.046.294-.113.448-.172.33-.118.604-.217.87-.256.112-.009.23.069.288.101l.217-.037a6.5 6.5 0 0 0 2.88 3.596l-.09.218c.033.084.069.199.044.282-.097.252-.263.517-.452.813-.091.136-.185.242-.268.399-.02.037-.045.095-.064.134-.128.275-.034.591.213.71.248.12.556-.007.69-.282v-.002c.02-.039.046-.09.062-.127.07-.162.094-.301.144-.458.132-.332.205-.68.387-.897.05-.06.13-.082.215-.105l.113-.205a6.45 6.45 0 0 0 4.609.012l.106.192c.086.028.18.042.256.155.136.232.229.507.342.84.05.156.074.295.145.457.016.037.043.09.062.129.133.276.442.402.69.282.247-.118.341-.435.213-.71-.02-.039-.045-.096-.065-.134-.083-.156-.177-.261-.268-.398-.19-.296-.346-.541-.443-.793-.04-.13.007-.21.038-.294-.018-.022-.059-.144-.083-.202a6.5 6.5 0 0 0 2.88-3.622c.064.01.176.03.213.038.075-.05.144-.114.28-.104.266.039.54.138.87.256.154.06.277.128.448.173.036.01.088.019.13.028l.009.003.007.001c.297.064.584-.098.645-.365.06-.266-.128-.537-.423-.608M16.4 9.701l-1.95 1.746v.005a.44.44 0 0 0 .173.757l.003.01 2.526.728a5.2 5.2 0 0 0-.108-1.674A5.2 5.2 0 0 0 16.4 9.7zm-4.013 5.325a.44.44 0 0 0-.404-.232.44.44 0 0 0-.372.233h-.002l-1.268 2.292a5.16 5.16 0 0 0 3.326.003l-1.27-2.296zm1.888-1.293a.44.44 0 0 0-.27.036.44.44 0 0 0-.214.572l-.003.004 1.01 2.438a5.15 5.15 0 0 0 2.081-2.615l-2.6-.44z"/></svg></span> Kubernetes</label><label for="__tabbed_1_4"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06M3.28 7.78 1.81 9.25l1.47 1.47a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042m8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914z"/></svg></span> Build from source</label><label for="__tabbed_1_5"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"/><path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06z"/></svg></span> Manual download</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>Use the package manager of your operating system to install Percona Server for MongoDB:</p>
-<p><a class="md-button" href="apt.html">on Debian and Ubuntu <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a>
-<a class="md-button" href="yum.html">on RHEL and derivatives <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a>
-<a class="md-button" href="amazon-linux.html">on Amazon Linux 2023 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
-<p>We gather <a href="../telemetry.html">Telemetry data</a> in Percona packages.</p>
+<h1 id="file-copy-based-initial-sync">File copy based initial sync<a class="headerlink" href="#file-copy-based-initial-sync" title="Permanent link">&para;</a></h1>
+<div class="admonition admonition">
+<p class="admonition-title">Version added: <a href="release_notes/7.0.22-12.md">7.0.22-12</a></p>
 </div>
-<div class="tabbed-block">
-<p>Get our Docker image and spin up Percona Server for MongoDB for a quick evaluation. </p>
-<p>Check the Docker guide for step-by-step guidelines.</p>
-<p><a class="md-button" href="docker.html">Run in Docker <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
-<p>We gather <a href="../telemetry.html">Telemetry data</a> in Docker images.</p>
-</div>
-<div class="tabbed-block">
-<p><strong>Percona Operator for Kubernetes</strong> is a controller introduced to simplify complex deployments that require meticulous and secure database expertise. </p>
-<p>Check the Quickstart guides how to deploy and run Percona Server for MongoDB on Kubernetes with Percona Operator for MongoDB.</p>
-<p><a class="md-button" href="https://docs.percona.com/percona-operator-for-mongodb/quickstart.html">Deploy in Kubernetes Quickstart <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
-</div>
-<div class="tabbed-block">
-<p>Have a full control over the installation by building Percona Server for MongoDB from source code.</p>
-<p>Check the guide below for step-by-step instructions.</p>
-<p><a class="md-button" href="source.html">Build from source <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
-</div>
-<div class="tabbed-block">
-<p>If you need to install Percona Server for MongoDB offline or prefer a specific version of it, check out the link below for a step-by-step guide and get access to the downloads directory.</p>
-<p>Note that for this scenario you must make sure that all dependencies are satisfied.</p>
-<p><a class="md-button" href="tarball.html">Install from tarballs <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
-</div>
-</div>
-</div>
-<h2 id="install-percona-server-for-mongodb-pro">Install Percona Server for MongoDB Pro<a class="headerlink" href="#install-percona-server-for-mongodb-pro" title="Permanent link">&para;</a></h2>
-<p><a href="../psmdb-pro.html">Percona Server for MongoDB Pro</a> is available only from Percona repositories. </p>
-<p><a class="md-button" href="install-pro.html">Install Percona Server for MongoDB Pro <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
-<h2 id="upgrade-instructions">Upgrade instructions<a class="headerlink" href="#upgrade-instructions" title="Permanent link">&para;</a></h2>
-<p>If you are already using MongoDB, see <a href="upgrade-from-mongodb.html">Upgrading from MongoDB</a>.</p>
-<p>If you are running an earlier version of Percona Server for MongoDB, see <a href="upgrade-from-60.html">Upgrading from Version 6.0</a>.</p>
-<p>If you wish to upgrade to Percona Server for MongoDB Pro, see <a href="update-pro.html">Upgrade to Percona Server for MongoDB Pro</a> guide. </p>
+<p>When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. </p>
+<p>In Percona Server for MongoDB, you can choose a file copy-based initial sync for a new node. You must have WiredTiger defined as the storage.</p>
+<p>The file copy-based initial sync method is a physical copying of the data files from the source to the target. It is much faster than the default <a href="https://www.mongodb.com/docs/manual/core/replica-set-sync/#logical-initial-sync-process">logical initial sync <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for big datasets (500GB+), which is especially beneficial in heavy write environments. Using this initial sync method speeds up cluster scaling and increases restore performance. </p>
+<p>File copy-based initial sync implementation is compatible with that of MongoDB Enterprise Advanced and has the same <a href="#configuration-parameters">configuration parameters</a>.</p>
+<p>To select the initial sync method, specify the <code>initialSyncMethod</code> parameter in the configuration file for the target node:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">initialSyncMethod</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fileCopyBased</span>
+</code></pre></div>
+<p>You can only set this server parameter at startup.</p>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<p>When you start a new node for the replica set, the workflow is the following:</p>
+<ol>
+<li>The new node (also referred to as the target node) selects the source node for the sync. This sync source is typically the node that responded first and has the passing configuration (e.g. it has WiredTiger set as the storage and the same arrangement of files and indexes as the target node.)</li>
+<li>The target node opens a backup cursor on the sync source. The backup cursor is used to retrieve the list of files to copy and the timestamp of the oplog end in the metadata file.</li>
+<li>The file copy starts. During this process the target node lags behind the sync source as it remains operational and its data changes. The sync source node is periodically checked to ensure the time of the lag falls within the defined time.</li>
+<li>If the lag between the sync source and the target exceeds the defined threshold, the target node executes the <code>$backupCursorExtend</code> aggregation to retrieve the changes. Depending on the file copy duration, the target node can execute <code>$backupCursorExtend</code> several times, limited by the maximum number of cycles (3 by default)</li>
+<li>When the files are copied and the lag between the sync source and the target is acceptable, the target node closes the backup cursor. </li>
+<li>The target node internally moves the downloaded files to the local <code>dbPath</code>, applies oplog on top, reconstructs timestamps to ensure data consistency.</li>
+</ol>
+<h2 id="configuration-parameters">Configuration parameters<a class="headerlink" href="#configuration-parameters" title="Permanent link">&para;</a></h2>
+<p>These configuration parameters can be used to control the file copy-based initial sync flow. You can set them only at startup.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>initialSyncMethod</code></td>
+<td>string</td>
+<td>logical</td>
+<td>Specifies which method of initial sync to use. Valid options are: fileCopyBased, logical.</td>
+</tr>
+<tr>
+<td><code>numInitialSyncAttempts</code></td>
+<td>integer</td>
+<td>10</td>
+<td>Number of attempts of attempts to make at replica set initial synchronization</td>
+</tr>
+<tr>
+<td><code>numInitialSyncConnectAttempts</code></td>
+<td>integer</td>
+<td>10</td>
+<td>The number of attempts to select and connect to a valid sync source</td>
+</tr>
+<tr>
+<td><code>fileBasedInitialSyncMaxLagSec</code></td>
+<td>integer</td>
+<td>300</td>
+<td>Specifies the max lag in seconds between the syncing node and the sync source to mark the file copy based initial sync as done successfully</td>
+</tr>
+<tr>
+<td><code>fileBasedInitialSyncMaxCyclesWithoutProgress</code></td>
+<td>integer</td>
+<td>3</td>
+<td>Specifies the max number of cycles to clone updates while the lag between the syncing node and the sync source is higher than <code>fileBasedInitialSyncMaxLagSec</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
+<p>Using file copy-based initial sync has the following limitations:</p>
+<ul>
+<li>Don&rsquo;t run backups on either sync source or syncing nodes</li>
+<li>Don&rsquo;t write to the <code>local</code> database on the syncing node</li>
+<li>You cannot use the same sync source for multiple target nodes simultaneously because only one backup cursor can exist at any moment.</li>
+<li>If you&rsquo;re using encrypted storage, Percona Server for MongoDB applies the encryption key from the sync source node to secure the data on the syncing node.</li>
+<li>You must have WiredTiger defined as the storage engine to run file copy-based initial sync. <a href="inmemory.html">Percona memory engine</a> engine is not supported.</li>
+</ul>
 
 
 
@@ -2653,7 +2688,7 @@ for MongoDB 7.0 Community Edition with <a href="../comparison.html">enterprise-g
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 4, 2025 10:34:35 UTC">June 4, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2025 13:44:38 UTC">July 28, 2025</span>
   </span>
 
     
@@ -2663,7 +2698,7 @@ for MongoDB 7.0 Community Edition with <a href="../comparison.html">enterprise-g
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 7, 2022 07:48:11 UTC">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2025 13:44:38 UTC">July 28, 2025</span>
   </span>
 
     
@@ -2792,18 +2827,18 @@ window.addEventListener('afterprint', (event) => {
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": ".", "features": "content.action.view content.action.edit content.code.copy content.copy.annotate search.highlight search.share", "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="assets/javascripts/bundle.50899def.min.js"></script>
       
-        <script src="../js/print-site.js"></script>
+        <script src="js/print-site.js"></script>
       
-        <script src="../js/version-select.js"></script>
+        <script src="js/version-select.js"></script>
       
-        <script src="../js/promptremover.js"></script>
+        <script src="js/promptremover.js"></script>
       
     
 

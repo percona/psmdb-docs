@@ -1534,6 +1534,15 @@ document$.subscribe(() => { lightbox.reload() });
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#check-encryption-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check encryption status
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1638,6 +1647,29 @@ document$.subscribe(() => { lightbox.reload() });
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fcbis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File copy based initial sync
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2634,6 +2666,15 @@ document$.subscribe(() => { lightbox.reload() });
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#check-encryption-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check encryption status
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2855,6 +2896,19 @@ with versioning enabled.</p>
 <p>Starting with version 7.0.15-9, Percona Server for MongoDB checks if the number of secret versions has reached the maximum (10 by default) before adding a new master key to the Vault server as a versioned secret. You configure this number using the <code>max_versions</code> parameter on the Vault server.</p>
 <p>If the number of secrets reaches the maximum, Percona Server for MongoDB logs an error and exits. This prevents the Vault server from dropping the oldest secret version and the encryption key it stores.</p>
 <p>To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has <a href="#config-file-example">read permissions for the secret’s metadata and the secrets engine configuration</a>.</p>
+<h2 id="check-encryption-status">Check encryption status<a class="headerlink" href="#check-encryption-status" title="Permanent link">&para;</a></h2>
+<p>You can check the encryption status and the current configuration using the following command:</p>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span><span class="w"> </span>
+</code></pre></div>
+<details class="example">
+<summary>Expected output</summary>
+<div class="no-copy highlight"><pre><span></span><code>{
+  encryptionEnabled: true,
+  encryptionCipherMode: &#39;AES256-CBC&#39;,
+  encryptionKeyId: &#39;local&#39;
+}
+</code></pre></div>
+</details>
 
 
 
@@ -2877,7 +2931,7 @@ with versioning enabled.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 27, 2024 14:34:47 UTC">November 27, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2025 13:43:29 UTC">July 28, 2025</span>
   </span>
 
     
