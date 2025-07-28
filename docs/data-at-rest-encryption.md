@@ -1,14 +1,9 @@
 # Data at rest encryption
 
-Data at rest encryption for the WiredTiger storage engine in MongoDB was
-introduced in MongoDB Enterprise version 3.2 to ensure that encrypted data
-files can be decrypted and read by parties with the decryption key.
+Data encryption at rest was introduced in Percona Server for MongoDB 3.6 to maintain compatibility with MongoDB's encryption interface. Percona Server for MongoDB does not support Amazon AWS Key Management Service (KMS). Instead, it offers the following key management integrations:
 
-## Differences from upstream
-
-The data encryption at rest in Percona Server for MongoDB is introduced in version 3.6 to be compatible with data encryption at rest interface in MongoDB. In the current release of Percona Server for MongoDB, the data encryption at rest does not include support for Amazon AWS key management service. Instead, Percona Server for MongoDB is [integrated with HashiCorp Vault](vault.md). 
-
-Starting with release 6.0.2-1, Percona Server for MongoDB supports the secure transfer of keys using [Key Management Interoperability Protocol (KMIP)](kmip.md). This allows users to store encryption keys in their favorite KMIP-compatible key manager when they set up encryption at rest.
+* [Integration with HashiCorp Vault](vault.md) for secure key management. 
+* [Support of secure key transfer via the Key Management Interoperability Protocol (KMIP)](kmip.md). It allows users to store encryption keys in their favorite KMIP-compatible key manager when they set up encryption at rest.
 
 
 ## Workflow
@@ -55,7 +50,7 @@ $ mongod ... --encryptionCipherMode AES256-GCM
 
 ## Encryption of rollback files 
 
-Starting from version 3.6, Percona Server for MongoDB also encrypts rollback files when data at rest encryption is enabled. To inspect the contents of these files, use **perconadecrypt**. This is a tool that you run from the command line as follows:
+Percona Server for MongoDB encrypts rollback files when data at rest encryption is enabled. To inspect the contents of these files, use **perconadecrypt**. This is a tool that you run from the command line as follows:
 
 ```{.bash data-prompt="$"}
 $ perconadecrypt --encryptionKeyFile FILE  --inputPath FILE --outputPath FILE [--encryptionCipherMode MODE]
@@ -75,3 +70,4 @@ the encryption. By default, the `--encryptionCipherMode` option uses the
 | `--outputPath`           | The path to save the decrypted rollback file | 
 
 
+--8<-- "encryption-status.md"
