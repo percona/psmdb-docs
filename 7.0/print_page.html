@@ -1516,6 +1516,29 @@
   
   
     <li class="md-nav__item">
+      <a href="fcbis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File copy based initial sync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="audit-logging.html" class="md-nav__link">
         
   
@@ -1934,6 +1957,29 @@
   
   <span class="md-ellipsis">
     Release notes index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release_notes/7.0.22-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 7.0.22-12 (2025-07-28)
     
   </span>
   
@@ -2833,6 +2879,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#fcbis" class="md-nav__link">
+    <span class="md-ellipsis">
+      File copy based initial sync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#audit-logging" class="md-nav__link">
     <span class="md-ellipsis">
       Auditing
@@ -2989,6 +3044,15 @@
   <a href="#release_notes-index" class="md-nav__link">
     <span class="md-ellipsis">
       Release notes index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release_notes-7.0.22-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Percona Server for MongoDB 7.0.22-12 (2025-07-28)
     </span>
   </a>
   
@@ -3194,11 +3258,11 @@
 <p>
 <img src="_images/Percona_Logo_Color.png" />
 </p>
-<h1>Server for MongoDB 7.0.18-11</h1>
+<h1>Server for MongoDB 7.0.22-12</h1>
 
 <h1>Documentation</h1>
  
-<h2>7.0.18-11 (April 25, 2025)</h2>
+<h2>7.0.22-12 (July 28, 2025)</h2>
 <br>
 <br>
         </section>
@@ -3217,7 +3281,7 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
 <div class="admonition hint">
 <p>To see which version of Percona Server for MongoDB you are using check the value of the <code>psmdbVersion</code> key in the output of the <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo">buildInfo</a> database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.</p>
 </div>
-<p><a class="md-button md-button" href="#release_notes-7.0.18-11">What&rsquo;s new in Percona Server for MongoDB 7.0.18-11</a></p>
+<p><a class="md-button md-button" href="#release_notes-7.0.22-12">What&rsquo;s new in Percona Server for MongoDB 7.0.22-12</a></p>
 <div data-grid="data-grid">
 <div data-banner="data-banner">
 <h2 class="title" id="index-installation-guides"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2.03c4.73.47 8.5 4.22 8.95 8.97A9.976 9.976 0 0 1 13 21.93v-2c3.64-.43 6.5-3.32 6.96-6.96A7.994 7.994 0 0 0 13 4.05V2.03m-2 .03v2c-1.43.2-2.78.78-3.9 1.68L5.67 4.26A9.83 9.83 0 0 1 11 2.06M4.26 5.67 5.69 7.1A8 8 0 0 0 4.05 11h-2c.2-1.96.95-3.81 2.21-5.33M2.06 13h2c.18 1.42.75 2.77 1.63 3.9l-1.42 1.43A10.04 10.04 0 0 1 2.06 13m5.04 5.37c1.13.88 2.48 1.45 3.9 1.63v2c-1.96-.21-3.82-1-5.33-2.26zM12 16.5 7.5 12H11V8h2v4h3.5z"/></svg></span> Installation guides<a class="headerlink" href="#index-installation-guides" title="Permanent link">&para;</a></h2>
@@ -3259,6 +3323,11 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
 <td><a href="#fips">FIPS support </a></td>
 <td><a href="#release_notes-7.0.4-2">7.0.4-2</a></td>
 <td>FIPS mode provides a way to use FIPS-compliant encryption and run the Percona Server for MongoDB with the FIPS-140 certified library for OpenSSL. This helps customers meet minimum security requirements for cryptographic modules and testing in both hardware and software.</td>
+</tr>
+<tr>
+<td><a href="#fcbis">File copy-based initial sync</a></td>
+<td><a href="#release_notes-7.0.22-12">7.0.22-12</a></td>
+<td>File copy based initial sync is an additional method of doing an initial sync for a new node in a replica set. For big data sets, this method is faster than the logical sync as it copies physical files rather than cloning data.</td>
 </tr>
 <tr>
 <td>Binaries with debug symbols</td>
@@ -3667,7 +3736,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
 </table>
 </details>
 <h2 id="install-yum-procedure">Procedure<a class="headerlink" href="#install-yum-procedure" title="Permanent link">&para;</a></h2>
-<p>Before you start, check the <a href="#install-system-requirements.md">system requirements</a>.</p>
+<p>Before you start, check the <a href="#system-requirements">system requirements</a>.</p>
 <h3 id="install-yum-configure-percona-repository">Configure Percona repository<a class="headerlink" href="#install-yum-configure-percona-repository" title="Permanent link">&para;</a></h3>
 <p>Percona provides the <a href="https://docs.percona.com/percona-software-repositories/index.html"><code>percona-release</code></a> configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    </p>
 <ol>
@@ -3707,12 +3776,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>.0.18-11.el9<span class="w">       </span>psmdb-70-release-x86_64
+percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>.0.22-12.el9<span class="w">       </span>psmdb-70-release-x86_64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.18-11, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.18-11.el9
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.22-12, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.22-12.el9
 </code></pre></div>
 </li>
 </ol>
@@ -3817,7 +3886,7 @@ after you reboot the system.</p>
 </table>
 </details>
 <h2 id="install-amazon-linux-procedure">Procedure<a class="headerlink" href="#install-amazon-linux-procedure" title="Permanent link">&para;</a></h2>
-<p>Before you start, check the <a href="#install-system-requirements.md">system requirements</a>.</p>
+<p>Before you start, check the <a href="#system-requirements">system requirements</a>.</p>
 <h3 id="install-amazon-linux-configure-percona-repository">Configure Percona repository<a class="headerlink" href="#install-amazon-linux-configure-percona-repository" title="Permanent link">&para;</a></h3>
 <p>Percona provides the <a href="https://docs.percona.com/percona-software-repositories/index.html"><code>percona-release</code></a> configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    </p>
 <ol>
@@ -3857,12 +3926,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.aarch64<span class="w">    </span><span class="m">7</span>.0.18-11.amzn2023<span class="w">       </span>psmdb-70-release-aarch64
+percona-server-mongodb.aarch64<span class="w">    </span><span class="m">7</span>.0.22-12.amzn2023<span class="w">       </span>psmdb-70-release-aarch64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.18-11, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.18-11.amzn2023
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.22-12, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.22-12.amzn2023
 </code></pre></div>
 </li>
 </ol>
@@ -3907,9 +3976,9 @@ after you reboot the system.</p>
 <p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p></section><section class="print-page" id="install-tarball" heading-number="4.2.6"><h1 id="install-tarball-install-percona-server-for-mongodb-from-binary-tarball">Install Percona Server for MongoDB from binary tarball<a class="headerlink" href="#install-tarball-install-percona-server-for-mongodb-from-binary-tarball" title="Permanent link">&para;</a></h1>
 <p>You can find links to the binary tarballs under the <em>Generic Linux</em> menu item on the <a href="https://www.percona.com/downloads/percona-server-mongodb-7.0/">Percona website</a></p>
 <p>There are the following tarballs available:</p>
-<p><code>percona-server-mongodb-7.0.18-11-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
+<p><code>percona-server-mongodb-7.0.22-12-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
 <ul>
-<li><code>percona-mongodb-mongosh-2.5.0-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</li>
+<li><code>percona-mongodb-mongosh-2.5.1-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</li>
 </ul>
 <h2 id="install-tarball-tarball-types">Tarball types<a class="headerlink" href="#install-tarball-tarball-types" title="Permanent link">&para;</a></h2>
 <table>
@@ -3923,17 +3992,17 @@ after you reboot the system.</p>
 <tbody>
 <tr>
 <td>Full</td>
-<td>percona-server-mongodb-7.0.18-11-x86_64.<operating-system>.tar.gz</td>
+<td>percona-server-mongodb-7.0.22-12-x86_64.<operating-system>.tar.gz</td>
 <td>Contains binaries and libraries</td>
 </tr>
 <tr>
 <td>Minimal</td>
-<td>percona-server-mongodb-7.0.18-11-x86_64.<operating-system>-minimal.tar.gz</td>
+<td>percona-server-mongodb-7.0.22-12-x86_64.<operating-system>-minimal.tar.gz</td>
 <td>Contains binaries and libraries without debug symbols</td>
 </tr>
 <tr>
 <td>Checksum</td>
-<td>percona-server-mongodb-7.0.18-11-x86_64.<operating-system>-minimal.tar.gz.sha256sum</td>
+<td>percona-server-mongodb-7.0.22-12-x86_64.<operating-system>-minimal.tar.gz.sha256sum</td>
 <td>Contains the MD5 checksum to verify the integrity of the files after the extraction</td>
 </tr>
 </tbody>
@@ -3961,17 +4030,17 @@ after you reboot the system.</p>
 <ol>
 <li>
 <p>Fetch the binary tarballs:</p>
-<p><div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.18-11/binary/tarball/percona-server-mongodb-7.0.18-11-x86_64.jammy.tar.gz<span class="se">\</span>
-$<span class="w"> </span>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.18-11/binary/tarball/percona-mongodb-mongosh-2.5.0-x86_64.tar.gz
+<p><div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.22-12/binary/tarball/percona-server-mongodb-7.0.22-12-x86_64.jammy.tar.gz<span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.22-12/binary/tarball/percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
 </code></pre></div>
 2. Extract the tarballs</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.18-11-x86_64.jammy.tar.gz
-$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-7.0.18-11-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.22-12-x86_64.jammy.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-7.0.22-12-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.18-11/bin/:~/percona-mongodb-mongosh-2.5.0/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.22-12/bin/:~/percona-mongodb-mongosh-2.5.1/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -4346,7 +4415,7 @@ and restart it if the container exits.</p>
 <p><code>percona/percona-server-mongodb</code> is the name of the image to derive the container from.</p>
 </li>
 <li>
-<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.18-11</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb/tags">See the full list of tags</a>.</p>
+<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.22-12</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb/tags">See the full list of tags</a>.</p>
 </li>
 </ul>
 <h2 id="install-docker-access-container-shell">Access container shell<a class="headerlink" href="#install-docker-access-container-shell" title="Permanent link">&para;</a></h2>
@@ -4678,19 +4747,19 @@ run the following command: </p>
 <ol>
 <li>
 <p>Download the tarballs from the Pro repository </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.18-11/percona-server-mongodb-pro-7.0.18-11-x86_64.jammy.tar.gz<span class="w"> </span><span class="se">\</span>
-$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.0/percona-mongodb-mongosh-2.5.0-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.22-12/percona-server-mongodb-pro-7.0.22-12-x86_64.jammy.tar.gz<span class="w"> </span><span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.1/percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.18-11-x86_64.jammy.tar.gz
-$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.0-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.22-12-x86_64.jammy.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.18-11-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.5.0/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.22-12-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.5.1/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -4708,19 +4777,19 @@ $<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>p
 <ol>
 <li>
 <p>Download the tarballs from the Pro repository </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.18-11/percona-server-mongodb-pro-7.0.18-11-x86_64.ol9.tar.gz<span class="w"> </span><span class="se">\</span>
-$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.0/percona-mongodb-mongosh-2.5.0-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.22-12/percona-server-mongodb-pro-7.0.22-12-x86_64.ol9.tar.gz<span class="w"> </span><span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.1/percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.18-11-x86_64.ol9.tar.gz
-$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.0-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.22-12-x86_64.ol9.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.18-11-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.5.0/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.22-12-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.5.1/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -4783,7 +4852,7 @@ and restart it if the container exits.</p>
 <p><code>percona/percona-server-mongodb-pro</code> is the name of the image to derive the container from.</p>
 </li>
 <li>
-<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.18-11</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro/tags">See the full list of tags</a>.</p>
+<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.22-12</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro/tags">See the full list of tags</a>.</p>
 </li>
 </ul>
 <h3 id="install-install-pro-access-the-container-shell">Access the container shell<a class="headerlink" href="#install-install-pro-access-the-container-shell" title="Permanent link">&para;</a></h3>
@@ -4808,7 +4877,7 @@ and restart it if the container exits.</p>
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 6598270a3a0c418751550ded
 Connecting to:      mongodb://127.0.0.1:27017/?directConnection=true&amp;serverSelectionTimeoutMS=2000&amp;appName=mongosh+2.0.0
-Using MongoDB:      7.0.18-11
+Using MongoDB:      7.0.22-12
 Using Mongosh:      2.0.0    
 
 For mongosh info see: https://docs.mongodb.com/mongodb-shell/    
@@ -7651,7 +7720,82 @@ d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
 <p>See <a href="https://www.mongodb.com/docs/v7.0/tutorial/configure-fips/">Configure MongoDB for FIPS</a> in MongoDB documentation for configuration guidelines. </p>
 <h2 id="fips-platform-support">Platform support<a class="headerlink" href="#fips-platform-support" title="Permanent link">&para;</a></h2>
 <p>Starting with Percona Server for MongoDB 7.0.4-2, you can run Percona Server for MongoDB in FIPS mode on all <a href="https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb">supported operating systems</a>. To use FIPS mode for Percona Server for MongoDB, your Linux system must be configured with the OpenSSL FIPS certified module.</p>
-<p>Note, that FIPS modules on Ubuntu 24.04 are not available yet as they are awaiting final certification by CMVP.</p></section></section><section class="print-page" id="audit-logging" heading-number="5.6"><h1 id="audit-logging-auditing">Auditing<a class="headerlink" href="#audit-logging-auditing" title="Permanent link">&para;</a></h1>
+<p>Note, that FIPS modules on Ubuntu 24.04 are not available yet as they are awaiting final certification by CMVP.</p></section></section><section class="print-page" id="fcbis" heading-number="5.6"><h1 id="fcbis-file-copy-based-initial-sync">File copy based initial sync<a class="headerlink" href="#fcbis-file-copy-based-initial-sync" title="Permanent link">&para;</a></h1>
+<div class="admonition admonition">
+<p class="admonition-title">Version added: <a href="#release_notes-7.0.22-12">7.0.22-12</a></p>
+</div>
+<p>When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. </p>
+<p>In Percona Server for MongoDB, you can choose a file copy-based initial sync for a new node. You must have WiredTiger defined as the storage.</p>
+<p>The file copy-based initial sync method is a physical copying of the data files from the source to the target. It is much faster than the default <a href="https://www.mongodb.com/docs/manual/core/replica-set-sync/#logical-initial-sync-process">logical initial sync <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for big datasets (500GB+), which is especially beneficial in heavy write environments. Using this initial sync method speeds up cluster scaling and increases restore performance. </p>
+<p>File copy-based initial sync implementation is compatible with that of MongoDB Enterprise Advanced and has the same <a href="#fcbis-configuration-parameters">configuration parameters</a>.</p>
+<p>To select the initial sync method, specify the <code>initialSyncMethod</code> parameter in the configuration file for the target node:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">initialSyncMethod</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fileCopyBased</span>
+</code></pre></div>
+<p>You can only set this server parameter at startup.</p>
+<h2 id="fcbis-workflow">Workflow<a class="headerlink" href="#fcbis-workflow" title="Permanent link">&para;</a></h2>
+<p>When you start a new node for the replica set, the workflow is the following:</p>
+<ol>
+<li>The new node (also referred to as the target node) selects the source node for the sync. This sync source is typically the node that responded first and has the passing configuration (e.g. it has WiredTiger set as the storage and the same arrangement of files and indexes as the target node.)</li>
+<li>The target node opens a backup cursor on the sync source. The backup cursor is used to retrieve the list of files to copy and the timestamp of the oplog end in the metadata file.</li>
+<li>The file copy starts. During this process the target node lags behind the sync source as it remains operational and its data changes. The sync source node is periodically checked to ensure the time of the lag falls within the defined time.</li>
+<li>If the lag between the sync source and the target exceeds the defined threshold, the target node executes the <code>$backupCursorExtend</code> aggregation to retrieve the changes. Depending on the file copy duration, the target node can execute <code>$backupCursorExtend</code> several times, limited by the maximum number of cycles (3 by default)</li>
+<li>When the files are copied and the lag between the sync source and the target is acceptable, the target node closes the backup cursor. </li>
+<li>The target node internally moves the downloaded files to the local <code>dbPath</code>, applies oplog on top, reconstructs timestamps to ensure data consistency.</li>
+</ol>
+<h2 id="fcbis-configuration-parameters">Configuration parameters<a class="headerlink" href="#fcbis-configuration-parameters" title="Permanent link">&para;</a></h2>
+<p>These configuration parameters can be used to control the file copy-based initial sync flow. You can set them only at startup.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>initialSyncMethod</code></td>
+<td>string</td>
+<td>logical</td>
+<td>Specifies which method of initial sync to use. Valid options are: fileCopyBased, logical.</td>
+</tr>
+<tr>
+<td><code>numInitialSyncAttempts</code></td>
+<td>integer</td>
+<td>10</td>
+<td>Number of attempts of attempts to make at replica set initial synchronization</td>
+</tr>
+<tr>
+<td><code>numInitialSyncConnectAttempts</code></td>
+<td>integer</td>
+<td>10</td>
+<td>The number of attempts to select and connect to a valid sync source</td>
+</tr>
+<tr>
+<td><code>fileBasedInitialSyncMaxLagSec</code></td>
+<td>integer</td>
+<td>300</td>
+<td>Specifies the max lag in seconds between the syncing node and the sync source to mark the file copy based initial sync as done successfully</td>
+</tr>
+<tr>
+<td><code>fileBasedInitialSyncMaxCyclesWithoutProgress</code></td>
+<td>integer</td>
+<td>3</td>
+<td>Specifies the max number of cycles to clone updates while the lag between the syncing node and the sync source is higher than <code>fileBasedInitialSyncMaxLagSec</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="fcbis-limitations">Limitations<a class="headerlink" href="#fcbis-limitations" title="Permanent link">&para;</a></h2>
+<p>Using file copy-based initial sync has the following limitations:</p>
+<ul>
+<li>Don&rsquo;t run backups on either sync source or syncing nodes</li>
+<li>Don&rsquo;t write to the <code>local</code> database on the syncing node</li>
+<li>You cannot use the same sync source for multiple target nodes simultaneously because only one backup cursor can exist at any moment.</li>
+<li>If you&rsquo;re using encrypted storage, Percona Server for MongoDB applies the encryption key from the sync source node to secure the data on the syncing node.</li>
+<li>You must have WiredTiger defined as the storage engine to run file copy-based initial sync. <a href="#inmemory">Percona memory engine</a> engine is not supported.</li>
+</ul></section><section class="print-page" id="audit-logging" heading-number="5.7"><h1 id="audit-logging-auditing">Auditing<a class="headerlink" href="#audit-logging-auditing" title="Permanent link">&para;</a></h1>
 <p>Auditing allows administrators to track
 and log user activity on a MongoDB server.
 With auditing enabled, the server generates an audit log file.
@@ -7958,7 +8102,7 @@ when running <code>mongod</code> or <code>mongos</code> process:</p>
 <li>Closes this renamed file</li>
 <li>Opens a new audit log file and starts writing auditing events to it.</li>
 </ul>
-<p>Read more about log rotation in <a href="#log-rotation">Log rotation in Percona Server for MongoDB</a></p></section><section class="print-page" id="rate-limit" heading-number="5.7"><h1 id="rate-limit-profiling-rate-limit">Profiling rate limit<a class="headerlink" href="#rate-limit-profiling-rate-limit" title="Permanent link">&para;</a></h1>
+<p>Read more about log rotation in <a href="#log-rotation">Log rotation in Percona Server for MongoDB</a></p></section><section class="print-page" id="rate-limit" heading-number="5.8"><h1 id="rate-limit-profiling-rate-limit">Profiling rate limit<a class="headerlink" href="#rate-limit-profiling-rate-limit" title="Permanent link">&para;</a></h1>
 <p>Percona Server for MongoDB can limit the number of queries collected by the database profiler
 to decrease its impact on performance.
 Rate limit is an integer between 1 and 1000
@@ -8082,7 +8226,7 @@ set the corresponding variables in the MongoDB configuration file
 <p>Each document in the <code>system.profile</code> collection
 includes an additional <code>rateLimit</code> field.
 This field always has the value of <code>1</code> for <em>slow</em> queries
-and the current rate limit value for <em>fast</em> queries.</p></section><section class="print-page" id="log-redaction" heading-number="5.8"><h1 id="log-redaction-log-redaction">Log redaction<a class="headerlink" href="#log-redaction-log-redaction" title="Permanent link">&para;</a></h1>
+and the current rate limit value for <em>fast</em> queries.</p></section><section class="print-page" id="log-redaction" heading-number="5.9"><h1 id="log-redaction-log-redaction">Log redaction<a class="headerlink" href="#log-redaction-log-redaction" title="Permanent link">&para;</a></h1>
 <p>Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.</p>
 <p>To enable log redaction, run <code>mongod</code> with the <code>--redactClientLogData</code> option.</p>
 <div class="admonition note">
@@ -8157,7 +8301,7 @@ use the <code>setParameter</code> command as follows:</p>
     }
 ...
 </code></pre></div>
-<p>As you can see, the field names are still visible but the values are hidden. Some other fields like the <code>readPreference</code> are also hidden.</p></section><section class="print-page" id="ngram-full-text-search" heading-number="5.9"><h1 id="ngram-full-text-search-additional-text-search-algorithm-ngram">Additional text search algorithm - ngram<a class="headerlink" href="#ngram-full-text-search-additional-text-search-algorithm-ngram" title="Permanent link">&para;</a></h1>
+<p>As you can see, the field names are still visible but the values are hidden. Some other fields like the <code>readPreference</code> are also hidden.</p></section><section class="print-page" id="ngram-full-text-search" heading-number="5.10"><h1 id="ngram-full-text-search-additional-text-search-algorithm-ngram">Additional text search algorithm - ngram<a class="headerlink" href="#ngram-full-text-search-additional-text-search-algorithm-ngram" title="Permanent link">&para;</a></h1>
 <p>The <a href="https://en.wikipedia.org/wiki/N-gram">ngram</a> text search algorithm is useful for searching text for a specific string
 of characters in a field of a collection. This feature can be used to find exact sub-string matches, which provides an alternative to parsing text from languages other than the list of European languages already supported by MongoDB Community’s full text search engine. It
 may also turn out to be more convenient when working with the text where symbols
@@ -8963,6 +9107,9 @@ $<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-
                     <section class="print-page" id="release_notes-index" heading-number="7.1"><h1 id="release_notes-index-percona-server-for-mongodb-70-release-notes">Percona Server for MongoDB 7.0 release notes<a class="headerlink" href="#release_notes-index-percona-server-for-mongodb-70-release-notes" title="Permanent link">&para;</a></h1>
 <ul>
 <li>
+<p><a href="#release_notes-7.0.22-12">Percona Server for MongoDB 7.0.22-12 (2025-07-28)</a></p>
+</li>
+<li>
 <p><a href="#release_notes-7.0.18-11">Percona Server for MongoDB 7.0.18-11 (2025-04-24)</a></p>
 </li>
 <li>
@@ -8995,7 +9142,69 @@ $<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-
 <li>
 <p><a href="#release_notes-7.0.2-1">Percona Server for MongoDB 7.0.2-1 (2023-10-05)</a></p>
 </li>
-</ul></section><section class="print-page" id="release_notes-7.0.18-11" heading-number="7.2"><h1 id="release_notes-7.0.18-11-percona-server-for-mongodb-7018-11-2025-04-24">Percona Server for MongoDB 7.0.18-11 (2025-04-24)<a class="headerlink" href="#release_notes-7.0.18-11-percona-server-for-mongodb-7018-11-2025-04-24" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release_notes-7.0.22-12" heading-number="7.2"><h1 id="release_notes-7.0.22-12-percona-server-for-mongodb-7022-12-2025-07-28">Percona Server for MongoDB 7.0.22-12 (2025-07-28)<a class="headerlink" href="#release_notes-7.0.22-12-percona-server-for-mongodb-7022-12-2025-07-28" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="#install-index">Installation</a>
+<a class="md-button" href="#install-upgrade-from-mongodb">Upgrade from MongoDB Community</a></p>
+<p>Percona Server for MongoDB 7.0.22-12 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
+<p>Percona Server for MongoDB 7.0.22-12 includes the improvements and bug fixes of <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.19---apr-14--2025">MongoDB 7.0.19 Community Edition</a> through <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.22---jul-18--2025">MongoDB 7.0.22 Community Edition</a>. It supports protocols and drivers of MongoDB versions 7.0.19 - 7.0.22.</p>
+<h2 id="release_notes-7.0.22-12-release-highlights">Release highlights<a class="headerlink" href="#release_notes-7.0.22-12-release-highlights" title="Permanent link">&para;</a></h2>
+<p>This release provides the following features and improvements:</p>
+<h3 id="release_notes-7.0.22-12-boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync">Boost performance during cluster restore and scaling with file copy-based initial sync<a class="headerlink" href="#release_notes-7.0.22-12-boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync" title="Permanent link">&para;</a></h3>
+<p>You can now select how a newly added or a restored replica set member synchronizes the data from other members - via logical or file copy-based initial sync. File copy-based initial sync copies physical files from the source node. This sync method is faster than the logical one and it reduces your maintenance time on scaling your cluster.</p>
+<p><a class="glightbox" href="_images/fcbis.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="_images/fcbis.png" /></a></p>
+<p>The performance advantage of file copy-based over logical initial sync varies based on data set characteristics. While file copy-based initial sync can be significantly quicker, its efficiency is influenced by factors such as document count, collection distribution, and indexing structure.</p>
+<p>This feature is available in <a href="#psmdb-pro">Percona Server for MongoDB Pro</a> out of the box. <a href="https://www.percona.com/about/contact">Become a Percona Customer</a> to enjoy all Pro features with little to no effort from your side. Alternatively, you can receive it by building Percona Server from the source code.</p>
+<h3 id="release_notes-7.0.22-12-packaging-changes">Packaging changes<a class="headerlink" href="#release_notes-7.0.22-12-packaging-changes" title="Permanent link">&para;</a></h3>
+<p>Percona Server for MongoDB 7.0.22-12 is no longer supported on Ubuntu 20.04 (Focal Fossa) as this operating system has reached end of life. If you&rsquo;re not ready to upgrade to a newer Ubuntu OS but still want to update Percona Server for MongoDB, <a href="https://hubs.ly/Q03rRtDg0">contact us</a>! We&rsquo;re here to make your databases run better.</p>
+<h3 id="release_notes-7.0.22-12-upstream-improvements">Upstream Improvements<a class="headerlink" href="#release_notes-7.0.22-12-upstream-improvements" title="Permanent link">&para;</a></h3>
+<p>The bug fixes, provided by MongoDB Community and included in Percona Server for MongoDB, are the following:</p>
+<ul>
+<li><a href="https://jira.mongodb.org/browse/SERVER-93120">SERVER-93120</a> - Fixed the issue with blocking Full Time Diagnostic Data Capture (FTDC) collection when checking the state of the <code>$backupCursor</code> by using atomic mode instead of a lock</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-92806">SERVER-92806</a> -  Tracked nested paths through MatchExpression trees while encoding indexability for plan cache entries</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-95672">SERVER-95672</a> - Fixed the issue with missing documents when indexes on array fields contain subarrays by ensuring proper bounds when having nested arrays as predicates</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-97044">SERVER-97044</a> -  Fixed an issue where change streams might incorrectly output a &ldquo;drop&rdquo; event during resharding or unsharding of a collection that is or was using zone sharding</li>
+<li><a href="https://jira.mongodb.org/browse/WT-12012">WT-12012</a> - Fixed the issue when a generation drain process in WiredTiger, which manages eviction of older data, encounters an issue and then resolves itself when the verbosity levels for eviction and checkpoint operations increase. The issue is fixed by restoring original verbosity levels for these operations.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-106752">SERVER-106752</a> - Prevented unauthorized access to data by improving the handling of the <code>$mergeCursors stage</code>. The issue affects MongoDB versions prior to 7.0.20 and is fixed upstream and included in Percona Server for MongoDB. We recommend users to upgrade to the latest version as soon as possible.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-106753">SERVER-106753</a> - Fixed the issue with incorrect handling of incomplete data that may prevent <code>mongos</code> from accepting new connections. The issue affects deployments configured to use a load balancer like HAProxy and affects Percona Server for MongoDB Server v6.0 prior to 6.0.23, Percona Server for MongoDB Server v7.0 prior to 7.0.20 and Percona Server for MongoDB Server v8.0 prior to 8.0.9. We recommend users to upgrade to the latest version as soon as possible.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-95523">SERVER-95523</a> -  Fixed a race condition where a concurrent <code>upsert</code> operation could incorrectly fail with a <code>DuplicateKey</code> error instead of retrying as an update. With this fix, the upsert operation now correctly retries and applies the update when another operation inserts the document in parallel. </li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-95524">SERVER-95524</a> - Avoided retrying on duplicate key error for upserts in multidocument transactions</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-96197">SERVER-96197</a> - Fixed the issue with retrieving the wrong resolved namespace for a collection when there are multiple collections with the same name involved in a query</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-98386">SERVER-98386</a> - Fixed the issue with the shard processing the request bypassing the shard version protocol when a router is not aware of the collection being converted to timeseries</li>
+</ul>
+<p>Find the full list of changes in the release notes for:</p>
+<ul>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.19---apr-14--2025">MongoDB 7.0.19 Community Edition</a>, </li>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.20---apr-29--2025">MongoDB 7.0.20 Community Edition</a>, </li>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.21---jun-04--2025">MongoDB 7.0.21 Community Edition</a> and </li>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.22---jul-18--2025">MongoDB 7.0.22 Community Edition</a>.</li>
+</ul>
+<h2 id="release_notes-7.0.22-12-changelog">Changelog<a class="headerlink" href="#release_notes-7.0.22-12-changelog" title="Permanent link">&para;</a></h2>
+<h3 id="release_notes-7.0.22-12-new-features">New Features<a class="headerlink" href="#release_notes-7.0.22-12-new-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://perconadev.atlassian.net/browse/PSMDB-1284">PSMDB-1284</a> - Add the ability to perform file copy-based initial sync</li>
+</ul>
+<h3 id="release_notes-7.0.22-12-improvements">Improvements<a class="headerlink" href="#release_notes-7.0.22-12-improvements" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://perconadev.atlassian.net/browse/PSMDB-1619">PSMDB-1619</a> - Make log rotation behavior compatible with MongoDB by renaming existing log file to a name with a timestamp and start a new one</li>
+<li><a href="https://perconadev.atlassian.net/browse/PSMDB-1633">PSMDB-1633</a> - Implemented &lsquo;encryptionAtRest&rsquo; field in &lsquo;serverStatus()&rsquo;</li>
+<li><a href="https://perconadev.atlassian.net/browse/PSMDB-1634">PSMDB-1634</a> - Improved the <code>mongod.1</code> manpage by adding reference to official documentation</li>
+</ul>
+<h3 id="release_notes-7.0.22-12-fixed-bugs">Fixed Bugs<a class="headerlink" href="#release_notes-7.0.22-12-fixed-bugs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1615">PSMDB-1615</a> - Fixed the issue with corrupt/unusable debug files in RPM-based systems for Percona Server for MongoDB 6, 7 and 8</p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1679">PSMDB-1679</a> - Fixed the issue with Percona Server for MongoDB not starting with custom configurations (Thank you Ilnar Gabidullin for reporting this issue)</p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1712">PSMDB-1712</a> - Fixed the issue with the server сrash accessing LDAP by improving the <code>start_poll</code> function behavior </p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1730">PSMDB-1730</a> - Fixed the issue with LDAP authentication via SASL by adding the package <code>cyrus-sasl-plain</code> in Docker images for Percona Server for MongoDB 6, 7 and 8 </p>
+</li>
+</ul></section><section class="print-page" id="release_notes-7.0.18-11" heading-number="7.3"><h1 id="release_notes-7.0.18-11-percona-server-for-mongodb-7018-11-2025-04-24">Percona Server for MongoDB 7.0.18-11 (2025-04-24)<a class="headerlink" href="#release_notes-7.0.18-11-percona-server-for-mongodb-7018-11-2025-04-24" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#install-index">Installation</a>
 <a class="md-button" href="#install-upgrade-from-mongodb">Upgrade from MongoDB Community</a></p>
 <p>Percona Server for MongoDB 7.0.18-11 is an enhanced, source-available, and highly-scalable database that is a
@@ -9063,7 +9272,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1617">PSMDB-1617</a> - Improved error messages when there are insufficient permissions to access client/CA certificates for KMIP authentication</p>
 </li>
-</ul></section><section class="print-page" id="release_notes-7.0.16-10" heading-number="7.3"><h1 id="release_notes-7.0.16-10-percona-server-for-mongodb-7016-10-2025-02-19">Percona Server for MongoDB 7.0.16-10 (2025-02-19)<a class="headerlink" href="#release_notes-7.0.16-10-percona-server-for-mongodb-7016-10-2025-02-19" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release_notes-7.0.16-10" heading-number="7.4"><h1 id="release_notes-7.0.16-10-percona-server-for-mongodb-7016-10-2025-02-19">Percona Server for MongoDB 7.0.16-10 (2025-02-19)<a class="headerlink" href="#release_notes-7.0.16-10-percona-server-for-mongodb-7016-10-2025-02-19" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#install-index">Installation</a>
 <a class="md-button" href="#install-upgrade-from-mongodb">Upgrade from MongoDB Community</a></p>
 <p>Percona Server for MongoDB 7.0.16-10 is an enhanced, source-available, and highly-scalable database that is a
@@ -9091,7 +9300,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1243">PSMDB-1243</a> - Fixed the issue with starting Percona Server for MongoDB Docker container with data-at-rest encryption configured via the configuration file</li>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1573">PSMDB-1573</a> - Added escaping of special characters when building LDAP queries</li>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1567">PSMDB-1567</a> - Fixed the issue with the crashing server during LDAP authentication when the LDAP server is down. </li>
-</ul></section><section class="print-page" id="release_notes-7.0.15-9" heading-number="7.4"><h1 id="release_notes-7.0.15-9-percona-server-for-mongodb-7015-9-2024-11-27">Percona Server for MongoDB 7.0.15-9 (2024-11-27)<a class="headerlink" href="#release_notes-7.0.15-9-percona-server-for-mongodb-7015-9-2024-11-27" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release_notes-7.0.15-9" heading-number="7.5"><h1 id="release_notes-7.0.15-9-percona-server-for-mongodb-7015-9-2024-11-27">Percona Server for MongoDB 7.0.15-9 (2024-11-27)<a class="headerlink" href="#release_notes-7.0.15-9-percona-server-for-mongodb-7015-9-2024-11-27" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#install-index">Installation</a>
 <a class="md-button" href="#install-upgrade-from-mongodb">Upgrade from MongoDB Community</a></p>
 <p>Percona Server for MongoDB 7.0.15-9 is an enhanced, source-available, and highly-scalable database that is a
@@ -9122,7 +9331,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <h3 id="release_notes-7.0.15-9-fixed-bugs">Fixed Bugs<a class="headerlink" href="#release_notes-7.0.15-9-fixed-bugs" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1527">PSMDB-1527</a> - Improve the <code>activateKeys</code> option handling by changing its type to boolean.</li>
-</ul></section><section class="print-page" id="release_notes-7.0.14-8" heading-number="7.5"><h1 id="release_notes-7.0.14-8-percona-server-for-mongodb-7014-8-2024-09-23">Percona Server for MongoDB 7.0.14-8 (2024-09-23)<a class="headerlink" href="#release_notes-7.0.14-8-percona-server-for-mongodb-7014-8-2024-09-23" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release_notes-7.0.14-8" heading-number="7.6"><h1 id="release_notes-7.0.14-8-percona-server-for-mongodb-7014-8-2024-09-23">Percona Server for MongoDB 7.0.14-8 (2024-09-23)<a class="headerlink" href="#release_notes-7.0.14-8-percona-server-for-mongodb-7014-8-2024-09-23" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#install-index">Installation</a></p>
 <p>Percona Server for MongoDB 7.0.14-8 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.12.</p>
@@ -9153,7 +9362,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.12.</p>
 <h3 id="release_notes-7.0.14-8-improvements">Improvements<a class="headerlink" href="#release_notes-7.0.14-8-improvements" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1283">PSMDB-1283</a> - Add the ability to activate master encryption keys in KMIP server and check their state.</li>
-</ul></section><section class="print-page" id="release_notes-7.0.12-7" heading-number="7.6"><h1 id="release_notes-7.0.12-7-percona-server-for-mongodb-7012-7-2024-07-23">Percona Server for MongoDB 7.0.12-7 (2024-07-23)<a class="headerlink" href="#release_notes-7.0.12-7-percona-server-for-mongodb-7012-7-2024-07-23" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release_notes-7.0.12-7" heading-number="7.7"><h1 id="release_notes-7.0.12-7-percona-server-for-mongodb-7012-7-2024-07-23">Percona Server for MongoDB 7.0.12-7 (2024-07-23)<a class="headerlink" href="#release_notes-7.0.12-7-percona-server-for-mongodb-7012-7-2024-07-23" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#install-index">Installation</a></p>
 <p>Percona Server for MongoDB 7.0.12-7 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.12.</p>
@@ -9167,7 +9376,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.12.</p>
 <li><a href="https://jira.mongodb.org/browse/SERVER-90485">SERVER-90485</a> - Fixed the sorting of results produced by the <code>$unwind</code> aggregation with the array index field specified</li>
 <li><a href="https://jira.mongodb.org/browse/WT-12736">WT-12736</a> - Marked the page clean in WiredTiger after re-instantiating the page with prepared updates to avoid reconciling the page every time</li>
 </ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.12---jun-28--2024">MongoDB 7.0.12 Community Edition release notes</a>.</p></section><section class="print-page" id="release_notes-7.0.11-6" heading-number="7.7"><h1 id="release_notes-7.0.11-6-percona-server-for-mongodb-7011-6-2024-06-03">Percona Server for MongoDB 7.0.11-6 (2024-06-03)<a class="headerlink" href="#release_notes-7.0.11-6-percona-server-for-mongodb-7011-6-2024-06-03" title="Permanent link">&para;</a></h1>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.12---jun-28--2024">MongoDB 7.0.12 Community Edition release notes</a>.</p></section><section class="print-page" id="release_notes-7.0.11-6" heading-number="7.8"><h1 id="release_notes-7.0.11-6-percona-server-for-mongodb-7011-6-2024-06-03">Percona Server for MongoDB 7.0.11-6 (2024-06-03)<a class="headerlink" href="#release_notes-7.0.11-6-percona-server-for-mongodb-7011-6-2024-06-03" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#install-index">Installation</a></p>
 <p>Percona Server for MongoDB 7.0.11-6 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.11.</p>
@@ -9185,7 +9394,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.11.</p>
 <li><a href="https://jira.mongodb.org/browse/SERVER-89625">SERVER-89625</a> - Improve handling of directoryPerDb and wiredTigerDirectoryForIndexes to not insert directories as key when reporting namespaces and UUIDs during a backup   </li>
 <li><a href="https://jira.mongodb.org/browse/WT-12609">WT-12609</a> - Improved checkpoint cleanup and page eviction logic to prevent their unnecessary slowdown by evicting the internal pages read by the checkpoint like a regular page.  </li>
 </ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.9---apr-26--2024">MongoDB 7.0.9 Community Edition release notes</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.11---may-23--2024">MongoDB 7.0.11 Community Edition release notes</a>.</p></section><section class="print-page" id="release_notes-7.0.8-5" heading-number="7.8"><h1 id="release_notes-7.0.8-5-percona-server-for-mongodb-708-5-2024-04-24">Percona Server for MongoDB 7.0.8-5 (2024-04-24)<a class="headerlink" href="#release_notes-7.0.8-5-percona-server-for-mongodb-708-5-2024-04-24" title="Permanent link">&para;</a></h1>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.9---apr-26--2024">MongoDB 7.0.9 Community Edition release notes</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.11---may-23--2024">MongoDB 7.0.11 Community Edition release notes</a>.</p></section><section class="print-page" id="release_notes-7.0.8-5" heading-number="7.9"><h1 id="release_notes-7.0.8-5-percona-server-for-mongodb-708-5-2024-04-24">Percona Server for MongoDB 7.0.8-5 (2024-04-24)<a class="headerlink" href="#release_notes-7.0.8-5-percona-server-for-mongodb-708-5-2024-04-24" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#install-index">Installation</a></p>
 <p>Percona Server for MongoDB 7.0.8-5 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.8.</p>
@@ -9219,7 +9428,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.8.</p>
 <h2 id="release_notes-7.0.8-5-bugs-fixed">Bugs Fixed<a class="headerlink" href="#release_notes-7.0.8-5-bugs-fixed" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1418">PSMDB-1418</a> - Fixed the issue with the server crash when using LDAP authentication by ensuring that LDAP connections borrowed by a client thread are not disposed.</li>
-</ul></section><section class="print-page" id="release_notes-7.0.7-4" heading-number="7.9"><h1 id="release_notes-7.0.7-4-percona-server-for-mongodb-707-4-2024-04-04">Percona Server for MongoDB 7.0.7-4 (2024-04-04)<a class="headerlink" href="#release_notes-7.0.7-4-percona-server-for-mongodb-707-4-2024-04-04" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release_notes-7.0.7-4" heading-number="7.10"><h1 id="release_notes-7.0.7-4-percona-server-for-mongodb-707-4-2024-04-04">Percona Server for MongoDB 7.0.7-4 (2024-04-04)<a class="headerlink" href="#release_notes-7.0.7-4-percona-server-for-mongodb-707-4-2024-04-04" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#install-index">Installation</a></p>
 <p>Percona Server for MongoDB 7.0.7-4 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
@@ -9247,7 +9456,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
 <h2 id="release_notes-7.0.7-4-bugs-fixed">Bugs Fixed<a class="headerlink" href="#release_notes-7.0.7-4-bugs-fixed" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1434">PSMDB-1434</a> - Fixed the auditing behavior by removing excessive logging for CRUD operations</li>
-</ul></section><section class="print-page" id="release_notes-7.0.5-3" heading-number="7.10"><h1 id="release_notes-7.0.5-3-percona-server-for-mongodb-705-3-2024-01-23">Percona Server for MongoDB 7.0.5-3 (2024-01-23)<a class="headerlink" href="#release_notes-7.0.5-3-percona-server-for-mongodb-705-3-2024-01-23" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release_notes-7.0.5-3" heading-number="7.11"><h1 id="release_notes-7.0.5-3-percona-server-for-mongodb-705-3-2024-01-23">Percona Server for MongoDB 7.0.5-3 (2024-01-23)<a class="headerlink" href="#release_notes-7.0.5-3-percona-server-for-mongodb-705-3-2024-01-23" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#install-index">Installation</a></p>
 <p>Percona Server for MongoDB 7.0.5-3 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
@@ -9260,7 +9469,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
 <li><a href="https://jira.mongodb.org/browse/SERVER-83091">SERVER-83091</a> - Fixed infinite loop in lockstep $or plan enumeration</li>
 <li><a href="https://jira.mongodb.org/browse/WT-7929">WT-7929</a> - Investigated a solution to avoid a Full Time Diagnostic Data Capture (FTDC) mechanism to stall during checkpoint</li>
 </ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.5---jan-5--2024">MongoDB 7.0.5 Community Edition release notes</a>.</p></section><section class="print-page" id="release_notes-7.0.4-2" heading-number="7.11"><h1 id="release_notes-7.0.4-2-percona-server-for-mongodb-704-2-2023-12-11">Percona Server for MongoDB 7.0.4-2 (2023-12-11)<a class="headerlink" href="#release_notes-7.0.4-2-percona-server-for-mongodb-704-2-2023-12-11" title="Permanent link">&para;</a></h1>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.5---jan-5--2024">MongoDB 7.0.5 Community Edition release notes</a>.</p></section><section class="print-page" id="release_notes-7.0.4-2" heading-number="7.12"><h1 id="release_notes-7.0.4-2-percona-server-for-mongodb-704-2-2023-12-11">Percona Server for MongoDB 7.0.4-2 (2023-12-11)<a class="headerlink" href="#release_notes-7.0.4-2-percona-server-for-mongodb-704-2-2023-12-11" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#install-index">Installation</a></p>
 <p>We are pleased to announce the general availability of Percona Server for MongoDB 7.0.4-2 – the drop in replacement for MongoDB Community Edition. Percona Server for MongoDB supports MongoDB community protocols and drivers and enhances it with the <a href="#comparison">enterprise-grade features for free</a>, enabling you to effectively meet the requirements of your organization in terms of high-availability, reliability and data security. </p>
 <p>Percona Server for MongoDB 7.0.4-2 includes the improvements and bug fixes of <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.3---nov-9--2023">MongoDB 7.0.3 Community Edition</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.4---nov-13--2023">MongoDB 7.0.4 Community Edition</a>.</p>
@@ -9309,7 +9518,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
 <h2 id="release_notes-7.0.4-2-new-features">New Features<a class="headerlink" href="#release_notes-7.0.4-2-new-features" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://jira.percona.com/browse/PSMDB-1241">PSMDB-1241</a> - Implement the <code>connectRetries</code> and the <code>connectTimeoutMS</code> configuration file options</li>
-</ul></section><section class="print-page" id="release_notes-7.0.2-1" heading-number="7.12"><h1 id="release_notes-7.0.2-1-percona-server-for-mongodb-702-1-release-candidate-2023-10-05">Percona Server for MongoDB 7.0.2-1 (Release Candidate) (2023-10-05)<a class="headerlink" href="#release_notes-7.0.2-1-percona-server-for-mongodb-702-1-release-candidate-2023-10-05" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="release_notes-7.0.2-1" heading-number="7.13"><h1 id="release_notes-7.0.2-1-percona-server-for-mongodb-702-1-release-candidate-2023-10-05">Percona Server for MongoDB 7.0.2-1 (Release Candidate) (2023-10-05)<a class="headerlink" href="#release_notes-7.0.2-1-percona-server-for-mongodb-702-1-release-candidate-2023-10-05" title="Permanent link">&para;</a></h1>
 <p><a class="md-button" href="#install-index">Installation</a></p>
 <p>We are pleased to announce the release candidate of the new major version of Percona Server for MongoDB 7.0.2-1 – the drop in replacement for MongoDB Community Edition. Percona Server for MongoDB supports MongoDB community protocols and drivers and enhances it with the <a href="#comparison">enterprise-grade features for free</a>, enabling you to effectively meet the requirements of your organization in terms of high-availability, reliability and data security. </p>
 <div class="admonition warning">
@@ -9708,7 +9917,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p></section>
 <li><code>--name psmdb</code> - Assigns the name “psmdb” to the container.</li>
 <li><code>--restart always</code> - Configures the container to restart automatically if it stops or crashes.</li>
 <li><code>-e PERCONA_TELEMETRY_DISABLE=1</code> - Sets an environment variable within the container. In this case, it disables telemetry for Percona Server for MongoDB.</li>
-<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>7.0.18-11-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
+<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>7.0.22-12-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
 </ul>
 </div>
 </div>
@@ -9912,13 +10121,15 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
 
 .print-site-enumerate-headings #fips > h1:before { content: '5.5.6 ' }
 
-.print-site-enumerate-headings #audit-logging > h1:before { content: '5.6 ' }
+.print-site-enumerate-headings #fcbis > h1:before { content: '5.6 ' }
 
-.print-site-enumerate-headings #rate-limit > h1:before { content: '5.7 ' }
+.print-site-enumerate-headings #audit-logging > h1:before { content: '5.7 ' }
 
-.print-site-enumerate-headings #log-redaction > h1:before { content: '5.8 ' }
+.print-site-enumerate-headings #rate-limit > h1:before { content: '5.8 ' }
 
-.print-site-enumerate-headings #ngram-full-text-search > h1:before { content: '5.9 ' }
+.print-site-enumerate-headings #log-redaction > h1:before { content: '5.9 ' }
+
+.print-site-enumerate-headings #ngram-full-text-search > h1:before { content: '5.10 ' }
 
 .print-site-enumerate-headings #section-6 > h1:before { content: '6 ' }
 .print-site-enumerate-headings #set-parameter > h1:before { content: '6.1 ' }
@@ -9941,27 +10152,29 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
 .print-site-enumerate-headings #section-7 > h1:before { content: '7 ' }
 .print-site-enumerate-headings #release_notes-index > h1:before { content: '7.1 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.18-11 > h1:before { content: '7.2 ' }
+.print-site-enumerate-headings #release_notes-7.0.22-12 > h1:before { content: '7.2 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.16-10 > h1:before { content: '7.3 ' }
+.print-site-enumerate-headings #release_notes-7.0.18-11 > h1:before { content: '7.3 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.15-9 > h1:before { content: '7.4 ' }
+.print-site-enumerate-headings #release_notes-7.0.16-10 > h1:before { content: '7.4 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.14-8 > h1:before { content: '7.5 ' }
+.print-site-enumerate-headings #release_notes-7.0.15-9 > h1:before { content: '7.5 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.12-7 > h1:before { content: '7.6 ' }
+.print-site-enumerate-headings #release_notes-7.0.14-8 > h1:before { content: '7.6 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.11-6 > h1:before { content: '7.7 ' }
+.print-site-enumerate-headings #release_notes-7.0.12-7 > h1:before { content: '7.7 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.8-5 > h1:before { content: '7.8 ' }
+.print-site-enumerate-headings #release_notes-7.0.11-6 > h1:before { content: '7.8 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.7-4 > h1:before { content: '7.9 ' }
+.print-site-enumerate-headings #release_notes-7.0.8-5 > h1:before { content: '7.9 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.5-3 > h1:before { content: '7.10 ' }
+.print-site-enumerate-headings #release_notes-7.0.7-4 > h1:before { content: '7.10 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.4-2 > h1:before { content: '7.11 ' }
+.print-site-enumerate-headings #release_notes-7.0.5-3 > h1:before { content: '7.11 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.2-1 > h1:before { content: '7.12 ' }
+.print-site-enumerate-headings #release_notes-7.0.4-2 > h1:before { content: '7.12 ' }
+
+.print-site-enumerate-headings #release_notes-7.0.2-1 > h1:before { content: '7.13 ' }
 
 .print-site-enumerate-headings #faq > h1:before { content: '8 ' }
 
