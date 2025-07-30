@@ -86,12 +86,6 @@ Percona stores the Metrics File in one of the following directories on the local
     * `mongod` root path -  `${telemetry root path}/psmdb/`
     * `mongos` root path -  `${telemetry root path}/psmdbs/`
 
-* PS root path -   `${telemetry root path}/ps/`
-
-* PXC root path - `${telemetry root path}/pxc/`
-
-* PG root path - `${telemetry root path}/pg/`
-
 Percona archives the telemetry history in `${telemetry root path}/history/`.
 
 #### Metrics File format
