@@ -29,6 +29,12 @@ by adding marketing-requested elements
 
 {% endblock %}
 
+{% block outdated %}
+<div>This documentation is for the end of life version of Percona Server for MongoDB 6.0 which is no longer supported.
+  <br><strong><a href="https://www.percona.com/blog/percona-software-for-mongodb-release-plan-updates/">Learn more about
+      Percona Software for MongoDB Release Plan Updates</a>.</strong> See the <strong><a href={{ '../' ~ base_url }}>current documentation</a></strong>. </div>
+{% endblock %}
+
 {% block site_nav %}
             {% if nav %}
               {% if page.meta and page.meta.hide %}
