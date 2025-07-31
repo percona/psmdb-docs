@@ -3,9 +3,11 @@
 ## x86_64
 
 Percona Server for MongoDB requires the following minimum x86_64 microarchitectures:
+
 * For Intel x86_64, it requires one of the following:
-  * a *Sandy Bridge* or later Core processor, or
-  * a *Tiger Lake* or later Celeron or Pentium processor.
+  
+   * a *Sandy Bridge* or later Core processor, or
+   * a *Tiger Lake* or later Celeron or Pentium processor.
 
 * For AMD x86_64, it requires a *Bulldozer* or later processor.
 
