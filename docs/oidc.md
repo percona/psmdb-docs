@@ -26,9 +26,9 @@ Any other external identity provider that supports OIDC and OAuth 2.0 may also w
 
 Percona Server for MongoDB supports two authentication workflows with OIDC:
 
-* **Authorization code**: a `mongo` client (for example, `mongosh` or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the default authentication workflow.
+* **Authorization code**: a `mongo` client (for example, `mongosh` or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the most common and secure flow for interactive user sessions. It is suitable for use cases when users have a web browser available on the machine where they are running the `mongo` client.
 
-* **Device authentication**: instead of redirecting a user to authenticate on a login portal directly, a `mongo` client receives the URL of the login portal and the authentication code. The user follows the URL and enters the  authentication code. The example use case for such a workflow is when both a `mongo` client and Percona Server for MongoDB run in a cloud environment and the client needs to authenticate in Percona Server for MongoDB without managing long-term credentials like passwords. 
+* **Device authentication**: instead of redirecting a user to authenticate on a login portal directly, a `mongo` client receives the URL of the login portal and the authentication code. The user authenticates on a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a `mongo` client and Percona Server for MongoDB run in a cloud environment and the client needs to authenticate in Percona Server for MongoDB without managing long-term credentials like passwords. 
 
 The following diagram illustrates the authentication flow.
 
@@ -45,7 +45,7 @@ The following diagram illustrates the authentication flow.
 
 The access and ID tokens are encoded as JSON Web Tokens (JWT). They contain information about user identities and authorization rights.
 
-You can use the IdP infrastructure to also authorize users. In this case users are stored and managed on the IdP side. 
+You can use the IdP infrastructure to authenticate and authorize users. In this case users are stored and managed on the IdP side. 
 
 Or you can bundle OIDC authentication with LDAP authorization. In this flow, users authenticate via an IdP and are authorized with the LDAP server.
 
@@ -61,14 +61,22 @@ The use of OIDC and OAuth 2.0 provides the following benefits:
 
 ## Configuration 
 
-Percona Server for MongoDB configuration for OIDC authentication includes the following steps:
+To configure OIDC /OAuth 2.0 authentication and authorization, you must do the following:
 
-* configuration of the external identity provider
-* configuration of user roles and privileges to access the database resources
+1. Configure external identity provider
+2. Configure authentication in Percona Server for MongoDB
+3. Configure user roles and privileges in Percona Server for MongoDB that will be mapped to IdP groups
 
-### External identity provider configuration
+This section describes Percona Server for MongoDB configuration for OIDC authentication and the available configuration options. Refer to tutorials for detailed step-by-step instructions:
 
-Specify the external identity provider configuration for the `oidcIdentityProviders` server parameter. You can set it only at startup. See the [Parameter tuning guide](set-parameter.md) for how to set server parameters.
+* [Configure OIDC with Okta](oidc-okta.md)
+* [Configure OIDC with Microsoft Entra]
+* [Configure OIDC with Ping Identity]
+* [Configure OIDC with Keycloak]
+
+### Percona Server for MongoDB configuration options
+
+To configure OIDC authentication in Percona Server for MongoDB, specify the external identity provider configuration for the `oidcIdentityProviders` server parameter. You can set it only at startup. See the [Parameter tuning guide](set-parameter.md) for how to set server parameters.
 
 You can use several IdPs for OIDC authentication. In this case, you must add a configuration for every provider to the `oidcIdentityProviders` server parameter. You must also specify a match pattern for each provider. Usernames are then matched against the match pattern to identify which IdP to authenticate a user with. The order in which IdPs are listed defines their priority. The first IdP that matches the username is used for authentication.
 
@@ -76,85 +84,103 @@ The `oidcIdentityProviders` server parameter contains an array of JSON objects w
 
 | Parameter  | Required    | Description |
 |------------|-------------|-------------| 
-| `issuer`   | Yes         | The URL of the identity provider. It must be a valid URL that starts with `https://`. |
+| `issuer`   | Yes         | The URL of the identity provider that the server should accept tokens from. It must be a valid URL that starts with `https://`. |
 | `audience` | Yes         | The audience claim for the identity provider. It is used to verify that the access token is intended for your application. You can specify only one value for the `audience` field. When you use multiple identity providers, the `audience` field must have a unique value. |
 | `authNamePrefix` | Yes   | The unique prefix for the authentication name. It is used to identify the identity provider in the authentication process. |
-| `authorizationClaim` | No | The claim in the access token that contains the user roles or groups. It is used to map user roles to MongoDB roles. When you use `authorizationClaim` set to `true`, you don't need to add users in Percona Server for MongoDB. If you don't specify `authorizationClaim`, you must add users to the `$external` database. |
+| `useAuthorizationClaim`| No| If set to `true`, the server uses the claim in the access token to map user roles to MongoDB roles. If set to `false`, the server uses the `$external` database for authentication and authorization. The default value is `false`. |
+| `authorizationClaim` | Yes when `useAuthorizationClaim` is `true` | The claim in the access token that contains the user roles or groups. It is used to map user roles to MongoDB roles.|
 | `clientId` | Yes | The client ID of the application registered with the identity provider. It is used to identify your application when requesting tokens. |
 | `matchPattern` | Yes (if more than one IdP is used) | A regular expression that matches usernames to identify which identity provider to use for authentication. |
 
-### Example configuration file
+#### Examples 
 
 === "Single IdP"
 
     This is the example configuration of Percona Server for MongoDB for Okta:    
 
-    ```yaml
-    security:
-       authorization: enabled
-    setParameter:
-       authenticationMechanisms: MONGODB-OIDC
-       oidcIdentityProviders: '[ {
-          "issuer": "https://my-okta.okta.com",
-          "audience": "example@mongodb.com",
-          "authNamePrefix": "okta",
-          "authorizationClaim": "oidc-test",
-          "clientId": "0zzw3ggfd2ase33"
-       } ]'
-    ```
+    === "Configuration file"
+
+        ```yaml
+        security:
+           authorization: enabled
+        setParameter:
+           authenticationMechanisms: MONGODB-OIDC
+           oidcIdentityProviders: '[ {
+              "issuer": "https://my-okta.okta.com",
+              "audience": "example@mongodb.com",
+              "authNamePrefix": "okta",
+              "useAuthorizationClaim": true,
+              "authorizationClaim": "oidc-test",
+              "clientId": "0zzw3ggfd2ase33"
+           } ]'
+        ```
+
+    === "Command line"
+   
+        ```{.bash data-prompt="$"}
+        $ mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
+        'oidcIdentityProviders=[ {
+           "issuer": "https://my-okta.okta.com",
+           "audience": "example@mongodb.com",
+           "authNamePrefix": "okta",
+           "useAuthorizationClaim": true,
+           "authorizationClaim": "oidc-test",
+           "clientId": "0zzw3ggfd2ase33"
+        } ]'
+        ```
+
 
 === "Several IdPs"
  
     For example, if you have two identity providers, Okta and Microsoft Entra, you can specify the following configuration:
 
-    ```yaml
-    security:
-       authorization: enabled
-    setParameter:
-       authenticationMechanisms: MONGODB-OIDC
-       oidcIdentityProviders: '[ {
-          "issuer": "https://my-okta.okta.com",
-          "audience": "audience1",
-          "authNamePrefix": "okta",
-          "authorizationClaim": "oidc-test",
-          "matchPattern": "@okta.com$",
-          "clientId": "0zzw3ggfd2ase33"
-       }, {
-          "issuer": "https://azure-test.azure.com",
-          "audience": "audience2",
-          "authNamePrefix": "azure-issuer",
-          "authorizationClaim": "azure-test",
-          "matchPattern": "@azure.com$",
-          "clientId": "1zzw3ggfd2ase33"
-       } ]'
-    ```
+    === "Configuration file"
 
-### User roles and privileges configuration
+        ```yaml
+        security:
+           authorization: enabled
+        setParameter:
+           authenticationMechanisms: MONGODB-OIDC
+           oidcIdentityProviders: '[ {
+              "issuer": "https://my-okta.okta.com",
+              "audience": "audience1",
+              "authNamePrefix": "okta",
+              "useAuthorizationClaim": true,
+              "authorizationClaim": "oidc-test",
+              "matchPattern": "@okta.com$",
+              "clientId": "0zzw3ggfd2ase33"
+           }, {
+              "issuer": "https://azure-test.azure.com",
+              "audience": "audience2",
+              "authNamePrefix": "azure-issuer",
+              "useAuthorizationClaim": true,
+              "authorizationClaim": "azure-test",
+              "matchPattern": "@azure.com$",
+              "clientId": "1zzw3ggfd2ase33"
+           } ]'
+        ```
 
-To enable users to access Percona Server for MongoDB, you must create roles and define privileges for them. 
+    === "Command line"
+   
+        ```{.bash data-prompt="$"}
+         $ mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
+         oidcIdentityProviders: '[ {
+            "issuer": "https://my-okta.okta.com",
+            "audience": "audience1",
+            "authNamePrefix": "okta",
+            "useAuthorizationClaim": true,
+            "authorizationClaim": "oidc-test",
+            "matchPattern": "@okta.com$",
+            "clientId": "0zzw3ggfd2ase33"
+         }, {
+            "issuer": "https://azure-test.azure.com",
+            "audience": "audience2",
+            "authNamePrefix": "azure-issuer",
+            "useAuthorizationClaim": true,
+            "authorizationClaim": "azure-test",
+            "matchPattern": "@azure.com$",
+            "clientId": "1zzw3ggfd2ase33"
+         } ]'
+        ```
 
-The roles must map the identity provider group names or the LDAP server group names. 
-
-To authorize users via identity provider groups, the role name must match the identity provider group name and must have the prefix that matches the `authNamePrefix` in Percona Server for MongoDB configuration.
-
-For example, if you have the `authNamePrefix` set to `okta`, you must create roles with the prefix `okta/`. The command to create a role to map the group `Everyone` in Okta is:
-
-```javascript
-db.createRole({
-  role: "okta/Everyone",
-  privileges: [ ],
-  roles: [ "readWriteAnyDatabase" ]
-})
-```
-
-
-<!-- 
-Use the following tutorials to configure OIDC with one of the supported external identity providers:
-
-
-* [Configure OIDC with Okta](oidc-okta.md)
-* [Configure OIDC with Microsoft Entra]
-* [Configure OIDC with Ping Identity]
-* [Configure OIDC with Keycloak]
--->
 

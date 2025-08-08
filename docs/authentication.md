@@ -117,10 +117,7 @@ Percona Server for MongoDB supports OpenID Connect (OIDC) as an authentication m
 
 OIDC / OAuth 2.0 authentication and authorization is included in [Percona Server for MongoDB Pro](psmdb-pro.md) out of the box. You can also receive it by building the binaries yourself. Percona Server for MongoDB Pro is available for Percona Customers. [Reach out to us](https://www.percona.com/about/contact) to become a Percona Customer.
 
-Read more about OIDC in the following sections:
-
-* [OIDC / OAuth2.0](oidc.md)
-* [Configure OIDC authentication](oidc-setup.md)
+Read more about OIDC in [OIDC / OAuth2.0](oidc.md).
 
 
 

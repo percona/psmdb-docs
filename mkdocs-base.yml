@@ -215,7 +215,7 @@ nav:
         - authorization.md
         - ldap-setup.md
         - oidc.md
-        - oidc-setup.md
+        - oidc-okta.md
       - Encryption:
         - "Data at rest encryption": "data-at-rest-encryption.md"
         - "Use Vault": vault.md
