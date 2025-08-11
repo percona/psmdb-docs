@@ -1,6 +1,6 @@
 # Configure OIDC authentication and authorization with Okta
 
-This document focuses on configuring OIDC authentication for Percona Serevrf for MongoDB deployment using [Okta :octicons-link-external-16:](https://www.okta.com/) as the identity provider.
+This document focuses on configuring OIDC authentication for Percona Server for MongoDB deployment using [Okta :octicons-link-external-16:](https://www.okta.com/) as the identity provider.
 
 The setup process consists of three main stages:
 
@@ -211,13 +211,17 @@ Create roles for all groups you have defined in Okta.
 
 **Complete this step if you set `useAuthorizationClaim` to `false`**
 
-Create users in the `$external` database. The username must be the email that you specified when you created users in Okta.
+Create users in the `$external` database. The username must consist of the `authNamePrefix` and the email that you specified when you created users in Okta. The username format is:
 
-Use the following command:
+```
+authNamePrefix/email
+```
+
+If you set the `authNamePrefix` to `okta`, then the command to create a user is the following:
 
 ```javascript
 db.getSiblingDB("$external").createUser({
-  user: "john.doe@example.com",
+  user: "okta/john.doe@example.com",
   roles: [
     { role: "okta/Everyone", db: "admin" } 
   ]

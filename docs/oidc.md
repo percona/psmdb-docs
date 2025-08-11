@@ -70,7 +70,7 @@ To configure OIDC /OAuth 2.0 authentication and authorization, you must do the f
 This section describes Percona Server for MongoDB configuration for OIDC authentication and the available configuration options. Refer to tutorials for detailed step-by-step instructions:
 
 * [Configure OIDC with Okta](oidc-okta.md)
-* [Configure OIDC with Microsoft Entra]
+* [Configure OIDC with Microsoft Entra](oidc-entra.md)
 * [Configure OIDC with Ping Identity]
 * [Configure OIDC with Keycloak]
 
@@ -91,6 +91,11 @@ The `oidcIdentityProviders` server parameter contains an array of JSON objects w
 | `authorizationClaim` | Yes when `useAuthorizationClaim` is `true` | The claim in the access token that contains the user roles or groups. It is used to map user roles to MongoDB roles.|
 | `clientId` | Yes | The client ID of the application registered with the identity provider. It is used to identify your application when requesting tokens. |
 | `matchPattern` | Yes (if more than one IdP is used) | A regular expression that matches usernames to identify which identity provider to use for authentication. |
+| `requestScopes` | No | Specifies the user information (claims) that an application wants to access during authentication. Scopes are essentially a way for the application to request specific sets of user attributes from the identity provider.  |
+| `principalName` | No | Specifies the name of the principal that is used to authenticate users. If not specified, the default value is `sub`, which is the subject claim in the access token. The subject claim typically contains a unique identifier for the user. You can use other claims like `email` or `preferred_username` as a principal name. |
+| `supportsHumanFlows`| No | Defines whether an identity provider supports human authentication flows. This means that the identity provider can redirect users to a login portal or provide a URL and authentication code for device authentication. This option affects the `clientId` and `matchPattern` fields. <br> You may set it to false for machine workload IdPs to bypass the `clientId` when it's not needed.|
+
+
 
 #### Examples 
 
