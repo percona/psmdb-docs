@@ -198,7 +198,7 @@ The role name must match the identity provider group name and must have the pref
 For example, to create a role for the default group `Everyone` in Okta and with the `authNamePrefix` set to `okta`, use the following command:
 
 ```javascript
-db.createRole({
+db.getSiblingDB("admin").createRole({
   role: "okta/Everyone",
   privileges: [ ],
   roles: [ "readWriteAnyDatabase" ]
@@ -243,8 +243,8 @@ db.getSiblingDB("$external").createUser({
 3. Upon successful log in you must see the **Login successful** screen. In your `mongo` client, you should see the output as follows:
 
     ```{.text .no-copy}
-    Using MongoDB:		8.0.12-4
-    Using Mongosh:		2.5.6
+    Using MongoDB:		{{release}}
+    Using Mongosh:		{{mongosh}}
 
     For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -271,8 +271,8 @@ db.getSiblingDB("$external").createUser({
 4. You should see the **Device Activated** message on the screen. In your `mongo` client, you should see the output as follows:
 
     ```{.text .no-copy}
-    Using MongoDB:		8.0.12-4
-    Using Mongosh:		2.5.6
+    Using MongoDB:		{{release}}
+    Using Mongosh:		{{mongosh}}
 
     For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 

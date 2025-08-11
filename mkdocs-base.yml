@@ -215,7 +215,10 @@ nav:
         - authorization.md
         - ldap-setup.md
         - oidc.md
-        - oidc-okta.md
+        - Configure OIDC authentication:
+           - With Okta: oidc-okta.md
+           - With Microsoft Entra: oidc-entra.md
+           - With Ping Identity: oidc-ping.md
       - Encryption:
         - "Data at rest encryption": "data-at-rest-encryption.md"
         - "Use Vault": vault.md

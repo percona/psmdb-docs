@@ -1,6 +1,6 @@
 # Configure OIDC authentication and authorization with Microsoft Entra ID
 
-This document provides step-by-step instructions how to configure OIDC authentication and authorization the Percona Server for MongoDB (PSMDB) using [Microsoft Entra :octicons-link-external-16:](https://www.microsoft.com/en-gb/security/business/microsoft-entra) as an external identity provider.
+This document provides step-by-step instructions how to configure OIDC authentication and authorization the Percona Server for MongoDB using [Microsoft Entra :octicons-link-external-16:](https://www.microsoft.com/en-gb/security/business/microsoft-entra) as an external identity provider.
 
 The setup process consists of three main stages:
 
