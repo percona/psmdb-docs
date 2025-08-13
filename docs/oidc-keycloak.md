@@ -220,8 +220,8 @@ db.getSiblingDB("$external").createUser({
     ??? example "Sample output"
 
         ```
-        Visit the following URL to complete authentication: https://my.keycloak.org:8443/realms/mongodb
-        Enter the following code on that page: QMTZKJWB
+        Visit the following URL to complete authentication: https://my.keycloak.org:8443/realms/mongodb/device
+        Enter the following code on that page: CSXP-ZTSJ
         Waiting...
         ```
 
