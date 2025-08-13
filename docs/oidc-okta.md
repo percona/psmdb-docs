@@ -15,7 +15,7 @@ The setup process consists of three main stages:
 
 ## Prerequisites
 
-1. Percona Server for MongoDB Pro 8.0.9-4 and higher
+1. Percona Server for MongoDB Pro 8.0.13-4 and higher
 2. Access to Okta Admin console
 
 ## Identity provider setup
@@ -78,7 +78,7 @@ The setup process consists of three main stages:
 		* **Include in**: Check **Any scope**.
 		* Click **Create**.
 
-	For more information, see [Create API access claims](https://help.okta.com/oie/en-us/content/topics/security/api-config-claims.htm?cshid=create-claims)
+	For more information, see [Create API access claims :octicons-link-external-16:](https://help.okta.com/oie/en-us/content/topics/security/api-config-claims.htm?cshid=create-claims)
 
 6. Configure the access policy
 
@@ -108,38 +108,17 @@ The setup process consists of three main stages:
 
     * Click **Create Rule**.
 
-    See [Create access policies](https://help.okta.com/oie/en-us/content/topics/security/api-config-access-policies.htm?cshid=create-access-policies) for more information about access policies and rules configuration.
+    See [Create access policies :octicons-link-external-16:](https://help.okta.com/oie/en-us/content/topics/security/api-config-access-policies.htm?cshid=create-access-policies) for more information about access policies and rules configuration.
 
 ### Create users and groups
 
 Groups define user access rights to resources. Identity provider groups are then mapped to roles in Percona Server for MongoDB to authorize users to access the database.
 
-To create groups, do the following:
+1. Follow the steps described in the [Groups :octicons-link-external-16:](https://help.okta.com/okta_help.htm?type=oie&locale=en&id=Directory_Groups) documentation to create required groups
 
-1. Go to **Directory** > **Groups** from the side menu, then click **Add Group**.
-2. Enter a name and a description for a group. 
-3. Click **Save**.
+2. Create users. Specify the user email as the username. Follow the steps in the [Add users manually :octicons-link-external-16:](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) documentation to create users.
 
-See [Groups](https://help.okta.com/okta_help.htm?type=oie&locale=en&id=Directory_Groups) to learn more.
-
-Next, create users. 
-
-1. Go to **Directory** > **People** from the side menu.
-2. Click **Add Person**
-3. Fill in the user details:
-
-    * **User type**: Select **User**
-    * Specify user first and last name in the **First Name** and **Last Name** fields
-    * **Username**: Specify user email
-    * **Primary email**: Must match the username
-    * **Groups**: Enter the group name you created earlier. You can add several groups now or assign them later.
-    * **Activation**: Select **Activate now** 
-    * Check **I will set password** and specify the password. 
-    * **User must change password on first login**: This is selected by default when you specify the user password. Clear this checkbox if you don't want the user to change their password when they first sign in. 
-
-4. Click **Save** to finish or **Save and Add Another** to add more users.
-
-See [Add users manually](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-add-users.htm) for more information.
+3. Assign the groups you created to users.
 
 ## Configure Percona Server for MongoDB
 

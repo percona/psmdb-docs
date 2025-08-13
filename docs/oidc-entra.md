@@ -16,7 +16,7 @@ The setup process consists of three main stages:
 
 Before you start, ensure you have the following:
 
-1. Percona Server for MongoDB Pro 8.0.9-4 and higher
+1. Percona Server for MongoDB Pro 8.0.13-4 and higher
 2. Microsoft Entra tenant with admin access
 
 ## Identity provider setup
@@ -67,27 +67,11 @@ To authorize users, you need to ensure the access tokens are generated as JWT fo
 
 ### Configure users and groups
 
-1. From the main navigation pane, select **Groups**.
-2. Click **New group** and fill in the group details:
+Groups define user access rights to resources. Identity provider groups are then mapped to roles in Percona Server for MongoDB to authorize users to access the database.
 
-     - **Group type**: Select **Security**.
-     - **Group name**: Enter a name for the group (e.g., `psmdb-users`).
-     - **Membership type**: Choose **Assigned**.
-
-3. Click **Create** to create the group. The group page opens. Copy the Object ID to clipboard for later use.
-4. Repeat steps 1-3 to add more groups.
-5. Add users. From the main navigation pane, select **Users**.
-6. Click **New user** > **Create new user** 
-7. On the **Basics** tab, fill in the user details:
-
-   - **User principal name**: Enter the user's email address.
-   - **Display name**: Enter the user's name how you want it to be displayed.
-   - **Password**: The password for the user is auto-generated. Or you can specify it yourself.
-
-8. Click **Review + create** to create the user.
-9. On the **Assignments** tab, click **Add group** and select the group you created earlier.
-10. Click **Select** to assign the group.
-11. Click **Review + Create** to finalize the user creation.
+1. Create groups in Microsoft Entra ID. Check the [Create a basic group and add members :octicons-link-external-16:](https://learn.microsoft.com/en-us/entra/fundamentals/how-to-manage-groups) for exact steps. 
+2. Add users. Specify the user email as the username. Check the [Create a new user :octicons-link-external-16:](https://learn.microsoft.com/en-us/entra/fundamentals/how-to-create-delete-users#create-a-new-user) for exact steps. 
+3. Assign the groups you created earlier to your users on the **Assignments** tab of the user profile. 
 
 ### Collect the information required for Percona Server for MongoDB configuration
 

@@ -219,6 +219,7 @@ nav:
            - With Okta: oidc-okta.md
            - With Microsoft Entra: oidc-entra.md
            - With Ping Identity: oidc-ping.md
+           - With Keycloak: oidc-keycloak.md
       - Encryption:
         - "Data at rest encryption": "data-at-rest-encryption.md"
         - "Use Vault": vault.md

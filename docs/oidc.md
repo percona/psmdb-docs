@@ -1,6 +1,6 @@
 # OIDC authentication
 
-!!! note "Version added: [8.0.9-4](release_notes/8.0.9-4.md)"
+!!! note "Version added: [8.0.13-4](release_notes/8.0.13-4.md)"
 
 	 Available in Percona Server for MongoDB Pro out of the box.
 

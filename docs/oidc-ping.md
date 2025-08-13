@@ -2,8 +2,6 @@
 
 This document provides step-by-step instructions how to configure OIDC authentication and authorization the Percona Server for MongoDB using [Ping Identity :octicons-link-external-16:](https://www.pingidentity.com/en.html) as an external identity provider.
 
-
-
 The setup process consists of three main stages:
 
 1. IdP setup:
@@ -19,7 +17,7 @@ The setup process consists of three main stages:
 
 Before you start, ensure you have the following:
 
-1. Percona Server for MongoDB Pro 8.0.9-4 and higher
+1. Percona Server for MongoDB Pro 8.0.13-4 and higher
 2. Ping Identity account with the active subscription
 
 ## Identity provider setup
@@ -82,28 +80,11 @@ To create a new environment in Ping Identity, follow these steps:
 
 ### Create users and groups
 
-1. In the left navigation pane, select **Directory** > **Groups**.
-2. Click the **Add** icon next to **Groups** title
-3. Fill in the Add Group form:
+Groups define user access rights to resources. Identity provider groups are then mapped to roles in Percona Server for MongoDB to authorize users to access the database.
 
-    - **Group Name**: Enter a name for the group (e.g., `admin`).
-    - **Description**: Enter a description for the group.
-
-4. Click **Save** to create the group.
-5. Repeat steps 2-4 to create more groups as needed.
-6. In the left navigation pane, select **Directory** > **Users**.
-7. Click the **Add** icon next to **Users** title and select **Create User**.
-8. Fill in the Add User form:
-
-    - **Given Name**: Enter the user's first name.
-    - **Family Name**: Enter the user's last name.
-    - **Username**: Enter a user's email address as the username.
-    - **Password**: Set a password for the user.
-
-9. Click **Save** to create the user. The user details page opens.
-10. Click the **Groups** tab.
-11. Click the **Manage Groups**.
-12. Check the groups you want to add the user to and click **Save**.
+1. Create groups as described in the [Creating a group :octicons-link-external-16:](https://docs.pingidentity.com/pingone/directory/p1_managing_groups.html#creating-a-group) guide.
+2. Add users. Follow the steps in the [Adding a user :octicons-link-external-16:](https://docs.pingidentity.com/pingone/directory/p1_adduser.html) guide to add users. Specify the user email as the username.
+3. Assign groups you created earlier to the users. 
 
 ## Configure Percona Server for MongoDB
 
@@ -209,8 +190,8 @@ db.getSiblingDB("$external").createUser({
     $ mongosh  --authenticationMechanism MONGODB-OIDC --oidcIdTokenAsAccessToken
     ```
 
-2. You will be redirected to the Ping Identity login page in your web browser. Log in with your credentials.
-3. Change your password and click **Continue**.
+2. You will be redirected to the Ping Identity login page in your web browser. 
+3. Log in with your credentials.
 4. Approve the sign in request.
 5. Upon successful authentication, you will see a confirmation message. In your `mongo` client, you should see the output as follows:
 
