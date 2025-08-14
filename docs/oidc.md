@@ -35,13 +35,15 @@ The following diagram illustrates the authentication flow.
 ![image](_images/OIDC-flow.png)
 
 1. A user connects to Percona Server for MongoDB using a `mongo` client. The client must support OIDC.
-2. The `mongo` client requests authentication from the IdP.
-3. The IdP generates the authorization code. A user is redirected to the login portal of an external identity provider (IdP). Alternatively, a user is provided with a URL and the authentication code.
-4. The user is requested to authenticate. For example, using two-factor authentication or by entering an authentication code.
-5. A user is redirected back to the `mongo` client with a temporary single-use authorization code. 
-6. The IdP verifies the authorization code, user's client ID and credentials.
-7. Upon success, the IdP returns the access and ID tokens to the `mongo` client.
-8. The `mongo` client uses the access token to access Percona Server for MongoDB.
+2. Percona Server for MongoDB redirects the `mongo` client to the IdP for authentication and provides the IdP information such as URL, requests scopes, cleintID. 
+3. The `mongo` client requests authentication from the IdP.
+4. The IdP generates the authorization code. A user is redirected to the login portal of an external identity provider (IdP). Alternatively, a user is provided with a URL and the authentication code.
+5. The user is requested to authenticate. For example, using two-factor authentication or by entering an authentication code.
+6. A user is redirected back to the `mongo` client with a temporary single-use authorization code. 
+7. The `mongo` client sends the authorization code to the IdP and requests tokens. The request includes the `clientId` and credentials of the `mongo` client.
+8. The IdP verifies the authorization code, user's client ID and credentials.
+9. Upon success, the IdP returns the access and ID tokens to the `mongo` client.
+10. The `mongo` client uses the access token to access Percona Server for MongoDB.
 
 The access and ID tokens are encoded as JSON Web Tokens (JWT). They contain information about user identities and authorization rights.
 
@@ -71,26 +73,26 @@ This section describes Percona Server for MongoDB configuration for OIDC authent
 
 * [Configure OIDC with Okta](oidc-okta.md)
 * [Configure OIDC with Microsoft Entra](oidc-entra.md)
-* [Configure OIDC with Ping Identity]
-* [Configure OIDC with Keycloak]
+* [Configure OIDC with Ping Identity](oidc-ping.md)
+* [Configure OIDC with Keycloak](oidc-keycloak.md)
 
 ### Percona Server for MongoDB configuration options
 
 To configure OIDC authentication in Percona Server for MongoDB, specify the external identity provider configuration for the `oidcIdentityProviders` server parameter. You can set it only at startup. See the [Parameter tuning guide](set-parameter.md) for how to set server parameters.
 
-You can use several IdPs for OIDC authentication. In this case, you must add a configuration for every provider to the `oidcIdentityProviders` server parameter. You must also specify a match pattern for each provider. Usernames are then matched against the match pattern to identify which IdP to authenticate a user with. The order in which IdPs are listed defines their priority. The first IdP that matches the username is used for authentication.
+You can use several IdPs for OIDC authentication with human flow, where a user is redirected to authentication portal. In this case, you must add a configuration for every provider to the `oidcIdentityProviders` server parameter. You must also specify a match pattern for each provider. Usernames are then matched against the match pattern to identify which IdP to authenticate a user with. The order in which IdPs are listed defines their priority. The first IdP that matches the username is used for authentication.
 
 The `oidcIdentityProviders` server parameter contains an array of JSON objects with the following parameters:
 
 | Parameter  | Required    | Description |
 |------------|-------------|-------------| 
-| `issuer`   | Yes         | The URL of the identity provider that the server should accept tokens from. It must be a valid URL that starts with `https://`. |
-| `audience` | Yes         | The audience claim for the identity provider. It is used to verify that the access token is intended for your application. You can specify only one value for the `audience` field. When you use multiple identity providers, the `audience` field must have a unique value. |
+| `issuer`   | Yes         | The URL of the identity provider that the server should accept tokens from. It must be a valid URL that starts with `https://`. You may use multiple IdPs with the same `issuer` value. In this case, the `audience` value must be unique. |
+| `audience` | Yes         | The audience claim for the identity provider. It is used to verify that the access token is intended for your application. You can specify only one value for the `audience` field. The `audience` field must have a unique value for the same IdP with the same `issuer` field. |
 | `authNamePrefix` | Yes   | The unique prefix for the authentication name. It is used to identify the identity provider in the authentication process. |
-| `useAuthorizationClaim`| No| If set to `true`, the server uses the claim in the access token to map user roles to MongoDB roles. If set to `false`, the server uses the `$external` database for authentication and authorization. The default value is `false`. |
+| `useAuthorizationClaim`| No| If set to `true`, the server uses the claim in the access token to map user roles to MongoDB roles. If set to `false`, the server uses the `$external` database for authentication and authorization. The default value is `true`. |
 | `authorizationClaim` | Yes when `useAuthorizationClaim` is `true` | The claim in the access token that contains the user roles or groups. It is used to map user roles to MongoDB roles.|
-| `clientId` | Yes | The client ID of the application registered with the identity provider. It is used to identify your application when requesting tokens. |
-| `matchPattern` | Yes (if more than one IdP is used) | A regular expression that matches usernames to identify which identity provider to use for authentication. |
+| `clientId` | Yes (if `supportsHumanFlows` is `true`) | The client ID of the application registered with the identity provider. It is used to identify your application when requesting tokens. |
+| `matchPattern` | Yes (if more than one IdP with human authentication support is used) | A regular expression that matches usernames to identify which identity provider to use for authentication. |
 | `requestScopes` | No | Specifies the user information (claims) that an application wants to access during authentication. Scopes are essentially a way for the application to request specific sets of user attributes from the identity provider.  |
 | `principalName` | No | Specifies the name of the principal that is used to authenticate users. If not specified, the default value is `sub`, which is the subject claim in the access token. The subject claim typically contains a unique identifier for the user. You can use other claims like `email` or `preferred_username` as a principal name. |
 | `supportsHumanFlows`| No | Defines whether an identity provider supports human authentication flows. This means that the identity provider can redirect users to a login portal or provide a URL and authentication code for device authentication. This option affects the `clientId` and `matchPattern` fields. <br> You may set it to false for machine workload IdPs to bypass the `clientId` when it's not needed.|
