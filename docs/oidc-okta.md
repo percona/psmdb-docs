@@ -135,7 +135,7 @@ Now you need to configure authentication in Percona Server for MongoDB. Specify 
            authenticationMechanisms: MONGODB-OIDC
            oidcIdentityProviders: '[ {
               "issuer": "https://my-okta.okta.com/oauth2/austxj66qrgAVPlAj697",
-              "audience": "example@mongodb.com",
+              "audience": "example@my-company.com",
               "authNamePrefix": "okta",
               "useAuthorizationClaim": true,
               "authorizationClaim": "oidc-test",
