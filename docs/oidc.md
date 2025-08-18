@@ -7,7 +7,7 @@
 
 OpenID Connect (OIDC) is an identity authentication protocol built on top of the OAuth 2.0 framework. OIDC is designed to verify user identities and provide authentication, ensuring that users are who they claim to be. OAuth 2.0 is used for user authorization to access resources. 
 
-The OIDC / OAuth 2.0 support enables Percona Server for MongoDB to authenticate and authorize users via tokens issued by an identity provider (IdP). The latter serves as a centralized storage of user credentials, which are shared with neither Percona Server for MongoDB nor MongoDB clients.
+The OIDC / OAuth 2.0 support enables Percona Server for MongoDB to authenticate and authorize users via tokens issued by an identity provider (IdP). The latter serves as a centralized storage of user credentials, which are not shared with either Percona Server for MongoDB or MongoDB clients.
 
 The IdP is a centralized place to authenticate and authorize humans and applications to access multiple resources in your infrastructure. User credentials, access policies and roles are stored centralized on the IdP side. You can configure different access policies and tailor permissions for a group of users of a specific user. 
 
@@ -26,9 +26,9 @@ Any other external identity provider that supports OIDC and OAuth 2.0 may also w
 
 Percona Server for MongoDB supports two authentication workflows with OIDC:
 
-* **Authorization code**: a `mongo` client (for example, `mongosh` or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the most common and secure flow for interactive user sessions. It is suitable for use cases when users have a web browser available on the machine where they are running the `mongo` client.
+* **Authorization code**: A `mongo` client (for example, `mongosh` or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the most common and secure flow for interactive user sessions. It is suitable for use cases when users have a web browser available on the machine where they are running the `mongo` client.
 
-* **Device authentication**: instead of redirecting a user to authenticate on a login portal directly, a `mongo` client receives the URL of the login portal and the authentication code. The user authenticates using a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a `mongo` client works in an environment without a browser, e.g. on a CLI-only server. 
+* **Device authentication**: Instead of redirecting a user to authenticate on a login portal directly, a `mongo` client receives the URL of the login portal and the authentication code. The user authenticates using a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a `mongo` client works in an environment without a browser, e.g. on a CLI-only server. 
 
 The following diagram illustrates the authentication flow.
 
@@ -45,11 +45,12 @@ The following diagram illustrates the authentication flow.
 9. Upon success, the IdP returns the access and ID tokens to the `mongo` client.
 10. The `mongo` client uses the access token to access Percona Server for MongoDB.
 
-The access and ID tokens are encoded as JSON Web Tokens (JWT). They contain information about user identities and authorization rights.
+The access and ID tokens must be encoded as JSON Web Tokens (JWT). They contain information about user identities and authorization rights.
 
-You can use the IdP infrastructure to authenticate and authorize users. In this case users are stored and managed on the IdP side. 
+You can use the IdP infrastructure to authenticate and authorize users. In this case, you store and manage users and their access rights on the IdP side. To use this flow, your IdP configuration in PSDMB must include the `useAuthorizationClaim` option set to true. This setting enforces the use of IdP groups to authorize users and grant them access to PSMDB resources. 
 
-Or you can bundle OIDC authentication with LDAP authorization. In this flow, users authenticate via an IdP and are authorized with the LDAP server.
+Alternatively, you can use OIDC to only authenticate users. Then you can authorize them either based on the roles defined in PSMDB or use an external solution like an LDAP server.
+In this case, the `useAuthorizationClaim` option must be set to false.  To learn more about OIDC authentication and LDAP authorization, see [Setting up OIDC authentication and LDAP authorization](oidc-ldap.md)
 
 ## Benefits
 
@@ -75,6 +76,7 @@ This section describes Percona Server for MongoDB configuration for OIDC authent
 * [Configure OIDC with Microsoft Entra](oidc-entra.md)
 * [Configure OIDC with Ping Identity](oidc-ping.md)
 * [Configure OIDC with Keycloak](oidc-keycloak.md)
+* [Configure OIDC authentication and LDAP authorization](oidc-ldap.md)
 
 ### Percona Server for MongoDB configuration options
 
@@ -97,8 +99,6 @@ The `oidcIdentityProviders` server parameter contains an array of JSON objects w
 | `principalName` | No | Specifies the name of the principal that is used to authenticate users. If not specified, the default value is `sub`, which is the subject claim in the access token. The subject claim typically contains a unique identifier for the user. You can use other claims like `email` or `preferred_username` as a principal name. |
 | `supportsHumanFlows`| No | Defines whether an identity provider supports human authentication flows. This means that the identity provider can redirect users to a login portal or provide a URL and authentication code for device authentication. This option affects the `clientId` and `matchPattern` fields. <br> You may set it to false for machine workload IdPs to bypass the `clientId` when it's not needed.|
 
-
-
 #### Examples 
 
 === "Single IdP"
@@ -114,7 +114,7 @@ The `oidcIdentityProviders` server parameter contains an array of JSON objects w
            authenticationMechanisms: MONGODB-OIDC
            oidcIdentityProviders: '[ {
               "issuer": "https://my-okta.okta.com",
-              "audience": "example@mongodb.com",
+              "audience": "example@my-company.com",
               "authNamePrefix": "okta",
               "useAuthorizationClaim": true,
               "authorizationClaim": "oidc-test",
@@ -128,7 +128,7 @@ The `oidcIdentityProviders` server parameter contains an array of JSON objects w
         $ mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
         'oidcIdentityProviders=[ {
            "issuer": "https://my-okta.okta.com",
-           "audience": "example@mongodb.com",
+           "audience": "example@my-company.com",
            "authNamePrefix": "okta",
            "useAuthorizationClaim": true,
            "authorizationClaim": "oidc-test",

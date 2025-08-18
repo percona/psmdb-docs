@@ -145,7 +145,7 @@ The `issuer` URL has the format `https://hostname:8443/realms/realm-name`. So if
 The `useAuthorizationClaim` configuration option defines how your users are authorized.
 
 * When set to `true`, users are authorized using identity provider groups. Users are created and stored on the IdP side.
-* When set to `false`, users are authorized by their usernames in the `$external` database in MongoDB. When using `useAuthorizationClaim: false`, **do not** specify `authorizationClaim`.
+* When set to `false`, users are authorized by their usernames in the `$external` database in Percona Server for MongoDB. When using `useAuthorizationClaim: false`, **do not** specify `authorizationClaim`.
 
 ## Create user roles 
 
