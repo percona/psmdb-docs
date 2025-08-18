@@ -16,7 +16,7 @@ The setup process consists of three main stages:
 
 Before you start, ensure you have the following:
 
-1. Percona Server for MongoDB Pro 8.0.13-4 and higher
+1. Percona Server for MongoDB Pro 8.0.12-4 and higher
 2. Microsoft Entra tenant with admin access
 
 ## Identity provider setup
@@ -76,7 +76,7 @@ Groups define user access rights to resources. Identity provider groups are then
 ### Collect the information required for Percona Server for MongoDB configuration
 
 1. Open the application's **Overview** page.
-2. Copy the **Application (client) ID** and save it for later use. You will use this value for the `clientID` and `audience` fields in Per
+2. Copy the **Application (client) ID** and save it for later use. You will use this value for the `clientID` and `audience` fields in Percona Server for MongoDB configuration.
 3. Copy the issuer URL. From the top navigation, click **Endpoints** and copy the **OpenID Connect metadata document** URL up to `/.well-known/openid-configuration`. It should look like this:
 
    ```

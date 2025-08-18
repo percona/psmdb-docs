@@ -1,6 +1,6 @@
 # OIDC authentication
 
-!!! note "Version added: [8.0.13-4](release_notes/8.0.13-4.md)"
+!!! note "Version added: [8.0.12-4](release_notes/8.0.12-4.md)"
 
 	 Available in Percona Server for MongoDB Pro out of the box.
 
@@ -28,7 +28,7 @@ Percona Server for MongoDB supports two authentication workflows with OIDC:
 
 * **Authorization code**: a `mongo` client (for example, `mongosh` or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the most common and secure flow for interactive user sessions. It is suitable for use cases when users have a web browser available on the machine where they are running the `mongo` client.
 
-* **Device authentication**: instead of redirecting a user to authenticate on a login portal directly, a `mongo` client receives the URL of the login portal and the authentication code. The user authenticates on a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a `mongo` client and Percona Server for MongoDB run in a cloud environment and the client needs to authenticate in Percona Server for MongoDB without managing long-term credentials like passwords. 
+* **Device authentication**: instead of redirecting a user to authenticate on a login portal directly, a `mongo` client receives the URL of the login portal and the authentication code. The user authenticates using a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a `mongo` client works in an environment without a browser, e.g. on a CLI-only server. 
 
 The following diagram illustrates the authentication flow.
 
