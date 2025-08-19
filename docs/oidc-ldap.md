@@ -71,7 +71,7 @@ For this configuration example, we assume the following:
 2. Restart Percona Server for MongoDB to apply the changes.
 
 	```{.bash data-prompt="$"}
-	$ sudo systemctl restart mongod
+    $ sudo systemctl restart mongod
 	```
 
 In this configuration, Percona Server for MongoDB receives the usernames in the format `authNamePrefix/email` (e.g. `okta/testuser@perconatest.com`). The `userToDNMapping` option contains a regular expression to match usernames, extract the local part of the email and substitute the `cn` part of the LDAP DN with it. Then the transformed username is added to the LDAP query to retrieve groups where the `testuser` is listed as a member. These groups are mapped to roles you created in Percona Server for MongoDB at the previous step.
