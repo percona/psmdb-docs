@@ -34,7 +34,7 @@ To configure OIDC authentication and LDAP authorization, complete the following 
 
 If your users connect to Percona Server for MongoDB with usernames that are not LDAP Distinguished Names (DN), you must transform the usernames so that LDAP server accepts them. Also, you must [escape special characters](ldap-setup.md#escaping-special-characters) if usernames contain them.
 
-To transform usernames into LDAP DN, use the `ldapUserDNPattern` configuration option. Specify the match pattern as a regexp to capture the name. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.
+To transform usernames into LDAP DN, use the `userToDNMapping` configuration option. Specify the match pattern as a regexp to capture the name. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.
 
 If you don't know what the Substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out.
 
