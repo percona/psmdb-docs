@@ -14,7 +14,7 @@ Together, these components provide continuous compliance coverage, rapid breach 
 
 ## How it works
 
-Percona Server from MongoDB native audit logging that captures detailed user actions, administrative events, and query operations. These audit logs are ingested into the Imperva DSF Hub, where they are normalized, stored securely, and analyzed. Administrators can define policies, monitor activity, and trigger alerts based on access behavior. 
+Percona Server for MongoDB uses native audit logging that captures detailed user actions, administrative events, and query operations. These audit logs are ingested into the Imperva DSF Hub, where they are normalized, stored securely, and analyzed. Administrators can define policies, monitor activity, and trigger alerts based on access behavior. 
 
 Audit logs can be enriched with the debug symbols available in Percona Server for MongoDB Pro. This enrichment enhances event parsing, improves context accuracy, and supports deep operational visibility.
 
