@@ -62,7 +62,7 @@ For this configuration example, we assume the following:
           "authNamePrefix": "okta",
           "audience": "audience",
           "clientId": "0oatxj71cmQfzQ9Us697",
-          "useAuthorizationClaim": true,
+          "useAuthorizationClaim": false,
           "matchPattern": "@perconatest.com$",
           "authorizationClaim": "psmdb_test_claim",
           "supportsHumanFlows": true}]'
