@@ -47,7 +47,7 @@ The following diagram illustrates the authentication flow.
 
 The access and ID tokens must be encoded as JSON Web Tokens (JWT). They contain information about user identities and authorization rights.
 
-You can use the IdP infrastructure to authenticate and authorize users. In this case, you store and manage users and their access rights on the IdP side. To use this flow, your IdP configuration in PSDMB must include the `useAuthorizationClaim` option set to true. This setting enforces the use of IdP groups to authorize users and grant them access to PSMDB resources. 
+You can use the IdP infrastructure to authenticate and authorize users. In this case, you store and manage users and their access rights on the IdP side. To use this flow, your IdP configuration in PSMDB must include the `useAuthorizationClaim` option set to true. This setting enforces the use of IdP groups to authorize users and grant them access to Percona Server for MongoDB resources. 
 
 Alternatively, you can use OIDC to only authenticate users. Then you can authorize them either based on the roles defined in PSMDB or use an external solution like an LDAP server.
 In this case, the `useAuthorizationClaim` option must be set to false.  To learn more about OIDC authentication and LDAP authorization, see [Setting up OIDC authentication and LDAP authorization](oidc-ldap.md)
