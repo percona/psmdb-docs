@@ -39,7 +39,7 @@ These configuration parameters can be used to control the file copy-based initia
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `initialSyncMethod` | string | logical | Specifies which method of initial sync to use. Valid options are: fileCopyBased, logical. |
-| `numInitialSyncAttempts` | integer | 10 | Number of attempts of attempts to make at replica set initial synchronization |
+| `numInitialSyncAttempts` | integer | 10 | Number of attempts to make at replica set initial synchronization |
 | `numInitialSyncConnectAttempts` | integer | 10 | The number of attempts to select and connect to a valid sync source |
 | `fileBasedInitialSyncMaxLagSec` | integer | 300 | Specifies the max lag in seconds between the syncing node and the sync source to mark the file copy based initial sync as done successfully |
 | `fileBasedInitialSyncMaxCyclesWithoutProgress` | integer | 3 | Specifies the max number of cycles to clone updates while the lag between the syncing node and the sync source is higher than `fileBasedInitialSyncMaxLagSec` |
