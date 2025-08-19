@@ -35,7 +35,7 @@ The following diagram illustrates the authentication flow.
 ![image](_images/OIDC-flow.png)
 
 1. A user connects to Percona Server for MongoDB using a `mongo` client. The client must support OIDC.
-2. Percona Server for MongoDB redirects the `mongo` client to the IdP for authentication and provides the IdP information such as URL, requests scopes, cleintID. 
+2. Percona Server for MongoDB redirects the `mongo` client to the IdP for authentication and provides the IdP information such as URL, requests scopes, clientID. 
 3. The `mongo` client requests authentication from the IdP.
 4. The IdP generates the authorization code. A user is redirected to the login portal of an external identity provider (IdP). Alternatively, a user is provided with a URL and the authentication code.
 5. The user is requested to authenticate. For example, using two-factor authentication or by entering an authentication code.
