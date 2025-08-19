@@ -9,7 +9,7 @@ OpenID Connect (OIDC) is an identity authentication protocol built on top of the
 
 The OIDC / OAuth 2.0 support enables Percona Server for MongoDB to authenticate and authorize users via tokens issued by an identity provider (IdP). The latter serves as a centralized storage of user credentials, which are not shared with either Percona Server for MongoDB or MongoDB clients.
 
-The IdP is a centralized place to authenticate and authorize humans and applications to access multiple resources in your infrastructure. User credentials, access policies and roles are stored centralized on the IdP side. You can configure different access policies and tailor permissions for a group of users of a specific user. 
+The IdP is a centralized place to authenticate and authorize humans and applications to access multiple resources in your infrastructure. User credentials, access policies and roles are managed centralized on the IdP side. You can configure different access policies and tailor permissions for a group of users of a specific user. 
 
 ## Supported external identity providers
 
