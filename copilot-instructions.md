@@ -63,7 +63,7 @@ These guidelines are for GitHub Copilot when performing a code review on documen
 
 * **Introduce abbreviations** before their first use by placing the expanded version in parentheses.
 * **When referring to GUI elements, match the capitalization** used on the interface.
-* **Numbers 1-9 should be spelled out.** Use a dot "." for decimals.
+* **Spell out numbers one through nine, except in technical contexts** (such as version numbers, quantities, measurements, or error codes), where numerals should be used. Use a dot "." for decimals.
 * **Code samples should use spaces for indentation** and have no trailing whitespace.
 * **Do not use screenshots for code samples.**
 * **Split commands and output into separate blocks.**
