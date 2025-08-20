@@ -82,6 +82,3 @@ These guidelines are for GitHub Copilot when performing a code review on documen
 * **Avoid using code blocks inside callouts.**
 * **The available callout types are:** Tip, Important, Warning/Caution, Note/Info, See also, and Example.
 
----
-
-These instructions should be a comprehensive guide for GitHub Copilot to ensure all documentation adheres to the specified style.
