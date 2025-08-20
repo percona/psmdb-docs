@@ -54,7 +54,7 @@ These guidelines are for GitHub Copilot when performing a code review on documen
 * **Limit multilevel lists to two levels.**
 * **Use sentence punctuation** if every list item is a complete sentence.
 * **Do not use punctuation** (commas, semicolons) if list items are not sentences.
-* **Use numbered lists** when the order matters; otherwise, use bullet lists. When in doubt, use a numbered list.
+* **Use numbered lists** only when the order of items is important (e.g., steps in a process). Use bullet lists for items where order does not matter. If unsure, consider whether the sequence affects meaning—if not, prefer a bullet list.
 * **Avoid inline lists** unless enumerating simple, known facts.
 
 ---
