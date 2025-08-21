@@ -60,6 +60,8 @@ By default, Percona Server for MongoDB establishes the TLS connection when bindi
          EOF
          ```
 
+--8<-- [start:roles]
+
 ### Create roles for LDAP groups in Percona Server for MongoDB
 
 Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the `admin` database with the name that exactly matches the  of the LDAP group.
@@ -86,6 +88,8 @@ admin.createRole(
    }
 )
 ```
+
+--8<-- [end:roles]
 
 ### Percona Server for MongoDB configuration
 

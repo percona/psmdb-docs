@@ -112,6 +112,7 @@ markdown_extensions:
       base_path: 
         - snippets
         - docs/install
+        - docs/
 #       auto_append:
 #         - services-banner.md
   pymdownx.tasklist:
@@ -206,14 +207,24 @@ nav:
         - backup-cursor.md
       - Authentication:
         - "Authentication overview": "authentication.md"
-        - enable-auth.md
-        - sasl-auth.md
-        - x509-ldap.md
+        - AWS IAM:
+          - AWS IAM authentication: aws-iam.md
+          - aws-iam-setup.md
         - kerberos.md
-        - aws-iam.md
-        - aws-iam-setup.md
-        - authorization.md
-        - ldap-setup.md
+        - LDAP:
+          - LDAP authorization: authorization.md
+          - sasl-auth.md
+          - x509-ldap.md
+          - ldap-setup.md
+        - OIDC:
+          - OIDC authentication: oidc.md
+          - Configure OIDC authentication:
+             - With Okta: oidc-okta.md
+             - With Microsoft Entra: oidc-entra.md
+             - With Ping Identity: oidc-ping.md
+             - With Keycloak: oidc-keycloak.md
+             - OIDC authentication and LDAP authorization: oidc-ldap.md
+        - enable-auth.md  
       - Encryption:
         - "Data at rest encryption": "data-at-rest-encryption.md"
         - "Use Vault": vault.md
