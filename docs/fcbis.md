@@ -52,7 +52,7 @@ Using file copy-based initial sync has the following limitations:
 * You cannot use the same sync source for multiple target nodes simultaneously because only one backup cursor can exist at any moment.
 * If you're using encrypted storage, Percona Server for MongoDB applies the encryption key from the sync source node to secure the data on the syncing node.
 * You must have WiredTiger defined as the storage engine to run file copy-based initial sync. [Percona memory engine](inmemory.md) engine is not supported.
-* Both source and target editions of Percona Server for MongoDB should be [Percona Server for MongoDB Pro](psmdb-pro.md) version 7.0.22-12 or higher.
+* Both source and target nodes must run Percona Server for MongoDB version 7.0.22-12 or higher, either as [Pro builds](psmdb-pro.md) or with file copy-based initial sync functionality compiled on your own.
 
 
 
