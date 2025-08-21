@@ -2616,11 +2616,12 @@ document$.subscribe(() => { lightbox.reload() });
 <h1 id="file-copy-based-initial-sync">File copy based initial sync<a class="headerlink" href="#file-copy-based-initial-sync" title="Permanent link">&para;</a></h1>
 <div class="admonition admonition">
 <p class="admonition-title">Version added: <a href="release_notes/7.0.22-12.html">7.0.22-12</a></p>
+<p>Available in <a href="psmdb-pro.html">Percona Server for MongoDB Pro</a> out of the box. </p>
 </div>
 <p>When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. </p>
 <p>In Percona Server for MongoDB, you can choose a file copy-based initial sync for a new node. You must have WiredTiger defined as the storage.</p>
 <p>The file copy-based initial sync method is a physical copying of the data files from the source to the target. It is much faster than the default <a href="https://www.mongodb.com/docs/manual/core/replica-set-sync/#logical-initial-sync-process">logical initial sync <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for big datasets (500GB+), which is especially beneficial in heavy write environments. Using this initial sync method speeds up cluster scaling and increases restore performance. </p>
-<p>File copy-based initial sync implementation is compatible with that of MongoDB Enterprise Advanced and has the same <a href="#configuration-parameters">configuration parameters</a>.</p>
+<p>File copy-based initial sync implementation is compatible with that of MongoDB Enterprise Advanced and has the same <a href="#configuration-parameters">configuration parameters</a>. It is available in <a href="psmdb-pro.html">Percona Server for MongoDB Pro</a> out of the box starting with version 7.0.22-12. You can also receive this functionality by <a href="install/source.html">building Percona Server for MongoDB from source code</a>.</p>
 <p>To select the initial sync method, specify the <code>initialSyncMethod</code> parameter in the configuration file for the target node:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">initialSyncMethod</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fileCopyBased</span>
@@ -2711,7 +2712,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2025 13:44:38 UTC">July 28, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 21, 2025 14:55:16 UTC">August 21, 2025</span>
   </span>
 
     
