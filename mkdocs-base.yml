@@ -221,6 +221,7 @@ nav:
         - "Use local keyfile": keyfile.md
         - "Migrate from keyfile to Vault": encryption-mode-switch.md
         - fips.md
+      - fcbis.md
       - audit-logging.md 
       - rate-limit.md
       - log-redaction.md
