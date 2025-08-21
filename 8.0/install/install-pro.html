@@ -2460,6 +2460,29 @@ document$.subscribe(() => { lightbox.reload() });
   
   
     <li class="md-nav__item">
+      <a href="../release_notes/8.0.12-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 8.0.12-4 (2025-08-21)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../release_notes/8.0.8-3.html" class="md-nav__link">
         
   
@@ -3044,19 +3067,19 @@ document$.subscribe(() => { lightbox.reload() });
 <ol>
 <li>
 <p>Download the tarballs from the Pro repository </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-80-pro/tarballs/percona-server-mongodb-8.0.8-3/percona-server-mongodb-pro-8.0.8-3-x86_64.jammy.tar.gz<span class="w"> </span><span class="se">\</span>
-$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-80-pro/tarballs/percona-mongodb-mongosh-2.5.0/percona-mongodb-mongosh-2.5.0-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-80-pro/tarballs/percona-server-mongodb-8.0.12-4/percona-server-mongodb-pro-8.0.12-4-x86_64.jammy.tar.gz<span class="w"> </span><span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-80-pro/tarballs/percona-mongodb-mongosh-2.5.6/percona-mongodb-mongosh-2.5.6-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-8.0.8-3-x86_64.jammy.tar.gz
-$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.0-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-8.0.12-4-x86_64.jammy.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.6-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-8.0.8-3-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.5.0/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-8.0.12-4-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.5.6/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -3117,7 +3140,7 @@ and restart it if the container exits.</p>
 <p><code>percona/percona-server-mongodb-pro</code> is the name of the image to derive the container from.</p>
 </li>
 <li>
-<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>8.0.8-3</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro/tags">See the full list of tags</a>.</p>
+<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>8.0.12-4</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro/tags">See the full list of tags</a>.</p>
 </li>
 </ul>
 <h3 id="access-the-container-shell">Access the container shell<a class="headerlink" href="#access-the-container-shell" title="Permanent link">&para;</a></h3>
