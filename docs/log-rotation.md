@@ -75,7 +75,7 @@ Here's how to do it:
 1. Create a `logrotate` configuration file at `/etc/logrotate.d/mongod`.
 
     ```ini
-    /var/log/mongo/mongod.log {
+    /var/log/mongodb/mongod.log {
        daily
        rotate 7
        compress
