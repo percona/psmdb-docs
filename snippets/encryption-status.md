@@ -3,7 +3,7 @@
 You can check the encryption status and the current configuration using the following command:
 
 ```{.javascript data-prompt=">"}
-> db.serverStatus().encryptionAtRest 
+> db.serverStatus().encryptionAtRest
 ```
 
 ??? example "Expected output"
