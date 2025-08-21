@@ -128,8 +128,13 @@ If the number of secrets reaches the maximum, Percona Server for MongoDB logs an
 
 To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has [read permissions for the secret’s metadata and the secrets engine configuration](#vault-access-policy-configuration).
 
+
+--8<-- "encryption-status.md"
+
+
 ## Upgrade considerations
 
 If you upgraded to Percona Server for MongoDB 8.0.x from version 7.0.14-9 or earlier, where there is no check for the number of secrets versions on the Vault server, configure the read permissions for Percona Server for MongoDB within the access policy on the Vault server after the upgrade. 
 
 See [the policy configuration example](#vault-access-policy-configuration).
+
