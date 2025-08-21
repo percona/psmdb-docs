@@ -8,19 +8,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB 8.0 is based on MongoDB Community Edition 8.0 and extends it with the functionality, that is otherwise only available in MongoDB Enterprise Edition.">
+        <meta name="description" content="You can use OIDC authentication and LDAP authorization together. For example, in hybrid environments where modern applications are integrated with some legacy systems. Or, if your organization has strict user access management requirements.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/comparison.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.html">
       
       
-        <link rel="prev" href="what-next.html">
+        <link rel="prev" href="oidc-keycloak.html">
       
       
-        <link rel="next" href="inmemory.html">
+        <link rel="next" href="enable-auth.html">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
@@ -28,7 +28,7 @@
     
     
       
-        <title>Feature comparison with MongoDB - Percona Server for MongoDB 8.0</title>
+        <title>OIDC authentication and LDAP authorization - Percona Server for MongoDB 8.0</title>
       
     
     
@@ -98,7 +98,7 @@
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 8.0 - Feature comparison with MongoDB" />
+<meta property="og:title" content="Percona Server for MongoDB 8.0 - OIDC authentication and LDAP authorization" />
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/8.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
  <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
@@ -136,7 +136,7 @@ document$.subscribe(() => { lightbox.reload() });
     <div data-md-component="skip">
       
         
-        <a href="#percona-server-for-mongodb-feature-comparison" class="md-skip">
+        <a href="#setting-up-oidc-authentication-and-ldap-authorization" class="md-skip">
           Skip to content
         </a>
       
@@ -233,7 +233,7 @@ document$.subscribe(() => { lightbox.reload() });
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Feature comparison with MongoDB
+              OIDC authentication and LDAP authorization
             
           </span>
         </div>
@@ -899,32 +899,10 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Feature comparison with MongoDB
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="comparison.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="comparison.html" class="md-nav__link">
         
   
   
@@ -935,37 +913,6 @@ document$.subscribe(() => { lightbox.reload() });
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#profiling-rate-limiting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Profiling Rate Limiting
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1136,18 +1083,20 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
@@ -1163,7 +1112,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Authentication
@@ -1450,18 +1399,20 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4_5" id="__nav_5_4_5_label" tabindex="0">
@@ -1477,7 +1428,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4_5">
             <span class="md-nav__icon md-icon"></span>
             OIDC
@@ -1511,18 +1462,20 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5_2" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4_5_2" id="__nav_5_4_5_2_label" tabindex="0">
@@ -1538,7 +1491,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_5_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4_5_2">
             <span class="md-nav__icon md-icon"></span>
             Configure OIDC authentication
@@ -1641,10 +1594,32 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="oidc-ldap.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    OIDC authentication and LDAP authorization
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="oidc-ldap.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1655,6 +1630,79 @@ document$.subscribe(() => { lightbox.reload() });
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-roles-for-ldap-groups-in-percona-server-for-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create roles for LDAP groups in Percona Server for MongoDB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percona-server-for-mongodb-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Percona Server for MongoDB configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authenticate-and-authorize-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authenticate and authorize users
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2641,11 +2689,53 @@ document$.subscribe(() => { lightbox.reload() });
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#profiling-rate-limiting" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Profiling Rate Limiting
+      Prerequisites
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-roles-for-ldap-groups-in-percona-server-for-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create roles for LDAP groups in Percona Server for MongoDB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#percona-server-for-mongodb-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Percona Server for MongoDB configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authenticate-and-authorize-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authenticate and authorize users
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2678,7 +2768,7 @@ document$.subscribe(() => { lightbox.reload() });
 
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/comparison.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/oidc-ldap.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2687,83 +2777,142 @@ document$.subscribe(() => { lightbox.reload() });
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/comparison.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/oidc-ldap.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="percona-server-for-mongodb-feature-comparison">Percona Server for MongoDB feature comparison<a class="headerlink" href="#percona-server-for-mongodb-feature-comparison" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB 8.0 is based on <a href="https://docs.mongodb.com/manual/introduction/">MongoDB Community Edition 8.0</a> and extends it with the functionality, that is otherwise only available in MongoDB Enterprise Edition.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>PSMDB</th>
-<th>MongoDB</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Storage Engines</strong></td>
-<td>- <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> (default) <br> - <a href="inmemory.html">Percona Memory Engine</a></td>
-<td>- <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> (default) <br>- <a href="https://docs.mongodb.com/v6.0/core/inmemory/">In-Memory</a> (Enterprise only)</td>
-</tr>
-<tr>
-<td><strong>Encryption-at-Rest</strong></td>
-<td>- Key servers = <a href="vault.html">Hashicorp Vault</a>, <a href="kmip.html">KMIP</a> <br> - Fully open source</td>
-<td>- Key server = KMIP <br> - Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Hot Backup</strong></td>
-<td><a href="hot-backup.html">YES</a> (replica set)</td>
-<td>NO</td>
-</tr>
-<tr>
-<td><strong>LDAP Authentication</strong></td>
-<td>(legacy) <a href="authentication.html">LDAP authentication with SASL</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>LDAP Authorization</strong></td>
-<td><a href="authorization.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Kerberos Authentication</strong></td>
-<td><a href="authentication.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>AWS IAM authentication</strong></td>
-<td><a href="aws-iam.html">YES</a></td>
-<td>MongoDB Atlas</td>
-</tr>
-<tr>
-<td><strong>Audit Logging</strong></td>
-<td><a href="audit-logging.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Log redaction</strong></td>
-<td><a href="log-redaction.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>SNMP Monitoring</strong></td>
-<td>NO</td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Database profiler</strong></td>
-<td><a href="rate-limit.html">YES</a> with the <a href="#profiling-rate-limiting"><code>--rateLimit</code></a> argument</td>
-<td>YES</td>
-</tr>
-</tbody>
-</table>
-<h2 id="profiling-rate-limiting">Profiling Rate Limiting<a class="headerlink" href="#profiling-rate-limiting" title="Permanent link">&para;</a></h2>
-<p>Profiling Rate Limiting was added to <em>Percona Server for MongoDB</em> in v3.4 with the <code>--rateLimit</code> argument. Since v3.6, MongoDB Community (and Enterprise) Edition includes a similar option <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate">slowOpSampleRate</a>. Please see <a href="rate-limit.html">Profiling Rate Limit</a> for more information.</p>
+<h1 id="setting-up-oidc-authentication-and-ldap-authorization">Setting up OIDC authentication and LDAP authorization<a class="headerlink" href="#setting-up-oidc-authentication-and-ldap-authorization" title="Permanent link">&para;</a></h1>
+<p>You can use OIDC authentication and LDAP authorization together. For example, in hybrid environments where modern applications are integrated with some legacy systems. Or, if your organization has strict user access management requirements.</p>
+<p>You can also use both solutions in parallel. For example, to have a pool of users to both authenticate and authorize in the LDAP server, while the remaining ones pass OIDC authentication and are then authorized in the LDAP server. What flow to use is determined by the authentication mechanism in Percona Server for MongoDB configuration and in the MongoDB connection string URL. </p>
+<p>This document primarily focuses on configuring OIDC to authenticate users and using LDAP server for their authorization. </p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Percona Server for MongoDB Pro 8.0.12-4 or the Regular builds with the OIDC feature enabled. </li>
+<li>Access to an IdP administrative console</li>
+<li>LDAP server up and running and it&rsquo;s accessible to the servers with Percona Server for MongoDB installed.</li>
+</ol>
+<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">&para;</a></h2>
+<p>To configure OIDC authentication and LDAP authorization, complete the following steps:</p>
+<ol>
+<li>Configure an IdP provider. Refer to the <a href="oidc.html#configuration">OIDC Configuration</a> section and then use the corresponding tutorial for the IdP of your choice.</li>
+<li>
+<p>Set up LDAP server and define users and roles there. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The LDAP server setup is out of scope of this document. We assume that you are familiar with the LDAP server schema.</p>
+</div>
+</li>
+<li>
+<p><a href="ldap-setup.html#configure-tlsssl-connection-for-percona-server-for-mongodb">Configure TLS/SSL connection for Percona Server for MongoDB</a></p>
+</li>
+<li>Create roles for LDAP groups in Percona Server for MongoDB</li>
+<li>Configure Percona Server for MongoDB </li>
+<li>Authenticate and authorize users in Percona Server for MongoDB</li>
+</ol>
+<h3 id="create-roles-for-ldap-groups-in-percona-server-for-mongodb">Create roles for LDAP groups in Percona Server for MongoDB<a class="headerlink" href="#create-roles-for-ldap-groups-in-percona-server-for-mongodb" title="Permanent link">&para;</a></h3>
+<p>Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the <code>admin</code> database with the name that exactly matches the  of the LDAP group.</p>
+<p>Percona Server for MongoDB maps the user’s LDAP group to the roles and determines what role is assigned to the user. Percona Server for MongoDB then grants privileges defined by this role.</p>
+<p>To create the roles, use the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">)</span>
+<span class="nx">admin</span><span class="p">.</span><span class="nx">createRole</span><span class="p">(</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cn=testusers,dc=percona,dc=com&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;readWrite&quot;</span><span class="p">]</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="nx">admin</span><span class="p">.</span><span class="nx">createRole</span><span class="p">(</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cn=otherusers,dc=percona,dc=com&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;read&quot;</span><span class="p">]</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="percona-server-for-mongodb-configuration">Percona Server for MongoDB configuration<a class="headerlink" href="#percona-server-for-mongodb-configuration" title="Permanent link">&para;</a></h3>
+<p>If your users connect to Percona Server for MongoDB with usernames that are not LDAP Distinguished Names (DN), you must transform the usernames so that LDAP server accepts them. Also, you must <a href="ldap-setup.html#escaping-special-characters">escape special characters</a> if usernames contain them.</p>
+<p>To transform usernames into LDAP DN, use the <code>userToDNMapping</code> configuration option. Specify the match pattern as a regexp to capture the name. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.</p>
+<p>If you don&rsquo;t know what the Substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out.</p>
+<p>For this configuration example, we assume the following:</p>
+<ul>
+<li>Users authenticate with usernames matching their email addresses. </li>
+<li>The LDAP server stores user entries under the organizational unit <code>ou=people,dc=perconatest,dc=com</code>, with each user identified by a <code>cn</code> equal to the local part of their email (i.e., the portion before <code>@perconatest.com</code>).</li>
+<li>
+<p>The username is transformed using a substitution value</p>
+</li>
+<li>
+<p>Edit the <code>etc/mongod.conf</code> configuration file and specify both the OIDC and LDAP configuration:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
+<span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">transportSecurity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls</span>
+<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">    </span><span class="nt">userToDNMapping</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[{match:</span><span class="nv"> </span><span class="s">&quot;^[^/]+/([^@]+)@perconatest.com$&quot;,</span><span class="nv"> </span><span class="s">substitution:</span><span class="nv"> </span><span class="s">&quot;cn={0},ou=people,dc=perconatest,dc=com&quot;}]&#39;</span>
+<span class="w">    </span><span class="nt">authz</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;dc=perconatest,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))&#39;</span>
+<span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SCRAM-SHA-1,MONGODB-OIDC, PLAIN</span>
+<span class="w">   </span><span class="nt">oidcIdentityProviders</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[{</span>
+<span class="w">      </span><span class="s">&quot;issuer&quot;:</span><span class="nv"> </span><span class="s">&quot;https://myokta.oktapreview.com/oauth2/0oatxj71cmQfzQ9Us697&quot;,</span>
+<span class="w">      </span><span class="s">&quot;authNamePrefix&quot;:</span><span class="nv"> </span><span class="s">&quot;okta&quot;,</span>
+<span class="w">      </span><span class="s">&quot;audience&quot;:</span><span class="nv"> </span><span class="s">&quot;audience&quot;,</span>
+<span class="w">      </span><span class="s">&quot;clientId&quot;:</span><span class="nv"> </span><span class="s">&quot;0oatxj71cmQfzQ9Us697&quot;,</span>
+<span class="w">      </span><span class="s">&quot;useAuthorizationClaim&quot;:</span><span class="nv"> </span><span class="s">false,</span>
+<span class="w">      </span><span class="s">&quot;matchPattern&quot;:</span><span class="nv"> </span><span class="s">&quot;@perconatest.com$&quot;,</span>
+<span class="w">      </span><span class="s">&quot;authorizationClaim&quot;:</span><span class="nv"> </span><span class="s">&quot;psmdb_test_claim&quot;,</span>
+<span class="w">      </span><span class="s">&quot;supportsHumanFlows&quot;:</span><span class="nv"> </span><span class="s">true}]&#39;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Restart Percona Server for MongoDB to apply the changes.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+</code></pre></div>
+</li>
+</ul>
+<p>In this configuration, Percona Server for MongoDB receives the usernames in the format <code>authNamePrefix/email</code> (e.g. <code>okta/testuser@perconatest.com</code>). The <code>userToDNMapping</code> option contains a regular expression to match usernames, extract the local part of the email and substitute the <code>cn</code> part of the LDAP DN with it. Then the transformed username is added to the LDAP query to retrieve groups where the <code>testuser</code> is listed as a member. These groups are mapped to roles you created in Percona Server for MongoDB at the previous step.</p>
+<h3 id="authenticate-and-authorize-users">Authenticate and authorize users<a class="headerlink" href="#authenticate-and-authorize-users" title="Permanent link">&para;</a></h3>
+<p>The <code>authenticationMechanisms</code> parameter contains authentication mechanisms to use when authenticating users. Then, depending on which authentication mechanism is specified in the MongoDB connection string URL, users are authenticated either with OIDC (<code>MONGODB-OIDC</code>) or with LDAP (<code>PLAIN</code>).</p>
+<ol>
+<li>
+<p>To authenticate users with OIDC, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;testuser@perconatest.com&quot;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC
+</code></pre></div>
+</li>
+<li>
+<p>Pass authentication</p>
+</li>
+<li>
+<p>Upon successful authentication, check connection status:</p>
+<div class="highlight" data-prompt="test>"><pre><span></span><code><span class="nx">test</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">connectionStatus</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>{
+  authInfo: {
+    authenticatedUsers: [
+      { user: &#39;okta/testuser@perconatest.com&#39;, db: &#39;$external&#39; }
+    ],
+    authenticatedUserRoles: [
+      {
+        role: &#39;cn=testreaders,ou=groups,dc=perconatest,dc=com&#39;,
+        db: &#39;admin&#39;
+      },
+      { role: &#39;read&#39;, db: &#39;admin&#39; }
+    ]
+  },
+  ok: 1
+}
+</code></pre></div>
+</details>
+</li>
+</ol>
+<p>To authenticate users in the LDAP server, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;testuser@perconatest.com&quot;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN
+</code></pre></div>
 
 
 
@@ -2786,7 +2935,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 1, 2025 12:09:08 UTC">May 1, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 21, 2025 14:03:28 UTC">August 21, 2025</span>
   </span>
 
     
@@ -2796,7 +2945,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 7, 2022 07:48:11 UTC">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 21, 2025 14:03:28 UTC">August 21, 2025</span>
   </span>
 
     

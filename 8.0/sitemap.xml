@@ -121,6 +121,30 @@
          <lastmod>2025-08-21</lastmod>
     </url>
     <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-entra.html</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-keycloak.html</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.html</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-okta.html</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ping.html</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/8.0/oidc.html</loc>
+         <lastmod>2025-08-21</lastmod>
+    </url>
+    <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/8.0/psmdb-pro.html</loc>
          <lastmod>2025-08-21</lastmod>
     </url>

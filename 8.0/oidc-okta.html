@@ -8,19 +8,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB 8.0 is based on MongoDB Community Edition 8.0 and extends it with the functionality, that is otherwise only available in MongoDB Enterprise Edition.">
+        <meta name="description" content="This document focuses on configuring OIDC authentication for Percona Server for MongoDB deployment using Okta  as the identity provider.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/comparison.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-okta.html">
       
       
-        <link rel="prev" href="what-next.html">
+        <link rel="prev" href="oidc.html">
       
       
-        <link rel="next" href="inmemory.html">
+        <link rel="next" href="oidc-entra.html">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
@@ -28,7 +28,7 @@
     
     
       
-        <title>Feature comparison with MongoDB - Percona Server for MongoDB 8.0</title>
+        <title>With Okta - Percona Server for MongoDB 8.0</title>
       
     
     
@@ -98,7 +98,7 @@
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 8.0 - Feature comparison with MongoDB" />
+<meta property="og:title" content="Percona Server for MongoDB 8.0 - With Okta" />
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/8.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
  <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
@@ -136,7 +136,7 @@ document$.subscribe(() => { lightbox.reload() });
     <div data-md-component="skip">
       
         
-        <a href="#percona-server-for-mongodb-feature-comparison" class="md-skip">
+        <a href="#configure-oidc-authentication-and-authorization-with-okta" class="md-skip">
           Skip to content
         </a>
       
@@ -233,7 +233,7 @@ document$.subscribe(() => { lightbox.reload() });
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Feature comparison with MongoDB
+              With Okta
             
           </span>
         </div>
@@ -899,32 +899,10 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Feature comparison with MongoDB
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="comparison.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="comparison.html" class="md-nav__link">
         
   
   
@@ -935,37 +913,6 @@ document$.subscribe(() => { lightbox.reload() });
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#profiling-rate-limiting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Profiling Rate Limiting
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1136,18 +1083,20 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
@@ -1163,7 +1112,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Authentication
@@ -1450,18 +1399,20 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4_5" id="__nav_5_4_5_label" tabindex="0">
@@ -1477,7 +1428,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4_5">
             <span class="md-nav__icon md-icon"></span>
             OIDC
@@ -1511,18 +1462,20 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5_2" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4_5_2" id="__nav_5_4_5_2_label" tabindex="0">
@@ -1538,7 +1491,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_5_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4_5_2">
             <span class="md-nav__icon md-icon"></span>
             Configure OIDC authentication
@@ -1549,10 +1502,32 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="oidc-okta.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    With Okta
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="oidc-okta.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1563,6 +1538,139 @@ document$.subscribe(() => { lightbox.reload() });
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identity-provider-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity provider setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identity provider setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-and-configure-an-oidc-application-with-okta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create and configure an OIDC application with Okta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-an-authorization-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure an authorization server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-users-and-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create users and groups
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-percona-server-for-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Percona Server for MongoDB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-user-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create user roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create users
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authenticate-in-percona-server-for-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authenticate in Percona Server for MongoDB
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authenticate in Percona Server for MongoDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authorization-code-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorization code flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-authentication-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Device authentication flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2641,11 +2749,113 @@ document$.subscribe(() => { lightbox.reload() });
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#profiling-rate-limiting" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Profiling Rate Limiting
+      Prerequisites
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identity-provider-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity provider setup
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Identity provider setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-and-configure-an-oidc-application-with-okta" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create and configure an OIDC application with Okta
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-an-authorization-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure an authorization server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-users-and-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create users and groups
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-percona-server-for-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Percona Server for MongoDB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-user-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create user roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create users
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authenticate-in-percona-server-for-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authenticate in Percona Server for MongoDB
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authenticate in Percona Server for MongoDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authorization-code-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorization code flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-authentication-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Device authentication flow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2678,7 +2888,7 @@ document$.subscribe(() => { lightbox.reload() });
 
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/comparison.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/oidc-okta.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2687,83 +2897,289 @@ document$.subscribe(() => { lightbox.reload() });
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/comparison.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/oidc-okta.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="percona-server-for-mongodb-feature-comparison">Percona Server for MongoDB feature comparison<a class="headerlink" href="#percona-server-for-mongodb-feature-comparison" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB 8.0 is based on <a href="https://docs.mongodb.com/manual/introduction/">MongoDB Community Edition 8.0</a> and extends it with the functionality, that is otherwise only available in MongoDB Enterprise Edition.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>PSMDB</th>
-<th>MongoDB</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Storage Engines</strong></td>
-<td>- <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> (default) <br> - <a href="inmemory.html">Percona Memory Engine</a></td>
-<td>- <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> (default) <br>- <a href="https://docs.mongodb.com/v6.0/core/inmemory/">In-Memory</a> (Enterprise only)</td>
-</tr>
-<tr>
-<td><strong>Encryption-at-Rest</strong></td>
-<td>- Key servers = <a href="vault.html">Hashicorp Vault</a>, <a href="kmip.html">KMIP</a> <br> - Fully open source</td>
-<td>- Key server = KMIP <br> - Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Hot Backup</strong></td>
-<td><a href="hot-backup.html">YES</a> (replica set)</td>
-<td>NO</td>
-</tr>
-<tr>
-<td><strong>LDAP Authentication</strong></td>
-<td>(legacy) <a href="authentication.html">LDAP authentication with SASL</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>LDAP Authorization</strong></td>
-<td><a href="authorization.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Kerberos Authentication</strong></td>
-<td><a href="authentication.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>AWS IAM authentication</strong></td>
-<td><a href="aws-iam.html">YES</a></td>
-<td>MongoDB Atlas</td>
-</tr>
-<tr>
-<td><strong>Audit Logging</strong></td>
-<td><a href="audit-logging.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Log redaction</strong></td>
-<td><a href="log-redaction.html">YES</a></td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>SNMP Monitoring</strong></td>
-<td>NO</td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Database profiler</strong></td>
-<td><a href="rate-limit.html">YES</a> with the <a href="#profiling-rate-limiting"><code>--rateLimit</code></a> argument</td>
-<td>YES</td>
-</tr>
-</tbody>
-</table>
-<h2 id="profiling-rate-limiting">Profiling Rate Limiting<a class="headerlink" href="#profiling-rate-limiting" title="Permanent link">&para;</a></h2>
-<p>Profiling Rate Limiting was added to <em>Percona Server for MongoDB</em> in v3.4 with the <code>--rateLimit</code> argument. Since v3.6, MongoDB Community (and Enterprise) Edition includes a similar option <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate">slowOpSampleRate</a>. Please see <a href="rate-limit.html">Profiling Rate Limit</a> for more information.</p>
+<h1 id="configure-oidc-authentication-and-authorization-with-okta">Configure OIDC authentication and authorization with Okta<a class="headerlink" href="#configure-oidc-authentication-and-authorization-with-okta" title="Permanent link">&para;</a></h1>
+<p>This document focuses on configuring OIDC authentication for Percona Server for MongoDB deployment using <a href="https://www.okta.com/">Okta <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> as the identity provider.</p>
+<p>The setup process consists of three main stages:</p>
+<ol>
+<li>
+<p>IdP setup:</p>
+<ul>
+<li>Create and configure an OIDC application with Okta</li>
+<li>Configure authorization server</li>
+<li>Create users and groups</li>
+</ul>
+</li>
+<li>
+<p>Configure Percona Server for MongoDB to use OIDC as authentication method</p>
+</li>
+<li>Connect to Percona Server for MongoDB using OIDC authentication</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ol>
+<li>ProBuild of Percona Server for MongoDB 8.0.12-4 or higher</li>
+<li>Access to Okta Admin console</li>
+</ol>
+<h2 id="identity-provider-setup">Identity provider setup<a class="headerlink" href="#identity-provider-setup" title="Permanent link">&para;</a></h2>
+<h3 id="create-and-configure-an-oidc-application-with-okta">Create and configure an OIDC application with Okta<a class="headerlink" href="#create-and-configure-an-oidc-application-with-okta" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Log in to your Okta Admin console.</li>
+<li>Navigate to <strong>Applications</strong> &gt; <strong>Applications</strong> from the side menu.</li>
+<li>Click <strong>Create App Integration</strong>.</li>
+<li>
+<p>In the dialog that appears select:</p>
+<ul>
+<li>Sign-in method: Select <strong>OIDC - OpenID Connect</strong>.    </li>
+<li>Application type: <strong>Select Native Application</strong>. A command-line tool like the <code>mongo</code> shell is considered a &ldquo;native&rdquo; application.</li>
+<li>Click <strong>Next</strong>.</li>
+</ul>
+</li>
+<li>
+<p>Configure the Native App Integration:</p>
+<ul>
+<li>Specify a descriptive name in the <strong>App integration</strong> name field.    </li>
+<li>
+<p>In the <strong>Grant Types</strong>, enable the following grant types:</p>
+<ul>
+<li><strong>Authorization Code</strong> </li>
+<li><strong>Device Authorization</strong></li>
+<li><strong>Refresh Token</strong> (optional, but recommended for better user experience. This allows users to refresh their access tokens without needing to re-authenticate.)</li>
+</ul>
+</li>
+<li>
+<p>Set the Sign-in redirect URIs to http://localhost:17017. The port can be customized if needed, but this is a common default.</p>
+</li>
+<li>In the <strong>Assignments</strong> section, find the <strong>Controlled access</strong> and enable <strong>Allow everyone in your organization to access</strong>.</li>
+<li>In the <strong>Enable immediate access</strong> section, ensure the <strong>Enable immediate access with Federation Broker Mode</strong> option is enabled.</li>
+<li>Click <strong>Save</strong>.</li>
+</ul>
+</li>
+<li>
+<p>After saving, you will be redirected to the application details page. On the <strong>General</strong> tab, copy the <strong>Client ID</strong> to clipboard and ensure the <strong>Proof Key for Code Exchange (PKCE)</strong> option is enabled.</p>
+</li>
+</ol>
+<h3 id="configure-an-authorization-server">Configure an authorization server<a class="headerlink" href="#configure-an-authorization-server" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <strong>Security</strong> &gt; <strong>API</strong> from the side menu, then click on the <strong>Authorization Servers</strong> tab.</li>
+<li>Click <strong>Add Authorization Server</strong>.</li>
+<li>
+<p>In the dialog that appears, fill in the following fields:</p>
+<ul>
+<li><strong>Name</strong>: Provide a descriptive name for your authorization server.</li>
+<li><strong>Audience</strong>: Paste the Client ID value here.</li>
+<li><strong>Description</strong>: Optionally, add a description for your authorization server.</li>
+<li>Click <strong>Save</strong>. You will be automatically redirected to the server&rsquo;s page.</li>
+</ul>
+</li>
+<li>
+<p>Find the issuer URL. Go to the <strong>Settings</strong> tab and copy the <strong>Issuer Metadata URI</strong> value up to the <code>/.well-known/oauth-authorization-server</code>. The URL must be in the following format:</p>
+<div class="highlight"><pre><span></span><code>https://&lt;your-okta-domain&gt;/oauth2/ausu08lpq4VQRntUz697
+</code></pre></div>
+</li>
+<li>
+<p>Configure <strong>Groups claim</strong>.</p>
+<ul>
+<li>Go to the <strong>Claims</strong> tab.</li>
+<li>Click <strong>Add Claim</strong>.</li>
+<li>
+<p>In the dialog that appears, fill in the following fields:</p>
+<ul>
+<li><strong>Name</strong>: Enter a name</li>
+<li><strong>Include in token type</strong>: Select <strong>Access token</strong></li>
+<li><strong>Value type</strong>: Select <code>Groups</code></li>
+<li><strong>Filter</strong>: Select <strong>Matches regexp</strong> and specify <code>.*</code> next to the drop-down.</li>
+<li><strong>Disable claim</strong>: Leave unchecked.</li>
+<li><strong>Include in</strong>: Check <strong>Any scope</strong>.</li>
+<li>Click <strong>Create</strong>.</li>
+</ul>
+</li>
+</ul>
+<p>For more information, see <a href="https://help.okta.com/oie/en-us/content/topics/security/api-config-claims.htm?cshid=create-claims">Create API access claims <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></p>
+</li>
+<li>
+<p>Configure the access policy</p>
+<ul>
+<li>Go to the <strong>Access Policies</strong> tab and click <strong>Add Policy</strong>.</li>
+<li>Specify an access policy name and description.</li>
+<li><strong>Assign to</strong>: Select <strong>All clients</strong>.</li>
+<li>Click <strong>Create Policy</strong>. The Access Policy screen opens.</li>
+</ul>
+</li>
+<li>
+<p>Create rules for the access policy. </p>
+<p>On the <strong>Access Policy</strong> screen, click <strong>Add rule</strong> and fill in the rule details</p>
+<ul>
+<li>Specify a name in the <strong>Rule name</strong> field.</li>
+<li>
+<p>Select the grant types that you want to use this rule. In the <strong>IF Grant type is</strong>, select the following: </p>
+</li>
+<li>
+<p><strong>Client Credentials</strong> if a client acts on its own behalf</p>
+</li>
+<li>
+<p><strong>Authorization Code</strong> and <strong>Device Authorization</strong> options if a client acts on behalf of a user.</p>
+</li>
+<li>
+<p>Configure the rule based on your organization&rsquo;s security policy. This is the default rule configuration:</p>
+</li>
+<li>
+<p><strong>AND User is</strong>: Check <strong>Any user assigned the app</strong></p>
+</li>
+<li><strong>AND Scopes requested</strong>: Check <strong>Any scopes</strong></li>
+<li><strong>THEN Use this inline hook</strong>: Leave unchecked</li>
+<li><strong>AND Access token lifetime is</strong>: Set <code>1</code> Hours</li>
+<li><strong>AND Refresh token lifetime is</strong>: Set <code>90</code> Days</li>
+<li>
+<p><strong>but will expire if not used every</strong>: Set <code>7</code> Days.</p>
+</li>
+<li>
+<p>Click <strong>Create Rule</strong>.</p>
+</li>
+</ul>
+<p>See <a href="https://help.okta.com/oie/en-us/content/topics/security/api-config-access-policies.htm?cshid=create-access-policies">Create access policies <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for more information about access policies and rules configuration.</p>
+</li>
+</ol>
+<h3 id="create-users-and-groups">Create users and groups<a class="headerlink" href="#create-users-and-groups" title="Permanent link">&para;</a></h3>
+<p>Groups define user access rights to resources. Identity provider groups are then mapped to roles in Percona Server for MongoDB to authorize users to access the database.</p>
+<ol>
+<li>
+<p>Follow the steps described in the <a href="https://help.okta.com/okta_help.htm?type=oie&amp;locale=en&amp;id=Directory_Groups">Groups <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> documentation to create required groups</p>
+</li>
+<li>
+<p>Create users. Specify the user email as the username. Follow the steps in the <a href="https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-add-users.htm">Add users manually <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> documentation to create users.</p>
+</li>
+<li>
+<p>Assign the groups you created to users.</p>
+</li>
+</ol>
+<h2 id="configure-percona-server-for-mongodb">Configure Percona Server for MongoDB<a class="headerlink" href="#configure-percona-server-for-mongodb" title="Permanent link">&para;</a></h2>
+<p>Now you need to configure authentication in Percona Server for MongoDB. Specify the external identity provider configuration for the <code>oidcIdentityProviders</code> server parameter either via the configuration file or the command line. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Configuration file</label><label for="__tabbed_1_2">Command line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
+<span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MONGODB-OIDC</span>
+<span class="w">   </span><span class="nt">oidcIdentityProviders</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[</span><span class="nv"> </span><span class="s">{</span>
+<span class="w">      </span><span class="s">&quot;issuer&quot;:</span><span class="nv"> </span><span class="s">&quot;https://my-okta.okta.com/oauth2/austxj66qrgAVPlAj697&quot;,</span>
+<span class="w">      </span><span class="s">&quot;audience&quot;:</span><span class="nv"> </span><span class="s">&quot;example@my-company.com&quot;,</span>
+<span class="w">      </span><span class="s">&quot;authNamePrefix&quot;:</span><span class="nv"> </span><span class="s">&quot;okta&quot;,</span>
+<span class="w">      </span><span class="s">&quot;useAuthorizationClaim&quot;:</span><span class="nv"> </span><span class="s">true,</span>
+<span class="w">      </span><span class="s">&quot;authorizationClaim&quot;:</span><span class="nv"> </span><span class="s">&quot;oidc-test&quot;,</span>
+<span class="w">      </span><span class="s">&quot;clientId&quot;:</span><span class="nv"> </span><span class="s">&quot;0oatxj71cmQfzQ9Us697&quot;</span>
+<span class="w">   </span><span class="s">}</span><span class="nv"> </span><span class="s">]&#39;</span>
+</code></pre></div>
+</li>
+<li>
+<p>Start or restart Percona Server for MongoDB:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;oidcIdentityProviders=[ {</span>
+<span class="s1">   &quot;issuer&quot;: &quot;https://my-okta.okta.com/oauth2/austxj66qrgAVPlAj697&quot;,</span>
+<span class="s1">   &quot;audience&quot;: &quot;example@mongodb.com&quot;,</span>
+<span class="s1">   &quot;authNamePrefix&quot;: &quot;okta&quot;,</span>
+<span class="s1">   &quot;useAuthorizationClaim&quot;: true,</span>
+<span class="s1">   &quot;authorizationClaim&quot;: &quot;oidc-test&quot;,</span>
+<span class="s1">   &quot;clientId&quot;: &quot;0oatxj71cmQfzQ9Us697&quot;</span>
+<span class="s1">} ]&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>The <code>useAuthorizationClaim</code> configuration option defines how your users are authorized.</p>
+<ul>
+<li>When set to <code>true</code>, users are authorized using identity provider groups. Users are created and stored on the IdP side.</li>
+<li>When set to <code>false</code>, users are authorized by their usernames in the <code>$external</code> database in Percona Server for MongoDB. When using <code>useAuthorizationClaim: false</code>, <strong>do not</strong> specify <code>authorizationClaim</code>.</li>
+</ul>
+<h2 id="create-user-roles">Create user roles<a class="headerlink" href="#create-user-roles" title="Permanent link">&para;</a></h2>
+<p>To enable users to access Percona Server for MongoDB, you must create roles and define privileges for them. </p>
+<p>The role name must match the identity provider group name and must have the prefix that matches the <code>authNamePrefix</code> in Percona Server for MongoDB configuration.</p>
+<p>For example, to create a role for the default group <code>Everyone</code> in Okta and with the <code>authNamePrefix</code> set to <code>okta</code>, use the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">).</span><span class="nx">createRole</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;okta/Everyone&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span>
+<span class="w">  </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;readWriteAnyDatabase&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>Create roles for all groups you have defined in Okta.</p>
+<h2 id="create-users">Create users<a class="headerlink" href="#create-users" title="Permanent link">&para;</a></h2>
+<p><strong>Complete this step if you set <code>useAuthorizationClaim</code> to <code>false</code></strong></p>
+<p>Create users in the <code>$external</code> database. The username must consist of the <code>authNamePrefix</code> and the email that you specified when you created users in Okta. The username format is:</p>
+<div class="highlight"><pre><span></span><code>authNamePrefix/email
+</code></pre></div>
+<p>If you set the <code>authNamePrefix</code> to <code>okta</code>, then the command to create a user is the following:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;$external&quot;</span><span class="p">).</span><span class="nx">createUser</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;okta/john.doe@example.com&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;okta/Everyone&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">})</span>
+</code></pre></div>
+<h2 id="authenticate-in-percona-server-for-mongodb">Authenticate in Percona Server for MongoDB<a class="headerlink" href="#authenticate-in-percona-server-for-mongodb" title="Permanent link">&para;</a></h2>
+<h3 id="authorization-code-flow">Authorization code flow<a class="headerlink" href="#authorization-code-flow" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Connect to Percona Server for MongoDB:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcFlows<span class="w"> </span>auth-code<span class="w"> </span>
+</code></pre></div>
+</li>
+<li>
+<p>In the Okta login portal in your browser, specify the credentials of one of the users you defined in Okta and click Sign in.</p>
+</li>
+<li>
+<p>Upon successful log in you must see the <strong>Login successful</strong> screen. In your <code>mongo</code> client, you should see the output as follows:</p>
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.8-3
+Using Mongosh:      2.5.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+test&gt;
+</code></pre></div>
+</li>
+</ol>
+<h3 id="device-authentication-flow">Device authentication flow<a class="headerlink" href="#device-authentication-flow" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Connect to Percona Server for MongoDB:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcFlows<span class="w"> </span>device-auth<span class="w"> </span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="highlight"><pre><span></span><code>Visit the following URL to complete authentication: https://my-okta.okta.com/activate
+Enter the following code on that page: LRVCRLXP
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>Open the URL on another device that has the web browser.</p>
+</li>
+<li>Enter the code in the <strong>Activation Code</strong> field and click <strong>Next</strong></li>
+<li>
+<p>You should see the <strong>Device Activated</strong> message on the screen. In your <code>mongo</code> client, you should see the output as follows:</p>
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.8-3
+Using Mongosh:      2.5.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+test&gt;
+</code></pre></div>
+</li>
+</ol>
 
 
 
@@ -2786,7 +3202,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 1, 2025 12:09:08 UTC">May 1, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 21, 2025 14:03:28 UTC">August 21, 2025</span>
   </span>
 
     
@@ -2796,7 +3212,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 7, 2022 07:48:11 UTC">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 21, 2025 14:03:28 UTC">August 21, 2025</span>
   </span>
 
     

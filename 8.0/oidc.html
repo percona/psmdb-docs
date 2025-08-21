@@ -8,19 +8,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB 8.0 is based on MongoDB Community Edition 8.0 and extends it with the functionality, that is otherwise only available in MongoDB Enterprise Edition.">
+        <meta name="description" content="OpenID Connect (OIDC) is an identity authentication protocol built on top of the OAuth 2.0 framework. OIDC is designed to verify user identities and provide authentication, ensuring that users are who they claim to be. OAuth 2.0 is used for user authorization to access resources.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/comparison.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/oidc.html">
       
       
-        <link rel="prev" href="what-next.html">
+        <link rel="prev" href="ldap-setup.html">
       
       
-        <link rel="next" href="inmemory.html">
+        <link rel="next" href="oidc-okta.html">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
@@ -28,7 +28,7 @@
     
     
       
-        <title>Feature comparison with MongoDB - Percona Server for MongoDB 8.0</title>
+        <title>OIDC authentication - Percona Server for MongoDB 8.0</title>
       
     
     
@@ -98,7 +98,7 @@
                  
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 8.0 - Feature comparison with MongoDB" />
+<meta property="og:title" content="Percona Server for MongoDB 8.0 - OIDC authentication" />
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/8.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
  <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
@@ -136,7 +136,7 @@ document$.subscribe(() => { lightbox.reload() });
     <div data-md-component="skip">
       
         
-        <a href="#percona-server-for-mongodb-feature-comparison" class="md-skip">
+        <a href="#oidc-authentication" class="md-skip">
           Skip to content
         </a>
       
@@ -233,7 +233,7 @@ document$.subscribe(() => { lightbox.reload() });
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Feature comparison with MongoDB
+              OIDC authentication
             
           </span>
         </div>
@@ -899,32 +899,10 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Feature comparison with MongoDB
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="comparison.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="comparison.html" class="md-nav__link">
         
   
   
@@ -935,37 +913,6 @@ document$.subscribe(() => { lightbox.reload() });
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#profiling-rate-limiting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Profiling Rate Limiting
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1136,18 +1083,20 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
@@ -1163,7 +1112,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Authentication
@@ -1450,18 +1399,20 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5_4_5" id="__nav_5_4_5_label" tabindex="0">
@@ -1477,7 +1428,7 @@ document$.subscribe(() => { lightbox.reload() });
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_4_5">
             <span class="md-nav__icon md-icon"></span>
             OIDC
@@ -1488,10 +1439,32 @@ document$.subscribe(() => { lightbox.reload() });
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="oidc.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    OIDC authentication
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="oidc.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1502,6 +1475,79 @@ document$.subscribe(() => { lightbox.reload() });
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#supported-external-identity-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported external identity providers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#percona-server-for-mongodb-configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Percona Server for MongoDB configuration options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2641,11 +2687,53 @@ document$.subscribe(() => { lightbox.reload() });
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#profiling-rate-limiting" class="md-nav__link">
+  <a href="#supported-external-identity-providers" class="md-nav__link">
     <span class="md-ellipsis">
-      Profiling Rate Limiting
+      Supported external identity providers
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benefits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#percona-server-for-mongodb-configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Percona Server for MongoDB configuration options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2678,7 +2766,7 @@ document$.subscribe(() => { lightbox.reload() });
 
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/comparison.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/oidc.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2687,83 +2775,238 @@ document$.subscribe(() => { lightbox.reload() });
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/comparison.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/oidc.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="percona-server-for-mongodb-feature-comparison">Percona Server for MongoDB feature comparison<a class="headerlink" href="#percona-server-for-mongodb-feature-comparison" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB 8.0 is based on <a href="https://docs.mongodb.com/manual/introduction/">MongoDB Community Edition 8.0</a> and extends it with the functionality, that is otherwise only available in MongoDB Enterprise Edition.</p>
+<h1 id="oidc-authentication">OIDC authentication<a class="headerlink" href="#oidc-authentication" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Version added: <a href="release_notes/8.0.12-4.md">8.0.12-4</a></p>
+<p>Available in Percona Server for MongoDB Pro out of the box.</p>
+</div>
+<p>OpenID Connect (OIDC) is an identity authentication protocol built on top of the OAuth 2.0 framework. OIDC is designed to verify user identities and provide authentication, ensuring that users are who they claim to be. OAuth 2.0 is used for user authorization to access resources. </p>
+<p>The OIDC / OAuth 2.0 support enables Percona Server for MongoDB to authenticate and authorize users via tokens issued by an identity provider (IdP). The latter serves as a centralized storage of user credentials, which are not shared with either Percona Server for MongoDB or MongoDB clients.</p>
+<p>The IdP is a centralized place to authenticate and authorize humans and applications to access multiple resources in your infrastructure. User credentials, access policies and roles are managed centralized on the IdP side. You can configure different access policies and tailor permissions for a group of users of a specific user. </p>
+<h2 id="supported-external-identity-providers">Supported external identity providers<a class="headerlink" href="#supported-external-identity-providers" title="Permanent link">&para;</a></h2>
+<p>Percona Server for MongoDB supports the following external identity providers:</p>
+<ul>
+<li><a href="https://www.okta.com/">Okta <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
+<li><a href="https://www.microsoft.com/en-gb/security/business/microsoft-entra">Microsoft Entra <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
+<li><a href="https://www.pingidentity.com/en.html">Ping Identity<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
+<li><a href="https://www.keycloak.org/">Keycloak <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a></li>
+</ul>
+<p>Any other external identity provider that supports OIDC and OAuth 2.0 may also work. However, we haven&rsquo;t tested them and cannot guarantee their compatibility.</p>
+<h2 id="authentication-workflow">Authentication workflow<a class="headerlink" href="#authentication-workflow" title="Permanent link">&para;</a></h2>
+<p>Percona Server for MongoDB supports two authentication workflows with OIDC:</p>
+<ul>
+<li>
+<p><strong>Authorization code</strong>: A <code>mongo</code> client (for example, <code>mongosh</code> or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the most common and secure flow for interactive user sessions. It is suitable for use cases when users have a web browser available on the machine where they are running the <code>mongo</code> client.</p>
+</li>
+<li>
+<p><strong>Device authentication</strong>: Instead of redirecting a user to authenticate on a login portal directly, a <code>mongo</code> client receives the URL of the login portal and the authentication code. The user authenticates using a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a <code>mongo</code> client works in an environment without a browser, e.g. on a CLI-only server. </p>
+</li>
+</ul>
+<p>The following diagram illustrates the authentication flow.</p>
+<p><a class="glightbox" href="_images/OIDC-flow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="_images/OIDC-flow.png" /></a></p>
+<ol>
+<li>A user connects to Percona Server for MongoDB using a <code>mongo</code> client. The client must support OIDC.</li>
+<li>Percona Server for MongoDB redirects the <code>mongo</code> client to the IdP for authentication and provides the IdP information such as URL, requests scopes, clientID. </li>
+<li>The <code>mongo</code> client requests authentication from the IdP.</li>
+<li>The IdP generates the authorization code. A user is redirected to the login portal of an external identity provider (IdP). Alternatively, a user is provided with a URL and the authentication code.</li>
+<li>The user is requested to authenticate. For example, using two-factor authentication or by entering an authentication code.</li>
+<li>A user is redirected back to the <code>mongo</code> client with a temporary single-use authorization code. </li>
+<li>The <code>mongo</code> client sends the authorization code to the IdP and requests tokens. The request includes the <code>clientId</code> and credentials of the <code>mongo</code> client.</li>
+<li>The IdP verifies the authorization code, user&rsquo;s client ID and credentials.</li>
+<li>Upon success, the IdP returns the access and ID tokens to the <code>mongo</code> client.</li>
+<li>The <code>mongo</code> client uses the access token to access Percona Server for MongoDB.</li>
+</ol>
+<p>The access and ID tokens must be encoded as JSON Web Tokens (JWT). They contain information about user identities and authorization rights.</p>
+<p>You can use the IdP infrastructure to authenticate and authorize users. In this case, you store and manage users and their access rights on the IdP side. To use this flow, your IdP configuration in PSMDB must include the <code>useAuthorizationClaim</code> option set to true. This setting enforces the use of IdP groups to authorize users and grant them access to Percona Server for MongoDB resources. </p>
+<p>Alternatively, you can use OIDC to only authenticate users. Then you can authorize them either based on the roles defined in PSMDB or use an external solution like an LDAP server.
+In this case, the <code>useAuthorizationClaim</code> option must be set to false.  To learn more about OIDC authentication and LDAP authorization, see <a href="oidc-ldap.html">Setting up OIDC authentication and LDAP authorization</a></p>
+<h2 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">&para;</a></h2>
+<p>The use of OIDC and OAuth 2.0 provides the following benefits:</p>
+<ul>
+<li>streamlines authentication and authorization flow, </li>
+<li>simplifies user management and configuration: everything is done in a single place</li>
+<li>enables you to use modern authentication techniques like 2FA, MFA and others supported by IdP</li>
+<li>improves security as credentials are not sent to nor stored in Percona Server for MongoDB. </li>
+<li>reduces cross-application risk - access tokens are granted for specific resources using audience claims. If a token is compromised, the token has a limited lifetime and scope to limit access.</li>
+</ul>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>To configure OIDC /OAuth 2.0 authentication and authorization, you must do the following:</p>
+<ol>
+<li>Configure external identity provider</li>
+<li>Configure authentication in Percona Server for MongoDB</li>
+<li>Configure user roles and privileges in Percona Server for MongoDB that will be mapped to IdP groups</li>
+</ol>
+<p>This section describes Percona Server for MongoDB configuration for OIDC authentication and the available configuration options. Refer to tutorials for detailed step-by-step instructions:</p>
+<ul>
+<li><a href="oidc-okta.html">Configure OIDC with Okta</a></li>
+<li><a href="oidc-entra.html">Configure OIDC with Microsoft Entra</a></li>
+<li><a href="oidc-ping.html">Configure OIDC with Ping Identity</a></li>
+<li><a href="oidc-keycloak.html">Configure OIDC with Keycloak</a></li>
+<li><a href="oidc-ldap.html">Configure OIDC authentication and LDAP authorization</a></li>
+</ul>
+<h3 id="percona-server-for-mongodb-configuration-options">Percona Server for MongoDB configuration options<a class="headerlink" href="#percona-server-for-mongodb-configuration-options" title="Permanent link">&para;</a></h3>
+<p>To configure OIDC authentication in Percona Server for MongoDB, specify the external identity provider configuration for the <code>oidcIdentityProviders</code> server parameter. You can set it only at startup. See the <a href="set-parameter.html">Parameter tuning guide</a> for how to set server parameters.</p>
+<p>You can use several IdPs for OIDC authentication with human flow, where a user is redirected to authentication portal. In this case, you must add a configuration for every provider to the <code>oidcIdentityProviders</code> server parameter. You must also specify a match pattern for each provider. Usernames are then matched against the match pattern to identify which IdP to authenticate a user with. The order in which IdPs are listed defines their priority. The first IdP that matches the username is used for authentication.</p>
+<p>The <code>oidcIdentityProviders</code> server parameter contains an array of JSON objects with the following parameters:</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>PSMDB</th>
-<th>MongoDB</th>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Storage Engines</strong></td>
-<td>- <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> (default) <br> - <a href="inmemory.html">Percona Memory Engine</a></td>
-<td>- <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> (default) <br>- <a href="https://docs.mongodb.com/v6.0/core/inmemory/">In-Memory</a> (Enterprise only)</td>
+<td><code>issuer</code></td>
+<td>Yes</td>
+<td>The URL of the identity provider that the server should accept tokens from. It must be a valid URL that starts with <code>https://</code>. You may use multiple IdPs with the same <code>issuer</code> value. In this case, the <code>audience</code> value must be unique.</td>
 </tr>
 <tr>
-<td><strong>Encryption-at-Rest</strong></td>
-<td>- Key servers = <a href="vault.html">Hashicorp Vault</a>, <a href="kmip.html">KMIP</a> <br> - Fully open source</td>
-<td>- Key server = KMIP <br> - Enterprise only</td>
+<td><code>audience</code></td>
+<td>Yes</td>
+<td>The audience claim for the identity provider. It is used to verify that the access token is intended for your application. You can specify only one value for the <code>audience</code> field. The <code>audience</code> field must have a unique value for the same IdP with the same <code>issuer</code> field.</td>
 </tr>
 <tr>
-<td><strong>Hot Backup</strong></td>
-<td><a href="hot-backup.html">YES</a> (replica set)</td>
-<td>NO</td>
+<td><code>authNamePrefix</code></td>
+<td>Yes</td>
+<td>The unique prefix for the authentication name. It is used to identify the identity provider in the authentication process.</td>
 </tr>
 <tr>
-<td><strong>LDAP Authentication</strong></td>
-<td>(legacy) <a href="authentication.html">LDAP authentication with SASL</a></td>
-<td>Enterprise only</td>
+<td><code>useAuthorizationClaim</code></td>
+<td>No</td>
+<td>If set to <code>true</code>, the server uses the claim in the access token to map user roles to MongoDB roles. If set to <code>false</code>, the server uses the <code>$external</code> database for authentication and authorization. The default value is <code>true</code>.</td>
 </tr>
 <tr>
-<td><strong>LDAP Authorization</strong></td>
-<td><a href="authorization.html">YES</a></td>
-<td>Enterprise only</td>
+<td><code>authorizationClaim</code></td>
+<td>Yes when <code>useAuthorizationClaim</code> is <code>true</code></td>
+<td>The claim in the access token that contains the user roles or groups. It is used to map user roles to MongoDB roles.</td>
 </tr>
 <tr>
-<td><strong>Kerberos Authentication</strong></td>
-<td><a href="authentication.html">YES</a></td>
-<td>Enterprise only</td>
+<td><code>clientId</code></td>
+<td>Yes (if <code>supportsHumanFlows</code> is <code>true</code>)</td>
+<td>The client ID of the application registered with the identity provider. It is used to identify your application when requesting tokens.</td>
 </tr>
 <tr>
-<td><strong>AWS IAM authentication</strong></td>
-<td><a href="aws-iam.html">YES</a></td>
-<td>MongoDB Atlas</td>
+<td><code>matchPattern</code></td>
+<td>Yes (if more than one IdP with human authentication support is used)</td>
+<td>A regular expression that matches usernames to identify which identity provider to use for authentication.</td>
 </tr>
 <tr>
-<td><strong>Audit Logging</strong></td>
-<td><a href="audit-logging.html">YES</a></td>
-<td>Enterprise only</td>
+<td><code>requestScopes</code></td>
+<td>No</td>
+<td>Specifies the user information (claims) that an application wants to access during authentication. Scopes are essentially a way for the application to request specific sets of user attributes from the identity provider.</td>
 </tr>
 <tr>
-<td><strong>Log redaction</strong></td>
-<td><a href="log-redaction.html">YES</a></td>
-<td>Enterprise only</td>
+<td><code>principalName</code></td>
+<td>No</td>
+<td>Specifies the name of the principal that is used to authenticate users. If not specified, the default value is <code>sub</code>, which is the subject claim in the access token. The subject claim typically contains a unique identifier for the user. You can use other claims like <code>email</code> or <code>preferred_username</code> as a principal name.</td>
 </tr>
 <tr>
-<td><strong>SNMP Monitoring</strong></td>
-<td>NO</td>
-<td>Enterprise only</td>
-</tr>
-<tr>
-<td><strong>Database profiler</strong></td>
-<td><a href="rate-limit.html">YES</a> with the <a href="#profiling-rate-limiting"><code>--rateLimit</code></a> argument</td>
-<td>YES</td>
+<td><code>supportsHumanFlows</code></td>
+<td>No</td>
+<td>Defines whether an identity provider supports human authentication flows. This means that the identity provider can redirect users to a login portal or provide a URL and authentication code for device authentication. This option affects the <code>clientId</code> and <code>matchPattern</code> fields. <br> You may set it to false for machine workload IdPs to bypass the <code>clientId</code> when it&rsquo;s not needed.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="profiling-rate-limiting">Profiling Rate Limiting<a class="headerlink" href="#profiling-rate-limiting" title="Permanent link">&para;</a></h2>
-<p>Profiling Rate Limiting was added to <em>Percona Server for MongoDB</em> in v3.4 with the <code>--rateLimit</code> argument. Since v3.6, MongoDB Community (and Enterprise) Edition includes a similar option <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate">slowOpSampleRate</a>. Please see <a href="rate-limit.html">Profiling Rate Limit</a> for more information.</p>
+<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Single IdP</label><label for="__tabbed_1_2">Several IdPs</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>This is the example configuration of Percona Server for MongoDB for Okta:    </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Configuration file</label><label for="__tabbed_2_2">Command line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
+<span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MONGODB-OIDC</span>
+<span class="w">   </span><span class="nt">oidcIdentityProviders</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[</span><span class="nv"> </span><span class="s">{</span>
+<span class="w">      </span><span class="s">&quot;issuer&quot;:</span><span class="nv"> </span><span class="s">&quot;https://my-okta.okta.com&quot;,</span>
+<span class="w">      </span><span class="s">&quot;audience&quot;:</span><span class="nv"> </span><span class="s">&quot;example@my-company.com&quot;,</span>
+<span class="w">      </span><span class="s">&quot;authNamePrefix&quot;:</span><span class="nv"> </span><span class="s">&quot;okta&quot;,</span>
+<span class="w">      </span><span class="s">&quot;useAuthorizationClaim&quot;:</span><span class="nv"> </span><span class="s">true,</span>
+<span class="w">      </span><span class="s">&quot;authorizationClaim&quot;:</span><span class="nv"> </span><span class="s">&quot;oidc-test&quot;,</span>
+<span class="w">      </span><span class="s">&quot;clientId&quot;:</span><span class="nv"> </span><span class="s">&quot;0zzw3ggfd2ase33&quot;</span>
+<span class="w">   </span><span class="s">}</span><span class="nv"> </span><span class="s">]&#39;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;oidcIdentityProviders=[ {</span>
+<span class="s1">   &quot;issuer&quot;: &quot;https://my-okta.okta.com&quot;,</span>
+<span class="s1">   &quot;audience&quot;: &quot;example@my-company.com&quot;,</span>
+<span class="s1">   &quot;authNamePrefix&quot;: &quot;okta&quot;,</span>
+<span class="s1">   &quot;useAuthorizationClaim&quot;: true,</span>
+<span class="s1">   &quot;authorizationClaim&quot;: &quot;oidc-test&quot;,</span>
+<span class="s1">   &quot;clientId&quot;: &quot;0zzw3ggfd2ase33&quot;</span>
+<span class="s1">} ]&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>For example, if you have two identity providers, Okta and Microsoft Entra, you can specify the following configuration:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Configuration file</label><label for="__tabbed_3_2">Command line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
+<span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MONGODB-OIDC</span>
+<span class="w">   </span><span class="nt">oidcIdentityProviders</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[</span><span class="nv"> </span><span class="s">{</span>
+<span class="w">      </span><span class="s">&quot;issuer&quot;:</span><span class="nv"> </span><span class="s">&quot;https://my-okta.okta.com&quot;,</span>
+<span class="w">      </span><span class="s">&quot;audience&quot;:</span><span class="nv"> </span><span class="s">&quot;audience1&quot;,</span>
+<span class="w">      </span><span class="s">&quot;authNamePrefix&quot;:</span><span class="nv"> </span><span class="s">&quot;okta&quot;,</span>
+<span class="w">      </span><span class="s">&quot;useAuthorizationClaim&quot;:</span><span class="nv"> </span><span class="s">true,</span>
+<span class="w">      </span><span class="s">&quot;authorizationClaim&quot;:</span><span class="nv"> </span><span class="s">&quot;oidc-test&quot;,</span>
+<span class="w">      </span><span class="s">&quot;matchPattern&quot;:</span><span class="nv"> </span><span class="s">&quot;@okta.com$&quot;,</span>
+<span class="w">      </span><span class="s">&quot;clientId&quot;:</span><span class="nv"> </span><span class="s">&quot;0zzw3ggfd2ase33&quot;</span>
+<span class="w">   </span><span class="s">},</span><span class="nv"> </span><span class="s">{</span>
+<span class="w">      </span><span class="s">&quot;issuer&quot;:</span><span class="nv"> </span><span class="s">&quot;https://azure-test.azure.com&quot;,</span>
+<span class="w">      </span><span class="s">&quot;audience&quot;:</span><span class="nv"> </span><span class="s">&quot;audience2&quot;,</span>
+<span class="w">      </span><span class="s">&quot;authNamePrefix&quot;:</span><span class="nv"> </span><span class="s">&quot;azure-issuer&quot;,</span>
+<span class="w">      </span><span class="s">&quot;useAuthorizationClaim&quot;:</span><span class="nv"> </span><span class="s">true,</span>
+<span class="w">      </span><span class="s">&quot;authorizationClaim&quot;:</span><span class="nv"> </span><span class="s">&quot;azure-test&quot;,</span>
+<span class="w">      </span><span class="s">&quot;matchPattern&quot;:</span><span class="nv"> </span><span class="s">&quot;@azure.com$&quot;,</span>
+<span class="w">      </span><span class="s">&quot;clientId&quot;:</span><span class="nv"> </span><span class="s">&quot;1zzw3ggfd2ase33&quot;</span>
+<span class="w">   </span><span class="s">}</span><span class="nv"> </span><span class="s">]&#39;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="w"> </span>$<span class="w"> </span>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>oidcIdentityProviders:<span class="w"> </span><span class="s1">&#39;[ {</span>
+<span class="s1">    &quot;issuer&quot;: &quot;https://my-okta.okta.com&quot;,</span>
+<span class="s1">    &quot;audience&quot;: &quot;audience1&quot;,</span>
+<span class="s1">    &quot;authNamePrefix&quot;: &quot;okta&quot;,</span>
+<span class="s1">    &quot;useAuthorizationClaim&quot;: true,</span>
+<span class="s1">    &quot;authorizationClaim&quot;: &quot;oidc-test&quot;,</span>
+<span class="s1">    &quot;matchPattern&quot;: &quot;@okta.com$&quot;,</span>
+<span class="s1">    &quot;clientId&quot;: &quot;0zzw3ggfd2ase33&quot;</span>
+<span class="s1"> }, {</span>
+<span class="s1">    &quot;issuer&quot;: &quot;https://azure-test.azure.com&quot;,</span>
+<span class="s1">    &quot;audience&quot;: &quot;audience2&quot;,</span>
+<span class="s1">    &quot;authNamePrefix&quot;: &quot;azure-issuer&quot;,</span>
+<span class="s1">    &quot;useAuthorizationClaim&quot;: true,</span>
+<span class="s1">    &quot;authorizationClaim&quot;: &quot;azure-test&quot;,</span>
+<span class="s1">    &quot;matchPattern&quot;: &quot;@azure.com$&quot;,</span>
+<span class="s1">    &quot;clientId&quot;: &quot;1zzw3ggfd2ase33&quot;</span>
+<span class="s1"> } ]&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 
@@ -2786,7 +3029,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 1, 2025 12:09:08 UTC">May 1, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 21, 2025 14:03:28 UTC">August 21, 2025</span>
   </span>
 
     
@@ -2796,7 +3039,7 @@ document$.subscribe(() => { lightbox.reload() });
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 7, 2022 07:48:11 UTC">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 21, 2025 14:03:28 UTC">August 21, 2025</span>
   </span>
 
     
