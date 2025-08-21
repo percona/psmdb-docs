@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
       
@@ -1518,6 +1518,29 @@
   
   
     <li class="md-nav__item">
+      <a href="fcbis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    File copy based initial sync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="audit-logging.html" class="md-nav__link">
         
   
@@ -2628,6 +2651,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#fcbis" class="md-nav__link">
+    <span class="md-ellipsis">
+      File copy based initial sync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#audit-logging" class="md-nav__link">
     <span class="md-ellipsis">
       Auditing
@@ -2977,6 +3009,11 @@ for MongoDB 8.0 Community Edition with <a href="#comparison">enterprise-grade fe
 <td>Binaries with debug symbols</td>
 <td><a href="#release_notes-8.0.8-3">8.0.8-3</a></td>
 <td>By including debug symbols in the binary, Percona Server for MongoDB enables deeper integration with monitoring agent-based solutions. These agents can instrument the binary at runtime, providing more detailed telemetry data, such as performance metrics, error tracking, and function-level diagnostics. This enhanced observability allows for better monitoring of system health, faster identification of issues, and more granular insights into how the application performs in production environments.<br> Including this information empowers teams to respond proactively to performance bottlenecks, optimize resource allocation, and improve the overall stability of the application with real-time insights.</td>
+</tr>
+<tr>
+<td><a href="#initial-sync.md">File copy-based initial sync</a></td>
+<td><a href="#release_notes-8.0.12-4.md">8.0.12-4</a></td>
+<td>File copy based initial sync is an additional method of doing an initial sync for a new node in a replica set. For big data sets, this method is faster than the logical sync as it copies physical files rather than cloning data.</td>
 </tr>
 </tbody>
 </table>
@@ -7328,7 +7365,84 @@ d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
 </ol></section><section class="print-page" id="fips" heading-number="5.5.6"><h1 id="fips-fips-compliance">FIPS compliance<a class="headerlink" href="#fips-fips-compliance" title="Permanent link">&para;</a></h1>
 <p>FIPS (Federal Information Processing Standard) is the US government computer security standard for cryptography modules that include both hardware and software components. Percona Server for MongoDB supports FIPS certified module for OpenSSL, enabling US organizations to introduce FIPS-compliant encryption and thus meet the requirements towards data security.  </p>
 <p>The FIPS compliance in Percona Server for MongoDB is implemented in the same way, as in MongoDB Enterprise. It is available in <a href="#psmdb-pro">Percona Server for MongoDB Pro out of the box</a> starting with version 7.0.4-2. You can also receive this functionality by <a href="#install-source">building Percona Server for MongoDB from source code</a>.</p>
-<p>See <a href="https://www.mongodb.com/docs/v7.0/tutorial/configure-fips/">Configure MongoDB for FIPS</a> in MongoDB documentation for configuration guidelines. </p></section></section><section class="print-page" id="audit-logging" heading-number="5.6"><h1 id="audit-logging-auditing">Auditing<a class="headerlink" href="#audit-logging-auditing" title="Permanent link">&para;</a></h1>
+<p>See <a href="https://www.mongodb.com/docs/v7.0/tutorial/configure-fips/">Configure MongoDB for FIPS</a> in MongoDB documentation for configuration guidelines. </p></section></section><section class="print-page" id="fcbis" heading-number="5.6"><h1 id="fcbis-file-copy-based-initial-sync">File copy based initial sync<a class="headerlink" href="#fcbis-file-copy-based-initial-sync" title="Permanent link">&para;</a></h1>
+<div class="admonition admonition">
+<p class="admonition-title">Version added: <a href="#release_notes-8.0.12-4.md">8.0.12-4</a></p>
+<p>Available in <a href="#psmdb-pro">Percona Server for MongoDB Pro</a> out of the box. </p>
+</div>
+<p>When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. </p>
+<p>In Percona Server for MongoDB, you can choose a file copy-based initial sync for a new node. You must have WiredTiger defined as the storage. Both source and target nodes must run Percona Server for MongoDB version 8.0.12-4 or higher either as Pro builds or with file copy-based initial sync functionality compiled on your own.</p>
+<p>The file copy-based initial sync method is a physical copying of the data files from the source to the target. It is much faster than the default <a href="https://www.mongodb.com/docs/manual/core/replica-set-sync/#logical-initial-sync-process">logical initial sync <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"/></svg></span></a> for big datasets (500GB+), which is especially beneficial in heavy write environments. Using this initial sync method speeds up cluster scaling and increases restore performance. </p>
+<p>File copy-based initial sync implementation is compatible with that of MongoDB Enterprise Advanced and has the same <a href="#fcbis-configuration-parameters">configuration parameters</a>.</p>
+<p>To select the initial sync method, specify the <code>initialSyncMethod</code> parameter in the configuration file for the target node:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">initialSyncMethod</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fileCopyBased</span>
+</code></pre></div>
+<p>You can only set this server parameter at startup.</p>
+<h2 id="fcbis-workflow">Workflow<a class="headerlink" href="#fcbis-workflow" title="Permanent link">&para;</a></h2>
+<p>When you start a new node for the replica set, the workflow is the following:</p>
+<ol>
+<li>The new node (also referred to as the target node) selects the source node for the sync. This sync source is typically the node that responded first and has the passing configuration (e.g. it has WiredTiger set as the storage and the same arrangement of files and indexes as the target node.)</li>
+<li>The target node opens a backup cursor on the sync source. The backup cursor is used to retrieve the list of files to copy and the timestamp of the oplog end in the metadata file.</li>
+<li>The file copy starts. During this process the target node lags behind the sync source as it remains operational and its data changes. The sync source node is periodically checked to ensure the time of the lag falls within the defined time.</li>
+<li>If the lag between the sync source and the target exceeds the defined threshold, the target node executes the <code>$backupCursorExtend</code> aggregation to retrieve the changes. Depending on the file copy duration, the target node can execute <code>$backupCursorExtend</code> several times, limited by the maximum number of cycles (3 by default)</li>
+<li>When the files are copied and the lag between the sync source and the target is acceptable, the target node closes the backup cursor. </li>
+<li>The target node internally moves the downloaded files to the local <code>dbPath</code>, applies oplog on top, reconstructs timestamps to ensure data consistency.</li>
+</ol>
+<h2 id="fcbis-configuration-parameters">Configuration parameters<a class="headerlink" href="#fcbis-configuration-parameters" title="Permanent link">&para;</a></h2>
+<p>These configuration parameters can be used to control the file copy-based initial sync flow. You can set them only at startup.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>initialSyncMethod</code></td>
+<td>string</td>
+<td>logical</td>
+<td>Specifies which method of initial sync to use. Valid options are: fileCopyBased, logical.</td>
+</tr>
+<tr>
+<td><code>numInitialSyncAttempts</code></td>
+<td>integer</td>
+<td>10</td>
+<td>Number of attempts to make at replica set initial synchronization</td>
+</tr>
+<tr>
+<td><code>numInitialSyncConnectAttempts</code></td>
+<td>integer</td>
+<td>10</td>
+<td>The number of attempts to select and connect to a valid sync source</td>
+</tr>
+<tr>
+<td><code>fileBasedInitialSyncMaxLagSec</code></td>
+<td>integer</td>
+<td>300</td>
+<td>Specifies the max lag in seconds between the syncing node and the sync source to mark the file copy based initial sync as done successfully</td>
+</tr>
+<tr>
+<td><code>fileBasedInitialSyncMaxCyclesWithoutProgress</code></td>
+<td>integer</td>
+<td>3</td>
+<td>Specifies the max number of cycles to clone updates while the lag between the syncing node and the sync source is higher than <code>fileBasedInitialSyncMaxLagSec</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="fcbis-limitations">Limitations<a class="headerlink" href="#fcbis-limitations" title="Permanent link">&para;</a></h2>
+<p>Using file copy-based initial sync has the following limitations:</p>
+<ul>
+<li>Don&rsquo;t run backups on either sync source or syncing nodes</li>
+<li>Don&rsquo;t write to the <code>local</code> database on the syncing node</li>
+<li>You cannot use the same sync source for multiple target nodes simultaneously because only one backup cursor can exist at any moment.</li>
+<li>If you&rsquo;re using encrypted storage, Percona Server for MongoDB applies the encryption key from the sync source node to secure the data on the syncing node.</li>
+<li>You must have WiredTiger defined as the storage engine to run file copy-based initial sync. <a href="#inmemory">Percona memory engine</a> is not supported.</li>
+<li>Both source and target nodes must run the same Percona Server for MongoDB version. They must be either Pro builds or run with file copy-based initial sync functionality compiled on your own.</li>
+</ul></section><section class="print-page" id="audit-logging" heading-number="5.7"><h1 id="audit-logging-auditing">Auditing<a class="headerlink" href="#audit-logging-auditing" title="Permanent link">&para;</a></h1>
 <p>Auditing allows administrators to track
 and log user activity on a MongoDB server.
 With auditing enabled, the server will generate an audit log file.
@@ -7626,7 +7740,7 @@ when running <code>mongod</code> or <code>mongos</code> process:</p>
 <span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="p">}</span>
 </code></pre></div>
-</details></section><section class="print-page" id="rate-limit" heading-number="5.7"><h1 id="rate-limit-profiling-rate-limit">Profiling rate limit<a class="headerlink" href="#rate-limit-profiling-rate-limit" title="Permanent link">&para;</a></h1>
+</details></section><section class="print-page" id="rate-limit" heading-number="5.8"><h1 id="rate-limit-profiling-rate-limit">Profiling rate limit<a class="headerlink" href="#rate-limit-profiling-rate-limit" title="Permanent link">&para;</a></h1>
 <p>Percona Server for MongoDB can limit the number of queries collected by the database profiler
 to decrease its impact on performance.
 Rate limit is an integer between 1 and 1000
@@ -7750,7 +7864,7 @@ set the corresponding variables in the MongoDB configuration file
 <p>Each document in the <code>system.profile</code> collection
 includes an additional <code>rateLimit</code> field.
 This field always has the value of <code>1</code> for <em>slow</em> queries
-and the current rate limit value for <em>fast</em> queries.</p></section><section class="print-page" id="log-redaction" heading-number="5.8"><h1 id="log-redaction-log-redaction">Log redaction<a class="headerlink" href="#log-redaction-log-redaction" title="Permanent link">&para;</a></h1>
+and the current rate limit value for <em>fast</em> queries.</p></section><section class="print-page" id="log-redaction" heading-number="5.9"><h1 id="log-redaction-log-redaction">Log redaction<a class="headerlink" href="#log-redaction-log-redaction" title="Permanent link">&para;</a></h1>
 <p>Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.</p>
 <p>To enable log redaction, run <code>mongod</code> with the <code>--redactClientLogData</code> option.</p>
 <div class="admonition note">
@@ -7825,7 +7939,7 @@ use the <code>setParameter</code> command as follows:</p>
     }
 ...
 </code></pre></div>
-<p>As you can see, the field names are still visible but the values are hidden. Some other fields like the <code>readPreference</code> are also hidden.</p></section><section class="print-page" id="ngram-full-text-search" heading-number="5.9"><h1 id="ngram-full-text-search-additional-text-search-algorithm-ngram">Additional text search algorithm - ngram<a class="headerlink" href="#ngram-full-text-search-additional-text-search-algorithm-ngram" title="Permanent link">&para;</a></h1>
+<p>As you can see, the field names are still visible but the values are hidden. Some other fields like the <code>readPreference</code> are also hidden.</p></section><section class="print-page" id="ngram-full-text-search" heading-number="5.10"><h1 id="ngram-full-text-search-additional-text-search-algorithm-ngram">Additional text search algorithm - ngram<a class="headerlink" href="#ngram-full-text-search-additional-text-search-algorithm-ngram" title="Permanent link">&para;</a></h1>
 <p>The <a href="https://en.wikipedia.org/wiki/N-gram">ngram</a> text search algorithm is useful for searching text for a specific string
 of characters in a field of a collection. This feature can be used to find exact sub-string matches, which provides an alternative to parsing text from languages other than the list of European languages already supported by MongoDB Community’s full text search engine. It
 may also turn out to be more convenient when working with the text where symbols
@@ -9257,13 +9371,15 @@ we will do our very best to be helpful.</p></section></section></div><style>.pri
 
 .print-site-enumerate-headings #fips > h1:before { content: '5.5.6 ' }
 
-.print-site-enumerate-headings #audit-logging > h1:before { content: '5.6 ' }
+.print-site-enumerate-headings #fcbis > h1:before { content: '5.6 ' }
 
-.print-site-enumerate-headings #rate-limit > h1:before { content: '5.7 ' }
+.print-site-enumerate-headings #audit-logging > h1:before { content: '5.7 ' }
 
-.print-site-enumerate-headings #log-redaction > h1:before { content: '5.8 ' }
+.print-site-enumerate-headings #rate-limit > h1:before { content: '5.8 ' }
 
-.print-site-enumerate-headings #ngram-full-text-search > h1:before { content: '5.9 ' }
+.print-site-enumerate-headings #log-redaction > h1:before { content: '5.9 ' }
+
+.print-site-enumerate-headings #ngram-full-text-search > h1:before { content: '5.10 ' }
 
 .print-site-enumerate-headings #section-6 > h1:before { content: '6 ' }
 .print-site-enumerate-headings #set-parameter > h1:before { content: '6.1 ' }
@@ -9443,12 +9559,12 @@ window.addEventListener('afterprint', (event) => {
     
     
       
-      <script id="__config" type="application/json">{"base": "/percona-server-for-mongodb/8.0", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "/percona-server-for-mongodb/8.0", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="assets/javascripts/bundle.92b07e13.min.js"></script>
       
         <script src="js/print-site.js"></script>
       
