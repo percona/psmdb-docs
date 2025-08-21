@@ -1,6 +1,9 @@
 # File copy based initial sync
 
-!!! admonition "Version added: [7.0.22-12](release_notes/7.0.22-12.md) [Pro](psmdb-pro.md)"
+!!! admonition "Version added: [7.0.22-12](release_notes/7.0.22-12.md)"
+    
+    Available in [Percona Server for MongoDB Pro](psmdb-pro.md) out of the box. 
+
 
 When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. 
 
