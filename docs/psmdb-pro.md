@@ -17,6 +17,9 @@ Find the list of solutions available in Percona Server for MongoDB Pro builds:
 | [FIPS support ](fips.md)| [7.0.4-2](release_notes/7.0.4-2.md) | FIPS mode provides a way to use FIPS-compliant encryption and run the Percona Server for MongoDB with the FIPS-140 certified library for OpenSSL. This helps customers meet minimum security requirements for cryptographic modules and testing in both hardware and software. |
 | [File copy-based initial sync](fcbis.md) | [7.0.22-12](release_notes/7.0.22-12.md) | File copy based initial sync is an additional method of doing an initial sync for a new node in a replica set. For big data sets, this method is faster than the logical sync as it copies physical files rather than cloning data. |
 | Binaries with debug symbols | [7.0.18-11](release_notes/7.0.18-11.md) | By including debug symbols in the binary, Percona Server for MongoDB enables deeper integration with monitoring agent-based solutions. These agents can instrument the binary at runtime, providing more detailed telemetry data, such as performance metrics, error tracking, and function-level diagnostics. This enhanced observability allows for better monitoring of system health, faster identification of issues, and more granular insights into how the application performs in production environments.<br> Including this information empowers teams to respond proactively to performance bottlenecks, optimize resource allocation, and improve the overall stability of the application with real-time insights. 
+| [OIDC / OAuth 2.0 authentication and authorization](oidc.md)| [7.0.23-13](release_notes/7.0.23-13.md) | OpenID Connect (OIDC) authentication and OAuth 2.0 authorization enable you to configure SSO between Percona Server for MongoDB and an external OpenID provider (IdP) so that users are authenticated and authorized without sharing their credentials with a MongoDB client. |
+
+
 
 ## Benefits
 
