@@ -9220,20 +9220,21 @@ case are:</p>
 </li>
 <li>
 <p>Insert the key from keyfile into the HashiCorp Vault server to the desired secret path.</p>
-</li>
-<li>
-<p>Retrieve the key value from the keyfile</p>
+<ul>
+<li>Retrieve the key value from the keyfile</li>
+</ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cat<span class="w"> </span>/data/key/mongodb.key
 d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
 </code></pre></div>
-</li>
-<li>
-<p>Insert the key into vault</p>
+<ul>
+<li>Insert the key into vault</li>
+</ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>vault<span class="w"> </span>kv<span class="w"> </span>put<span class="w"> </span>secret/dc/psmongodb1<span class="w"> </span><span class="nv">value</span><span class="o">=</span>d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
 </code></pre></div>
-<p>!!! note </p>
-<div class="highlight"><pre><span></span><code> Vault KV Secrets Engine uses different read and write secrets paths. To insert data to Vault, specify the secret path without the `data/` prefix.
-</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vault KV Secrets Engine uses different read and write secrets paths. To insert data to Vault, specify the secret path without the <code>data/</code> prefix.</p>
+</div>
 </li>
 <li>
 <p>Edit the configuration file to provision the HashiCorp Vault configuration options instead of the key file encryption options.</p>
