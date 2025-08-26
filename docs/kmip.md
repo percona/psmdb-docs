@@ -157,6 +157,7 @@ To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, the 
       --kmipKeyIdentifier <kmip_identifier>
     ```
 
+--8<-- "encryption-status.md"
 
 ## Upgrade considerations
 
