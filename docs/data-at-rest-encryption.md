@@ -1,10 +1,11 @@
-# Data at rest encryption
+# Encryption at Rest
 
-Data encryption at rest was introduced in Percona Server for MongoDB 3.6 to maintain compatibility with MongoDB's encryption interface. Percona Server for MongoDB does not support Amazon AWS Key Management Service (KMS). Instead, it offers the following key management integrations:
+Encryption at rest should be used with data in transit encryption and policies that protect accounts, passwords, and encryption keys. When implemented well, the encryption at rest helps organizations to comply with security and privacy standards like HIPAA, PCI-DSS, GDPR, and FIPS, ensuring sensitive data is protected both when it's being transmitted and when it's stored.
 
-* [Integration with HashiCorp Vault](vault.md) for secure key management. 
-* [Support of secure key transfer via the Key Management Interoperability Protocol (KMIP)](kmip.md). It allows users to store encryption keys in their favorite KMIP-compatible key manager when they set up encryption at rest.
+Data encryption at rest was introduced in Percona Server for MongoDB 3.6 and is fully compatible with MongoDB's encryption interface. Percona Server for MongoDB supports the following Key Management System (KMS) integrations:
 
+* [HashiCorp Vault](vault.md)
+* [Key Management Interoperability Protocol (KMIP) Servers](kmip.md)
 
 ## Workflow
 
