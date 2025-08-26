@@ -25,13 +25,13 @@ theme:
   icon:
     edit: material/file-edit-outline
     view: material/file-eye-outline
-  
+
   features:
     - search.highlight
     - search.share
     - search.suggest
     - navigation.top
-    - navigation.tracking 
+    - navigation.tracking
     - navigation.instant
     - navigation.instant.progress
     - content.tooltips
@@ -41,9 +41,9 @@ theme:
     - content.code.copy
     - content.code.annotate
     - toc.follow
-    
+
   palette:
-    
+
     # Automatic mode based on system preferences
 
     - media: "(prefers-color-scheme)"
@@ -97,10 +97,10 @@ markdown_extensions:
   pymdownx.details: {}
   pymdownx.mark: {}
   pymdownx.smartsymbols: {}
-  pymdownx.tabbed: 
+  pymdownx.tabbed:
       {alternate_style: true}
   pymdownx.tilde: {}
-  pymdownx.superfences: 
+  pymdownx.superfences:
     custom_fences:
       - name: mermaid
         class: mermaid
@@ -109,9 +109,10 @@ markdown_extensions:
       linenums: false
   pymdownx.inlinehilite: {}
   pymdownx.snippets:
-      base_path: 
+      base_path:
         - snippets
         - docs/install
+        - docs/
 #       auto_append:
 #         - services-banner.md
   pymdownx.tasklist:
@@ -123,13 +124,13 @@ markdown_extensions:
         custom_icons:
           - _resource/overrides/.icons
 
-       
+
 
 plugins:
 #  section-index: {}
-  search: 
+  search:
     separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-  git-revision-date-localized: 
+  git-revision-date-localized:
     enable_creation_date: true
     enabled: !ENV [ENABLED_GIT_REVISION_DATE, True]
   meta-descriptions:
@@ -138,7 +139,7 @@ plugins:
     enable_checks: false
     min_length: 50
     max_length: 160
-  glightbox: 
+  glightbox:
     touchNavigation: false
   git-committers:
     enabled: !ENV [CI, false]
@@ -182,7 +183,7 @@ nav:
   - Home: index.md
   - psmdb-pro.md
   - get-help.md
-  - Get started: 
+  - Get started:
       - Quickstart guides: 'install/index.md'
       - 1. Installation:
         - 'System requirements': 'system-requirements.md'
@@ -197,7 +198,7 @@ nav:
       - "2. Connect to Percona Server for MongoDB": connect.md
       - "3. Manipulate data in Percona Server for MongoDB": crud.md
       - "4. What's next?": what-next.md
-  - Features: 
+  - Features:
       - Feature comparison with MongoDB: comparison.md
       - Storage:
         - "Percona Memory Engine": "inmemory.md"
@@ -206,14 +207,24 @@ nav:
         - backup-cursor.md
       - Authentication:
         - "Authentication overview": "authentication.md"
-        - enable-auth.md
-        - sasl-auth.md
-        - x509-ldap.md
+        - AWS IAM:
+          - AWS IAM authentication: aws-iam.md
+          - aws-iam-setup.md
         - kerberos.md
-        - aws-iam.md
-        - aws-iam-setup.md
-        - authorization.md
-        - ldap-setup.md
+        - LDAP:
+          - LDAP authorization: authorization.md
+          - sasl-auth.md
+          - x509-ldap.md
+          - ldap-setup.md
+        - OIDC:
+          - OIDC authentication: oidc.md
+          - Configure OIDC authentication:
+             - With Okta: oidc-okta.md
+             - With Microsoft Entra: oidc-entra.md
+             - With Ping Identity: oidc-ping.md
+             - With Keycloak: oidc-keycloak.md
+             - OIDC authentication and LDAP authorization: oidc-ldap.md
+        - enable-auth.md
       - Encryption:
         - "Data at rest encryption": "data-at-rest-encryption.md"
         - "Use Vault": vault.md
@@ -221,14 +232,14 @@ nav:
         - "Use local keyfile": keyfile.md
         - "Migrate from keyfile to Vault": encryption-mode-switch.md
         - fips.md
-      - Auditing:
-        - Audit logging: audit-logging.md 
-        - Integration with Imperva DSF: imperva.md 
+      - fcbis.md
+      - audit-logging.md
       - rate-limit.md
       - log-redaction.md
       - ngram-full-text-search.md
   - Administration:
       - "Tune parameters": "set-parameter.md"
+      - log-rotation.md
       - mongos-config.md
       - Upgrade:
         - "Upgrade from 7.0 to 8.0": "install/upgrade-from-70.md"
@@ -238,6 +249,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
+      - release_notes/8.0.12-4.md
       - release_notes/8.0.8-3.md
       - release_notes/8.0.4-2.md
       - release_notes/8.0.4-1.md
@@ -246,5 +258,5 @@ nav:
       - glossary.md
       - telemetry.md
       - copyright.md
-      - trademark-policy.md 
+      - trademark-policy.md
   - Join Percona Squad: "https://squad.percona.com/mongodb"
