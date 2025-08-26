@@ -19,22 +19,22 @@ We assume that you have installed and configured the vault server and enabled th
 
 2. Insert the key from keyfile into the HashiCorp Vault server to the desired secret path.
 
-   * Retrieve the key value from the keyfile
+    * Retrieve the key value from the keyfile
 
        ```{.bash data-prompt="$"}
        $ sudo cat /data/key/mongodb.key
        d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw=
        ```
 
-   * Insert the key into vault
+    * Insert the key into vault
 
-      ```{.bash data-prompt="$"}
-      $ vault kv put secret/dc/psmongodb1 value=d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw=
-      ```
+       ```{.bash data-prompt="$"}
+       $ vault kv put secret/dc/psmongodb1 value=d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw=
+       ```
 
-     !!! note 
+    !!! note 
 
-         Vault KV Secrets Engine uses different read and write secrets paths. To insert data to Vault, specify the secret path without the `data/` prefix.
+        Vault KV Secrets Engine uses different read and write secrets paths. To insert data to Vault, specify the secret path without the `data/` prefix.
 
 
 3. Edit the configuration file to provision the HashiCorp Vault configuration options instead of the key file encryption options.
