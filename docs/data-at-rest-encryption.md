@@ -1,6 +1,6 @@
 # Encryption at Rest
 
-Encryption at rest should be used with data in transit encryption and policies that protect accounts, passwords, and encryption keys. When implemented well, the encryption at rest helps organizations to comply with security and privacy standards like HIPAA, PCI-DSS, GDPR, and FIPS, ensuring sensitive data is protected both when it's being transmitted and when it's stored.
+Encryption at rest should be used with data in transit encryption and policies that protect accounts, passwords, and encryption keys. When implemented well, encryption at rest helps organizations to comply with security and privacy standards like HIPAA, PCI-DSS, GDPR, and FIPS, ensuring sensitive data is protected both when it's being transmitted and when it's stored.
 
 Data encryption at rest was introduced in Percona Server for MongoDB 3.6 and is fully compatible with MongoDB's encryption interface. Percona Server for MongoDB supports the following Key Management System (KMS) integrations:
 
