@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
     
     
       
@@ -6989,11 +6989,12 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
                     <section class='print-page md-section' id='section-5-5' heading-number='5.5'>
                         <h1>Encryption<a class='headerlink' href='#section-5-5' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="data-at-rest-encryption" heading-number="5.5.1"><h1 id="data-at-rest-encryption-data-at-rest-encryption">Data at rest encryption<a class="headerlink" href="#data-at-rest-encryption-data-at-rest-encryption" title="Permanent link">&para;</a></h1>
-<p>Data encryption at rest was introduced in Percona Server for MongoDB 3.6 to maintain compatibility with MongoDB&rsquo;s encryption interface. Percona Server for MongoDB does not support Amazon AWS Key Management Service (KMS). Instead, it offers the following key management integrations:</p>
+                    <section class="print-page" id="data-at-rest-encryption" heading-number="5.5.1"><h1 id="data-at-rest-encryption-encryption-at-rest">Encryption at Rest<a class="headerlink" href="#data-at-rest-encryption-encryption-at-rest" title="Permanent link">&para;</a></h1>
+<p>Encryption at rest should be used with data in transit encryption and policies that protect accounts, passwords, and encryption keys. When implemented well, encryption at rest helps organizations to comply with security and privacy standards like HIPAA, PCI-DSS, GDPR, and FIPS, ensuring sensitive data is protected both when it&rsquo;s being transmitted and when it&rsquo;s stored.</p>
+<p>Data encryption at rest was introduced in Percona Server for MongoDB 3.6 and is fully compatible with MongoDB&rsquo;s encryption interface. Percona Server for MongoDB supports the following Key Management System (KMS) integrations:</p>
 <ul>
-<li><a href="#vault">Integration with HashiCorp Vault</a> for secure key management. </li>
-<li><a href="#kmip">Support of secure key transfer via the Key Management Interoperability Protocol (KMIP)</a>. It allows users to store encryption keys in their favorite KMIP-compatible key manager when they set up encryption at rest.</li>
+<li><a href="#vault">HashiCorp Vault</a></li>
+<li><a href="#kmip">Key Management Interoperability Protocol (KMIP) Servers</a></li>
 </ul>
 <h2 id="data-at-rest-encryption-workflow">Workflow<a class="headerlink" href="#data-at-rest-encryption-workflow" title="Permanent link">&para;</a></h2>
 <div class="admonition important">
@@ -7796,6 +7797,7 @@ d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
 <li>You cannot use the same sync source for multiple target nodes simultaneously because only one backup cursor can exist at any moment.</li>
 <li>If you&rsquo;re using encrypted storage, Percona Server for MongoDB applies the encryption key from the sync source node to secure the data on the syncing node.</li>
 <li>You must have WiredTiger defined as the storage engine to run file copy-based initial sync. <a href="#inmemory">Percona memory engine</a> engine is not supported.</li>
+<li>Both source and target nodes must run Percona Server for MongoDB version 7.0.22-12 or higher, either as <a href="#psmdb-pro">Pro builds</a> or with file copy-based initial sync functionality compiled on your own.</li>
 </ul></section><section class="print-page" id="audit-logging" heading-number="5.7"><h1 id="audit-logging-auditing">Auditing<a class="headerlink" href="#audit-logging-auditing" title="Permanent link">&para;</a></h1>
 <p>Auditing allows administrators to track
 and log user activity on a MongoDB server.
