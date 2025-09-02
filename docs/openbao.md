@@ -129,5 +129,5 @@ To enable data-at-rest encryption in Percona Server for MongoDB, you need the fo
     Start Percona Server for MongoDB with the following parameters:
 
     ```{.bash data-prompt="$"}
-    $ mongosh --enableEncryption --vaultServerName 127.0.0.1 --vaultPort 8200 --vaultTokenFile /etc/openbao/token --vaultSecret secret/data/ --vaultDisableTLSForTesting
+    $ mongod --enableEncryption --vaultServerName 127.0.0.1 --vaultPort 8200 --vaultTokenFile /etc/openbao/token --vaultSecret secret/data/ --vaultDisableTLSForTesting
     ```
