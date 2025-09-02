@@ -121,7 +121,7 @@ To enable data-at-rest encryption in Percona Server for MongoDB, you need the fo
     2. Start Percona Server for MongoDB:
 
         ```{.bash data-prompt="$"}
-        $ sudo systemctl start
+        $ sudo systemctl start mongod
         ```
 
 === ":material-console: Command line"
