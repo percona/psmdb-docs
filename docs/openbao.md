@@ -83,7 +83,7 @@ OpenBao setup is similar to that of HashiCorp Vault. It consists of the followin
     * Restrict access to the token and certificate files for the `mongod` user:
        
        ```{.bash data-prompt="$"}
-       $ sudo chmod 400 -p /etc/openbao/token
+       $ sudo chmod 400 /etc/openbao/token
        $ sudo chown mongod:mongod /etc/openbao/token
        ```
 
