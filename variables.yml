@@ -4,7 +4,7 @@
 
 release: '7.0.23-13'
 version: '7.0'
-mongosh: '2.5.6'
+mongosh: '2.5.7'
 
 product:
   psmdb_full_name:  Percona Server for MongoDB
