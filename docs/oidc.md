@@ -98,7 +98,6 @@ The `oidcIdentityProviders` server parameter contains an array of JSON objects w
 | `requestScopes` | No | Specifies the user information (claims) that an application wants to access during authentication. Scopes are essentially a way for the application to request specific sets of user attributes from the identity provider.  |
 | `principalName` | No | Specifies the name of the principal that is used to authenticate users. If not specified, the default value is `sub`, which is the subject claim in the access token. The subject claim typically contains a unique identifier for the user. You can use other claims like `email` or `preferred_username` as a principal name. |
 | `supportsHumanFlows`| No | Defines whether an identity provider supports human authentication flows. This means that the identity provider can redirect users to a login portal or provide a URL and authentication code for device authentication. This option affects the `clientId` and `matchPattern` fields. <br> You may set it to false for machine workload IdPs to bypass the `clientId` when it's not needed.|
-| `JWKSMinimumQuiescePeriodSecs` | No | Defines the minimum amount of time that must elapse between fetches of a specific identity provider's (IdP) ` endpoint. If you change an RSA public key multiple times within this quiesce period, the key may not function correctly for up to one minute unless you decrease this value. Setting `JWKSMinimumQuiescePeriodSecs` to zero eliminates the quiesce period, which allows for repeated key refreshes. <br><br> You can set this parameter at startup and during runtime. Available for `mongod` and `mongos`. | 
 
 #### Examples 
 
@@ -190,5 +189,21 @@ The `oidcIdentityProviders` server parameter contains an array of JSON objects w
             "clientId": "1zzw3ggfd2ase33"
          } ]'
         ```
+
+
+Additionally, you can configure how often Percona Server for MongoDB can re-fetch public keys from your identity provider (IdP). It may be required when a new public key is presented.
+
+The `JWKSMinimumQuiescePeriodSecs` server parameter sets the minimum time that must pass between fetches of the IdP's `JWKSetURI` endpoint.
+
+```yaml
+setParameter:
+   JWKSMinimumQuiescePeriodSecs: 60
+```
+
+The default value is 60 seconds, meaning that Percona Server for MongoDB will wait at least 1 minute before trying to fetch the keys again from the IdP. If you change an RSA public key multiple times within this period, the key may not function correctly for up to one minute unless you decrease this value.
+
+If you set `JWKSMinimumQuiescePeriodSecs` to zero, Percona Server for MongoDB will fetch the keys immediately every time it sees a new key ID (kid). 
+
+You can set the `JWKSMinimumQuiescePeriodSecs` parameter for `mongod` and `mongos` at startup and during runtime.  
 
 
