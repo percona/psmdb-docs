@@ -9,4 +9,4 @@ As a Percona Customer, you have the access to the ServiceNow portal. To request 
     If you don't see the widget, contact Percona Support.
 
 4. Click **Request Token** button in the **Request a Percona Pro Builds Token** dialog window.
-5. A token will be generated for you. You will also see the Customer ID. Copy both the Customer ID and the token as you will use them to configure the Pro repository and install the software.
+5. A token will be generated for you. You will also see the Customer ID. Copy both the Client ID and the token as you will use them to configure the Pro repository and install the software.
