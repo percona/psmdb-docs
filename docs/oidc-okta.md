@@ -40,7 +40,7 @@ The setup process consists of three main stages:
         * **Device Authorization**
         * **Refresh Token** (optional, but recommended for better user experience. This allows users to refresh their access tokens without needing to re-authenticate.)
 
-    * Set the Sign-in redirect URIs to http://localhost:17017. The port can be customized if needed, but this is a common default.
+    * Set the Sign-in redirect URIs to http://localhost:17017/redirect. The port can be customized if needed, but this is a common default.
     * In the **Assignments** section, find the **Controlled access** and enable **Allow everyone in your organization to access**.
     * In the **Enable immediate access** section, ensure the **Enable immediate access with Federation Broker Mode** option is enabled.
     * Click **Save**.
