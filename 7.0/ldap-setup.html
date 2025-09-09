@@ -1,9 +1,4 @@
-
-
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
+<!DOCTYPE html><html lang="en" class="no-js"><head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -24,7 +19,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -49,7 +44,7 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -97,27 +92,26 @@
                  
                  
 
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 7.0 - Set up LDAP authentication and authorization using NativeLDAP" />
+<meta property="og:type" content="website">
+<meta property="og:title" content="Percona Server for MongoDB 7.0 - Set up LDAP authentication and authorization using NativeLDAP">
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
- <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
-<body>
-<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
+<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
 
 
-  </head>
+
+  
   
   
     
@@ -127,7 +121,7 @@ document$.subscribe(() => { lightbox.reload() });
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -187,10 +181,10 @@ document$.subscribe(() => { lightbox.reload() });
       <a href="https://docs.percona.com/percona-for-mongodb/" title="Percona Documentation home page">
         <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <mask id="a" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-            <path d="M0 0h24v24H0z"/>
+            <path d="M0 0h24v24H0z"></path>
           </mask>
           <g mask="url(#a)">
-            <path d="m7.825 13 5.6 5.6L12 20l-8-8 8-8 1.425 1.4-5.6 5.6H20v2H7.825Z"/>
+            <path d="m7.825 13 5.6 5.6L12 20l-8-8 8-8 1.425 1.4-5.6 5.6H20v2H7.825Z"></path>
           </g>
         </svg>
         <span>Percona Software for MongoDB Documentation</span>
@@ -198,19 +192,10 @@ document$.subscribe(() => { lightbox.reload() });
     </div>
   </div>
 
-  <nav
-    class="md-header__inner md-grid"
-    aria-label="Header"
-  >
+  <nav class="md-header__inner md-grid" aria-label="Header">
 
     <!-- Link to home -->
-    <a
-      href="index.html"
-      title="Percona Server for MongoDB 7.0"
-      class="md-header__button md-logo"
-      aria-label="Percona Server for MongoDB 7.0"
-      data-md-component="logo"
-    >
+    <a href="index.html" title="Percona Server for MongoDB 7.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
       
   <img src="_images/mongodb-mark.svg" alt="logo">
 
@@ -219,7 +204,7 @@ document$.subscribe(() => { lightbox.reload() });
     <!-- Button to open drawer -->
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
     </label>
 
     <!-- Header title -->
@@ -248,30 +233,30 @@ document$.subscribe(() => { lightbox.reload() });
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="percona-light" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
       </label>
     
   
@@ -291,7 +276,7 @@ document$.subscribe(() => { lightbox.reload() });
     
       <label class="md-header__button md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
       </label>
 
       <!-- Search interface -->
@@ -302,20 +287,20 @@ document$.subscribe(() => { lightbox.reload() });
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
           <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
             
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
           </a>
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
         </button>
       </nav>
       
@@ -340,7 +325,7 @@ document$.subscribe(() => { lightbox.reload() });
         <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     percona/psmdb-docs
@@ -366,7 +351,7 @@ document$.subscribe(() => { lightbox.reload() });
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -387,7 +372,7 @@ document$.subscribe(() => { lightbox.reload() });
       <a href="https://github.com/percona/psmdb-docs" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
   </div>
   <div class="md-source__repository">
     percona/psmdb-docs
@@ -478,7 +463,7 @@ document$.subscribe(() => { lightbox.reload() });
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -539,7 +524,7 @@ document$.subscribe(() => { lightbox.reload() });
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -931,7 +916,7 @@ document$.subscribe(() => { lightbox.reload() });
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2">
         
           
           <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
@@ -1000,7 +985,7 @@ document$.subscribe(() => { lightbox.reload() });
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3">
         
           
           <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
@@ -1460,7 +1445,7 @@ document$.subscribe(() => { lightbox.reload() });
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5">
         
           
           <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
@@ -1766,7 +1751,7 @@ document$.subscribe(() => { lightbox.reload() });
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -1873,7 +1858,7 @@ document$.subscribe(() => { lightbox.reload() });
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4">
         
           
           <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
@@ -2041,7 +2026,7 @@ document$.subscribe(() => { lightbox.reload() });
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -2407,7 +2392,7 @@ document$.subscribe(() => { lightbox.reload() });
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
         
           
           <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
@@ -2565,7 +2550,7 @@ document$.subscribe(() => { lightbox.reload() });
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -2685,7 +2670,7 @@ document$.subscribe(() => { lightbox.reload() });
   
     <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/ldap-setup.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
   
   
@@ -2694,18 +2679,18 @@ document$.subscribe(() => { lightbox.reload() });
     
     <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/ldap-setup.md" title="View source of this page" class="md-content__button md-icon">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
     </a>
   
 
 
-<h1 id="set-up-ldap-authentication-and-authorization-using-nativeldap">Set up LDAP authentication and authorization using NativeLDAP<a class="headerlink" href="#set-up-ldap-authentication-and-authorization-using-nativeldap" title="Permanent link">&para;</a></h1>
+<h1 id="set-up-ldap-authentication-and-authorization-using-nativeldap">Set up LDAP authentication and authorization using NativeLDAP<a class="headerlink" href="#set-up-ldap-authentication-and-authorization-using-nativeldap" title="Permanent link">¶</a></h1>
 <p>This document describes an example configuration of LDAP authentication and authorization using direct binding to an LDAP server (Native LDAP). We recommend testing this setup in a non-production environment first, before applying it in production.</p>
-<h2 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">&para;</a></h2>
+<h2 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">¶</a></h2>
 <ul>
 <li>The setup of an LDAP server is out of scope of this document. We assume that you are familiar with the LDAP server schema.</li>
 <li>If usernames contain special characters, they must be escaped as described in <a href="https://www.ietf.org/rfc/rfc4514.txt">RFC4514</a>, <a href="https://tools.ietf.org/html/rfc4515">RFC4515</a>, <a href="https://tools.ietf.org/html/rfc4516">RFC4516</a>. The usage of particular escaping rules depends on  the part of the LDAP query which will contain the substituted value. An explanation of escaping rules or LDAP queries is out of scope of this setup. Please review the RFC directly or use your preferred LDAP resource.</li>
-<li>You have the LDAP server up and running and it&rsquo;s accessible to the servers with Percona Server for MongoDB installed.</li>
+<li>You have the LDAP server up and running and it’s accessible to the servers with Percona Server for MongoDB installed.</li>
 <li>This document primarily focuses on OpenLDAP used as the LDAP server and the examples are given based on the OpenLDAP format. If you are using Active Directory, refer to the <a href="#active-directory-configuration">Active Directory configuration</a> section.</li>
 <li>In examples below, we use anonymous binds to the LDAP server and the following OpenLDAP groups:</li>
 </ul>
@@ -2719,7 +2704,7 @@ objectClass: groupOfNames
 cn: otherusers
 member: cn=bob,dc=percona,dc=com
 </code></pre></div>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <ul>
 <li>
 <p>To configure LDAP, you must have the <code>sudo</code> privilege to the server with the Percona Server for MongoDB installed.</p>
@@ -2732,8 +2717,8 @@ member: cn=bob,dc=percona,dc=com
 </ul>
 </li>
 </ul>
-<h2 id="setup-procedure">Setup procedure<a class="headerlink" href="#setup-procedure" title="Permanent link">&para;</a></h2>
-<h3 id="configure-tlsssl-connection-for-percona-server-for-mongodb">Configure TLS/SSL connection for Percona Server for MongoDB<a class="headerlink" href="#configure-tlsssl-connection-for-percona-server-for-mongodb" title="Permanent link">&para;</a></h3>
+<h2 id="setup-procedure">Setup procedure<a class="headerlink" href="#setup-procedure" title="Permanent link">¶</a></h2>
+<h3 id="configure-tlsssl-connection-for-percona-server-for-mongodb">Configure TLS/SSL connection for Percona Server for MongoDB<a class="headerlink" href="#configure-tlsssl-connection-for-percona-server-for-mongodb" title="Permanent link">¶</a></h3>
 <p>By default, Percona Server for MongoDB establishes the TLS connection when binding to the LDAP server and thus, it requires access to the LDAP  certificates. To make Percona Server for MongoDB aware of the certificates, do the following:</p>
 <ol>
 <li>
@@ -2749,7 +2734,7 @@ member: cn=bob,dc=percona,dc=com
 </li>
 <li>
 <p>Specify the path to the certificates in the <code>ldap.conf</code> file:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian / Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Debian / Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>tee -a /etc/openldap/ldap.conf &lt;&lt;EOF
@@ -2767,43 +2752,43 @@ EOF
 </div>
 </li>
 </ol>
-<h3 id="create-roles-for-ldap-groups-in-percona-server-for-mongodb">Create roles for LDAP groups in Percona Server for MongoDB<a class="headerlink" href="#create-roles-for-ldap-groups-in-percona-server-for-mongodb" title="Permanent link">&para;</a></h3>
+<h3 id="create-roles-for-ldap-groups-in-percona-server-for-mongodb">Create roles for LDAP groups in Percona Server for MongoDB<a class="headerlink" href="#create-roles-for-ldap-groups-in-percona-server-for-mongodb" title="Permanent link">¶</a></h3>
 <p>Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the <code>admin</code> database with the name that exactly matches the  of the LDAP group.</p>
 <p>Percona Server for MongoDB maps the user’s LDAP group to the roles and determines what role is assigned to the user. Percona Server for MongoDB then grants privileges defined by this role.</p>
 <p>To create the roles, use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">)</span>
 <span class="nx">admin</span><span class="p">.</span><span class="nx">createRole</span><span class="p">(</span>
 <span class="w">   </span><span class="p">{</span>
-<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cn=testusers,dc=percona,dc=com&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"cn=testusers,dc=percona,dc=com"</span><span class="p">,</span>
 <span class="w">     </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
-<span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;readWrite&quot;</span><span class="p">]</span>
+<span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"readWrite"</span><span class="p">]</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">)</span>
 
 <span class="nx">admin</span><span class="p">.</span><span class="nx">createRole</span><span class="p">(</span>
 <span class="w">   </span><span class="p">{</span>
-<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cn=otherusers,dc=percona,dc=com&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"cn=otherusers,dc=percona,dc=com"</span><span class="p">,</span>
 <span class="w">     </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
-<span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;read&quot;</span><span class="p">]</span>
+<span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"read"</span><span class="p">]</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">)</span>
 </code></pre></div>
-<h3 id="percona-server-for-mongodb-configuration">Percona Server for MongoDB configuration<a class="headerlink" href="#percona-server-for-mongodb-configuration" title="Permanent link">&para;</a></h3>
-<h4 id="access-without-username-transformation">Access without username transformation<a class="headerlink" href="#access-without-username-transformation" title="Permanent link">&para;</a></h4>
-<p>This section assumes that users connect to Percona Server for MongoDB by providing their LDAP <abbr title="Distinguished Name">DN</abbr> as the username and the LDAP DNs don&rsquo;t contain special characters. Otherwise, you must escape them according to <a href="https://datatracker.ietf.org/doc/html/rfc4514">RFC 4514 | LDAP: Distinguished Names</a>.</p>
+<h3 id="percona-server-for-mongodb-configuration">Percona Server for MongoDB configuration<a class="headerlink" href="#percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h3>
+<h4 id="access-without-username-transformation">Access without username transformation<a class="headerlink" href="#access-without-username-transformation" title="Permanent link">¶</a></h4>
+<p>This section assumes that users connect to Percona Server for MongoDB by providing their LDAP <abbr title="Distinguished Name">DN</abbr> as the username and the LDAP DNs don’t contain special characters. Otherwise, you must escape them according to <a href="https://datatracker.ietf.org/doc/html/rfc4514">RFC 4514 | LDAP: Distinguished Names</a>.</p>
 <ol>
 <li>
 <p>Edit the Percona Server for MongoDB configuration file (by default, <code>/etc/mongod.conf</code>) and specify the following configuration:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;enabled&quot;</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">    </span><span class="nt">transportSecurity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls</span>
 <span class="w">    </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={PROVIDED_USER}))&quot;</span>
+<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={PROVIDED_USER}))"</span>
 
 <span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 <p>The <code>{PROVIDED_USER}</code> variable substitutes the provided username before authentication or username transformation takes place.</p>
 <p>Replace <code>ldap.example.com</code> with the hostname of your LDAP server. In the LDAP query template, replace the domain controllers <code>percona</code> and <code>com</code> with those relevant to your organization.</p>
@@ -2815,38 +2800,38 @@ EOF
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;cn=alice,dc=percona,dc=com&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"cn=alice,dc=percona,dc=com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
-<h4 id="access-with-username-transformation">Access with username transformation<a class="headerlink" href="#access-with-username-transformation" title="Permanent link">&para;</a></h4>
+<h4 id="access-with-username-transformation">Access with username transformation<a class="headerlink" href="#access-with-username-transformation" title="Permanent link">¶</a></h4>
 <p>If users connect to Percona Server for MongoDB with usernames that are not LDAP, you need to transform these usernames to be accepted by the LDAP server. If usernames contain special characters, these <a href="#escaping-special-characters">characters must be escaped</a>. </p>
 <p>Using the <code>--ldapUserToDNMapping</code> configuration parameter allows you to do this. You specify the match pattern as a regexp to capture a username. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.</p>
 <p>If you don’t know what the Substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out.</p>
 <p>Note that you can use only the <code>LDAPquery</code> or the <code>Substitution</code> stage, and you cannot combine the two.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Substitution</label><label for="__tabbed_2_2">LDAP query</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Substitution</label><label for="__tabbed_2_2">LDAP query</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
 <li>
 <p>Edit the Percona Server for MongoDB configuration file (by default, <code>/etc/mongod.conf</code>) and specify the <code>userToDNMapping</code> parameter:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;enabled&quot;</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">    </span><span class="nt">transportSecurity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls</span>
 <span class="w">    </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))&quot;</span>
+<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))"</span>
 <span class="w">    </span><span class="nt">userToDNMapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">          </span><span class="no">[</span>
 <span class="w">            </span><span class="no">{</span>
-<span class="w">              </span><span class="no">match: &quot;([^@]+)@percona\\.com&quot;,</span>
-<span class="w">              </span><span class="no">substitution: &quot;CN={0},DC=percona,DC=com&quot;</span>
+<span class="w">              </span><span class="no">match: "([^@]+)@percona\\.com",</span>
+<span class="w">              </span><span class="no">substitution: "CN={0},DC=percona,DC=com"</span>
 <span class="w">            </span><span class="no">}</span>
 <span class="w">          </span><span class="no">]</span>
 
 <span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 <p>The <code>{USER}</code> variable substitutes the username transformed during the <code>userToDNMapping</code> stage.</p>
 <p>Modify the given example configuration to match your deployment.</p>
@@ -2858,7 +2843,7 @@ EOF
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;alice@percona.com&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice@percona.com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -2868,22 +2853,22 @@ EOF
 <li>
 <p>Edit the Percona Server for MongoDB configuration file (by default, <code>/etc/mongod.conf</code>) and specify the <code>userToDNMapping</code> parameter:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;enabled&quot;</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">    </span><span class="nt">transportSecurity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls</span>
 <span class="w">    </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))&quot;</span>
+<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))"</span>
 <span class="w">    </span><span class="nt">userToDNMapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">          </span><span class="no">[</span>
 <span class="w">            </span><span class="no">{</span>
-<span class="w">              </span><span class="no">match: &quot;([^@]+)@percona\\.com&quot;,</span>
-<span class="w">              </span><span class="no">ldapQuery: &quot;dc=percona,dc=com??sub?(&amp;(objectClass=organizationalPerson)(cn={0}))&quot;</span>
+<span class="w">              </span><span class="no">match: "([^@]+)@percona\\.com",</span>
+<span class="w">              </span><span class="no">ldapQuery: "dc=percona,dc=com??sub?(&amp;(objectClass=organizationalPerson)(cn={0}))"</span>
 <span class="w">            </span><span class="no">}</span>
 <span class="w">          </span><span class="no">]</span>
 
 <span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 <p>The <code>{USER}</code> variable substitutes the username transformed during the userToDNMapping stage.</p>
 <p>Modify the given example configuration to match your deployment, For example, replace <code>ldap.example.com</code> with the hostname of your LDAP server. Replace the domain controllers (DC) <code>percona</code> and <code>com</code> with those relevant to your organization. Depending on your LDAP schema, further modifications of the LDAP query may be required.</p>
@@ -2895,14 +2880,14 @@ EOF
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;alice&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
 </div>
 </div>
 </div>
-<h4 id="escaping-special-characters">Escaping special characters<a class="headerlink" href="#escaping-special-characters" title="Permanent link">&para;</a></h4>
+<h4 id="escaping-special-characters">Escaping special characters<a class="headerlink" href="#escaping-special-characters" title="Permanent link">¶</a></h4>
 <p>The <strong><code>substitution</code> parameter</strong></p>
 <p>The result of the substitution becomes the value of the <code>{USER}</code> placeholder, which is a <code>{USER}</code> value in the <code>security.ldap.authz.queryTemplate</code> parameter. Escaping requirements depend on the part of the query template that will be substituted. For example, the result of the substitution can be a full distinguished name or a part of it. In this case, according to <a href="https://www.ietf.org/rfc/rfc4514.txt">RFC4514</a>, you must escape special characters in the <code>substitution</code> parameter. Using other escaping mechanisms in this parameter is unnecessary because Percona Server for MongoDB applies the necessary escaping as outlined in <a href="https://tools.ietf.org/html/rfc4515">RFC4515</a> and <a href="https://tools.ietf.org/html/rfc4516">RFC4516</a> while substituting the <code>security.ldap.authz.queryTemplate</code> parameter.</p>
 <p>The <strong><code>ldapQuery</code> and <code>queryTemplate</code> parameters</strong></p>
@@ -2910,10 +2895,10 @@ EOF
 <ol>
 <li>Escape special characters in full or partially distinguished names in the query according to <a href="https://www.ietf.org/rfc/rfc4514.txt">RFC 4514</a>.</li>
 <li>Next, escape special characters within the LDAP search filter portion of the query, as outlined in <a href="https://www.ietf.org/rfc/rfc4515.txt">RFC 4515</a>.</li>
-<li>Then, escape special characters in the query according to <a href="https://www.ietf.org/rfc/rfc4516.txt">RFC 4516</a>. Note that you do not need to escape question marks if they are being used to separate parts of the query.<br /></li>
+<li>Then, escape special characters in the query according to <a href="https://www.ietf.org/rfc/rfc4516.txt">RFC 4516</a>. Note that you do not need to escape question marks if they are being used to separate parts of the query.<br></li>
 <li>Finally, if you plan to use the result in a YAML configuration file, you may need to escape characters according to the <a href="https://yaml.org/spec/">YAML specification</a></li>
 </ol>
-<h3 id="active-directory-configuration">Active Directory configuration<a class="headerlink" href="#active-directory-configuration" title="Permanent link">&para;</a></h3>
+<h3 id="active-directory-configuration">Active Directory configuration<a class="headerlink" href="#active-directory-configuration" title="Permanent link">¶</a></h3>
 <p>Microsoft Active Directory uses a different schema for user and group definition. To illustrate Percona Server for MongoDB configuration, we will use the following <abbr title="Active Directory">AD</abbr> users:</p>
 <div class="highlight"><pre><span></span><code>dn:CN=alice,CN=Users,DC=testusers,DC=percona,DC=com
 userPrincipalName: alice@testusers.percona.com
@@ -2931,19 +2916,19 @@ dn:CN=otherusers,CN=Users,DC=percona,DC=com
 member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </code></pre></div>
 <p>Use one of the given Percona Server for MongoDB configurations for user authentication and authorization in Active Directory. Read about <a href="#escaping-special-characters">escaping special characters in usernames</a> to modify the configuration accordingly.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">No username transformation</label><label for="__tabbed_3_2">Username substitution</label><label for="__tabbed_3_3">LDAP query</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">No username transformation</label><label for="__tabbed_3_2">Username substitution</label><label for="__tabbed_3_3">LDAP query</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">  </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={PROVIDED_USER}))&quot;</span>
+<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={PROVIDED_USER}))"</span>
 
 <span class="w">  </span><span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 </li>
 <li>
@@ -2953,7 +2938,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;CN=alice,CN=Users,DC=testusers,DC=percona,DC=com&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"CN=alice,CN=Users,DC=testusers,DC=percona,DC=com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -2963,19 +2948,19 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">  </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))&quot;</span>
+<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))"</span>
 <span class="w">  </span><span class="nt">userToDNMapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">        </span><span class="no">[</span>
 <span class="w">          </span><span class="no">{</span>
-<span class="w">            </span><span class="no">match: &quot;([^@]+)@([^\\.]+)\\.percona\\.com&quot;,</span>
-<span class="w">            </span><span class="no">substitution: &quot;CN={0},CN=Users,DC={1},DC=percona,DC=com&quot;</span>
+<span class="w">            </span><span class="no">match: "([^@]+)@([^\\.]+)\\.percona\\.com",</span>
+<span class="w">            </span><span class="no">substitution: "CN={0},CN=Users,DC={1},DC=percona,DC=com"</span>
 <span class="w">          </span><span class="no">}</span>
 <span class="w">        </span><span class="no">]</span>
 
 <span class="w">  </span><span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 </li>
 <li>
@@ -2985,7 +2970,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;alice@percona.com&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice@percona.com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -2995,19 +2980,19 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">  </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))&quot;</span>
+<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))"</span>
 <span class="w">  </span><span class="nt">userToDNMapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">        </span><span class="no">[</span>
 <span class="w">          </span><span class="no">{</span>
-<span class="w">            </span><span class="no">match: &quot;(.+)&quot;,</span>
-<span class="w">            </span><span class="no">ldapQuery: &quot;dc=example,dc=com??sub?(&amp;(objectClass=organizationalPerson)(userPrincipalName={0}))&quot;</span>
+<span class="w">            </span><span class="no">match: "(.+)",</span>
+<span class="w">            </span><span class="no">ldapQuery: "dc=example,dc=com??sub?(&amp;(objectClass=organizationalPerson)(userPrincipalName={0}))"</span>
 <span class="w">          </span><span class="no">}</span>
 <span class="w">        </span><span class="no">]</span>
 
 <span class="w">  </span><span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 </li>
 <li>
@@ -3017,7 +3002,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;alice&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -3052,7 +3037,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
       
   <span class="md-source-file__fact">
     <span class="md-icon" title="Last update">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
     <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 28, 2025 18:57:56 UTC">March 28, 2025</span>
   </span>
@@ -3062,7 +3047,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
       
   <span class="md-source-file__fact">
     <span class="md-icon" title="Created">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
     <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 7, 2022 07:48:11 UTC">December 7, 2022</span>
   </span>
@@ -3086,11 +3071,11 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
         <div class="md-feedback__list">
           
             <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81"></path></svg>
             </button>
           
             <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14"></path></svg>
             </button>
           
         </div>
@@ -3170,7 +3155,7 @@ window.addEventListener('afterprint', (event) => {
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
     <div class="md-copyright__highlight">
- <a href='https://percona.com' target='_blank'>Percona LLC and/or its affiliates, </a> &copy; 2025
+ <a href="https://percona.com" target="_blank">Percona LLC and/or its affiliates, </a> © 2025
  — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
     </div>
   
@@ -3208,7 +3193,7 @@ window.addEventListener('afterprint', (event) => {
       
     
 
-  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-document$.subscribe(() => { lightbox.reload() });
-</script></body>
-</html>
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
