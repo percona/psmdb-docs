@@ -10,7 +10,9 @@ LDAP authorization is compatible with the following authentication mechanisms:
 
 * [x.509 certificate authentication](authentication.md#x509-certificate-authentication)
 
-* [Kerberos Authentication](authentication.md#kerberos-authentication)
+* [Kerberos authentication](authentication.md#kerberos-authentication)
+
+* [OIDC authentication](oidc.md)
 
 * [Authentication and authorization with direct binding to LDAP](#authentication-and-authorization-with-direct-binding-to-ldap)
 
