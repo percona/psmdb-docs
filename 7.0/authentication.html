@@ -15,7 +15,7 @@
         <link rel="prev" href="backup-cursor.html">
       
       
-        <link rel="next" href="enable-auth.html">
+        <link rel="next" href="aws-iam.html">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
@@ -1185,9 +1185,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="LDAP authentication with SASL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       Overview
@@ -1195,11 +1196,25 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#kerberos-authentication" class="md-nav__link">
     <span class="md-ellipsis">
       Kerberos authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oidc-oauth-20-authentication-and-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      OIDC / OAuth 2.0 authentication and authorization
     </span>
   </a>
   
@@ -1220,13 +1235,166 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_2" id="__nav_5_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS IAM
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            AWS IAM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="aws-iam.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Enable SCRAM authentication
+    AWS IAM authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-iam-setup.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting up AWS IAM authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kerberos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting up Kerberos authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_4">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_4" id="__nav_5_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    LDAP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            LDAP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="authorization.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LDAP authorization
     
   </span>
   
@@ -1290,104 +1458,273 @@
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Setting up Kerberos authentication
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    AWS IAM authentication
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Setting up AWS IAM authentication
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    LDAP authorization
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="ldap-setup.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Set up LDAP authentication and authorization using NativeLDAP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_5" id="__nav_5_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    OIDC
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            OIDC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oidc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OIDC authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5_2">
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_5_2" id="__nav_5_4_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configure OIDC authentication
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configure OIDC authentication
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oidc-okta.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    With Okta
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oidc-entra.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    With Microsoft Entra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oidc-ping.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    With Ping Identity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oidc-keycloak.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    With Keycloak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="oidc-ldap.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OIDC authentication and LDAP authorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="enable-auth.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enable SCRAM authentication
     
   </span>
   
@@ -2571,9 +2908,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="LDAP authentication with SASL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       Overview
@@ -2581,11 +2919,25 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#kerberos-authentication" class="md-nav__link">
     <span class="md-ellipsis">
       Kerberos authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oidc-oauth-20-authentication-and-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      OIDC / OAuth 2.0 authentication and authorization
     </span>
   </a>
   
@@ -2654,14 +3006,14 @@ In addition, you can integrate Percona Server for MongoDB with a separate servic
 <h2 id="x509-certificate-authentication">x.509 certificate authentication<a class="headerlink" href="#x509-certificate-authentication" title="Permanent link">¶</a></h2>
 <p>This authentication mechanism enables a client to authenticate in Percona Server for MongoDB by providing an x.509 certificate instead of user credentials. Each certificate contains the <code>subject</code> field defined in the <abbr title="Distinguished Name">DN</abbr> format. In Percona Server for MongoDB, each certificate has a corresponding user record in the <code>$external</code> database. When a user connects to the database, Percona Server for MongoDB matches the <code>subject</code> value against the usernames defined in the <code>$external</code> database.</p>
 <p>For production use, we recommend using valid <abbr title="Certified Authority">CA</abbr> certificates. For testing purposes, you can generate and use self-signed certificates.</p>
-<p>x.509 authentication is compatible with with <a href="authorization.html">LDAP authorization</a> to enable you to control user access and operations in Percona Server for MongoDB. For configuration guidelines, refer to <a href="x509-ldap.html">Set up x.509 authentication and LDAP authorization</a>.</p>
+<p>x.509 authentication is compatible with <a href="authorization.html">LDAP authorization</a> to enable you to control user access and operations in Percona Server for MongoDB. For configuration guidelines, refer to <a href="x509-ldap.html">Set up x.509 authentication and LDAP authorization</a>.</p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
 <p>MongoDB Documentation: <a href="https://docs.mongodb.com/manual/core/security-x.509/">x.509</a></p>
 <p>Percona Blog: <a href="https://www.percona.com/blog/2019/10/28/setting-up-mongodb-with-member-x509-auth-and-ssl-easy-rsa/">Setting up MongoDB with Member x509 auth and SSL + easy-rsa</a></p>
 </div>
 <h2 id="ldap-authentication-with-sasl">LDAP authentication with SASL<a class="headerlink" href="#ldap-authentication-with-sasl" title="Permanent link">¶</a></h2>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h3>
 <p>LDAP authentication with SASL means that both the client and the server establish a SASL session using the SASL library. Then authentication (bind) requests are sent to the LDAP server through the SASL authentication daemon (<code>saslauthd</code>) that acts as a remote proxy for the <code>mongod</code> server.</p>
 <p>The following components are necessary for external authentication to work:</p>
 <ul>
@@ -2704,7 +3056,6 @@ to authenticate the client or reject the request.</li>
 </ol>
 <p>For configuration instructions, refer to <a href="sasl-auth.html">Setting up LDAP authentication with SASL</a>.</p>
 <h2 id="kerberos-authentication">Kerberos authentication<a class="headerlink" href="#kerberos-authentication" title="Permanent link">¶</a></h2>
-<p>Percona Server for MongoDB supports Kerberos authentication starting from release 6.0.2-1.</p>
 <p>This authentication mechanism involves the use of a Key Distribution Center (KDC) - a symmetric encryption component which operates with tickets. A ticket is a small amount of encrypted data which is used for authentication. It is issued for a user session and has a limited lifetime.</p>
 <p>When using Kerberos authentication, you also operate with principals and realms.</p>
 <p>A realm is the logical network, similar to a domain, for all Kerberos nodes under the same master KDC.</p>
@@ -2734,6 +3085,10 @@ to authenticate the client or reject the request.</li>
 <p class="admonition-title">See also</p>
 <p>MongoDB Documentation: <a href="https://docs.mongodb.com/manual/core/kerberos/">Kerberos Authentication</a></p>
 </div>
+<h2 id="oidc-oauth-20-authentication-and-authorization">OIDC / OAuth 2.0 authentication and authorization<a class="headerlink" href="#oidc-oauth-20-authentication-and-authorization" title="Permanent link">¶</a></h2>
+<p>Percona Server for MongoDB supports OpenID Connect (OIDC) as an authentication mechanism which extends the OAuth 2.0 authorization framework. You can configure SSO for Percona Server for MongoDB using an external identity provider (IdP) so that users and applications are authenticated and authorized without sharing their credentials with MongoDB clients. As a result you streamline authentication and authorization flow and increase security within your system.<br>
+OIDC / OAuth 2.0 authentication and authorization is included in <a href="psmdb-pro.html">Percona Server for MongoDB Pro</a> out of the box. You can also receive it by building the binaries yourself. Percona Server for MongoDB Pro is available for Percona Customers. <a href="https://www.percona.com/about/contact">Reach out to us</a> to become a Percona Customer.</p>
+<p>Read more about OIDC in <a href="oidc.html">OIDC / OAuth2.0</a>.</p>
 
 
 
@@ -2756,7 +3111,7 @@ to authenticate the client or reject the request.</li>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2025 14:58:57 UTC">April 24, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 11, 2025 12:02:43 UTC">September 11, 2025</span>
   </span>
 
     
