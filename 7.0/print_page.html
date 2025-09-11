@@ -1738,6 +1738,29 @@
   
   
     <li class="md-nav__item">
+      <a href="openbao.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use OpenBao
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="kmip.html" class="md-nav__link">
         
   
@@ -2279,6 +2302,29 @@
   
   <span class="md-ellipsis">
     Release notes index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release_notes/7.0.24-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 7.0.24-13 (2025-09-11)
     
   </span>
   
@@ -3274,6 +3320,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#openbao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use OpenBao
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#kmip" class="md-nav__link">
     <span class="md-ellipsis">
       Use KMIP
@@ -3480,6 +3535,15 @@
   <a href="#release_notes-index" class="md-nav__link">
     <span class="md-ellipsis">
       Release notes index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release_notes-7.0.24-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Percona Server for MongoDB 7.0.24-13 (2025-09-11)
     </span>
   </a>
   
@@ -3694,11 +3758,11 @@
 <p>
 <img src="_images/Percona_Logo_Color.png" />
 </p>
-<h1>Server for MongoDB 7.0.22-12</h1>
+<h1>Server for MongoDB 7.0.24-13</h1>
 
 <h1>Documentation</h1>
  
-<h2>7.0.22-12 (July 28, 2025)</h2>
+<h2>7.0.24-13 (September 11, 2025)</h2>
 <br>
 <br>
         </section>
@@ -3723,7 +3787,7 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
 <div class="admonition hint">
 <p>To see which version of Percona Server for MongoDB you are using check the value of the <code>psmdbVersion</code> key in the output of the <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo">buildInfo</a> database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.</p>
 </div>
-<p><a class="md-button md-button" href="#release_notes-7.0.22-12">What’s new in Percona Server for MongoDB 7.0.22-12</a></p>
+<p><a class="md-button md-button" href="#release_notes-7.0.24-13">What’s new in Percona Server for MongoDB 7.0.24-13</a></p>
 <div data-grid="data-grid">
 <div data-banner="data-banner">
 <h2 class="title" id="index-installation-guides"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2.03c4.73.47 8.5 4.22 8.95 8.97A9.976 9.976 0 0 1 13 21.93v-2c3.64-.43 6.5-3.32 6.96-6.96A7.994 7.994 0 0 0 13 4.05V2.03m-2 .03v2c-1.43.2-2.78.78-3.9 1.68L5.67 4.26A9.83 9.83 0 0 1 11 2.06M4.26 5.67 5.69 7.1A8 8 0 0 0 4.05 11h-2c.2-1.96.95-3.81 2.21-5.33M2.06 13h2c.18 1.42.75 2.77 1.63 3.9l-1.42 1.43A10.04 10.04 0 0 1 2.06 13m5.04 5.37c1.13.88 2.48 1.45 3.9 1.63v2c-1.96-.21-3.82-1-5.33-2.26zM12 16.5 7.5 12H11V8h2v4h3.5z"></path></svg></span> Installation guides<a class="headerlink" href="#index-installation-guides" title="Permanent link">¶</a></h2>
@@ -3784,7 +3848,7 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
 </tr>
 <tr>
 <td><a href="#oidc">OIDC / OAuth 2.0 authentication and authorization</a></td>
-<td><a href="#release_notes-7.0.24-13.md">7.0.24-13</a></td>
+<td><a href="#release_notes-7.0.24-13">7.0.24-13</a></td>
 <td>OpenID Connect (OIDC) authentication and OAuth 2.0 authorization enable you to configure SSO between Percona Server for MongoDB and an external OpenID provider (IdP) so that users are authenticated and authorized without sharing their credentials with a MongoDB client.</td>
 </tr>
 </tbody>
@@ -4265,12 +4329,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>.0.22-12.el9<span class="w">       </span>psmdb-70-release-x86_64
+percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>.0.24-13.el9<span class="w">       </span>psmdb-70-release-x86_64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.22-12, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.22-12.el9
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.24-13, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.24-13.el9
 </code></pre></div>
 </li>
 </ol>
@@ -4421,12 +4485,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.aarch64<span class="w">    </span><span class="m">7</span>.0.22-12.amzn2023<span class="w">       </span>psmdb-70-release-aarch64
+percona-server-mongodb.aarch64<span class="w">    </span><span class="m">7</span>.0.24-13.amzn2023<span class="w">       </span>psmdb-70-release-aarch64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.22-12, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.22-12.amzn2023
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.24-13, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.24-13.amzn2023
 </code></pre></div>
 </li>
 </ol>
@@ -4477,9 +4541,9 @@ after you reboot the system.</p>
         </head><body><h1 id="install-percona-server-for-mongodb-from-binary-tarball">Install Percona Server for MongoDB from binary tarball<a class="headerlink" href="#install-tarball-install-percona-server-for-mongodb-from-binary-tarball" title="Permanent link">¶</a></h1>
 <p>You can find links to the binary tarballs under the <em>Generic Linux</em> menu item on the <a href="https://www.percona.com/downloads/percona-server-mongodb-7.0/">Percona website</a></p>
 <p>There are the following tarballs available:</p>
-<p><code>percona-server-mongodb-7.0.22-12-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
+<p><code>percona-server-mongodb-7.0.24-13-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
 <ul>
-<li><code>percona-mongodb-mongosh-2.5.1-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</li>
+<li><code>percona-mongodb-mongosh-2.5.7-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</li>
 </ul>
 <h2 id="install-tarball-tarball-types">Tarball types<a class="headerlink" href="#install-tarball-tarball-types" title="Permanent link">¶</a></h2>
 <table>
@@ -4493,17 +4557,17 @@ after you reboot the system.</p>
 <tbody>
 <tr>
 <td>Full</td>
-<td>percona-server-mongodb-7.0.22-12-x86_64.<operating-system>.tar.gz</operating-system></td>
+<td>percona-server-mongodb-7.0.24-13-x86_64.<operating-system>.tar.gz</operating-system></td>
 <td>Contains binaries and libraries</td>
 </tr>
 <tr>
 <td>Minimal</td>
-<td>percona-server-mongodb-7.0.22-12-x86_64.<operating-system>-minimal.tar.gz</operating-system></td>
+<td>percona-server-mongodb-7.0.24-13-x86_64.<operating-system>-minimal.tar.gz</operating-system></td>
 <td>Contains binaries and libraries without debug symbols</td>
 </tr>
 <tr>
 <td>Checksum</td>
-<td>percona-server-mongodb-7.0.22-12-x86_64.<operating-system>-minimal.tar.gz.sha256sum</operating-system></td>
+<td>percona-server-mongodb-7.0.24-13-x86_64.<operating-system>-minimal.tar.gz.sha256sum</operating-system></td>
 <td>Contains the MD5 checksum to verify the integrity of the files after the extraction</td>
 </tr>
 </tbody>
@@ -4531,17 +4595,17 @@ after you reboot the system.</p>
 <ol>
 <li>
 <p>Fetch the binary tarballs:</p>
-<p></p><div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.22-12/binary/tarball/percona-server-mongodb-7.0.22-12-x86_64.jammy.tar.gz<span class="se">\</span>
-$<span class="w"> </span>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.22-12/binary/tarball/percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
+<p></p><div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.24-13/binary/tarball/percona-server-mongodb-7.0.24-13-x86_64.jammy.tar.gz<span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.24-13/binary/tarball/percona-mongodb-mongosh-2.5.7-x86_64.tar.gz
 </code></pre></div>
 2. Extract the tarballs<p></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.22-12-x86_64.jammy.tar.gz
-$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-7.0.22-12-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.24-13-x86_64.jammy.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-7.0.24-13-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.22-12/bin/:~/percona-mongodb-mongosh-2.5.1/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.24-13/bin/:~/percona-mongodb-mongosh-2.5.7/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -4928,7 +4992,7 @@ and restart it if the container exits.</p>
 <p><code>percona/percona-server-mongodb</code> is the name of the image to derive the container from.</p>
 </li>
 <li>
-<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.22-12</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb/tags">See the full list of tags</a>.</p>
+<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.24-13</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb/tags">See the full list of tags</a>.</p>
 </li>
 </ul>
 <h2 id="install-docker-access-container-shell">Access container shell<a class="headerlink" href="#install-docker-access-container-shell" title="Permanent link">¶</a></h2>
@@ -5266,19 +5330,19 @@ run the following command: </p>
 <ol>
 <li>
 <p>Download the tarballs from the Pro repository </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.22-12/percona-server-mongodb-pro-7.0.22-12-x86_64.jammy.tar.gz<span class="w"> </span><span class="se">\</span>
-$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.1/percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.24-13/percona-server-mongodb-pro-7.0.24-13-x86_64.jammy.tar.gz<span class="w"> </span><span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.7/percona-mongodb-mongosh-2.5.7-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.22-12-x86_64.jammy.tar.gz
-$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.24-13-x86_64.jammy.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.7-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.22-12-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.5.1/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.24-13-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.5.7/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -5296,19 +5360,19 @@ $<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>p
 <ol>
 <li>
 <p>Download the tarballs from the Pro repository </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.22-12/percona-server-mongodb-pro-7.0.22-12-x86_64.ol9.tar.gz<span class="w"> </span><span class="se">\</span>
-$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.1/percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.24-13/percona-server-mongodb-pro-7.0.24-13-x86_64.ol9.tar.gz<span class="w"> </span><span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.7/percona-mongodb-mongosh-2.5.7-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.22-12-x86_64.ol9.tar.gz
-$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.24-13-x86_64.ol9.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.7-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.22-12-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.5.1/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.24-13-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.5.7/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -5371,7 +5435,7 @@ and restart it if the container exits.</p>
 <p><code>percona/percona-server-mongodb-pro</code> is the name of the image to derive the container from.</p>
 </li>
 <li>
-<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.22-12</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro/tags">See the full list of tags</a>.</p>
+<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.24-13</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro/tags">See the full list of tags</a>.</p>
 </li>
 </ul>
 <h3 id="install-install-pro-access-the-container-shell">Access the container shell<a class="headerlink" href="#install-install-pro-access-the-container-shell" title="Permanent link">¶</a></h3>
@@ -5402,7 +5466,7 @@ and restart it if the container exits.</p>
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 6598270a3a0c418751550ded
 Connecting to:      mongodb://127.0.0.1:27017/?directConnection=true&amp;serverSelectionTimeoutMS=2000&amp;appName=mongosh+2.0.0
-Using MongoDB:      7.0.22-12
+Using MongoDB:      7.0.24-13
 Using Mongosh:      2.0.0    
 
 For mongosh info see: https://docs.mongodb.com/mongodb-shell/    
@@ -7578,7 +7642,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
         </script>
         </head><body><h1 id="oidc-authentication">OIDC authentication<a class="headerlink" href="#oidc-oidc-authentication" title="Permanent link">¶</a></h1>
 <div class="admonition note">
-<p class="admonition-title">Version added: <a href="#release_notes-7.0.24-13.md">7.0.24-13</a></p>
+<p class="admonition-title">Version added: <a href="#release_notes-7.0.24-13">7.0.24-13</a></p>
 <p>Available in Percona Server for MongoDB Pro out of the box.</p>
 </div>
 <p>OpenID Connect (OIDC) is an identity authentication protocol built on top of the OAuth 2.0 framework. OIDC is designed to verify user identities and provide authentication, ensuring that users are who they claim to be. OAuth 2.0 is used for user authorization to access resources. </p>
@@ -8057,8 +8121,8 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 </li>
 <li>
 <p>Upon successful log in you must see the <strong>Login successful</strong> screen. In your <code>mongo</code> client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.22-12
-Using Mongosh:      2.5.1
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.24-13
+Using Mongosh:      2.5.7
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -8085,8 +8149,8 @@ Enter the following code on that page: LRVCRLXP
 <li>Enter the code in the <strong>Activation Code</strong> field and click <strong>Next</strong></li>
 <li>
 <p>You should see the <strong>Device Activated</strong> message on the screen. In your <code>mongo</code> client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.22-12
-Using Mongosh:      2.5.1
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.24-13
+Using Mongosh:      2.5.7
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -8512,8 +8576,8 @@ Waiting....
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your <code>mongo</code> client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.22-12
-Using Mongosh:      2.5.1
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.24-13
+Using Mongosh:      2.5.7
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -8541,8 +8605,8 @@ Waiting...
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your <code>mongo</code> client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.22-12
-Using Mongosh:      2.5.1
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.24-13
+Using Mongosh:      2.5.7
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -8772,8 +8836,8 @@ test&gt;
 <li>Log in with your credentials.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your <code>mongo</code> client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.22-12
-Using Mongosh:      2.5.1
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.24-13
+Using Mongosh:      2.5.7
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -8801,8 +8865,8 @@ Waiting...
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your <code>mongo</code> client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.22-12
-Using Mongosh:      2.5.1
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.24-13
+Using Mongosh:      2.5.7
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -9006,12 +9070,13 @@ You can add other users with various roles depending on your needs.</p>
 <p>Data encryption at rest was introduced in Percona Server for MongoDB 3.6 and is fully compatible with MongoDB’s encryption interface. Percona Server for MongoDB supports the following Key Management System (KMS) integrations:</p>
 <ul>
 <li><a href="#vault">HashiCorp Vault</a></li>
+<li><a href="#openbao">OpenBao</a></li>
 <li><a href="#kmip">Key Management Interoperability Protocol (KMIP) Servers</a></li>
 </ul>
 <h2 id="data-at-rest-encryption-workflow">Workflow<a class="headerlink" href="#data-at-rest-encryption-workflow" title="Permanent link">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>You can only enable data at rest encryption and provide all encryption settings on an empty database, when you start the mongod instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.</p>
+<p>You can only enable data at rest encryption and provide all encryption settings on an empty database, when you start the <code>mongod</code> instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.</p>
 </div>
 <p>Each node of Percona Server for MongoDB generates a random, individual key for every database. It encrypts every database with an individual key and puts those keys into the special, so-called key database. Then each node of Percona Server for MongoDB randomly generates a unique master encryption key and encrypts the key database with this key. </p>
 <p>Thus, two types of keys are used for data at rest encryption:</p>
@@ -9026,7 +9091,7 @@ You can add other users with various roles depending on your needs.</p>
 <p>To manage the master encryption key, use one of the supported key management options:</p>
 <ul>
 <li>
-<p>Integration with an external key server (recommended). Percona Server for MongoDB is <a href="#vault">integrated with HashiCorp Vault</a> for this purpose and supports the secure transfer of keys using <a href="#kmip">Key Management Interoperability Protocol (KMIP)</a>.</p>
+<p>Integration with an external key server (recommended). Percona Server for MongoDB is <a href="#vault">integrated with HashiCorp Vault</a> and <a href="#openbao">OpenBao</a> for this purpose. It also supports the secure transfer of keys using <a href="#kmip">Key Management Interoperability Protocol (KMIP)</a>.</p>
 </li>
 <li>
 <p><a href="#keyfile">Local key management using a keyfile</a>.</p>
@@ -9207,6 +9272,7 @@ with versioning enabled.</p>
 <span class="w">    </span><span class="nt">tokenFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/user/path/token</span>
 <span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/data/hello</span>
 </code></pre></div>
+<h4 id="vault-vault-access-policy-configuration">Vault access policy configuration<a class="headerlink" href="#vault-vault-access-policy-configuration" title="Permanent link">¶</a></h4>
 <p>Starting with 7.0.15-9, Percona Server for MongoDB checks the number of the secrets on the Vault server before adding a new one thus <a href="#vault-master-key-loss-prevention">preventing the loss of the old master key</a>. For these checks, Percona Server for MongoDB requires read permissions for the secret’s metadata and the secrets engine configuration. You configure these permissions within the access policy on the Vault server.</p>
 <p>Find the sample policy configuration below:</p>
 <div class="highlight"><pre><span></span><code><span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">"secret/data/*"</span><span class="w"> </span><span class="p">{</span>
@@ -9279,7 +9345,7 @@ with versioning enabled.</p>
 <h3 id="vault-master-key-loss-prevention">Master key loss prevention<a class="headerlink" href="#vault-master-key-loss-prevention" title="Permanent link">¶</a></h3>
 <p>Starting with version 7.0.15-9, Percona Server for MongoDB checks if the number of secret versions has reached the maximum (10 by default) before adding a new master key to the Vault server as a versioned secret. You configure this number using the <code>max_versions</code> parameter on the Vault server.</p>
 <p>If the number of secrets reaches the maximum, Percona Server for MongoDB logs an error and exits. This prevents the Vault server from dropping the oldest secret version and the encryption key it stores.</p>
-<p>To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has <a href="#vault-config-file-example">read permissions for the secret’s metadata and the secrets engine configuration</a>.</p>
+<p>To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has <a href="#vault-vault-access-policy-configuration">read permissions for the secret’s metadata and the secrets engine configuration</a>.</p>
 <h2 id="vault-check-encryption-status">Check encryption status<a class="headerlink" href="#vault-check-encryption-status" title="Permanent link">¶</a></h2>
 <p>You can check the encryption status and the current configuration using the following command:</p>
 <div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span><span class="w"> </span>
@@ -9292,7 +9358,136 @@ with versioning enabled.</p>
   encryptionKeyId: 'local'
 }
 </code></pre></div>
-</details></body></html></section><section class="print-page" id="kmip" heading-number="5.5.3"><html><head>
+</details></body></html></section><section class="print-page" id="openbao" heading-number="5.5.3"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="use-openbao-for-data-at-rest-encryption">Use OpenBao for data-at-rest encryption<a class="headerlink" href="#openbao-use-openbao-for-data-at-rest-encryption" title="Permanent link">¶</a></h1>
+<p><a href="https://openbao.org/">OpenBao</a> is an open-source alternative to HashiCorp Vault. Percona Server for MongoDB is integrated with OpenBao for encryption key management and supports only OpenBao back end with KV Secrets Engine - Version 2 (API) with versioning enabled. </p>
+<h2 id="openbao-assumptions">Assumptions<a class="headerlink" href="#openbao-assumptions" title="Permanent link">¶</a></h2>
+<ol>
+<li>We assume that you have OpenBao up and running. Refer to <a href="https://openbao.org/docs/install/">OpenBao</a> documentation for installation instructions. </li>
+<li>For secure communication with OpenBao, <a href="https://openbao.org/docs/configuration/ui/#note-on-tls">it’s recommended to use TLS</a>. </li>
+<li>You have an empty Percona Server for MongoDB deployment. </li>
+</ol>
+<h2 id="openbao-openbao-setup">OpenBao setup<a class="headerlink" href="#openbao-openbao-setup" title="Permanent link">¶</a></h2>
+<p>OpenBao setup is similar to that of HashiCorp Vault. It consists of the following steps:</p>
+<ol>
+<li>
+<p>Initialize OpenBao server. As a result, OpenBao generates the root token and the unseal key.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>operator<span class="w"> </span>init
+</code></pre></div>
+</li>
+<li>
+<p>OpenBao is started in a sealed state. In this state OpenBao can access the storage but it cannot decrypt data. In order to use OpenBao, you need to unseal it using the unseal key.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>operator<span class="w"> </span>unseal<span class="w"> </span>&lt;your-unseal-key&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Next, authenticate in OpenBao using the root token.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>login<span class="w"> </span>&lt;root-token&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Enable the KV Secrets Engine – Version 2. By default, the secrets engine is enabled at the <code>secrets/</code> path. You can specify your own path using the <code>-path</code> flag</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>secrets<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--version<span class="o">=</span><span class="m">2</span><span class="w"> </span>-path<span class="o">=</span>secret<span class="w"> </span>kv
+</code></pre></div>
+</li>
+<li>
+<p>Create the access policy and grant Percona Server for MongoDB read permissions for the secret’s metadata and the secrets engine configuration. Percona Server needs it to check the number of secrets on the OpenBao before it generates a new key. </p>
+</li>
+<li>
+<p>Create an access policy file:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span><span class="s">&lt;&lt;EOF &gt; psmdb-access.hcl</span>
+<span class="s">path "secret/data/*" {</span>
+<span class="s">  capabilities = ["create","read","update","delete"]</span>
+<span class="s">}</span>
+<span class="s">path "secret/metadata/*" {</span>
+<span class="s">  capabilities = ["read"]</span>
+<span class="s">}</span>
+<span class="s">path "secret/config" {</span>
+<span class="s">  capabilities = ["read"]</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</code></pre></div>
+</li>
+<li>
+<p>Upload the access policy to OpenBao:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>policy<span class="w"> </span>write<span class="w"> </span>psmdb-policy<span class="w"> </span>psmdb-access.hcl
+</code></pre></div>
+</li>
+<li>
+<p>Create an access token that Percona Server for MongoDB will use. You need to create an access token for every instance of Percona Server for MongoDB in your deployment.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>token<span class="w"> </span>create<span class="w"> </span>-policy<span class="o">=</span>psmdb-policy
+</code></pre></div>
+</li>
+<li>
+<p>Export an access token to a file and restrict access to it for <code>mongod</code> user:</p>
+<ul>
+<li>Create a directory where you will store the token and SSL certificates if you <a href="https://openbao.org/docs/auth/cert/#configuration">configured OpenBao with TLS</a></li>
+</ul>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/openbao
+</code></pre></div>
+<ul>
+<li>Export the token into the token file. For TLS communication, copy the <code>.crt</code> file from OpenBao.</li>
+</ul>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"your-access-token-here"</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/openbao/token
+</code></pre></div>
+<ul>
+<li>Restrict access to the token and certificate files for the <code>mongod</code> user:</li>
+</ul>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">400</span><span class="w"> </span>-p<span class="w"> </span>/etc/openbao/token
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span class="w"> </span>/etc/openbao/token
+</code></pre></div>
+</li>
+</ol>
+<div class="admonition admonition">
+<p class="admonition-title">See also</p>
+<p>To learn more about OpenBao configuration, see the following resources:</p>
+<ul>
+<li><a href="https://openbao.org/docs/secrets/kv/kv-v2/">How to configure KV secrets engine - version 2</a></li>
+<li><a href="#vault-master-key-loss-prevention">Master key loss prevention</a></li>
+</ul>
+</div>
+<h2 id="openbao-percona-server-for-mongodb-configuration">Percona Server for MongoDB configuration<a class="headerlink" href="#openbao-percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h2>
+<p>Percona Server for MongoDB configuration for OpenBao is the same as for HashCorp Vault. Refer to the <a href="#vault-hashicorp-vault-parameters">HashiCorp Vault parameters</a> for the description of available configuration options.</p>
+<p>To enable data-at-rest encryption in Percona Server for MongoDB, you need the following information:</p>
+<ul>
+<li>OpenBao URL and port </li>
+<li>OpenBao secrets engine mount path</li>
+<li>Path to the access token</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="openbao-__tabbed_1_1" name="openbao-__tabbed_1" type="radio"><input id="openbao-__tabbed_1_2" name="openbao-__tabbed_1" type="radio"><div class="tabbed-labels"><label for="openbao-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="openbao-__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Edit the <code>/etc/mongod.conf</code> configuration file and specify the following configuration:    </p>
+<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">vault</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">serverName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8200</span>
+<span class="w">    </span><span class="nt">tokenFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/openbao/token</span>
+<span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/data/</span>
+</code></pre></div>
+</li>
+<li>
+<p>Start Percona Server for MongoDB:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>Start Percona Server for MongoDB with the following parameters:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span>--enableEncryption<span class="w"> </span>--vaultServerName<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--vaultPort<span class="w"> </span><span class="m">8200</span><span class="w"> </span>--vaultTokenFile<span class="w"> </span>/etc/openbao/token<span class="w"> </span>--vaultSecret<span class="w"> </span>secret/data/<span class="w"> </span>--vaultDisableTLSForTesting
+</code></pre></div>
+</div>
+</div>
+</div></body></html></section><section class="print-page" id="kmip" heading-number="5.5.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -9651,7 +9846,7 @@ with versioning enabled.</p>
 <h2 id="kmip-upgrade-considerations">Upgrade considerations<a class="headerlink" href="#kmip-upgrade-considerations" title="Permanent link">¶</a></h2>
 <h3 id="kmip-to-version-7014-8-and-higher">To version 7.0.14-8 and higher<a class="headerlink" href="#kmip-to-version-7014-8-and-higher" title="Permanent link">¶</a></h3>
 <p>Percona Server for MongoDB 7.0.14-8 and subsequent versions tolerate already existing <code>Pre-Active</code> master keys as follows: if at startup Percona Server for MongoDB detects that the data directory is encrypted with an existing master key in the <code>Pre-Active</code> state, it logs a warning and continues to operate as usual. In that case, Percona Server for MongoDB does not do periodic key state polling regardless the value specified for the <a href="#kmip-security-kmip-keystatepollingseconds"><code>kmipKeyStatePollingSeconds</code></a> option. <a href="#kmip-key-state-polling">Read more about key state polling</a>.</p>
-<p>We recommend to either rotate a master encryption key or manually change the existing key to the Active state. You can also explicitly set the <a href="#kmip-security-kmip-activatekeys"><code>security.kmip.activateKeys</code></a> configuration file option to ensure that only the active keys are used. This one-time operation smooths the major upgrade flow.</p></body></html></section><section class="print-page" id="keyfile" heading-number="5.5.4"><html><head>
+<p>We recommend to either rotate a master encryption key or manually change the existing key to the Active state. You can also explicitly set the <a href="#kmip-security-kmip-activatekeys"><code>security.kmip.activateKeys</code></a> configuration file option to ensure that only the active keys are used. This one-time operation smooths the major upgrade flow.</p></body></html></section><section class="print-page" id="keyfile" heading-number="5.5.5"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -9697,14 +9892,14 @@ case are:</p>
 <span class="w">   </span><span class="nt">encryptionCipherMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span>
 <span class="w">   </span><span class="nt">encryptionKeyFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span>
 <span class="w">   </span><span class="nt">relaxPermChecks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;boolean&gt;</span>
-</code></pre></div></body></html></section><section class="print-page" id="encryption-mode-switch" heading-number="5.5.5"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="encryption-mode-switch" heading-number="5.5.6"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
         })
         </script>
-        </head><body><h1 id="migrate-from-key-file-encryption-to-hashicorp-vault-encryption">Migrate from key file encryption to HashiCorp Vault encryption<a class="headerlink" href="#encryption-mode-switch-migrate-from-key-file-encryption-to-hashicorp-vault-encryption" title="Permanent link">¶</a></h1>
-<p>The steps below describe how to migrate from the key file encryption to using  HashiCorp Vault.</p>
+        </head><body><h1 id="migrate-from-key-file-encryption-to-hashicorp-vault-openbao-encryption">Migrate from key file encryption to HashiCorp Vault / OpenBao encryption<a class="headerlink" href="#encryption-mode-switch-migrate-from-key-file-encryption-to-hashicorp-vault-openbao-encryption" title="Permanent link">¶</a></h1>
+<p>The steps below describe how to migrate from the key file encryption to using  HashiCorp Vault. This guide also applies to migration to <a href="https://openbao.org/">OpenBao</a> - an open-source alternative to HashiCorp Vault. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is a sample guideline and it should be used for testing purposes only. We recommend to contact <a href="https://www.percona.com/services/consulting">Percona Consulting Services</a> to assist you with migration in production environment.</p>
@@ -9751,7 +9946,7 @@ d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
-</ol></body></html></section><section class="print-page" id="fips" heading-number="5.5.6"><html><head>
+</ol></body></html></section><section class="print-page" id="fips" heading-number="5.5.7"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11236,6 +11431,9 @@ $<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-
         </head><body><h1 id="percona-server-for-mongodb-70-release-notes">Percona Server for MongoDB 7.0 release notes<a class="headerlink" href="#release_notes-index-percona-server-for-mongodb-70-release-notes" title="Permanent link">¶</a></h1>
 <ul>
 <li>
+<p><a href="#release_notes-7.0.24-13">Percona Server for MongoDB 7.0.24-13 (2025-09-11)</a></p>
+</li>
+<li>
 <p><a href="#release_notes-7.0.22-12">Percona Server for MongoDB 7.0.22-12 (2025-07-28)</a></p>
 </li>
 <li>
@@ -11271,7 +11469,88 @@ $<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-
 <li>
 <p><a href="#release_notes-7.0.2-1">Percona Server for MongoDB 7.0.2-1 (2023-10-05)</a></p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.22-12" heading-number="7.2"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.24-13" heading-number="7.2"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="percona-server-for-mongodb-7024-13-2025-09-11">Percona Server for MongoDB 7.0.24-13 (2025-09-11)<a class="headerlink" href="#release_notes-7.0.24-13-percona-server-for-mongodb-7024-13-2025-09-11" title="Permanent link">¶</a></h1>
+<p><a class="md-button" href="#install-index">Installation</a>
+<a class="md-button" href="#install-upgrade-from-mongodb">Upgrade from MongoDB Community</a></p>
+<p>Percona Server for MongoDB 7.0.24-13 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
+<p>Percona Server for MongoDB 7.0.24-13 includes the improvements and bug fixes of <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.23---aug-13--2025">MongoDB 7.0.23 Community Edition</a> and <a href="https://www.mongodb.com/docs/v7.0/release-notes/7.0/#7.0.24---sep-5--2025">MongoDB 7.0.24 Community Edition</a>. It supports protocols and drivers of both MongoDB Community 7.0.23 and MongoDB Community 7.0.24.</p>
+<h2 id="release_notes-7.0.24-13-release-highlights">Release highlights<a class="headerlink" href="#release_notes-7.0.24-13-release-highlights" title="Permanent link">¶</a></h2>
+<p>This release provides the following features and improvements:</p>
+<h3 id="release_notes-7.0.24-13-enhance-authentication-security-via-a-token-based-authentication-flow-with-openid-connect-oidc">Enhance authentication security via a token-based authentication flow with OpenID Connect (OIDC)<a class="headerlink" href="#release_notes-7.0.24-13-enhance-authentication-security-via-a-token-based-authentication-flow-with-openid-connect-oidc" title="Permanent link">¶</a></h3>
+<p>Percona Server for MongoDB now supports OpenID Connect (OIDC) / OAuth 2.0, providing a secure and simple way to manage user authentication using identity and access tokens. This feature allows you to centralize user management with a single identity provider, enhance security by eliminating the need to store credentials in your database and reduce the risk of credential theft. You can leverage enhanced authentication techniques like Single Sign-On (SSO) and Multi-Factor Authentication (MFA), improving your overall security posture and user experience.</p>
+<p>Learn more about OIDC connect in our <a href="#oidc">documentation</a></p>
+<p>This feature is available in <a href="#psmdb-pro">Percona Server for MongoDB Pro</a> out of the box. You can also receive it by building Percona Server from the source code.</p>
+<h3 id="release_notes-7.0.24-13-no-vendor-lock-in-with-openbao-support-for-data-at-rest-encryption">No vendor lock-in with OpenBao support for data-at-rest encryption<a class="headerlink" href="#release_notes-7.0.24-13-no-vendor-lock-in-with-openbao-support-for-data-at-rest-encryption" title="Permanent link">¶</a></h3>
+<p>To give you more flexibility for enterprise-grade data encryption, Percona Server for MongoDB now supports OpenBao in addition to HashiCorp Vault. OpenBao is the open-source fork of Vault, providing the same powerful security while helping you avoid vendor lock-in.</p>
+<p>This enhancement reflects our commitment to giving you more control over your security architecture while maintaining the reliability and performance you expect from Percona.</p>
+<p>For guidance on configuring OpenBao, check our <a href="#openbao">documentation</a>.</p>
+<h3 id="release_notes-7.0.24-13-upstream-improvements">Upstream Improvements<a class="headerlink" href="#release_notes-7.0.24-13-upstream-improvements" title="Permanent link">¶</a></h3>
+<p>The bug fixes, provided by MongoDB Community and included in Percona Server for MongoDB, are the following:</p>
+<ul>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-81797">SERVER-81797</a> - Implemented own portable API calls for atomic notify and wait operations with timeout functionality. This change improves the underlying core functionality of MongoDB.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-86656">SERVER-86656</a> - Created a reader-optimized reader-writer mutex</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-95324">SERVER-95324</a> - Deprecated and removed the <code>chunkMigrationConcurrency</code> parameter to prevent excessive resource consumption and simplify data management</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-101581">SERVER-101581</a> - Improved connection handling behavior by checking the socket state as a part of <code>acceptConnection</code> stage and discard it if it is already closed</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-103741">SERVER-103741</a> - Added new metrics to provide better insight into database profile collection activity.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/WT-14391">WT-14391</a> - Prevented potential data corruption by adding eviction requirements checks before accessing internal data stores.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-104771">SERVER-104771</a> - Fixed the issue with initial sync failing when the source has TTL indexes on a capped collection by allowing it from nodes with such indexes.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/WT-14653">WT-14653</a> - Added reconciliation stats for tracking history store updates</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-103505">SERVER-103505</a> - Prevented crashes that could occur when internal table information was unexpectedly missing.</p>
+</li>
+</ul>
+<p>Find the full list of changes in the release notes for:</p>
+<ul>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.23---aug-13--2025">MongoDB 7.0.23 Community Edition</a></li>
+<li><a href="https://www.mongodb.com/docs/v7.0/release-notes/7.0/#7.0.24---sep-5--2025">MongoDB 7.0.24 Community Edition</a>.</li>
+</ul>
+<h2 id="release_notes-7.0.24-13-changelog">Changelog<a class="headerlink" href="#release_notes-7.0.24-13-changelog" title="Permanent link">¶</a></h2>
+<h3 id="release_notes-7.0.24-13-new-features">New Features<a class="headerlink" href="#release_notes-7.0.24-13-new-features" title="Permanent link">¶</a></h3>
+<ul>
+<li><a href="https://perconadev.atlassian.net/browse/PSMDB-1438">PSMDB-1438</a> - Add the ability to authenticate users using OpenID Connect (OIDC)</li>
+</ul>
+<h3 id="release_notes-7.0.24-13-improvements">Improvements<a class="headerlink" href="#release_notes-7.0.24-13-improvements" title="Permanent link">¶</a></h3>
+<ul>
+<li><a href="https://perconadev.atlassian.net/browse/PSMDB-1781">PSMDB-1781</a> - Adjusted telemetry to report OpenBao and HashiCorp Vault usage separately</li>
+</ul>
+<h3 id="release_notes-7.0.24-13-fixed-bugs">Fixed Bugs<a class="headerlink" href="#release_notes-7.0.24-13-fixed-bugs" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1155">PSMDB-1155</a> - Fixed an issue with Percona Server for MongoDB being stuck on attempt to open  <code>backupCursorExtend</code> for a standalone instance by reporting an error about this operation as not allowed.</p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1745">PSMDB-1745</a> - Aligned the audit log rotation behavior when the server is started with the <code>reopen</code> behavior so that on startup the server keeps writing events to the same log file.</p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1754">PSMDB-1754</a> - Fixed the issue with log rotation behavior that was caused by replacing the rotated audit log file with a timestamp if it existed. The fix is to reopen a current audit log file in the append mode and write events there. </p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1757">PSMDB-1757</a> - Prevented file copy-based initial sync if the storage engine is not WiredTiger</p>
+</li>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.22-12" heading-number="7.3"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11339,7 +11618,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1730">PSMDB-1730</a> - Fixed the issue with LDAP authentication via SASL by adding the package <code>cyrus-sasl-plain</code> in Docker images for Percona Server for MongoDB 6, 7 and 8 </p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.18-11" heading-number="7.3"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.18-11" heading-number="7.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11413,7 +11692,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1617">PSMDB-1617</a> - Improved error messages when there are insufficient permissions to access client/CA certificates for KMIP authentication</p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.16-10" heading-number="7.4"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.16-10" heading-number="7.5"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11447,7 +11726,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1243">PSMDB-1243</a> - Fixed the issue with starting Percona Server for MongoDB Docker container with data-at-rest encryption configured via the configuration file</li>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1573">PSMDB-1573</a> - Added escaping of special characters when building LDAP queries</li>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1567">PSMDB-1567</a> - Fixed the issue with the crashing server during LDAP authentication when the LDAP server is down. </li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.15-9" heading-number="7.5"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.15-9" heading-number="7.6"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11484,7 +11763,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <h3 id="release_notes-7.0.15-9-fixed-bugs">Fixed Bugs<a class="headerlink" href="#release_notes-7.0.15-9-fixed-bugs" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1527">PSMDB-1527</a> - Improve the <code>activateKeys</code> option handling by changing its type to boolean.</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.14-8" heading-number="7.6"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.14-8" heading-number="7.7"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11521,7 +11800,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.12.</p>
 <h3 id="release_notes-7.0.14-8-improvements">Improvements<a class="headerlink" href="#release_notes-7.0.14-8-improvements" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1283">PSMDB-1283</a> - Add the ability to activate master encryption keys in KMIP server and check their state.</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.12-7" heading-number="7.7"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.12-7" heading-number="7.8"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11541,7 +11820,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.12.</p>
 <li><a href="https://jira.mongodb.org/browse/SERVER-90485">SERVER-90485</a> - Fixed the sorting of results produced by the <code>$unwind</code> aggregation with the array index field specified</li>
 <li><a href="https://jira.mongodb.org/browse/WT-12736">WT-12736</a> - Marked the page clean in WiredTiger after re-instantiating the page with prepared updates to avoid reconciling the page every time</li>
 </ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.12---jun-28--2024">MongoDB 7.0.12 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.11-6" heading-number="7.8"><html><head>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.12---jun-28--2024">MongoDB 7.0.12 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.11-6" heading-number="7.9"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11565,7 +11844,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.11.</p>
 <li><a href="https://jira.mongodb.org/browse/SERVER-89625">SERVER-89625</a> - Improve handling of directoryPerDb and wiredTigerDirectoryForIndexes to not insert directories as key when reporting namespaces and UUIDs during a backup   </li>
 <li><a href="https://jira.mongodb.org/browse/WT-12609">WT-12609</a> - Improved checkpoint cleanup and page eviction logic to prevent their unnecessary slowdown by evicting the internal pages read by the checkpoint like a regular page.  </li>
 </ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.9---apr-26--2024">MongoDB 7.0.9 Community Edition release notes</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.11---may-23--2024">MongoDB 7.0.11 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.8-5" heading-number="7.9"><html><head>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.9---apr-26--2024">MongoDB 7.0.9 Community Edition release notes</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.11---may-23--2024">MongoDB 7.0.11 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.8-5" heading-number="7.10"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11605,7 +11884,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.8.</p>
 <h2 id="release_notes-7.0.8-5-bugs-fixed">Bugs Fixed<a class="headerlink" href="#release_notes-7.0.8-5-bugs-fixed" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1418">PSMDB-1418</a> - Fixed the issue with the server crash when using LDAP authentication by ensuring that LDAP connections borrowed by a client thread are not disposed.</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.7-4" heading-number="7.10"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.7-4" heading-number="7.11"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11639,7 +11918,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
 <h2 id="release_notes-7.0.7-4-bugs-fixed">Bugs Fixed<a class="headerlink" href="#release_notes-7.0.7-4-bugs-fixed" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1434">PSMDB-1434</a> - Fixed the auditing behavior by removing excessive logging for CRUD operations</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.5-3" heading-number="7.11"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.5-3" heading-number="7.12"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11658,7 +11937,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
 <li><a href="https://jira.mongodb.org/browse/SERVER-83091">SERVER-83091</a> - Fixed infinite loop in lockstep $or plan enumeration</li>
 <li><a href="https://jira.mongodb.org/browse/WT-7929">WT-7929</a> - Investigated a solution to avoid a Full Time Diagnostic Data Capture (FTDC) mechanism to stall during checkpoint</li>
 </ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.5---jan-5--2024">MongoDB 7.0.5 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.4-2" heading-number="7.12"><html><head>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.5---jan-5--2024">MongoDB 7.0.5 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.4-2" heading-number="7.13"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11713,7 +11992,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
 <h2 id="release_notes-7.0.4-2-new-features">New Features<a class="headerlink" href="#release_notes-7.0.4-2-new-features" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://jira.percona.com/browse/PSMDB-1241">PSMDB-1241</a> - Implement the <code>connectRetries</code> and the <code>connectTimeoutMS</code> configuration file options</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.2-1" heading-number="7.13"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.2-1" heading-number="7.14"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12127,7 +12406,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p></body></html>
 <li><code>--name psmdb</code> - Assigns the name “psmdb” to the container.</li>
 <li><code>--restart always</code> - Configures the container to restart automatically if it stops or crashes.</li>
 <li><code>-e PERCONA_TELEMETRY_DISABLE=1</code> - Sets an environment variable within the container. In this case, it disables telemetry for Percona Server for MongoDB.</li>
-<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>7.0.22-12-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
+<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>7.0.24-13-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
 </ul>
 </div>
 </div>
@@ -12351,13 +12630,15 @@ we will do our very best to be helpful.</p></body></html></section></section></d
 
 .print-site-enumerate-headings #vault > h1:before { content: '5.5.2 ' }
 
-.print-site-enumerate-headings #kmip > h1:before { content: '5.5.3 ' }
+.print-site-enumerate-headings #openbao > h1:before { content: '5.5.3 ' }
 
-.print-site-enumerate-headings #keyfile > h1:before { content: '5.5.4 ' }
+.print-site-enumerate-headings #kmip > h1:before { content: '5.5.4 ' }
 
-.print-site-enumerate-headings #encryption-mode-switch > h1:before { content: '5.5.5 ' }
+.print-site-enumerate-headings #keyfile > h1:before { content: '5.5.5 ' }
 
-.print-site-enumerate-headings #fips > h1:before { content: '5.5.6 ' }
+.print-site-enumerate-headings #encryption-mode-switch > h1:before { content: '5.5.6 ' }
+
+.print-site-enumerate-headings #fips > h1:before { content: '5.5.7 ' }
 
 .print-site-enumerate-headings #fcbis > h1:before { content: '5.6 ' }
 
@@ -12390,29 +12671,31 @@ we will do our very best to be helpful.</p></body></html></section></section></d
 .print-site-enumerate-headings #section-7 > h1:before { content: '7 ' }
 .print-site-enumerate-headings #release_notes-index > h1:before { content: '7.1 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.22-12 > h1:before { content: '7.2 ' }
+.print-site-enumerate-headings #release_notes-7.0.24-13 > h1:before { content: '7.2 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.18-11 > h1:before { content: '7.3 ' }
+.print-site-enumerate-headings #release_notes-7.0.22-12 > h1:before { content: '7.3 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.16-10 > h1:before { content: '7.4 ' }
+.print-site-enumerate-headings #release_notes-7.0.18-11 > h1:before { content: '7.4 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.15-9 > h1:before { content: '7.5 ' }
+.print-site-enumerate-headings #release_notes-7.0.16-10 > h1:before { content: '7.5 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.14-8 > h1:before { content: '7.6 ' }
+.print-site-enumerate-headings #release_notes-7.0.15-9 > h1:before { content: '7.6 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.12-7 > h1:before { content: '7.7 ' }
+.print-site-enumerate-headings #release_notes-7.0.14-8 > h1:before { content: '7.7 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.11-6 > h1:before { content: '7.8 ' }
+.print-site-enumerate-headings #release_notes-7.0.12-7 > h1:before { content: '7.8 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.8-5 > h1:before { content: '7.9 ' }
+.print-site-enumerate-headings #release_notes-7.0.11-6 > h1:before { content: '7.9 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.7-4 > h1:before { content: '7.10 ' }
+.print-site-enumerate-headings #release_notes-7.0.8-5 > h1:before { content: '7.10 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.5-3 > h1:before { content: '7.11 ' }
+.print-site-enumerate-headings #release_notes-7.0.7-4 > h1:before { content: '7.11 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.4-2 > h1:before { content: '7.12 ' }
+.print-site-enumerate-headings #release_notes-7.0.5-3 > h1:before { content: '7.12 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.2-1 > h1:before { content: '7.13 ' }
+.print-site-enumerate-headings #release_notes-7.0.4-2 > h1:before { content: '7.13 ' }
+
+.print-site-enumerate-headings #release_notes-7.0.2-1 > h1:before { content: '7.14 ' }
 
 .print-site-enumerate-headings #faq > h1:before { content: '8 ' }
 

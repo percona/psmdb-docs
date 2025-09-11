@@ -145,6 +145,10 @@
          <lastmod>2025-09-11</lastmod>
     </url>
     <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/7.0/openbao.html</loc>
+         <lastmod>2025-09-11</lastmod>
+    </url>
+    <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/7.0/psmdb-pro.html</loc>
          <lastmod>2025-09-11</lastmod>
     </url>
@@ -274,6 +278,10 @@
     </url>
     <url>
          <loc>https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.22-12.html</loc>
+         <lastmod>2025-09-11</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.24-13.html</loc>
          <lastmod>2025-09-11</lastmod>
     </url>
     <url>

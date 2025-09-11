@@ -1885,6 +1885,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../openbao.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use OpenBao
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../kmip.html" class="md-nav__link">
         
   
@@ -2426,6 +2449,29 @@
   
   <span class="md-ellipsis">
     Release notes index
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release_notes/7.0.24-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Percona Server for MongoDB 7.0.24-13 (2025-09-11)
     
   </span>
   
@@ -3229,19 +3275,19 @@
 <ol>
 <li>
 <p>Download the tarballs from the Pro repository </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.22-12/percona-server-mongodb-pro-7.0.22-12-x86_64.jammy.tar.gz<span class="w"> </span><span class="se">\</span>
-$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.1/percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.24-13/percona-server-mongodb-pro-7.0.24-13-x86_64.jammy.tar.gz<span class="w"> </span><span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.7/percona-mongodb-mongosh-2.5.7-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.22-12-x86_64.jammy.tar.gz
-$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.24-13-x86_64.jammy.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.7-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.22-12-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.5.1/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.24-13-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.5.7/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -3259,19 +3305,19 @@ $<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>p
 <ol>
 <li>
 <p>Download the tarballs from the Pro repository </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.22-12/percona-server-mongodb-pro-7.0.22-12-x86_64.ol9.tar.gz<span class="w"> </span><span class="se">\</span>
-$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.1/percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-server-mongodb-7.0.24-13/percona-server-mongodb-pro-7.0.24-13-x86_64.ol9.tar.gz<span class="w"> </span><span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://repo.percona.com/private/ID-TOKEN/psmdb-70-pro/tarballs/percona-mongodb-mongosh-2.5.7/percona-mongodb-mongosh-2.5.7-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.22-12-x86_64.ol9.tar.gz
-$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.1-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.24-13-x86_64.ol9.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.7-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.22-12-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.5.1/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-pro-7.0.24-13-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.5.7/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -3334,7 +3380,7 @@ and restart it if the container exits.</p>
 <p><code>percona/percona-server-mongodb-pro</code> is the name of the image to derive the container from.</p>
 </li>
 <li>
-<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.22-12</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro/tags">See the full list of tags</a>.</p>
+<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.24-13</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb-pro/tags">See the full list of tags</a>.</p>
 </li>
 </ul>
 <h3 id="access-the-container-shell">Access the container shell<a class="headerlink" href="#access-the-container-shell" title="Permanent link">¶</a></h3>
