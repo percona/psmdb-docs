@@ -237,6 +237,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
+      - release_notes/7.0.24-13.md
       - release_notes/7.0.22-12.md
       - release_notes/7.0.18-11.md
       - release_notes/7.0.16-10.md
