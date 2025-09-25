@@ -97,11 +97,11 @@ Now you need to configure authentication in Percona Server for MongoDB. Specify 
 
 The following table maps the Microsoft Entra ID configuration parameters to the Percona Server for MongoDB configuration:
 
-| Microsoft Entra ID Parameter | Percona Server for MongoDB Parameter | 
-| ============================ | ==================================== |
-| `OpenID Connect metadata document`| `issuer`                        |
-| `Application (client) ID` | `clientId`  <br> `audience`             |
-| `Application ID URI` | `requestScopes` value consists of the Application ID URI and the custom scope name.  |
+| Microsoft Entra ID Parameter        | Percona Server for MongoDB Parameter  |
+|-------------------------------------|---------------------------------------|
+| `OpenID Connect metadata document`  | `issuer`                              |
+| `Application (client) ID`           | `clientId`<br>`audience`              |
+| `Application ID URI`                | `requestScopes` value consists of the Application ID URI and the custom scope name.            |
 
 To authorize users by identity provider groups, specify `authorizationClaim` value as `groups`.
 
