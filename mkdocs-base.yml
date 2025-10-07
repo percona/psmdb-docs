@@ -28,7 +28,6 @@ theme:
   
   features:
     content.action.view
-    content.action.edit
     content.code.copy
     content.copy.annotate
     search.highlight
