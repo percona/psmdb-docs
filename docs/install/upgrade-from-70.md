@@ -111,7 +111,7 @@ Before the upgrade, do the following:
 After the upgrade, Percona Server for MongoDB is started with the feature set of 7.0 version. Assuming that your applications are compatible with the new version, enable 8.0 version features. Run the following command against the `admin` database:
 
 ```{.javascript data-prompt=">"}
-> db.adminCommand( { setFeatureCompatibilityVersion: "8.0" } )
+> db.adminCommand( { setFeatureCompatibilityVersion: "8.0", confirm: true } )
 ```
 
 !!! admonition "See also"
