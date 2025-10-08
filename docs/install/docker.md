@@ -34,10 +34,12 @@ In this case: `psmdb`.
 
 * The `-p` option binds the container's port `27017` to TCP port `27017` on all host network interfaces. This makes the container accessible externally.
 
-* The `--restart` option defines the container’s restart policy.
+* The `--restart` option defines the container's restart policy.
 Setting it to `always` ensures that the Docker daemon
 will start the container on startup
 and restart it if the container exits.
+
+  Note that if you plan to run physical backups and restores with Percona Backup for MongoDB, the restart policy must **not** be set to `always` or `on-success`. This is because the database must not be automatically restarted during physical restores, as this is controlled by the pbm-agent. Read more about [physical restores in PBM documentation :octicons-link-external-16:](https://docs.percona.com/percona-backup-mongodb/usage/restore-physical.html#considerations).
 
 * `percona/percona-server-mongodb` is the name of the image to derive the container from.
 
