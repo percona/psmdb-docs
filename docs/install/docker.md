@@ -210,7 +210,7 @@ The following example demonstrates the setup on x86_64 platforms. The `rs101`, `
               - rs101
               - rs102
               - rs103
-            command: >
+            entrypoint: >
               mongosh --host rs101:27017 --eval 
               '
               config = {
