@@ -242,7 +242,7 @@ Use the following command to add an external user to Percona Server for MongoDB:
 
 ## Authenticate as an external user in Percona Server for MongoDB
 
-When running the `mongo` client, a user can authenticate
+When running the MongoDB client, a user can authenticate
 against a given database using the following command:
 
 ```{.javascript data-prompt=">"}

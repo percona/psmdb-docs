@@ -193,7 +193,7 @@ db.getSiblingDB("$external").createUser({
 2. You will be redirected to the Ping Identity login page in your web browser. 
 3. Log in with your credentials.
 4. Approve the sign in request.
-5. Upon successful authentication, you will see a confirmation message. In your `mongo` client, you should see the output as follows:
+5. Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:
 
     ```{.text .no-copy}
     Using MongoDB:      {{release}}
@@ -222,7 +222,7 @@ db.getSiblingDB("$external").createUser({
 
 2. Open the URL in your web browser and enter the code displayed in the terminal.
 3. Approve the sign in request.
-4. Upon successful authentication, you will see a confirmation message. In your `mongo` client, you should see the output as follows:
+4. Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:
 
     ```{.text .no-copy}
     Using MongoDB:      {{release}}
