@@ -6136,13 +6136,13 @@ to authenticate the client or reject the request.</li>
 <p>The sequence is the following:</p>
 <ol>
 <li>
-<p>A <code>mongo</code> client sends the Ticket-Grantng Ticket (TGT) request to the Key Distribution Center (KDC)</p>
+<p>A MongoDB client sends the Ticket-Grantng Ticket (TGT) request to the Key Distribution Center (KDC)</p>
 </li>
 <li>
-<p>The KDC issues the ticket and sends it to the <code>mongo</code> client.</p>
+<p>The KDC issues the ticket and sends it to the MongoDB client.</p>
 </li>
 <li>
-<p>The <code>mongo</code> client sends the authentication request to the <code>mongod</code> server presenting the ticket.</p>
+<p>The MongoDB client sends the authentication request to the <code>mongod</code> server presenting the ticket.</p>
 </li>
 <li>
 <p>The <code>mongod</code> server validates the ticket in the KDC.</p>
@@ -6179,16 +6179,16 @@ to authenticate the client or reject the request.</li>
 <h2 id="aws-iam-user-authentication">User authentication<a class="headerlink" href="#aws-iam-user-authentication" title="Permanent link">¶</a></h2>
 <p>This authentication type is typically used by human operators. Every user account in <abbr title="Amazon Web Service">AWS</abbr> has the ARN (Amazon Resource Name), which uniquely identifies this account and the user associated with it. During authentication, the ARN is used to verify the user’s identity. </p>
 <h2 id="aws-iam-role-authentication">Role authentication<a class="headerlink" href="#aws-iam-role-authentication" title="Permanent link">¶</a></h2>
-<p>This type is typically used for applications / <code>mongo</code> clients. For instance, if your application is running on <abbr title="Amazon Web Service">AWS</abbr> resources like EC2 instance or ECS (Elastic Container Service) which uses the <abbr title="Identity Access Management">IAM</abbr> role assigned to it. Another scenario is to allow users to assume the <abbr title="Identity Access Management">IAM</abbr> role and in such a way, grant a user the permissions outlined in the <abbr title="Identity Access Management">IAM</abbr> role. The ARN of the <abbr title="Identity Access Management">IAM</abbr> role is used to authenticate the application in Percona Server for MongoDB.  </p>
+<p>This type is typically used for applications / MongoDB clients. For instance, if your application is running on <abbr title="Amazon Web Service">AWS</abbr> resources like EC2 instance or ECS (Elastic Container Service) which uses the <abbr title="Identity Access Management">IAM</abbr> role assigned to it. Another scenario is to allow users to assume the <abbr title="Identity Access Management">IAM</abbr> role and in such a way, grant a user the permissions outlined in the <abbr title="Identity Access Management">IAM</abbr> role. The ARN of the <abbr title="Identity Access Management">IAM</abbr> role is used to authenticate the application in Percona Server for MongoDB.  </p>
 <p>For either type of <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication, the flow is the following:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/aws-iam-auth.png" data-desc-position="bottom"><img alt="image" src="_images/aws-iam-auth.png"></a></p>
 <ol>
-<li>A <code>mongo</code> client (a Mongo shell or an application that talks to Percona Server for MongoDB via a driver) gets <abbr title="Amazon Web Service">AWS</abbr> credentials from either EC2/ECS instance metadata service, environmental variables or MongoDB URI connection string.</li>
+<li>A MongoDB client (a Mongo shell or an application that talks to Percona Server for MongoDB via a driver) gets <abbr title="Amazon Web Service">AWS</abbr> credentials from either EC2/ECS instance metadata service, environmental variables or MongoDB URI connection string.</li>
 <li>
-<p>The <code>mongo</code> client constructs the authentication request which includes the <abbr title="Amazon Web Service">AWS</abbr> access key ID, token and the signature and sends it to Percona Server for MongoDB</p>
+<p>The MongoDB client constructs the authentication request which includes the <abbr title="Amazon Web Service">AWS</abbr> access key ID, token and the signature and sends it to Percona Server for MongoDB</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The <code>mongo</code> client never sends the secret access key to Percona Server for MongoDB.</p>
+<p>The MongoDB client never sends the secret access key to Percona Server for MongoDB.</p>
 </div>
 </li>
 <li>
@@ -6784,7 +6784,7 @@ The <code>log_level</code> is optional but may help determine configuration erro
 <div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">createUser</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="nx">user</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">}</span><span class="w"> </span><span class="p">]}</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <h2 id="sasl-auth-authenticate-as-an-external-user-in-percona-server-for-mongodb">Authenticate as an external user in Percona Server for MongoDB<a class="headerlink" href="#sasl-auth-authenticate-as-an-external-user-in-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
-<p>When running the <code>mongo</code> client, a user can authenticate
+<p>When running the MongoDB client, a user can authenticate
 against a given database using the following command:</p>
 <div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">auth</span><span class="p">({</span><span class="w"> </span><span class="nx">mechanism</span><span class="o">:</span><span class="s2">"PLAIN"</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">pwd</span><span class="o">:</span><span class="s2">"secret"</span><span class="p">,</span><span class="w"> </span><span class="nx">digestPassword</span><span class="o">:</span><span class="kc">false</span><span class="p">})</span>
 </code></pre></div>
@@ -7372,25 +7372,25 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 <p>Percona Server for MongoDB supports two authentication workflows with OIDC:</p>
 <ul>
 <li>
-<p><strong>Authorization code</strong>: A <code>mongo</code> client (for example, <code>mongosh</code> or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the most common and secure flow for interactive user sessions. It is suitable for use cases when users have a web browser available on the machine where they are running the <code>mongo</code> client.</p>
+<p><strong>Authorization code</strong>: A MongoDB client (for example, <code>mongosh</code> or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the most common and secure flow for interactive user sessions. It is suitable for use cases when users have a web browser available on the machine where they are running the MongoDB client.</p>
 </li>
 <li>
-<p><strong>Device authentication</strong>: Instead of redirecting a user to authenticate on a login portal directly, a <code>mongo</code> client receives the URL of the login portal and the authentication code. The user authenticates using a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a <code>mongo</code> client works in an environment without a browser, e.g. on a CLI-only server. </p>
+<p><strong>Device authentication</strong>: Instead of redirecting a user to authenticate on a login portal directly, a MongoDB client receives the URL of the login portal and the authentication code. The user authenticates using a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a MongoDB client works in an environment without a browser, e.g. on a CLI-only server. </p>
 </li>
 </ul>
 <p>The following diagram illustrates the authentication flow.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/OIDC-flow.png" data-desc-position="bottom"><img alt="image" src="_images/OIDC-flow.png"></a></p>
 <ol>
-<li>A user connects to Percona Server for MongoDB using a <code>mongo</code> client. The client must support OIDC.</li>
-<li>Percona Server for MongoDB redirects the <code>mongo</code> client to the IdP for authentication and provides the IdP information such as URL, requests scopes, clientID. </li>
-<li>The <code>mongo</code> client requests authentication from the IdP.</li>
+<li>A user connects to Percona Server for MongoDB using a MongoDB client. The client must support OIDC.</li>
+<li>Percona Server for MongoDB redirects the MongoDB client to the IdP for authentication and provides the IdP information such as URL, requests scopes, clientID. </li>
+<li>The MongoDB client requests authentication from the IdP.</li>
 <li>The IdP generates the authorization code. A user is redirected to the login portal of an external identity provider (IdP). Alternatively, a user is provided with a URL and the authentication code.</li>
 <li>The user is requested to authenticate. For example, using two-factor authentication or by entering an authentication code.</li>
-<li>A user is redirected back to the <code>mongo</code> client with a temporary single-use authorization code. </li>
-<li>The <code>mongo</code> client sends the authorization code to the IdP and requests tokens. The request includes the <code>clientId</code> and credentials of the <code>mongo</code> client.</li>
+<li>A user is redirected back to the MongoDB client with a temporary single-use authorization code. </li>
+<li>The MongoDB client sends the authorization code to the IdP and requests tokens. The request includes the <code>clientId</code> and credentials of the MongoDB client.</li>
 <li>The IdP verifies the authorization code, user’s client ID and credentials.</li>
-<li>Upon success, the IdP returns the access and ID tokens to the <code>mongo</code> client.</li>
-<li>The <code>mongo</code> client uses the access token to access Percona Server for MongoDB.</li>
+<li>Upon success, the IdP returns the access and ID tokens to the MongoDB client.</li>
+<li>The MongoDB client uses the access token to access Percona Server for MongoDB.</li>
 </ol>
 <p>The access and ID tokens must be encoded as JSON Web Tokens (JWT). They contain information about user identities and authorization rights.</p>
 <p>You can use the IdP infrastructure to authenticate and authorize users. In this case, you store and manage users and their access rights on the IdP side. To use this flow, your IdP configuration in PSMDB must include the <code>useAuthorizationClaim</code> option set to true. This setting enforces the use of IdP groups to authorize users and grant them access to Percona Server for MongoDB resources. </p>
@@ -7823,7 +7823,7 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 <p>In the Okta login portal in your browser, specify the credentials of one of the users you defined in Okta and click Sign in.</p>
 </li>
 <li>
-<p>Upon successful log in you must see the <strong>Login successful</strong> screen. In your <code>mongo</code> client, you should see the output as follows:</p>
+<p>Upon successful log in you must see the <strong>Login successful</strong> screen. In your MongoDB client, you should see the output as follows:</p>
 <div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
 Using Mongosh:      2.5.6
 
@@ -7851,7 +7851,7 @@ Enter the following code on that page: LRVCRLXP
 </li>
 <li>Enter the code in the <strong>Activation Code</strong> field and click <strong>Next</strong></li>
 <li>
-<p>You should see the <strong>Device Activated</strong> message on the screen. In your <code>mongo</code> client, you should see the output as follows:</p>
+<p>You should see the <strong>Device Activated</strong> message on the screen. In your MongoDB client, you should see the output as follows:</p>
 <div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
 Using Mongosh:      2.5.6
 
@@ -8295,7 +8295,7 @@ Waiting....
 <li>Log in with your credentials.</li>
 <li>Approve the sign in request.</li>
 <li>
-<p>Upon successful authentication, you will see a confirmation message. In your <code>mongo</code> client, you should see the output as follows:</p>
+<p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
 <div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
 Using Mongosh:      2.5.6
 
@@ -8324,7 +8324,7 @@ Waiting...
 </li>
 <li>Approve the sign in request.</li>
 <li>
-<p>Upon successful authentication, you will see a confirmation message. In your <code>mongo</code> client, you should see the output as follows:</p>
+<p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
 <div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
 Using Mongosh:      2.5.6
 
@@ -8555,7 +8555,7 @@ test&gt;
 </li>
 <li>Log in with your credentials.</li>
 <li>
-<p>Upon successful authentication, you will see a confirmation message. In your <code>mongo</code> client, you should see the output as follows:</p>
+<p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
 <div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
 Using Mongosh:      2.5.6
 
@@ -8584,7 +8584,7 @@ Waiting...
 </li>
 <li>Approve the sign in request.</li>
 <li>
-<p>Upon successful authentication, you will see a confirmation message. In your <code>mongo</code> client, you should see the output as follows:</p>
+<p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
 <div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
 Using Mongosh:      2.5.6
 
@@ -9377,7 +9377,7 @@ with versioning enabled.</p>
 </table>
 <h2 id="kmip-configuration">Configuration<a class="headerlink" href="#kmip-configuration" title="Permanent link">¶</a></h2>
 <h3 id="kmip-considerations">Considerations<a class="headerlink" href="#kmip-considerations" title="Permanent link">¶</a></h3>
-<p>Make sure you have obtained the root certificate, and the keypair for the KMIP server and the <code>mongod</code> client. For testing purposes you can use the <a href="https://www.openssl.org/">OpenSSL</a> to issue self-signed certificates. For production use we recommend you use the valid certificates issued by the key management appliance.</p>
+<p>Make sure you have obtained the root certificate, and the keypair for the KMIP server and the MongoDB client. For testing purposes you can use the <a href="https://www.openssl.org/">OpenSSL</a> to issue self-signed certificates. For production use we recommend you use the valid certificates issued by the key management appliance.</p>
 <p>To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, the options are:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="kmip-__tabbed_1_1" name="kmip-__tabbed_1" type="radio"><input id="kmip-__tabbed_1_2" name="kmip-__tabbed_1" type="radio"><div class="tabbed-labels"><label for="kmip-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="kmip-__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label></div>
 <div class="tabbed-content">
