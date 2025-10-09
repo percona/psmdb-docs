@@ -3047,25 +3047,25 @@
 <p>Percona Server for MongoDB supports two authentication workflows with OIDC:</p>
 <ul>
 <li>
-<p><strong>Authorization code</strong>: A <code>mongo</code> client (for example, <code>mongosh</code> or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the most common and secure flow for interactive user sessions. It is suitable for use cases when users have a web browser available on the machine where they are running the <code>mongo</code> client.</p>
+<p><strong>Authorization code</strong>: A MongoDB client (for example, <code>mongosh</code> or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the most common and secure flow for interactive user sessions. It is suitable for use cases when users have a web browser available on the machine where they are running the MongoDB client.</p>
 </li>
 <li>
-<p><strong>Device authentication</strong>: Instead of redirecting a user to authenticate on a login portal directly, a <code>mongo</code> client receives the URL of the login portal and the authentication code. The user authenticates using a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a <code>mongo</code> client works in an environment without a browser, e.g. on a CLI-only server. </p>
+<p><strong>Device authentication</strong>: Instead of redirecting a user to authenticate on a login portal directly, a MongoDB client receives the URL of the login portal and the authentication code. The user authenticates using a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a MongoDB client works in an environment without a browser, e.g. on a CLI-only server. </p>
 </li>
 </ul>
 <p>The following diagram illustrates the authentication flow.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/OIDC-flow.png" data-desc-position="bottom"><img alt="image" src="_images/OIDC-flow.png"></a></p>
 <ol>
-<li>A user connects to Percona Server for MongoDB using a <code>mongo</code> client. The client must support OIDC.</li>
-<li>Percona Server for MongoDB redirects the <code>mongo</code> client to the IdP for authentication and provides the IdP information such as URL, requests scopes, clientID. </li>
-<li>The <code>mongo</code> client requests authentication from the IdP.</li>
+<li>A user connects to Percona Server for MongoDB using a MongoDB client. The client must support OIDC.</li>
+<li>Percona Server for MongoDB redirects the MongoDB client to the IdP for authentication and provides the IdP information such as URL, requests scopes, clientID. </li>
+<li>The MongoDB client requests authentication from the IdP.</li>
 <li>The IdP generates the authorization code. A user is redirected to the login portal of an external identity provider (IdP). Alternatively, a user is provided with a URL and the authentication code.</li>
 <li>The user is requested to authenticate. For example, using two-factor authentication or by entering an authentication code.</li>
-<li>A user is redirected back to the <code>mongo</code> client with a temporary single-use authorization code. </li>
-<li>The <code>mongo</code> client sends the authorization code to the IdP and requests tokens. The request includes the <code>clientId</code> and credentials of the <code>mongo</code> client.</li>
+<li>A user is redirected back to the MongoDB client with a temporary single-use authorization code. </li>
+<li>The MongoDB client sends the authorization code to the IdP and requests tokens. The request includes the <code>clientId</code> and credentials of the MongoDB client.</li>
 <li>The IdP verifies the authorization code, user’s client ID and credentials.</li>
-<li>Upon success, the IdP returns the access and ID tokens to the <code>mongo</code> client.</li>
-<li>The <code>mongo</code> client uses the access token to access Percona Server for MongoDB.</li>
+<li>Upon success, the IdP returns the access and ID tokens to the MongoDB client.</li>
+<li>The MongoDB client uses the access token to access Percona Server for MongoDB.</li>
 </ol>
 <p>The access and ID tokens must be encoded as JSON Web Tokens (JWT). They contain information about user identities and authorization rights.</p>
 <p>You can use the IdP infrastructure to authenticate and authorize users. In this case, you store and manage users and their access rights on the IdP side. To use this flow, your IdP configuration in PSMDB must include the <code>useAuthorizationClaim</code> option set to true. This setting enforces the use of IdP groups to authorize users and grant them access to Percona Server for MongoDB resources. </p>
@@ -3281,7 +3281,7 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 11, 2025 12:02:43 UTC">September 11, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 9, 2025 07:59:56 UTC">October 9, 2025</span>
   </span>
 
     
