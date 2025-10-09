@@ -95,11 +95,11 @@ The following diagram shows the authentication workflow:
 
 The sequence is the following:
 
-1. A `mongo` client sends the Ticket-Grantng Ticket (TGT) request to the Key Distribution Center (KDC)
+1. A MongoDB client sends the Ticket-Grantng Ticket (TGT) request to the Key Distribution Center (KDC)
 
-2. The KDC issues the ticket and sends it to the `mongo` client.
+2. The KDC issues the ticket and sends it to the MongoDB client.
 
-3. The `mongo` client sends the authentication request to the `mongod` server presenting the ticket.
+3. The MongoDB client sends the authentication request to the `mongod` server presenting the ticket.
 
 4. The `mongod` server validates the ticket in the KDC.
 

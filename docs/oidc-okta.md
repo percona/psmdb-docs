@@ -219,7 +219,7 @@ db.getSiblingDB("$external").createUser({
 
 2. In the Okta login portal in your browser, specify the credentials of one of the users you defined in Okta and click Sign in.
 
-3. Upon successful log in you must see the **Login successful** screen. In your `mongo` client, you should see the output as follows:
+3. Upon successful log in you must see the **Login successful** screen. In your MongoDB client, you should see the output as follows:
 
     ```{.text .no-copy}
     Using MongoDB:		{{release}}
@@ -247,7 +247,7 @@ db.getSiblingDB("$external").createUser({
 
 2. Open the URL on another device that has the web browser.
 3. Enter the code in the **Activation Code** field and click **Next**
-4. You should see the **Device Activated** message on the screen. In your `mongo` client, you should see the output as follows:
+4. You should see the **Device Activated** message on the screen. In your MongoDB client, you should see the output as follows:
 
     ```{.text .no-copy}
     Using MongoDB:		{{release}}
