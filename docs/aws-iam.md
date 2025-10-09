@@ -14,18 +14,18 @@ This authentication type is typically used by human operators. Every user accoun
 
 ## Role authentication
 
-This type is typically used for applications / `mongo` clients. For instance, if your application is running on AWS resources like EC2 instance or ECS (Elastic Container Service) which uses the IAM role assigned to it. Another scenario is to allow users to assume the IAM role and in such a way, grant a user the permissions outlined in the IAM role. The ARN of the IAM role is used to authenticate the application in Percona Server for MongoDB.  
+This type is typically used for applications / MongoDB clients. For instance, if your application is running on AWS resources like EC2 instance or ECS (Elastic Container Service) which uses the IAM role assigned to it. Another scenario is to allow users to assume the IAM role and in such a way, grant a user the permissions outlined in the IAM role. The ARN of the IAM role is used to authenticate the application in Percona Server for MongoDB.  
 
 For either type of AWS IAM authentication, the flow is the following:
 
 ![image](_images/aws-iam-auth.png)
 
-1. A `mongo` client (a Mongo shell or an application that talks to Percona Server for MongoDB via a driver) gets AWS credentials from either EC2/ECS instance metadata service, environmental variables or MongoDB URI connection string.
-2. The `mongo` client constructs the authentication request which includes the AWS access key ID, token and the signature and sends it to Percona Server for MongoDB
+1. A MongoDB client (a Mongo shell or an application that talks to Percona Server for MongoDB via a driver) gets AWS credentials from either EC2/ECS instance metadata service, environmental variables or MongoDB URI connection string.
+2. The MongoDB client constructs the authentication request which includes the AWS access key ID, token and the signature and sends it to Percona Server for MongoDB
 
     !!! important 
 
-        The `mongo` client never sends the secret access key to Percona Server for MongoDB.
+        The MongoDB client never sends the secret access key to Percona Server for MongoDB.
 
 3. Percona Server for MongoDB sends the received credentials to the AWS STS (Security Token Service) for verification
 4. The AWS STS service validates whether the signature is correct and answers with the user / role ARN that created the signature
