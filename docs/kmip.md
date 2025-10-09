@@ -124,7 +124,7 @@ The master key state polling functionality is particularly useful in cluster dep
 
 ### Considerations
 
-Make sure you have obtained the root certificate, and the keypair for the KMIP server and the `mongod` client. For testing purposes you can use the [OpenSSL](https://www.openssl.org/) to issue self-signed certificates. For production use we recommend you use the valid certificates issued by the key management appliance.
+Make sure you have obtained the root certificate, and the keypair for the KMIP server and the MongoDB client. For testing purposes you can use the [OpenSSL](https://www.openssl.org/) to issue self-signed certificates. For production use we recommend you use the valid certificates issued by the key management appliance.
 
 To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, the options are:
 

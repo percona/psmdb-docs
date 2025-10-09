@@ -26,24 +26,24 @@ Any other external identity provider that supports OIDC and OAuth 2.0 may also w
 
 Percona Server for MongoDB supports two authentication workflows with OIDC:
 
-* **Authorization code**: A `mongo` client (for example, `mongosh` or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the most common and secure flow for interactive user sessions. It is suitable for use cases when users have a web browser available on the machine where they are running the `mongo` client.
+* **Authorization code**: A MongoDB client (for example, `mongosh` or Compass) opens a browser and redirects a user to the login portal of an external identity provider to pass authentication. This is the most common and secure flow for interactive user sessions. It is suitable for use cases when users have a web browser available on the machine where they are running the MongoDB client.
 
-* **Device authentication**: Instead of redirecting a user to authenticate on a login portal directly, a `mongo` client receives the URL of the login portal and the authentication code. The user authenticates using a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a `mongo` client works in an environment without a browser, e.g. on a CLI-only server. 
+* **Device authentication**: Instead of redirecting a user to authenticate on a login portal directly, a MongoDB client receives the URL of the login portal and the authentication code. The user authenticates using a separate device, following the URL and entering the authentication code. The example use case for such a workflow is when both a MongoDB client works in an environment without a browser, e.g. on a CLI-only server. 
 
 The following diagram illustrates the authentication flow.
 
 ![image](_images/OIDC-flow.png)
 
-1. A user connects to Percona Server for MongoDB using a `mongo` client. The client must support OIDC.
-2. Percona Server for MongoDB redirects the `mongo` client to the IdP for authentication and provides the IdP information such as URL, requests scopes, clientID. 
-3. The `mongo` client requests authentication from the IdP.
+1. A user connects to Percona Server for MongoDB using a MongoDB client. The client must support OIDC.
+2. Percona Server for MongoDB redirects the MongoDB client to the IdP for authentication and provides the IdP information such as URL, requests scopes, clientID. 
+3. The MongoDB client requests authentication from the IdP.
 4. The IdP generates the authorization code. A user is redirected to the login portal of an external identity provider (IdP). Alternatively, a user is provided with a URL and the authentication code.
 5. The user is requested to authenticate. For example, using two-factor authentication or by entering an authentication code.
-6. A user is redirected back to the `mongo` client with a temporary single-use authorization code. 
-7. The `mongo` client sends the authorization code to the IdP and requests tokens. The request includes the `clientId` and credentials of the `mongo` client.
+6. A user is redirected back to the MongoDB client with a temporary single-use authorization code. 
+7. The MongoDB client sends the authorization code to the IdP and requests tokens. The request includes the `clientId` and credentials of the MongoDB client.
 8. The IdP verifies the authorization code, user's client ID and credentials.
-9. Upon success, the IdP returns the access and ID tokens to the `mongo` client.
-10. The `mongo` client uses the access token to access Percona Server for MongoDB.
+9. Upon success, the IdP returns the access and ID tokens to the MongoDB client.
+10. The MongoDB client uses the access token to access Percona Server for MongoDB.
 
 The access and ID tokens must be encoded as JSON Web Tokens (JWT). They contain information about user identities and authorization rights.
 
