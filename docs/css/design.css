@@ -74,7 +74,7 @@
     --md-primary-fg-color--dark: var(--night400);
 }
 :root,
-[data-md-color-scheme="percona-light"] {
+[data-md-color-scheme="default"] {
 
     /* Primitives */
     --md-hue: 220;
@@ -108,7 +108,7 @@
     /* Tables */
     --md-typeset-table-color: hsla(var(--md-hue),17%,21%,0.25)
 }
-[data-md-color-scheme="percona-dark"] {
+[data-md-color-scheme="slate"] {
 
     /* Primitives */
     --md-hue: 0;

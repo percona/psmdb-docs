@@ -4,39 +4,55 @@ This overview explains the Horizons feature in Percona Server for MongoDB. If yo
 
 You can deploy Percona Server for MongoDB in different environments:
 
-* on premises with VPN networks hidden behind NAT
-* on virtual servers in a public cloud such as AWS EC2 instances, Azure VMs or Google Compute Engine
 * in containerized environments such as Docker or Kubernetes
-* in hybrid setups where you span replica set across AWS and an on-prem data center 
+* in hybrid setups where you span replica set across AWS and an on-prem data center
+* on premises with VPN networks hidden behind NAT
+* on virtual servers in a public cloud such as AWS EC2 instances, Azure VMs or Google Compute Engine 
 
 Regardless of the environment you use, you may come across the issue that clients within the same network can reach the replica set just fine. However, clients running outside your cluster such as backup or monitoring tools can't connect. Why does this happen?
 
 Let's have a closer look at how MongoDB discovers replica set members.
 
-When your client connects to the replica set, it uses an IP address or hostname of a node. The hostname can be an external one, for example, `mongo1.external.mydomain.com:27017`. The MongoDB driver treats this as a starting point. It successfully connects and authenticates. Then the driver runs the `db.hello()` command to discover the full replica set topology.
+When your client connects to the replica set, it uses an IP address or hostname of a node. The hostname can be an external one, for example, `mongo.external.mycompany.com:27017`. The MongoDB driver treats this as a starting point. It successfully connects and authenticates. Then the driver runs the `db.hello()` command to discover the full replica set topology.
 
-MongoDB responds with the list of member hostnames you defined during `rs.initiate()`. By default, those are internal names like `mongo1` or `mongo1.default.svc.cluster.local`.
+MongoDB responds with the list of member hostnames you defined when you initiated the replica set with the `rs.initiate()` command. By default, those are internal names like `psmdb1.internal.net` or `psmdb1.default.svc.cluster.local`.
 
-If your client is inside the same network, such as inside the same Docker bridge, Kubernetes namespace, or local subnet — it can resolve those names and connect to all members. But if the client is external, running on your host machine, in another cloud, or across a VPN, it likely cannot resolve those internal hostnames.
+If your client is inside the same network, such as inside the same Docker bridge, Kubernetes namespace or local subnet — it can resolve those names and connect to all members. But if the client is external, running on your host machine, in another cloud or outside a VPN, it likely cannot resolve those internal hostnames.
 
-Port mismatches add another layer of complexity. Containers often expose MongoDB’s default port 27017 internally, but map it to different external ports (like 32768) to avoid conflicts. Even in non-containerized setups, NAT or firewall rules may rewrite ports, causing the driver to fail when reaching other members.
+Port mismatches add another layer of complexity. Containers often expose MongoDB's default port 27017 internally, but map it to different external ports (like 32768) to avoid conflicts. Even in non-containerized setups, NAT or firewall rules may rewrite ports, causing the driver to fail when reaching other members.
 
 To solve these issues, use the Horizons feature available in Percona Server for MongoDB and Percona Operator for MongoDB v1.16.0+.
 
 ### How Horizons work
 
-Horizons let each replica set member advertise different hostnames and ports depending on how the client connects — whether from inside a container, across clouds, or from a remote datacenter. This ensures reliable discovery and connectivity across diverse environments.
+Horizons let each replica set member advertise different hostnames and ports depending on how the client connects — whether from inside a container, across clouds, or from a remote data center. This ensures reliable discovery and connectivity across diverse environments.
+
+You configure Horizons in the replica set configuration under the horizons field:
+
+```json
+{
+  _id: 0,
+  host: "psmdb1.internal.net:27017",
+  horizons: {
+    external: "mongo1.external.mycompany.com:32768"
+  }
+}
+```
 
 With Horizons configured, a single MongoDB replica set can serve two distinct client networks:
 
-- **Internal access**: Using internal container hostnames (`mongo1:27017`)
-- **External access**: Using public DNS records, load balancer hostnames, or specific host-mapped ports (`external-host:30001`)
+- **Internal access**: Using internal container hostnames (`psmdb1.internal.net:27017`)
+- **External access**: Using public DNS records, load balancer hostnames, or specific host-mapped ports (`mongo1.external.mycompany.com:32768`)
+
+The following diagram shows the use of Horizons work:
+
+![Horizons workflow](_images/horizons_diagram.png)
 
 Horizons rely on a crucial component of the TLS handshake: Server Name Indication (SNI).
 
 Here's how it works:
 
-1. An external client initiates a TLS connection. As part of the handshake, it includes the hostname it is trying to connect to (for example, `external.mongodb.com`) in the SNI field of the ClientHello message.
+1. An external client initiates a TLS connection. As part of the handshake, it includes the hostname it is trying to connect to (for example, `external.mycompany.com`) in the SNI field of the ClientHello message.
 
 2. Percona Server for MongoDB receives the connection and inspects the SNI hostname.
 
