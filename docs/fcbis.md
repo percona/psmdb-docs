@@ -2,11 +2,9 @@
 
 !!! admonition "Version added: [8.0.12-4](release_notes/8.0.12-4.md)"
 
-    Available in [Percona Server for MongoDB Pro](psmdb-pro.md) out of the box. 
-
 When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. 
 
-In Percona Server for MongoDB, you can choose a file copy-based initial sync for a new node. You must have WiredTiger defined as the storage. Both source and target nodes must run Percona Server for MongoDB version 8.0.12-4 or higher either as Pro builds or with file copy-based initial sync functionality compiled on your own.
+In Percona Server for MongoDB, you can choose a file copy-based initial sync for a new node. You must have WiredTiger defined as the storage. Both source and target nodes must run Percona Server for MongoDB version 8.0.12-4 or higher.
 
 The file copy-based initial sync method is a physical copying of the data files from the source to the target. It is much faster than the default [logical initial sync :octicons-link-external-16:](https://www.mongodb.com/docs/manual/core/replica-set-sync/#logical-initial-sync-process) for big datasets (500GB+), which is especially beneficial in heavy write environments. Using this initial sync method speeds up cluster scaling and increases restore performance. 
 
@@ -54,8 +52,7 @@ Using file copy-based initial sync has the following limitations:
 * You cannot use the same sync source for multiple target nodes simultaneously because only one backup cursor can exist at any moment.
 * If you're using encrypted storage, Percona Server for MongoDB applies the encryption key from the sync source node to secure the data on the syncing node.
 * You must have WiredTiger defined as the storage engine to run file copy-based initial sync. [Percona memory engine](inmemory.md) is not supported.
-* Both source and target nodes must run the same Percona Server for MongoDB version. They must be either Pro builds or run with file copy-based initial sync functionality compiled on your own.
-
+* Both source and target nodes must run the same Percona Server for MongoDB version. 
 
 
 

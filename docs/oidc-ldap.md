@@ -8,7 +8,7 @@ This document primarily focuses on configuring OIDC to authenticate users and us
 
 ## Prerequisites
 
-1. Percona Server for MongoDB Pro 8.0.12-4 or the Regular builds with the OIDC feature enabled. 
+1. Percona Server for MongoDB 8.0.12-4 or the Regular builds with the OIDC feature enabled. 
 2. Access to an IdP administrative console
 3. LDAP server up and running and it's accessible to the servers with Percona Server for MongoDB installed.
 

@@ -16,7 +16,7 @@ The setup process consists of three main stages:
 
 Before you start, ensure you have the following:
 
-1. Percona Server for MongoDB Pro 8.0.12-4 and higher
+1. Percona Server for MongoDB 8.0.12-4 and higher
 2. Microsoft Entra tenant with admin access
 
 ## Identity provider setup
