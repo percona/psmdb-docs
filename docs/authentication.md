@@ -113,8 +113,7 @@ Kerberos authentication in Percona Server for MongoDB is implemented the same wa
 
 ## OIDC / OAuth 2.0 authentication and authorization
 
-Percona Server for MongoDB supports OpenID Connect (OIDC) as an authentication mechanism which extends the OAuth 2.0 authorization framework. You can configure SSO for Percona Server for MongoDB using an external identity provider (IdP) so that users and applications are authenticated and authorized without sharing their credentials with MongoDB clients. As a result you streamline authentication and authorization flow and increase security within your system.  
-OIDC / OAuth 2.0 authentication and authorization is included in [Percona Server for MongoDB Pro](psmdb-pro.md) out of the box. You can also receive it by building the binaries yourself. Percona Server for MongoDB Pro is available for Percona Customers. [Reach out to us](https://www.percona.com/about/contact) to become a Percona Customer.
+Percona Server for MongoDB supports OpenID Connect (OIDC) as an authentication mechanism which extends the OAuth 2.0 authorization framework. You can configure SSO for Percona Server for MongoDB using an external identity provider (IdP) so that users and applications are authenticated and authorized without sharing their credentials with MongoDB clients. As a result you streamline authentication and authorization flow and increase security within your system.
 
 Read more about OIDC in [OIDC / OAuth2.0](oidc.md).
 
