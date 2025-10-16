@@ -5,7 +5,7 @@ for MongoDB 6.0 Community Edition with [enterprise-grade features](../comparison
 
 Find the full list of supported platforms for Percona Server for MongoDB on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page.
 
-## Install Percona Server for MongoDB Regular
+## Install Percona Server for MongoDB
 
 You can use any of the easy-install guides. We recommend to use **the package manager of your operating system** for a convenient and quick way to install the software for production use. **Use Docker** to try the software first.
 
@@ -54,17 +54,9 @@ You can use any of the easy-install guides. We recommend to use **the package ma
 
     [Install from tarballs :material-arrow-right:](tarball.md){.md-button}
 
-## Install Percona Server for MongoDB Pro
-
-[Percona Server for MongoDB Pro](../psmdb-pro.md) is available only from Percona repositories. 
-
-[Install Percona Server for MongoDB Pro :material-arrow-right:](install-pro.md){.md-button}
-
 ## Upgrade instructions
 
 If you are currently using MongoDB Community Edition, see [Upgrading from MongoDB](upgrade-from-mongodb.md).
 
 If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 5.0](upgrade-from-50.md).
-
-If you wish to upgrade to Percona Server for MongoDB Pro, see [Upgrade to Percona Server for MongoDB Pro](update-pro.md) guide. 
 
