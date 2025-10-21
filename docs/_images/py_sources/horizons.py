@@ -1,7 +1,7 @@
 from diagrams import Diagram, Cluster, Edge
 from diagrams.aws.general import Client
 from diagrams.onprem.compute import Server
-from diagrams.aws.network import NLB
+from diagrams.aws.network import VPCRouter
 from diagrams.generic.network import Firewall
 from diagrams.aws.general import GenericDatabase
 
@@ -13,7 +13,7 @@ with Diagram("Horizons workflow", show=False, filename="mongodb_horizons_diagram
         with Cluster("Virtual Private Cloud (VPC)"):
             with Cluster("Public subnet"):
                 dns = Firewall("DNS\nmongo.external.mycompany.com")
-                nlb = NLB("NLB\n52.45.100.200")
+                vpc = VPCRouter("VPC Router\n52.45.100.200")
 
             with Cluster("Private subnet"):
                 # MongoDB Replica Set cluster - aligned horizontally
@@ -27,10 +27,10 @@ with Diagram("Horizons workflow", show=False, filename="mongodb_horizons_diagram
 
     # External client flow
     external_client >> Edge(label="1 - SNI: mongo.external.mycompany.com") >> dns
-    dns >> nlb
-    nlb >> Edge(label="3 - Horizons Reply") >> primary
-    primary >> Edge(label="2 - Forwards to Primary" ) >> nlb
-    nlb >> Edge(label="4 - Routes Reply") >> external_client
+    dns >> vpc
+    vpc >> Edge(label="3 - Horizons Reply") >> primary
+    primary >> Edge(label="2 - Forwards to Primary" ) >> vpc
+    vpc >> Edge(label="4 - Routes Reply") >> external_client
 
     # Internal app flow - positioned to avoid overlap with cluster label
     app_server >> Edge(label="1 - Internal DNS (SNI: psmdb1.internal.net)") >> primary

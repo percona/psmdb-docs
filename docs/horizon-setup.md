@@ -238,7 +238,7 @@ With Percona Server for MongoDB up and running, initiate the replica set and spe
     $ mongosh --tls --tlsCertificateKeyFile /certs/psmdb1-combined.pem --tlsAllowInvalidCertificates
     ```
 
-3. Initialize the replica set with Horizons. Specify the internal hostname for the `host` field and the external external hostname/port in the `horizons` field for the replica set configuration:
+3. Initialize the replica set with Horizons. Specify the internal hostname for the `host` field and the external hostname/port in the `horizons` field for the replica set configuration:
 
     ```javascript
     rs.initiate({
@@ -256,7 +256,7 @@ With Percona Server for MongoDB up and running, initiate the replica set and spe
          },
          {
            _id: 2,
-           host: "psmdb2.internal.net:27017",
+           host: "psmdb3.internal.net:27017",
            Horizons: { external: "external.mycompany.com:27019" }
          }
        ]
@@ -369,4 +369,4 @@ To check internal connection, you can spin up a new Docker container with the Mo
 
 !!! admonition
 
-    This setup is based on the blog post [Using replicaSetHorizons in MongoDB](https://www.percona.com/blog/using-replicasetHorizons-in-mongodb/) by *Ivan Groenewold*.
+    This setup is based on the blog post [Using replicaSetHorizons in MongoDB](https://www.percona.com/blog/using-replicasethorizons-in-mongodb/) by *Ivan Groenewold*.

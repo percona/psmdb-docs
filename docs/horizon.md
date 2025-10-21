@@ -11,6 +11,8 @@ You can deploy Percona Server for MongoDB in different environments:
 
 Regardless of the environment you use, you may come across the issue that clients within the same network can reach the replica set just fine. However, clients running outside your cluster such as backup or monitoring tools can't connect. Why does this happen?
 
+## How MongoDB discovers replica set members
+
 Let's have a closer look at how MongoDB discovers replica set members.
 
 When your client connects to the replica set, it uses an IP address or hostname of a node. The hostname can be an external one, for example, `mongo.external.mycompany.com:27017`. The MongoDB driver treats this as a starting point. It successfully connects and authenticates. Then the driver runs the `db.hello()` command to discover the full replica set topology.
