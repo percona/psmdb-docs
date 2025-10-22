@@ -2045,6 +2045,98 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Connect from an external network
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Connect from an external network
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="horizon.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Split-DNS Horizons usage with Percona Server for MongoDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="horizon-setup.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Horizons in Percona Server for MongoDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="mongos-config.html" class="md-nav__link">
         
@@ -2077,10 +2169,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
         
           
-          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
             
   
   
@@ -2093,8 +2185,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
             <span class="md-nav__icon md-icon"></span>
             Upgrade
           </label>
@@ -3235,6 +3327,39 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#section-6-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect from an external network
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect from an external network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#horizon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Split-DNS Horizons usage with Percona Server for MongoDB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#horizon-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure Horizons in Percona Server for MongoDB
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#mongos-config" class="md-nav__link">
     <span class="md-ellipsis">
       Configure a systemd unit file for mongos
@@ -3244,7 +3369,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-6-4" class="md-nav__link">
+  <a href="#section-6-5" class="md-nav__link">
     <span class="md-ellipsis">
       Upgrade
     </span>
@@ -10299,7 +10424,431 @@ to make changes at runtime:    </p>
 </code></pre></div>
 </li>
 </ol>
-<p>This setup ensures that Percona Server for MongoDB works seamlessly with <code>logrotate</code>, allowing external rotation and compression of log files.</p></body></html></section><section class="print-page" id="mongos-config" heading-number="6.3"><html><head>
+<p>This setup ensures that Percona Server for MongoDB works seamlessly with <code>logrotate</code>, allowing external rotation and compression of log files.</p></body></html></section>
+                    <section class='print-page md-section' id='section-6-3' heading-number='6.3'>
+                        <h1>Connect from an external network<a class='headerlink' href='#section-6-3' title='Permanent link'></a>
+                        </h1>
+                    <section class="print-page" id="horizon" heading-number="6.3.1"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="split-dns-horizons-usage-with-percona-server-for-mongodb">Split-DNS Horizons usage with Percona Server for MongoDB<a class="headerlink" href="#horizon-split-dns-horizons-usage-with-percona-server-for-mongodb" title="Permanent link">¶</a></h1>
+<p>This overview explains the Horizons feature in Percona Server for MongoDB. If you’re familiar with the concept and want to use it, switch to the <a href="#horizon-setup">Configure Horizons in Percona Server for MongoDB</a>.</p>
+<p>You can deploy Percona Server for MongoDB in different environments:</p>
+<ul>
+<li>in containerized environments such as Docker or Kubernetes</li>
+<li>in hybrid setups where you span replica set across AWS and an on-prem data center</li>
+<li>on premises with VPN networks hidden behind NAT</li>
+<li>on virtual servers in a public cloud such as AWS EC2 instances, Azure VMs or Google Compute Engine </li>
+</ul>
+<p>Regardless of the environment you use, you may come across the issue that clients within the same network can reach the replica set just fine. However, clients running outside your cluster such as backup or monitoring tools can’t connect. Why does this happen?</p>
+<h2 id="horizon-how-mongodb-discovers-replica-set-members">How MongoDB discovers replica set members<a class="headerlink" href="#horizon-how-mongodb-discovers-replica-set-members" title="Permanent link">¶</a></h2>
+<p>Let’s have a closer look at how MongoDB discovers replica set members.</p>
+<p>When your client connects to the replica set, it uses an IP address or hostname of a node. The hostname can be an external one, for example, <code>mongo.external.mycompany.com:27017</code>. The MongoDB driver treats this as a starting point. It successfully connects and authenticates. Then the driver runs the <code>db.hello()</code> command to discover the full replica set topology.</p>
+<p>MongoDB responds with the list of member hostnames you defined when you initiated the replica set with the <code>rs.initiate()</code> command. By default, those are internal names like <code>psmdb1.internal.net</code> or <code>psmdb1.default.svc.cluster.local</code>.</p>
+<p>If your client is inside the same network, such as inside the same Docker bridge, Kubernetes namespace or local subnet — it can resolve those names and connect to all members. But if the client is external, running on your host machine, in another cloud or outside a VPN, it likely cannot resolve those internal hostnames.</p>
+<p>Port mismatches add another layer of complexity. Containers often expose MongoDB’s default port 27017 internally, but map it to different external ports (like 32768) to avoid conflicts. Even in non-containerized setups, NAT or firewall rules may rewrite ports, causing the driver to fail when reaching other members.</p>
+<p>To solve these issues, use the Horizons feature available in Percona Server for MongoDB and Percona Operator for MongoDB v1.16.0+.</p>
+<h3 id="horizon-how-horizons-work">How Horizons work<a class="headerlink" href="#horizon-how-horizons-work" title="Permanent link">¶</a></h3>
+<p>Horizons let each replica set member advertise different hostnames and ports depending on how the client connects — whether from inside a container, across clouds, or from a remote data center. This ensures reliable discovery and connectivity across diverse environments.</p>
+<p>You configure Horizons in the replica set configuration under the horizons field:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="err">hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="s2">"psmdb1.internal.net:27017"</span><span class="p">,</span>
+<span class="w">  </span><span class="err">horizo</span><span class="kc">ns</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">ex</span><span class="kc">ternal</span><span class="p">:</span><span class="w"> </span><span class="s2">"mongo1.external.mycompany.com:32768"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>With Horizons configured, a single MongoDB replica set can serve two distinct client networks:</p>
+<ul>
+<li><strong>Internal access</strong>: Using internal container hostnames (<code>psmdb1.internal.net:27017</code>)</li>
+<li><strong>External access</strong>: Using public DNS records, load balancer hostnames, or specific host-mapped ports (<code>mongo1.external.mycompany.com:32768</code>)</li>
+</ul>
+<p>The following diagram shows the use of Horizons work:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/horizons_diagram.png" data-desc-position="bottom"><img alt="Horizons workflow" src="_images/horizons_diagram.png"></a></p>
+<p>Horizons rely on a crucial component of the TLS handshake: Server Name Indication (SNI).</p>
+<p>Here’s how it works:</p>
+<ol>
+<li>
+<p>An external client initiates a TLS connection. As part of the handshake, it includes the hostname it is trying to connect to (for example, <code>external.mycompany.com</code>) in the SNI field of the ClientHello message.</p>
+</li>
+<li>
+<p>Percona Server for MongoDB receives the connection and inspects the SNI hostname.</p>
+</li>
+<li>
+<p>Percona Server for MongoDB checks its defined Horizons. If the hostname presented in the SNI matches a value defined within a horizon (for example, the horizon key named <code>external</code>), the server knows the client is connecting via that external context.</p>
+</li>
+<li>
+<p>When the driver later runs <code>db.hello()</code>, the server returns the corresponding horizon value (the external hostname/port) in the hosts list. This ensures the client discovers members using addresses it can resolve.</p>
+</li>
+</ol>
+<p>This mechanism makes TLS mandatory for Horizons to function. The SNI field is the only way for the server to reliably determine the client’s network context.</p>
+<h2 id="horizon-when-to-use-horizons">When to use Horizons<a class="headerlink" href="#horizon-when-to-use-horizons" title="Permanent link">¶</a></h2>
+<p>Horizons are especially useful if you:</p>
+<ul>
+<li>Run MongoDB in Kubernetes and need external access</li>
+<li>Use Docker with port mappings and container names</li>
+<li>Deploy across multiple clouds or hybrid environments, where internal and external DNS differ</li>
+<li>Use virtual machines or bare-metal servers with split DNS or custom routing rules</li>
+<li>Need to expose MongoDB to external monitoring, backup, or app clients</li>
+</ul>
+<h2 id="horizon-configuration">Configuration<a class="headerlink" href="#horizon-configuration" title="Permanent link">¶</a></h2>
+<p><a class="md-button" href="#horizon-setup">Configure Horizons in Percona Server for MongoDB</a></p></body></html></section><section class="print-page" id="horizon-setup" heading-number="6.3.2"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="configure-horizons-in-percona-server-for-mongodb">Configure Horizons in Percona Server for MongoDB<a class="headerlink" href="#horizon-setup-configure-horizons-in-percona-server-for-mongodb" title="Permanent link">¶</a></h1>
+<p>This document focuses on configuring <a href="#glossary-horizons">Horizons</a> in Percona Server for MongoDB deployed in Docker. To learn more about Horizons, how they work and when to use them, see <a href="#horizon">Split-DNS Horizons usage with Percona Server for MongoDB</a>.</p>
+<p>For using Horizons in Kubernetes environment with Percona Operator for MongoDB, see the <a href="https://docs.percona.com/percona-operator-for-mongodb/expose.html#exposing-replica-set-with-split-horizon-dns">Expose replica set with split-Horizon DNS</a> chapter in Percona Operator for MongoDB documentation.</p>
+<h2 id="horizon-setup-requirements">Requirements<a class="headerlink" href="#horizon-setup-requirements" title="Permanent link">¶</a></h2>
+<p>To use Horizons in Percona Server for MongoDB, you must be aware of and meet these requirements enforced by the database:</p>
+<ul>
+<li>
+<p><strong>You must use TLS in your deployment</strong>. Horizons rely entirely on the Server Name Indication (SNI) during the TLS handshake. Connections without TLS will not allow the server to determine the correct identity via SNI, and Horizons will not function.</p>
+</li>
+<li>
+<p><strong>TLS certificates</strong> must be Multi-SAN (Subject Alternative Name) certificates that cover both the internal hostname (e.g., <code>psmdb.internal.net</code>) and the external hostname (e.g., <code>external.mycompany.com</code>).</p>
+</li>
+<li>
+<p><strong>Use only hostnames or domain names in Horizon definition</strong>. SNI requires a hostname or a resolvable domain name to match against. Percona Server for MongoDB will reject Horizon configuration that uses raw IPs.</p>
+</li>
+<li>
+<p><strong>Avoid duplicate hostnames.</strong> Each Horizon hostname and port must be unique across the replica set. You can’t reuse the same external name for multiple members. Percona Server for MongoDB needs to clearly map each horizon to one node.</p>
+</li>
+<li>
+<p><strong>All-or-nothing configuration</strong>. If one member defines a horizon, all other members must define one too. You cannot mix members with and without horizons.</p>
+</li>
+</ul>
+<h2 id="horizon-setup-configuration-example">Configuration example<a class="headerlink" href="#horizon-setup-configuration-example" title="Permanent link">¶</a></h2>
+<p>Let’s say you deploy Percona Server for MongoDB replica set in Docker. You need to ensure that it is reachable for both the client running within the same network and for clients accessing the cluster from the outside. </p>
+<p>Your internal domain names are <code>psmdb1.internal.net</code>, <code>psmdb2.internal.net</code>, and <code>psmdb3.internal.net</code>. For external access, you use the <code>external.mycompany.com</code> domain name that resolves to the public IP address of your nodes with different ports mapped to each container.</p>
+<p>In this configuration, we focus on using the Docker Compose, as it simplifies the control of your entire application stack and makes it easy to manage services, networks, and volumes in a single YAML configuration file.</p>
+<h3 id="horizon-setup-preconditions">Preconditions<a class="headerlink" href="#horizon-setup-preconditions" title="Permanent link">¶</a></h3>
+<p>Before you start, ensure you have the following:</p>
+<ol>
+<li>
+<p>Resolvable internal and external domain names for Percona Server for MongoDB nodes. These domain names must be reachable from their respective client networks (internal names via internal DNS or service discovery, external names via public DNS or load balancer) and must be consistently mapped to the correct ports.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To test the setup locally, you can expose <code>localhost</code> as the external hostname. This way you can test the external connection from the MongoDB client running on your local machine.</p>
+</div>
+</li>
+<li>
+<p>Docker Engine and Docker Compose running on your machine. Refer to <a href="https://docs.docker.com/compose/install/">Docker documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> for how to get Docker Compose.</p>
+</li>
+<li><code>cfssl</code> and <code>cfssljson</code> tools installed on your machine.</li>
+<li>Your user has the <code>root</code> or <code>sudo</code> privileges. </li>
+</ol>
+<h3 id="horizon-setup-generate-multi-san-tls-certificates">Generate Multi-SAN TLS certificates<a class="headerlink" href="#horizon-setup-generate-multi-san-tls-certificates" title="Permanent link">¶</a></h3>
+<p>At this step you need to create CA and certificates where each server cert is valid for both its internal container hostname (e.g., <code>mongo1</code>) and the external access hostname (<code>localhost</code> in this example).</p>
+<ol>
+<li>
+<p>Create a directory to store your TLS certificates. </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>certs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>certs
+</code></pre></div>
+</li>
+<li>
+<p>Create the Certificate Authority (CA) signing request file:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tee<span class="w"> </span>ca-csr.json<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">{</span>
+<span class="s">  "CN": "MyTestCA",</span>
+<span class="s">  "key": { "algo": "rsa", "size": 2048 },</span>
+<span class="s">  "names": [{ "C": "US", "ST": "CA", "L": "SF", "O": "Acme", "OU": "MongoDB CA" }]</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</code></pre></div>
+<p>This command creates a <code>ca-csr.json</code> file describing the CA.</p>
+</li>
+<li>
+<p>Generate the self-signed CA certificate and key:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cfssl<span class="w"> </span>gencert<span class="w"> </span>-initca<span class="w"> </span>ca-csr.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>cfssljson<span class="w"> </span>-bare<span class="w"> </span>ca
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>2025/10/10 14:08:35 [INFO] generating a new CA key and certificate from CSR
+2025/10/10 14:08:35 [INFO] generate received request
+2025/10/10 14:08:35 [INFO] received CSR
+2025/10/10 14:08:35 [INFO] generating key: rsa-2048
+2025/10/10 14:08:35 [INFO] encoded CSR
+2025/10/10 14:08:35 [INFO] signed certificate with serial number 314115126271842123131863341190609880955557607219
+</code></pre></div>
+</details>
+<p>This produces:</p>
+<ul>
+<li><code>ca.pem</code> — CA certificate</li>
+<li><code>ca-key.pem</code> — CA private key</li>
+</ul>
+</li>
+<li>
+<p>Now, create server certificate requests for each Percona Server for MongoDB server (psmdb1, psmdb2, psmdb3), including both internal and external names in the “hosts” array:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nv">public_ips</span><span class="o">=(</span><span class="s2">"52.45.100.201"</span><span class="w"> </span><span class="s2">"52.45.100.202"</span><span class="w"> </span><span class="s2">"52.45.100.203"</span><span class="o">)</span>
+$<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nv">name</span><span class="o">=</span><span class="s2">"psmdb</span><span class="nv">$i</span><span class="s2">"</span>
+<span class="w">    </span><span class="nv">public_ip</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">public_ips</span><span class="p">[</span><span class="k">$((</span><span class="nv">i</span><span class="o">-</span><span class="m">1</span><span class="k">))</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="w">        </span>
+<span class="w">    </span>tee<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">-csr.json"</span><span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">{</span>
+<span class="s">  "CN": "${name}",</span>
+<span class="s">  "hosts": ["${name}", "${name}.internal.net", "external.mycompany.com", "${public_ip}"],</span>
+<span class="s">  "key": { "algo": "rsa", "size": 2048 },</span>
+<span class="s">  "names": [</span>
+<span class="s">    { "O": "MongoDB", "OU": "Database", "L": "Internal", "ST": "DC", "C": "US" }</span>
+<span class="s">  ]</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+<span class="k">done</span>
+</code></pre></div>
+<p>This loop creates a request for each server certificate containing the correct Subject Alternative Names for both Docker internal and external access.</p>
+<p>The resulting files are: <code>psmdb1-csr.json</code>,  <code>psmdb2-csr.json</code>,  <code>psmdb3-csr.json</code>.</p>
+</li>
+<li>
+<p>Generate and combine server certificates</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nv">name</span><span class="o">=</span><span class="s2">"psmdb</span><span class="nv">$i</span><span class="s2">"</span>
+
+<span class="w">    </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">-config.json"</span><span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">{</span>
+<span class="s">  "signing": {</span>
+<span class="s">    "default": {</span>
+<span class="s">      "expiry": "8760h",</span>
+<span class="s">      "usages": [</span>
+<span class="s">        "signing",</span>
+<span class="s">        "key encipherment",</span>
+<span class="s">        "server auth",</span>
+<span class="s">        "client auth"</span>
+<span class="s">      ]</span>
+<span class="s">    }</span>
+<span class="s">  }</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+
+<span class="w">    </span>cfssl<span class="w"> </span>gencert<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-ca<span class="o">=</span>ca.pem<span class="w"> </span>-ca-key<span class="o">=</span>ca-key.pem<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-config<span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">-config.json"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">-csr.json"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cfssljson<span class="w"> </span>-bare<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="w">    </span>cat<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">.pem"</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">-key.pem"</span><span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">-combined.pem"</span>
+<span class="k">done</span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>2025/10/10 14:11:44 [INFO] generate received request
+2025/10/10 14:11:44 [INFO] received CSR
+2025/10/10 14:11:44 [INFO] generating key: rsa-2048
+2025/10/10 14:11:45 [INFO] encoded CSR
+2025/10/10 14:11:45 [INFO] signed certificate with serial number     583125517108194834444624157976948904278489390606
+....
+</code></pre></div>
+</details>
+<p>This loop creates the certificate and private key for each mongo node, then combines them into a single file as required by mongod (<code>--tlsCertificateKeyFile</code>).</p>
+<p>After running these commands, the <code>certs</code> directory will contain:</p>
+<ul>
+<li><code>psmdb1.pem</code>, <code>psmdb2.pem</code>, <code>psmdb3.pem</code> — certificates for each server</li>
+<li><code>psmdb1-key.pem</code>, <code>psmdb2-key.pem</code>, <code>psmdb3-key.pem</code> — corresponding private keys</li>
+<li><code>psmdb1-combined.pem</code>, <code>psmdb2-combined.pem</code>, <code>psmdb3-combined.pem</code> — certificate and key combined in one file</li>
+<li><code>ca.pem</code> — certificate authority to be used by all members</li>
+</ul>
+</li>
+</ol>
+<h3 id="horizon-setup-deploy-percona-server-for-mongodb-in-docker">Deploy Percona Server for MongoDB in Docker<a class="headerlink" href="#horizon-setup-deploy-percona-server-for-mongodb-in-docker" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p>To simplify deploying Percona Server for MongoDB in Docker, create a Docker compose file with all required configuration. For each container, we map an internal MongoDB port <code>27017</code> to external ports <code>27017</code>, <code>27018</code> and <code>27019</code>:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tee<span class="w"> </span>test-horizons.yml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">name: Horizons</span>
+<span class="s">services:</span>
+<span class="s">    psmdb1:</span>
+<span class="s">        container_name: psmdb1</span>
+<span class="s">        image: percona/percona-server-mongodb:latest</span>
+<span class="s">        volumes:</span>
+<span class="s">            - ./certs:/certs</span>
+<span class="s">        ports:</span>
+<span class="s">            - "27017:27017"</span>
+<span class="s">        command: &gt;</span>
+<span class="s">            mongod --replSet rs0 --bind_ip_all</span>
+<span class="s">                   --tlsMode requireTLS</span>
+<span class="s">                   --tlsCertificateKeyFile /certs/psmdb1-combined.pem</span>
+<span class="s">                   --tlsCAFile /certs/ca.pem</span>
+<span class="s">    psmdb2:</span>
+<span class="s">        container_name: psmdb2</span>
+<span class="s">        image: percona/percona-server-mongodb:latest</span>
+<span class="s">        volumes:</span>
+<span class="s">            - ./certs:/certs</span>
+<span class="s">        ports:</span>
+<span class="s">            - "27018:27017"</span>
+<span class="s">        command: &gt;</span>
+<span class="s">            mongod --replSet rs0 --bind_ip_all</span>
+<span class="s">                   --tlsMode requireTLS</span>
+<span class="s">                   --tlsCertificateKeyFile /certs/psmdb2-combined.pem</span>
+<span class="s">                   --tlsCAFile /certs/ca.pem</span>
+<span class="s">    psmdb3:</span>
+<span class="s">        container_name: psmdb3</span>
+<span class="s">        image: percona/percona-server-mongodb:latest</span>
+<span class="s">        volumes:</span>
+<span class="s">            - ./certs:/certs</span>
+<span class="s">        ports:</span>
+<span class="s">            - "27019:27017"</span>
+<span class="s">        command: &gt;</span>
+<span class="s">            mongod --replSet rs0 --bind_ip_all</span>
+<span class="s">                   --tlsMode requireTLS</span>
+<span class="s">                   --tlsCertificateKeyFile /certs/psmdb3-combined.pem</span>
+<span class="s">                   --tlsCAFile /certs/ca.pem</span>
+<span class="s">networks:</span>
+<span class="s">    default:</span>
+<span class="s">        driver: bridge</span>
+<span class="s">EOF</span>
+</code></pre></div>
+</li>
+<li>
+<p>Start Percona Server for MongoDB using this file:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker-compose<span class="w"> </span>-f<span class="w"> </span>test-horizons.yml<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<p>The command does the following:</p>
+<ul>
+<li>reads the configuration file</li>
+<li>starts Percona Server for MongoDB containers with defined certificates in a detached mode</li>
+</ul>
+</li>
+</ol>
+<h3 id="horizon-setup-initiate-the-replica-set-with-horizons">Initiate the replica set with Horizons<a class="headerlink" href="#horizon-setup-initiate-the-replica-set-with-horizons" title="Permanent link">¶</a></h3>
+<p>With Percona Server for MongoDB up and running, initiate the replica set and specify the Horizons in its configuration.</p>
+<ol>
+<li>
+<p>Connect to one of the nodes and start the <code>bash</code> session:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>psmdb1<span class="w"> </span>--<span class="w"> </span>/bin/bash
+</code></pre></div>
+</li>
+<li>
+<p>Authenticate in Percona Server for MongoDB with enabled TLS:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>--tls<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/psmdb1-combined.pem<span class="w"> </span>--tlsAllowInvalidCertificates
+</code></pre></div>
+</li>
+<li>
+<p>Initialize the replica set with Horizons. Specify the internal hostname for the <code>host</code> field and the external hostname/port in the <code>horizons</code> field for the replica set configuration:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">rs</span><span class="p">.</span><span class="nx">initiate</span><span class="p">({</span>
+<span class="w">   </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="s2">"rs0"</span><span class="p">,</span>
+<span class="w">   </span><span class="nx">members</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">     </span><span class="p">{</span>
+<span class="w">       </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">       </span><span class="nx">host</span><span class="o">:</span><span class="w"> </span><span class="s2">"psmdb1.internal.net:27017"</span><span class="p">,</span><span class="w"> </span><span class="c1">// Internal address</span>
+<span class="w">       </span><span class="nx">Horizons</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">external</span><span class="o">:</span><span class="w"> </span><span class="s2">"external.mycompany.com:27017"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// External address</span>
+<span class="w">     </span><span class="p">},</span>
+<span class="w">     </span><span class="p">{</span>
+<span class="w">       </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">       </span><span class="nx">host</span><span class="o">:</span><span class="w"> </span><span class="s2">"psmdb2.internal.net:27017"</span><span class="p">,</span>
+<span class="w">       </span><span class="nx">Horizons</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">external</span><span class="o">:</span><span class="w"> </span><span class="s2">"external.mycompany.com:27018"</span><span class="w"> </span><span class="p">}</span>
+<span class="w">     </span><span class="p">},</span>
+<span class="w">     </span><span class="p">{</span>
+<span class="w">       </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">       </span><span class="nx">host</span><span class="o">:</span><span class="w"> </span><span class="s2">"psmdb3.internal.net:27017"</span><span class="p">,</span>
+<span class="w">       </span><span class="nx">Horizons</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">external</span><span class="o">:</span><span class="w"> </span><span class="s2">"external.mycompany.com:27019"</span><span class="w"> </span><span class="p">}</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w">   </span><span class="p">]</span>
+<span class="p">})</span><span class="w"> </span>
+</code></pre></div>
+</li>
+<li>
+<p>Check the replica set configuration:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">rs</span><span class="p">.</span><span class="nx">status</span><span class="p">()</span>
+</code></pre></div>
+</li>
+</ol>
+<h3 id="horizon-setup-test-connection-to-percona-server-for-mongodb">Test connection to Percona Server for MongoDB<a class="headerlink" href="#horizon-setup-test-connection-to-percona-server-for-mongodb" title="Permanent link">¶</a></h3>
+<p>Now let’s verify that Percona Server for MongoDB is reachable from both inside and outside networks.</p>
+<p><strong>Internal connection</strong></p>
+<p>To check internal connection, you can spin up a new Docker container with the MongoDB client in the same network or execute into one of existing containers and connect to the replica set.</p>
+<ol>
+<li>To spin up a new container, you must mount the certificates directory into the container when you start it:</li>
+</ol>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>mongo-test<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--network<span class="w"> </span>Horizons_default<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>&lt;path/to/certs&gt;:/certs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">27020</span>:27017<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>percona/percona-server-mongodb:8.0
+</code></pre></div>
+<ol>
+<li>
+<p>Execute in the container and connect to the replica set:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mongo-test<span class="w"> </span>mongosh<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--host<span class="w"> </span><span class="s2">"rs0/psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tls<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/psmdb1-combined.pem<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tlsCAFile<span class="w"> </span>/certs/ca.pem
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
+Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.5.6
+Using MongoDB:      8.0.12-4
+Using Mongosh:      2.5.6
+
+rs0 [primary] test&gt;
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>Check the replica set topology:</p>
+<div class="highlight" data-prompt="test>"><pre><span></span><code><span class="nx">test</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">hello</span><span class="p">()</span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-edit highlight"><pre><span></span><code>{
+  topologyVersion: {
+    processId: ObjectId('68e786bf0223ec7011474d9b'),
+    counter: Long('40')
+  },
+  hosts: [ 'psmdb1.internal.net:27017', 'psmdb2.internal.net:27017', 'psmdb3.internal.net:27017' ],
+  ...
+}
+</code></pre></div>
+</details>
+</li>
+</ol>
+<p><strong>External connection</strong></p>
+<ol>
+<li>
+<p>Connect to the replica set from the MongoDB client (Compass or <code>mongosh</code>) using the external hostnames you defined in Horizons:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span><span class="s2">"mongodb://external.mycompany.com:27017,external.mycompany.com:27018,external.mycompany.com:27019/?replicaSet=rs0"</span><span class="w"> </span>--tls<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/mongo1-combined.pem<span class="w"> </span>--tlsCAFile<span class="w"> </span>/certs/ca.pem
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
+Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.5.6
+Using MongoDB:  8.0.12-4
+Using Mongosh:  2.5.6
+
+rs0 [primary] test&gt;
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>Check the replica set topology:</p>
+<div class="highlight" data-prompt="test>"><pre><span></span><code><span class="nx">test</span><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">hello</span><span class="p">()</span>
+</code></pre></div>
+<details class="example">
+<summary>Sample output</summary>
+<div class="no-edit highlight"><pre><span></span><code>{
+  topologyVersion: {
+    processId: ObjectId('68e786bf0223ec7011474d9b'),
+    counter: Long('40')
+  },
+   hosts: [ 'external.mycompany.com:27017', 'external.mycompany.com:27018', 'external.mycompany.com:27019' ],
+  ...
+}
+</code></pre></div>
+</details>
+</li>
+</ol>
+<div class="admonition admonition">
+<p class="admonition-title">Admonition</p>
+<p>This setup is based on the blog post <a href="https://www.percona.com/blog/using-replicasethorizons-in-mongodb/">Using replicaSetHorizons in MongoDB</a> by <em>Ivan Groenewold</em>.</p>
+</div></body></html></section></section><section class="print-page" id="mongos-config" heading-number="6.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10409,10 +10958,10 @@ to make changes at runtime:    </p>
 </code></pre></div>
 </li>
 </ol></body></html></section>
-                    <section class='print-page md-section' id='section-6-4' heading-number='6.4'>
-                        <h1>Upgrade<a class='headerlink' href='#section-6-4' title='Permanent link'></a>
+                    <section class='print-page md-section' id='section-6-5' heading-number='6.5'>
+                        <h1>Upgrade<a class='headerlink' href='#section-6-5' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="install-upgrade-from-70" heading-number="6.4.1"><html><head>
+                    <section class="print-page" id="install-upgrade-from-70" heading-number="6.5.1"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10557,7 +11106,7 @@ data and configuration files are preserved).</p>
 <li><a href="https://docs.mongodb.com/manual/release-notes/8.0-upgrade-replica-set/">Upgrade a Replica Set</a></li>
 <li><a href="https://docs.mongodb.com/manual/release-notes/8.0-upgrade-sharded-cluster/">Upgrade a Sharded Cluster</a></li>
 </ul>
-</div></body></html></section><section class="print-page" id="install-upgrade-from-mongodb" heading-number="6.4.2"><html><head>
+</div></body></html></section><section class="print-page" id="install-upgrade-from-mongodb" heading-number="6.5.2"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10723,7 +11272,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 </ul>
 </div>
 <h2 id="install-upgrade-from-mongodb-upgrading-to-percona-server-for-mongodb-with-data-at-rest-encryption-enabled">Upgrading to Percona Server for MongoDB with data at rest encryption enabled<a class="headerlink" href="#install-upgrade-from-mongodb-upgrading-to-percona-server-for-mongodb-with-data-at-rest-encryption-enabled" title="Permanent link">¶</a></h2>
-<p>Steps to upgrade from MongoDB 8.0 Community Edition with data encryption enabled to Percona Server for MongoDB are different. <code>mongod</code> requires an empty <code>dbPath</code> data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the <a href="#inmemory-switching-storage-engines">Switching storage engines</a> for more information on migration of encrypted data. <a href="https://www.percona.com/about-percona/contact#us">Contact us</a> for working at the detailed migration steps, if further assistance is needed.</p></body></html></section><section class="print-page" id="install-update-pro" heading-number="6.4.3"><html><head>
+<p>Steps to upgrade from MongoDB 8.0 Community Edition with data encryption enabled to Percona Server for MongoDB are different. <code>mongod</code> requires an empty <code>dbPath</code> data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the <a href="#inmemory-switching-storage-engines">Switching storage engines</a> for more information on migration of encrypted data. <a href="https://www.percona.com/about-percona/contact#us">Contact us</a> for working at the detailed migration steps, if further assistance is needed.</p></body></html></section><section class="print-page" id="install-update-pro" heading-number="6.5.3"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10850,7 +11399,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 </ol>
 </div>
 </div>
-</div></body></html></section><section class="print-page" id="install-minor-upgrade" heading-number="6.4.4"><html><head>
+</div></body></html></section><section class="print-page" id="install-minor-upgrade" heading-number="6.5.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10904,7 +11453,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </spa
 </code></pre></div>
 </li>
 </ol>
-<p>To upgrade a replica set or a sharded cluster, use the <a href="#glossary-rolling-restart">rolling restart</a> method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.</p></body></html></section></section><section class="print-page" id="install-uninstall" heading-number="6.5"><html><head>
+<p>To upgrade a replica set or a sharded cluster, use the <a href="#glossary-rolling-restart">rolling restart</a> method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.</p></body></html></section></section><section class="print-page" id="install-uninstall" heading-number="6.6"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -11303,6 +11852,8 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p></body></html>
 <p>Once a transaction is committed, it will remain so.</p>
 <h2 id="glossary-foreign-key">Foreign Key<a class="headerlink" href="#glossary-foreign-key" title="Permanent link">¶</a></h2>
 <p>A referential constraint between two tables. Example: A purchase order in the purchase_orders table must have been made by a customer that exists in the customers table.</p>
+<h2 id="glossary-horizons">Horizons<a class="headerlink" href="#glossary-horizons" title="Permanent link">¶</a></h2>
+<p>Horizons is a feature that allows replica set members to advertise different hostnames depending on whether the request comes from an internal or external network. Its primary goal is to ensure that internal network users can resolve local resources with their internal IP addresses, while external users are directed to public IP addresses. Horizons is ideal for hybrid deployments, Kubernetes setups, and multi-cloud environments.</p>
 <h2 id="glossary-isolation">Isolation<a class="headerlink" href="#glossary-isolation" title="Permanent link">¶</a></h2>
 <p>The Isolation requirement means that no transaction can interfere with another.</p>
 <h2 id="glossary-jenkins">Jenkins<a class="headerlink" href="#glossary-jenkins" title="Permanent link">¶</a></h2>
@@ -11881,18 +12432,23 @@ we will do our very best to be helpful.</p></body></html></section></section></d
 
 .print-site-enumerate-headings #log-rotation > h1:before { content: '6.2 ' }
 
-.print-site-enumerate-headings #mongos-config > h1:before { content: '6.3 ' }
+.print-site-enumerate-headings #section-6-3 > h1:before { content: '6.3 ' }
+.print-site-enumerate-headings #horizon > h1:before { content: '6.3.1 ' }
 
-.print-site-enumerate-headings #section-6-4 > h1:before { content: '6.4 ' }
-.print-site-enumerate-headings #install-upgrade-from-70 > h1:before { content: '6.4.1 ' }
+.print-site-enumerate-headings #horizon-setup > h1:before { content: '6.3.2 ' }
 
-.print-site-enumerate-headings #install-upgrade-from-mongodb > h1:before { content: '6.4.2 ' }
+.print-site-enumerate-headings #mongos-config > h1:before { content: '6.4 ' }
 
-.print-site-enumerate-headings #install-update-pro > h1:before { content: '6.4.3 ' }
+.print-site-enumerate-headings #section-6-5 > h1:before { content: '6.5 ' }
+.print-site-enumerate-headings #install-upgrade-from-70 > h1:before { content: '6.5.1 ' }
 
-.print-site-enumerate-headings #install-minor-upgrade > h1:before { content: '6.4.4 ' }
+.print-site-enumerate-headings #install-upgrade-from-mongodb > h1:before { content: '6.5.2 ' }
 
-.print-site-enumerate-headings #install-uninstall > h1:before { content: '6.5 ' }
+.print-site-enumerate-headings #install-update-pro > h1:before { content: '6.5.3 ' }
+
+.print-site-enumerate-headings #install-minor-upgrade > h1:before { content: '6.5.4 ' }
+
+.print-site-enumerate-headings #install-uninstall > h1:before { content: '6.6 ' }
 
 .print-site-enumerate-headings #section-7 > h1:before { content: '7 ' }
 .print-site-enumerate-headings #release_notes-index > h1:before { content: '7.1 ' }

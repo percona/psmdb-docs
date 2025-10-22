@@ -3,19 +3,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The steps below describe how to migrate from the key file encryption to using  HashiCorp Vault.">
+        <meta name="description" content="This overview explains the Horizons feature in Percona Server for MongoDB. If you’re familiar with the concept and want to use it, switch to the Configure Horizons in Percona Server for MongoDB.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/encryption-mode-switch.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/horizon.html">
       
       
-        <link rel="prev" href="keyfile.html">
+        <link rel="prev" href="log-rotation.html">
       
       
-        <link rel="next" href="fips.html">
+        <link rel="next" href="horizon-setup.html">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
@@ -23,7 +23,7 @@
     
     
       
-        <title>Migrate from keyfile to Vault - Percona Server for MongoDB 8.0</title>
+        <title>Split-DNS Horizons usage with Percona Server for MongoDB - Percona Server for MongoDB 8.0</title>
       
     
     
@@ -93,7 +93,7 @@
                  
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Percona Server for MongoDB 8.0 - Migrate from keyfile to Vault">
+<meta property="og:title" content="Percona Server for MongoDB 8.0 - Split-DNS Horizons usage with Percona Server for MongoDB">
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/8.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
 <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
@@ -130,7 +130,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#migrate-from-key-file-encryption-to-hashicorp-vault-encryption" class="md-skip">
+        <a href="#split-dns-horizons-usage-with-percona-server-for-mongodb" class="md-skip">
           Skip to content
         </a>
       
@@ -218,7 +218,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Migrate from keyfile to Vault
+              Split-DNS Horizons usage with Percona Server for MongoDB
             
           </span>
         </div>
@@ -844,20 +844,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -873,7 +871,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Features
@@ -1643,20 +1641,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5">
         
           
           <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
@@ -1672,7 +1668,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
             Encryption
@@ -1775,32 +1771,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Migrate from keyfile to Vault
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="encryption-mode-switch.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="encryption-mode-switch.html" class="md-nav__link">
         
   
   
@@ -1811,37 +1785,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#assumptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Assumptions
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2004,18 +1947,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -2031,7 +1976,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Administration
@@ -2088,18 +2033,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
         
           
           <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
@@ -2115,7 +2062,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             Connect from an external network
@@ -2126,10 +2073,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="horizon.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Split-DNS Horizons usage with Percona Server for MongoDB
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="horizon.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2140,6 +2109,70 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-mongodb-discovers-replica-set-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      How MongoDB discovers replica set members
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How MongoDB discovers replica set members">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-horizons-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Horizons work
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-horizons" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use Horizons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2727,7 +2760,7 @@
                   <div class="md-sidebar__inner">
                     <div data-banner="data-banner">
     <div class="actions">
-        <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/encryption-mode-switch.md" title="Edit this page on GitHub" class="edit-page-link">
+        <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/horizon.md" title="Edit this page on GitHub" class="edit-page-link">
             <span class="edit-page-icon">
                 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
@@ -2767,9 +2800,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#assumptions" class="md-nav__link">
+  <a href="#how-mongodb-discovers-replica-set-members" class="md-nav__link">
     <span class="md-ellipsis">
-      Assumptions
+      How MongoDB discovers replica set members
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How MongoDB discovers replica set members">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-horizons-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Horizons work
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-horizons" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use Horizons
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
     </span>
   </a>
   
@@ -2797,63 +2863,76 @@
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/encryption-mode-switch.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/horizon.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
     </a>
   
 
 
-<h1 id="migrate-from-key-file-encryption-to-hashicorp-vault-encryption">Migrate from key file encryption to HashiCorp Vault encryption<a class="headerlink" href="#migrate-from-key-file-encryption-to-hashicorp-vault-encryption" title="Permanent link">¶</a></h1>
-<p>The steps below describe how to migrate from the key file encryption to using  HashiCorp Vault.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is a sample guideline and it should be used for testing purposes only. We recommend to contact <a href="https://www.percona.com/services/consulting">Percona Consulting Services</a> to assist you with migration in production environment.</p>
-</div>
-<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">¶</a></h3>
-<p>We assume that you have installed and configured the vault server and enabled the KV Secrets Engine as the secrets storage for it.</p>
+<h1 id="split-dns-horizons-usage-with-percona-server-for-mongodb">Split-DNS Horizons usage with Percona Server for MongoDB<a class="headerlink" href="#split-dns-horizons-usage-with-percona-server-for-mongodb" title="Permanent link">¶</a></h1>
+<p>This overview explains the Horizons feature in Percona Server for MongoDB. If you’re familiar with the concept and want to use it, switch to the <a href="horizon-setup.html">Configure Horizons in Percona Server for MongoDB</a>.</p>
+<p>You can deploy Percona Server for MongoDB in different environments:</p>
+<ul>
+<li>in containerized environments such as Docker or Kubernetes</li>
+<li>in hybrid setups where you span replica set across AWS and an on-prem data center</li>
+<li>on premises with VPN networks hidden behind NAT</li>
+<li>on virtual servers in a public cloud such as AWS EC2 instances, Azure VMs or Google Compute Engine </li>
+</ul>
+<p>Regardless of the environment you use, you may come across the issue that clients within the same network can reach the replica set just fine. However, clients running outside your cluster such as backup or monitoring tools can’t connect. Why does this happen?</p>
+<h2 id="how-mongodb-discovers-replica-set-members">How MongoDB discovers replica set members<a class="headerlink" href="#how-mongodb-discovers-replica-set-members" title="Permanent link">¶</a></h2>
+<p>Let’s have a closer look at how MongoDB discovers replica set members.</p>
+<p>When your client connects to the replica set, it uses an IP address or hostname of a node. The hostname can be an external one, for example, <code>mongo.external.mycompany.com:27017</code>. The MongoDB driver treats this as a starting point. It successfully connects and authenticates. Then the driver runs the <code>db.hello()</code> command to discover the full replica set topology.</p>
+<p>MongoDB responds with the list of member hostnames you defined when you initiated the replica set with the <code>rs.initiate()</code> command. By default, those are internal names like <code>psmdb1.internal.net</code> or <code>psmdb1.default.svc.cluster.local</code>.</p>
+<p>If your client is inside the same network, such as inside the same Docker bridge, Kubernetes namespace or local subnet — it can resolve those names and connect to all members. But if the client is external, running on your host machine, in another cloud or outside a VPN, it likely cannot resolve those internal hostnames.</p>
+<p>Port mismatches add another layer of complexity. Containers often expose MongoDB’s default port 27017 internally, but map it to different external ports (like 32768) to avoid conflicts. Even in non-containerized setups, NAT or firewall rules may rewrite ports, causing the driver to fail when reaching other members.</p>
+<p>To solve these issues, use the Horizons feature available in Percona Server for MongoDB and Percona Operator for MongoDB v1.16.0+.</p>
+<h3 id="how-horizons-work">How Horizons work<a class="headerlink" href="#how-horizons-work" title="Permanent link">¶</a></h3>
+<p>Horizons let each replica set member advertise different hostnames and ports depending on how the client connects — whether from inside a container, across clouds, or from a remote data center. This ensures reliable discovery and connectivity across diverse environments.</p>
+<p>You configure Horizons in the replica set configuration under the horizons field:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="err">hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="s2">"psmdb1.internal.net:27017"</span><span class="p">,</span>
+<span class="w">  </span><span class="err">horizo</span><span class="kc">ns</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">ex</span><span class="kc">ternal</span><span class="p">:</span><span class="w"> </span><span class="s2">"mongo1.external.mycompany.com:32768"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>With Horizons configured, a single MongoDB replica set can serve two distinct client networks:</p>
+<ul>
+<li><strong>Internal access</strong>: Using internal container hostnames (<code>psmdb1.internal.net:27017</code>)</li>
+<li><strong>External access</strong>: Using public DNS records, load balancer hostnames, or specific host-mapped ports (<code>mongo1.external.mycompany.com:32768</code>)</li>
+</ul>
+<p>The following diagram shows the use of Horizons work:</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/horizons_diagram.png" data-desc-position="bottom"><img alt="Horizons workflow" src="_images/horizons_diagram.png"></a></p>
+<p>Horizons rely on a crucial component of the TLS handshake: Server Name Indication (SNI).</p>
+<p>Here’s how it works:</p>
 <ol>
 <li>
-<p>Stop <code>mongod</code>.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
-</code></pre></div>
+<p>An external client initiates a TLS connection. As part of the handshake, it includes the hostname it is trying to connect to (for example, <code>external.mycompany.com</code>) in the SNI field of the ClientHello message.</p>
 </li>
 <li>
-<p>Insert the key from keyfile into the HashiCorp Vault server to the desired secret path.</p>
-<ul>
-<li>Retrieve the key value from the keyfile</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cat<span class="w"> </span>/data/key/mongodb.key
-d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
-</code></pre></div>
-<ul>
-<li>Insert the key into vault</li>
-</ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>vault<span class="w"> </span>kv<span class="w"> </span>put<span class="w"> </span>secret/dc/psmongodb1<span class="w"> </span><span class="nv">value</span><span class="o">=</span>d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Vault KV Secrets Engine uses different read and write secrets paths. To insert data to Vault, specify the secret path without the <code>data/</code> prefix.</p>
-</div>
+<p>Percona Server for MongoDB receives the connection and inspects the SNI hostname.</p>
 </li>
 <li>
-<p>Edit the configuration file to provision the HashiCorp Vault configuration options instead of the key file encryption options.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">   </span><span class="nt">vault</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">serverName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.2.15</span>
-<span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8200</span>
-<span class="w">      </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/data/dc/psmongodb1</span>
-<span class="w">      </span><span class="nt">tokenFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/mongodb/token</span>
-<span class="w">      </span><span class="nt">serverCAFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/mongodb/vault.crt</span>
-</code></pre></div>
+<p>Percona Server for MongoDB checks its defined Horizons. If the hostname presented in the SNI matches a value defined within a horizon (for example, the horizon key named <code>external</code>), the server knows the client is connecting via that external context.</p>
 </li>
 <li>
-<p>Start the <code>mongod</code> service</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
-</code></pre></div>
+<p>When the driver later runs <code>db.hello()</code>, the server returns the corresponding horizon value (the external hostname/port) in the hosts list. This ensures the client discovers members using addresses it can resolve.</p>
 </li>
 </ol>
+<p>This mechanism makes TLS mandatory for Horizons to function. The SNI field is the only way for the server to reliably determine the client’s network context.</p>
+<h2 id="when-to-use-horizons">When to use Horizons<a class="headerlink" href="#when-to-use-horizons" title="Permanent link">¶</a></h2>
+<p>Horizons are especially useful if you:</p>
+<ul>
+<li>Run MongoDB in Kubernetes and need external access</li>
+<li>Use Docker with port mappings and container names</li>
+<li>Deploy across multiple clouds or hybrid environments, where internal and external DNS differ</li>
+<li>Use virtual machines or bare-metal servers with split DNS or custom routing rules</li>
+<li>Need to expose MongoDB to external monitoring, backup, or app clients</li>
+</ul>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
+<p><a class="md-button" href="horizon-setup.html">Configure Horizons in Percona Server for MongoDB</a></p>
 
 
 
@@ -2876,7 +2955,7 @@ d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 26, 2025 15:58:16 UTC">August 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 22, 2025 13:09:46 UTC">October 22, 2025</span>
   </span>
 
     
@@ -2886,7 +2965,7 @@ d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 7, 2022 07:48:11 UTC">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 22, 2025 13:09:46 UTC">October 22, 2025</span>
   </span>
 
     
