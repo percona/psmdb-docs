@@ -163,7 +163,7 @@ At this step you need to create CA and certificates where each server cert is va
 
 ### Deploy Percona Server for MongoDB in Docker
 
-1. To simplify deploying Percona Server for MondoDB in Docker, create a Docker compose file with all required configuration. For each container, we map an internal MongoDB port `27017` to external ports `27017`, `27018` and `27019`:
+1. To simplify deploying Percona Server for MongoDB in Docker, create a Docker compose file with all required configuration. For each container, we map an internal MongoDB port `27017` to external ports `27017`, `27018` and `27019`:
 
     ```{.bash data-prompt="$"}
     $ tee test-horizons.yml <<EOF
