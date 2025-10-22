@@ -2,7 +2,7 @@
 
 This document focuses on configuring [Horizons](glossary.md#horizons) in Percona Server for MongoDB deployed in Docker. To learn more about Horizons, how they work and when to use them, see [Split-DNS Horizons usage with Percona Server for MongoDB](horizon.md).
 
-For using Horizons in Kubernetes environment with Percona Operator for MongoDB, see the [Expose replica set with split-Horizon DNS](https://docs.percona.com/percona-operator-for-mongodb/expose.html#exposing-replica-set-with-split-Horizon-dns) chapter in Percona Operator for MongoDB documentation.
+For using Horizons in Kubernetes environment with Percona Operator for MongoDB, see the [Expose replica set with split-Horizon DNS](https://docs.percona.com/percona-operator-for-mongodb/expose.html#exposing-replica-set-with-split-horizon-dns) chapter in Percona Operator for MongoDB documentation.
 
 ## Requirements
 
