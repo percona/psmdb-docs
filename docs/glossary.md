@@ -20,6 +20,10 @@ Once a transaction is committed, it will remain so.
 
 A referential constraint between two tables. Example: A purchase order in the purchase_orders table must have been made by a customer that exists in the customers table.
 
+## Horizons
+
+Horizons is a feature that allows replica set members to advertise different hostnames depending on whether the request comes from an internal or external network. Its primary goal is to ensure that internal network users can resolve local resources with their internal IP addresses, while external users are directed to public IP addresses. Horizons is ideal for hybrid deployments, Kubernetes setups, and multi-cloud environments.
+
 ## Isolation
     
 The Isolation requirement means that no transaction can interfere with another.
