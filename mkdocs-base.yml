@@ -236,6 +236,9 @@ nav:
   - Administration:
       - "Tune parameters": "set-parameter.md"
       - log-rotation.md
+      - Connect from an external network: 
+        - "Split-DNS Horizons usage with Percona Server for MongoDB": horizon.md
+        - "Configure Horizons in Percona Server for MongoDB": horizon-setup.md
       - mongos-config.md
       - Upgrade:
         - "Upgrade from 7.0 to 8.0": "install/upgrade-from-70.md"
