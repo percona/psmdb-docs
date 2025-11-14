@@ -10,6 +10,7 @@ product:
   psmdb_full_name:  Percona Server for MongoDB
 
 date:
+  7_0_26: '2025-11-25'
   7_0_24: '2025-09-11'
   7_0_22: '2025-07-28'
   7_0_18: '2025-04-24'
