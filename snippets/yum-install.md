@@ -63,13 +63,13 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
          ```{.bash .no-copy}
              Available Packages
          
-         percona-server-mongodb.x86_64    {{release}}.el8       psmdb-70-release-x86_64
+         percona-server-mongodb.x86_64    {{release}}.el9       psmdb-70-release-x86_64
          ```
 
      2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
 
         ```{.bash data-prompt="$"}
-        $ sudo yum install percona-server-mongodb-{{release}}.el8
+        $ sudo yum install percona-server-mongodb-{{release}}.el9
         ```
 
 By default, Percona Server for MongoDB stores data files in `/var/lib/mongodb/`
@@ -81,7 +81,7 @@ and configuration parameters in `/etc/mongod.conf`.
 
     If you use SELinux in enforcing mode, you must customize your SELinux user policies to allow access to certain `/sys` and `/proc` files for OS-level statistics. Also, you must customize directory and port access policies if you are using non-default locations.
 
-    Please refer to [Configure SELinux](https://docs.mongodb.com/v6.0/tutorial/install-mongodb-on-red-hat/#configure-selinux) section of MongoDB Documentation for policy configuration guidelines.
+    Please refer to [Configure SELinux](https://docs.mongodb.com/v7.0/tutorial/install-mongodb-on-red-hat/#configure-selinux) section of MongoDB Documentation for policy configuration guidelines.
 
 **Start the service**
 

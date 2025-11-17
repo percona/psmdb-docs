@@ -13,6 +13,7 @@ You can use any of the easy-install guides. We recommend to use **the package ma
 
     [on Debian and Ubuntu :material-arrow-right:](apt.md){ .md-button }
     [on RHEL and derivatives :material-arrow-right:](yum.md){ .md-button }
+    [on Rocky Linux :material-arrow-right:](rocky-linux.md){ .md-button }
     [on Amazon Linux 2023 :material-arrow-right:](amazon-linux.md){ .md-button }
 
     We gather [Telemetry data](../telemetry.md) in Percona packages.

@@ -1,11 +1,8 @@
-# Install Percona Server for MongoDB on Red Hat Enterprise Linux and derivatives
+# Install Percona Server for MongoDB on Rocky Linux
 
-This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
+This guide walks you through the installation of Percona Server for MongoDB on Rocky Linux. 
 
-!!! note
-
-    Percona Server for MongoDB should work on other RPM-based distributions (for example, Alma Linux), but it is tested only on platforms listed on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page. 
-
+We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
 --8<-- "yum-install.md:1:48"
 
@@ -38,4 +35,3 @@ This document describes how to install Percona Server for MongoDB on RPM-based d
 ## Next steps
 
 [Connect to MongoDB :material-arrow-right:](../connect.md){.md-button}
-
