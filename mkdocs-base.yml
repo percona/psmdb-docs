@@ -166,7 +166,7 @@ nav:
   - get-help.md
   - Get started: 
       - Quickstart guides: 'install/index.md'
-      - Infrastruture requirements:
+      - Infrastructure requirements:
         - 'System requirements': 'system-requirements.md'
         - install/cloud-deployments.md
       - 1. Install:  
