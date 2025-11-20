@@ -71,10 +71,12 @@ extra_css:
   - css/osano.css
   - css/mongodb.css
   - css/landing.css
+  - css/rating.css
 
 extra_javascript:
   - js/version-select.js
   - js/promptremover.js
+  - js/rating.js
 
 markdown_extensions:
   abbr: {}
