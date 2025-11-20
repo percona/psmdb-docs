@@ -16,3 +16,4 @@ mkdocs-meta-descriptions-plugin
 mike
 mkdocs-glightbox
 mkdocs-print-site-plugin
+mkdocs-git-committers-plugin-2
