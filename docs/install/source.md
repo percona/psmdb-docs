@@ -25,7 +25,7 @@ To build Percona Server for MongoDB manually, you need the following:
    | Linux Distribution              | Dependencies
    | --------------------------------|---------------------------
    | Debian/Ubuntu                   | gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev liblzma-dev e2fslibs-dev|
-   | RedHat Enterprise Linux/CentOS 9/Oracle Linux 9/Rocky Linux 9| gcc gcc-c++ cmake curl openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel|  
+   | RedHat Enterprise Linux/CentOS /Oracle Linux /Rocky Linux| gcc gcc-c++ cmake curl openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel|  
 
 - About 13 GB of disk space for the core binaries (`mongod`, `mongos`, and `mongo`) and about 600 GB for the `install-all` target.
 
