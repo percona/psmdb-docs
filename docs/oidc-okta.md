@@ -15,7 +15,7 @@ The setup process consists of three main stages:
 
 ## Prerequisites
 
-1. ProBuild of Percona Server for MongoDB 7.0.24-13 or higher
+1. Percona Server for MongoDB 7.0.24-13 or higher
 2. Access to Okta Admin console
 
 ## Identity provider setup

@@ -62,7 +62,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
            mongodb-org-tools
          ```
 
-     5. [Install Percona Server for MongoDB](apt.md). If you a Percona Customer, you can [install Percona Server for MongoDB Pro](install-pro.md)
+     5. [Install Percona Server for MongoDB](apt.md). 
 
      6. Verify that the configuration file includes correct options:
 
@@ -129,7 +129,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
          mongodb-org-tools-7.0.2-1.el8.x86_64
          ```
      
-     4. [Install Percona Server for MongoDB](yum.md). If you a Percona Customer, you can [install Percona Server for MongoDB Pro](install-pro.md)
+     4. [Install Percona Server for MongoDB](yum.md). 
 
      5. Verify that the configuration file includes correct options:
 

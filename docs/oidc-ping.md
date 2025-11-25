@@ -17,7 +17,7 @@ The setup process consists of three main stages:
 
 Before you start, ensure you have the following:
 
-1. Percona Server for MongoDB Pro 7.0.24-13 and higher
+1. Percona Server for MongoDB 7.0.24-13 and higher
 2. Ping Identity account with the active subscription
 
 ## Identity provider setup

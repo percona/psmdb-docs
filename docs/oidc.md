@@ -2,8 +2,6 @@
 
 !!! note "Version added: [7.0.24-13](release_notes/7.0.24-13.md)"
 
-	 Available in Percona Server for MongoDB Pro out of the box.
-
 
 OpenID Connect (OIDC) is an identity authentication protocol built on top of the OAuth 2.0 framework. OIDC is designed to verify user identities and provide authentication, ensuring that users are who they claim to be. OAuth 2.0 is used for user authorization to access resources. 
 
