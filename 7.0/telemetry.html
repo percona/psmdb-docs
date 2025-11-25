@@ -4412,17 +4412,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Add the environment variable before the installation process.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Add the environment variable before the installation process.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Add the environment variable when running a command in a new container.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">PERCONA_TELEMETRY_DISABLE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>percona/percona-server-mongodb:&lt;TAG&gt;
 </code></pre></div>
@@ -4447,12 +4447,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Turn off Telemetry Agent temporarily until the next server restart with this command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>percona-telemetry-agent
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>stop<span class="w"> </span>percona-telemetry-agent
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Turn off Telemetry Agent permanently with this command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>percona-telemetry-agent
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>disable<span class="w"> </span>percona-telemetry-agent
 </code></pre></div>
 </div>
 </div>
@@ -4476,16 +4476,16 @@ for persistent changes:    </p>
 </div>
 <div class="tabbed-block">
 <p>Use the <code>--setParameter</code> command line option arguments for both <code>mongod</code> and <code>mongos</code> processes. The server starts with the telemetry Subsystem disabled:    </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--setParameter<span class="w"> </span><span class="nv">perconaTelemetry</span><span class="o">=</span><span class="nb">false</span>
-$<span class="w"> </span>mongos<span class="w"> </span><span class="se">\</span>
+mongos<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--setParameter<span class="w"> </span><span class="nv">perconaTelemetry</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Use the <code>setParameter</code> command on the <code>admin</code> database
 to make changes at runtime. The changes apply until the server restart.</p>
-<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"perconaTelemetry"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">})</span>
+<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"perconaTelemetry"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">})</span>
 </code></pre></div>
 </div>
 </div>
@@ -4516,7 +4516,7 @@ to make changes at runtime. The changes apply until the server restart.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 30, 2025 16:58:39 UTC">July 30, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 25, 2025 12:27:16 UTC">November 25, 2025</span>
   </span>
 
     
@@ -4544,9 +4544,9 @@ to make changes at runtime. The changes apply until the server restart.</p>
     
     <nav>
       
-        <a href="https://github.com/radoslawszulgo" class="md-author" title="@radoslawszulgo">
+        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
           
-          <img src="https://avatars.githubusercontent.com/u/175048287?v=4&amp;size=72" alt="radoslawszulgo">
+          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
         </a>
       
         <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
@@ -4554,9 +4554,9 @@ to make changes at runtime. The changes apply until the server restart.</p>
           <img src="https://avatars.githubusercontent.com/u/19864447?v=4&amp;size=72" alt="web-flow">
         </a>
       
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+        <a href="https://github.com/radoslawszulgo" class="md-author" title="@radoslawszulgo">
           
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
+          <img src="https://avatars.githubusercontent.com/u/175048287?v=4&amp;size=72" alt="radoslawszulgo">
         </a>
       
       

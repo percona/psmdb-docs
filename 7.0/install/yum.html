@@ -4008,7 +4008,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Install <strong>percona-release</strong>:     </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>https://repo.percona.com/yum/percona-release-latest.noarch.rpm
 </code></pre></div>
 <details class="example">
 <summary>Example output</summary>
@@ -4020,7 +4020,7 @@ Preparing...<span class="w">                </span><span class="c1">############
 </li>
 <li>
 <p>Enable the repository: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-70<span class="w"> </span>release
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-70<span class="w"> </span>release
 </code></pre></div>
 </li>
 </ol>
@@ -4029,7 +4029,7 @@ Preparing...<span class="w">                </span><span class="c1">############
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>To install the latest version of <em>Percona Server for MongoDB</em>, use the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4037,7 +4037,7 @@ Preparing...<span class="w">                </span><span class="c1">############
 <ol>
 <li>
 <p>List available versions:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>list<span class="w"> </span>percona-server-mongodb<span class="w"> </span>--showduplicates
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>list<span class="w"> </span>percona-server-mongodb<span class="w"> </span>--showduplicates
 </code></pre></div>
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
@@ -4047,7 +4047,7 @@ percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>
 </li>
 <li>
 <p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.26-14, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.26-14.el9
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.26-14.el9
 </code></pre></div>
 </li>
 </ol>
@@ -4065,28 +4065,28 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
 <p><strong>Start the service</strong></p>
 <p>Percona Server for MongoDB is not started automatically after installation.
 Start it manually using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Confirm that service is running</strong></p>
 <p>Check the service status using the following command: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Stop the service</strong></p>
 <p>Stop the service using the following command: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Restart the service</strong></p>
 <p>Restart the service using the following command: </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
 <h3 id="run-after-reboot">Run after reboot<a class="headerlink" href="#run-after-reboot" title="Permanent link">¶</a></h3>
 <p>The <code>mongod</code> service is not automatically started
 after you reboot the system.</p>
 <p>To make it start automatically after reboot, enable it using the systemctl utility:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mongod
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mongod
 </code></pre></div>
 <p>Then start the <code>mongod</code> service:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
 <p><a class="md-button" href="../connect.html">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p>
@@ -4112,7 +4112,7 @@ after you reboot the system.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 25, 2025 11:52:18 UTC">November 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 25, 2025 12:27:16 UTC">November 25, 2025</span>
   </span>
 
     

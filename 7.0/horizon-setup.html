@@ -4015,12 +4015,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Create a directory to store your TLS certificates. </p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>certs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>certs
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>certs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>certs
 </code></pre></div>
 </li>
 <li>
 <p>Create the Certificate Authority (CA) signing request file:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tee<span class="w"> </span>ca-csr.json<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<div class="highlight"><pre><span></span><code>tee<span class="w"> </span>ca-csr.json<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
 <span class="s">{</span>
 <span class="s">  "CN": "MyTestCA",</span>
 <span class="s">  "key": { "algo": "rsa", "size": 2048 },</span>
@@ -4032,7 +4032,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Generate the self-signed CA certificate and key:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cfssl<span class="w"> </span>gencert<span class="w"> </span>-initca<span class="w"> </span>ca-csr.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>cfssljson<span class="w"> </span>-bare<span class="w"> </span>ca
+<div class="highlight"><pre><span></span><code>cfssl<span class="w"> </span>gencert<span class="w"> </span>-initca<span class="w"> </span>ca-csr.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>cfssljson<span class="w"> </span>-bare<span class="w"> </span>ca
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
@@ -4052,8 +4052,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Now, create server certificate requests for each Percona Server for MongoDB server (psmdb1, psmdb2, psmdb3), including both internal and external names in the “hosts” array:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nv">public_ips</span><span class="o">=(</span><span class="s2">"52.45.100.201"</span><span class="w"> </span><span class="s2">"52.45.100.202"</span><span class="w"> </span><span class="s2">"52.45.100.203"</span><span class="o">)</span>
-$<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<div class="highlight"><pre><span></span><code><span class="nv">public_ips</span><span class="o">=(</span><span class="s2">"52.45.100.201"</span><span class="w"> </span><span class="s2">"52.45.100.202"</span><span class="w"> </span><span class="s2">"52.45.100.203"</span><span class="o">)</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="nv">name</span><span class="o">=</span><span class="s2">"psmdb</span><span class="nv">$i</span><span class="s2">"</span>
 <span class="w">    </span><span class="nv">public_ip</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">public_ips</span><span class="p">[</span><span class="k">$((</span><span class="nv">i</span><span class="o">-</span><span class="m">1</span><span class="k">))</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="w">        </span>
 <span class="w">    </span>tee<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">-csr.json"</span><span class="w"> </span><span class="s">&lt;&lt;EOF</span>
@@ -4073,7 +4073,7 @@ $<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<spa
 </li>
 <li>
 <p>Generate and combine server certificates</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="nv">name</span><span class="o">=</span><span class="s2">"psmdb</span><span class="nv">$i</span><span class="s2">"</span>
 
 <span class="w">    </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">-config.json"</span><span class="w"> </span><span class="s">&lt;&lt;EOF</span>
@@ -4124,7 +4124,7 @@ $<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<spa
 <ol>
 <li>
 <p>To simplify deploying Percona Server for MondoDB in Docker, create a Docker compose file with all required configuration. For each container, we map an internal MongoDB port <code>27017</code> to external ports <code>27017</code>, <code>27018</code> and <code>27019</code>:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tee<span class="w"> </span>test-horizons.yml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<div class="highlight"><pre><span></span><code>tee<span class="w"> </span>test-horizons.yml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
 <span class="s">name: Horizons</span>
 <span class="s">services:</span>
 <span class="s">    psmdb1:</span>
@@ -4171,7 +4171,7 @@ $<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<spa
 </li>
 <li>
 <p>Start Percona Server for MongoDB using this file:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker-compose<span class="w"> </span>-f<span class="w"> </span>test-horizons.yml<span class="w"> </span>up<span class="w"> </span>-d
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>-f<span class="w"> </span>test-horizons.yml<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
 <p>The command does the following:</p>
 <ul>
@@ -4185,12 +4185,12 @@ $<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<spa
 <ol>
 <li>
 <p>Connect to one of the nodes and start the <code>bash</code> session:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>psmdb1<span class="w"> </span>--<span class="w"> </span>/bin/bash
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>psmdb1<span class="w"> </span>--<span class="w"> </span>/bin/bash
 </code></pre></div>
 </li>
 <li>
 <p>Authenticate in Percona Server for MongoDB with enabled TLS:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>--tls<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/psmdb1-combined.pem<span class="w"> </span>--tlsAllowInvalidCertificates
+<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>--tls<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/psmdb1-combined.pem<span class="w"> </span>--tlsAllowInvalidCertificates
 </code></pre></div>
 </li>
 <li>
@@ -4230,7 +4230,7 @@ $<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<spa
 <ol>
 <li>To spin up a new container, you must mount the certificates directory into the container when you start it:</li>
 </ol>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--name<span class="w"> </span>mongo-test<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--network<span class="w"> </span>Horizons_default<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span>&lt;path/to/certs&gt;:/certs<span class="w"> </span><span class="se">\</span>
@@ -4241,7 +4241,7 @@ $<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<spa
 <ol>
 <li>
 <p>Execute in the container and connect to the replica set:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mongo-test<span class="w"> </span>mongosh<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mongo-test<span class="w"> </span>mongosh<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--host<span class="w"> </span><span class="s2">"rs0/psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--tls<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/psmdb1-combined.pem<span class="w"> </span><span class="se">\</span>
@@ -4280,7 +4280,7 @@ rs0 [primary] test&gt;
 <ol>
 <li>
 <p>Connect to the replica set from the MongoDB client (Compass or <code>mongosh</code>) using the external hostnames you defined in Horizons:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span><span class="s2">"mongodb://external.mycompany.com:27017,external.mycompany.com:27018,external.mycompany.com:27019/?replicaSet=rs0"</span><span class="w"> </span>--tls<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/mongo1-combined.pem<span class="w"> </span>--tlsCAFile<span class="w"> </span>/certs/ca.pem
+<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span><span class="s2">"mongodb://external.mycompany.com:27017,external.mycompany.com:27018,external.mycompany.com:27019/?replicaSet=rs0"</span><span class="w"> </span>--tls<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/mongo1-combined.pem<span class="w"> </span>--tlsCAFile<span class="w"> </span>/certs/ca.pem
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
@@ -4337,7 +4337,7 @@ rs0 [primary] test&gt;
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 22, 2025 09:21:42 UTC">October 22, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 25, 2025 12:27:16 UTC">November 25, 2025</span>
   </span>
 
     
