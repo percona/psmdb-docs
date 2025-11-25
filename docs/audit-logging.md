@@ -24,8 +24,8 @@ For example, to log only events from a user named **tim**
 and write them to a JSON file `/var/log/psmdb/audit.json`,
 start the server with the following parameters:
 
-```{.bash data-prompt="$"}
-$ mongod \
+```bash
+mongod \
  --dbpath data/db
  --auditDestination file \
  --auditFormat JSON \
@@ -49,7 +49,7 @@ auditLog:
 This example shows how to send audit events to the
 `syslog`. Specify the following parameters:
 
-```{.bash data-prompt="$"}
+```bash
 mongod \
 --dbpath data/db
 --auditDestination syslog \

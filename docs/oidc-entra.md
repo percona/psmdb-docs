@@ -128,14 +128,14 @@ To authorize users by identity provider groups, specify `authorizationClaim` val
     
     2. Start or restart Percona Server for MongoDB:
 
-        ```{.bash data-prompt="$"}
-        $ sudo systemctl start mongod
+        ```bash
+        sudo systemctl start mongod
         ```
 
 === "Command line"
 
-    ```{.bash data-prompt="$"}
-    $ mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
+    ```bash
+    mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
     'oidcIdentityProviders=[ {
        "issuer": "https://login.microsoftonline.com/{tenant-id}/v2.0",
        "clientId": "3ef1b836-6f12-4858-876b-35245110f6bc",
@@ -181,8 +181,8 @@ To connect to Percona Server for MongoDB using OIDC authentication, you can use 
 
 1. Connect to Percona Server for MongoDB:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows auth-code 
+    ```bash
+    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows auth-code 
     ```
 
 2. The browser opens. Pass your credentials and click Next.
@@ -193,8 +193,8 @@ To connect to Percona Server for MongoDB using OIDC authentication, you can use 
 
 1. Connect to Percona Server for MongoDB:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows device-auth 
+    ```bash
+    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows device-auth 
     ```
 
     ??? example "Sample output"

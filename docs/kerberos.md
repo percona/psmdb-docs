@@ -22,9 +22,9 @@ To authenticate, users must exist in the Kerberos and Percona Server for MongoDB
 
 After you have defined the user principals in the Kerberos server, add them to the `$external` database in Percona Server for MongoDB and assign required roles:
 
-```{.javascript data-prompt=">"}
-> use $external
-> db.createUser({user: "demo@PERCONATEST.COM",roles: [{role: "read", db: "admin"}]})
+```javascript
+use $external
+db.createUser({user: "demo@PERCONATEST.COM",roles: [{role: "read", db: "admin"}]})
 ```
 
 Replace `demo@PERCONATEST.COM` with your username and Kerberos realm.
@@ -40,28 +40,28 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
 
 1. Stop the `mongod` service
 
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl stop mongod
+    ```bash
+    sudo systemctl stop mongod
     ```
 
 2. [Generate the keytab file](https://web.mit.edu/kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-install/The-Keytab-File.html) or get a copy of it if you generated the `keytab` file on another host. Save the key file under a separate path (e.g. `/etc/mongodb.keytab`)
 
-    ```{.bash data-prompt="$"}
-    $ cp /etc/krb5.keytab /etc/mongodb.keytab
+    ```bash
+    cp /etc/krb5.keytab /etc/mongodb.keytab
     ```
 
 3. Change the ownership to the `keytab` file. The user name and group name depend on how you installed Percona Server for MongoDB:
 
     === ":material-linux: RPM/DEB packages or tarballs"
 
-         ```{.bash data-prompt="$"}
-            $ sudo chown mongod:mongod /etc/mongodb.keytab
+         ```bash
+            sudo chown mongod:mongod /etc/mongodb.keytab
          ```
 
     === ":material-docker: Percona Docker container images"
 
-         ```{.bash data-prompt="$"}
-            $ sudo chown mongodb:mongodb /etc/mongodb.keytab
+         ```bash
+            sudo chown mongodb:mongodb /etc/mongodb.keytab
          ```    
 
 5. Set the `KRB5_KTNAME` variable in the environment file for the `mongod` process.
@@ -88,7 +88,7 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
 
 6. Restart the `mongod` service
 
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl start mongod
+    ```bash
+    sudo systemctl start mongod
     ```
 

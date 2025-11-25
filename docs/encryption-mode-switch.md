@@ -13,23 +13,23 @@ We assume that you have installed and configured the vault server and enabled th
 
 1. Stop `mongod`.
 
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl stop mongod
+    ```bash
+    sudo systemctl stop mongod
     ```
 
 2. Insert the key from keyfile into the HashiCorp Vault server to the desired secret path.
 
    * Retrieve the key value from the keyfile
 
-       ```{.bash data-prompt="$"}
-       $ sudo cat /data/key/mongodb.key
+       ```bash
+       sudo cat /data/key/mongodb.key
        d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw=
        ```
 
    * Insert the key into vault
 
-      ```{.bash data-prompt="$"}
-      $ vault kv put secret/dc/psmongodb1 value=d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw=
+      ```bash
+      vault kv put secret/dc/psmongodb1 value=d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw=
       ```
 
      !!! note 
@@ -53,7 +53,7 @@ We assume that you have installed and configured the vault server and enabled th
 
 4. Start the `mongod` service
 
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl start mongod
+    ```bash
+    sudo systemctl start mongod
     ```
 

@@ -62,8 +62,8 @@ and the slow query threshold to `200`
 (profile all queries slower than 200 milliseconds),
 run the `mongod` instance as follows:
 
-```{.bash data-prompt="$"}
-$ mongod --profile 2 --slowms 200 --rateLimit 100
+```bash
+mongod --profile 2 --slowms 200 --rateLimit 100
 ```
 
 To do the same at runtime, use the `profile` command.

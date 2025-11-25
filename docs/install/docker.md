@@ -15,8 +15,8 @@ For more information about using Docker, see the [Docker Docs](https://docs.dock
 
 To run the latest Percona Server for MongoDB 7.0 in a Docker container, run the following command as the root user or via `sudo`:
 
-```{.bash data-prompt="$"}
-$ docker run -d --name psmdb -p 27017:27017 --restart always percona/percona-server-mongodb:<TAG>
+```bash
+docker run -d --name psmdb -p 27017:27017 --restart always percona/percona-server-mongodb:<TAG>
 ```
 
 The command does the following:
@@ -51,16 +51,16 @@ and restart it if the container exits.
 
 Run the following command to start the bash session and run commands inside the container:
 
-```{.bash data-prompt="$"}
-$ docker exec -it <container-name>
+```bash
+docker exec -it <container-name>
 ```
 
 where `<container-name>` is the name of your database container.
 
 For example, to connect to Percona Server for MongoDB, run:
 
-```{.bash data-prompt="$"}
-$ mongosh
+```bash
+mongosh
 ```
 --8<-- [end:shell]
 
@@ -84,15 +84,15 @@ The following example demonstrates the setup on x86_64 platforms. The `rs101`, `
 
     1.  Start the containers and expose different ports
 
-         ```{.bash data-prompt="$"}
-         $ docker run --rm -d --name rs101 -p 27017:27017  percona/percona-server-mongodb:7.0 --port=27017 --replSet rs
-         $ docker run --rm -d --name rs102 -p 28017:28017  percona/percona-server-mongodb:7.0 --port=28017 --replSet rs
-         $ docker run --rm -d --name rs103 -p 29017:29017  percona/percona-server-mongodb:7.0 --port=29017 --replSet rs
+         ```bash
+         docker run --rm -d --name rs101 -p 27017:27017  percona/percona-server-mongodb:7.0 --port=27017 --replSet rs
+         docker run --rm -d --name rs102 -p 28017:28017  percona/percona-server-mongodb:7.0 --port=28017 --replSet rs
+         docker run --rm -d --name rs103 -p 29017:29017  percona/percona-server-mongodb:7.0 --port=29017 --replSet rs
          ```
     2. Check that the containers are started
 
-        ```{.bash data-prompt="$"}
-        $ docker container ls
+        ```bash
+        docker container ls
         ```         
 
         Output:
@@ -107,22 +107,22 @@ The following example demonstrates the setup on x86_64 platforms. The `rs101`, `
     3. Get the IP addresses of each container
 
          {% raw %}
-         ```{.bash data-prompt="$"}
-         $ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs101
-         $ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs102
-         $ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs103
+         ```bash
+         docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs101
+         docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs102
+         docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs103
          ```
          {% endraw %}
 
     3.  Interconnect the containers and initiate the replica set. Replace `rs101SERVER`, `rs102SERVER` and `rs103SERVER` with the IP address of each respective container.
 
-         ```{.bash data-prompt="$"}
-         $ docker exec -ti rs101 mongosh --eval 'config={"_id":"rs","members":[{"_id":0,"host":"rs101SERVER:27017"},{"_id":1,"host":"rs102SERVER:28017"},{"_id":2,"host":"rs103SERVER:29017"}]};rs.initiate(config);'
+         ```bash
+         docker exec -ti rs101 mongosh --eval 'config={"_id":"rs","members":[{"_id":0,"host":"rs101SERVER:27017"},{"_id":1,"host":"rs102SERVER:28017"},{"_id":2,"host":"rs103SERVER:29017"}]};rs.initiate(config);'
          ```
     4.  Check your setup
 
-         ```{.bash data-prompt="$"}
-         $ docker exec -it rs101 mongosh --eval 'rs.status()'
+         ```bash
+         docker exec -it rs101 mongosh --eval 'rs.status()'
          ```
 
 === "User-defined network"
@@ -131,34 +131,34 @@ The following example demonstrates the setup on x86_64 platforms. The `rs101`, `
 
     1. Create the network:
 
-        ```{.bash data-prompt="$"}
-        $ docker network create my-network
+        ```bash
+        docker network create my-network
         ```
 
     2. Start the containers and connect them to your network, exposing different ports
 
-        ```{.bash data-prompt="$"}
-        $ docker run --rm -d --name rs101 --net my-network -p 27017:27017  percona/percona-server-mongodb:7.0 --port=27017 --replSet rs
-        $ docker run --rm -d --name rs102 --net my-network -p 28017:28017  percona/percona-server-mongodb:7.0 --port=28017 --replSet rs
-        $ docker run --rm -d --name rs103 --net my-network -p 29017:29017  percona/percona-server-mongodb:7.0 --port=29017 --replSet rs
+        ```bash
+        docker run --rm -d --name rs101 --net my-network -p 27017:27017  percona/percona-server-mongodb:7.0 --port=27017 --replSet rs
+        docker run --rm -d --name rs102 --net my-network -p 28017:28017  percona/percona-server-mongodb:7.0 --port=28017 --replSet rs
+        docker run --rm -d --name rs103 --net my-network -p 29017:29017  percona/percona-server-mongodb:7.0 --port=29017 --replSet rs
         ```
 
         Alternatively, you can connect the already running containers to your network:
 
-        ```{.bash data-prompt="$"}
-        $ docker network connect my-network rs101 rs102 rs103
+        ```bash
+        docker network connect my-network rs101 rs102 rs103
         ```       
 
     3. Interconnect the containers and initiate the replica set. 
 
-        ```{.bash data-prompt="$"}
-        $ docker exec -ti rs101 mongosh --eval 'config={"_id":"rs","members":[{"_id":0,"host":"rs101:27017"},{"_id":1,"host":"rs102:28017"},{"_id":2,"host":"rs103:29017"}]};rs.initiate(config);'
+        ```bash
+        docker exec -ti rs101 mongosh --eval 'config={"_id":"rs","members":[{"_id":0,"host":"rs101:27017"},{"_id":1,"host":"rs102:28017"},{"_id":2,"host":"rs103:29017"}]};rs.initiate(config);'
         ```
 
     4.  Check your setup
 
-         ```{.bash data-prompt="$"}
-         $ docker exec -it rs101 mongosh --eval 'rs.status()'
+         ```bash
+         docker exec -it rs101 mongosh --eval 'rs.status()'
          ```
 
 === "Docker Compose"
@@ -239,14 +239,14 @@ The following example demonstrates the setup on x86_64 platforms. The `rs101`, `
 
     2. Build and run the replica set with Compose 
 
-        ```{.bash data-prompt="$"}
-        $ docker compose up -d
+        ```bash
+        docker compose up -d
         ```
 
     3.  Check your setup
 
-         ```{.bash data-prompt="$"}
-         $ docker exec -it rs101 mongosh --eval 'rs.status()'
+         ```bash
+         docker exec -it rs101 mongosh --eval 'rs.status()'
          ```
 
 ## Connecting with the `mongosh` shell
@@ -255,8 +255,8 @@ To start another container with the `mongosh` shell
 that connects to your Percona Server for MongoDB container,
 run the following command: 
 
-```{.bash data-prompt="$"}
-$ docker run -it --link psmdb --rm percona/percona-server-mongodb:7.0 mongosh mongodb://MONGODB_SERVER:PORT/DB_NAME
+```bash
+docker run -it --link psmdb --rm percona/percona-server-mongodb:7.0 mongosh mongodb://MONGODB_SERVER:PORT/DB_NAME
 ```
 
 Set `MONGODB_SERVER`, `PORT`, and `DB_NAME` with the IP address of the `psmdb` container, the port of your MongoDB Server (default value is 27017), and the name of the database you want to connect to.
@@ -264,8 +264,8 @@ Set `MONGODB_SERVER`, `PORT`, and `DB_NAME` with the IP address of the `psmdb` c
 You can get the IP address by running this command:
 
 {% raw %}
-```{.bash data-prompt="$"}
-$ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' psmdb
+```bash
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' psmdb
 ```
 {% endraw %}
 

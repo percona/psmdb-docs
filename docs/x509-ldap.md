@@ -18,15 +18,15 @@ This document provides the steps on how to configure and use x.509 certificates 
 
 1. Create a directory to store the certificates. For example, `/var/lib/mongocerts`.
 
-    ```{.bash data-prompt="$"}
-    $ sudo mkdir -p /var/lib/mongocerts
+    ```bash
+    sudo mkdir -p /var/lib/mongocerts
     ```
 
 
 2. Grant access to the `mongod` user to this directory:
 
-    ```{.bash data-prompt="$"}
-    $ sudo chown mongod:mongod /var/lib/mongocerts
+    ```bash
+    sudo chown mongod:mongod /var/lib/mongocerts
     ```
 
 #### Generate the root Certificate Authority certificate
@@ -41,9 +41,9 @@ Run the following command and in the `-subj` flag, provide the details about you
 * O - Organization Name (company);
 * CN - Common Name (your name or your server’s hostname) .
 
-```{.bash data-prompt="$"}
-$ cd /var/lib/mongocerts
-$ sudo openssl req -nodes -x509 -newkey rsa:4096 -keyout ca.key -out ca.crt -subj "/C=US/ST=California/L=SanFrancisco/O=Percona/OU=root/CN=localhost"
+```bash
+cd /var/lib/mongocerts
+sudo openssl req -nodes -x509 -newkey rsa:4096 -keyout ca.key -out ca.crt -subj "/C=US/ST=California/L=SanFrancisco/O=Percona/OU=root/CN=localhost"
 ```
 
 #### Generate server certificate
@@ -65,40 +65,40 @@ $ sudo openssl req -nodes -x509 -newkey rsa:4096 -keyout ca.key -out ca.crt -sub
 
     * CN - Common Name (your name or your server’s hostname) .
 
-    ```{.bash data-prompt="$"}
-    $ sudo openssl req -nodes -newkey rsa:4096 -keyout server.key -out server.csr -subj "/C=US/ST=California/L=SanFrancisco/O=Percona/OU=server/CN=localhost"
+    ```bash
+    sudo openssl req -nodes -newkey rsa:4096 -keyout server.key -out server.csr -subj "/C=US/ST=California/L=SanFrancisco/O=Percona/OU=server/CN=localhost"
     ```
 
 2. Sign the server certificate request with the root CA certificate:
 
-    ```{.bash data-prompt="$"}
-    $ sudo openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+    ```bash
+    sudo openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
     ```
 
 3. Combine the server certificate and key to create a certificate key file. Run this command as the `root` user:
 
-    ```{.bash data-prompt="$"}
-    $ cat server.key server.crt > server.pem
+    ```bash
+    cat server.key server.crt > server.pem
     ```
 
 #### Generate client certificates
 
 1. Generate client certificate request and key. In the `-subj` flag, specify the information about clients in the  format.
 
-    ```{.bash data-prompt="$"}
-    $ openssl req -nodes -newkey rsa:4096 -keyout client.key -out client.csr -subj "/DC=com/DC=percona/CN=John Doe"
+    ```bash
+    openssl req -nodes -newkey rsa:4096 -keyout client.key -out client.csr -subj "/DC=com/DC=percona/CN=John Doe"
     ```
 
 2. Sign the client certificate request with the root CA certificate.
 
-    ```{.bash data-prompt="$"}
-    $ openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -set_serial 02 -out client.crt
+    ```bash
+    openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -set_serial 02 -out client.crt
     ```
 
 3. Combine the client certificate and key to create a certificate key file.
 
-    ```{.bash data-prompt="$"}
-    $ cat client.key client.crt > client.pem
+    ```bash
+    cat client.key client.crt > client.pem
     ```
 
 ### Set up the LDAP server
@@ -159,8 +159,8 @@ Output:
 
 1. Stop the `mongod` service
 
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl stop mongod
+    ```bash
+    sudo systemctl stop mongod
     ```
 
 2. Edit the `/etc/mongod.conf` configuration file.
@@ -191,16 +191,16 @@ Output:
 
 3. Start the `mongod` service
 
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl start mongod
+    ```bash
+    sudo systemctl start mongod
     ```
 
 ### Authenticate with the x.509 certificate
 
 To test the authentication, connect to *Percona Server for MongoDB* using the following command:
 
-```{.bash data-prompt="$"}
-$ mongosh --host localhost --tls --tlsCAFile /var/lib/mongocerts/ca.crt --tlsCertificateKeyFile <path_to_client_certificate>/client.pem  --authenticationMechanism MONGODB-X509 --authenticationDatabase='$external'
+```bash
+mongosh --host localhost --tls --tlsCAFile /var/lib/mongocerts/ca.crt --tlsCertificateKeyFile <path_to_client_certificate>/client.pem  --authenticationMechanism MONGODB-X509 --authenticationDatabase='$external'
 ```
 
 The result should look like the following:

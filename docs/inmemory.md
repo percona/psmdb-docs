@@ -90,8 +90,8 @@ Set a different data directory for the `dbPath` variable in the configuration fi
 
 1. Stop `mongod`
 
-    ```{.bash data-prompt="$"}
-    $ service mongod stop
+    ```bash
+    service mongod stop
     ```
 
 2. Edit the configuration file
@@ -104,8 +104,8 @@ Set a different data directory for the `dbPath` variable in the configuration fi
 
 3. Start `mongod`
 
-    ```{.bash data-prompt="$"}
-    $ service mongod start
+    ```bash
+    service mongod start
     ```
 
 
@@ -115,14 +115,14 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
 
 1. Stop `mongod`
 
-    ```{.bash data-prompt="$"}
-    $ service mongod stop
+    ```bash
+    service mongod stop
     ```
 
 2. Clean out the `dbPath` data directory
 
-    ```{.bash data-prompt="$"}
-    $ sudo rm -rf <dbpathDataDir>
+    ```bash
+    sudo rm -rf <dbpathDataDir>
     ```
 
 3. Edit the configuration file
@@ -135,8 +135,8 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
 
 4. Start `mongod`
 
-    ```{.bash data-prompt="$"}
-    $ service mongod start
+    ```bash
+    service mongod start
     ```
 
 #### Switch to Percona Memory Engine with data migration and compatibility
@@ -147,20 +147,20 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
 
     1. Export the dataDir contents
 
-        ```{.bash data-prompt="$"}
-        $ mongodump --out <dumpDir>
+        ```bash
+        mongodump --out <dumpDir>
         ```
 
     2. Stop `mongod`
 
-        ```{.bash data-prompt="$"}
-        $ service mongod stop
+        ```bash
+        service mongod stop
         ```
 
     3. Clean out the `dbPath` data directory
 
-        ```{.bash data-prompt="$"}
-        $ sudo rm -rf <dbpathDataDir>
+        ```bash
+        sudo rm -rf <dbpathDataDir>
         ```
 
     4. Update the configuration file by setting the new
@@ -168,14 +168,14 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
 
     5. Start `mongod`
 
-        ```{.bash data-prompt="$"}
-        $ service mongod start
+        ```bash
+        service mongod start
         ```
     
     6. Restore the database
 
-        ```{.bash data-prompt="$"}
-        $ mongorestore <dumpDir>
+        ```bash
+        mongorestore <dumpDir>
         ```
 
 === "Replica set"
@@ -186,14 +186,14 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
 
        1. Stop `mongod`
 
-           ```{.bash data-prompt="$"}
-           $ service mongod stop
+           ```bash
+           service mongod stop
            ```
 
        2. Clean out the `dbPath` data directory
 
-           ```{.bash data-prompt="$"}
-           $ sudo rm -rf <dbpathDataDir>
+           ```bash
+           sudo rm -rf <dbpathDataDir>
            ```
 
        3. Edit the configuration file
@@ -206,8 +206,8 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
 
        4. Start `mongod`
 
-           ```{.bash data-prompt="$"}
-           $ service mongod start
+           ```bash
+           service mongod start
            ```
 
     2. Wait for the node to rejoin with the other nodes and report the SECONDARY status.
