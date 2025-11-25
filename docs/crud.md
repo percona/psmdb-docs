@@ -16,8 +16,8 @@ After you connected to Percona Server for MongoDB, let's insert some data and op
 
 1. For example, let's add an item to the `fruits` collection. Use the `insertOne()` command for this purpose:
 
-    ``` {.javascript data-prompt=">"}
-    > db.fruits.insertOne(
+    ```javascript
+    db.fruits.insertOne(
     	 {item: "apple", qty: 50}
     	 )
     ```    
@@ -35,8 +35,8 @@ After you connected to Percona Server for MongoDB, let's insert some data and op
 
 2. Now, let's add more fruits to the `fruits` collection using the `insertMany()` command:
 
-    ``` {.javascript data-prompt=">"}
-    > db.fruits.insertMany([
+    ```javascript
+    db.fruits.insertMany([
     	 {item: "banana", weight: "kg", qty: 10 }, 
     	 {item: "peach", weight: "kg", qty: 30}
     	 ])
@@ -60,8 +60,8 @@ See [Insert documents](https://www.mongodb.com/docs/manual/tutorial/insert-docum
 
 Run the following command to query data in MongoDB:
 
-``` {.javascript data-prompt=">"}
-> db.fruits.find()
+```javascript
+db.fruits.find()
 ```
 
 ??? example "Sample output"
@@ -93,8 +93,8 @@ Let's update the `apples` entry by adding weight to it.
 
 1. Use the `updateOne()` command for that:
 
-    ```{.javascript data-prompt=">"}
-    > db.fruits.updateOne(
+    ``javascript
+    db.fruits.updateOne(
     	{"item": "apple" }, 
     	{$set: {"weight": "kg"}}
     	)
@@ -114,8 +114,8 @@ Let's update the `apples` entry by adding weight to it.
 
 2. Query the collection to check the updated document:
 
-    ```{.javascript data-prompt=">"}
-    > db.fruits.find({item: "apple"})
+    ``javascript
+    db.fruits.find({item: "apple"})
     ```
 
     ??? example "Sample output"
@@ -137,8 +137,7 @@ See [Update methods](https://www.mongodb.com/docs/manual/reference/update-method
 
 Run the following command to delete all documents where the quantity is less than 30 kg:
 
-```{.javascript data-prompt=">"}
-> db.fruits.deleteMany(
+``javascript db.fruits.deleteMany(
     {"qty": {$lt: 30} }
 	)
 ```

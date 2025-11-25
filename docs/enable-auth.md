@@ -35,24 +35,24 @@ To enable access control manually:
 
 2. Run the following command on the `admin` database:
 
-    ```{.javascript data-prompt=">"}
-    > db.createUser({user: 'USER', pwd: 'PASSWORD', roles: ['dbAdmin'] });
+    ```javascript
+    db.createUser({user: 'USER', pwd: 'PASSWORD', roles: ['dbAdmin'] });
     ```
 
 3. Restart the `mongod` service:
 
-    ```{.bash data-prompt="$"}
-    $ service mongod restart
+    ```bash
+    service mongod restart
     ```
 
 4. Connect to the database as the newly created user:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh --port 27017 -u 'USER' -p 'PASSWORD'  --authenticationDatabase "admin"
+    ```bash
+    mongosh --port 27017 -u 'USER' -p 'PASSWORD'  --authenticationDatabase "admin"
     ```
 
 !!! admonition "See also"
 
-    MongoDB Documentation: [Enable Access Control](https://www.mongodb.com/docs/v7.0/tutorial/enable-authentication/)
+    MongoDB Documentation: [Enable Access Control](https://www.mongodb.com/docs/v8.0/tutorial/enable-authentication/)
 
 

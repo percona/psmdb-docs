@@ -19,8 +19,8 @@ in one of the following ways:
     use the `--setParameter` command line option arguments when running the `mongod` process
     for development or testing purposes:    
 
-    ```{.bash data-prompt="$"}
-    $ mongod \
+    ```bash
+    mongod \
       --setParameter <parameter>=<value>\
     ```
 
@@ -29,9 +29,9 @@ in one of the following ways:
     Use the `setParameter` command on the `admin` database
     to make changes at runtime:    
 
-    ```{.javascript data-prompt=">"}
-    > db = db.getSiblingDB('admin')
-    > db.runCommand( { setParameter: 1, <parameter>: <value> } )
+    ```javascript
+    db = db.getSiblingDB('admin')
+    db.runCommand( { setParameter: 1, <parameter>: <value> } )
     ```
 
 See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v8.0/reference/parameters/#parameters).

@@ -23,20 +23,20 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
 
      1. Save the current configuration file as the backup:
 
-         ```{.bash data-prompt="$"}
-         $ sudo mv /etc/mongod.conf /etc/mongod.conf.bkp
+         ```bash
+         sudo mv /etc/mongod.conf /etc/mongod.conf.bkp
          ```
 
      2. Stop the `mongod` service:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl stop mongod
+         ```bash
+         sudo systemctl stop mongod
          ```
 
      3. Check for installed packages:
 
-         ```{.bash data-prompt="$"}
-         $ sudo dpkg -l | grep mongod
+         ```bash
+         sudo dpkg -l | grep mongod
          ```
 
         ??? example "Sample output"
@@ -53,8 +53,8 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
 
      4. Remove the installed packages:
 
-         ```{.bash data-prompt="$"}
-         $ sudo apt remove \
+         ```bash
+         sudo apt remove \
            mongodb-org \
            mongodb-org-mongos \
            mongodb-org-server \
@@ -69,9 +69,9 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
          * Copy the required configuration options like custom dbPath/system log path, additional security/replication or sharding options from the backup configuration file (`/etc/mongod.conf`) to the current one `/etc/mongodb.conf`. 
          * Make sure that the `mongod` user has access to your custom paths. If not, provide it as follows:
 
-            ```{.bash data-prompt="$"}
-            $ sudo chown -R mongod:mongod <custom-dbPath>
-            $ sudo chown -R mongod:mongod <custom-systemLog.path>
+            ```bash
+            sudo chown -R mongod:mongod <custom-dbPath>
+            sudo chown -R mongod:mongod <custom-systemLog.path>
             ```
 
          * Remove the following configuration from the configuration file if you have it:
@@ -84,22 +84,22 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
 
      7. Restart the `mongod` service:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl start mongod
+         ```bash
+         sudo systemctl start mongod
          ```
 
 === ":material-redhat: Upgrade on Red Hat Enterprise Linux and derivatives"
 
      1. Stop the `mongod` service:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl stop mongod
+         ```bash
+         sudo systemctl stop mongod
          ```
 
      2. Check for installed packages:
 
-         ```{.bash data-prompt="$"}
-         $ sudo rpm -qa | grep mongo
+         ```bash
+         sudo rpm -qa | grep mongo
          ```
 
         ??? example "Sample output"
@@ -116,8 +116,8 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
 
      3. Remove the installed packages:
 
-         ```{.bash data-prompt="$"}
-         $ sudo yum remove \
+         ```bash
+         sudo yum remove \
          mongodb-org-shell-8.0.1-1.el9.x86_64
          mongodb-org-database-8.0.1-1.el9.x86_64
          mongodb-org-8.0.1-1.el9.x86_64
@@ -134,9 +134,9 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
          * When you remove old packages, your existing configuration file is saved as `/etc/mongod.conf.rpmsave`. Copy the required configuration options like custom dbPath/system log path, additional security/replication or sharding options from the backup configuration file (`/etc/mongod.conf.rpmsave`) to the current one `/etc/mongodb.conf`.
          * Make sure that the `mongod` user has access to your custom paths. If not, provide it as follows:
 
-            ```{.bash data-prompt="$"}
-            $ sudo chown -R mongod:mongod <custom-dbPath>
-            $ sudo chown -R mongod:mongod <custom-systemLog.path>
+            ```bash
+            sudo chown -R mongod:mongod <custom-dbPath>
+            sudo chown -R mongod:mongod <custom-systemLog.path>
             ```
 
          * Make sure the configuration file includes the following configuration:
@@ -151,8 +151,8 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
 
     6. Restart the `mongod` service:
 
-        ```{.bash data-prompt="$"}
-        $ sudo systemctl start mongod
+        ```bash
+        sudo systemctl start mongod
         ```
 
 To upgrade a replica set or a sharded cluster, use the [rolling restart](../glossary.md#rolling-restart) method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.

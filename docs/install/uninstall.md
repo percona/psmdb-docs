@@ -16,43 +16,43 @@ Follow the instructions, relevant to your operating system:
 
      1. Stop the `mongod` server:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl stop mongod
+         ```bash
+         sudo systemctl stop mongod
          ```
 
      2. Remove the packages. There are two options.
 
         === ":material-file-outline: Keep the configuration and data files"
 
-             ```{.bash data-prompt="$"}
-             $ sudo apt remove percona-server-mongodb*
+             ```bash
+             sudo apt remove percona-server-mongodb*
              ```
 
         === ":material-file-remove-outline: Delete configuration and data files"
 
-              ```{.bash data-prompt="$"}
-              $ sudo apt purge percona-server-mongodb*
+              ```bash
+              sudo apt purge percona-server-mongodb*
               ```
 
 === ":material-redhat: Uninstall on Red Hat Enterprise Linux and derivatives"
 
      1. Stop the `mongod` service:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl stop mongod
+         ```bash
+         sudo systemctl stop mongod
          ```
 
      2. Remove the packages:
 
-         ```{.bash data-prompt="$"}
-         $ sudo yum remove percona-server-mongodb*
+         ```bash
+         sudo yum remove percona-server-mongodb*
          ```
 
      3. Remove the data and configuration files:
 
-         ```{.bash data-prompt="$"}
-         $ sudo rm -rf /var/lib/mongodb
-         $ sudo rm -f /etc/mongod.conf
+         ```bash
+         sudo rm -rf /var/lib/mongodb
+         sudo rm -f /etc/mongod.conf
          ```
 
         !!! warning

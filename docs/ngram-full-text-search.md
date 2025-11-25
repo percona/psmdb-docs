@@ -21,14 +21,14 @@ The *ngram* text search is slower than MongoDB full text search.
 To use *ngram*, create a text index on
 a collection setting the `default_language` parameter to **ngram**:
 
-```{.javascript data-prompt=">"}
-> db.collection.createIndex({name:"text"}, {default_language: "ngram"})
+```javascript
+db.collection.createIndex({name:"text"}, {default_language: "ngram"})
 ```
 
 *ngram* search algorithm treats special characters like individual terms. Therefore, you don’t have to enclose the search string in escaped double quotes (`\\"`) to query the text index. For example, to search for documents that contain the date `2021-02-12`, specify the following:
 
-```{.javascript data-prompt=">"}
-> db.collection.find({ $text: { $search: "2021-02-12" } })
+```javascript
+db.collection.find({ $text: { $search: "2021-02-12" } })
 ```
 
 However, both *ngram* and MongoDB full text search engine treat words with the hyphen-minus `-` sign  in front of them as negated (e.g. “-coffee”)  and exclude such words from the search results.

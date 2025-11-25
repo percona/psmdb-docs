@@ -46,14 +46,14 @@ At this step you need to create CA and certificates where each server cert is va
 
 1. Create a directory to store your TLS certificates. 
 
-    ```{.bash data-prompt="$"}
-    $ mkdir certs && cd certs
+    ```bash
+    mkdir certs && cd certs
     ```
 
 2. Create the Certificate Authority (CA) signing request file:
 
-    ```{.bash data-prompt="$"}
-    $ tee ca-csr.json <<EOF
+    ```bash
+    tee ca-csr.json <<EOF
     {
       "CN": "MyTestCA",
       "key": { "algo": "rsa", "size": 2048 },
@@ -66,8 +66,8 @@ At this step you need to create CA and certificates where each server cert is va
 
 3. Generate the self-signed CA certificate and key:
 
-    ```{.bash data-prompt="$"}
-    $ cfssl gencert -initca ca-csr.json | cfssljson -bare ca
+    ```bash
+    cfssl gencert -initca ca-csr.json | cfssljson -bare ca
     ```
 
     ??? example "Sample output"
@@ -88,9 +88,9 @@ At this step you need to create CA and certificates where each server cert is va
 
 4. Now, create server certificate requests for each Percona Server for MongoDB server (psmdb1, psmdb2, psmdb3), including both internal and external names in the "hosts" array:
 
-    ```{.bash data-prompt="$"}
-    $ public_ips=("52.45.100.201" "52.45.100.202" "52.45.100.203")
-    $ for i in 1 2 3; do
+    ```bash
+    public_ips=("52.45.100.201" "52.45.100.202" "52.45.100.203")
+    for i in 1 2 3; do
         name="psmdb$i"
         public_ip="${public_ips[$((i-1))]}"        
         tee "${name}-csr.json" <<EOF
@@ -112,7 +112,7 @@ At this step you need to create CA and certificates where each server cert is va
 
 5. Generate and combine server certificates
 
-    ```{.bash data-prompt="$"}
+    ```bash
     for i in 1 2 3; do
         name="psmdb$i"
 
@@ -165,8 +165,8 @@ At this step you need to create CA and certificates where each server cert is va
 
 1. To simplify deploying Percona Server for MongoDB in Docker, create a Docker compose file with all required configuration. For each container, we map an internal MongoDB port `27017` to external ports `27017`, `27018` and `27019`:
 
-    ```{.bash data-prompt="$"}
-    $ tee test-horizons.yml <<EOF
+    ```bash
+    tee test-horizons.yml <<EOF
     name: Horizons
     services:
         psmdb1:
@@ -213,8 +213,8 @@ At this step you need to create CA and certificates where each server cert is va
 
 2. Start Percona Server for MongoDB using this file:
 
-    ```{.bash data-prompt="$"}
-    $ docker-compose -f test-horizons.yml up -d
+    ```bash
+    docker-compose -f test-horizons.yml up -d
     ```
     
     The command does the following:
@@ -228,14 +228,14 @@ With Percona Server for MongoDB up and running, initiate the replica set and spe
 
 1. Connect to one of the nodes and start the `bash` session:
 
-    ```{.bash data-prompt="$"}
-    $ docker exec -it psmdb1 -- /bin/bash
+    ```bash
+    docker exec -it psmdb1 -- /bin/bash
     ```
 
 2. Authenticate in Percona Server for MongoDB with enabled TLS:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh --tls --tlsCertificateKeyFile /certs/psmdb1-combined.pem --tlsAllowInvalidCertificates
+    ```bash
+    mongosh --tls --tlsCertificateKeyFile /certs/psmdb1-combined.pem --tlsAllowInvalidCertificates
     ```
 
 3. Initialize the replica set with Horizons. Specify the internal hostname for the `host` field and the external hostname/port in the `horizons` field for the replica set configuration:
@@ -279,8 +279,8 @@ To check internal connection, you can spin up a new Docker container with the Mo
 
 1. To spin up a new container, you must mount the certificates directory into the container when you start it:
 
-   ```{.bash data-prompt="$"}
-   $ docker run -d \
+   ```bash
+   docker run -d \
      --name mongo-test \
      --network Horizons_default \
      -v <path/to/certs>:/certs \
@@ -291,8 +291,8 @@ To check internal connection, you can spin up a new Docker container with the Mo
 
 2. Execute in the container and connect to the replica set:
 
-    ```{.bash data-prompt="$"}
-    $ docker exec -it mongo-test mongosh \
+    ```bash
+    docker exec -it mongo-test mongosh \
       --host "rs0/psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017" \
       --tls \
       --tlsCertificateKeyFile /certs/psmdb1-combined.pem \
@@ -312,8 +312,8 @@ To check internal connection, you can spin up a new Docker container with the Mo
 
 3. Check the replica set topology:
 
-    ```{.javascript data-prompt="test>"}
-    test> db.hello()
+    ```javascript 
+    db.hello()
     ```
 
     ??? example "Sample output"
@@ -333,8 +333,8 @@ To check internal connection, you can spin up a new Docker container with the Mo
 
 1. Connect to the replica set from the MongoDB client (Compass or `mongosh`) using the external hostnames you defined in Horizons:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh "mongodb://external.mycompany.com:27017,external.mycompany.com:27018,external.mycompany.com:27019/?replicaSet=rs0" --tls --tlsCertificateKeyFile /certs/mongo1-combined.pem --tlsCAFile /certs/ca.pem
+    ```bash
+    mongosh "mongodb://external.mycompany.com:27017,external.mycompany.com:27018,external.mycompany.com:27019/?replicaSet=rs0" --tls --tlsCertificateKeyFile /certs/mongo1-combined.pem --tlsCAFile /certs/ca.pem
     ```
 
     ??? example "Sample output"
@@ -350,8 +350,8 @@ To check internal connection, you can spin up a new Docker container with the Mo
 
 2. Check the replica set topology:
 
-    ```{.javascript data-prompt="test>"}
-    test> db.hello()
+    ```javascript 
+    db.hello()
     ```
 
     ??? example "Sample output"

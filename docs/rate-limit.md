@@ -62,33 +62,33 @@ and the slow query threshold to `200`
 (profile all queries slower than 200 milliseconds),
 run the `mongod` instance as follows:
 
-```{.bash data-prompt="$"}
-$ mongod --profile 2 --slowms 200 --rateLimit 100
+```bash
+mongod --profile 2 --slowms 200 --rateLimit 100
 ```
 
 To do the same at runtime, use the `profile` command.
 It returns the *previous* settings
 and `"ok" : 1` indicates that the operation was successful:
 
-```{.javascript data-prompt=">"}
-> db.runCommand( { profile: 2, slowms: 200, ratelimit: 100 } );
+```javascript
+db.runCommand( { profile: 2, slowms: 200, ratelimit: 100 } );
 { "was" : 0, "slowms" : 100, "ratelimit" : 1, "ok" : 1 }
 ```
 
 To check the current settings, run `profile: -1`:
 
-```{.javascript data-prompt=">"}
-> db.runCommand( { profile: -1 } );
+```javascript
+db.runCommand( { profile: -1 } );
 { "was" : 2, "slowms" : 200, "ratelimit" : 100, "ok" : 1 }
 ```
 
 If you want to set or get just the rate limit value,
 use the `profilingRateLimit` parameter on the `admin` database:
 
-```{.javascript data-prompt=">"}
-> db.getSiblingDB('admin').runCommand( { setParameter: 1, "profilingRateLimit": 100 } );
+```javascript
+db.getSiblingDB('admin').runCommand( { setParameter: 1, "profilingRateLimit": 100 } );
 { "was" : 1, "ok" : 1 }
-> db.getSiblingDB('admin').runCommand( { getParameter: 1, "profilingRateLimit": 1 } );
+db.getSiblingDB('admin').runCommand( { getParameter: 1, "profilingRateLimit": 1 } );
 { "profilingRateLimit" : 100, "ok" : 1 }
 ```
 
