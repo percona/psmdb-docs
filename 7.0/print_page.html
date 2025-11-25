@@ -552,7 +552,7 @@
   <span class="md-ellipsis">
     
   
-    1. Installation
+    Infrastructure requirements
   
 
     
@@ -568,7 +568,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    1. Installation
+    Infrastructure requirements
   
 
           </label>
@@ -630,6 +630,61 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Install
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Install
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
                 
   
@@ -673,6 +728,34 @@
     
   
     On RHEL and derivatives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install/rocky-linux.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On Rocky Linux
   
 
     
@@ -3667,12 +3750,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   <a href="#section-3-2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Installation
+        Infrastructure requirements
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Installation">
+    <nav class="md-nav" aria-label="Infrastructure requirements">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3697,6 +3780,23 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-3-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Install
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Install">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#install-apt" class="md-nav__link">
     <span class="md-ellipsis">
@@ -3713,6 +3813,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-ellipsis">
       
         On RHEL and derivatives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-rocky-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On Rocky Linux
       
     </span>
   </a>
@@ -4834,6 +4945,7 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
 <p>Use the package manager of your operating system to install Percona Server for MongoDB:</p>
 <p><a class="md-button" href="#install-apt">on Debian and Ubuntu <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a>
 <a class="md-button" href="#install-yum">on RHEL and derivatives <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a>
+<a class="md-button" href="#install-rocky-linux">on Rocky Linux <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a>
 <a class="md-button" href="#install-amazon-linux">on Amazon Linux 2023 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p>
 <p>We gather <a href="#telemetry">Telemetry data</a> in Percona packages.</p>
 </div>
@@ -4864,7 +4976,7 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
 <p>If you are already using MongoDB, see <a href="#install-upgrade-from-mongodb">Upgrading from MongoDB</a>.</p>
 <p>If you are running an earlier version of Percona Server for MongoDB, see <a href="#install-upgrade-from-60">Upgrading from Version 6.0</a>.</p></body></html></section>
                     <section class='print-page md-section' id='section-3-2' heading-number='3.2'>
-                        <h1>1. Installation<a class='headerlink' href='#section-3-2' title='Permanent link'></a>
+                        <h1>Infrastructure requirements<a class='headerlink' href='#section-3-2' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="system-requirements" heading-number="3.2.1"><html><head>
         <script type="text/javascript">
@@ -4906,10 +5018,10 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
         })
         </script>
         </head><body><h1 id="virtual-hardware-recommendations-for-cloud-deployments">Virtual hardware recommendations for cloud deployments<a class="headerlink" href="#install-cloud-deployments-virtual-hardware-recommendations-for-cloud-deployments" title="Permanent link">¶</a></h1>
-<p>{{ no such element: dict object[‘full_name’] }} runs reliably on cloud infrastructure and is supported for all cloud providers. </p>
+<p>Percona Server for MongoDB runs reliably on cloud infrastructure and is supported for all cloud providers. </p>
 <p>This document includes virtual hardware recommendations for the most popular cloud providers.</p>
 <h2 id="install-cloud-deployments-amazon-web-services-aws">Amazon Web Services (AWS)<a class="headerlink" href="#install-cloud-deployments-amazon-web-services-aws" title="Permanent link">¶</a></h2>
-<p>Percona recommends the AWS EC2 memory-optimized instances as they best suit {{ no such element: dict object[‘full_name’] }} usage. The <code>R7i</code> offers the best performance-per-dollar ratio among all memory-optimized AWS EC2 instance types. The cost efficiency makes these instances a strong choice for organizations that need high and cost-efficient performance. You can review the Amazon website for more details on <a href="https://aws.amazon.com/ec2/instance-types/r7i/">Amazon EC2 R5 Instances <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
+<p>Percona recommends the AWS EC2 memory-optimized instances as they best suit Percona Server for MongoDB usage. The <code>R7i</code> offers the best performance-per-dollar ratio among all memory-optimized AWS EC2 instance types. The cost efficiency makes these instances a strong choice for organizations that need high and cost-efficient performance. You can review the Amazon website for more details on <a href="https://aws.amazon.com/ec2/instance-types/r7i/">Amazon EC2 R5 Instances <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
 <table>
 <thead>
 <tr>
@@ -4948,7 +5060,7 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
 </table>
 <p>The recommendation is based on Yahoo! Cloud Serving Benchmark (YCSB) version 0.17.0 and is fully described in the article “<a href="https://community.intel.com/t5/Blogs/Tech-Innovation/Cloud/Which-memory-optimized-AWS-EC2-instance-type-is-best-for-MongoDB/post/1615010">Which memory-optimized AWS EC2 instance type is best for MongoDB? <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>“</p>
 <h2 id="install-cloud-deployments-microsoft-azure">Microsoft Azure<a class="headerlink" href="#install-cloud-deployments-microsoft-azure" title="Permanent link">¶</a></h2>
-<p>Percona recommends Virtual Machine (VM) sizes from the D-series for {{ no such element: dict object[‘full_name’] }} deployments in Microsoft Azure. <code>Dsv5</code> instance family is the most cost-efficient choice. For more information on Azure Virtual Machines, see <a href="https://azure.microsoft.com/en-gb/pricing/details/virtual-machines/linux/">Linux Virtual Machines pricing <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
+<p>Percona recommends Virtual Machine (VM) sizes from the D-series for Percona Server for MongoDB deployments in Microsoft Azure. <code>Dsv5</code> instance family is the most cost-efficient choice. For more information on Azure Virtual Machines, see <a href="https://azure.microsoft.com/en-gb/pricing/details/virtual-machines/linux/">Linux Virtual Machines pricing <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
 <table>
 <thead>
 <tr>
@@ -4987,7 +5099,7 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
 </table>
 <p>The recommendation is based on Yahoo! Cloud Serving Benchmark (YCSB) version 0.17.0 and fully described in the article “<a href="https://community.intel.com/t5/Blogs/Tech-Innovation/Cloud/Best-Virtual-Machine-Size-for-Self-Managed-MongoDB-on-Microsoft/post/1606921">Best Virtual Machine Size for Self-Managed MongoDB on Microsoft Azure <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>“</p>
 <h2 id="install-cloud-deployments-google-cloud">Google Cloud<a class="headerlink" href="#install-cloud-deployments-google-cloud" title="Permanent link">¶</a></h2>
-<p>Percona recommends <code>c3-standard</code> machine families among other general-purpose GCP instances for {{ no such element: dict object[‘full_name’] }} deployment in Google Cloud Platform (GCP). For more information on Google virtual machines, see <a href="https://cloud.google.com/compute/vm-instance-pricing?hl=en">Google Compute Products <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
+<p>Percona recommends <code>c3-standard</code> machine families among other general-purpose GCP instances for Percona Server for MongoDB deployment in Google Cloud Platform (GCP). For more information on Google virtual machines, see <a href="https://cloud.google.com/compute/vm-instance-pricing?hl=en">Google Compute Products <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
 <table>
 <thead>
 <tr>
@@ -5019,7 +5131,11 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
 </tr>
 </tbody>
 </table>
-<p>The recommendation is based on Yahoo! Cloud Serving Benchmark (YCSB) version 0.17.0 and fully described in the article “<a href="https://community.intel.com/t5/Blogs/Tech-Innovation/Cloud/MongoDB-Best-choice-of-instance-type-on-GCP/post/1556443">MongoDB: Best choice of instance type on GCP <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>“</p></body></html></section><section class="print-page" id="install-apt" heading-number="3.2.3"><html><head>
+<p>The recommendation is based on Yahoo! Cloud Serving Benchmark (YCSB) version 0.17.0 and fully described in the article “<a href="https://community.intel.com/t5/Blogs/Tech-Innovation/Cloud/MongoDB-Best-choice-of-instance-type-on-GCP/post/1556443">MongoDB: Best choice of instance type on GCP <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>“</p></body></html></section></section>
+                    <section class='print-page md-section' id='section-3-3' heading-number='3.3'>
+                        <h1>1. Install<a class='headerlink' href='#section-3-3' title='Permanent link'></a>
+                        </h1>
+                    <section class="print-page" id="install-apt" heading-number="3.3.1"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -5147,7 +5263,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
 </code></pre></div>
 <p>Congratulations! Your Percona Server for MongoDB is up and running. </p>
 <h2 id="install-apt-next-steps">Next steps<a class="headerlink" href="#install-apt-next-steps" title="Permanent link">¶</a></h2>
-<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="install-yum" heading-number="3.2.4"><html><head>
+<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="install-yum" heading-number="3.3.2"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -5157,7 +5273,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
 <p>This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. We gather <a href="#telemetry">Telemetry data</a> to understand the use of the software and improve our products.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Percona Server for MongoDB should work on other RPM-based distributions (for example, Oracle Linux), but it is tested only on platforms listed on the <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">Percona Software and Platform Lifecycle</a> page. </p>
+<p>Percona Server for MongoDB should work on other RPM-based distributions (for example, Alma Linux), but it is tested only on platforms listed on the <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">Percona Software and Platform Lifecycle</a> page. </p>
 </div>
 <details class="admonition">
 <summary>Package contents</summary>
@@ -5255,7 +5371,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you use SELinux in enforcing mode, you must customize your SELinux user policies to allow access to certain <code>/sys</code> and <code>/proc</code> files for OS-level statistics. Also, you must customize directory and port access policies if you are using non-default locations.</p>
-<p>Please refer to <a href="https://docs.mongodb.com/v6.0/tutorial/install-mongodb-on-red-hat/#configure-selinux">Configure SELinux</a> section of MongoDB Documentation for policy configuration guidelines.</p>
+<p>Please refer to <a href="https://docs.mongodb.com/v7.0/tutorial/install-mongodb-on-red-hat/#configure-selinux">Configure SELinux</a> section of MongoDB Documentation for policy configuration guidelines.</p>
 </div>
 <p><strong>Start the service</strong></p>
 <p>Percona Server for MongoDB is not started automatically after installation.
@@ -5284,7 +5400,141 @@ after you reboot the system.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 <h2 id="install-yum-next-steps">Next steps<a class="headerlink" href="#install-yum-next-steps" title="Permanent link">¶</a></h2>
-<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="install-amazon-linux" heading-number="3.2.5"><html><head>
+<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="install-rocky-linux" heading-number="3.3.3"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="install-percona-server-for-mongodb-on-rocky-linux">Install Percona Server for MongoDB on Rocky Linux<a class="headerlink" href="#install-rocky-linux-install-percona-server-for-mongodb-on-rocky-linux" title="Permanent link">¶</a></h1>
+<p>This guide walks you through the installation of Percona Server for MongoDB on Rocky Linux. </p>
+<p>We gather <a href="#telemetry">Telemetry data</a> to understand the use of the software and improve our products.</p>
+<details class="admonition">
+<summary>Package contents</summary>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Contains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>percona-server-mongodb</code></td>
+<td>The <code>mongosh</code> shell, import/export tools, other client utilities, server software, default configuration, and <code>init.d</code> scripts.</td>
+</tr>
+<tr>
+<td><code>percona-server-mongodb-server</code></td>
+<td>The <code>mongod</code> server, default configuration files, and <code>init.d</code> scripts</td>
+</tr>
+<tr>
+<td><code>percona-server-mongodb-shell</code></td>
+<td>The <code>mongosh</code> shell</td>
+</tr>
+<tr>
+<td><code>percona-server-mongodb-mongos</code></td>
+<td>The <code>mongos</code> sharded cluster query router</td>
+</tr>
+<tr>
+<td><code>percona-server-mongodb-tools</code></td>
+<td>Mongo tools for high-performance MongoDB fork from Percona</td>
+</tr>
+<tr>
+<td><code>percona-server-mongodb-dbg</code></td>
+<td>Debug symbols for the server</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="install-rocky-linux-procedure">Procedure<a class="headerlink" href="#install-rocky-linux-procedure" title="Permanent link">¶</a></h2>
+<p>Before you start, check the <a href="#system-requirements">system requirements</a>.</p>
+<h3 id="install-rocky-linux-configure-percona-repository">Configure Percona repository<a class="headerlink" href="#install-rocky-linux-configure-percona-repository" title="Permanent link">¶</a></h3>
+<p>Percona provides the <a href="https://docs.percona.com/percona-software-repositories/index.html"><code>percona-release</code></a> configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    </p>
+<ol>
+<li>
+<p>Install <strong>percona-release</strong>:     </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+</code></pre></div>
+<details class="example">
+<summary>Example output</summary>
+<div class="no-copy highlight"><pre><span></span><code>Retrieving<span class="w"> </span>https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+Preparing...<span class="w">                </span><span class="c1">########################################### [100%]</span>
+<span class="m">1</span>:percona-release<span class="w">        </span><span class="c1">########################################### [100%]</span>
+</code></pre></div>
+</details>
+</li>
+<li>
+<p>Enable the repository: </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-70<span class="w"> </span>release
+</code></pre></div>
+</li>
+</ol>
+<h3 id="install-rocky-linux-install-percona-server-for-mongodb-packages">Install Percona Server for MongoDB packages<a class="headerlink" href="#install-rocky-linux-install-percona-server-for-mongodb-packages" title="Permanent link">¶</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="install-rocky-linux-__tabbed_1_1" name="install-rocky-linux-__tabbed_1" type="radio"><input id="install-rocky-linux-__tabbed_1_2" name="install-rocky-linux-__tabbed_1" type="radio"><div class="tabbed-labels"><label for="install-rocky-linux-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 5.5a2 2 0 0 0 2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2 2 2 0 0 0 2 2m-3.6 13.9 1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3A7.3 7.3 0 0 0 22 13v-2c-1.76.03-3.4-.89-4.3-2.4l-1-1.6c-.36-.6-1-1-1.7-1-.3 0-.5.1-.8.1L9 8.3V13h2V9.6l1.8-.7-1.6 8.1-4.9-1-.4 2zM4 9a1 1 0 0 1-1-1 1 1 0 0 1 1-1h3v2zm1-4a1 1 0 0 1-1-1 1 1 0 0 1 1-1h5v2zm-2 8a1 1 0 0 1-1-1 1 1 0 0 1 1-1h4v2z"></path></svg></span> Install the latest version</label><label for="install-rocky-linux-__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9 4.75A.75.75 0 0 1 9.75 4h4a.75.75 0 0 1 .53 1.28l-1.89 1.892c.312.076.604.18.867.319.742.391 1.244 1.063 1.244 2.005 0 .653-.231 1.208-.629 1.627-.386.408-.894.653-1.408.777-1.01.243-2.225.063-3.124-.527a.751.751 0 0 1 .822-1.254c.534.35 1.32.474 1.951.322.306-.073.53-.201.67-.349.129-.136.218-.32.218-.596 0-.308-.123-.509-.444-.678-.373-.197-.98-.318-1.806-.318a.75.75 0 0 1-.53-1.28l1.72-1.72H9.75A.75.75 0 0 1 9 4.75m-3.587 5.763c-.35-.05-.77.113-.983.572a.75.75 0 1 1-1.36-.632c.508-1.094 1.589-1.565 2.558-1.425 1 .145 1.872.945 1.872 2.222 0 1.433-1.088 2.192-1.79 2.681-.308.216-.571.397-.772.573H7a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75c0-.69.3-1.211.67-1.61.348-.372.8-.676 1.15-.92.8-.56 1.18-.904 1.18-1.474 0-.473-.267-.69-.587-.737M5.604.089A.75.75 0 0 1 6 .75v4.77h.711a.75.75 0 0 1 0 1.5H3.759a.75.75 0 0 1 0-1.5H4.5V2.15l-.334.223a.75.75 0 0 1-.832-1.248l1.5-1a.75.75 0 0 1 .77-.037Z"></path></svg></span> Install a specific version</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>To install the latest version of <em>Percona Server for MongoDB</em>, use the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>To install a specific version of <em>Percona Server for MongoDB</em>, do the following:</p>
+<ol>
+<li>
+<p>List available versions:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>list<span class="w"> </span>percona-server-mongodb<span class="w"> </span>--showduplicates
+</code></pre></div>
+<p>Sample output:</p>
+<div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
+
+percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>.0.24-13.el9<span class="w">       </span>psmdb-70-release-x86_64
+</code></pre></div>
+</li>
+<li>
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.24-13, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.24-13.el9
+</code></pre></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p>By default, Percona Server for MongoDB stores data files in <code>/var/lib/mongodb/</code>
+and configuration parameters in <code>/etc/mongod.conf</code>.</p>
+<h2 id="install-rocky-linux-run-percona-server-for-mongodb">Run Percona Server for MongoDB<a class="headerlink" href="#install-rocky-linux-run-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you use SELinux in enforcing mode, you must customize your SELinux user policies to allow access to certain <code>/sys</code> and <code>/proc</code> files for OS-level statistics. Also, you must customize directory and port access policies if you are using non-default locations.</p>
+<p>Please refer to <a href="https://docs.mongodb.com/v7.0/tutorial/install-mongodb-on-red-hat/#configure-selinux">Configure SELinux</a> section of MongoDB Documentation for policy configuration guidelines.</p>
+</div>
+<p><strong>Start the service</strong></p>
+<p>Percona Server for MongoDB is not started automatically after installation.
+Start it manually using the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+</code></pre></div>
+<p><strong>Confirm that service is running</strong></p>
+<p>Check the service status using the following command: </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
+</code></pre></div>
+<p><strong>Stop the service</strong></p>
+<p>Stop the service using the following command: </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+</code></pre></div>
+<p><strong>Restart the service</strong></p>
+<p>Restart the service using the following command: </p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+</code></pre></div>
+<h3 id="install-rocky-linux-run-after-reboot">Run after reboot<a class="headerlink" href="#install-rocky-linux-run-after-reboot" title="Permanent link">¶</a></h3>
+<p>The <code>mongod</code> service is not automatically started
+after you reboot the system.</p>
+<p>To make it start automatically after reboot, enable it using the systemctl utility:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mongod
+</code></pre></div>
+<p>Then start the <code>mongod</code> service:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+</code></pre></div>
+<h2 id="install-rocky-linux-next-steps">Next steps<a class="headerlink" href="#install-rocky-linux-next-steps" title="Permanent link">¶</a></h2>
+<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="install-amazon-linux" heading-number="3.3.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -5411,7 +5661,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you use SELinux in enforcing mode, you must customize your SELinux user policies to allow access to certain <code>/sys</code> and <code>/proc</code> files for OS-level statistics. Also, you must customize directory and port access policies if you are using non-default locations.</p>
-<p>Please refer to <a href="https://docs.mongodb.com/v6.0/tutorial/install-mongodb-on-red-hat/#configure-selinux">Configure SELinux</a> section of MongoDB Documentation for policy configuration guidelines.</p>
+<p>Please refer to <a href="https://docs.mongodb.com/v7.0/tutorial/install-mongodb-on-red-hat/#configure-selinux">Configure SELinux</a> section of MongoDB Documentation for policy configuration guidelines.</p>
 </div>
 <p><strong>Start the service</strong></p>
 <p>Percona Server for MongoDB is not started automatically after installation.
@@ -5440,7 +5690,7 @@ after you reboot the system.</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 <h2 id="install-amazon-linux-next-steps">Next steps<a class="headerlink" href="#install-amazon-linux-next-steps" title="Permanent link">¶</a></h2>
-<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="install-tarball" heading-number="3.2.6"><html><head>
+<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="install-tarball" heading-number="3.3.5"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -5527,7 +5777,7 @@ directory and run <code>mongod</code>.</p>
 </li>
 </ol>
 <h2 id="install-tarball-next-steps">Next steps<a class="headerlink" href="#install-tarball-next-steps" title="Permanent link">¶</a></h2>
-<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="install-source" heading-number="3.2.7"><html><head>
+<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="install-source" heading-number="3.3.6"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -5835,7 +6085,7 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debugi
 </li>
 </ol>
 <h2 id="install-source-next-steps">Next steps<a class="headerlink" href="#install-source-next-steps" title="Permanent link">¶</a></h2>
-<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="install-docker" heading-number="3.2.8"><html><head>
+<p><a class="md-button" href="#connect">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="install-docker" heading-number="3.3.7"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -6077,7 +6327,7 @@ run the following command: </p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>inspect<span class="w"> </span>-f<span class="w"> </span><span class="s1">'{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'</span><span class="w"> </span>psmdb
 </code></pre></div>
 <h2 id="install-docker-next-steps">Next steps<a class="headerlink" href="#install-docker-next-steps" title="Permanent link">¶</a></h2>
-<p><a class="md-button" href="#crud">Run simple queries <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section></section><section class="print-page" id="connect" heading-number="3.3"><html><head>
+<p><a class="md-button" href="#crud">Run simple queries <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section></section><section class="print-page" id="connect" heading-number="3.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -6174,7 +6424,7 @@ test&gt;
 </li>
 </ol>
 <h2 id="connect-next-steps">Next steps<a class="headerlink" href="#connect-next-steps" title="Permanent link">¶</a></h2>
-<p><a class="md-button" href="#crud">Run simple queries <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="crud" heading-number="3.4"><html><head>
+<p><a class="md-button" href="#crud">Run simple queries <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="crud" heading-number="3.5"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -6310,7 +6560,7 @@ test&gt;
 <p>Learn more about deleting data in <a href="https://www.mongodb.com/docs/manual/reference/delete-methods/">Delete methods</a> documentation.</p>
 <p>Congratulations! You have used basic create, read, update and delete (CRUD) operations to manipulate data in Percona Server for MongoDB. See <a href="https://www.mongodb.com/docs/manual/core/crud/">MongoDB CRUD Concepts</a> manual to learn more about CRUD operations.</p>
 <h2 id="crud-next-steps">Next steps<a class="headerlink" href="#crud-next-steps" title="Permanent link">¶</a></h2>
-<p><a class="md-button" href="#what-next">What’s next? <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="what-next" heading-number="3.5"><html><head>
+<p><a class="md-button" href="#what-next">What’s next? <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p></body></html></section><section class="print-page" id="what-next" heading-number="3.6"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13459,23 +13709,26 @@ we will do our very best to be helpful.</p></body></html></section></section></d
 
 .print-site-enumerate-headings #install-cloud-deployments > h1:before { content: '3.2.2 ' }
 
-.print-site-enumerate-headings #install-apt > h1:before { content: '3.2.3 ' }
+.print-site-enumerate-headings #section-3-3 > h1:before { content: '3.3 ' }
+.print-site-enumerate-headings #install-apt > h1:before { content: '3.3.1 ' }
 
-.print-site-enumerate-headings #install-yum > h1:before { content: '3.2.4 ' }
+.print-site-enumerate-headings #install-yum > h1:before { content: '3.3.2 ' }
 
-.print-site-enumerate-headings #install-amazon-linux > h1:before { content: '3.2.5 ' }
+.print-site-enumerate-headings #install-rocky-linux > h1:before { content: '3.3.3 ' }
 
-.print-site-enumerate-headings #install-tarball > h1:before { content: '3.2.6 ' }
+.print-site-enumerate-headings #install-amazon-linux > h1:before { content: '3.3.4 ' }
 
-.print-site-enumerate-headings #install-source > h1:before { content: '3.2.7 ' }
+.print-site-enumerate-headings #install-tarball > h1:before { content: '3.3.5 ' }
 
-.print-site-enumerate-headings #install-docker > h1:before { content: '3.2.8 ' }
+.print-site-enumerate-headings #install-source > h1:before { content: '3.3.6 ' }
 
-.print-site-enumerate-headings #connect > h1:before { content: '3.3 ' }
+.print-site-enumerate-headings #install-docker > h1:before { content: '3.3.7 ' }
 
-.print-site-enumerate-headings #crud > h1:before { content: '3.4 ' }
+.print-site-enumerate-headings #connect > h1:before { content: '3.4 ' }
 
-.print-site-enumerate-headings #what-next > h1:before { content: '3.5 ' }
+.print-site-enumerate-headings #crud > h1:before { content: '3.5 ' }
+
+.print-site-enumerate-headings #what-next > h1:before { content: '3.6 ' }
 
 .print-site-enumerate-headings #section-4 > h1:before { content: '4 ' }
 .print-site-enumerate-headings #comparison > h1:before { content: '4.1 ' }
