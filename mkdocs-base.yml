@@ -134,7 +134,7 @@ plugins:
   glightbox: {}
   macros:
       include_yaml:
-        - 'variables.yml' # Use in markdown as '{{ VAR }}'
+        - 'variables.yml' # Use in markdown as '{{ VAR }}'   
   mike:
       version_selector: true
       css_dir: css
@@ -171,11 +171,13 @@ nav:
   - get-help.md
   - Get started: 
       - Quickstart guides: 'install/index.md'
-      - 1. Installation:
+      - Infrastructure requirements:
         - 'System requirements': 'system-requirements.md'
         - install/cloud-deployments.md
+      - 1. Install:  
         - "On Debian and Ubuntu": install/apt.md
         - "On RHEL and derivatives": install/yum.md
+        - "On Rocky Linux": install/rocky-linux.md
         - "On Amazon Linux 2023": install/amazon-linux.md
         - "From tarballs": install/tarball.md
         - install/source.md
