@@ -145,14 +145,14 @@ Now you need to configure authentication in Percona Server for MongoDB. Specify 
     
     2. Start or restart Percona Server for MongoDB:
 
-        ```{.bash data-prompt="$"}
-        $ sudo systemctl start mongod
+        ```bash
+        sudo systemctl start mongod
         ```
 
 === "Command line"
 
-    ```{.bash data-prompt="$"}
-    $ mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
+    ```bash
+    mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
     'oidcIdentityProviders=[ {
        "issuer": "https://my-okta.okta.com/oauth2/austxj66qrgAVPlAj697",
        "audience": "example@mongodb.com",
@@ -213,8 +213,8 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows auth-code 
+    ```bash
+    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows auth-code 
     ```
 
 2. In the Okta login portal in your browser, specify the credentials of one of the users you defined in Okta and click Sign in.
@@ -234,8 +234,8 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows device-auth 
+    ```bash
+    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows device-auth 
     ```
 
     ??? example "Sample output"

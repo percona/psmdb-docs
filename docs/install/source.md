@@ -32,23 +32,23 @@ To build Percona Server for MongoDB manually, you need the following:
 
 2. Clone Percona Server for MongoDB repository
 
-    ```{.bash data-prompt="$"}
-    $ git clone https://github.com/percona/percona-server-mongodb.git
+    ```bash
+    git clone https://github.com/percona/percona-server-mongodb.git
     ```
 
 3. Switch to the Percona Server for MongoDB branch that you are building
    and install Python3 modules
 
-    ```{.bash data-prompt="$"}
-    $ cd percona-server-mongodb && git checkout v7.0
-    $ python3 -m pip install --user -r etc/pip/dev-requirements.txt
+    ```bash
+    cd percona-server-mongodb && git checkout v7.0
+    python3 -m pip install --user -r etc/pip/dev-requirements.txt
     ```
 
 4. Define Percona Server for MongoDB version (7.0.4 for the time of
    writing this document)
 
-    ```{.bash data-prompt="$"}
-    $ echo '{"version": "7.0.4"}' > version.json
+    ```bash
+    echo '{"version": "7.0.4"}' > version.json
     ```
 
 #### Install operating system dependencies
@@ -57,75 +57,75 @@ To build Percona Server for MongoDB manually, you need the following:
 
     The following command installs the dependencies for Ubuntu 22.04:
 
-    ```{.bash data-prompt="$"}
-    $ sudo apt install -y gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev liblzma-dev e2fslibs-dev
+    ```bash
+    sudo apt install -y gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev liblzma-dev e2fslibs-dev
     ```
 
 === ":material-redhat: RHEL and derivatives"
 
     The following command installs the dependencies for Oracle Linux 9:
 
-    ```{.bash data-prompt="$"}
-    $ sudo yum -y install gcc gcc-c++ cmake curl openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel
+    ```bash
+    sudo yum -y install gcc gcc-c++ cmake curl openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel
     ```
 
 #### Build AWS Software Development Kit for C++ library {.power-number}
 
 1. Clone the AWS Software Development Kit for C++ repository
 
-    ```{.bash data-prompt="$"}
-    $ git clone --recurse-submodules https://github.com/aws/aws-sdk-cpp.git
+    ```bash
+    git clone --recurse-submodules https://github.com/aws/aws-sdk-cpp.git
     ```
 
 2. Create a directory to store the AWS library 
 
-    ```{.bash data-prompt="$"}
-    $ mkdir -p /tmp/lib/aws
+    ```bash
+    mkdir -p /tmp/lib/aws
     ``` 
 
 3.  Declare an environment variable ``AWS_LIBS`` for this directory 
-    ```{.bash data-prompt="$"}
-    $ export AWS_LIBS=/tmp/lib/aws
+    ```bash
+    export AWS_LIBS=/tmp/lib/aws
     ``` 
 
 4. Percona Server for MongoDB is built with AWS SDK CPP 1.9.379
    version. Switch to this version 
 
-    ```{.bash data-prompt="$"}
-    $ cd aws-sdk-cpp && git checkout 1.9.379
+    ```bash
+    cd aws-sdk-cpp && git checkout 1.9.379
     ``` 
 
 5. It is recommended to keep build files outside the SDK directory.
    Create a build directory and navigate to it 
 
-    ```{.bash data-prompt="$"}
-    $ mkdir build && cd build
+    ```bash
+    mkdir build && cd build
     ``` 
 
 6.  Generate build files using ``cmake`` 
 
-     ```{.bash data-prompt="$"}
-     $ cmake .. -DCMAKE_BUILD_TYPE=Release '-DBUILD_ONLY=s3;transfer' -DBUILD_SHARED_LIBS=OFF -DMINIMIZE_SIZE=ON -DCMAKE_INSTALL_PREFIX="${AWS_LIBS}"
+     ```bash
+     cmake .. -DCMAKE_BUILD_TYPE=Release '-DBUILD_ONLY=s3;transfer' -DBUILD_SHARED_LIBS=OFF -DMINIMIZE_SIZE=ON -DCMAKE_INSTALL_PREFIX="${AWS_LIBS}"
      ```
 
 7.  Install the SDK 
 
-    ```{.bash data-prompt="$"}
-    $ make install
+    ```bash
+    make install
     ```
 
 #### Build Percona Server for MongoDB {.power-number}
 
 1. Change directory to ``percona-server-mongodb`` 
    
-    ```{.bash data-prompt="$"}
-    $ cd percona-server-mongodb
+    ```bash
+    cd percona-server-mongodb
     ``` 
 
 2. Build Percona Server for MongoDB from ``buildscripts/scons.py``
      
-    ```{.bash data-prompt="$"}
-    $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup CPPPATH="${AWS_LIBS}/include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
+    ```bash
+    buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup CPPPATH="${AWS_LIBS}/include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
     ```  
 
    This command builds core components of the database. Other available targets for the
@@ -156,8 +156,8 @@ To use the build script you need the following:
 1. Create the folder where all build actions take place. For the steps below we use the `/tmp/psmdb/test` folder.
 2. Navigate to the build folder and download the build script. Replace the `<tag>` placeholder with the required version of Percona Server for MongoDB:
 
-    ```{.bash data-prompt="$"}
-    $ wget https://raw.githubusercontent.com/percona/percona-server-mongodb/psmdb-<tag>/percona-packaging/scripts/psmdb_builder.sh -O psmdb_builder.sh 
+    ```bash
+    wget https://raw.githubusercontent.com/percona/percona-server-mongodb/psmdb-<tag>/percona-packaging/scripts/psmdb_builder.sh -O psmdb_builder.sh 
     ```
 
 ### Build steps
@@ -171,8 +171,8 @@ To build tarballs, the steps are the following:
 
 1. The following command builds tarballs of Percona Server for MongoDB 7.0.4-2 on Oracle Linux 8. Change the Docker image and the values for `--branch`, `--psm_ver`, `--psm_release` flags to build tarballs of a different version and on a different operating system.
 
-    ```{.bash data-prompt="$"}
-    $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:8 sh -c '
+    ```bash
+    docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:8 sh -c '
     set -o xtrace
     cd /tmp/psmdb
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
@@ -191,8 +191,8 @@ To build tarballs, the steps are the following:
 
 2. Check that tarballs are built:
 
-    ```{.bash data-prompt="$"}
-    $ ls -la /tmp/psmdb/test/tarball/
+    ```bash
+    ls -la /tmp/psmdb/test/tarball/
     ```
 
     ??? example "Sample output"
@@ -209,8 +209,8 @@ The steps are the following:
 
 1. Build the source tarball. It serves as the base for source packages. It is important to build source tarball using the oldest supported operating system, which is Oracle Linux 8.
 
-    ```{.bash data-prompt="$"}
-    $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:8 sh -c '
+    ```bash
+    docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:8 sh -c '
     set -o xtrace
     cd /tmp/psmdb
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
@@ -223,8 +223,8 @@ The steps are the following:
 
     === ":material-debian: DEB"    
 
-         ```{.bash data-prompt="$"}
-         $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:bionic sh -c '
+         ```bash
+         docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:bionic sh -c '
          set -o xtrace
          cd /tmp/psmdb
          bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
@@ -235,8 +235,8 @@ The steps are the following:
 
         Check that source packages are created    
 
-        ```{.bash data-prompt="$"}
-        $ ls -la /tmp/psmdb/test/source_deb/
+        ```bash
+        ls -la /tmp/psmdb/test/source_deb/
         ```    
 
         ??? example "Sample output"
@@ -247,8 +247,8 @@ The steps are the following:
             
     === ":material-redhat: RPM"    
 
-         ```{.bash data-prompt="$"}
-         $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:8 sh -c '
+         ```bash
+         docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:8 sh -c '
          set -o xtrace
          cd /tmp/psmdb
          bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
@@ -259,8 +259,8 @@ The steps are the following:
 
         Check that source packages are created    
 
-        ```{.bash data-prompt="$"}
-        $ ls -la /tmp/psmdb/test/srpm/
+        ```bash
+        ls -la /tmp/psmdb/test/srpm/
         ```    
 
         ```{.text .no-copy}
@@ -271,8 +271,8 @@ The steps are the following:
 
     === ":material-debian: DEB"
 
-        ```{.bash data-prompt="$"}
-        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
+        ```bash
+        docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
         set -o xtrace
         cd /tmp/psmdb
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
@@ -283,8 +283,8 @@ The steps are the following:
 
         Check that packages are created
 
-        ```{.bash data-prompt="$"}
-        $ ls -la /tmp/psmdb/test/deb/
+        ```bash
+        ls -la /tmp/psmdb/test/deb/
         ```
 
         ??? example "Sample output"
@@ -299,8 +299,8 @@ The steps are the following:
     
     === ":material-redhat:  RPM"
 
-        ```{.bash data-prompt="$"}
-        $ docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:9 sh -c '
+        ```bash
+        docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:9 sh -c '
         set -o xtrace
         cd /tmp/psmdb
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
@@ -311,8 +311,8 @@ The steps are the following:
 
         Check that packages are created
 
-        ```{.bash data-prompt="$"}
-        $ ls -la /tmp/psmdb/test/deb/
+        ```bash
+        ls -la /tmp/psmdb/test/deb/
         ```
 
         ??? example "Sample output"

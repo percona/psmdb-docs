@@ -70,8 +70,8 @@ Run the following commands as root or via `sudo`
 
 1. Stop the `mongod` service
 
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl stop mongod
+    ```bash
+    sudo systemctl stop mongod
     ```
 
 2. Edit the `/etc/mongod.conf` configuration file
@@ -86,8 +86,8 @@ Run the following commands as root or via `sudo`
 
 3. Start the `mongod` service
 
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl start mongod
+    ```bash
+    sudo systemctl start mongod
     ```
 
 #### Configure AWS STS endpoint
@@ -115,14 +115,14 @@ To test the authentication, use either of the following methods:
 
      Replace `<aws_access_key_id>`, `<aws_secret_access_key>` and `psmdb.example.com` with actual values in the following command:
 
-     ```{.bash data-prompt="$"}
-     $ mongosh 'mongodb://<aws_access_key_id>:<aws_secret_access_key>:@psmdb.example.com/admin?authSource=$external&authMechanism=MONGODB-AWS'
+     ```bash
+     mongosh 'mongodb://<aws_access_key_id>:<aws_secret_access_key>:@psmdb.example.com/admin?authSource=$external&authMechanism=MONGODB-AWS'
      ```
  
      To pass temporary credentials and AWS token, replace `<aws_access_key_id>`, `<aws_secret_access_key>`, `<aws_session_token>` and `psmdb.example.com` in the following command:
 
-     ```{.bash data-prompt="$"}
-     $ mongosh 'mongodb://<aws_access_key_id>:<aws_secret_access_key>:@psmdb.example.com/admin?authSource=$external&authMechanism=MONGODB-AWS&authMechanismProperties=AWS_SESSION_TOKEN:<aws_session_token>'
+     ```bash
+     mongosh 'mongodb://<aws_access_key_id>:<aws_secret_access_key>:@psmdb.example.com/admin?authSource=$external&authMechanism=MONGODB-AWS&authMechanismProperties=AWS_SESSION_TOKEN:<aws_session_token>'
      ```
 
 === "Environment variables"
@@ -137,16 +137,16 @@ To test the authentication, use either of the following methods:
 
      Connect to Percona Server for MongoDB:
 
-     ```{.bash data-prompt="$"}
-     $ mongosh 'mongodb://psmdb.example.com/testdb?authSource=$external&authMechanism=MONGODB-AWS'
+     ```bash
+     mongosh 'mongodb://psmdb.example.com/testdb?authSource=$external&authMechanism=MONGODB-AWS'
      ```
 
 === "AWS resource metadata"
      
      If your application is running on the AWS resource, it receives the credentials from the resource metadata. To connect to Percona Server for MongoDB, run the command as follows:
 
-     ```{.bash data-prompt="$"}
-     $ mongosh --authenticationMechanism=MONGODB-AWS --authenticationDatabase='$external'
+     ```bash
+     mongosh --authenticationMechanism=MONGODB-AWS --authenticationDatabase='$external'
      ```
 
 Upon successful authentication, the result should look like the following: 

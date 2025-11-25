@@ -24,8 +24,8 @@ The advantage of using this mechanism is that it is easy to setup and does not r
 
 The following example illustrates the connection to Percona Server for MongoDB from the `mongosh` shell:
 
-```{.bash data-prompt="$"}
-$ mongosh -u "CN=alice,CN=Users,DC=engineering,DC=example,DC=com" -p --authenticationDatabase '$external' --authenticationMechanism PLAIN
+```bash
+mongosh -u "CN=alice,CN=Users,DC=engineering,DC=example,DC=com" -p --authenticationDatabase '$external' --authenticationMechanism PLAIN
 ```
 
 The following diagram illustrates the authentication and authorization flow:

@@ -41,14 +41,14 @@ To enable access control manually:
 
 3. Restart the `mongod` service:
 
-    ```{.bash data-prompt="$"}
-    $ service mongod restart
+    ```bash
+    service mongod restart
     ```
 
 4. Connect to the database as the newly created user:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh --port 27017 -u 'USER' -p 'PASSWORD'  --authenticationDatabase "admin"
+    ```bash
+    mongosh --port 27017 -u 'USER' -p 'PASSWORD'  --authenticationDatabase "admin"
     ```
 
 !!! admonition "See also"

@@ -120,14 +120,14 @@ The following table maps the Ping Identity configuration parameters to the Perco
     
     2. Start or restart Percona Server for MongoDB:
 
-        ```{.bash data-prompt="$"}
-        $ sudo systemctl start mongod
+        ```bash
+        sudo systemctl start mongod
         ```
 
 === "Command line"
 
-    ```{.bash data-prompt="$"}
-    $ mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
+    ```bash
+    mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
     'oidcIdentityProviders=[ {
        "issuer": "https://auth.pingone.eu/9f1b3e82-7c45-4a1e-bd62-cc38f7a4e918/as",
        "audience": "01660c90-f988-4220-ad9d-32b60370d32c",
@@ -186,8 +186,8 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh  --authenticationMechanism MONGODB-OIDC --oidcIdTokenAsAccessToken
+    ```bash
+    mongosh  --authenticationMechanism MONGODB-OIDC --oidcIdTokenAsAccessToken
     ```
 
 2. You will be redirected to the Ping Identity login page in your web browser. 
@@ -208,8 +208,8 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh  --authenticationMechanism MONGODB-OIDC --oidcIdTokenAsAccessToken --oidcFlows device-auth
+    ```bash
+    mongosh  --authenticationMechanism MONGODB-OIDC --oidcIdTokenAsAccessToken --oidcFlows device-auth
     ```
 
     ??? example "Sample output"

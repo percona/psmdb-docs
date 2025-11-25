@@ -42,8 +42,8 @@ By default, the `AES256-CBC` cipher mode is applied. The following example
 demonstrates how to apply the AES256-GCM cipher mode when starting the
 `mongod` service:
 
-```{.bash data-prompt="$"}
-$ mongod ... --encryptionCipherMode AES256-GCM
+```bash
+mongod ... --encryptionCipherMode AES256-GCM
 ```
 
 !!! admonition "See also"
@@ -54,8 +54,8 @@ $ mongod ... --encryptionCipherMode AES256-GCM
 
 Percona Server for MongoDB encrypts rollback files when data at rest encryption is enabled. To inspect the contents of these files, use **perconadecrypt**. This is a tool that you run from the command line as follows:
 
-```{.bash data-prompt="$"}
-$ perconadecrypt --encryptionKeyFile FILE  --inputPath FILE --outputPath FILE [--encryptionCipherMode MODE]
+```bash
+perconadecrypt --encryptionKeyFile FILE  --inputPath FILE --outputPath FILE [--encryptionCipherMode MODE]
 ```
 
 When decrypting, the cipher mode must match the cipher mode which was used for

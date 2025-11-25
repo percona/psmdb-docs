@@ -15,8 +15,8 @@ To take a hot backup of the database in your current `dbpath`, do the following:
 
 1. Provide access to the backup directory for the `mongod` user:
 
-    ```{.bash data-prompt="$"}
-    $ sudo chown mongod:mongod <backupDir>
+    ```bash
+    sudo chown mongod:mongod <backupDir>
     ```
 
 2. Run the `createBackup` command as administrator on the `admin` database and specify the backup directory.
@@ -144,32 +144,32 @@ Run the following commands as root or by using the `sudo` command
 
 1. Stop the `mongod` service
 
-    ```{.bash data-prompt="$"}
-    $ systemctl stop mongod
+    ```bash
+    systemctl stop mongod
     ```
 
 2. Clean out the data directory
    
-    ```{.bash data-prompt="$"}
-    $ rm -rf /var/lib/mongodb/*
+    ```bash
+    rm -rf /var/lib/mongodb/*
     ```
 
 3. Copy backup files
 
-    ```{.bash data-prompt="$"}
-    $ cp -RT <backup_data_path> /var/lib/mongodb/
+    ```bash
+    cp -RT <backup_data_path> /var/lib/mongodb/
     ```
 
 4. Grant permissions to data files for the `mongod` user
 
-    ```{.bash data-prompt="$"}
-    $ chown -R mongod:mongod /var/lib/mongodb/
+    ```bash
+    chown -R mongod:mongod /var/lib/mongodb/
     ```
 
 5. Start the `mongod` service
 
-    ```{.bash data-prompt="$"}
-    $ systemctl start mongod
+    ```bash
+    systemctl start mongod
     ```
 
 ### In a replica set
@@ -184,30 +184,30 @@ Run the following commands as root or by using the **sudo** command
 
 1. Stop the `mongod` service:
 
-    ```{.bash data-prompt="$"}
-    $ systemctl stop mongod
+    ```bash
+    systemctl stop mongod
     ```
 
 
 2. Clean the data directory and then copy the files from the backup directory to your data directory. Assuming that the data directory is `/var/lib/mongodb/`, use the following commands:
 
-    ```{.bash data-prompt="$"}
-    $ rm -rf /var/lib/mongodb/*
-    $ cp -RT <backup_data_path> /var/lib/mongodb/
+    ```bash
+    rm -rf /var/lib/mongodb/*
+    cp -RT <backup_data_path> /var/lib/mongodb/
     ```
 
 
 3. Grant permissions to the data files for the `mongod` user
 
-    ```{.bash data-prompt="$"}
-    $ chown -R mongod:mongod /var/lib/mongodb/
+    ```bash
+    chown -R mongod:mongod /var/lib/mongodb/
     ```
 
 
 4. Make sure the replication is disabled in the config file and start the `mongod` service.
 
-    ```{.bash data-prompt="$"}
-    $ systemctl start mongod
+    ```bash
+    systemctl start mongod
     ```
 
 
@@ -224,8 +224,8 @@ Run the following commands as root or by using the **sudo** command
 
     * Shut down the node.
 
-        ```{.bash data-prompt="$"}
-        $ systemctl stop mongod
+        ```bash
+        systemctl stop mongod
         ```
 
     * Edit the configuration file and specify the `replication.replSetname` option
@@ -233,8 +233,8 @@ Run the following commands as root or by using the **sudo** command
 
     * Start the `mongod` node:
 
-        ```{.bash data-prompt="$"}
-        $ systemctl start mongod
+        ```bash
+        systemctl start mongod
         ```
 
 

@@ -15,8 +15,8 @@ This document describes how to install Percona Server for MongoDB on RPM-based d
 
      1. List available versions:
 
-         ```{.bash data-prompt="$"}
-         $ sudo yum list percona-server-mongodb --showduplicates
+         ```bash
+         sudo yum list percona-server-mongodb --showduplicates
          ```
 
         Sample output:
@@ -29,8 +29,8 @@ This document describes how to install Percona Server for MongoDB on RPM-based d
 
      2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-server-mongodb-{{release}}.el9
+        ```bash
+        sudo yum install percona-server-mongodb-{{release}}.el9
         ```
 
 --8<-- "yum-install.md:75:134"

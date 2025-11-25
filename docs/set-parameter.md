@@ -19,8 +19,8 @@ in one of the following ways:
     use the `--setParameter` command line option arguments when running the `mongod` process
     for development or testing purposes:    
 
-    ```{.bash data-prompt="$"}
-    $ mongod \
+    ```bash
+    mongod \
       --setParameter <parameter>=<value>\
     ```
 

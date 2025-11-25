@@ -9,8 +9,8 @@ The steps are the following:
 
 1. Connect to Percona Server for MongoDB instance without authentication:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh
+    ```bash
+    mongosh
     ```
 
     ??? example "Sample output"
@@ -67,8 +67,8 @@ The steps are the following:
 
         Start the server with authentication enabled using the following command: 
 
-        ``` {.bash data-prompt="$"}
-        $ mongod --auth --port 27017 --dbpath /var/lib/mongodb --fork --syslog
+        ```bash
+        mongod --auth --port 27017 --dbpath /var/lib/mongodb --fork --syslog
         ```
 
     === ":material-console: Configuration file"
@@ -82,14 +82,14 @@ The steps are the following:
 
         2. Start the `mongod` service
 
-            ``` {.bash data-prompt="$"}
-            $ systemctl start mongod
+            ```bash
+            systemctl start mongod
             ```
 
 5. Connect to Percona Server for MongoDB and authenticate.
     
-    ``` {.bash data-prompt="$"}
-    $ mongosh --port 27017  --authenticationDatabase \
+    ```bash
+    mongosh --port 27017  --authenticationDatabase \
     "admin" -u "admin" -p
     ```
 

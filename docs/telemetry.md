@@ -222,24 +222,24 @@ If you decide not to send usage data to Percona when you install the software, y
 
     Add the environment variable before the installation process.
 
-    ```{.bash data-prompt="$"}
-    $ sudo PERCONA_TELEMETRY_DISABLE=1 apt install percona-server-mongodb
+    ```bash
+    sudo PERCONA_TELEMETRY_DISABLE=1 apt install percona-server-mongodb
     ```
 
 === "Red Hat-derived distribution"
 
     Add the environment variable before the installation process.
     
-    ```{.bash data-prompt="$"}
-    $ sudo PERCONA_TELEMETRY_DISABLE=1 yum install percona-server-mongodb
+    ```bash
+    sudo PERCONA_TELEMETRY_DISABLE=1 yum install percona-server-mongodb
     ```
 
 === "Docker"
 
     Add the environment variable when running a command in a new container.
     
-    ```{.bash data-prompt="$"}
-    $ docker run -d --name psmdb --restart always \
+    ```bash
+    docker run -d --name psmdb --restart always \
       -e PERCONA_TELEMETRY_DISABLE=1 \
       percona/percona-server-mongodb:<TAG>
     ```
@@ -267,16 +267,16 @@ You can either disable the Telemetry Agent temporarily or permanently.
 
     Turn off Telemetry Agent temporarily until the next server restart with this command:
 
-    ```{.bash data-prompt=$}
-    $ systemctl stop percona-telemetry-agent
+    ```bash
+    systemctl stop percona-telemetry-agent
     ```
 
 === "Disable permanently"
 
     Turn off Telemetry Agent permanently with this command:
 
-    ```{.bash data-prompt=$}
-    $ systemctl disable percona-telemetry-agent
+    ```bash
+    systemctl disable percona-telemetry-agent
     ```
 
 Even after stopping the Telemetry Agent service, a different part of the software (Telemetry Subsystem) continues to create the Metrics File related to telemetry every day and saves that file for seven days.
@@ -309,10 +309,10 @@ To disable the Telemetry Subsystem, set the `perconaTelemetry` server parameter 
 
     Use the `--setParameter` command line option arguments for both `mongod` and `mongos` processes. The server starts with the telemetry Subsystem disabled:    
 
-    ```{.bash data-prompt="$"}
-    $ mongod \
+    ```bash
+    mongod \
       --setParameter perconaTelemetry=false
-    $ mongos \
+    mongos \
       --setParameter perconaTelemetry=false
     ```
 
@@ -321,8 +321,8 @@ To disable the Telemetry Subsystem, set the `perconaTelemetry` server parameter 
     Use the `setParameter` command on the `admin` database
     to make changes at runtime. The changes apply until the server restart.
 
-    ```{.javascript data-prompt=">"}
-    > db.adminCommand({setParameter: 1, "perconaTelemetry": false})
+    ```javascript 
+    db.adminCommand({setParameter: 1, "perconaTelemetry": false})
     ```
 
 !!! tip

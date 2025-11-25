@@ -23,20 +23,20 @@ Install the following dependencies required to install Percona Server for MongoD
 
 === ":material-redhat: RHEL and derivatives"
 
-    ```{.bash data-prompt="$"}
-    $ sudo yum install openldap cyrus-sasl-gssapi curl
+    ```bash
+    sudo yum install openldap cyrus-sasl-gssapi curl
     ```
 
 === ":material-ubuntu: Ubuntu"
 
-    ```{.bash data-prompt="$"}
-    $ sudo apt install curl libsasl2-modules-gssapi-mit
+    ```bash
+    sudo apt install curl libsasl2-modules-gssapi-mit
     ```
 
 === ":material-debian: Debian"
 
-    ```{.bash data-prompt="$"}
-    $ sudo apt curl libsasl2-modules-gssapi-mit
+    ```bash
+    sudo apt curl libsasl2-modules-gssapi-mit
     ```
 
 ## Procedure
@@ -46,29 +46,29 @@ Follow these steps to install Percona Server for MongoDB from a tarball:
 
 1. Fetch the binary tarballs:
 
-    ```{.bash data-prompt="$"}
+    ```bash
     wget https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz\
-    $ wget https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+    wget https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
     ```
 2. Extract the tarballs
 
-    ```{.bash data-prompt='$'} 
-    $ tar -xf percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz
-    $ tar -xf percona-mongodb-mongosh-{{release}}-x86_64.tar.gz
+    ```bash
+    tar -xf percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz
+    tar -xf percona-mongodb-mongosh-{{release}}-x86_64.tar.gz
     ```
 
 
 3. Add the location of the binaries to the `PATH` variable:
 
-    ```{.bash data-prompt="$"}
-    $ export PATH=~/percona-server-mongodb-{{release}}/bin/:~/percona-mongodb-mongosh-{{mongosh}}/bin/:$PATH
+    ```bash
+    export PATH=~/percona-server-mongodb-{{release}}/bin/:~/percona-mongodb-mongosh-{{mongosh}}/bin/:$PATH
     ```
 
 
 4. Create the default data directory:
 
-    ```{.bash data-prompt="$"}
-    $ mkdir -p /data/db
+    ```bash
+    mkdir -p /data/db
     ```
 
 

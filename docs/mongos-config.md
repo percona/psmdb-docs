@@ -21,8 +21,8 @@ The steps are the following:
 
 1. Create a `mongos` user and a group. This user will own the `mongos` process. Use the following command:
 
-    ```{.bash data-prompt="$"}
-    $ groupadd mongos && sudo useradd -r -s /bin/false -g mongos mongos
+    ```bash
+    groupadd mongos && sudo useradd -r -s /bin/false -g mongos mongos
 	```
 
 2. Create the environment file at the path `/etc/sysconfig/mongos` and specify the following environment variables within:
@@ -60,8 +60,8 @@ The steps are the following:
 
 4. Create the systemd unit file at the path `/usr/lib/systemd/system/mongos.service`. Specify the following configuration:
 
-	```{.bash data-prompt="$"}
-	$ tee /usr/lib/systemd/system/mongos.service <<EOF
+	```bash
+	tee /usr/lib/systemd/system/mongos.service <<EOF
     [Unit]
     Description=High-performance, schema-free document-oriented database
     After=time-sync.target network.target    
@@ -87,8 +87,8 @@ The steps are the following:
 
 5. Grant read/write access for the `mongos` user to the following directories and files:
 
-    ```{.bash data-prompt="$"}
-	$ sudo chown -R mongos:mongos /var/log/mongo \
+    ```bash
+	sudo chown -R mongos:mongos /var/log/mongo \
     /var/run/mongos.pid \
 	/etc/mongos.conf \
 	/etc/sysconfig/mongos \
@@ -96,13 +96,13 @@ The steps are the following:
 	```
 6. Reload the systemd daemon to apply the changes:
 
-	```{.bash data-prompt="$"}
-	$ sudo systemctl daemon-reload
+	```bash
+	sudo systemctl daemon-reload
 	```
 
 7. Start the `mongos` service:
 
-	```{.bash data-prompt="$"}
-	$ sudo systemctl start mongos
+	```bash
+	sudo systemctl start mongos
 	```
 
