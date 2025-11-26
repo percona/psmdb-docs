@@ -12,4 +12,15 @@ You can run Percona Server for MongoDB in FIPS mode on all [supported operating 
 
 Note, that FIPS modules on Ubuntu 24.04 are not available yet as they are awaiting final certification by CMVP.
 
+## Availability
+
+FIPS modules were available in Pro packages, but those have been sunsetted. 
+
+Since version 6.0 has reached end of life, regular packages are not rebuilt to include FIPS.
+
+If you require FIPS functionality, you have two options:
+
+* Compile Percona Server for MongoDB yourself with FIPS enabled. See [source build instructions](install/source.md).
+* [Reach out to your Percona representative](https://www.percona.com/about/contact) for guidance on accessing Percona Server for MongoDB with FIPS support.
+
 See [Configure MongoDB for FIPS](https://www.mongodb.com/docs/v6.0/tutorial/configure-fips/) in MongoDB documentation for configuration guidelines. 
