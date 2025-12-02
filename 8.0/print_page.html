@@ -2842,6 +2842,34 @@
   
   
     <li class="md-nav__item">
+      <a href="release_notes/8.0.16-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Percona Server for MongoDB 8.0.16-5 (2025-12-02)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release_notes/8.0.12-4.html" class="md-nav__link">
         
   
@@ -4335,6 +4363,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
+  <a href="#release_notes-8.0.16-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Percona Server for MongoDB 8.0.16-5 (2025-12-02)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#release_notes-8.0.12-4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4510,7 +4549,7 @@ for MongoDB 8.0 Community Edition with <a href="#comparison">enterprise-grade fe
 <div class="admonition hint">
 <p>To see which version of Percona Server for MongoDB you are using check the value of the <code>psmdbVersion</code> key in the output of the <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo">buildInfo</a> database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.</p>
 </div>
-<p><a class="md-button md-button" href="#release_notes-8.0.12-4">What’s new in Percona Server for MongoDB 8.0.12-4</a></p>
+<p><a class="md-button md-button" href="#release_notes-8.0.16-5">What’s new in Percona Server for MongoDB 8.0.16-5</a></p>
 <div data-grid="data-grid">
 <div data-banner="data-banner">
 <h2 class="title" id="index-installation-guides"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2.03c4.73.47 8.5 4.22 8.95 8.97A9.976 9.976 0 0 1 13 21.93v-2c3.64-.43 6.5-3.32 6.96-6.96A7.994 7.994 0 0 0 13 4.05V2.03m-2 .03v2c-1.43.2-2.78.78-3.9 1.68L5.67 4.26A9.83 9.83 0 0 1 11 2.06M4.26 5.67 5.69 7.1A8 8 0 0 0 4.05 11h-2c.2-1.96.95-3.81 2.21-5.33M2.06 13h2c.18 1.42.75 2.77 1.63 3.9l-1.42 1.43A10.04 10.04 0 0 1 2.06 13m5.04 5.37c1.13.88 2.48 1.45 3.9 1.63v2c-1.96-.21-3.82-1-5.33-2.26zM12 16.5 7.5 12H11V8h2v4h3.5z"></path></svg></span> Installation guides<a class="headerlink" href="#index-installation-guides" title="Permanent link">¶</a></h2>
@@ -4882,12 +4921,12 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt-cache<span class="w"> </span>madison<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 <p>Sample output:</p>
-<div class="no-copy highlight"><pre><span></span><code>percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">8</span>.0.12-4.bullseye<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-80/apt<span class="w"> </span>bullseye/main<span class="w"> </span>amd64<span class="w"> </span>Packages
+<div class="no-copy highlight"><pre><span></span><code>percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">8</span>.0.16-5.bullseye<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-80/apt<span class="w"> </span>bullseye/main<span class="w"> </span>amd64<span class="w"> </span>Packages
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 8.0.12-4, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb<span class="o">=</span><span class="m">8</span>.0.12-4.bullseye<span class="w"> </span>percona-server-mongodb-mongos<span class="o">=</span><span class="m">8</span>.0.12-4.bullseye<span class="w"> </span>percona-server-mongodb-shell<span class="o">=</span><span class="m">8</span>.0.12-4.bullseye<span class="w"> </span>percona-server-mongodb-server<span class="o">=</span><span class="m">8</span>.0.12-4.bullseye<span class="w"> </span>percona-server-mongodb-tools<span class="o">=</span><span class="m">8</span>.0.12-4.bullseye
+<p>Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 8.0.16-5, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb<span class="o">=</span><span class="m">8</span>.0.16-5.bullseye<span class="w"> </span>percona-server-mongodb-mongos<span class="o">=</span><span class="m">8</span>.0.16-5.bullseye<span class="w"> </span>percona-server-mongodb-shell<span class="o">=</span><span class="m">8</span>.0.16-5.bullseye<span class="w"> </span>percona-server-mongodb-server<span class="o">=</span><span class="m">8</span>.0.16-5.bullseye<span class="w"> </span>percona-server-mongodb-tools<span class="o">=</span><span class="m">8</span>.0.16-5.bullseye
 </code></pre></div>
 </li>
 </ol>
@@ -5008,12 +5047,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.x86_64<span class="w">    </span><span class="m">8</span>.0.12-4.el9<span class="w">       </span>psmdb-80-release-x86_64
+percona-server-mongodb.x86_64<span class="w">    </span><span class="m">8</span>.0.16-5.el9<span class="w">       </span>psmdb-80-release-x86_64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.12-4, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.12-4.el9
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.16-5, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.16-5.el9
 </code></pre></div>
 </li>
 </ol>
@@ -5146,12 +5185,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.x86_64<span class="w">    </span><span class="m">8</span>.0.12-4.el9<span class="w">       </span>psmdb-80-release-x86_64
+percona-server-mongodb.x86_64<span class="w">    </span><span class="m">8</span>.0.16-5.el9<span class="w">       </span>psmdb-80-release-x86_64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.12-4, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.12-4.el9
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.16-5, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.16-5.el9
 </code></pre></div>
 </li>
 </ol>
@@ -5302,12 +5341,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.aarch64<span class="w">    </span><span class="m">8</span>.0.12-4.amzn2023<span class="w">       </span>psmdb-80-release-aarch64
+percona-server-mongodb.aarch64<span class="w">    </span><span class="m">8</span>.0.16-5.amzn2023<span class="w">       </span>psmdb-80-release-aarch64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.12-4, run the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.12-4.amzn2023
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.16-5, run the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.16-5.amzn2023
 </code></pre></div>
 </li>
 </ol>
@@ -5364,10 +5403,10 @@ after you reboot the system.</p>
 <p>There are the following tarballs available:</p>
 <ul>
 <li>
-<p><code>percona-server-mongodb-8.0.12-4-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
+<p><code>percona-server-mongodb-8.0.16-5-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
 </li>
 <li>
-<p><code>percona-mongodb-mongosh-2.5.6-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</p>
+<p><code>percona-mongodb-mongosh-2.5.9-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</p>
 </li>
 </ul>
 <h2 id="install-tarball-tarball-types">Tarball types<a class="headerlink" href="#install-tarball-tarball-types" title="Permanent link">¶</a></h2>
@@ -5382,17 +5421,17 @@ after you reboot the system.</p>
 <tbody>
 <tr>
 <td>Full</td>
-<td>percona-server-mongodb-8.0.12-4-x86_64.<operating-system>.tar.gz</operating-system></td>
+<td>percona-server-mongodb-8.0.16-5-x86_64.<operating-system>.tar.gz</operating-system></td>
 <td>Contains binaries and libraries</td>
 </tr>
 <tr>
 <td>Minimal</td>
-<td>percona-server-mongodb-8.0.12-4-x86_64.<operating-system>-minimal.tar.gz</operating-system></td>
+<td>percona-server-mongodb-8.0.16-5-x86_64.<operating-system>-minimal.tar.gz</operating-system></td>
 <td>Contains binaries and libraries without debug symbols</td>
 </tr>
 <tr>
 <td>Checksum</td>
-<td>percona-server-mongodb-8.0.12-4-x86_64.<operating-system>-minimal.tar.gz.sha256sum</operating-system></td>
+<td>percona-server-mongodb-8.0.16-5-x86_64.<operating-system>-minimal.tar.gz.sha256sum</operating-system></td>
 <td>Contains the MD5 checksum to verify the integrity of the files after the extraction</td>
 </tr>
 </tbody>
@@ -5420,17 +5459,17 @@ after you reboot the system.</p>
 <ol>
 <li>
 <p>Fetch the binary tarballs:</p>
-<p></p><div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.12-4/binary/tarball/percona-server-mongodb-8.0.12-4-x86_64.jammy.tar.gz<span class="se">\</span>
-$<span class="w"> </span>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.12-4/binary/tarball/percona-mongodb-mongosh-2.5.6-x86_64.tar.gz
+<p></p><div class="highlight" data-prompt="$"><pre><span></span><code>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.16-5/binary/tarball/percona-server-mongodb-8.0.16-5-x86_64.jammy.tar.gz<span class="se">\</span>
+$<span class="w"> </span>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.16-5/binary/tarball/percona-mongodb-mongosh-2.5.9-x86_64.tar.gz
 </code></pre></div>
 2. Extract the tarballs<p></p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-8.0.12-4-x86_64.jammy.tar.gz
-$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-8.0.12-4-x86_64.tar.gz
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-8.0.16-5-x86_64.jammy.tar.gz
+$<span class="w"> </span>tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-8.0.16-5-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-8.0.12-4/bin/:~/percona-mongodb-mongosh-2.5.6/bin/:<span class="nv">$PATH</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-8.0.16-5/bin/:~/percona-mongodb-mongosh-2.5.9/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -5481,7 +5520,7 @@ directory and run <code>mongod</code>.</p>
 </thead>
 <tbody>
 <tr>
-<td>RedHat Enterprise Linux/CentOS 9</td>
+<td>RedHat Enterprise Linux/ CentOS Stream / Rocky Linux / Alma Linux</td>
 <td>gcc gcc-c++ cmake curl binutils-devel openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel</td>
 </tr>
 <tr>
@@ -5826,7 +5865,7 @@ and restart it if the container exits.</p>
 <p><code>percona/percona-server-mongodb</code> is the name of the image to derive the container from.</p>
 </li>
 <li>
-<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>8.0.12-4</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb/tags">See the full list of tags</a>.</p>
+<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>8.0.16-5</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb/tags">See the full list of tags</a>.</p>
 </li>
 </ul>
 <h2 id="install-docker-access-container-shell">Access container shell<a class="headerlink" href="#install-docker-access-container-shell" title="Permanent link">¶</a></h2>
@@ -6038,7 +6077,7 @@ run the following command: </p>
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 6598270a3a0c418751550ded
 Connecting to:      mongodb://127.0.0.1:27017/?directConnection=true&amp;serverSelectionTimeoutMS=2000&amp;appName=mongosh+2.0.0
-Using MongoDB:      8.0.12-4
+Using MongoDB:      8.0.16-5
 Using Mongosh:      2.0.0    
 
 For mongosh info see: https://docs.mongodb.com/mongodb-shell/    
@@ -7895,7 +7934,7 @@ member: cn=bob,dc=percona,dc=com
 <h2 id="ldap-setup-prerequisites">Prerequisites<a class="headerlink" href="#ldap-setup-prerequisites" title="Permanent link">¶</a></h2>
 <ul>
 <li>
-<p>To configure LDAP, you must have the <code>sudo</code> privilege to the server with the {{ no such element: dict object[‘psmdb_full_name’] }} installed.</p>
+<p>To configure LDAP, you must have the <code>sudo</code> privilege to the server with the Percona Server for MongoDB installed.</p>
 </li>
 <li>
 <p>If your LDAP server disallows anonymous binds, create the user that Percona Server for MongoDB will use to connect to and query the LDAP server. Afterwards, set that username and password using the <code>security.ldap.bind.queryUser</code> and <code>security.ldap.bind.queryPassword</code> parameters in the <code>mongod.conf</code> configuration file. If the username or any part of it ends up substituted as distinguished name, it must be escaped according to <a href="https://tools.ietf.org/html/rfc4514">RFC 4514</a>. It may happen when: </p>
@@ -8073,7 +8112,7 @@ EOF
 </div>
 <h4 id="ldap-setup-escaping-special-characters">Escaping special characters<a class="headerlink" href="#ldap-setup-escaping-special-characters" title="Permanent link">¶</a></h4>
 <p>The <strong><code>substitution</code> parameter</strong></p>
-<p>The result of the substitution becomes the value of the <code>{USER}</code> placeholder, which is a <code>{USER}</code> value in the <code>security.ldap.authz.queryTemplate</code> parameter. Escaping requirements depend on the part of the query template that will be substituted. For example, the result of the substitution can be a full distinguished name or a part of it. In this case, according to <a href="https://www.ietf.org/rfc/rfc4514.txt">RFC4514</a>, you must escape special characters in the <code>substitution</code> parameter. Using other escaping mechanisms in this parameter is unnecessary because {{ no such element: dict object[‘psmdb_full_name’] }} applies the necessary escaping as outlined in <a href="https://tools.ietf.org/html/rfc4515">RFC4515</a> and <a href="https://tools.ietf.org/html/rfc4516">RFC4516</a> while substituting the <code>security.ldap.authz.queryTemplate</code> parameter.</p>
+<p>The result of the substitution becomes the value of the <code>{USER}</code> placeholder, which is a <code>{USER}</code> value in the <code>security.ldap.authz.queryTemplate</code> parameter. Escaping requirements depend on the part of the query template that will be substituted. For example, the result of the substitution can be a full distinguished name or a part of it. In this case, according to <a href="https://www.ietf.org/rfc/rfc4514.txt">RFC4514</a>, you must escape special characters in the <code>substitution</code> parameter. Using other escaping mechanisms in this parameter is unnecessary because Percona Server for MongoDB applies the necessary escaping as outlined in <a href="https://tools.ietf.org/html/rfc4515">RFC4515</a> and <a href="https://tools.ietf.org/html/rfc4516">RFC4516</a> while substituting the <code>security.ldap.authz.queryTemplate</code> parameter.</p>
 <p>The <strong><code>ldapQuery</code> and <code>queryTemplate</code> parameters</strong></p>
 <p>To properly escape special characters, follow these steps:</p>
 <ol>
@@ -8682,8 +8721,8 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 </li>
 <li>
 <p>Upon successful log in you must see the <strong>Login successful</strong> screen. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
-Using Mongosh:      2.5.6
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.16-5
+Using Mongosh:      2.5.9
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -8710,8 +8749,8 @@ Enter the following code on that page: LRVCRLXP
 <li>Enter the code in the <strong>Activation Code</strong> field and click <strong>Next</strong></li>
 <li>
 <p>You should see the <strong>Device Activated</strong> message on the screen. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
-Using Mongosh:      2.5.6
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.16-5
+Using Mongosh:      2.5.9
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -9154,8 +9193,8 @@ Waiting....
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
-Using Mongosh:      2.5.6
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.16-5
+Using Mongosh:      2.5.9
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -9183,8 +9222,8 @@ Waiting...
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
-Using Mongosh:      2.5.6
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.16-5
+Using Mongosh:      2.5.9
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -9414,8 +9453,8 @@ test&gt;
 <li>Log in with your credentials.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
-Using Mongosh:      2.5.6
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.16-5
+Using Mongosh:      2.5.9
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -9443,8 +9482,8 @@ Waiting...
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.12-4
-Using Mongosh:      2.5.6
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.16-5
+Using Mongosh:      2.5.9
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -11646,9 +11685,9 @@ $<span class="w"> </span><span class="k">for</span><span class="w"> </span>i<spa
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
-Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.5.6
-Using MongoDB:      8.0.12-4
-Using Mongosh:      2.5.6
+Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.5.9
+Using MongoDB:      8.0.16-5
+Using Mongosh:      2.5.9
 
 rs0 [primary] test&gt;
 </code></pre></div>
@@ -11681,9 +11720,9 @@ rs0 [primary] test&gt;
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
-Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.5.6
-Using MongoDB:  8.0.12-4
-Using Mongosh:  2.5.6
+Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.5.9
+Using MongoDB:  8.0.16-5
+Using Mongosh:  2.5.9
 
 rs0 [primary] test&gt;
 </code></pre></div>
@@ -12271,6 +12310,9 @@ $<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-
         </head><body><h1 id="percona-server-for-mongodb-80-release-notes">Percona Server for MongoDB 8.0 release notes<a class="headerlink" href="#release_notes-index-percona-server-for-mongodb-80-release-notes" title="Permanent link">¶</a></h1>
 <ul>
 <li>
+<p><a href="#release_notes-8.0.16-5">Percona Server for MongoDB 8.0.16-5 (2025-12-02)</a></p>
+</li>
+<li>
 <p><a href="#release_notes-8.0.12-4">Percona Server for MongoDB 8.0.12-4 (2025-08-21)</a></p>
 </li>
 <li>
@@ -12282,7 +12324,136 @@ $<span class="w"> </span>sudo<span class="w"> </span>rm<span class="w"> </span>-
 <li>
 <p><a href="#release_notes-8.0.4-1">Percona Server for MongoDB 8.0.4-1 (2024-12-17)</a></p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.12-4" heading-number="6.2"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.16-5" heading-number="6.2"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="percona-server-for-mongodb-8016-5-2025-12-02">Percona Server for MongoDB 8.0.16-5 (2025-12-02)<a class="headerlink" href="#release_notes-8.0.16-5-percona-server-for-mongodb-8016-5-2025-12-02" title="Permanent link">¶</a></h1>
+<p><a class="md-button" href="#install-index">Install</a>
+<a class="md-button" href="#install-upgrade-from-mongodb">Upgrade from MongoDB Community</a></p>
+<p>Percona Server for MongoDB 8.0.16-5 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
+<p>Percona Server for MongoDB 8.0.16-5 includes the improvements and bug fixes of the following versions of MongoDB Community Edition:</p>
+<ul>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8.0.13---aug-21--2025">MongoDB 8.0.13 Community Edition</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8.0.14---sep-25--2025">MongoDB 8.0.14 Community Edition</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8.0.15---oct-2--2025">MongoDB 8.0.15 Community Edition</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#upcoming">MongoDB 8.0.16 Community Edition</a> </li>
+</ul>
+<p>Percona Server for MongoDB 8.0.16-5 supports protocols and drivers of MongoDB Community 8.0.13 through 8.0.16.</p>
+<h2 id="release_notes-8.0.16-5-release-highlights">Release Highlights<a class="headerlink" href="#release_notes-8.0.16-5-release-highlights" title="Permanent link">¶</a></h2>
+<p>This release provides the following features and improvements:</p>
+<h3 id="release_notes-8.0.16-5-no-vendor-lock-in-with-openbao-support-for-data-at-rest-encryption">No vendor lock-in with OpenBao support for data-at-rest encryption<a class="headerlink" href="#release_notes-8.0.16-5-no-vendor-lock-in-with-openbao-support-for-data-at-rest-encryption" title="Permanent link">¶</a></h3>
+<p>To give you more flexibility for enterprise-grade data encryption, Percona Server for MongoDB now supports OpenBao in addition to HashiCorp Vault. OpenBao is the open-source fork of Vault, providing the same powerful security while helping you avoid vendor lock-in.</p>
+<p>This enhancement reflects our commitment to giving you more control over your security architecture while maintaining the reliability and performance you expect from Percona.</p>
+<p>For guidance on configuring OpenBao, check our <a href="#openbao">documentation</a>.</p>
+<h3 id="release_notes-8.0.16-5-sunsetting-pro-builds">Sunsetting Pro Builds<a class="headerlink" href="#release_notes-8.0.16-5-sunsetting-pro-builds" title="Permanent link">¶</a></h3>
+<p>In line with our open‑source mission, we are officially sunsetting Pro Builds. All features that were previously included in Pro Builds are now accessible to everyone in our regular public builds.</p>
+<p>If you require a Pro Build for a previously released version, your Percona representative is ready to guide you. Our goal is to ensure a smooth transition and continued success with Percona open‑source solutions, enhanced with enterprise‑grade capabilities.</p>
+<h3 id="release_notes-8.0.16-5-official-support-of-rocky-linux-8-and-9">Official support of Rocky Linux 8 and 9<a class="headerlink" href="#release_notes-8.0.16-5-official-support-of-rocky-linux-8-and-9" title="Permanent link">¶</a></h3>
+<p>Percona Server for MongoDB is now officially supported and tested on Rocky Linux 8 and 9. The fully supported status for Rocky Linux gives you confidence to run production workloads on a community‑driven, enterprise‑ready operating system. </p>
+<h3 id="release_notes-8.0.16-5-upstream-improvements">Upstream Improvements<a class="headerlink" href="#release_notes-8.0.16-5-upstream-improvements" title="Permanent link">¶</a></h3>
+<p>The bug fixes, provided by MongoDB Community Edition and included in Percona Server for MongoDB, are the following:</p>
+<ul>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-77172">SERVER-77172</a> - <strong>Fixed a bug where <code>checkShardingCatalogConsistency</code> could incorrectly report a cluster is inconsistent</strong> due to an assertion failure when processing the results of the <code>sh.status()</code> command. This fix resolves the assertion failure, preventing false inconsistency reports.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-82180">SERVER-82180</a> - Fixed an issue where capped collection inserts on the primary could result in a different natural ordering compared to secondaries. This divergence in ordering between replica set members is now corrected, ensuring consistency in data placement and retrieval for capped collections across the replica set.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-91686">SERVER-91686</a> - Improved mongod’s signal handler to print out current thread’s command object. This enhancement provides crucial diagnostic information to aid in debugging server issues.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-94315">SERVER-94315</a> - Fixed the issue with shard filtering on a collection with non-simple default collation that is sharded on a field where the backing index has a simple collation. Shard filtering is now applied for non-simple collation find on sharded collections. </p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-102670">SERVER-102670</a> - Fixed an issue that caused incorrect error handling during ordered time-series inserts by clearing errors before retrying.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-107361">SERVER-107361</a> - Fixed a critical issue in time-series bucket rollover determination that could lead to schema mix-up for large measurements. The rollover logic previously failed to perform essential schema incompatibility checks when a bucket was kept open due to large measurement size, which could result in a single bucket containing mixed schema data. The fix ensures that schema checks are always performed. Impacted users must upgrade to a fixed version and set the <code>timeseriesBucketsMayHaveMixedSchemaData</code> to true for each affected collection to ensure that future queries on the collection return correct results. Refer to <a href="https://github.com/mongodb/support-tools/tree/master/timeseries-mixed-schema">upstream remediation steps</a> for a complete step-by-step guide on how to resolve the impacted collections.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-100448">SERVER-100448</a> - Fixed the issue with command registration depending on the Feature Compatibility Version (FCV) during startup. The command registration is no longer independent of the FCV at startup, which resolves potential issues during server initialization and FCV changes.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-103742">SERVER-103742</a> - Fixed a memory corruption bug where the opWriteConcernCounters field in serverStatus could illegally embed NUL bytes. This issue caused BSON validation errors and prevented certain MongoDB binaries from correctly parsing serverStatus output, which has now been corrected.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-103841">SERVER-103841</a> - Fixed a memory leak in the <code>TransactionCoordinator</code> associated with long-lived cancellation sources. This issue caused gradual memory growth because cancellation futures related to transactions were retained indefinitely. The fix ensures that the cancellation sources are properly managed and released, resolving the memory leak.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-105478">SERVER-105478</a> - Fixed the issue with misbehaving replication because oplog entries from the same batch could not be applied by separating eligible and ineligible oplog entries for the applier with <code>secondaryDelaySecs</code>.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/WT-14140">WT-14140</a> - Fixed a performance regression in WiredTiger by removing an unnecessary schema lock. This issue was caused by taking an <strong>unnecessary schema lock</strong> for active <code>file:</code> data handles that were not currently being swept, which could degrade performance during certain concurrent operations. The fix prevents this redundant locking, improving concurrency.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-105873">SERVER-105873</a> - Fixed a concurrency issue where <code>QueryPlannerParams</code> could hold invalid index pointers, leading to crashes during query execution. The fix ensures that the <code>QueryPlannerParams</code> object no longer maintains pointers to internal state owned by an <code>IndexCatalogEntry</code>, preventing pointer invalidation if the catalog entry is refreshed or destroyed during a yielded query operation.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-82688">SERVER-82688</a>- Fixed an issue where the <code>mongod</code> process could crash if the number of incoming connections exceeded WiredTiger’s configured <code>session_max</code> limit. The fix ensures that the server handles a high volume of connections gracefully without crashing, improving stability and resilience under heavy load.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-95374">SERVER-95374</a> - Fixed the issue with compound wildcard indexes incorrectly pushing down predicates during union or planning by stripping invalid compound wildcard index assignment in rated MatchExpression tree</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-103960">SERVER-103960</a> - Added a validation on the field path to ensure the number of parts does not exceed 255 to prevent potential issues when using excessively long field paths in the database.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-112467">SERVER-112467</a> - Improved connections handling by tracking and reporting the number of connections accepted on the proxy port that are pending the proxy protocol header.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-112520">SERVER-112520</a> - Fixed an issue with inability to write to geo index when inserting a document to timeseries existing bucket by improving index maintenance for 2dsphere indexes on timeseries collections </p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/WT-9575">WT-9575</a> - Fixed an issue in WiredTiger where pages with updates newer than the oldest transaction ID were not being queued for eviction by allowing evicting newly updated paged</p>
+</li>
+</ul>
+<p>Find the full list of changes in the release notes for:</p>
+<ul>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8.0.13---aug-21--2025">MongoDB 8.0.13 Community Edition</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8.0.14---sep-25--2025">MongoDB 8.0.14 Community Edition</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8.0.15---oct-2--2025">MongoDB 8.0.15 Community Edition</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#upcoming">MongoDB 8.0.16 Community Edition</a> </li>
+</ul>
+<h2 id="release_notes-8.0.16-5-changelog">Changelog<a class="headerlink" href="#release_notes-8.0.16-5-changelog" title="Permanent link">¶</a></h2>
+<h3 id="release_notes-8.0.16-5-new-features">New Features<a class="headerlink" href="#release_notes-8.0.16-5-new-features" title="Permanent link">¶</a></h3>
+<ul>
+<li><a href="https://perconadev.atlassian.net/browse/PSMDB-1575">PSMDB-1575</a> - Added integration with OpenBao for data-at-rest encryption</li>
+</ul>
+<h3 id="release_notes-8.0.16-5-improvements">Improvements<a class="headerlink" href="#release_notes-8.0.16-5-improvements" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1781">PSMDB-1781</a> - Adjusted telemetry to report OpenBao and HashiCorp Vault usage separately</p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1135">PSMDB-1135</a> - Added extra checks to prevent the <code>percona-server-mongodb-enable-auth.sh</code> from failing if keyfile is not present</p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1858">PSMDB-1858</a> - Added official support for Rocky Linux 8 and 9</p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1830">PSMDB-1830</a> - Excluded ProBuilds from documentation</p>
+</li>
+</ul>
+<h3 id="release_notes-8.0.16-5-fixed-bugs">Fixed Bugs<a class="headerlink" href="#release_notes-8.0.16-5-fixed-bugs" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1155">PSMDB-1155</a> - Fixed an issue with Percona Server for MongoDB being stuck on attempt to open  <code>backupCursorExtend</code> for a standalone instance by reporting an error about this operation as not allowed.</p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1757">PSMDB-1757</a> - Prevented file copy-based initial sync if the storage engine is not WiredTiger</p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1838">PSMDB-1838</a> - Fixed high-severity vulnerabilities identified in latest Percona Server for MongoDB Docker images</p>
+</li>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1839">PSMDB-1839</a> - Fixed the output display of the <code>db.adminCommand()</code> command to show the authorization result, aligning with upstream behavior.</p>
+</li>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.12-4" heading-number="6.3"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12364,7 +12535,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1754">PSMDB-1754</a> - Fixed the issue with log rotation behavior that was caused by replacing the rotated audit log file with a timestamp if it existed. The fix is to reopen a current audit log file in the append mode and write events there. </p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.8-3" heading-number="6.3"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.8-3" heading-number="6.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12442,7 +12613,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1617">PSMDB-1617</a> - Improved error messages when there are insufficient permissions to access client/CA certificates for KMIP authentication</p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-2" heading-number="6.4"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-2" heading-number="6.5"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12472,7 +12643,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1567">PSMDB-1567</a> - Fixed the issue with the crashing server during LDAP authentication when the LDAP server is down. </p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-1" heading-number="6.5"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-1" heading-number="6.6"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12922,7 +13093,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p></body></html>
 <li><code>--name psmdb</code> - Assigns the name “psmdb” to the container.</li>
 <li><code>--restart always</code> - Configures the container to restart automatically if it stops or crashes.</li>
 <li><code>-e PERCONA_TELEMETRY_DISABLE=1</code> - Sets an environment variable within the container. In this case, it disables telemetry for Percona Server for MongoDB.</li>
-<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>8.0.12-4-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
+<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>8.0.16-5-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
 </ul>
 </div>
 </div>
@@ -13186,13 +13357,15 @@ we will do our very best to be helpful.</p></body></html></section></section></d
 .print-site-enumerate-headings #section-6 > h1:before { content: '6 ' }
 .print-site-enumerate-headings #release_notes-index > h1:before { content: '6.1 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.12-4 > h1:before { content: '6.2 ' }
+.print-site-enumerate-headings #release_notes-8.0.16-5 > h1:before { content: '6.2 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.8-3 > h1:before { content: '6.3 ' }
+.print-site-enumerate-headings #release_notes-8.0.12-4 > h1:before { content: '6.3 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.4-2 > h1:before { content: '6.4 ' }
+.print-site-enumerate-headings #release_notes-8.0.8-3 > h1:before { content: '6.4 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.4-1 > h1:before { content: '6.5 ' }
+.print-site-enumerate-headings #release_notes-8.0.4-2 > h1:before { content: '6.5 ' }
+
+.print-site-enumerate-headings #release_notes-8.0.4-1 > h1:before { content: '6.6 ' }
 
 .print-site-enumerate-headings #faq > h1:before { content: '7 ' }
 
