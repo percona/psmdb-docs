@@ -2028,6 +2028,34 @@
   
   
     <li class="md-nav__item">
+      <a href="openbao.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use OpenBao
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="kmip.html" class="md-nav__link">
         
   
@@ -4001,6 +4029,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-ellipsis">
       
         Use Vault
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openbao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use OpenBao
       
     </span>
   </a>
@@ -9784,12 +9823,13 @@ You can add other users with various roles depending on your needs.</p>
 <p>Data encryption at rest was introduced in Percona Server for MongoDB 3.6 and is fully compatible with MongoDB’s encryption interface. Percona Server for MongoDB supports the following Key Management System (KMS) integrations:</p>
 <ul>
 <li><a href="#vault">HashiCorp Vault</a></li>
+<li><a href="#openbao">OpenBao</a></li>
 <li><a href="#kmip">Key Management Interoperability Protocol (KMIP) Servers</a></li>
 </ul>
 <h2 id="data-at-rest-encryption-workflow">Workflow<a class="headerlink" href="#data-at-rest-encryption-workflow" title="Permanent link">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>You can only enable data at rest encryption and provide all encryption settings on an empty database, when you start the mongod instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.</p>
+<p>You can only enable data at rest encryption and provide all encryption settings on an empty database, when you start the <code>mongod</code> instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.</p>
 </div>
 <p>Each node of Percona Server for MongoDB generates a random, individual key for every database. It encrypts every database with an individual key and puts those keys into the special, so-called key database. Then each node of Percona Server for MongoDB randomly generates a unique master encryption key and encrypts the key database with this key. </p>
 <p>Thus, two types of keys are used for data at rest encryption:</p>
@@ -9804,7 +9844,7 @@ You can add other users with various roles depending on your needs.</p>
 <p>To manage the master encryption key, use one of the supported key management options:</p>
 <ul>
 <li>
-<p>Integration with an external key server (recommended). Percona Server for MongoDB is <a href="#vault">integrated with HashiCorp Vault</a> for this purpose and supports the secure transfer of keys using <a href="#kmip">Key Management Interoperability Protocol (KMIP)</a>.</p>
+<p>Integration with an external key server (recommended). Percona Server for MongoDB is <a href="#vault">integrated with HashiCorp Vault</a> and <a href="#openbao">OpenBao</a> for this purpose. It also supports the secure transfer of keys using <a href="#kmip">Key Management Interoperability Protocol (KMIP)</a>.</p>
 </li>
 <li>
 <p><a href="#keyfile">Local key management using a keyfile</a>.</p>
@@ -10056,7 +10096,136 @@ with versioning enabled.</p>
 </details>
 <h2 id="vault-upgrade-considerations">Upgrade considerations<a class="headerlink" href="#vault-upgrade-considerations" title="Permanent link">¶</a></h2>
 <p>If you upgraded to Percona Server for MongoDB 8.0.x from version 7.0.14-9 or earlier, where there is no check for the number of secrets versions on the Vault server, configure the read permissions for Percona Server for MongoDB within the access policy on the Vault server after the upgrade. </p>
-<p>See <a href="#vault-vault-access-policy-configuration">the policy configuration example</a>.</p></body></html></section><section class="print-page" id="kmip" heading-number="5.5.3"><html><head>
+<p>See <a href="#vault-vault-access-policy-configuration">the policy configuration example</a>.</p></body></html></section><section class="print-page" id="openbao" heading-number="5.5.3"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="use-openbao-for-data-at-rest-encryption">Use OpenBao for data-at-rest encryption<a class="headerlink" href="#openbao-use-openbao-for-data-at-rest-encryption" title="Permanent link">¶</a></h1>
+<p><a href="https://openbao.org/">OpenBao</a> is an open-source alternative to HashiCorp Vault. Percona Server for MongoDB is integrated with OpenBao for encryption key management and supports only OpenBao back end with KV Secrets Engine - Version 2 (API) with versioning enabled. </p>
+<h2 id="openbao-assumptions">Assumptions<a class="headerlink" href="#openbao-assumptions" title="Permanent link">¶</a></h2>
+<ol>
+<li>We assume that you have OpenBao up and running. Refer to <a href="https://openbao.org/docs/install/">OpenBao</a> documentation for installation instructions. </li>
+<li>For secure communication with OpenBao, <a href="https://openbao.org/docs/configuration/ui/#note-on-tls">it’s recommended to use TLS</a>. </li>
+<li>You have an empty Percona Server for MongoDB deployment. </li>
+</ol>
+<h2 id="openbao-openbao-setup">OpenBao setup<a class="headerlink" href="#openbao-openbao-setup" title="Permanent link">¶</a></h2>
+<p>OpenBao setup is similar to that of HashiCorp Vault. It consists of the following steps:</p>
+<ol>
+<li>
+<p>Initialize OpenBao server. As a result, OpenBao generates the root token and the unseal key.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>operator<span class="w"> </span>init
+</code></pre></div>
+</li>
+<li>
+<p>OpenBao is started in a sealed state. In this state OpenBao can access the storage but it cannot decrypt data. In order to use OpenBao, you need to unseal it using the unseal key.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>operator<span class="w"> </span>unseal<span class="w"> </span>&lt;your-unseal-key&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Next, authenticate in OpenBao using the root token.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>login<span class="w"> </span>&lt;root-token&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Enable the KV Secrets Engine – Version 2. By default, the secrets engine is enabled at the <code>secrets/</code> path. You can specify your own path using the <code>-path</code> flag</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>secrets<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--version<span class="o">=</span><span class="m">2</span><span class="w"> </span>-path<span class="o">=</span>secret<span class="w"> </span>kv
+</code></pre></div>
+</li>
+<li>
+<p>Create the access policy and grant Percona Server for MongoDB read permissions for the secret’s metadata and the secrets engine configuration. Percona Server needs it to check the number of secrets on the OpenBao before it generates a new key. </p>
+</li>
+<li>
+<p>Create an access policy file:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span><span class="s">&lt;&lt;EOF &gt; psmdb-access.hcl</span>
+<span class="s">path "secret/data/*" {</span>
+<span class="s">  capabilities = ["create","read","update","delete"]</span>
+<span class="s">}</span>
+<span class="s">path "secret/metadata/*" {</span>
+<span class="s">  capabilities = ["read"]</span>
+<span class="s">}</span>
+<span class="s">path "secret/config" {</span>
+<span class="s">  capabilities = ["read"]</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</code></pre></div>
+</li>
+<li>
+<p>Upload the access policy to OpenBao:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>policy<span class="w"> </span>write<span class="w"> </span>psmdb-policy<span class="w"> </span>psmdb-access.hcl
+</code></pre></div>
+</li>
+<li>
+<p>Create an access token that Percona Server for MongoDB will use. You need to create an access token for every instance of Percona Server for MongoDB in your deployment.</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>bao<span class="w"> </span>token<span class="w"> </span>create<span class="w"> </span>-policy<span class="o">=</span>psmdb-policy
+</code></pre></div>
+</li>
+<li>
+<p>Export an access token to a file and restrict access to it for <code>mongod</code> user:</p>
+<ul>
+<li>Create a directory where you will store the token and SSL certificates if you <a href="https://openbao.org/docs/auth/cert/#configuration">configured OpenBao with TLS</a></li>
+</ul>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/openbao
+</code></pre></div>
+<ul>
+<li>Export the token into the token file. For TLS communication, copy the <code>.crt</code> file from OpenBao.</li>
+</ul>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"your-access-token-here"</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/openbao/token
+</code></pre></div>
+<ul>
+<li>Restrict access to the token and certificate files for the <code>mongod</code> user:</li>
+</ul>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">400</span><span class="w"> </span>/etc/openbao/token
+$<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span class="w"> </span>/etc/openbao/token
+</code></pre></div>
+</li>
+</ol>
+<div class="admonition admonition">
+<p class="admonition-title">See also</p>
+<p>To learn more about OpenBao configuration, see the following resources:</p>
+<ul>
+<li><a href="https://openbao.org/docs/secrets/kv/kv-v2/">How to configure KV secrets engine - version 2</a></li>
+<li><a href="#vault-master-key-loss-prevention">Master key loss prevention</a></li>
+</ul>
+</div>
+<h2 id="openbao-percona-server-for-mongodb-configuration">Percona Server for MongoDB configuration<a class="headerlink" href="#openbao-percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h2>
+<p>Percona Server for MongoDB configuration for OpenBao is the same as for HashCorp Vault. Refer to the <a href="#vault-hashicorp-vault-parameters">HashiCorp Vault parameters</a> for the description of available configuration options.</p>
+<p>To enable data-at-rest encryption in Percona Server for MongoDB, you need the following information:</p>
+<ul>
+<li>OpenBao URL and port </li>
+<li>OpenBao secrets engine mount path</li>
+<li>Path to the access token</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="openbao-__tabbed_1_1" name="openbao-__tabbed_1" type="radio"><input id="openbao-__tabbed_1_2" name="openbao-__tabbed_1" type="radio"><div class="tabbed-labels"><label for="openbao-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="openbao-__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>
+<p>Edit the <code>/etc/mongod.conf</code> configuration file and specify the following configuration:    </p>
+<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">vault</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">serverName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8200</span>
+<span class="w">    </span><span class="nt">tokenFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/openbao/token</span>
+<span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/data/</span>
+</code></pre></div>
+</li>
+<li>
+<p>Start Percona Server for MongoDB:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>Start Percona Server for MongoDB with the following parameters:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongod<span class="w"> </span>--enableEncryption<span class="w"> </span>--vaultServerName<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--vaultPort<span class="w"> </span><span class="m">8200</span><span class="w"> </span>--vaultTokenFile<span class="w"> </span>/etc/openbao/token<span class="w"> </span>--vaultSecret<span class="w"> </span>secret/data/<span class="w"> </span>--vaultDisableTLSForTesting
+</code></pre></div>
+</div>
+</div>
+</div></body></html></section><section class="print-page" id="kmip" heading-number="5.5.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10420,7 +10589,7 @@ with versioning enabled.</p>
 <li>Remove <code>security.kmip.rotateMasterKey</code> from the configuration file or <code>--kmipRotateMasterKey</code> from the command line.</li>
 </ul>
 <p>Start the <code>mongod</code> instance as usual. </p>
-<p>This is the one-time action; further upgrades won’t need that.  </p></body></html></section><section class="print-page" id="keyfile" heading-number="5.5.4"><html><head>
+<p>This is the one-time action; further upgrades won’t need that.  </p></body></html></section><section class="print-page" id="keyfile" heading-number="5.5.5"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -10466,14 +10635,14 @@ case are:</p>
 <span class="w">   </span><span class="nt">encryptionCipherMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span>
 <span class="w">   </span><span class="nt">encryptionKeyFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span>
 <span class="w">   </span><span class="nt">relaxPermChecks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;boolean&gt;</span>
-</code></pre></div></body></html></section><section class="print-page" id="encryption-mode-switch" heading-number="5.5.5"><html><head>
+</code></pre></div></body></html></section><section class="print-page" id="encryption-mode-switch" heading-number="5.5.6"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
         })
         </script>
-        </head><body><h1 id="migrate-from-key-file-encryption-to-hashicorp-vault-encryption">Migrate from key file encryption to HashiCorp Vault encryption<a class="headerlink" href="#encryption-mode-switch-migrate-from-key-file-encryption-to-hashicorp-vault-encryption" title="Permanent link">¶</a></h1>
-<p>The steps below describe how to migrate from the key file encryption to using  HashiCorp Vault.</p>
+        </head><body><h1 id="migrate-from-key-file-encryption-to-hashicorp-vault-openbao-encryption">Migrate from key file encryption to HashiCorp Vault / OpenBao encryption<a class="headerlink" href="#encryption-mode-switch-migrate-from-key-file-encryption-to-hashicorp-vault-openbao-encryption" title="Permanent link">¶</a></h1>
+<p>The steps below describe how to migrate from the key file encryption to using  HashiCorp Vault. This guide also applies to migration to <a href="https://openbao.org/">OpenBao</a> - an open-source alternative to HashiCorp Vault. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is a sample guideline and it should be used for testing purposes only. We recommend to contact <a href="https://www.percona.com/services/consulting">Percona Consulting Services</a> to assist you with migration in production environment.</p>
@@ -10521,7 +10690,7 @@ d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw<span class="o">=</span>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
-</ol></body></html></section><section class="print-page" id="fips" heading-number="5.5.6"><html><head>
+</ol></body></html></section><section class="print-page" id="fips" heading-number="5.5.7"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13278,13 +13447,15 @@ we will do our very best to be helpful.</p></body></html></section></section></d
 
 .print-site-enumerate-headings #vault > h1:before { content: '5.5.2 ' }
 
-.print-site-enumerate-headings #kmip > h1:before { content: '5.5.3 ' }
+.print-site-enumerate-headings #openbao > h1:before { content: '5.5.3 ' }
 
-.print-site-enumerate-headings #keyfile > h1:before { content: '5.5.4 ' }
+.print-site-enumerate-headings #kmip > h1:before { content: '5.5.4 ' }
 
-.print-site-enumerate-headings #encryption-mode-switch > h1:before { content: '5.5.5 ' }
+.print-site-enumerate-headings #keyfile > h1:before { content: '5.5.5 ' }
 
-.print-site-enumerate-headings #fips > h1:before { content: '5.5.6 ' }
+.print-site-enumerate-headings #encryption-mode-switch > h1:before { content: '5.5.6 ' }
+
+.print-site-enumerate-headings #fips > h1:before { content: '5.5.7 ' }
 
 .print-site-enumerate-headings #fcbis > h1:before { content: '5.6 ' }
 
