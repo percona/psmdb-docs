@@ -122,8 +122,8 @@ The `oidcIdentityProviders` server parameter contains an array of JSON objects w
 
     === "Command line"
    
-        ```{.bash data-prompt="$"}
-        $ mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
+        ```bash
+        mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
         'oidcIdentityProviders=[ {
            "issuer": "https://my-okta.okta.com",
            "audience": "example@my-company.com",
@@ -167,8 +167,8 @@ The `oidcIdentityProviders` server parameter contains an array of JSON objects w
 
     === "Command line"
    
-        ```{.bash data-prompt="$"}
-         $ mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
+        ```bash
+         mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
          oidcIdentityProviders: '[ {
             "issuer": "https://my-okta.okta.com",
             "audience": "audience1",

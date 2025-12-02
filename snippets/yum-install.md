@@ -19,8 +19,8 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
 1. Install **percona-release**:     
 
-    ```{.bash data-prompt="$"}
-    $ sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
+    ```bash
+    sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
     ```
          
     ??? example "Example output"
@@ -33,8 +33,8 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
 2. Enable the repository: 
         
-    ```{.bash data-prompt="$"}
-    $ sudo percona-release enable psmdb-80 release
+    ```bash
+    sudo percona-release enable psmdb-80 release
     ```
 
 ### Install Percona Server for MongoDB packages
@@ -43,8 +43,8 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
       To install the latest version of *Percona Server for MongoDB*, use the following command:
 
-      ```{.bash data-prompt="$"}
-      $ sudo yum install percona-server-mongodb
+      ```bash
+      sudo yum install percona-server-mongodb
       ```
 
 === ":octicons-number-16: Install a specific version"
@@ -53,8 +53,8 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
      1. List available versions:
 
-         ```{.bash data-prompt="$"}
-         $ sudo yum list percona-server-mongodb --showduplicates
+         ```bash
+         sudo yum list percona-server-mongodb --showduplicates
          ```
 
         Sample output:
@@ -67,8 +67,8 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
      2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-server-mongodb-{{release}}.el9
+        ```bash
+        sudo yum install percona-server-mongodb-{{release}}.el9
         ```
 
 By default, Percona Server for MongoDB stores data files in `/var/lib/mongodb/`
@@ -94,32 +94,32 @@ and configuration parameters in `/etc/mongod.conf`.
 Percona Server for MongoDB is not started automatically after installation.
 Start it manually using the following command:
 
-```{.bash data-prompt="$"}
-$ sudo systemctl start mongod
+```bash
+sudo systemctl start mongod
 ```
 
 **Confirm that the service is running**
 
 Check the service status using the following command: 
 
-```{.bash data-prompt="$"}
-$ sudo systemctl status mongod
+```bash
+sudo systemctl status mongod
 ```
 
 **Stop the service**
 
 Stop the service using the following command:
 
-```{.bash data-prompt="$"}
-$ sudo systemctl stop mongod
+```bash
+sudo systemctl stop mongod
 ```
 
 **Restart the service**
 
 Restart the service using the following command: 
 
-```{.bash data-prompt="$"}
-$ sudo systemctl restart mongod
+```bash
+sudo systemctl restart mongod
 ```
 
 ### Run after reboot
@@ -129,12 +129,12 @@ after you reboot the system.
 
 To make it start automatically after reboot, enable it using the systemctl utility:
 
-```{.bash data-prompt="$"}
-$ sudo systemctl enable mongod
+```bash
+sudo systemctl enable mongod
 ```
 
 Then start the `mongod` service:
 
-```{.bash data-prompt="$"}
-$ sudo systemctl start mongod
+```bash
+sudo systemctl start mongod
 ```

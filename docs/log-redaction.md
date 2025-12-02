@@ -26,8 +26,8 @@ security:
 To enable log redaction at runtime,
 use the `setParameter` command as follows:
 
-```{.javascript data-prompt=">"}
-> db.adminCommand(
+```javascript 
+db.adminCommand(
   { setParameter: 1, redactClientLogData : true }
 )
 ```

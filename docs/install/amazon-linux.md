@@ -17,8 +17,8 @@ We gather [Telemetry data](../telemetry.md) to understand the use of the softwar
 
      1. List available versions:
 
-         ```{.bash data-prompt="$"}
-         $ sudo yum list percona-server-mongodb --showduplicates
+         ```bash
+         sudo yum list percona-server-mongodb --showduplicates
          ```
 
         Sample output:
@@ -31,8 +31,8 @@ We gather [Telemetry data](../telemetry.md) to understand the use of the softwar
 
      2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
 
-        ```{.bash data-prompt="$"}
-        $ sudo yum install percona-server-mongodb-{{release}}.amzn2023
+        ```bash
+        sudo yum install percona-server-mongodb-{{release}}.amzn2023
         ```
 
 --8<-- "yum-install.md:74:140"

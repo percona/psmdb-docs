@@ -24,8 +24,8 @@ The advantage of using this mechanism is that it is easy to setup and does not r
 
 The following example illustrates the connection to Percona Server for MongoDB from the `mongosh` shell:
 
-```{.bash data-prompt="$"}
-$ mongosh -u "CN=alice,CN=Users,DC=engineering,DC=example,DC=com" -p --authenticationDatabase '$external' --authenticationMechanism PLAIN
+```bash
+mongosh -u "CN=alice,CN=Users,DC=engineering,DC=example,DC=com" -p --authenticationDatabase '$external' --authenticationMechanism PLAIN
 ```
 
 The following diagram illustrates the authentication and authorization flow:
@@ -112,8 +112,8 @@ For example, to set the number of connections in the pool to 5, use the [setPara
 
 === ":material-console: Command line"
 
-     ```{.javascript data-prompt=">"}
-     > db.adminCommand( { setParameter: 1, ldapConnectionPoolSizePerHost: 5  } )
+     ```javascript 
+     db.adminCommand( { setParameter: 1, ldapConnectionPoolSizePerHost: 5  } )
      ```
 
 === ":octicons-file-code-24: Configuration file"
@@ -140,8 +140,8 @@ security:
 
 You can change `ldapServers` dynamically at runtime using the [setParameter](set-parameter.md).
 
-```{.javascript data-prompt=">"}
-> db.adminCommand( { setParameter: 1, ldapServers:"localhost,ldap1.example.net,ldap2.example.net"} )
+```javascript
+db.adminCommand( { setParameter: 1, ldapServers:"localhost,ldap1.example.net,ldap2.example.net"} )
 { "was" : "ldap1.example.net,ldap2.example.net", "ok" : 1 }
 ```
 

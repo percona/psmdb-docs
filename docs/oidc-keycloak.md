@@ -123,14 +123,14 @@ The `issuer` URL has the format `https://hostname:8443/realms/realm-name`. So if
     
     2. Start or restart Percona Server for MongoDB:
 
-        ```{.bash data-prompt="$"}
-        $ sudo systemctl start mongod
+        ```bash
+        sudo systemctl start mongod
         ```
 
 === "Command line"
 
-    ```{.bash data-prompt="$"}
-    $ mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
+    ```bash
+    mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
     'oidcIdentityProviders=[ {
        "issuer": "https://my.keycloak.org:8443/realms/mongodb",
        "audience": "mongodb-client",
@@ -192,8 +192,8 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows auth-code
+    ```bash
+    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows auth-code
     ```
 
 2. You will be redirected to the Keycloak login page in your web browser. 
@@ -213,8 +213,8 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows device-auth
+    ```bash
+    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows device-auth
     ```
 
     ??? example "Sample output"

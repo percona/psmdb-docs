@@ -36,20 +36,20 @@ Before the upgrade, do the following:
 
      1. Stop the `mongod` service:
 
-          ```{.bash data-prompt="$"}
-          $ sudo systemctl stop mongod
+          ```bash
+          sudo systemctl stop mongod
           ```
 
      2. Enable Percona repository for Percona Server for MongoDB 8.0:
 
-         ```{.bash data-prompt="$"}
-         $ sudo percona-release enable psmdb-80
+         ```bash
+         sudo percona-release enable psmdb-80
          ```
 
      3. Update the local cache:
 
-         ```{.bash data-prompt="$"}
-         $ sudo apt update
+         ```bash
+         sudo apt update
          ```
 
      4. Remove the following configuration from the configuration file, if you have it:
@@ -62,14 +62,14 @@ Before the upgrade, do the following:
          
      5. Install Percona Server for MongoDB 8.0 packages:
 
-         ```{.bash data-prompt="$"}
-         $ sudo apt install percona-server-mongodb
+         ```bash
+         sudo apt install percona-server-mongodb
          ```
 
      6. Start the `mongod` instance:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl start mongod
+         ```bash
+         sudo systemctl start mongod
          ```
 
      For more information, see [Installing Percona Server for MongoDB on Debian and Ubuntu](apt.md).
@@ -78,14 +78,14 @@ Before the upgrade, do the following:
 
      1. Stop the `mongod` service:
 
-          ```{.bash data-prompt="$"}
-          $ sudo systemctl stop mongod
+          ```bash
+          sudo systemctl stop mongod
           ```
 
      2. Enable Percona repository for Percona Server for MongoDB 8.0:
 
-         ```{.bash data-prompt="$"}
-         $ sudo percona-release enable psmdb-80
+         ```bash
+         sudo percona-release enable psmdb-80
          ``` 
 
      3. Remove the following configuration from the configuration file, if you have it:
@@ -98,20 +98,20 @@ Before the upgrade, do the following:
 
      4. Install Percona Server for MongoDB 8.0 packages:
 
-         ```{.bash data-prompt="$"}
-         $ sudo yum install percona-server-mongodb
+         ```bash
+         sudo yum install percona-server-mongodb
          ```
 
      5. Start the `mongod` instance:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl start mongod
+         ```bash
+         sudo systemctl start mongod
          ```
 
 After the upgrade, Percona Server for MongoDB is started with the feature set of 7.0 version. Assuming that your applications are compatible with the new version, enable 8.0 version features. Run the following command against the `admin` database:
 
-```{.javascript data-prompt=">"}
-> db.adminCommand( { setFeatureCompatibilityVersion: "8.0", confirm: true } )
+```javascript 
+db.adminCommand( { setFeatureCompatibilityVersion: "8.0", confirm: true } )
 ```
 
 !!! admonition "See also"

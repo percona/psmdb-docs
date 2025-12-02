@@ -148,8 +148,8 @@ To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, the 
 
     Start Percona Server for MongoDB using the command line as follows:    
 
-    ```{.bash data-prompt="$"}
-    $ mongod --enableEncryption \
+    ```bash
+    mongod --enableEncryption \
       --kmipServerName <kmip_servername> \
       --kmipPort <kmip_port> \
       --kmipServerCAFile <path_to_ca_file> \

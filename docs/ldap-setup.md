@@ -119,15 +119,15 @@ This section assumes that users connect to Percona Server for MongoDB by providi
 
 2. Restart the `mongod` service:
 
-    ```{.bash data-prompt="$"}
-    $ sudo systemctl restart mongod
+    ```bash
+    sudo systemctl restart mongod
     ```
 
 
 3. Test the access to Percona Server for MongoDB:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh -u "cn=alice,dc=percona,dc=com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+    ```bash
+    mongosh -u "cn=alice,dc=percona,dc=com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
     ```
 
 #### Access with username transformation
@@ -170,13 +170,13 @@ Note that you can use only the `LDAP query` or the `Substitution` stage, and you
 
     2. Restart the `mongod` service:
 
-        ```{.bash data-prompt="$"}
-        $ sudo systemctl restart mongod
+        ```bash
+        sudo systemctl restart mongod
         ```  
     3. Test the access to Percona Server for MongoDB:
 
-        ```{.bash data-prompt="$"}
-        $ mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+        ```bash
+        mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
         ```
 
 === "LDAP query"
@@ -209,13 +209,13 @@ Note that you can use only the `LDAP query` or the `Substitution` stage, and you
 
      2. Restart the `mongod` service:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl restart mongod
+         ```bash
+         sudo systemctl restart mongod
          ```  
 
      3. Test the access to Percona Server for MongoDB:
 
-         ```{.bash data-prompt="$"}
+         ```bash
          mongosh -u "alice" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
          ```
 #### Escaping special characters
@@ -276,14 +276,14 @@ Use one of the given Percona Server for MongoDB configurations for user authenti
 
      2. Restart the `mongod` service:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl restart mongod
+         ```bash
+         sudo systemctl restart mongod
          ```  
 
      3. Test the access to Percona Server for MongoDB:
 
-         ```{.bash data-prompt="$"}
-         $ mongosh -u "CN=alice,CN=Users,DC=testusers,DC=percona,DC=com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+         ```bash
+         mongosh -u "CN=alice,CN=Users,DC=testusers,DC=percona,DC=com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
          ```
 
 === "Username substitution"
@@ -309,14 +309,14 @@ Use one of the given Percona Server for MongoDB configurations for user authenti
 
      2. Restart the `mongod` service:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl restart mongod
+         ```bash
+         sudo systemctl restart mongod
          ```  
 
      3. Test the access to Percona Server for MongoDB:
 
-         ```{.bash data-prompt="$"}
-         $ mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+         ```bash
+         mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
          ```
 
 === "LDAP query"
@@ -342,14 +342,14 @@ Use one of the given Percona Server for MongoDB configurations for user authenti
 
      2. Restart the `mongod` service:
 
-         ```{.bash data-prompt="$"}
-         $ sudo systemctl restart mongod
+         ```bash
+         sudo systemctl restart mongod
          ```  
 
      3. Test the access to Percona Server for MongoDB:
 
-         ```{.bash data-prompt="$"}
-         $ mongosh -u "alice" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
+         ```bash
+         mongosh -u "alice" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
          ```
 
 Modify one of this example configuration to match your deployment. 

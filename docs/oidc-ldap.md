@@ -70,8 +70,8 @@ For this configuration example, we assume the following:
 
 2. Restart Percona Server for MongoDB to apply the changes.
 
-	```{.bash data-prompt="$"}
-    $ sudo systemctl restart mongod
+	```bash
+    sudo systemctl restart mongod
 	```
 
 In this configuration, Percona Server for MongoDB receives the usernames in the format `authNamePrefix/email` (e.g. `okta/testuser@perconatest.com`). The `userToDNMapping` option contains a regular expression to match usernames, extract the local part of the email and substitute the `cn` part of the LDAP DN with it. Then the transformed username is added to the LDAP query to retrieve groups where the `testuser` is listed as a member. These groups are mapped to roles you created in Percona Server for MongoDB at the previous step.
@@ -83,16 +83,16 @@ The `authenticationMechanisms` parameter contains authentication mechanisms to u
 
 1. To authenticate users with OIDC, run the following command:
 
-    ```{.bash data-prompt="$"}
-    $ mongosh -u "testuser@perconatest.com" --authenticationMechanism MONGODB-OIDC
+    ```bash
+    mongosh -u "testuser@perconatest.com" --authenticationMechanism MONGODB-OIDC
     ```
 
 2. Pass authentication
 
 3. Upon successful authentication, check connection status:
 
-    ```{.javascript data-prompt="test>"}
-    test> db.runCommand({connectionStatus : 1})
+    ```javascript 
+    db.runCommand({connectionStatus : 1})
     ```
 
     ??? example "Sample output"
@@ -117,8 +117,8 @@ The `authenticationMechanisms` parameter contains authentication mechanisms to u
 
 To authenticate users in the LDAP server, run the following command:
 
-```{.bash data-prompt="$"}
-$ mongosh -u "testuser@perconatest.com" --authenticationMechanism PLAIN
+```bash
+mongosh -u "testuser@perconatest.com" --authenticationMechanism PLAIN
 ```
 
 

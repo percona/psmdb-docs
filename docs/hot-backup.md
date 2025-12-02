@@ -15,16 +15,16 @@ To take a hot backup of the database in your current `dbpath`, do the following:
 
 1. Provide access to the backup directory for the `mongod` user:
 
-    ```{.bash data-prompt="$"}
-    $ sudo chown mongod:mongod <backupDir>
+    ```bash
+    sudo chown mongod:mongod <backupDir>
     ```
 
 2. Run the `createBackup` command as administrator on the `admin` database and specify the backup directory.
     
-    ```{.javascript data-prompt=">"}
-    > use admin
+    ```javascript
+    use admin
     switched to db admin
-    > db.runCommand({createBackup: 1, backupDir: "<backup_data_path>"})
+    db.runCommand({createBackup: 1, backupDir: "<backup_data_path>"})
     { "ok" : 1 }
     ```
 
@@ -34,8 +34,8 @@ If the backup was successful, you should receive an `{ "ok" : 1 }` object.
 If there was an error, you will receive a failing `ok` status
 with the error message, for example:
 
-```{.javascript data-prompt=">"}
-> db.runCommand({createBackup: 1, backupDir: ""})
+```javascript
+db.runCommand({createBackup: 1, backupDir: ""})
 { "ok" : 0, "errmsg" : "Destination path must be absolute" }
 ```
 
@@ -44,10 +44,10 @@ with the error message, for example:
 To save a backup as a *tar* archive, use the `archive` field to
 specify the destination path:
 
-```{.javascript data-prompt=">"}
-> use admin
+```javascript
+use admin
 ...
-> db.runCommand({createBackup: 1, archive: <path_to_archive>.tar })
+db.runCommand({createBackup: 1, archive: <path_to_archive>.tar })
 ```
 
 
@@ -58,10 +58,10 @@ as [MinIO](https://min.io/).
 
 This method requires that you provide the *bucket* field in the *s3* object:
 
-```{.javascript data-prompt=">"}
-> use admin
+```javascript
+use admin
 ...
-> db.runCommand({createBackup: 1, s3: {bucket: "backup20240510", path: <some_optional_path>} })
+db.runCommand({createBackup: 1, s3: {bucket: "backup20240510", path: <some_optional_path>} })
 ```
 
 In addition to the mandatory `bucket` field, the `s3` object may contain the following fields:
@@ -101,8 +101,8 @@ aws_secret_access_key = secretaccesskey1secretaccesskey2secretaccesskey3
 
 **Backup in root of bucket on local instance of MinIO server**
 
-```{.javascript data-prompt=">"}
-> db.runCommand({createBackup: 1,  s3: {bucket: "backup20190901500",
+```javascript
+db.runCommand({createBackup: 1,  s3: {bucket: "backup20190901500",
 scheme: "HTTP",
 endpoint: "127.0.0.1:9000",
 useVirtualAddressing: false,
@@ -113,8 +113,8 @@ profile: "localminio"}})
 
 The following command creates a backup under the virtual path  “year2019/day42” in the `backup` bucket:
 
-```{.javascript data-prompt=">"}
-> db.runCommand({createBackup: 1,  s3: {bucket: "backup",
+```javascript
+db.runCommand({createBackup: 1,  s3: {bucket: "backup",
 path: "year2019/day42",
 endpoint: "sandbox.min.io:9000",
 useVirtualAddressing: false}})
@@ -122,8 +122,8 @@ useVirtualAddressing: false}})
 
 **Backup on AWS S3 service using default settings**
 
-```{.javascript data-prompt=">"}
-> db.runCommand({createBackup: 1,  s3: {bucket: "backup", path: "year2019/day42"}})
+```javascript
+db.runCommand({createBackup: 1,  s3: {bucket: "backup", path: "year2019/day42"}})
 ```
 
 !!! admonition "See also"
@@ -144,32 +144,32 @@ Run the following commands as root or by using the `sudo` command
 
 1. Stop the `mongod` service
 
-    ```{.bash data-prompt="$"}
-    $ systemctl stop mongod
+    ```bash
+    systemctl stop mongod
     ```
 
 2. Clean out the data directory
    
-    ```{.bash data-prompt="$"}
-    $ rm -rf /var/lib/mongodb/*
+    ```bash
+    rm -rf /var/lib/mongodb/*
     ```
 
 3. Copy backup files
 
-    ```{.bash data-prompt="$"}
-    $ cp -RT <backup_data_path> /var/lib/mongodb/
+    ```bash
+    cp -RT <backup_data_path> /var/lib/mongodb/
     ```
 
 4. Grant permissions to data files for the `mongod` user
 
-    ```{.bash data-prompt="$"}
-    $ chown -R mongod:mongod /var/lib/mongodb/
+    ```bash
+    chown -R mongod:mongod /var/lib/mongodb/
     ```
 
 5. Start the `mongod` service
 
-    ```{.bash data-prompt="$"}
-    $ systemctl start mongod
+    ```bash
+    systemctl start mongod
     ```
 
 ### In a replica set
@@ -184,39 +184,39 @@ Run the following commands as root or by using the **sudo** command
 
 1. Stop the `mongod` service:
 
-    ```{.bash data-prompt="$"}
-    $ systemctl stop mongod
+    ```bash
+    systemctl stop mongod
     ```
 
 
 2. Clean the data directory and then copy the files from the backup directory to your data directory. Assuming that the data directory is `/var/lib/mongodb/`, use the following commands:
 
-    ```{.bash data-prompt="$"}
-    $ rm -rf /var/lib/mongodb/*
-    $ cp -RT <backup_data_path> /var/lib/mongodb/
+    ```bash
+    rm -rf /var/lib/mongodb/*
+    cp -RT <backup_data_path> /var/lib/mongodb/
     ```
 
 
 3. Grant permissions to the data files for the `mongod` user
 
-    ```{.bash data-prompt="$"}
-    $ chown -R mongod:mongod /var/lib/mongodb/
+    ```bash
+    chown -R mongod:mongod /var/lib/mongodb/
     ```
 
 
 4. Make sure the replication is disabled in the config file and start the `mongod` service.
 
-    ```{.bash data-prompt="$"}
-    $ systemctl start mongod
+    ```bash
+    systemctl start mongod
     ```
 
 
 5. Connect to your standalone node via the `mongo` shell and drop the local database
 
-    ```{.javascript data-prompt=">"}
-    > mongo
-    > use local
-    > db.dropDatabase()
+    ```javascript
+    mongo
+    use local
+    db.dropDatabase()
     ```
 
 
@@ -224,8 +224,8 @@ Run the following commands as root or by using the **sudo** command
 
     * Shut down the node.
 
-        ```{.bash data-prompt="$"}
-        $ systemctl stop mongod
+        ```bash
+        systemctl stop mongod
         ```
 
     * Edit the configuration file and specify the `replication.replSetname` option
@@ -233,17 +233,17 @@ Run the following commands as root or by using the **sudo** command
 
     * Start the `mongod` node:
 
-        ```{.bash data-prompt="$"}
-        $ systemctl start mongod
+        ```bash
+        systemctl start mongod
         ```
 
 
 7. Initiate a new replica set
 
-     ```{.javascript data-prompt=">"}
+     ```javascript
      # Start the mongosh shell
-     > mongosh
+     mongosh
      # Initiate a new replica set
-     > rs.initiate()
+     rs.initiate()
      ```
 

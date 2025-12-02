@@ -33,7 +33,7 @@ To rotate log files, do the following:
 
 1. Connect to the `admin` database on each replica set node except the arbiter node and run:
 
-    ```{.javascript data-prompt="<"}
+    ```javascript
     db.adminCommand({ logRotate: "server" })
     ```       
 
@@ -45,8 +45,8 @@ To rotate log files, do the following:
     
 2. Check log files:
 
-    ```{.bash data-prompt="$"}
-    $ ls /var/log/mongodb/server1.log*
+    ```bash
+    ls /var/log/mongodb/server1.log*
     ```
 
     ??? example "Sample output"
@@ -60,8 +60,8 @@ To rotate log files, do the following:
 
 On Unix-based systems, you can trigger log rotation by sending a SIGUSR1 signal to the running `mongod` or `mongos` process:
 
-```{.bash data-prompt="$"}
-$ kill -SIGUSR1 <PID>
+```bash
+kill -SIGUSR1 <PID>
 ```
 
 Replace `<PID>` with the process ID of the Percona Server for MongoDB instance.
