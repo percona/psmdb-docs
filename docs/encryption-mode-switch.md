@@ -1,6 +1,6 @@
-# Migrate from key file encryption to HashiCorp Vault encryption
+# Migrate from key file encryption to HashiCorp Vault / OpenBao encryption
 
-The steps below describe how to migrate from the key file encryption to using  HashiCorp Vault.
+The steps below describe how to migrate from the key file encryption to using  HashiCorp Vault. This guide also applies to migration to [OpenBao](https://openbao.org/) - an open-source alternative to HashiCorp Vault. 
 
 !!! note 
 
