@@ -15,9 +15,9 @@ The setup process consists of three main stages:
 
 ## Prerequisites
 
-1. Percona Server for MongoDB Pro 8.0.12-4 or later.
+1. Percona Server for MongoDB 8.0.12-4 or later.
 2. Keycloak server up and running. Use any installation method you prefer, such as Docker, Kubernetes, or a standalone server. Check [Keycloak Get started documentation :octicons-link-external-16:](https://www.keycloak.org/guides#getting-started) for installation guidelines. 
-3. Keycloak and Percona Server for MongoDB Pro must be able to communicate with each other over the network. Refer to the [Configuring Keycloak for production :octicons-link-external-16:](https://www.keycloak.org/server/configuration-production) guide for more information
+3. Keycloak and Percona Server for MongoDB must be able to communicate with each other over the network. Refer to the [Configuring Keycloak for production :octicons-link-external-16:](https://www.keycloak.org/server/configuration-production) guide for more information
 
     In the following commands we use a Keycloak server running at `https://my.keycloak.org`.
 
