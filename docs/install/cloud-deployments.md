@@ -1,12 +1,12 @@
 # Virtual hardware recommendations for cloud deployments
 
-{{product.full_name}} runs reliably on cloud infrastructure and is supported for all cloud providers. 
+Percona Server for MongoDB runs reliably on cloud infrastructure and is supported for all cloud providers. 
 
 This document includes virtual hardware recommendations for the most popular cloud providers.
 
 ## Amazon Web Services (AWS)
 
-Percona recommends the AWS EC2 memory-optimized instances as they best suit {{product.full_name}} usage. The `R7i` offers the best performance-per-dollar ratio among all memory-optimized AWS EC2 instance types. The cost efficiency makes these instances a strong choice for organizations that need high and cost-efficient performance. You can review the Amazon website for more details on [Amazon EC2 R5 Instances :octicons-link-external-16:](https://aws.amazon.com/ec2/instance-types/r7i/).
+Percona recommends the AWS EC2 memory-optimized instances as they best suit Percona Server for MongoDB usage. The `R7i` offers the best performance-per-dollar ratio among all memory-optimized AWS EC2 instance types. The cost efficiency makes these instances a strong choice for organizations that need high and cost-efficient performance. You can review the Amazon website for more details on [Amazon EC2 R5 Instances :octicons-link-external-16:](https://aws.amazon.com/ec2/instance-types/r7i/).
 
 | Instance size | vCPU | Memory (GiB) |
 |---|---|---|
@@ -20,7 +20,7 @@ The recommendation is based on Yahoo! Cloud Serving Benchmark (YCSB) version 0.1
 
 ## Microsoft Azure
 
-Percona recommends Virtual Machine (VM) sizes from the D-series for {{product.full_name}} deployments in Microsoft Azure. `Dsv5` instance family is the most cost-efficient choice. For more information on Azure Virtual Machines, see [Linux Virtual Machines pricing :octicons-link-external-16:](https://azure.microsoft.com/en-gb/pricing/details/virtual-machines/linux/).
+Percona recommends Virtual Machine (VM) sizes from the D-series for Percona Server for MongoDB deployments in Microsoft Azure. `Dsv5` instance family is the most cost-efficient choice. For more information on Azure Virtual Machines, see [Linux Virtual Machines pricing :octicons-link-external-16:](https://azure.microsoft.com/en-gb/pricing/details/virtual-machines/linux/).
 
 | Instance size | vCPU | Memory (GiB) |
 |---|---|---|
@@ -34,7 +34,7 @@ The recommendation is based on Yahoo! Cloud Serving Benchmark (YCSB) version 0.1
 
 ## Google Cloud
 
-Percona recommends `c3-standard` machine families among other general-purpose GCP instances for {{product.full_name}} deployment in Google Cloud Platform (GCP). For more information on Google virtual machines, see [Google Compute Products :octicons-link-external-16:](https://cloud.google.com/compute/vm-instance-pricing?hl=en).
+Percona recommends `c3-standard` machine families among other general-purpose GCP instances for Percona Server for MongoDB deployment in Google Cloud Platform (GCP). For more information on Google virtual machines, see [Google Compute Products :octicons-link-external-16:](https://cloud.google.com/compute/vm-instance-pricing?hl=en).
 
 | Instance size | vCPU | Memory (GiB) |
 |---|---|---|
