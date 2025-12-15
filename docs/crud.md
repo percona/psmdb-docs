@@ -137,7 +137,7 @@ See [Update methods](https://www.mongodb.com/docs/manual/reference/update-method
 
 Run the following command to delete all documents where the quantity is less than 30 kg:
 
-```javascript 
+```javascript
 db.fruits.deleteMany(
 {"qty": {$lt: 30} }
 	)
