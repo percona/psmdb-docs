@@ -93,7 +93,7 @@ Let's update the `apples` entry by adding weight to it.
 
 1. Use the `updateOne()` command for that:
 
-    ``javascript
+    ```javascript
     db.fruits.updateOne(
     	{"item": "apple" }, 
     	{$set: {"weight": "kg"}}
@@ -114,7 +114,7 @@ Let's update the `apples` entry by adding weight to it.
 
 2. Query the collection to check the updated document:
 
-    ``javascript
+    ```javascript
     db.fruits.find({item: "apple"})
     ```
 
@@ -137,8 +137,9 @@ See [Update methods](https://www.mongodb.com/docs/manual/reference/update-method
 
 Run the following command to delete all documents where the quantity is less than 30 kg:
 
-``javascript db.fruits.deleteMany(
-    {"qty": {$lt: 30} }
+```javascript
+db.fruits.deleteMany(
+{"qty": {$lt: 30} }
 	)
 ```
 
