@@ -3740,40 +3740,38 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Use the <code>updateOne()</code> command for that:</p>
-<p>``javascript
-db.fruits.updateOne(
-    {“item”: “apple” }, 
-    {$set: {“weight”: “kg”}}
-    )
-```    </p>
+<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">(</span>
+<span class="w">    </span><span class="p">{</span><span class="s2">"item"</span><span class="o">:</span><span class="w"> </span><span class="s2">"apple"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span><span class="nx">$set</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"weight"</span><span class="o">:</span><span class="w"> </span><span class="s2">"kg"</span><span class="p">}}</span>
+<span class="w">    </span><span class="p">)</span>
+</code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<p><code>{.json .no-copy}
-{
-  acknowledged: true,
-  insertedId: null,
-  matchedCount: 1,
-  modifiedCount: 1,
-  upsertedCount: 0
-}</code></p>
+<div class="no-copy highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="err">ack</span><span class="kc">n</span><span class="err">owledged</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="err">i</span><span class="kc">nserte</span><span class="err">dId</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="err">ma</span><span class="kc">t</span><span class="err">chedCou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="err">modi</span><span class="kc">f</span><span class="err">iedCou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">  </span><span class="err">upser</span><span class="kc">te</span><span class="err">dCou</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</code></pre></div>
 </details>
 </li>
 <li>
 <p>Query the collection to check the updated document:</p>
-<p>``javascript
-db.fruits.find({item: “apple”})
-```</p>
+<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">item</span><span class="o">:</span><span class="w"> </span><span class="s2">"apple"</span><span class="p">})</span>
+</code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<p><code>{.json .no-copy}
-[
-  {
-    _id: ObjectId('659c2b846252bfad93fc1578'),
-    item: 'apple',
-    qty: 50,
-    weight: 'kg'
-  }
-]</code></p>
+<div class="no-copy highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="err">Objec</span><span class="kc">t</span><span class="err">Id('</span><span class="mi">659</span><span class="err">c</span><span class="mi">2</span><span class="err">b</span><span class="mi">846252</span><span class="err">b</span><span class="kc">fa</span><span class="err">d</span><span class="mi">93</span><span class="kc">f</span><span class="err">c</span><span class="mi">1578</span><span class="err">')</span><span class="p">,</span>
+<span class="w">    </span><span class="err">i</span><span class="kc">te</span><span class="err">m</span><span class="p">:</span><span class="w"> </span><span class="err">'apple'</span><span class="p">,</span>
+<span class="w">    </span><span class="err">q</span><span class="kc">t</span><span class="err">y</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
+<span class="w">    </span><span class="err">weigh</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">'kg'</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
 </details>
 </li>
 </ol>
@@ -3815,7 +3813,7 @@ db.fruits.find({item: “apple”})
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 2, 2025 14:37:28 UTC">December 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 15, 2025 08:12:57 UTC">December 15, 2025</span>
   </span>
 
     
@@ -3842,6 +3840,11 @@ db.fruits.find({item: “apple”})
 
     
     <nav>
+      
+        <a href="https://github.com/rasika-chivate" class="md-author" title="@rasika-chivate">
+          
+          <img src="https://avatars.githubusercontent.com/u/95711051?v=4&amp;size=72" alt="rasika-chivate">
+        </a>
       
         <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
           
