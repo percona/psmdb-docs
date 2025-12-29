@@ -153,7 +153,7 @@ are not in the LDAP service, or `sasaluthd` is not configured properly.
 
 ### Configuring libsasl2
 
-The `mongod` also uses the SASL library for communications. To configure the SASL library, create a configuration file.
+The `mongod` and `mongos` also use the SASL library for communications. To configure the SASL library, create a configuration file.
 
 The configuration file **must** be named `mongodb.conf` and placed in a directory
 where `libsasl2` can find and read it.
@@ -170,7 +170,7 @@ mech_list: plain
 ```
 
 The first two entries (`pwcheck_method` and `saslauthd_path`)
-are required for `mongod` to successfully use the `saslauthd` service.
+are required for `mongod` / `mongos` to successfully use the `saslauthd` service.
 The `log_level` is optional but may help determine configuration errors.
 
 !!! admonition "See also"
