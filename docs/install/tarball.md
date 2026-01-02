@@ -8,6 +8,8 @@ There are the following tarballs available:
 
 * `percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz` is the tarball for `mongosh` shell.
 
+Note that tarballs are available only for the x86_64 architecture.
+
 ## Tarball types
 
 | Type | Name | Description |
@@ -29,57 +31,101 @@ Install the following dependencies required to install Percona Server for MongoD
 
 === ":material-ubuntu: Ubuntu"
 
+    Update the repositories and install the required packages:
+
     ```bash
+    sudo apt update
     sudo apt install curl libsasl2-modules-gssapi-mit
     ```
 
 === ":material-debian: Debian"
-     
+
+    Update the repositories and install the required packages:
+
     ```bash
+    sudo apt update
     sudo apt curl libsasl2-modules-gssapi-mit
     ```
 
 ## Procedure
 
-Follow these steps to install Percona Server for MongoDB from a tarball:
+The following steps show how to install Percona Server for MongoDB from a tarball on Ubuntu 22.04 (Jammy Jellyfish) and Oracle Linux 9. Use the correct link for your operating system:
 {.power-number}
 
-1. Fetch the binary tarballs:
+=== ":material-redhat: Red Hat and derivatives"
 
-    ```bash
-    wget https://www.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz\
-    wget https://www.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
-    ```
-2. Extract the tarballs
+    1. Fetch the binary tarballs:    
 
-    ```bash
-    tar -xf percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz
-    tar -xf percona-mongodb-mongosh-{{release}}-x86_64.tar.gz
-    ```
+        ```bash
+        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.ol9.tar.gz\
+        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+        ```
 
+    2. Extract the tarballs    
 
-3. Add the location of the binaries to the `PATH` variable:
+        ```bash
+        tar -xf percona-server-mongodb-{{release}}-x86_64.ol9.tar.gz
+        tar -xf percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+        ```    
 
-    ```bash
-    export PATH=~/percona-server-mongodb-{{release}}/bin/:~/percona-mongodb-mongosh-{{mongosh}}/bin/:$PATH
-    ```
+    3. Add the location of the binaries to the `PATH` variable:    
 
+        ```bash
+        export PATH=~/percona-server-mongodb-{{release}}-x86_64.ol9/bin/:~/percona-mongodb-mongosh-{{mongosh}}-x86_64/bin/:$PATH
+        ```        
 
-4. Create the default data directory:
+    4. Create the default data directory:    
 
-    ```bash
-    mkdir -p /data/db
-    ```
-
-5. The new TCMalloc requires [Restartable Sequences (rseq) :octicons-link-external-16:](https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc) to implement [per-CPU caches :octicons-link-external-16:](https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache). To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:
+        ```bash
+        sudo mkdir -p /data/db
+        ```    
+    
+    5. The new TCMalloc requires [Restartable Sequences (rseq) :octicons-link-external-16:](https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc) to implement [per-CPU caches :octicons-link-external-16:](https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache). To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:
 
     ```bash
     GLIBC_TUNABLES=glibc.pthread.rseq=0
     export GLIBC_TUNABLES
-    ```
 
-6. Make sure that you have read and write permissions for the data
-directory and run `mongod`.
+    6. Make sure that you have read and write permissions for the data
+    directory and run `mongod`.
+
+=== ":material-ubuntu: Ubuntu"
+
+    1. Fetch the binary tarballs:    
+
+        ```bash
+        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz\
+        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+        ```
+
+    2. Extract the tarballs    
+
+        ```bash
+        tar -xf percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz
+        tar -xf percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+        ```    
+
+    3. Add the location of the binaries to the `PATH` variable:    
+
+        ```bash
+        export PATH=~/percona-server-mongodb-{{release}}-x86_64.jammy/bin/:~/percona-mongodb-mongosh-{{mongosh}}-x86_64/bin/:$PATH
+        ```        
+
+    4. Create the default data directory:    
+
+        ```bash
+        mkdir -p /data/db
+        ```    
+
+    5. The new TCMalloc requires [Restartable Sequences (rseq) :octicons-link-external-16:](https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc) to implement [per-CPU caches :octicons-link-external-16:](https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache). To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:
+
+       ```bash
+       GLIBC_TUNABLES=glibc.pthread.rseq=0
+       export GLIBC_TUNABLES
+       ```
+
+    6. Make sure that you have read and write permissions for the data
+    directory and run `mongod`.
 
 ## Next steps
 
