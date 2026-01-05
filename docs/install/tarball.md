@@ -49,10 +49,15 @@ Install the following dependencies required to install Percona Server for MongoD
 
 ## Procedure
 
-The following steps show how to install Percona Server for MongoDB from a tarball on Ubuntu 22.04 (Jammy Jellyfish) and Oracle Linux 9. Use the correct link for your operating system:
+The following steps show how to install Percona Server for MongoDB from a tarball. 
 {.power-number}
 
 === ":material-redhat: Red Hat and derivatives"
+
+    The following steps describe how to install Percona Server for MongoDB **on Oracle Linux 9.0**. They use the tarball package built for this operating system.
+
+    **If you are running a different operating system, you must download the tarball built for that OS version and replace its name and paths in the commands below.**
+
 
     1. Fetch the binary tarballs:    
 
@@ -89,7 +94,11 @@ The following steps show how to install Percona Server for MongoDB from a tarbal
     6. Make sure that you have read and write permissions for the data
     directory and run `mongod`.
 
-=== ":material-ubuntu: Ubuntu"
+=== ":material-ubuntu: Debian and Ubuntu"
+
+    The following steps describe how to install Percona Server for MongoDB **on Ubuntu 22.04 (Jammy Jellyfish)**. They use the tarball package built for this operating system.
+
+    **If you are running a different operating system, you must download the tarball built for that OS version and replace its name and paths in the commands below.**
 
     1. Fetch the binary tarballs:    
 
