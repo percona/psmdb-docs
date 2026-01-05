@@ -58,7 +58,7 @@ Before we move on to the configuration steps, we assume the following:
          Specify the `ldap` value for the `--MECH` option using the following command:
 
          ```bash
-         sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthd
+         sudo sed -ri -e s/^MECH=.*$/MECH=ldap/g /etc/sysconfig/saslauthd
          ```
 
          Alternatively, you can edit the /etc/sysconfig/saslauthd configuration file:
@@ -69,10 +69,16 @@ Before we move on to the configuration steps, we assume the following:
     
     === ":material-debian: Debian and Ubuntu"
 
-         Use the following commands to enable the `saslauthd` to auto-run on startup and to set the `ldap` value for the `--MECHANISMS` option:
+         Use the following command to set the `ldap` value for the `--MECHANISMS` option:
 
          ```bash
-         sudo sed -i -e "s/START=.*/START=yes/" -e "s/MECHANISMS=.*/MECHANISMS=\"ldap\"/" /etc/default/saslauthd
+         sudo sed -ri s/^MECHANISMS=.*$/MECHANISMS=\"ldap\"/g /etc/default/saslauthd
+         ```
+
+         Configure the `saslauthd` service to auto-start at startup:
+
+         ```bash
+         sudo systemctl enable saslauthd
          ```
 
 3. Create the `/etc/saslauthd.conf` configuration file and specify the settings that `saslauthd` requires to connect to a local LDAP service:
