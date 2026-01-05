@@ -75,10 +75,10 @@ Before we move on to the configuration steps, we assume the following:
          sudo sed -ri s/^MECHANISMS=.*$/MECHANISMS=\"ldap\"/g /etc/default/saslauthd
          ```
 
-         Configure the `saslauthd` service to auto-start at startup:
-
-         ```bash
-         sudo systemctl enable saslauthd
+         Alternatively, you can edit the /etc/default/saslauthd configuration file:
+         
+         ```init
+         MECHANISMS="ldap"
          ```
 
 3. Create the `/etc/saslauthd.conf` configuration file and specify the settings that `saslauthd` requires to connect to a local LDAP service:
