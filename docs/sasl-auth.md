@@ -55,7 +55,7 @@ Before we move on to the configuration steps, we assume the following:
 
     === ":material-redhat: RHEL and derivatives"
 
-         Specify the `ldap` value for the `--MECH` option using the following command:
+         Specify the `ldap` value for the `MECH` option using the following command:
 
          ```bash
          sudo sed -ri -e s/^MECH=.*$/MECH=ldap/g /etc/sysconfig/saslauthd
@@ -69,7 +69,7 @@ Before we move on to the configuration steps, we assume the following:
     
     === ":material-debian: Debian and Ubuntu"
 
-         Use the following command to set the `ldap` value for the `--MECHANISMS` option:
+         Use the following command to set the `ldap` value for the `MECHANISMS` option:
 
          ```bash
          sudo sed -ri s/^MECHANISMS=.*$/MECHANISMS=\"ldap\"/g /etc/default/saslauthd
