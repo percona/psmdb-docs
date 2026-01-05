@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3897,6 +3897,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ul>
 <li><code>percona-mongodb-mongosh-2.5.9-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</li>
 </ul>
+<p>Note that tarballs are available only for the x86_64 architecture.</p>
 <h2 id="tarball-types">Tarball types<a class="headerlink" href="#tarball-types" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -3933,35 +3934,78 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>libsasl2-modules-gssapi-mit
+<p>Update the repositories and install the required packages:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>libsasl2-modules-gssapi-mit
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>curl<span class="w"> </span>libsasl2-modules-gssapi-mit
+<p>Update the repositories and install the required packages:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>curl<span class="w"> </span>libsasl2-modules-gssapi-mit
 </code></pre></div>
 </div>
 </div>
 </div>
 <h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">¶</a></h2>
-<p class="power-number">Follow these steps to install Percona Server for MongoDB from a tarball:</p>
+<p class="power-number">The following steps show how to install Percona Server for MongoDB from a tarball. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.34 13.16c1.32 0 3.22-.27 3.22-1.84q.015-.18-.03-.36l-.78-3.4c-.18-.75-.34-1.09-1.66-1.75-1.02-.52-3.24-1.38-3.9-1.38-.61 0-.79.79-1.52.79-.7 0-1.22-.59-1.88-.59-.63 0-1.04.43-1.36 1.31 0 0-.88 2.5-1 2.86-.01.07-.02.13-.02.2 0 .97 3.82 4.15 8.93 4.15m3.43-1.19c.18.86.18.95.18 1.04 0 1.5-1.66 2.31-3.83 2.31-4.92 0-9.23-2.88-9.23-4.78 0-.27.06-.53.16-.77-1.77.08-4.05.4-4.05 2.42 0 3.32 7.84 7.39 14.05 7.39 4.76 0 5.95-2.15 5.95-3.85 0-1.34-1.15-2.86-3.23-3.76"></path></svg></span> Red Hat and derivatives</label><label for="__tabbed_2_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-7.66-4.26c.58.33 1.31.13 1.66-.44.31-.57.12-1.3-.46-1.64-.57-.33-1.31-.16-1.64.44-.33.57-.13 1.31.44 1.64m-2.46 7.76c-.53 0-1.03-.11-1.47-.32l-.84 1.5c.7.32 1.48.54 2.31.54.49 0 .95-.07 1.4-.19.08-.49.36-.93.82-1.19.46-.27.98-.29 1.44-.12.89-.87 1.46-2.06 1.55-3.39l-1.71-.02a3.506 3.506 0 0 1-3.5 3.19m0-7c1.84 0 3.34 1.39 3.5 3.19l1.71-.03a5.2 5.2 0 0 0-1.55-3.38c-.46.17-.99.14-1.44-.12-.46-.26-.74-.71-.82-1.19-.45-.12-.91-.19-1.4-.19-.83 0-1.61.19-2.31.54l.84 1.5c.44-.21.94-.32 1.47-.32M8.37 12c0-1.19.59-2.24 1.49-2.87L9 7.65a5.22 5.22 0 0 0-2.17 3.04c.38.31.62.78.62 1.31s-.24 1-.62 1.31A5.2 5.2 0 0 0 9 16.34l.86-1.47c-.9-.63-1.49-1.68-1.49-2.87m5.97 4.26c-.57.33-.77 1.06-.44 1.64.33.57 1.07.77 1.64.44.58-.34.77-1.07.46-1.64-.35-.58-1.08-.77-1.66-.44M5.76 10.8c-.66 0-1.2.54-1.2 1.2s.54 1.2 1.2 1.2c.67 0 1.2-.54 1.2-1.2s-.53-1.2-1.2-1.2"></path></svg></span> Debian and Ubuntu</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>The following steps describe how to install Percona Server for MongoDB <strong>on Oracle Linux 9.0</strong>. They use the tarball package built for this operating system.</p>
+<p><strong>If you are running a different operating system, you must download the tarball built for that OS version and replace its name and paths in the commands below.</strong></p>
 <ol>
 <li>
-<p>Fetch the binary tarballs:</p>
-<p></p><div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.26-14/binary/tarball/percona-server-mongodb-7.0.26-14-x86_64.jammy.tar.gz<span class="se">\</span>
-wget<span class="w"> </span>https://www.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.26-14/binary/tarball/percona-mongodb-mongosh-2.5.9-x86_64.tar.gz
+<p>Fetch the binary tarballs:    </p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.26-14/binary/tarball/percona-server-mongodb-7.0.26-14-x86_64.ol9.tar.gz<span class="se">\</span>
+curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.26-14/binary/tarball/percona-mongodb-mongosh-2.5.9-x86_64.tar.gz
 </code></pre></div>
-2. Extract the tarballs<p></p>
+</li>
+<li>
+<p>Extract the tarballs    </p>
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.26-14-x86_64.ol9.tar.gz
+tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.9-x86_64.tar.gz
+</code></pre></div>
+</li>
+<li>
+<p>Add the location of the binaries to the <code>PATH</code> variable:    </p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.26-14-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.5.9-x86_64/bin/:<span class="nv">$PATH</span>
+</code></pre></div>
+</li>
+<li>
+<p>Create the default data directory:    </p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/data/db
+</code></pre></div>
+</li>
+<li>
+<p>Make sure that you have read and write permissions for the data
+directory and run <code>mongod</code>.</p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>The following steps describe how to install Percona Server for MongoDB <strong>on Ubuntu 22.04 (Jammy Jellyfish)</strong>. They use the tarball package built for this operating system.</p>
+<p><strong>If you are running a different operating system, you must download the tarball built for that OS version and replace its name and paths in the commands below.</strong></p>
+<ol>
+<li>
+<p>Fetch the binary tarballs:    </p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.26-14/binary/tarball/percona-server-mongodb-7.0.26-14-x86_64.jammy.tar.gz<span class="se">\</span>
+curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.26-14/binary/tarball/percona-mongodb-mongosh-2.5.9-x86_64.tar.gz
+</code></pre></div>
+</li>
+<li>
+<p>Extract the tarballs    </p>
 <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.26-14-x86_64.jammy.tar.gz
-tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-7.0.26-14-x86_64.tar.gz
+tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.9-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
-<p>Add the location of the binaries to the <code>PATH</code> variable:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.26-14/bin/:~/percona-mongodb-mongosh-2.5.9/bin/:<span class="nv">$PATH</span>
+<p>Add the location of the binaries to the <code>PATH</code> variable:    </p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.26-14-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.5.9-x86_64/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
-<p>Create the default data directory:</p>
+<p>Create the default data directory:    </p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/data/db
 </code></pre></div>
 </li>
@@ -3970,6 +4014,9 @@ tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-7.
 directory and run <code>mongod</code>.</p>
 </li>
 </ol>
+</div>
+</div>
+</div>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
 <p><a class="md-button" href="../connect.html">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p>
 
@@ -3994,7 +4041,7 @@ directory and run <code>mongod</code>.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 25, 2025 12:27:16 UTC">November 25, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 5, 2026 08:24:52 UTC">January 5, 2026</span>
   </span>
 
     
@@ -4009,34 +4056,6 @@ directory and run <code>mongod</code>.</p>
 
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
-          
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
-        </a>
-      
-        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
-          
-          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&amp;size=72" alt="web-flow">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -4088,7 +4107,7 @@ window.addEventListener('afterprint', (event) => {
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
     <div class="md-copyright__highlight">
- <a href="https://percona.com" target="_blank">Percona LLC and/or its affiliates, </a> © 2025
+ <a href="https://percona.com" target="_blank">Percona LLC and/or its affiliates, </a> © 2026
  — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
     </div>
   
@@ -4112,12 +4131,12 @@ window.addEventListener('afterprint', (event) => {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": "content.action.view content.code.copy content.copy.annotate search.highlight search.share", "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": "content.action.view content.code.copy content.copy.annotate search.highlight search.share", "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../js/print-site.js"></script>
       
