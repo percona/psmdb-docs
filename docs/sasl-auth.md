@@ -37,14 +37,14 @@ Before we move on to the configuration steps, we assume the following:
 
     === "Debian and Ubuntu"
 
-         ```bash
-         sudo  apt install -y sasl2-bin libsasl2-modules libsasl2-modules-gssapi-mit
+        ```bash
+        sudo apt install -y sasl2-bin libsasl2-modules libsasl2-modules-gssapi-mit
         ```
 
     === "RHEL and derivatives"
 
          ```bash
-         sudo  yum install -y cyrus-sasl cyrus-sasl-plain
+         sudo yum install -y cyrus-sasl cyrus-sasl-plain
          ```
 
 2. Configure SASL to use `ldap` as the  authentication mechanism.
@@ -55,33 +55,31 @@ Before we move on to the configuration steps, we assume the following:
 
     === "Debian and Ubuntu"
 
-         Use the following commands to enable the `saslauthd` to auto-run on startup and to set the `ldap` value for the `--MECHANISMS` option:
+        Use the following command to set the `ldap` value for the `MECHANISMS` option:
 
-         ```bash
-         sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthdsudo sed -i -e s/^MECHANISMS="pam"/MECHANISMS="ldap"/g /etc/default/saslauthd
-         sudo sed -i -e s/^START=no/START=yes/g /etc/default/saslauthd
-         ```
+        ```bash
+        sudo sed -ri s/^MECHANISMS=.*$/MECHANISMS=\"ldap\"/g /etc/default/saslauthd
+        ```
 
-         Alternatively, you can edit the `/etc/default/sysconfig/saslauthd` configuration file:
+        Alternatively, you can edit the `/etc/default/sysconfig/saslauthd` configuration file:
 
          ```init
-         START=yes
          MECHANISMS="ldap
          ```
 
     === "RHEL and derivatives"
 
-         Specify the `ldap` value for the `--MECH` option using the following command:
+        Specify the `ldap` value for the `MECH` option using the following command:
 
-         ```bash
-         sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthd
-         ```
+        ```bash
+        sudo sed -ri -e s/^MECH=.*$/MECH=ldap/g /etc/sysconfig/saslauthd
+        ```
 
-         Alternatively, you can edit the /etc/sysconfig/saslauthd configuration file:
+        Alternatively, you can edit the /etc/sysconfig/saslauthd configuration file:
 
-         ```init
-         MECH=ldap
-         ```
+        ```init
+        MECH=ldap
+        ```
 
 3. Create the `/etc/saslauthd.conf` configuration file and specify the settings that `saslauthd` requires to connect to a local LDAP service:
 
@@ -161,7 +159,7 @@ are not in the LDAP service, or `sasaluthd` is not configured properly.
 
 ### Configuring libsasl2
 
-The `mongod` also uses the SASL library for communications. To configure the SASL library, create a configuration file.
+The `mongod` and `mongos` also use the SASL library for communications. To configure the SASL library, create a configuration file.
 
 The configuration file **must** be named `mongodb.conf` and placed in a directory
 where `libsasl2` can find and read it.
@@ -178,7 +176,7 @@ mech_list: plain
 ```
 
 The first two entries (`pwcheck_method` and `saslauthd_path`)
-are required for `mongod` to successfully use the `saslauthd` service.
+are required for `mongod` / `mongos` to successfully use the `saslauthd` service.
 The `log_level` is optional but may help determine configuration errors.
 
 !!! admonition "See also"
@@ -199,11 +197,11 @@ The configuration consists of the following steps:
 
 Create a user with the **root** privileges in the `admin` database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:
 
-```{.javascript data-prompt=">"}
-> use admin
-switched to db admin
-> db.createUser({"user": "admin", "pwd": "$3cr3tP4ssw0rd", "roles": ["root"]})
-Successfully added user: { "user" : "admin", "roles" : [ "root" ] }
+```javascript
+use admin
+# switched to db admin
+db.createUser({"user": "admin", "pwd": "$3cr3tP4ssw0rd", "roles": ["root"]})
+# Successfully added user: { "user" : "admin", "roles" : [ "root" ] }
 ```
 
 #### Enable external authentication
@@ -236,8 +234,8 @@ mongosh --host localhost --port 27017 -u admin -p '$3cr3tP4ssw0rd' --authenticat
 
 Use the following command to add an external user to Percona Server for MongoDB:
 
-```{.javascript data-prompt=">"}
-> db.getSiblingDB("$external").createUser( {user : "christian", roles: [ {role: "read", db: "test"} ]} );
+```javascript
+db.getSiblingDB("$external").createUser( {user : "christian", roles: [ {role: "read", db: "test"} ]} );
 ```
 
 ## Authenticate as an external user in Percona Server for MongoDB
@@ -245,8 +243,8 @@ Use the following command to add an external user to Percona Server for MongoDB:
 When running the MongoDB client, a user can authenticate
 against a given database using the following command:
 
-```{.javascript data-prompt=">"}
-> db.getSiblingDB("$external").auth({ mechanism:"PLAIN", user:"christian", pwd:"secret", digestPassword:false})
+```javascript
+db.getSiblingDB("$external").auth({ mechanism:"PLAIN", user:"christian", pwd:"secret", digestPassword:false})
 ```
 
 Alternatively, a user can authenticate while connecting to *Percona Server for MongoDB*:
