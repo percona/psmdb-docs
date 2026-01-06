@@ -44,7 +44,7 @@ Install the following dependencies required to install Percona Server for MongoD
 
     ```bash
     sudo apt update
-    sudo apt curl libsasl2-modules-gssapi-mit
+    sudo apt install curl libsasl2-modules-gssapi-mit
     ```
 
 ## Procedure
