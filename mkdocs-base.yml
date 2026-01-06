@@ -5,7 +5,7 @@ site_description: Documentation
 site_author: Percona LLC
 
 copyright: >
-  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2025 
+  <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2026
   — <a href="#" onclick="Osano.cm.showDrawer('osano-cm-dom-info-dialog-open')">Cookie Preferences</a>
 
 repo_name: percona/psmdb-docs
@@ -231,6 +231,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
+      - release_notes/6.0.27-21.md
       - release_notes/6.0.25-20.md
       - release_notes/6.0.24-19.md
       - release_notes/6.0.21-18.md
