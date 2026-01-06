@@ -7878,11 +7878,11 @@ Use common sense to adapt these guidelines to your production environment.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="sasl-auth-__tabbed_1_1" name="sasl-auth-__tabbed_1" type="radio"><input id="sasl-auth-__tabbed_1_2" name="sasl-auth-__tabbed_1" type="radio"><div class="tabbed-labels"><label for="sasl-auth-__tabbed_1_1">Debian and Ubuntu</label><label for="sasl-auth-__tabbed_1_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><code>bash
- sudo  apt install -y sasl2-bin libsasl2-modules libsasl2-modules-gssapi-mit</code></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sasl2-bin<span class="w"> </span>libsasl2-modules<span class="w"> </span>libsasl2-modules-gssapi-mit
+</code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>sudo<span class="w">  </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cyrus-sasl<span class="w"> </span>cyrus-sasl-plain
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cyrus-sasl<span class="w"> </span>cyrus-sasl-plain
 </code></pre></div>
 </div>
 </div>
@@ -7897,18 +7897,16 @@ Use common sense to adapt these guidelines to your production environment.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="sasl-auth-__tabbed_2_1" name="sasl-auth-__tabbed_2" type="radio"><input id="sasl-auth-__tabbed_2_2" name="sasl-auth-__tabbed_2" type="radio"><div class="tabbed-labels"><label for="sasl-auth-__tabbed_2_1">Debian and Ubuntu</label><label for="sasl-auth-__tabbed_2_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Use the following commands to enable the <code>saslauthd</code> to auto-run on startup and to set the <code>ldap</code> value for the <code>--MECHANISMS</code> option:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthdsudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECHANISMS<span class="o">=</span><span class="s2">"pam"</span>/MECHANISMS<span class="o">=</span><span class="s2">"ldap"</span>/g<span class="w"> </span>/etc/default/saslauthd
-sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^START<span class="o">=</span>no/START<span class="o">=</span>yes/g<span class="w"> </span>/etc/default/saslauthd
+<p>Use the following command to set the <code>ldap</code> value for the <code>MECHANISMS</code> option:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>sed<span class="w"> </span>-ri<span class="w"> </span>s/^MECHANISMS<span class="o">=</span>.*$/MECHANISMS<span class="o">=</span><span class="se">\"</span>ldap<span class="se">\"</span>/g<span class="w"> </span>/etc/default/saslauthd
 </code></pre></div>
 <p>Alternatively, you can edit the <code>/etc/default/sysconfig/saslauthd</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code>START=yes
-MECHANISMS="ldap
+<div class="highlight"><pre><span></span><code>MECHANISMS="ldap
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>Specify the <code>ldap</code> value for the <code>--MECH</code> option using the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthd
+<p>Specify the <code>ldap</code> value for the <code>MECH</code> option using the following command:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>sed<span class="w"> </span>-ri<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>.*$/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthd
 </code></pre></div>
 <p>Alternatively, you can edit the /etc/sysconfig/saslauthd configuration file:</p>
 <div class="highlight"><pre><span></span><code>MECH=ldap
@@ -7979,7 +7977,7 @@ against the users created in the LDAP service:</p>
 If it doesn’t, then either the user name and password
 are not in the LDAP service, or <code>sasaluthd</code> is not configured properly.</p>
 <h3 id="sasl-auth-configuring-libsasl2">Configuring libsasl2<a class="headerlink" href="#sasl-auth-configuring-libsasl2" title="Permanent link">¶</a></h3>
-<p>The <code>mongod</code> also uses the SASL library for communications. To configure the SASL library, create a configuration file.</p>
+<p>The <code>mongod</code> and <code>mongos</code> also use the SASL library for communications. To configure the SASL library, create a configuration file.</p>
 <p>The configuration file <strong>must</strong> be named <code>mongodb.conf</code> and placed in a directory
 where <code>libsasl2</code> can find and read it.
 <code>libsasl2</code> is hard-coded to look in certain directories at build time.
@@ -7991,7 +7989,7 @@ log_level: 5
 mech_list: plain
 </code></pre></div>
 <p>The first two entries (<code>pwcheck_method</code> and <code>saslauthd_path</code>)
-are required for <code>mongod</code> to successfully use the <code>saslauthd</code> service.
+are required for <code>mongod</code> / <code>mongos</code> to successfully use the <code>saslauthd</code> service.
 The <code>log_level</code> is optional but may help determine configuration errors.</p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
@@ -8009,10 +8007,10 @@ The <code>log_level</code> is optional but may help determine configuration erro
 </ul>
 <h4 id="sasl-auth-create-a-root-user">Create a root user<a class="headerlink" href="#sasl-auth-create-a-root-user" title="Permanent link">¶</a></h4>
 <p>Create a user with the <strong>root</strong> privileges in the <code>admin</code> database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:</p>
-<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
-<span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="s2">"user"</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pwd"</span><span class="o">:</span><span class="w"> </span><span class="s2">"$3cr3tP4ssw0rd"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"root"</span><span class="p">]})</span>
-<span class="nx">Successfully</span><span class="w"> </span><span class="nx">added</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"user"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"root"</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
+<span class="err">#</span><span class="w"> </span><span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="s2">"user"</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pwd"</span><span class="o">:</span><span class="w"> </span><span class="s2">"$3cr3tP4ssw0rd"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"root"</span><span class="p">]})</span>
+<span class="err">#</span><span class="w"> </span><span class="nx">Successfully</span><span class="w"> </span><span class="nx">added</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"user"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"root"</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <h4 id="sasl-auth-enable-external-authentication">Enable external authentication<a class="headerlink" href="#sasl-auth-enable-external-authentication" title="Permanent link">¶</a></h4>
 <p>Edit the <code>etc/mongod.conf</code> configuration file to enable the external authentication:</p>
@@ -8031,12 +8029,12 @@ The <code>log_level</code> is optional but may help determine configuration erro
 <div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-p<span class="w"> </span><span class="s1">'$3cr3tP4ssw0rd'</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'admin'</span>
 </code></pre></div>
 <p>Use the following command to add an external user to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">createUser</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="nx">user</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">}</span><span class="w"> </span><span class="p">]}</span><span class="w"> </span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">createUser</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="nx">user</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">}</span><span class="w"> </span><span class="p">]}</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <h2 id="sasl-auth-authenticate-as-an-external-user-in-percona-server-for-mongodb">Authenticate as an external user in Percona Server for MongoDB<a class="headerlink" href="#sasl-auth-authenticate-as-an-external-user-in-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
 <p>When running the MongoDB client, a user can authenticate
 against a given database using the following command:</p>
-<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">auth</span><span class="p">({</span><span class="w"> </span><span class="nx">mechanism</span><span class="o">:</span><span class="s2">"PLAIN"</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">pwd</span><span class="o">:</span><span class="s2">"secret"</span><span class="p">,</span><span class="w"> </span><span class="nx">digestPassword</span><span class="o">:</span><span class="kc">false</span><span class="p">})</span>
+<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">auth</span><span class="p">({</span><span class="w"> </span><span class="nx">mechanism</span><span class="o">:</span><span class="s2">"PLAIN"</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">pwd</span><span class="o">:</span><span class="s2">"secret"</span><span class="p">,</span><span class="w"> </span><span class="nx">digestPassword</span><span class="o">:</span><span class="kc">false</span><span class="p">})</span>
 </code></pre></div>
 <p>Alternatively, a user can authenticate while connecting to <em>Percona Server for MongoDB</em>:</p>
 <div class="highlight"><pre><span></span><code>mongo<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN<span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="se">\$</span>external<span class="w"> </span>-u<span class="w"> </span>christian<span class="w"> </span>-p
