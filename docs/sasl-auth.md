@@ -55,33 +55,31 @@ Before we move on to the configuration steps, we assume the following:
 
     === "Debian and Ubuntu"
 
-         Use the following commands to enable the `saslauthd` to auto-run on startup and to set the `ldap` value for the `--MECHANISMS` option:
+        Use the following command to set the `ldap` value for the `MECHANISMS` option:
 
-         ```{.bash data-prompt="$"}
-         $ sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthdsudo sed -i -e s/^MECHANISMS="pam"/MECHANISMS="ldap"/g /etc/default/saslauthd
-         $ sudo sed -i -e s/^START=no/START=yes/g /etc/default/saslauthd
-         ```
+        ```{.bash data-prompt="$"}
+        $ sudo sed -ri s/^MECHANISMS=.*$/MECHANISMS=\"ldap\"/g /etc/default/saslauthd
+        ```
 
-         Alternatively, you can edit the `/etc/default/sysconfig/saslauthd` configuration file:
+        Alternatively, you can edit the `/etc/default/sysconfig/saslauthd` configuration file:
 
-         ```init
-         START=yes
-         MECHANISMS="ldap
-         ```
+        ```init
+        MECHANISMS="ldap
+        ```
 
     === "RHEL and derivatives"
 
-         Specify the `ldap` value for the `--MECH` option using the following command:
+        Specify the `ldap` value for the `MECH` option using the following command:
 
-         ```{.bash data-prompt="$"}
-         $ sudo sed -i -e s/^MECH=pam/MECH=ldap/g /etc/sysconfig/saslauthd
-         ```
+        ```{.bash data-prompt="$"}
+        $ sudo sed -ri -e s/^MECH=.*$/MECH=ldap/g /etc/sysconfig/saslauthd
+        ```
 
-         Alternatively, you can edit the /etc/sysconfig/saslauthd configuration file:
+        Alternatively, you can edit the /etc/sysconfig/saslauthd configuration file:
 
-         ```init
-         MECH=ldap
-         ```
+        ```init
+        MECH=ldap
+        ```
 
 3. Create the `/etc/saslauthd.conf` configuration file and specify the settings that `saslauthd` requires to connect to a local LDAP service:
 
@@ -161,7 +159,7 @@ are not in the LDAP service, or `sasaluthd` is not configured properly.
 
 ### Configuring libsasl2
 
-The `mongod` also uses the SASL library for communications. To configure the SASL library, create a configuration file.
+The `mongod` and `mongos` also use the SASL library for communications. To configure the SASL library, create a configuration file.
 
 The configuration file **must** be named `mongodb.conf` and placed in a directory
 where `libsasl2` can find and read it.
@@ -178,7 +176,7 @@ mech_list: plain
 ```
 
 The first two entries (`pwcheck_method` and `saslauthd_path`)
-are required for `mongod` to successfully use the `saslauthd` service.
+are required for `mongod` / `mongos` to successfully use the `saslauthd` service.
 The `log_level` is optional but may help determine configuration errors.
 
 !!! admonition "See also"
