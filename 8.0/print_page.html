@@ -2842,6 +2842,34 @@
   
   
     <li class="md-nav__item">
+      <a href="release_notes/8.0.17-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Percona Server for MongoDB 8.0.17-6 (2026-01-06)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release_notes/8.0.16-5.html" class="md-nav__link">
         
   
@@ -4356,6 +4384,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-ellipsis">
       
         Release notes index
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release_notes-8.0.17-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Percona Server for MongoDB 8.0.17-6 (2026-01-06)
       
     </span>
   </a>
@@ -12378,7 +12417,61 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>
 <li>
 <p><a href="#release_notes-8.0.4-1">Percona Server for MongoDB 8.0.4-1 (2024-12-17)</a></p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.16-5" heading-number="6.2"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.17-6" heading-number="6.2"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="percona-server-for-mongodb-8017-6-2026-01-06">Percona Server for MongoDB 8.0.17-6 (2026-01-06)<a class="headerlink" href="#release_notes-8.0.17-6-percona-server-for-mongodb-8017-6-2026-01-06" title="Permanent link">¶</a></h1>
+<p><a class="md-button" href="#install-index">Install</a>
+<a class="md-button" href="#install-upgrade-from-mongodb">Upgrade from MongoDB Community</a></p>
+<p>Percona Server for MongoDB 8.0.17-6 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
+<p>Percona Server for MongoDB 8.0.17-6 includes the improvements and bug fixes of <a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8.0.17---dec-19--2025">MongoDB 8.0.17 Community Edition</a></p>
+<p>Percona Server for MongoDB 8.0.17-6 supports protocols and drivers of MongoDB Community 8.0.17.</p>
+<h2 id="release_notes-8.0.17-6-security-update-mitigation-of-heap-memory-disclosure-vulnerability">Security update: Mitigation of heap memory disclosure vulnerability<a class="headerlink" href="#release_notes-8.0.17-6-security-update-mitigation-of-heap-memory-disclosure-vulnerability" title="Permanent link">¶</a></h2>
+<p>This release fixes security vulnerability <a href="https://radar.offseq.com/threat/cve-2025-14847-cwe-130-improper-handling-of-length-dd0a4a45">CVE-2025-14847: CWE-130</a> in how MongoDB uses <code>zlib</code> compression library. Attackers with network access to <code>mongod</code> or <code>mongos</code> can extract fragments of uninitialized server memory without authentication if zlib compression is enabled. This memory may contain sensitive data, which poses a serious information disclosure risk. </p>
+<h3 id="release_notes-8.0.17-6-affected-versions">Affected versions<a class="headerlink" href="#release_notes-8.0.17-6-affected-versions" title="Permanent link">¶</a></h3>
+<p>This vulnerability affects the following versions of MongoDB Community Edition and Percona Server for MongoDB:</p>
+<ul>
+<li>Percona Server for MongoDB 8.0.4-1 through 8.0.16-5</li>
+<li>Percona Server for MongoDB 7.0.2-1 through 7.0.26-14</li>
+<li>Percona Server for MongoDB 6.0.2-1 through 6.0.25-20</li>
+<li>Percona Server for MongoDB 5.0.2-1 through 5.0.29-25</li>
+<li>Percona Server for MongoDB 4.4.0-1 through 4.4.29-28</li>
+<li>All Percona Server for MongoDB Server 4.2 versions</li>
+<li>All Percona Server for MongoDB Server 4.0 versions</li>
+<li>All Percona Server for MongoDB Server 3.6 versions</li>
+</ul>
+<p>The issue is fixed upstream and is included in Percona Server for MongoDB 7.0.28-15 and 8.0.17-6. We strongly recommend upgrading Percona Server for MongoDB to this latest minor version to ensure your deployments remain secure.</p>
+<h3 id="release_notes-8.0.17-6-workaround">Workaround<a class="headerlink" href="#release_notes-8.0.17-6-workaround" title="Permanent link">¶</a></h3>
+<p>If upgrading is not possible right away, disable <code>zlib</code> compression by configuring <code>networkMessageCompressors</code> (or <code>net.compression.compressors</code>) in configuration or startup parameters. Safe alternatives are <code>snappy</code> or <code>zstd</code>. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="release_notes-8.0.17-6-__tabbed_1_1" name="release_notes-8.0.17-6-__tabbed_1" type="radio"><input id="release_notes-8.0.17-6-__tabbed_1_2" name="release_notes-8.0.17-6-__tabbed_1" type="radio"><div class="tabbed-labels"><label for="release_notes-8.0.17-6-__tabbed_1_1">via Configuration File</label><label for="release_notes-8.0.17-6-__tabbed_1_2">via Command Line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>To disable <code>zlib</code> compression, edit the <code>mongod.conf</code> or <code>mongos.conf</code> configuration file and set the <code>net.compression.compressors</code> parameter as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">net</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">compression</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">compressors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snappy,zstd</span>
+</code></pre></div>
+<p>Then restart the <code>mongod</code> or <code>mongos</code> service to apply the changes.</p>
+</div>
+<div class="tabbed-block">
+<p>To disable <code>zlib</code> compression, start <code>mongod</code> or <code>mongos</code> with the <code>--networkMessageCompressors</code> parameter as follows:</p>
+<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--networkMessageCompressors<span class="w"> </span>snappy,zstd
+</code></pre></div>
+<p>Or for <code>mongos</code>:</p>
+<div class="highlight"><pre><span></span><code>mongos<span class="w"> </span>--networkMessageCompressors<span class="w"> </span>snappy,zstd
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Verify that <code>zlib</code> is disabled using the <code>db.adminCommand({ getCmdLineOpts: 1 })</code>. Ensure logs show no zlib negotiation when you try to connect to the server with a client that explicitly requests <code>zlib</code>.</p>
+<h3 id="release_notes-8.0.17-6-upstream-improvements">Upstream Improvements<a class="headerlink" href="#release_notes-8.0.17-6-upstream-improvements" title="Permanent link">¶</a></h3>
+<ul>
+<li><a href="https://jira.mongodb.org/browse/SERVER-115508">SERVER-115508</a> - Fixed a critical security vulnerability (CVE-2025-14847) where unauthenticated remote attackers could read uninitialized heap memory via the zlib compression protocol. This was caused by improper handling of length parameter inconsistencies in zlib-compressed protocol headers. The fix ensures the server uses minimally sized buffers for uncompressed messages, preventing sensitive information disclosure.</li>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.16-5" heading-number="6.3"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12507,7 +12600,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1839">PSMDB-1839</a> - Fixed the output display of the <code>db.adminCommand()</code> command to show the authorization result, aligning with upstream behavior.</p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.12-4" heading-number="6.3"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.12-4" heading-number="6.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12589,7 +12682,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1754">PSMDB-1754</a> - Fixed the issue with log rotation behavior that was caused by replacing the rotated audit log file with a timestamp if it existed. The fix is to reopen a current audit log file in the append mode and write events there. </p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.8-3" heading-number="6.4"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.8-3" heading-number="6.5"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12667,7 +12760,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1617">PSMDB-1617</a> - Improved error messages when there are insufficient permissions to access client/CA certificates for KMIP authentication</p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-2" heading-number="6.5"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-2" heading-number="6.6"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -12697,7 +12790,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1567">PSMDB-1567</a> - Fixed the issue with the crashing server during LDAP authentication when the LDAP server is down. </p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-1" heading-number="6.6"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-1" heading-number="6.7"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13411,15 +13504,17 @@ we will do our very best to be helpful.</p></body></html></section></section></d
 .print-site-enumerate-headings #section-6 > h1:before { content: '6 ' }
 .print-site-enumerate-headings #release_notes-index > h1:before { content: '6.1 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.16-5 > h1:before { content: '6.2 ' }
+.print-site-enumerate-headings #release_notes-8.0.17-6 > h1:before { content: '6.2 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.12-4 > h1:before { content: '6.3 ' }
+.print-site-enumerate-headings #release_notes-8.0.16-5 > h1:before { content: '6.3 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.8-3 > h1:before { content: '6.4 ' }
+.print-site-enumerate-headings #release_notes-8.0.12-4 > h1:before { content: '6.4 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.4-2 > h1:before { content: '6.5 ' }
+.print-site-enumerate-headings #release_notes-8.0.8-3 > h1:before { content: '6.5 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.4-1 > h1:before { content: '6.6 ' }
+.print-site-enumerate-headings #release_notes-8.0.4-2 > h1:before { content: '6.6 ' }
+
+.print-site-enumerate-headings #release_notes-8.0.4-1 > h1:before { content: '6.7 ' }
 
 .print-site-enumerate-headings #faq > h1:before { content: '7 ' }
 
