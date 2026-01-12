@@ -132,7 +132,6 @@ The following steps show how to install Percona Server for MongoDB from a tarbal
        GLIBC_TUNABLES=glibc.pthread.rseq=0
        export GLIBC_TUNABLES
        ```
-
     6. Make sure that you have read and write permissions for the data
     directory and run `mongod`.
 
