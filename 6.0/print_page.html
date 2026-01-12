@@ -7043,18 +7043,16 @@ Use common sense to adapt these guidelines to your production environment.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="sasl-auth-__tabbed_2_1" name="sasl-auth-__tabbed_2" type="radio" /><input id="sasl-auth-__tabbed_2_2" name="sasl-auth-__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="sasl-auth-__tabbed_2_1">Debian and Ubuntu</label><label for="sasl-auth-__tabbed_2_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Use the following commands to enable the <code>saslauthd</code> to auto-run on startup and to set the <code>ldap</code> value for the <code>--MECHANISMS</code> option:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthdsudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECHANISMS<span class="o">=</span><span class="s2">&quot;pam&quot;</span>/MECHANISMS<span class="o">=</span><span class="s2">&quot;ldap&quot;</span>/g<span class="w"> </span>/etc/default/saslauthd
-$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^START<span class="o">=</span>no/START<span class="o">=</span>yes/g<span class="w"> </span>/etc/default/saslauthd
+<p>Use the following command to set the <code>ldap</code> value for the <code>MECHANISMS</code> option:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-ri<span class="w"> </span>s/^MECHANISMS<span class="o">=</span>.*$/MECHANISMS<span class="o">=</span><span class="se">\&quot;</span>ldap<span class="se">\&quot;</span>/g<span class="w"> </span>/etc/default/saslauthd
 </code></pre></div>
 <p>Alternatively, you can edit the <code>/etc/default/sysconfig/saslauthd</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code>START=yes
-MECHANISMS=&quot;ldap
+<div class="highlight"><pre><span></span><code>MECHANISMS=&quot;ldap
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>Specify the <code>ldap</code> value for the <code>--MECH</code> option using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>pam/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthd
+<p>Specify the <code>ldap</code> value for the <code>MECH</code> option using the following command:</p>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-ri<span class="w"> </span>-e<span class="w"> </span>s/^MECH<span class="o">=</span>.*$/MECH<span class="o">=</span>ldap/g<span class="w"> </span>/etc/sysconfig/saslauthd
 </code></pre></div>
 <p>Alternatively, you can edit the /etc/sysconfig/saslauthd configuration file:</p>
 <div class="highlight"><pre><span></span><code>MECH=ldap
@@ -7125,7 +7123,7 @@ against the users created in the LDAP service:</p>
 If it doesn’t, then either the user name and password
 are not in the LDAP service, or <code>sasaluthd</code> is not configured properly.</p>
 <h3 id="sasl-auth-configuring-libsasl2">Configuring libsasl2<a class="headerlink" href="#sasl-auth-configuring-libsasl2" title="Permanent link">&para;</a></h3>
-<p>The <code>mongod</code> also uses the SASL library for communications. To configure the SASL library, create a configuration file.</p>
+<p>The <code>mongod</code> and <code>mongos</code> also use the SASL library for communications. To configure the SASL library, create a configuration file.</p>
 <p>The configuration file <strong>must</strong> be named <code>mongodb.conf</code> and placed in a directory
 where <code>libsasl2</code> can find and read it.
 <code>libsasl2</code> is hard-coded to look in certain directories at build time.
@@ -7137,7 +7135,7 @@ log_level: 5
 mech_list: plain
 </code></pre></div>
 <p>The first two entries (<code>pwcheck_method</code> and <code>saslauthd_path</code>)
-are required for <code>mongod</code> to successfully use the <code>saslauthd</code> service.
+are required for <code>mongod</code> / <code>mongos</code> to successfully use the <code>saslauthd</code> service.
 The <code>log_level</code> is optional but may help determine configuration errors.</p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
