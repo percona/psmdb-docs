@@ -8,37 +8,38 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
-for MongoDB 6.0 Community Edition with enterprise-grade features.
-To migrate to Percona Server for MongoDB requires no changes to MongoDB applications or code.">
+        <meta name="description" content="Installation
+Upgrade from MongoDB Community">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/index.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.27-21.html">
       
       
+        <link rel="prev" href="index.html">
       
-        <link rel="next" href="get-help.html">
+      
+        <link rel="next" href="6.0.25-20.html">
       
       
         
       
       
-      <link rel="icon" href="_images/mongodb-fav.svg">
+      <link rel="icon" href="../_images/mongodb-fav.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Percona Server for MongoDB 6.0</title>
+        <title>Percona Server for MongoDB 6.0.27-21 (2026-01-12) - Percona Server for MongoDB 6.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -57,29 +58,29 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
       
     
     
-      <link rel="stylesheet" href="css/print-site.css">
+      <link rel="stylesheet" href="../css/print-site.css">
     
-      <link rel="stylesheet" href="css/print-site-material.css">
+      <link rel="stylesheet" href="../css/print-site-material.css">
     
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-      <link rel="stylesheet" href="css/design.css">
+      <link rel="stylesheet" href="../css/design.css">
     
-      <link rel="stylesheet" href="css/osano.css">
+      <link rel="stylesheet" href="../css/osano.css">
     
-      <link rel="stylesheet" href="css/mongodb.css">
+      <link rel="stylesheet" href="../css/mongodb.css">
     
-      <link rel="stylesheet" href="css/landing.css">
+      <link rel="stylesheet" href="../css/landing.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -98,9 +99,11 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
 
                  
                  
+                 
+                 
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Percona Server for MongoDB 6.0" />
+<meta property="og:title" content="Percona Server for MongoDB 6.0 - Percona Server for MongoDB 6.0.27-21 (2026-01-12)" />
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/6.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-distribution-for-mongodb/">
 </head>
@@ -127,7 +130,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
     <div data-md-component="skip">
       
         
-        <a href="#percona-server-for-mongodb-60-documentation" class="md-skip">
+        <a href="#percona-server-for-mongodb-6027-21-2026-01-12" class="md-skip">
           Skip to content
         </a>
       
@@ -143,10 +146,10 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
               
 <div>This documentation is for the end of life version of Percona Server for MongoDB 6.0 which is no longer supported.
   <br><strong><a href="https://www.percona.com/blog/percona-software-for-mongodb-release-plan-updates/">Learn more about
-      Percona Software for MongoDB Release Plan Updates</a>.</strong> See the <strong><a href=../.>current documentation</a></strong>. </div>
+      Percona Software for MongoDB Release Plan Updates</a>.</strong> See the <strong><a href=../..>current documentation</a></strong>. </div>
 
             </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL(".."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
           </aside>
         
       </div>
@@ -207,14 +210,14 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
 
     <!-- Link to home -->
     <a
-      href="index.html"
+      href="../index.html"
       title="Percona Server for MongoDB 6.0"
       class="md-header__button md-logo"
       aria-label="Percona Server for MongoDB 6.0"
       data-md-component="logo"
     >
       
-  <img src="_images/mongodb-mark.svg" alt="logo">
+  <img src="../_images/mongodb-mark.svg" alt="logo">
 
     </a>
 
@@ -227,7 +230,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
     <!-- Header title -->
     <div class="md-header__title">
       <div class="md-header__ellipsis">
-        <a href="index.html" class="md-header__topic">
+        <a href="../index.html" class="md-header__topic">
           <span class="md-ellipsis">
             Percona Server for MongoDB 6.0
           </span>
@@ -235,7 +238,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Percona Server for MongoDB 6.0.27-21 (2026-01-12)
             
           </span>
         </div>
@@ -379,9 +382,9 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Percona Server for MongoDB 6.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
+    <a href="../index.html" title="Percona Server for MongoDB 6.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 6.0" data-md-component="logo">
       
-  <img src="_images/mongodb-mark.svg" alt="logo">
+  <img src="../_images/mongodb-mark.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 6.0
@@ -405,37 +408,10 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -451,78 +427,6 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation-guides" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation guides
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Installation guides">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#control-database-access" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Control database access
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backup-and-restore" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup and restore
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#secure-access-to-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Secure access to data
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -534,7 +438,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="get-help.html" class="md-nav__link">
+      <a href="../get-help.html" class="md-nav__link">
         
   
   
@@ -608,7 +512,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
+      <a href="../install/index.html" class="md-nav__link">
         
   
   
@@ -683,7 +587,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/system-requirements.html" class="md-nav__link">
+      <a href="../install/system-requirements.html" class="md-nav__link">
         
   
   
@@ -711,7 +615,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/cloud-deployments.html" class="md-nav__link">
+      <a href="../install/cloud-deployments.html" class="md-nav__link">
         
   
   
@@ -739,7 +643,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
+      <a href="../install/apt.html" class="md-nav__link">
         
   
   
@@ -767,7 +671,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
+      <a href="../install/yum.html" class="md-nav__link">
         
   
   
@@ -795,7 +699,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/amazon-linux.html" class="md-nav__link">
+      <a href="../install/amazon-linux.html" class="md-nav__link">
         
   
   
@@ -823,7 +727,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
+      <a href="../install/tarball.html" class="md-nav__link">
         
   
   
@@ -851,7 +755,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/source.html" class="md-nav__link">
+      <a href="../install/source.html" class="md-nav__link">
         
   
   
@@ -879,7 +783,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
+      <a href="../install/docker.html" class="md-nav__link">
         
   
   
@@ -915,7 +819,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="connect.html" class="md-nav__link">
+      <a href="../connect.html" class="md-nav__link">
         
   
   
@@ -943,7 +847,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="crud.html" class="md-nav__link">
+      <a href="../crud.html" class="md-nav__link">
         
   
   
@@ -971,7 +875,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="what-next.html" class="md-nav__link">
+      <a href="../what-next.html" class="md-nav__link">
         
   
   
@@ -1053,7 +957,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         
   
   
@@ -1128,7 +1032,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         
   
   
@@ -1211,7 +1115,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         
   
   
@@ -1239,7 +1143,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         
   
   
@@ -1322,7 +1226,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         
   
   
@@ -1350,7 +1254,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         
   
   
@@ -1378,7 +1282,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         
   
   
@@ -1406,7 +1310,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         
   
   
@@ -1434,7 +1338,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         
   
   
@@ -1462,7 +1366,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         
   
   
@@ -1490,7 +1394,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         
   
   
@@ -1518,7 +1422,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         
   
   
@@ -1546,7 +1450,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         
   
   
@@ -1629,7 +1533,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         
   
   
@@ -1657,7 +1561,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         
   
   
@@ -1685,7 +1589,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         
   
   
@@ -1713,7 +1617,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="keyfile.html" class="md-nav__link">
+      <a href="../keyfile.html" class="md-nav__link">
         
   
   
@@ -1741,7 +1645,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         
   
   
@@ -1769,7 +1673,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="fips.html" class="md-nav__link">
+      <a href="../fips.html" class="md-nav__link">
         
   
   
@@ -1805,7 +1709,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
+      <a href="../audit-logging.html" class="md-nav__link">
         
   
   
@@ -1833,7 +1737,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
+      <a href="../rate-limit.html" class="md-nav__link">
         
   
   
@@ -1861,7 +1765,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
+      <a href="../log-redaction.html" class="md-nav__link">
         
   
   
@@ -1889,7 +1793,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         
   
   
@@ -1971,7 +1875,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         
   
   
@@ -1999,7 +1903,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="mongos-config.html" class="md-nav__link">
+      <a href="../mongos-config.html" class="md-nav__link">
         
   
   
@@ -2074,7 +1978,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-50.html" class="md-nav__link">
+      <a href="../install/upgrade-from-50.html" class="md-nav__link">
         
   
   
@@ -2102,7 +2006,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
         
   
   
@@ -2130,7 +2034,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/minor-upgrade.html" class="md-nav__link">
+      <a href="../install/minor-upgrade.html" class="md-nav__link">
         
   
   
@@ -2166,7 +2070,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="../install/uninstall.html" class="md-nav__link">
         
   
   
@@ -2198,18 +2102,20 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -2230,7 +2136,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2248,7 +2154,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -2273,10 +2179,37 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="release_notes/6.0.27-21.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Percona Server for MongoDB 6.0.27-21 (2026-01-12)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="6.0.27-21.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2292,6 +2225,78 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#release-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Highlights
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Release Highlights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-update-mitigation-of-heap-memory-disclosure-vulnerability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security update: Mitigation of heap memory disclosure vulnerability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sunsetting-pro-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sunsetting Pro Builds
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upstream-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upstream Improvements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2304,7 +2309,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.25-20.html" class="md-nav__link">
+      <a href="6.0.25-20.html" class="md-nav__link">
         
   
   
@@ -2332,7 +2337,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.24-19.html" class="md-nav__link">
+      <a href="6.0.24-19.html" class="md-nav__link">
         
   
   
@@ -2360,7 +2365,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.21-18.html" class="md-nav__link">
+      <a href="6.0.21-18.html" class="md-nav__link">
         
   
   
@@ -2388,7 +2393,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.20-17.html" class="md-nav__link">
+      <a href="6.0.20-17.html" class="md-nav__link">
         
   
   
@@ -2463,7 +2468,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.19-16.html" class="md-nav__link">
+      <a href="6.0.19-16.html" class="md-nav__link">
         
   
   
@@ -2491,7 +2496,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.18-15.html" class="md-nav__link">
+      <a href="6.0.18-15.html" class="md-nav__link">
         
   
   
@@ -2519,7 +2524,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.17-14.html" class="md-nav__link">
+      <a href="6.0.17-14.html" class="md-nav__link">
         
   
   
@@ -2547,7 +2552,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.16-13.html" class="md-nav__link">
+      <a href="6.0.16-13.html" class="md-nav__link">
         
   
   
@@ -2575,7 +2580,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.15-12.html" class="md-nav__link">
+      <a href="6.0.15-12.html" class="md-nav__link">
         
   
   
@@ -2603,7 +2608,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.14-11.html" class="md-nav__link">
+      <a href="6.0.14-11.html" class="md-nav__link">
         
   
   
@@ -2631,7 +2636,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.13-10.html" class="md-nav__link">
+      <a href="6.0.13-10.html" class="md-nav__link">
         
   
   
@@ -2714,7 +2719,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.12-9.html" class="md-nav__link">
+      <a href="6.0.12-9.html" class="md-nav__link">
         
   
   
@@ -2742,7 +2747,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.11-8.html" class="md-nav__link">
+      <a href="6.0.11-8.html" class="md-nav__link">
         
   
   
@@ -2770,7 +2775,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.9-7.html" class="md-nav__link">
+      <a href="6.0.9-7.html" class="md-nav__link">
         
   
   
@@ -2798,7 +2803,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.8-6.html" class="md-nav__link">
+      <a href="6.0.8-6.html" class="md-nav__link">
         
   
   
@@ -2826,7 +2831,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.6-5.html" class="md-nav__link">
+      <a href="6.0.6-5.html" class="md-nav__link">
         
   
   
@@ -2854,7 +2859,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.5-4.html" class="md-nav__link">
+      <a href="6.0.5-4.html" class="md-nav__link">
         
   
   
@@ -2937,7 +2942,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.4-3.html" class="md-nav__link">
+      <a href="6.0.4-3.html" class="md-nav__link">
         
   
   
@@ -2965,7 +2970,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.3-2.html" class="md-nav__link">
+      <a href="6.0.3-2.html" class="md-nav__link">
         
   
   
@@ -2993,7 +2998,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="release_notes/6.0.2-1.html" class="md-nav__link">
+      <a href="6.0.2-1.html" class="md-nav__link">
         
   
   
@@ -3036,7 +3041,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="faq.html" class="md-nav__link">
+      <a href="../faq.html" class="md-nav__link">
         
   
   
@@ -3110,7 +3115,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         
   
   
@@ -3138,7 +3143,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="telemetry.html" class="md-nav__link">
+      <a href="../telemetry.html" class="md-nav__link">
         
   
   
@@ -3166,7 +3171,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         
   
   
@@ -3194,7 +3199,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         
   
   
@@ -3284,22 +3289,22 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation-guides" class="md-nav__link">
+  <a href="#release-highlights" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation guides
+        Release Highlights
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Installation guides">
+    <nav class="md-nav" aria-label="Release Highlights">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#control-database-access" class="md-nav__link">
+  <a href="#security-update-mitigation-of-heap-memory-disclosure-vulnerability" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Control database access
+        Security update: Mitigation of heap memory disclosure vulnerability
       
     </span>
   </a>
@@ -3307,10 +3312,10 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
 </li>
         
           <li class="md-nav__item">
-  <a href="#backup-and-restore" class="md-nav__link">
+  <a href="#sunsetting-pro-builds" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Backup and restore
+        Sunsetting Pro Builds
       
     </span>
   </a>
@@ -3318,10 +3323,10 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
 </li>
         
           <li class="md-nav__item">
-  <a href="#secure-access-to-data" class="md-nav__link">
+  <a href="#upstream-improvements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Secure access to data
+        Upstream Improvements
       
     </span>
   </a>
@@ -3363,7 +3368,7 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
 
 
   
-    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/percona/psmdb-docs/edit/6.0/docs/release_notes/6.0.27-21.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3372,60 +3377,68 @@ To migrate to Percona Server for MongoDB requires no changes to MongoDB applicat
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/index.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/6.0/docs/release_notes/6.0.27-21.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="percona-server-for-mongodb-60-documentation">Percona Server for MongoDB 6.0 Documentation<a class="headerlink" href="#percona-server-for-mongodb-60-documentation" title="Permanent link">&para;</a></h1>
-<p>Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
-for MongoDB 6.0 Community Edition with <a href="comparison.html">enterprise-grade features</a>.
-<a href="install/upgrade-from-mongodb.html">To migrate to Percona Server for MongoDB</a> requires no changes to MongoDB applications or code.</p>
-<p><a class="md-button md-button" href="release_notes/6.0.27-21.html">What&rsquo;s new in Percona Server for MongoDB 6.0.27-21</a></p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p><strong>Changes to Chunk Management and Balancing</strong></p>
-<p>Several changes have been incrementally introduced within 6.0.x releases.</p>
+<h1 id="percona-server-for-mongodb-6027-21-2026-01-12">Percona Server for MongoDB 6.0.27-21 (2026-01-12)<a class="headerlink" href="#percona-server-for-mongodb-6027-21-2026-01-12" title="Permanent link">&para;</a></h1>
+<p><a class="md-button" href="../install/index.html">Installation</a>
+<a class="md-button" href="../install/upgrade-from-mongodb.html">Upgrade from MongoDB Community</a></p>
+<p>Percona Server for MongoDB 6.0.27-21 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB Community Edition. </p>
+<p>It is based on <a href="https://www.mongodb.com/docs/v6.0/release-notes/6.0/#6.0.26---aug-15--2025">MongoDB 6.0.26 Community Edition</a> and <a href="https://www.mongodb.com/docs/v6.0/release-notes/6.0/#6.0.27---dec-19--2025">MongoDB 6.0.27 Community Edition</a>. </p>
+<p>Percona Server for MongoDB 6.0.27-21 supports protocols and drivers of both MongoDB 6.0.26 and MongoDB 6.0.27.</p>
+<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">&para;</a></h2>
+<h3 id="security-update-mitigation-of-heap-memory-disclosure-vulnerability">Security update: Mitigation of heap memory disclosure vulnerability<a class="headerlink" href="#security-update-mitigation-of-heap-memory-disclosure-vulnerability" title="Permanent link">&para;</a></h3>
+<p>This release fixes security vulnerability <a href="https://radar.offseq.com/threat/cve-2025-14847-cwe-130-improper-handling-of-length-dd0a4a45">CVE-2025-14847: CWE-130</a> in how MongoDB uses <code>zlib</code> compression library. Attackers with network access to <code>mongod</code> or <code>mongos</code> can extract fragments of uninitialized server memory without authentication if zlib compression is enabled. This memory may contain sensitive data, which poses a serious information disclosure risk. </p>
+<h4 id="affected-versions">Affected versions<a class="headerlink" href="#affected-versions" title="Permanent link">&para;</a></h4>
+<p>This vulnerability affects the following versions of MongoDB Community Edition and Percona Server for MongoDB:</p>
 <ul>
-<li>The name of a subset of data has changed from a <code>chunk</code> to a <code>range</code>. </li>
-<li>
-<p>The data size has changed from 64 MB for a chunk to 128 MB for a range.</p>
-</li>
-<li>
-<p>The balancer now distributes ranges based on the actual data size of collections. Formerly the balancer migrated and balanced data across shards based strictly on the number of chunks of data that exist for a collection across each shard. This, combined with the auto-splitter process could cause quite a heavy performance impact to heavy write environments. </p>
-</li>
-<li>
-<p>Ranges (formerly chunks) are no longer auto-split. They are split only when they move across shards for distribution purposes. The auto-splitter process is currently still available but it serves no purpose and does nothing active to the data. This also means that the Enable/Disable AutoSplit helpers should no longer be used. </p>
-</li>
+<li>Percona Server for MongoDB 8.0.4-1 through 8.0.16-5</li>
+<li>Percona Server for MongoDB 7.0.2-1 through 7.0.26-14</li>
+<li>Percona Server for MongoDB 6.0.2-1 through 6.0.25-20</li>
+<li>Percona Server for MongoDB 5.0.2-1 through 5.0.29-25</li>
+<li>Percona Server for MongoDB 4.4.0-1 through 4.4.29-28</li>
+<li>All Percona Server for MongoDB Server 4.2 versions</li>
+<li>All Percona Server for MongoDB Server 4.0 versions</li>
+<li>All Percona Server for MongoDB Server 3.6 versions</li>
 </ul>
-<p>The above changes are expected to lead to better performance overall going forward.</p>
-</div>
-<div data-grid="data-grid">
-<div data-banner="data-banner">
-<h2 class="title" id="installation-guides"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2.03c4.73.47 8.5 4.22 8.95 8.97A9.976 9.976 0 0 1 13 21.93v-2c3.64-.43 6.5-3.32 6.96-6.96A7.994 7.994 0 0 0 13 4.05V2.03m-2 .03v2c-1.43.2-2.78.78-3.9 1.68L5.67 4.26A9.83 9.83 0 0 1 11 2.06M4.26 5.67 5.69 7.1A8 8 0 0 0 4.05 11h-2c.2-1.96.95-3.81 2.21-5.33M2.06 13h2c.18 1.42.75 2.77 1.63 3.9l-1.42 1.43A10.04 10.04 0 0 1 2.06 13m5.04 5.37c1.13.88 2.48 1.45 3.9 1.63v2c-1.96-.21-3.82-1-5.33-2.26zM12 16.5 7.5 12H11V8h2v4h3.5z"/></svg></span> Installation guides<a class="headerlink" href="#installation-guides" title="Permanent link">&para;</a></h2>
-<p>Ready to try out Percona Server for MongoDB? Get started quickly with the step-by-step installation instructions.</p>
-<p><a class="md-button" href="install/index.html">Quickstart guides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
-</div>
-<div data-banner="data-banner">
-<h3 class="title" id="control-database-access"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M415.9 210.5c12.2-3.3 25 2.5 30.5 13.8l18.6 37.6c10.3 1.4 20.4 4.2 29.9 8.1l35-23.3c10.5-7 24.4-5.6 33.3 3.3l19.2 19.2c8.9 8.9 10.3 22.9 3.3 33.3l-23.3 34.9c1.9 4.7 3.6 9.6 5 14.7s2.3 10.1 3 15.2l37.7 18.6c11.3 5.6 17.1 18.4 13.8 30.5l-7 26.2c-3.3 12.1-14.6 20.3-27.2 19.5l-42-2.7c-6.3 8.1-13.6 15.6-21.9 22l2.7 41.9c.8 12.6-7.4 24-19.5 27.2l-26.2 7c-12.2 3.3-24.9-2.5-30.5-13.8l-18.6-37.6c-10.3-1.4-20.4-4.2-29.9-8.1l-35 23.3c-10.5 7-24.4 5.6-33.3-3.3l-19.2-19.2c-8.9-8.9-10.3-22.8-3.3-33.3l23.3-35c-1.9-4.7-3.6-9.6-5-14.7s-2.3-10.2-3-15.2L288.6 382c-11.3-5.6-17-18.4-13.8-30.5l7-26.2c3.3-12.1 14.6-20.3 27.2-19.5l41.9 2.7c6.3-8.1 13.6-15.6 21.9-22l-2.7-41.8c-.8-12.6 7.4-24 19.5-27.2l26.2-7zM448.4 340a44 44 0 1 0 .1 88 44 44 0 1 0-.1-88M224.9-45.5l26.2 7c12.1 3.3 20.3 14.7 19.5 27.2l-2.7 41.8c8.3 6.4 15.6 13.8 21.9 22l42-2.7c12.5-.8 23.9 7.4 27.2 19.5l7 26.2c3.2 12.1-2.5 24.9-13.8 30.5l-37.7 18.6c-.7 5.1-1.7 10.2-3 15.2s-3.1 10-5 14.7l23.3 35c7 10.5 5.6 24.4-3.3 33.3L307.3 262c-8.9 8.9-22.8 10.3-33.3 3.3L239 242c-9.5 3.9-19.6 6.7-29.9 8.1l-18.6 37.6c-5.6 11.3-18.4 17-30.5 13.8l-26.2-7c-12.2-3.3-20.3-14.7-19.5-27.2l2.7-41.9c-8.3-6.4-15.6-13.8-21.9-22l-42 2.7c-12.5.8-23.9-7.4-27.2-19.5l-7-26.2c-3.2-12.1 2.5-24.9 13.8-30.5l37.7-18.6c.7-5.1 1.7-10.1 3-15.2 1.4-5.1 3-10 5-14.7L55.1 46.5c-7-10.5-5.6-24.4 3.3-33.3L77.6-6c8.9-8.9 22.8-10.3 33.3-3.3l35 23.3c9.5-3.9 19.6-6.7 29.9-8.1l18.6-37.6c5.6-11.3 18.3-17 30.5-13.8M192.4 84a44 44 0 1 0 0 88 44 44 0 1 0 0-88"/></svg></span> Control database access<a class="headerlink" href="#control-database-access" title="Permanent link">&para;</a></h3>
-<p>Define who has access to the database and manage their permissions in a single place like LDAP server, ensuring only authorized users have access to resources and operations. </p>
-<p><a class="md-button" href="authentication.html">Authentication <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
-</div>
-<div data-banner="data-banner">
-<h3 class="title" id="backup-and-restore"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9H0l4 4 4-4H5a7 7 0 0 1 7-7 7 7 0 0 1 7 7 7 7 0 0 1-7 7c-1.5 0-2.91-.5-4.06-1.3L6.5 19.14A9.1 9.1 0 0 0 12 21a9 9 0 0 0 9-9 9 9 0 0 0-9-9m2 9a2 2 0 0 0-2-2 2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2"/></svg></span> Backup and restore<a class="headerlink" href="#backup-and-restore" title="Permanent link">&para;</a></h3>
-<p>Make enterprise-level backups and restores with guaranteed data consistency using Percona Backup for MongoDB (PBM). Or, create physical backups on a running server using the built-in <a href="hot-backup.html">hot backup</a> functionality. </p>
-<p><a class="md-button" href="https://docs.percona.com/percona-backup-mongodb/installation.html">Get started with PBM <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
-</div>
-<div data-banner="data-banner">
-<h3 class="title" id="secure-access-to-data"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.991 0a.883.883 0 0 0-.871.817v3.02a.883.883 0 0 0 .88.884.883.883 0 0 0 .88-.88V.816A.883.883 0 0 0 11.991 0m7.705 3.109a.88.88 0 0 0-.521.174L16.8 5.231a.88.88 0 0 0 .559 1.563.88.88 0 0 0 .56-.2l2.37-1.951a.88.88 0 0 0-.594-1.534M4.32 3.122a.883.883 0 0 0-.611 1.52l2.37 1.951a.88.88 0 0 0 .56.2v-.002a.88.88 0 0 0 .56-1.56L4.828 3.283a.9.9 0 0 0-.508-.16zm7.66 3.228a5.046 5.046 0 0 0-5.026 5.045v1.488H5.787a.967.967 0 0 0-.965.964v9.189a.967.967 0 0 0 .965.964h12.426a.967.967 0 0 0 .964-.964v-9.19a.967.967 0 0 0-.964-.963h-1.168v-1.488A5.046 5.046 0 0 0 11.98 6.35m.012 2.893a2.15 2.15 0 0 1 2.16 2.152v1.488H9.847v-1.488a2.15 2.15 0 0 1 2.145-2.152zm7.382.503a.883.883 0 1 0 .07 1.763h3.027a.883.883 0 0 0 0-1.76h-3.027zM1.529 9.75a.883.883 0 0 0 0 1.76h2.999a.883.883 0 0 0 0-1.76zm10.46 6.774a1.28 1.28 0 0 1 .64 2.393v1.245a.63.63 0 0 1-1.259 0v-1.245a1.28 1.28 0 0 1 .619-2.393"/></svg></span> Secure access to data<a class="headerlink" href="#secure-access-to-data" title="Permanent link">&para;</a></h3>
-<p>Keep your sensitive data safe, ensuring users only see the data they are authorized to access. </p>
-<p><a class="md-button" href="data-at-rest-encryption.html">Data-at-rest encryption <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg></span></a></p>
-</div>
-</div>
-<div class="highlight"><pre><span></span><code>
+<p>The issue is fixed upstream and is included in Percona Server for MongoDB 6.0.27-21, 7.0.28-15 and 8.0.17-6. We strongly recommend upgrading Percona Server for MongoDB to this latest minor version to ensure your deployments remain secure.</p>
+<h4 id="workaround">Workaround<a class="headerlink" href="#workaround" title="Permanent link">&para;</a></h4>
+<p>If upgrading is not possible right away, disable <code>zlib</code> compression by configuring <code>networkMessageCompressors</code> (or <code>net.compression.compressors</code>) in configuration or startup parameters. Safe alternatives are <code>snappy</code> or <code>zstd</code>. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">via Configuration File</label><label for="__tabbed_1_2">via Command Line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>To disable <code>zlib</code> compression, edit the <code>mongod.conf</code> or <code>mongos.conf</code> configuration file and set the <code>net.compression.compressors</code> parameter as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">net</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">compression</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">compressors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snappy,zstd</span>
 </code></pre></div>
+<p>Then restart the <code>mongod</code> or <code>mongos</code> service to apply the changes.</p>
+</div>
+<div class="tabbed-block">
+<p>To disable <code>zlib</code> compression, start <code>mongod</code> or <code>mongos</code> with the <code>--networkMessageCompressors</code> parameter as follows:</p>
+<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--networkMessageCompressors<span class="w"> </span>snappy,zstd
+</code></pre></div>
+<p>Or for <code>mongos</code>:</p>
+<div class="highlight"><pre><span></span><code>mongos<span class="w"> </span>--networkMessageCompressors<span class="w"> </span>snappy,zstd
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Verify that <code>zlib</code> is disabled using the <code>db.adminCommand({ getCmdLineOpts: 1 })</code>. Ensure logs show no zlib negotiation when you try to connect to the server with a client that explicitly requests <code>zlib</code>.</p>
+<h3 id="sunsetting-pro-builds">Sunsetting Pro Builds<a class="headerlink" href="#sunsetting-pro-builds" title="Permanent link">&para;</a></h3>
+<p>In line with our open‑source mission, we are officially sunsetting Pro Builds. All features that were previously included in Pro Builds are now accessible to everyone in our regular public builds.</p>
+<p>If you require a Pro Build for a previously released version, your Percona representative is ready to guide you. Our goal is to ensure a smooth transition and continued success with Percona open‑source solutions, enhanced with enterprise‑grade capabilities.</p>
+<h3 id="upstream-improvements">Upstream Improvements<a class="headerlink" href="#upstream-improvements" title="Permanent link">&para;</a></h3>
+<p>The bug fixes, provided by MongoDB Community Edition and included in Percona Server for MongoDB, are the following:</p>
+<ul>
+<li><a href="https://jira.mongodb.org/browse/SERVER-115508">SERVER-115508</a> - Fixed a critical security vulnerability (CVE-2025-14847) where unauthenticated remote attackers could read uninitialized heap memory via the zlib compression protocol. This was caused by improper handling of length parameter inconsistencies in zlib-compressed protocol headers. The fix ensures the server uses minimally sized buffers for uncompressed messages, preventing sensitive information disclosure.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-109268">SERVER-109268</a> - Fixed a critical issue where MongoDB failed to enforce FIPS-compliant cryptography on Linux systems using OpenSSL 3. When tlsFIPSMode was enabled, MongoDB 6.0 and later could still utilize non-FIPS-compliant providers and algorithms (such as CHACHA20-POLY1305) if the OpenSSL &ldquo;default&rdquo; provider remained active. The fix ensures that MongoDB correctly restricts cryptographic operations to FIPS-validated modules, preventing unauthorized non-compliant connections.</li>
+</ul>
 
 
 
@@ -3448,7 +3461,7 @@ for MongoDB 6.0 Community Edition with <a href="comparison.html">enterprise-grad
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 28, 2024 15:40:10 UTC">February 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 12, 2026 11:32:56 UTC">January 12, 2026</span>
   </span>
 
     
@@ -3458,7 +3471,7 @@ for MongoDB 6.0 Community Edition with <a href="comparison.html">enterprise-grad
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 7, 2022 07:48:11 UTC">December 7, 2022</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 12, 2026 11:32:56 UTC">January 12, 2026</span>
   </span>
 
     
@@ -3598,18 +3611,18 @@ window.addEventListener('afterprint', (event) => {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.edit", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="js/print-site.js"></script>
+        <script src="../js/print-site.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
     
 
