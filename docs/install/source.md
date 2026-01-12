@@ -2,13 +2,7 @@
 
 This document guides you though the steps how to build Percona Server for MongoDB from source code.
 
-## Available builds
-
-- [Pro builds](../psmdb-pro.md)These builds include [features](../psmdb-pro.md) that are typically demanded by large enterprises. They are included into packages built by Percona and are available to Percona Customers. [Learn how to become a Customer](https://www.percona.com/about/contact). 
-- Regular builds. These include all Percona Server for MongoDB functionality except the solutions in Pro builds. The packages built by Percona are available to everyone.
-
-
-### Build options
+## Build options
 
 - [Manually](#manual-build) 
 - [Using the build script](#use-the-build-script). You can build only Regular builds with it. 
@@ -130,16 +124,9 @@ To build Percona Server for MongoDB manually, you need the following:
 
 2. Build Percona Server for MongoDB from ``buildscripts/scons.py``
      
-    === ":fontawesome-solid-user: Regular build"
-
-        ```{.bash data-prompt="$"}
-        $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup CPPPATH="${AWS_LIBS}/include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
-        ```  
-    === ":fontawesome-solid-user-tie: Pro build"
-
-        ```{.bash data-prompt="$"}
-        $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup --full-featured CPPPATH="${AWS_LIBS}/include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
-        ``` 
+    ```{.bash data-prompt="$"}
+    $ buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup CPPPATH="${AWS_LIBS}/include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
+    ```  
 
    This command builds core components of the database. Other available targets for the
    ``scons`` command are:  
@@ -178,10 +165,6 @@ To use the build script you need the following:
 Use the following instructions to build [tarballs](#tarballs) or [packages](#packages):
 
 #### Tarballs
-
-!!! note
-
-    You can build only Percona Server for MongoDB Regular tarballs with the build script. Percona Server for MongoDB Pro tarballs are not supported.
 
 To build tarballs, the steps are the following:
 {.power-number}
