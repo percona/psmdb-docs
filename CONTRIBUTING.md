@@ -50,7 +50,7 @@ Create a Jira ticket to report documentation issues or request changes. This met
 
 	* **Version**, **Environment**, and other relevant fields as needed.
 
-4. Click [Create](https://jira.percona.com/secure/CreateIssue!default.jspa) and then select the **PSMDB** project to submit the ticket.
+4. Click [Create](https://jira.percona.com/secure/CreateIssue!default.jspa) and then select the **Percona Server for MongoDB (PSMDB)** project to submit the ticket.
 
 
 ## Contribute to documentation yourself
@@ -84,7 +84,7 @@ The .md files are in the ``docs`` directory.
 
 3. Commit your changes.
 
-	 - In the *Commit changes* section, describe your changes.
+	 - In the **Commit changes** section, describe your changes.
 	 - Select the **Create a new branch for this commit and start a pull request** option
 	 - Click **Propose changes**.
 
