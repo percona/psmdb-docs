@@ -76,7 +76,7 @@ There are several active versions of the documentation. Each version has a branc
 - 4.2 (EOL)
 - 4.4 (EOL)
 - 5.0 (EOL)
-- 6.0
+- 6.0 (EOL)
 - 7.0
 - 8.0
 
