@@ -39,18 +39,24 @@ To add a topic, navigate to the [Percona Product Documentation category](https:/
 Create a Jira ticket to report documentation issues or request changes. This method is useful for formal tracking or when you want the documentation team to handle the changes.
 
 1. Sign in (or create a Percona Jira account if you don't have one).
+   
+2. Click [Create issue ](https://jira.percona.com/secure/CreateIssue!default.jspa) shortcut to create an issue.
 
-2. Click the **Create** button.
+4. Select the **Project** as **Percona Server for MongoDB (PSMDB)** from the dropdown.
 
-3. Fill in the required fields:
+5. Select the **Issue Type**.
+
+6. Click **Next**.
+
+7. Fill in the required fields:
 
 	* **Summary**: Provide a brief description of the issue.
 
-	* **Description**: Provide more information about the issue. If needed, add a Steps To Reproduce section and information about your environment (version number, your operating system, etc.). Be detailed.
+	* **Description**: Please provide more details about the issue. If needed, include a "Steps to Reproduce" section.
 
-	* **Version**, **Environment**, and other relevant fields as needed.
+	* **Version**, **Environment**: Include details about your environment, such as version number, operating system, and any other relevant fields as necessary.
 
-4. Click [Create](https://jira.percona.com/secure/CreateIssue!default.jspa) and then select the **Percona Server for MongoDB (PSMDB)** project to submit the ticket.
+8. Click **Create**.
 
 
 ## Contribute to documentation yourself
