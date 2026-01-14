@@ -8,7 +8,7 @@ You can contribute to documentation in the following ways:
 
 ## Rate and comment on documentation pages
 
-Each documentation page includes a Rate this page feature at the bottom that allows you to assign stars (1-5) and leave comments. This is a quick and easy way to provide feedback about the documentation.
+Each documentation page includes a **Rate this page** feature that allows you to assign stars (1-5) and leave comments. This is a quick and easy way to provide feedback about the documentation.
 
 To rate a page:
 
