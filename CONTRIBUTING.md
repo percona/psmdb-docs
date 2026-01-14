@@ -1,4 +1,4 @@
-# Contributing Guide
+# Contributing guide
 
 Thank you for your contribution in helping us improve the documentation for Percona Server for MongoDB!
 
