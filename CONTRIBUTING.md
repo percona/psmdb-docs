@@ -24,7 +24,7 @@ Brief comments like “this is confusing” or “needs improvement” are helpf
 Please include:
 * What issue did you encounter, or what improvement would you like to see?
 * Which section or topic needs clarification or correction?
-* Any specific examples or use cases that would help
+* Any specific examples or use cases that would help?
 * The version or environment you're using (if relevant)
 * Steps to reproduce any issues you found
 
