@@ -22,7 +22,7 @@ Help us improve the documentation faster by leaving clear and detailed comments.
 Brief comments like “this is confusing” or “needs improvement” are helpful, but sharing a bit more context allows us to take the most appropriate action.
 
 Please include:
-* What issue did you encounter, or what improvement would you like to see
+* What issue did you encounter, or what improvement would you like to see?
 * Which section or topic needs clarification or correction
 * Any specific examples or use cases that would help
 * The version or environment you're using (if relevant)
