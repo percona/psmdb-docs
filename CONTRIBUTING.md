@@ -38,13 +38,11 @@ To add a topic, navigate to the [Percona Product Documentation category](https:/
 
 Create a Jira ticket to report documentation issues or request changes. This method is useful for formal tracking or when you want the documentation team to handle the changes.
 
-1. Click the **open a Jira ticket** link at the bottom of the page. This opens the [Jira issue tracker](https://jira.percona.com/projects/PSMDB/issues) for the doc project.
+1. Sign in (or create a Percona Jira account if you don't have one).
 
-2. Sign in (or create a Percona Jira account if you don't have one).
+2. Click the **Create** button.
 
-3. Click the **Create** button.
-
-4. Fill in the required fields:
+3. Fill in the required fields:
 
 	* **Summary**: Provide a brief description of the issue.
 
@@ -52,9 +50,7 @@ Create a Jira ticket to report documentation issues or request changes. This met
 
 	* **Version**, **Environment**, and other relevant fields as needed.
 
-5. Click **Create** to submit the ticket.
-
-To go directly to the Create Issue form, use this URL: [https://jira.percona.com/secure/CreateIssue!default.jspa](https://jira.percona.com/secure/CreateIssue!default.jspa) and then select the **PSMDB** project.
+4. Click [Create](https://jira.percona.com/secure/CreateIssue!default.jspa) and then select the **PSMDB** project to submit the ticket.
 
 
 ## Contribute to documentation yourself
@@ -92,12 +88,12 @@ The .md files are in the ``docs`` directory.
 	 - Select the **Create a new branch for this commit and start a pull request** option
 	 - Click **Propose changes**.
 
-4. GitHub creates a branch and a commit for your changes. It loads a new page on which you can open a pull request to Percona. The page shows the base branch - the one you offer your changes for, your commit message and a diff - a visual representation of your changes against the original page.  This allows you to make a last-minute review. When you are ready, click the **Create pull request** button.
+4. GitHub creates a branch and a commit for your changes. It loads a new page on which you can open a pull request to Percona. The page shows the base branch - the one you offer your changes for, your commit message, and a diff - a visual representation of your changes against the original page.  This allows you to make a last-minute review. When you are ready, click the **Create pull request** button.
 5. Someone from our team reviews the pull request and if everything is correct, merges it into the documentation. Then it gets published on the site.
 
 ### Edit documentation locally
 
-This option is for users who prefer to work from their computer and / or have the full control over the documentation process.
+This option is for users who prefer to work from their computer and/or have full control over the documentation process.
 
 The steps are the following:
 
@@ -138,12 +134,9 @@ git checkout -b <my_changes>
 To verify how your changes look, generate the static site with the documentation. This process is called *building*. You can do it in these ways:
 You can do it in these ways:
 
-- [install MkDocs and build locally](#install-mkdocs-and-build-locally)
-
-
 #### Install MkDocs and build locally
 
-In order not to break your running workflows, it's recommended to install MkDocs in a virtual environment.
+To avoid interrupting your running workflows, it's recommended to install MkDocs in a virtual environment.
 
 1. Install [pip](https://pip.pypa.io/en/stable/installing/)
 2. Install [MkDocs](https://www.mkdocs.org/getting-started/#installation).
@@ -166,4 +159,4 @@ mkdocs build
 mkdocs serve 
 ```
 
-7. To build the PDF documentation, open the `site/print_page.html` in your browser. Save it as PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF or just Save and select PDF as the output format.
+7. To build the PDF documentation, open the `site/print_page.html` in your browser. Save it as PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF, or just Save and select PDF as the output format.
