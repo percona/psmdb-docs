@@ -3,7 +3,7 @@
 
 release: '8.0.19-7'
 version: '8.0'
-mongosh: '2.5.10'
+mongosh: '2.6.0'
 year: "2026"
 
 product:
