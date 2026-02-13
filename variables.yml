@@ -2,9 +2,9 @@
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
 
-release: '7.0.28-15'
+release: '7.0.30-16'
 version: '7.0'
-mongosh: '2.5.10'
+mongosh: '2.6.0'
 
 year: '2026'
 
@@ -12,6 +12,7 @@ product:
   psmdb_full_name:  Percona Server for MongoDB
 
 date:
+  7_0_28: '2026-02-19'
   7_0_28: '2026-01-06'
   7_0_26: '2025-11-25'
   7_0_24: '2025-09-11'
