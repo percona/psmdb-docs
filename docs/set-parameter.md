@@ -43,7 +43,7 @@ Percona Server for MongoDB includes several parameters that can be changed in on
     ??? example "Example: ftdcMetricGroupsDisabled"
         ```yaml
         setParameter:
-        ftdcMetricGroupsDisabled:   
+          ftdcMetricGroupsDisabled:   
         "systemMetrics,serverStatus.connections"
         ```
 
@@ -61,7 +61,7 @@ Percona Server for MongoDB includes several parameters that can be changed in on
     ??? example "Example: ftdcMetricGroupsDisabled"
         ```bash
         mongod \
-        --setParameter                  ftdcMetricGroupsDisabled="systemMetrics,serverStatus.connections"
+          --setParameter                  ftdcMetricGroupsDisabled="systemMetrics,serverStatus.connections"
         ```
 
 === ":simple-mongodb: `setParameter` command"    
@@ -73,12 +73,12 @@ Percona Server for MongoDB includes several parameters that can be changed in on
     db = db.getSiblingDB('admin')
     db.runCommand( { setParameter: 1, <parameter>: <value> } )
     ```
-    
+
     ??? example "Example: ftdcMetricGroupsDisabled"
-    ```javascript
-    db = db.getSiblingDB('admin')
-    db.runCommand( { setParameter: 1, ftdcMetricGroupsDisabled:     "systemMetrics" } )
-    ```
+        ```javascript
+        db = db.getSiblingDB('admin')
+        db.runCommand( { setParameter: 1,           ftdcMetricGroupsDisabled:     "systemMetrics" } )
+        ```
 
 See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v8.0/reference/parameters/#parameters).
 
