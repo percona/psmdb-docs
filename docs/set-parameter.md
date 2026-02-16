@@ -87,7 +87,7 @@ See what parameters you can define in the [parameters list](https://www.mongodb.
 
 | Mode                          | Metrics Collected                                                                 | Risks / Overhead                                                                 |
 |------------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| **Default (no tuning)**      | `systemMetrics`, `serverStatus.connections`, `replSetGetStatus`, plus all other FTDC groups | Full visibility, but may cause noise in FUSE/autofs/NFS environments |
-| **Tuned (disable `systemMetrics`)** | All FTDC groups except `systemMetrics`                                            | Avoids scanning unstable mount points; reduces risk of diagnostic interruptions |
-| **Tuned (disable connections)**   | All FTDC groups except `serverStatus.connections`                                 | Reduces sampling overhead in high throughput environments; external monitoring required |
-| **Tuned (disable `replSetGetStatus`)** | All FTDC groups except `replSetGetStatus`                                     | Useful if replication is monitored elsewhere; may reduce visibility into cluster health |
+| **Default (no tuning)**      | `systemMetrics`, `serverStatus.connections`, `replSetGetStatus`, plus all other FTDC groups | Full visibility, but it may lead to increased noise and can become unresponsive in FUSE, autofs, or NFS environments. |
+| **Tuned (disable `systemMetrics`)** | All FTDC groups except `systemMetrics`                                            | Avoids scanning unstable mount points, reduces risk of diagnostic interruptions |
+| **Tuned (disable connections)**   | All FTDC groups except `serverStatus.connections`                                 | Reduces sampling overhead in high throughput environments, external monitoring required for connection details |
+| **Tuned (disable `replSetGetStatus`)** | All FTDC groups except `replSetGetStatus`                                     | Useful if replication is monitored elsewhere, may reduce visibility into replica set and cluster health |
