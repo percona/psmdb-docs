@@ -83,7 +83,7 @@ Percona Server for MongoDB includes several parameters that can be changed in on
 See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v8.0/reference/parameters/#parameters).
 
 
-## Comparison: Default vs. tuned FTDC Behavior
+## Comparison: Default vs. tuned FTDC behavior
 
 | Mode                          | Metrics Collected                                                                 | Risks / Overhead                                                                 |
 |------------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
