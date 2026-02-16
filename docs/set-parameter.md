@@ -1,6 +1,6 @@
 # Percona Server for MongoDB parameter tuning guide
 
-## Disable FTDC Metric Groups
+## Disable FTDC metric groups
 
 FTDC collects diagnostic samples such as `serverStatus`, `replSetGetStatus`, and OS-level `systemMetrics`. In containerized or cloud environments, `systemMetrics` may scan all mount points, creating significant noise and overhead.
 
@@ -88,11 +88,11 @@ Percona Server for MongoDB includes several parameters that can be changed in on
 See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v8.0/reference/parameters/#parameters).
 
 
-## Comparison: Default vs. Tuned FTDC Behavior
+## Comparison: Default vs. tuned FTDC Behavior
 
 | Mode                          | Metrics Collected                                                                 | Risks / Overhead                                                                 |
 |------------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| **Default (no tuning)**      | systemMetrics, serverStatus.connections, replSetGetStatus, plus all other FTDC groups | Full visibility, but may cause noise or uninterruptible sleep in FUSE/autofs/NFS environments |
-| **Tuned (disable systemMetrics)** | All FTDC groups except systemMetrics                                            | Avoids scanning unstable mount points; reduces risk of diagnostic interruptions |
-| **Tuned (disable connections)**   | All FTDC groups except serverStatus.connections                                 | Reduces sampling overhead in high-throughput environments; external monitoring required |
-| **Tuned (disable replSetGetStatus)** | All FTDC groups except replSetGetStatus                                     | Useful if replication is monitored elsewhere; may reduce visibility into cluster health |
+| **Default (no tuning)**      | `systemMetrics`, `serverStatus.connections`, `replSetGetStatus`, plus all other FTDC groups | Full visibility, but may cause noise in FUSE/autofs/NFS environments |
+| **Tuned (disable systemMetrics)** | All FTDC groups except `systemMetrics`                                            | Avoids scanning unstable mount points; reduces risk of diagnostic interruptions |
+| **Tuned (disable connections)**   | All FTDC groups except `serverStatus.connections`                                 | Reduces sampling overhead in high throughput environments; external monitoring required |
+| **Tuned (disable replSetGetStatus)** | All FTDC groups except `replSetGetStatus`                                     | Useful if replication is monitored elsewhere; may reduce visibility into cluster health |
