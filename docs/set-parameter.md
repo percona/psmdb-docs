@@ -4,7 +4,7 @@
 
 FTDC collects diagnostic samples such as `serverStatus`, `replSetGetStatus`, and OS-level `systemMetrics`. In containerized or cloud environments, `systemMetrics` may scan all mount points, creating significant noise and overhead.
 
-When using FUSE, autofs, or NFS, reading disk stats from an unresponsive mount can cause the FTDC thread to enter an uninterruptible **sleep (D-state)**, halting all FTDC sampling until the node is restarted. o avoid this, use the `ftdcMetricGroupsDisabled `parameter to skip problematic metric groups while continuing to collect all other critical metrics.
+When using FUSE, autofs, or NFS, reading disk stats from an unresponsive mount may cause the FTDC thread to enter an uninterruptible **sleep (D-state)**, halting all FTDC sampling until the node is restarted. This situation halts all FTDC sampling until the node is restarted. To prevent this issue, you can use the `ftdcMetricGroupsDisabled` parameter to skip the problematic metric groups while still collecting all other essential metrics.
 
 **ftdcMetricGroupsDisabled**
 
