@@ -40,14 +40,12 @@ Percona Server for MongoDB includes several parameters that can be changed in on
       <parameter>: <value>
     ```
       
-    For `ftdcMetricGroupsDisabled`
-
-
-    ```yaml
-    setParameter:
-    ftdcMetricGroupsDisabled:   
-    "systemMetrics,serverStatus.connections"
-    ```
+    ??? example "ftdcMetricGroupsDisabled"
+        ```yaml
+        setParameter:
+        ftdcMetricGroupsDisabled:   
+        "systemMetrics,serverStatus.connections"
+        ```
 
 
 === ":material-console: Command line"
