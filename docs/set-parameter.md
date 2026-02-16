@@ -77,7 +77,7 @@ Percona Server for MongoDB includes several parameters that can be changed in on
     ??? example "Example: ftdcMetricGroupsDisabled"
         ```javascript
         db = db.getSiblingDB('admin')
-        db.runCommand( { setParameter: 1,           ftdcMetricGroupsDisabled:     "systemMetrics" } )
+        db.runCommand({ setParameter: 1, ftdcMetricGroupsDisabled: "systemMetrics" } )
         ```
 
 See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v8.0/reference/parameters/#parameters).
