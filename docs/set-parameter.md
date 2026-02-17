@@ -37,7 +37,6 @@ Percona Server for MongoDB includes several parameters that can be changed in on
     setParameter:
       <parameter>: <value>
     ```
-      
     ??? example "Example: diagnosticDataCollectionEnableSystemMetricsDisks set to true"
         ```yaml
         setParameter:
@@ -99,7 +98,7 @@ See what parameters you can define in the [parameters list](https://www.mongodb.
 
 | Mode                          | Metrics Collected                                                                 | Risks / Overhead                                                                 |
 |------------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| **Default (no tuning)**      | `systemMetrics` (disks and mounts), `serverStatus.connections`, `replSetGetStatus`, plus all other FTDC groups | Provides full visibility, but may lead to increased noise and overhead. FTDC can become unresponsive in FUSE, autofs, or NFS environments.|
+| **Default (no tuning)**      | `systemMetrics` (disks and mounts), `serverStatus.connections`, `replSetGetStatus`, plus all other FTDC groups | Provides full visibility, but may lead to increased noise and overhead. FTDC can become unresponsive in FUSE, autofs, or NFS environments. |
 | **Disable disks only** | All FTDC groups, with `systemMetrics`  excluding **disk-level stats** | Reduces overhead while retaining mount-level visibility.|
 | **Disable mounts only**   | All FTDC groups, with `systemMetrics` excluding **mount-level stats**| Avoids interruptions from unresponsive mounts while while retaining disk-level visibility.|
 
