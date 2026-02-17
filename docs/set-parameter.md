@@ -25,7 +25,7 @@ Two new server parameters control the collection of disks and mounts subsections
     - Scope: Startup; runtime configurable via `setParameter`
 
 
-## Configuration Methods
+## Configuration methods
 
 You can modify parameters in Percona Server for MongoDB using the following methods:
 
