@@ -37,7 +37,6 @@ Percona Server for MongoDB includes several parameters that can be changed in on
     setParameter:
       <parameter>: <value>
     ```
-      
     ??? example "Example: diagnosticDataCollectionEnableSystemMetricsDisks set to true"
         ```yaml
         setParameter:
