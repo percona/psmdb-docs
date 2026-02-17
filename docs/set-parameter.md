@@ -2,13 +2,13 @@
 
 ## Disable FTDC metric groups
 
-## Overview
+### Overview
 
 FTDC collects diagnostic samples such as `serverStatus`, `replSetGetStatus`, and Operating System level `systemMetrics`. By default, `systemMetrics` are collected in all environments. This can create significant noise and overhead, as disk and mount statistics are gathered from every available mount point.
 
 When using FUSE, autofs, or NFS, reading disk stats from an unresponsive mount may cause the FTDC thread to enter an **uninterruptible sleep (D-state)**, halting all FTDC sampling until the node is restarted. To prevent this issue, you can disable specific subsections of `systemMetrics` while still collecting all other essential metrics.
 
-## Parameters
+### Parameters
 
 Two new server parameters control the collection of disks and mounts subsections within `systemMetrics` in FTDC:
 
@@ -105,6 +105,6 @@ See what parameters you can define in the [parameters list](https://www.mongodb.
 | Mode                          | Metrics Collected                                                                 | Risks / Overhead                                                                 |
 |------------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 | **Default (no tuning)**      | `systemMetrics` (disks and mounts), `serverStatus.connections`, `replSetGetStatus`, plus all other FTDC groups | Full visibility, but it may lead to increased noise and can become unresponsive in FUSE, autofs, or NFS environments. |
-| **Disable disks only** | All FTDC groups except `systemMetrics`  excluding disk-level stats | Reduces overhead while retaining mount level visibility.|
-| **Disable mounts only**   | All FTDC groups, with `systemMetrics` excluding mount level stats| Avoids interruptions from unresponsive mounts and continues collecting disk-level statistics.|
+| **Disable disks only** | All FTDC groups, with `systemMetrics`  excluding **disk-level stats** | Reduces overhead while retaining mount level visibility.|
+| **Disable mounts only**   | All FTDC groups, with `systemMetrics` excluding **mount level stats**| Avoids interruptions from unresponsive mounts while continuing to collect disk-level statistics.|
 
