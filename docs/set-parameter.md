@@ -107,6 +107,9 @@ See what parameters you can define in the [parameters list](https://www.mongodb.
 | **Disable disks only** | All FTDC groups, with `systemMetrics`  excluding **disk-level stats** | Reduces overhead while retaining mount-level visibility.|
 | **Disable mounts only**   | All FTDC groups, with `systemMetrics` excluding **mount-level stats**| Avoids interruptions from unresponsive mounts while while retaining disk-level visibility.|
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
