@@ -13,7 +13,7 @@ When using FUSE, autofs, or NFS, reading disk stats from an unresponsive mount m
 Two new server parameters control the collection of disks and mounts subsections within `systemMetrics` in FTDC:
 
 - **diagnosticDataCollectionEnableSystemMetricsDisks**
-    - Enables or disables collection of disk level statistics.
+    - Enables or disables collection of disk-level statistics.
     - Type: Boolean (`true`/`false`)
     - Default: `true` (enabled)
     - Scope: Startup; runtime configurable via `setParameter`
