@@ -26,7 +26,7 @@ Two new server parameters control the collection of disks and mounts subsections
 
 
 !!! note
-    These parameter applies only to group level targets (e.g.,` systemMetrics`), not to individual keys.
+    These parameter applies only to group level targets (e.g.,`systemMetrics`), not to individual keys.
 
 
 ## Configuration Methods
