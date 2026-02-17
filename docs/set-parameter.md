@@ -13,16 +13,16 @@ When using FUSE, autofs, or NFS, reading disk stats from an unresponsive mount m
 Two new server parameters control the collection of disks and mounts subsections within `systemMetrics` in FTDC:
 
 - **diagnosticDataCollectionEnableSystemMetricsDisks**
-  - Enables or disables collection of disk level statistics.
-  - Type: Boolean (`true`/`false`)
-  - Default: `true` (enabled)
-  - Scope: Startup; runtime configurable via `setParameter`
+    - Enables or disables collection of disk level statistics.
+    - Type: Boolean (`true`/`false`)
+    - Default: `true` (enabled)
+    - Scope: Startup; runtime configurable via `setParameter`
 
 - **diagnosticDataCollectionEnableSystemMetricsMounts**
-  - Enables or disables collection of mount level statistics.
-  - Type: Boolean (`true`/`false`)
-  - Default: `true` (enabled)
-  - Scope: Startup; runtime configurable via `setParameter`
+    - Enables or disables collection of mount level statistics.
+    - Type: Boolean (`true`/`false`)
+    - Default: `true` (enabled)
+    - Scope: Startup; runtime configurable via `setParameter`
 
 
 !!! note
@@ -49,6 +49,11 @@ Percona Server for MongoDB includes several parameters that can be changed in on
           diagnosticDataCollectionEnableSystemMetricsDisks: true   
         ```
 
+    ??? example "Example: diagnosticDataCollectionEnableSystemMetricsMounts set to false"
+        ```yaml
+        setParameter:
+          diagnosticDataCollectionEnableSystemMetricsMounts: false   
+        ```
 
 === ":material-console: Command line"
 
@@ -60,10 +65,16 @@ Percona Server for MongoDB includes several parameters that can be changed in on
       --setParameter <parameter>=<value>\
     ```
 
-    ??? example "Example: ftdcMetricGroupsDisabled"
+    ??? example "Example: diagnosticDataCollectionEnableSystemMetricsDisks set to false"
         ```bash
         mongod \
-          --setParameter                  ftdcMetricGroupsDisabled="systemMetrics,serverStatus.connections"
+          --setParameter diagnosticDataCollectionEnableSystemMetricsDisks=false
+        ```
+
+           ??? example "Example: diagnosticDataCollectionEnableSystemMetricsMounts set to true"
+        ```bash
+        mongod \
+          --setParameter diagnosticDataCollectionEnableSystemMetricsMounts=true
         ```
 
 === ":simple-mongodb: `setParameter` command"    
@@ -76,10 +87,14 @@ Percona Server for MongoDB includes several parameters that can be changed in on
     db.runCommand( { setParameter: 1, <parameter>: <value> } )
     ```
 
-    ??? example "Example: ftdcMetricGroupsDisabled"
+    ??? example "Example: diagnosticDataCollectionEnableSystemMetricsDisks set to true"
         ```javascript
-        db = db.getSiblingDB('admin')
-        db.runCommand({ setParameter: 1, ftdcMetricGroupsDisabled: "systemMetrics" } )
+        db.adminCommand({setParameter: 1, diagnosticDataCollectionEnableSystemMetricsDisks: true})
+        ```
+
+    ??? example "Example: diagnosticDataCollectionEnableSystemMetricsMounts set to false"
+        ```javascript
+        db.adminCommand({setParameter: 1, diagnosticDataCollectionEnableSystemMetricsMounts: false})
         ```
 
 See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v8.0/reference/parameters/#parameters).
@@ -89,7 +104,7 @@ See what parameters you can define in the [parameters list](https://www.mongodb.
 
 | Mode                          | Metrics Collected                                                                 | Risks / Overhead                                                                 |
 |------------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| **Default (no tuning)**      | `systemMetrics`, `serverStatus.connections`, `replSetGetStatus`, plus all other FTDC groups | Full visibility, but it may lead to increased noise and can become unresponsive in FUSE, autofs, or NFS environments. |
-| **Tuned (disable `systemMetrics`)** | All FTDC groups except `systemMetrics`                                            | Avoids scanning unstable mount points, reduces risk of diagnostic interruptions |
-| **Tuned (disable connections)**   | All FTDC groups except `serverStatus.connections`                                 | Reduces sampling overhead in high throughput environments, external monitoring required for connection details |
-| **Tuned (disable `replSetGetStatus`)** | All FTDC groups except `replSetGetStatus`                                     | Useful if replication is monitored elsewhere, may reduce visibility into replica set and cluster health |
+| **Default (no tuning)**      | `systemMetrics` (disks and mounts), `serverStatus.connections`, `replSetGetStatus`, plus all other FTDC groups | Full visibility, but it may lead to increased noise and can become unresponsive in FUSE, autofs, or NFS environments. |
+| **Disable disks only** | All FTDC groups except `systemMetrics`  excluding disk-level stats | Reduces overhead while retaining mount level visibility.|
+| **Disable mounts only**   | All FTDC groups, with `systemMetrics` excluding mount level stats| Prevents hangs caused by unresponsive mounts, keeps disk level stats.|
+
