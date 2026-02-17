@@ -27,7 +27,8 @@ Two new server parameters control the collection of disks and mounts subsections
 
 ## Configuration Methods
 
-Percona Server for MongoDB includes several parameters that can be changed in one of the following ways:
+Percona Server for MongoDB provides parameters that can be changed in one of the following ways:
+
 
 === ":octicons-file-code-24: Configuration file"
 
