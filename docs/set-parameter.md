@@ -2,28 +2,31 @@
 
 ## Disable FTDC metric groups
 
-FTDC collects diagnostic samples such as `serverStatus`, `replSetGetStatus`, and OS-level `systemMetrics`. In containerized or cloud environments, `systemMetrics` may scan all mount points, creating significant noise and overhead.
+## Overview
 
-When using FUSE, autofs, or NFS, reading disk stats from an unresponsive mount may cause the FTDC thread to enter an uninterruptible **sleep (D-state)**, halting all FTDC sampling until the node is restarted. This situation halts all FTDC sampling until the node is restarted. To prevent this issue, you can use the `ftdcMetricGroupsDisabled` parameter to skip the problematic metric groups while still collecting all other essential metrics.
+FTDC collects diagnostic samples such as `serverStatus`, `replSetGetStatus`, and Operating System level `systemMetrics`. By default, `systemMetrics` are collected in all environments. This can create significant noise and overhead, as disk and mount statistics are gathered from every available mount point.
 
-**ftdcMetricGroupsDisabled**
+When using FUSE, autofs, or NFS, reading disk stats from an unresponsive mount may cause the FTDC thread to enter an **uninterruptible sleep (D-state)**, halting all FTDC sampling until the node is restarted. To prevent this issue, you can disable specific subsections of `systemMetrics` while still collecting all other essential metrics.
 
-**Description:** Disables one or more high-level FTDC groups.
+## Parameters
 
-**Type**: Comma-separated string (or list)
+Two new server parameters control the collection of disks and mounts subsections within `systemMetrics` in FTDC:
 
-**Scope**: Startup; runtime configurable via setParameter (where supported)
+- **diagnosticDataCollectionEnableSystemMetricsDisks**
+  - Enables or disables collection of disk level statistics.
+  - Type: Boolean (`true`/`false`)
+  - Default: `true` (enabled)
+  - Scope: Startup; runtime configurable via `setParameter`
 
-**Supported targets:**
+- **diagnosticDataCollectionEnableSystemMetricsMounts**
+  - Enables or disables collection of mount level statistics.
+  - Type: Boolean (`true`/`false`)
+  - Default: `true` (enabled)
+  - Scope: Startup; runtime configurable via `setParameter`
 
-- `systemMetrics` (recommended)
-
-- `serverStatus.connections`
-
-- `replSetGetStatus` (optional)
 
 !!! note
-    This parameter applies only to group level targets (e.g.,` systemMetrics`), not to individual keys.
+    These parameter applies only to group level targets (e.g.,` systemMetrics`), not to individual keys.
 
 
 ## Configuration Methods
@@ -40,11 +43,10 @@ Percona Server for MongoDB includes several parameters that can be changed in on
       <parameter>: <value>
     ```
       
-    ??? example "Example: ftdcMetricGroupsDisabled"
+    ??? example "Example: diagnosticDataCollectionEnableSystemMetricsDisks set to true"
         ```yaml
         setParameter:
-          ftdcMetricGroupsDisabled:   
-        "systemMetrics,serverStatus.connections"
+          diagnosticDataCollectionEnableSystemMetricsDisks: true   
         ```
 
 
