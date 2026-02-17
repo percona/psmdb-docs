@@ -52,7 +52,7 @@ You can modify parameters in Percona Server for MongoDB using the following meth
 
 === ":material-console: Command line"
 
-    use the `--setParameter` command line option arguments when running the `mongod` process
+    Use the `--setParameter` command line option arguments when running the `mongod` process
     for development or testing purposes:    
 
     ```bash
