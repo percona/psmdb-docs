@@ -79,8 +79,8 @@ You can modify parameters in Percona Server for MongoDB using the following meth
     to make changes at runtime:    
 
     ```javascript
-    db = db.getSiblingDB('admin')
-    db.runCommand( { setParameter: 1, <parameter>: <value> } )
+    db.adminCommand( { setParameter: 1, <parameter>: <value> } )
+
     ```
 
     ??? example "Example: diagnosticDataCollectionEnableSystemMetricsDisks set to true"
