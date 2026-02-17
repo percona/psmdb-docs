@@ -71,7 +71,7 @@ Percona Server for MongoDB includes several parameters that can be changed in on
           --setParameter diagnosticDataCollectionEnableSystemMetricsDisks=false
         ```
 
-           ??? example "Example: diagnosticDataCollectionEnableSystemMetricsMounts set to true"
+    ??? example "Example: diagnosticDataCollectionEnableSystemMetricsMounts set to true"
         ```bash
         mongod \
           --setParameter diagnosticDataCollectionEnableSystemMetricsMounts=true
