@@ -13,20 +13,16 @@ When using FUSE, autofs, or NFS, reading disk stats from an unresponsive mount m
 Two new server parameters control the collection of disks and mounts subsections within `systemMetrics` in FTDC:
 
 - **diagnosticDataCollectionEnableSystemMetricsDisks**
-    - Enables or disables collection of disk level statistics.
+    - Enables or disables collection of disk-level statistics.
     - Type: Boolean (`true`/`false`)
     - Default: `true` (enabled)
     - Scope: Startup; runtime configurable via `setParameter`
 
 - **diagnosticDataCollectionEnableSystemMetricsMounts**
-    - Enables or disables collection of mount level statistics.
+    - Enables or disables collection of mount-level statistics.
     - Type: Boolean (`true`/`false`)
     - Default: `true` (enabled)
     - Scope: Startup; runtime configurable via `setParameter`
-
-
-!!! note
-    These parameters apply only to group level targets (e.g., `systemMetrics`), not to individual keys.
 
 
 ## Configuration Methods
@@ -46,13 +42,13 @@ Percona Server for MongoDB includes several parameters that can be changed in on
     ??? example "Example: diagnosticDataCollectionEnableSystemMetricsDisks set to true"
         ```yaml
         setParameter:
-          diagnosticDataCollectionEnableSystemMetricsDisks: true   
+          diagnosticDataCollectionEnableSystemMetricsDisks: true  
         ```
 
     ??? example "Example: diagnosticDataCollectionEnableSystemMetricsMounts set to false"
         ```yaml
         setParameter:
-          diagnosticDataCollectionEnableSystemMetricsMounts: false   
+          diagnosticDataCollectionEnableSystemMetricsMounts: false
         ```
 
 === ":material-console: Command line"
