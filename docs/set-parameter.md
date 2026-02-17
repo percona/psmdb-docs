@@ -95,7 +95,7 @@ You can modify parameters in Percona Server for MongoDB using the following meth
 See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v7.0/reference/parameters/#parameters).
 
 
-## Comparison: Default vs. tuned FTDC behavior
+## Comparison: default vs. tuned FTDC behavior
 
 | Mode                          | Metrics Collected                                                                 | Risks / Overhead                                                                 |
 |------------------------------|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
