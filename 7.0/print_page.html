@@ -12915,13 +12915,25 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1893">PSMDB-1893</a>: 
 <strong>Disable specific FTDC metric groups</strong></p>
-<p>Percona Server for MongoDB now permits administrators to disable specific diagnostic metric groups via the new <code>ftdcMetricGroupsDisabled</code> parameter. </p>
+<p>Percona Server for MongoDB now permits administrators to disable specific diagnostic metric groups via the two new server parameters:</p>
 <ul>
 <li>
-<p>This parameter can be set in <code>mongod.conf</code> </p>
+<p><strong>diagnosticDataCollectionEnableSystemMetricsDisks</strong></p>
+<ul>
+<li>Enables or disables collection of disk-level statistics.</li>
+<li>Type: Boolean (<code>true</code>/<code>false</code>)</li>
+<li>Default: true (enabled)</li>
+<li>Scope: Startup; runtime configurable via <code>setParameter</code></li>
+</ul>
 </li>
 <li>
-<p>Modified at runtime using <code>setParameter</code></p>
+<p><strong>diagnosticDataCollectionEnableSystemMetricsMounts</strong></p>
+<ul>
+<li>Enables or disables collection of mount-level statistics.</li>
+<li>Type: Boolean (true/false)</li>
+<li>Default: true (enabled)</li>
+<li>Scope: Startup; runtime configurable via setParameter</li>
+</ul>
 </li>
 </ul>
 <p>Database administrators can avoid delays in diagnostics caused by unstable or unresponsive mount points in NFS, FUSE, or autofs environments by excluding certain problematic groups like <code>systemMetrics</code>, <code>serverStatus.connections</code>, and <code>replSetGetStatus</code>. This way, the Full Time Diagnostic Data Capture (FTDC) can still deliver important insights into database performance, such as query efficiency and replication, without being hindered by system-level issues.</p>
