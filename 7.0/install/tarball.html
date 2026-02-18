@@ -2925,6 +2925,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../release_notes/7.0.30-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Percona Server for MongoDB 7.0.30-16 (2026-02-18)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../release_notes/7.0.28-15.html" class="md-nav__link">
         
   
@@ -3930,9 +3958,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h1 id="install-percona-server-for-mongodb-from-binary-tarball">Install Percona Server for MongoDB from binary tarball<a class="headerlink" href="#install-percona-server-for-mongodb-from-binary-tarball" title="Permanent link">¶</a></h1>
 <p>You can find links to the binary tarballs under the <em>Generic Linux</em> menu item on the <a href="https://www.percona.com/downloads/percona-server-mongodb-7.0/">Percona website</a></p>
 <p>There are the following tarballs available:</p>
-<p><code>percona-server-mongodb-7.0.28-15-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
+<p><code>percona-server-mongodb-7.0.30-16-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
 <ul>
-<li><code>percona-mongodb-mongosh-2.5.10-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</li>
+<li><code>percona-mongodb-mongosh-2.6.0-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</li>
 </ul>
 <p>Note that tarballs are available only for the x86_64 architecture.</p>
 <h2 id="tarball-types">Tarball types<a class="headerlink" href="#tarball-types" title="Permanent link">¶</a></h2>
@@ -3947,17 +3975,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <tbody>
 <tr>
 <td>Full</td>
-<td>percona-server-mongodb-7.0.28-15-x86_64.<operating-system>.tar.gz</operating-system></td>
+<td>percona-server-mongodb-7.0.30-16-x86_64.<operating-system>.tar.gz</operating-system></td>
 <td>Contains binaries and libraries</td>
 </tr>
 <tr>
 <td>Minimal</td>
-<td>percona-server-mongodb-7.0.28-15-x86_64.<operating-system>-minimal.tar.gz</operating-system></td>
+<td>percona-server-mongodb-7.0.30-16-x86_64.<operating-system>-minimal.tar.gz</operating-system></td>
 <td>Contains binaries and libraries without debug symbols</td>
 </tr>
 <tr>
 <td>Checksum</td>
-<td>percona-server-mongodb-7.0.28-15-x86_64.<operating-system>-minimal.tar.gz.sha256sum</operating-system></td>
+<td>percona-server-mongodb-7.0.30-16-x86_64.<operating-system>-minimal.tar.gz.sha256sum</operating-system></td>
 <td>Contains the MD5 checksum to verify the integrity of the files after the extraction</td>
 </tr>
 </tbody>
@@ -3994,19 +4022,19 @@ sudo<span class="w"> </span>apt<span class="w"> </span>curl<span class="w"> </sp
 <ol>
 <li>
 <p>Fetch the binary tarballs:    </p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.28-15/binary/tarball/percona-server-mongodb-7.0.28-15-x86_64.ol9.tar.gz<span class="se">\</span>
-curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.28-15/binary/tarball/percona-mongodb-mongosh-2.5.10-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.30-16/binary/tarball/percona-server-mongodb-7.0.30-16-x86_64.ol9.tar.gz<span class="se">\</span>
+curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.30-16/binary/tarball/percona-mongodb-mongosh-2.6.0-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs    </p>
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.28-15-x86_64.ol9.tar.gz
-tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.10-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.30-16-x86_64.ol9.tar.gz
+tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.6.0-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:    </p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.28-15-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.5.10-x86_64/bin/:<span class="nv">$PATH</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.30-16-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.6.0-x86_64/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -4026,19 +4054,19 @@ directory and run <code>mongod</code>.</p>
 <ol>
 <li>
 <p>Fetch the binary tarballs:    </p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.28-15/binary/tarball/percona-server-mongodb-7.0.28-15-x86_64.jammy.tar.gz<span class="se">\</span>
-curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.28-15/binary/tarball/percona-mongodb-mongosh-2.5.10-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.30-16/binary/tarball/percona-server-mongodb-7.0.30-16-x86_64.jammy.tar.gz<span class="se">\</span>
+curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.30-16/binary/tarball/percona-mongodb-mongosh-2.6.0-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs    </p>
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.28-15-x86_64.jammy.tar.gz
-tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.5.10-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.30-16-x86_64.jammy.tar.gz
+tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.6.0-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:    </p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.28-15-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.5.10-x86_64/bin/:<span class="nv">$PATH</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.30-16-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.6.0-x86_64/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
