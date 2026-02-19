@@ -3,37 +3,38 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This document provides step-by-step instructions how to configure OIDC authentication and authorization the Percona Server for MongoDB using Microsoft Entra  as an external identity provider.">
+        <meta name="description" content="Install
+Upgrade from MongoDB Community">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-entra.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.19-7.html">
       
       
-        <link rel="prev" href="oidc-okta.html">
+        <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="oidc-ping.html">
+        <link rel="next" href="8.0.17-6.html">
       
       
         
       
       
-      <link rel="icon" href="_images/mongodb-fav.svg">
+      <link rel="icon" href="../_images/mongodb-fav.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
-        <title>With Microsoft Entra - Percona Server for MongoDB 8.0</title>
+        <title>Percona Server for MongoDB 8.0.19-7 ({{date.8_0_19}}) - Percona Server for MongoDB 8.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -52,29 +53,29 @@
       
     
     
-      <link rel="stylesheet" href="css/print-site.css">
+      <link rel="stylesheet" href="../css/print-site.css">
     
-      <link rel="stylesheet" href="css/print-site-material.css">
+      <link rel="stylesheet" href="../css/print-site-material.css">
     
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-      <link rel="stylesheet" href="css/design.css">
+      <link rel="stylesheet" href="../css/design.css">
     
-      <link rel="stylesheet" href="css/osano.css">
+      <link rel="stylesheet" href="../css/osano.css">
     
-      <link rel="stylesheet" href="css/mongodb.css">
+      <link rel="stylesheet" href="../css/mongodb.css">
     
-      <link rel="stylesheet" href="css/landing.css">
+      <link rel="stylesheet" href="../css/landing.css">
     
-      <link rel="stylesheet" href="css/rating.css">
+      <link rel="stylesheet" href="../css/rating.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -97,10 +98,10 @@
                  
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Percona Server for MongoDB 8.0 - With Microsoft Entra">
+<meta property="og:title" content="Percona Server for MongoDB 8.0 - Percona Server for MongoDB 8.0.19-7 ({{date.8_0_19}})">
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/8.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
-<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -134,7 +135,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configure-oidc-authentication-and-authorization-with-microsoft-entra-id" class="md-skip">
+        <a href="#percona-server-for-mongodb-8019-7-2026-02-19" class="md-skip">
           Skip to content
         </a>
       
@@ -199,9 +200,9 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
 
     <!-- Link to home -->
-    <a href="index.html" title="Percona Server for MongoDB 8.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 8.0" data-md-component="logo">
+    <a href="../index.html" title="Percona Server for MongoDB 8.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 8.0" data-md-component="logo">
       
-  <img src="_images/mongodb-mark.svg" alt="logo">
+  <img src="../_images/mongodb-mark.svg" alt="logo">
 
     </a>
 
@@ -214,7 +215,7 @@
     <!-- Header title -->
     <div class="md-header__title">
       <div class="md-header__ellipsis">
-        <a href="index.html" class="md-header__topic">
+        <a href="../index.html" class="md-header__topic">
           <span class="md-ellipsis">
             Percona Server for MongoDB 8.0
           </span>
@@ -222,7 +223,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              With Microsoft Entra
+              Percona Server for MongoDB 8.0.19-7 ({{date.8_0_19}})
             
           </span>
         </div>
@@ -366,9 +367,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Percona Server for MongoDB 8.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 8.0" data-md-component="logo">
+    <a href="../index.html" title="Percona Server for MongoDB 8.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 8.0" data-md-component="logo">
       
-  <img src="_images/mongodb-mark.svg" alt="logo">
+  <img src="../_images/mongodb-mark.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 8.0
@@ -395,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -422,7 +423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="get-help.html" class="md-nav__link">
+      <a href="../get-help.html" class="md-nav__link">
         
   
   
@@ -496,7 +497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
+      <a href="../install/index.html" class="md-nav__link">
         
   
   
@@ -571,7 +572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="system-requirements.html" class="md-nav__link">
+      <a href="../system-requirements.html" class="md-nav__link">
         
   
   
@@ -599,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/cloud-deployments.html" class="md-nav__link">
+      <a href="../install/cloud-deployments.html" class="md-nav__link">
         
   
   
@@ -682,7 +683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
+      <a href="../install/apt.html" class="md-nav__link">
         
   
   
@@ -710,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
+      <a href="../install/yum.html" class="md-nav__link">
         
   
   
@@ -738,7 +739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/rocky-linux.html" class="md-nav__link">
+      <a href="../install/rocky-linux.html" class="md-nav__link">
         
   
   
@@ -766,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/amazon-linux.html" class="md-nav__link">
+      <a href="../install/amazon-linux.html" class="md-nav__link">
         
   
   
@@ -794,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
+      <a href="../install/tarball.html" class="md-nav__link">
         
   
   
@@ -822,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/source.html" class="md-nav__link">
+      <a href="../install/source.html" class="md-nav__link">
         
   
   
@@ -850,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
+      <a href="../install/docker.html" class="md-nav__link">
         
   
   
@@ -886,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="connect.html" class="md-nav__link">
+      <a href="../connect.html" class="md-nav__link">
         
   
   
@@ -914,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="crud.html" class="md-nav__link">
+      <a href="../crud.html" class="md-nav__link">
         
   
   
@@ -942,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="what-next.html" class="md-nav__link">
+      <a href="../what-next.html" class="md-nav__link">
         
   
   
@@ -974,20 +975,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -1008,7 +1007,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1026,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         
   
   
@@ -1101,7 +1100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         
   
   
@@ -1184,7 +1183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         
   
   
@@ -1212,7 +1211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         
   
   
@@ -1245,20 +1244,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4">
         
           
           <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
@@ -1279,7 +1276,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1297,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         
   
   
@@ -1372,7 +1369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         
   
   
@@ -1400,7 +1397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         
   
   
@@ -1436,7 +1433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         
   
   
@@ -1511,7 +1508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         
   
   
@@ -1539,7 +1536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         
   
   
@@ -1567,7 +1564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         
   
   
@@ -1595,7 +1592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         
   
   
@@ -1628,20 +1625,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_5">
         
           
           <label class="md-nav__link" for="__nav_4_4_5" id="__nav_4_4_5_label" tabindex="0">
@@ -1662,7 +1657,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_4_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1680,7 +1675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oidc.html" class="md-nav__link">
+      <a href="../oidc.html" class="md-nav__link">
         
   
   
@@ -1705,20 +1700,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_5_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_5_2">
         
           
           <label class="md-nav__link" for="__nav_4_4_5_2" id="__nav_4_4_5_2_label" tabindex="0">
@@ -1739,7 +1732,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_5_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_4_5_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1757,7 +1750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oidc-okta.html" class="md-nav__link">
+      <a href="../oidc-okta.html" class="md-nav__link">
         
   
   
@@ -1782,37 +1775,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    With Microsoft Entra
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="oidc-entra.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../oidc-entra.html" class="md-nav__link">
         
   
   
@@ -1828,161 +1794,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prerequisites
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identity-provider-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identity provider setup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Identity provider setup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-and-configure-an-oidc-application-with-microsoft-entra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create and configure an OIDC application with Microsoft Entra
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-the-access-token" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configure the access token
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-users-and-groups" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configure users and groups
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collect-the-information-required-for-percona-server-for-mongodb-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Collect the information required for Percona Server for MongoDB configuration
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-percona-server-for-mongodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configure Percona Server for MongoDB
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-user-roles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create user roles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connect-to-percona-server-for-mongodb-using-oidc-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Connect to Percona Server for MongoDB using OIDC authentication
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Connect to Percona Server for MongoDB using OIDC authentication">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#authorization-code-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authorization code flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#device-authentication-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Device authentication flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1995,7 +1806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oidc-ping.html" class="md-nav__link">
+      <a href="../oidc-ping.html" class="md-nav__link">
         
   
   
@@ -2023,7 +1834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oidc-keycloak.html" class="md-nav__link">
+      <a href="../oidc-keycloak.html" class="md-nav__link">
         
   
   
@@ -2051,7 +1862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oidc-ldap.html" class="md-nav__link">
+      <a href="../oidc-ldap.html" class="md-nav__link">
         
   
   
@@ -2095,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         
   
   
@@ -2178,7 +1989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         
   
   
@@ -2206,7 +2017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         
   
   
@@ -2234,7 +2045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="openbao.html" class="md-nav__link">
+      <a href="../openbao.html" class="md-nav__link">
         
   
   
@@ -2262,7 +2073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         
   
   
@@ -2290,7 +2101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="keyfile.html" class="md-nav__link">
+      <a href="../keyfile.html" class="md-nav__link">
         
   
   
@@ -2318,7 +2129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         
   
   
@@ -2346,7 +2157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="fips.html" class="md-nav__link">
+      <a href="../fips.html" class="md-nav__link">
         
   
   
@@ -2382,7 +2193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="fcbis.html" class="md-nav__link">
+      <a href="../fcbis.html" class="md-nav__link">
         
   
   
@@ -2410,7 +2221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
+      <a href="../audit-logging.html" class="md-nav__link">
         
   
   
@@ -2438,7 +2249,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
+      <a href="../rate-limit.html" class="md-nav__link">
         
   
   
@@ -2466,7 +2277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
+      <a href="../log-redaction.html" class="md-nav__link">
         
   
   
@@ -2494,7 +2305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         
   
   
@@ -2576,7 +2387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         
   
   
@@ -2604,7 +2415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="log-rotation.html" class="md-nav__link">
+      <a href="../log-rotation.html" class="md-nav__link">
         
   
   
@@ -2679,7 +2490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="horizon.html" class="md-nav__link">
+      <a href="../horizon.html" class="md-nav__link">
         
   
   
@@ -2707,7 +2518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="horizon-setup.html" class="md-nav__link">
+      <a href="../horizon-setup.html" class="md-nav__link">
         
   
   
@@ -2743,7 +2554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="mongos-config.html" class="md-nav__link">
+      <a href="../mongos-config.html" class="md-nav__link">
         
   
   
@@ -2818,7 +2629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-70.html" class="md-nav__link">
+      <a href="../install/upgrade-from-70.html" class="md-nav__link">
         
   
   
@@ -2846,7 +2657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
         
   
   
@@ -2874,7 +2685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/minor-upgrade.html" class="md-nav__link">
+      <a href="../install/minor-upgrade.html" class="md-nav__link">
         
   
   
@@ -2910,7 +2721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="../install/uninstall.html" class="md-nav__link">
         
   
   
@@ -2942,18 +2753,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -2974,7 +2787,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2992,7 +2805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -3017,10 +2830,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="release_notes/8.0.19-7.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Percona Server for MongoDB 8.0.19-7 (2026-02-19)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="8.0.19-7.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3036,6 +2876,111 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new-feature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New feature
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-updates-cve-fixes-from-upstream-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security updates: CVE fixes from upstream MongoDB
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security updates: CVE fixes from upstream MongoDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-severity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High severity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medium-severity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Medium severity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#affected-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Affected versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-packaged-with-this-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools packaged with this release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bugs-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bugs fixed
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3048,7 +2993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/8.0.17-6.html" class="md-nav__link">
+      <a href="8.0.17-6.html" class="md-nav__link">
         
   
   
@@ -3076,7 +3021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/8.0.16-5.html" class="md-nav__link">
+      <a href="8.0.16-5.html" class="md-nav__link">
         
   
   
@@ -3104,7 +3049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/8.0.12-4.html" class="md-nav__link">
+      <a href="8.0.12-4.html" class="md-nav__link">
         
   
   
@@ -3132,7 +3077,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/8.0.8-3.html" class="md-nav__link">
+      <a href="8.0.8-3.html" class="md-nav__link">
         
   
   
@@ -3160,7 +3105,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/8.0.4-2.html" class="md-nav__link">
+      <a href="8.0.4-2.html" class="md-nav__link">
         
   
   
@@ -3188,7 +3133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/8.0.4-1.html" class="md-nav__link">
+      <a href="8.0.4-1.html" class="md-nav__link">
         
   
   
@@ -3223,7 +3168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="faq.html" class="md-nav__link">
+      <a href="../faq.html" class="md-nav__link">
         
   
   
@@ -3297,7 +3242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         
   
   
@@ -3325,7 +3270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="telemetry.html" class="md-nav__link">
+      <a href="../telemetry.html" class="md-nav__link">
         
   
   
@@ -3353,7 +3298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         
   
   
@@ -3381,7 +3326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         
   
   
@@ -3676,7 +3621,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
                   <div class="md-sidebar__inner">
                     <div data-banner="data-banner">
     <div class="actions">
-        <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/oidc-entra.md" title="Edit this page on GitHub" class="edit-page-link">
+        <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/release_notes/8.0.19-7.md" title="Edit this page on GitHub" class="edit-page-link">
             <span class="edit-page-icon">
                 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
@@ -3716,10 +3661,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#new-feature" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        New feature
       
     </span>
   </a>
@@ -3727,22 +3672,22 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
       
         <li class="md-nav__item">
-  <a href="#identity-provider-setup" class="md-nav__link">
+  <a href="#security-updates-cve-fixes-from-upstream-mongodb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Identity provider setup
+        Security updates: CVE fixes from upstream MongoDB
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Identity provider setup">
+    <nav class="md-nav" aria-label="Security updates: CVE fixes from upstream MongoDB">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-and-configure-an-oidc-application-with-microsoft-entra" class="md-nav__link">
+  <a href="#high-severity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Create and configure an OIDC application with Microsoft Entra
+        High severity
       
     </span>
   </a>
@@ -3750,10 +3695,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-the-access-token" class="md-nav__link">
+  <a href="#medium-severity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure the access token
+        Medium severity
       
     </span>
   </a>
@@ -3761,21 +3706,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-users-and-groups" class="md-nav__link">
+  <a href="#affected-versions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure users and groups
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collect-the-information-required-for-percona-server-for-mongodb-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Collect the information required for Percona Server for MongoDB configuration
+        Affected versions
       
     </span>
   </a>
@@ -3788,10 +3722,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-percona-server-for-mongodb" class="md-nav__link">
+  <a href="#tools-packaged-with-this-release" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure Percona Server for MongoDB
+        Tools packaged with this release
       
     </span>
   </a>
@@ -3799,52 +3733,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-user-roles" class="md-nav__link">
+  <a href="#bugs-fixed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Create user roles
+        Bugs fixed
       
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#connect-to-percona-server-for-mongodb-using-oidc-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Connect to Percona Server for MongoDB using OIDC authentication
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Connect to Percona Server for MongoDB using OIDC authentication">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#authorization-code-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authorization code flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#device-authentication-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Device authentication flow
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3871,240 +3766,120 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/oidc-entra.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/release_notes/8.0.19-7.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
     </a>
   
 
 
-<h1 id="configure-oidc-authentication-and-authorization-with-microsoft-entra-id">Configure OIDC authentication and authorization with Microsoft Entra ID<a class="headerlink" href="#configure-oidc-authentication-and-authorization-with-microsoft-entra-id" title="Permanent link">¶</a></h1>
-<p>This document provides step-by-step instructions how to configure OIDC authentication and authorization the Percona Server for MongoDB using <a href="https://www.microsoft.com/en-gb/security/business/microsoft-entra">Microsoft Entra <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> as an external identity provider.</p>
-<p>The setup process consists of three main stages:</p>
-<ol>
-<li>
-<p>IdP setup:</p>
+<h1 id="percona-server-for-mongodb-8019-7-2026-02-19">Percona Server for MongoDB 8.0.19-7 (2026-02-19)<a class="headerlink" href="#percona-server-for-mongodb-8019-7-2026-02-19" title="Permanent link">¶</a></h1>
+<p><a class="md-button" href="../install/index.html">Install</a>
+<a class="md-button" href="../install/upgrade-from-mongodb.html">Upgrade from MongoDB Community</a></p>
+<p>Percona Server for MongoDB 8.0.19-7 is an enhanced, source-available, and highly-scalable database that is a
+fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
+<p>Percona Server for MongoDB 8.0.19-7 includes the improvements and bug fixes from:</p>
 <ul>
-<li>Create and configure an OIDC application with Microsoft Entra</li>
-<li>Create users and groups</li>
+<li>
+<p><a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8.0.18---jan-27--2026">MongoDB 8.0.18 Community Edition</a> </p>
+</li>
+<li>
+<p><a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8.0.19---feb-10--2026">MongoDB 8.0.19 Community Edition</a></p>
+</li>
+</ul>
+<p>Percona Server for MongoDB 8.0.19-7 supports protocols and drivers of MongoDB Community <strong>8.0.18</strong> and <strong>8.0.19</strong>.</p>
+<h2 id="new-feature">New feature<a class="headerlink" href="#new-feature" title="Permanent link">¶</a></h2>
+<ul>
+<li>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1893">PSMDB-1893</a>: 
+<strong>Disable specific FTDC metric groups</strong></p>
+<p>Percona Server for MongoDB now permits administrators to disable specific diagnostic metric groups via two new server parameters:</p>
+<ul>
+<li>
+<p><strong>diagnosticDataCollectionEnableSystemMetricsDisks</strong></p>
+<ul>
+<li>Enables or disables collection of disk-level statistics.</li>
+<li>Type: Boolean (<code>true</code>/<code>false</code>)</li>
+<li>Default: true (enabled)</li>
+<li>Scope: Startup; runtime configurable via <code>setParameter</code></li>
 </ul>
 </li>
 <li>
-<p>Configure Percona Server for MongoDB to use OIDC as authentication method</p>
-</li>
-<li>Connect to Percona Server for MongoDB using OIDC authentication</li>
-</ol>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
-<p>Before you start, ensure you have the following:</p>
-<ol>
-<li>Percona Server for MongoDB 8.0.12-4 and higher</li>
-<li>Microsoft Entra tenant with admin access</li>
-</ol>
-<h2 id="identity-provider-setup">Identity provider setup<a class="headerlink" href="#identity-provider-setup" title="Permanent link">¶</a></h2>
-<h3 id="create-and-configure-an-oidc-application-with-microsoft-entra">Create and configure an OIDC application with Microsoft Entra<a class="headerlink" href="#create-and-configure-an-oidc-application-with-microsoft-entra" title="Permanent link">¶</a></h3>
-<ol>
-<li>Sign in to the <a href="https://entra.microsoft.com/">Microsoft Entra admin center</a>.</li>
-<li>In the left navigation pane, select <strong>App Registrations</strong>.</li>
-<li>Click on <strong>New registration</strong>.</li>
-<li>
-<p>Fill in the registration form:</p>
-</li>
-<li>
-<p><strong>Name</strong>: Enter a name for your application.</p>
-</li>
-<li><strong>Supported account types</strong>: Choose <strong>Accounts in this organizational directory only</strong></li>
-<li>
-<p><strong>Redirect URI</strong>: Set the redirect URI to <code>http://localhost:27097/redirect</code>.</p>
-</li>
-<li>
-<p>Click <strong>Register</strong> to create the application. The application page opens.</p>
-</li>
-<li>Add group claims. In your application’s left-hand menu, select <strong>Token configuration</strong>.</li>
-<li>Click on <strong>Add group claim</strong>.</li>
-<li>
-<p>In the <strong>Group claims</strong> dialog, select the following options:</p>
+<p><strong>diagnosticDataCollectionEnableSystemMetricsMounts</strong></p>
 <ul>
-<li><strong>Select group types to include in Access, ID, and SAML tokens.</strong>: Select <strong>Security groups</strong></li>
-<li><strong>Customize token properties by type</strong>: Ensure <strong>Group IP</strong> is selected for every property type.</li>
-</ul>
-</li>
-<li>
-<p>Click <strong>Save</strong> to add a groups claim.</p>
-</li>
-</ol>
-<h3 id="configure-the-access-token">Configure the access token<a class="headerlink" href="#configure-the-access-token" title="Permanent link">¶</a></h3>
-<p>To authorize users, you need to ensure the access tokens are generated as JWT formatted. To make this happen:</p>
-<ul>
-<li>Change the token version from null to 2. </li>
-<li>Expose the application’s API to define a unique set of permissions, called scopes, for your application.</li>
-<li>
-<p>Add a custom scope for your application. This tells Entra ID that your application is a distinct resource that can be protected. When a client application requests one of these custom scopes, Entra ID issues a JSON Web Token (JWT) access token specifically for your API, which the API can then validate.</p>
-</li>
-<li>
-<p>Change the token version. In your application’s left-hand menu, select <strong>Manifest</strong>.</p>
-</li>
-<li>Locate the <code>requestedAccessTokenVersion</code> property and set it from <code>null</code> to <code>2</code>. This ensures tokens are generated as JWT and not Opague:</li>
-<li>Click <strong>Save</strong>.</li>
-<li>Expose the application’s API. In your application’s left-hand menu, select <strong>Expose an API</strong>. </li>
-<li>Click <strong>Add</strong> next to <strong>Application ID URI</strong>. The URI defaults to <code>api://&lt;application-client-id&gt;</code>`. The App ID URI acts as the prefix for the scopes you’ll reference in your API’s code, and it must be globally unique. Select <strong>Save</strong>.</li>
-<li>Add a custom scope. Click on <strong>Add a scope</strong>.</li>
-<li>
-<p>Fill in the <strong>Add a scope</strong> form:</p>
-<ul>
-<li><strong>Scope name</strong>: Enter a name for your scope (e.g., <code>psmdb-access</code>).</li>
-<li><strong>Who can consent?</strong>: Select <strong>Admins and users</strong>.</li>
-<li><strong>Admin consent display name</strong>: Enter a display name for admin consent.</li>
-<li><strong>Admin consent description</strong>: Enter a description for admin consent.</li>
-<li><strong>State</strong>: Set to <strong>Enabled</strong>.</li>
-<li>Click <strong>Add scope</strong> to create the scope.</li>
+<li>Enables or disables collection of mount-level statistics.</li>
+<li>Type: Boolean (true/false)</li>
+<li>Default: true (enabled)</li>
+<li>Scope: Startup; runtime configurable via setParameter</li>
 </ul>
 </li>
 </ul>
-<h3 id="configure-users-and-groups">Configure users and groups<a class="headerlink" href="#configure-users-and-groups" title="Permanent link">¶</a></h3>
-<p>Groups define user access rights to resources. Identity provider groups are then mapped to roles in Percona Server for MongoDB to authorize users to access the database.</p>
-<ol>
-<li>Create groups in Microsoft Entra ID. Check the <a href="https://learn.microsoft.com/en-us/entra/fundamentals/how-to-manage-groups">Create a basic group and add members <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> for exact steps. </li>
-<li>Add users. Specify the user email as the username. Check the <a href="https://learn.microsoft.com/en-us/entra/fundamentals/how-to-create-delete-users#create-a-new-user">Create a new user <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> for exact steps. </li>
-<li>Assign the groups you created earlier to your users on the <strong>Assignments</strong> tab of the user profile. </li>
-</ol>
-<h3 id="collect-the-information-required-for-percona-server-for-mongodb-configuration">Collect the information required for Percona Server for MongoDB configuration<a class="headerlink" href="#collect-the-information-required-for-percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h3>
-<ol>
-<li>Open the application’s <strong>Overview</strong> page.</li>
-<li>Copy the <strong>Application (client) ID</strong> and save it for later use. You will use this value for the <code>clientID</code> and <code>audience</code> fields in Percona Server for MongoDB configuration.</li>
-<li>Copy the issuer URL. From the top navigation, click <strong>Endpoints</strong> and copy the <strong>OpenID Connect metadata document</strong> URL up to <code>/.well-known/openid-configuration</code>. It should look like this:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>https://login.microsoftonline.com/{tenant-id}/v2.0
-</code></pre></div>
-<ol>
-<li>Copy the Application ID URI you defined earlier. It should look like this:</li>
-</ol>
-<div class="highlight"><pre><span></span><code>api://&lt;application-client-id&gt;
-</code></pre></div>
-<ol>
-<li>Copy the groups’ Object IDs you created earlier. </li>
-</ol>
-<h2 id="configure-percona-server-for-mongodb">Configure Percona Server for MongoDB<a class="headerlink" href="#configure-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
-<p>Now you need to configure authentication in Percona Server for MongoDB. Specify the external identity provider configuration for the <code>oidcIdentityProviders</code> server parameter either via the configuration file or the command line. </p>
-<p>The following table maps the Microsoft Entra ID configuration parameters to the Percona Server for MongoDB configuration:</p>
-<table>
-<thead>
-<tr>
-<th>Microsoft Entra ID Parameter</th>
-<th>Percona Server for MongoDB Parameter</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>OpenID Connect metadata document</code></td>
-<td><code>issuer</code></td>
-</tr>
-<tr>
-<td><code>Application (client) ID</code></td>
-<td><code>clientId</code><br><code>audience</code></td>
-</tr>
-<tr>
-<td><code>Application ID URI</code></td>
-<td><code>requestScopes</code> value consists of the Application ID URI and the custom scope name.</td>
-</tr>
-</tbody>
-</table>
-<p>To authorize users by identity provider groups, specify <code>authorizationClaim</code> value as <code>groups</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Configuration file</label><label for="__tabbed_1_2">Command line</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
+<p>Database administrators can avoid delays in diagnostics caused by unstable or unresponsive mount points in NFS, FUSE, or autofs environments by excluding certain problematic groups like <code>systemMetrics</code>, <code>serverStatus.connections</code>, and <code>replSetGetStatus</code>. This way, the Full Time Diagnostic Data Capture (FTDC) can still deliver important insights into database performance, such as query efficiency and replication, without being hindered by system-level issues.</p>
+</li>
+</ul>
+<p>Ready to explore this topic further? Check out our in-depth <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/set-parameter.html">documentation</a></p>
+<h2 id="security-updates-cve-fixes-from-upstream-mongodb">Security updates: CVE fixes from upstream MongoDB<a class="headerlink" href="#security-updates-cve-fixes-from-upstream-mongodb" title="Permanent link">¶</a></h2>
+<p>This release includes upstream MongoDB security fixes for the following vulnerabilities:</p>
+<h3 id="high-severity">High severity<a class="headerlink" href="#high-severity" title="Permanent link">¶</a></h3>
+<ul>
 <li>
-<p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
-<span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MONGODB-OIDC</span>
-<span class="w">   </span><span class="nt">oidcIdentityProviders</span><span class="p">:</span><span class="w"> </span><span class="s">'[</span><span class="nv"> </span><span class="s">{</span>
-<span class="w">      </span><span class="s">"issuer":</span><span class="nv"> </span><span class="s">"https://login.microsoftonline.com/{tenant-id}/v2.0",</span>
-<span class="w">      </span><span class="s">"clientId":</span><span class="nv"> </span><span class="s">"3ef1b836-6f12-4858-876b-35245110f6bc",</span>
-<span class="w">      </span><span class="s">"audience":</span><span class="nv"> </span><span class="s">"3ef1b836-6f12-4858-876b-35245110f6bc",</span>
-<span class="w">      </span><span class="s">"authNamePrefix":</span><span class="nv"> </span><span class="s">"entra",</span>
-<span class="w">      </span><span class="s">"useAuthorizationClaim":</span><span class="nv"> </span><span class="s">true,</span>
-<span class="w">      </span><span class="s">"authorizationClaim":</span><span class="nv"> </span><span class="s">"groups",</span>
-<span class="w">      </span><span class="s">"requestScopes":</span><span class="nv"> </span><span class="s">"api://3ef1b836-6f12-4858-876b-35245110f6bc/psmdb-access",</span>
-<span class="w">      </span><span class="s">"supportsHumanFlows":</span><span class="nv"> </span><span class="s">true</span><span class="w">           </span>
-<span class="w">   </span><span class="s">}</span><span class="nv"> </span><span class="s">]'</span>
-</code></pre></div>
+<p><a href="https://jira.mongodb.org/browse/SERVER-116210">SERVER-116210</a> 
+<strong>(CVE-2026-25611):</strong> Fixed an issue where a series of specifically crafted, unauthenticated messages could exhaust available system memory, leading to a server crash.</p>
 </li>
 <li>
-<p>Start or restart Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
-</code></pre></div>
-</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
-<span class="s1">'oidcIdentityProviders=[ {</span>
-<span class="s1">   "issuer": "https://login.microsoftonline.com/{tenant-id}/v2.0",</span>
-<span class="s1">   "clientId": "3ef1b836-6f12-4858-876b-35245110f6bc",</span>
-<span class="s1">   "audience": "3ef1b836-6f12-4858-876b-35245110f6bc",</span>
-<span class="s1">   "authNamePrefix": "entra",</span>
-<span class="s1">   "useAuthorizationClaim": true,</span>
-<span class="s1">   "authorizationClaim": "groups",</span>
-<span class="s1">   "requestScopes": "api://3ef1b836-6f12-4858-876b-35245110f6bc/psmdb-access",</span>
-<span class="s1">   "supportsHumanFlows": true</span>
-<span class="s1">} ]'</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="create-user-roles">Create user roles<a class="headerlink" href="#create-user-roles" title="Permanent link">¶</a></h2>
-<p>To enable users to access Percona Server for MongoDB, you must create roles and define privileges for them. </p>
-<p>The role name must have the format </p>
-<div class="highlight"><pre><span></span><code>&lt;authNamePrefix&gt;/&lt;Group-ObjectID&gt;
-</code></pre></div>
-<p>where <code>&lt;authNamePrefix&gt;</code> is the prefix you specified in the <code>oidcIdentityProviders</code> configuration, and <code>&lt;Group-ObjectID&gt;</code> is the Object ID of the group in Microsoft Entra ID.</p>
-<p>For example, if the <code>authNamePrefix</code> is set to <code>entra</code> and the group Object ID is <code>a3f2c1d4-8b9e-4f7a-a2c3-19d8e6f0b7a1</code>, the command to create a role is the following:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">).</span><span class="nx">createRole</span><span class="p">({</span>
-<span class="w">  </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"entra/a3f2c1d4-8b9e-4f7a-a2c3-19d8e6f0b7a1"</span><span class="p">,</span>
-<span class="w">  </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
-<span class="w">  </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"readWriteAnyDatabase"</span><span class="p">]</span>
-<span class="p">})</span>
-</code></pre></div>
-<p>Create role for all groups you have defined in Microsoft Entra ID. You can also create roles with different privileges for different groups.</p>
-<h2 id="connect-to-percona-server-for-mongodb-using-oidc-authentication">Connect to Percona Server for MongoDB using OIDC authentication<a class="headerlink" href="#connect-to-percona-server-for-mongodb-using-oidc-authentication" title="Permanent link">¶</a></h2>
-<h3 id="authorization-code-flow">Authorization code flow<a class="headerlink" href="#authorization-code-flow" title="Permanent link">¶</a></h3>
-<p>To connect to Percona Server for MongoDB using OIDC authentication, you can use the <code>mongo</code> shell or any MongoDB client that supports OIDC.</p>
-<ol>
-<li>
-<p>Connect to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcFlows<span class="w"> </span>auth-code<span class="w"> </span>
-</code></pre></div>
+<p><a href="https://jira.mongodb.org/browse/SERVER-114838">SERVER-114838</a> 
+ <strong>(CVE-2026-25612):</strong> Resolved a bug in the internal locking mechanism where specific resource encodings could cause unintended collisions between collections. This could lead to resource unavailability due to conflicting locks.</p>
 </li>
 <li>
-<p>The browser opens. Pass your credentials and click Next.</p>
-</li>
-<li>Confirm sign in. </li>
-<li>Upon successful authentication, your <code>mongosh</code> session is established, and you can start executing commands.</li>
-</ol>
-<h3 id="device-authentication-flow">Device authentication flow<a class="headerlink" href="#device-authentication-flow" title="Permanent link">¶</a></h3>
-<ol>
-<li>
-<p>Connect to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcFlows<span class="w"> </span>device-auth<span class="w"> </span>
-</code></pre></div>
-<details class="example">
-<summary>Sample output</summary>
-<div class="highlight"><pre><span></span><code>Visit the following URL to complete authentication: https://microsoft.com/devicelogin
-Enter the following code on that page: EKYE77DQZ
-Waiting....
-</code></pre></div>
-</details>
+<p><a href="https://jira.mongodb.org/browse/SERVER-113685">SERVER-113685</a> 
+ <strong>(CVE-2026-25613):</strong> Fixed a vulnerability where an authorized user could crash the server by querying a collection containing an invalid compound wildcard index.</p>
 </li>
 <li>
-<p>Copy the link and open it on another device that has a browser</p>
+<p><a href="https://jira.mongodb.org/browse/SERVER-102364">SERVER-102364</a> 
+ <strong>(CVE-2026-1849):</strong> Addressed an Out-Of-Memory (OOM) failure during the evaluation of expressions that produce deeply nested documents. The server now properly validates recursion depth to prevent unchecked memory consumption.</p>
 </li>
-<li>Enter the code you see in the terminal into the browser.</li>
-<li>Pass your credentials and click Next.</li>
-<li>Confirm sign in.</li>
-<li>Upon successful authentication, your <code>mongosh</code> session is established, and you can start executing commands.</li>
-</ol>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-114126">SERVER-114126</a> 
+ <strong>(CVE-2026-1850):</strong> Fixed an issue where complex boolean expression simplifications within the Query Planner by an authorized user could lead to excessive memory usage and an OOM crash.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-99119">SERVER-99119</a> <strong>(CVE-2026-25610):</strong> Resolved a vulnerability where an authorized user could trigger a server crash by executing a <code>$geoNear</code> aggregation pipeline with specific invalid index hints.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-114695">SERVER-114695</a> 
+ <strong>(CVE-2026-1848):</strong> Resolved a vulnerability where connections received on the proxy port (pending proxy protocol headers) were excluded from the <code>maxConns</code> limit. This flaw exposed the server to resource exhaustion and OOM (Out-of-Memory) crashes during high-traffic bursts.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-113532">SERVER-113532</a> 
+ <strong>(CVE-2026-1847):</strong> Resolved an issue where inserting specific large documents could prevent secondaries from fetching the oplog from the primary. This could stall replication and potentially lead to node instability.</p>
+</li>
+</ul>
+<h3 id="medium-severity">Medium severity<a class="headerlink" href="#medium-severity" title="Permanent link">¶</a></h3>
+<ul>
+<li><a href="https://jira.mongodb.org/browse/SERVER-112952">SERVER-112952</a> 
+ <strong>(CVE-2026-25609):</strong> Corrected an issue where improper validation of the profile command caused requests altering the <code>filter</code> to be incorrectly treated as read-only.</li>
+</ul>
+<h3 id="affected-versions">Affected versions<a class="headerlink" href="#affected-versions" title="Permanent link">¶</a></h3>
+<p>These vulnerabilities affect the following versions of MongoDB Community Edition and Percona Server for MongoDB:</p>
+<ul>
+<li>All Percona Server for MongoDB 8.0.x versions</li>
+<li>MongoDB Community 8.0 versions prior to 8.0.18</li>
+</ul>
+<p>These issues are fixed in the upstream MongoDB 8.0 patch line and are included in <strong>Percona Server for MongoDB 8.0.19-7</strong>. We strongly recommend upgrading to <strong>8.0.19-7</strong> to ensure your deployments include the latest security fixes.</p>
+<h2 id="tools-packaged-with-this-release">Tools packaged with this release<a class="headerlink" href="#tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
+<p>Percona Server for MongoDB packages the following MongoDB tools:</p>
+<ul>
+<li>
+<p>MongoDB Shell (mongosh): 2.6.0 — <a href="https://www.mongodb.com/docs/mongodb-shell/changelog/" target="_blank">upstream changelog <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></p>
+</li>
+<li>
+<p>MongoDB Database Tools: 100.14.1 — <a href="https://www.mongodb.com/docs/database-tools/release-notes/database-tools-changelog/" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></p>
+</li>
+</ul>
+<h2 id="bugs-fixed">Bugs fixed<a class="headerlink" href="#bugs-fixed" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="https://perconadev.atlassian.net/browse/PSMDB-1922">PSMDB-1922</a>: Resolved an issue where the <code>auditGetOptions</code> command could be executed by users with any privilege level. Access is now strictly restricted to users with <strong>admin privileges</strong>, aligning its security requirements with the <code>getParameter</code> command to prevent unauthorized access to audit configuration options.</li>
+</ul>
 
 
 
@@ -4127,7 +3902,7 @@ Waiting....
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 2, 2025 14:37:28 UTC">December 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 18, 2026 16:09:45 UTC">February 18, 2026</span>
   </span>
 
     
@@ -4137,39 +3912,11 @@ Waiting....
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 21, 2025 14:03:28 UTC">August 21, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 11, 2026 12:38:10 UTC">February 11, 2026</span>
   </span>
 
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
-          
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
-        </a>
-      
-        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
-          
-          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&amp;size=72" alt="web-flow">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -4255,20 +4002,20 @@ window.addEventListener('afterprint', (event) => {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="js/print-site.js"></script>
+        <script src="../js/print-site.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
-        <script src="js/rating.js"></script>
+        <script src="../js/rating.js"></script>
       
     
 
