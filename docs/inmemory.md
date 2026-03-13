@@ -40,7 +40,7 @@ The following options are available (with corresponding YAML configuration file 
 | **Description**    | Specifies the number of seconds between writes to the statistics log.  A 0 value means statistics are not logged |
 
 
-## Examples
+### Examples
 
 The following are the configuration examples:
 
@@ -82,11 +82,11 @@ Creating a new `dbPath` data directory for a different storage engine is the sim
 
 * In addition to running as standalones, `mongod` instances that use Percona Memory Engine storage can run as part of a Replica Set and be part of a sharded cluster.
 
-## Procedure
+### Procedure
 
 To change a storage engine, you have the following options:
 
-### Temporarily test Percona Memory Engine
+#### Temporarily test Percona Memory Engine
   
 Set a different data directory for the `dbPath` variable in the configuration file. Make sure that the user running `mongod` has read and write permissions for the new data directory.
 
@@ -111,7 +111,7 @@ Set a different data directory for the `dbPath` variable in the configuration fi
     ```
 
 
-### Permanent switch to Percona Memory Engine without any valuable data in your database
+#### Permanent switch to Percona Memory Engine without any valuable data in your database
 
 Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit the configuration file:
 
@@ -141,7 +141,7 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
     service mongod start
     ```
 
-### Switch to Percona Memory Engine with data migration and compatibility
+#### Switch to Percona Memory Engine with data migration and compatibility
 
 === "Standalone or single-node Replica Set"
 
@@ -217,7 +217,7 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
     3. Repeat the procedure to switch the remaining nodes to Percona Memory Engine.
 
 
-# Data at rest encryption
+## Data at rest encryption
 
 Using [Data at Rest Encryption](data-at-rest-encryption.md) means using the same `storage.\*`
 configuration options as for [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/). To change from normal to [Data at Rest Encryption](data-at-rest-encryption.md) mode or backward, you must clean up the `dbPath` data directory, just as if you change the storage engine. This is because `mongod` cannot convert the data files to an encrypted format **in place**. It
