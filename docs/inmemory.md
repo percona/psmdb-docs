@@ -8,11 +8,11 @@ memory to hold the data set, and ensure that the server does not shut down.
 The Percona Memory Engine is available in Percona Server for MongoDB, along with the default MongoDB
 engine WiredTiger.
 
-# Usage
+## Usage
 
 Percona Server for MongoDB runs with WiredTiger by default. You can select a
 storage engine using the `--storageEngine` command-line option when you start
-`mongod`. Alternatively, you can set the storage.engine variable in the
+`mongod`. Alternatively, you can set the `storage.engine` variable in the
 configuration file (by default, `/etc/mongod.conf`):
 
 ```yaml
@@ -21,7 +21,7 @@ storage:
   engine: inMemory
 ```
 
-# Configuration
+## Configuration
 
 You can configure Percona Memory Engine using either command-line options or corresponding parameters in the `/etc/mongod.conf` file. 
 
@@ -29,18 +29,18 @@ The following options are available (with corresponding YAML configuration file 
 
 | Configuration file | {{ optionlink('storage.inMemory.engineConfig.inMemorySizeGB') }}|
 |--------------------| ---------------|
-| **Command line**   | `inMemorySizeGB()` |
+| **Command line**   | `--inMemorySizeGB=<value>` |
 | **Default**        | 50% of total memory minus 1024 MB, but not less than 256 MB | 
 | **Description**    | Specifies the maximum memory in gigabytes to use for data |
 
 | Configuration file | {{ optionlink('storage.inMemory.engineConfig.statisticsLogDelaySecs') }}|
 |--------------------| ---------------|
-| **Command line**   | `inMemoryStatisticsLogDelaySecs()()` |
+| **Command line**   | `--inMemoryStatisticsLogDelaySecs=<value>` |
 | **Default**        | 0 | 
 | **Description**    | Specifies the number of seconds between writes to the statistics log.  A 0 value means statistics are not logged |
 
 
-## Examples 
+## Examples
 
 The following are the configuration examples:
 
@@ -57,7 +57,7 @@ The following are the configuration examples:
           statisticsLogDelaySecs: 0
     ```
 
-=== ":material-console: Command line."
+=== ":material-console: Command line"
 
      Setting parameters in the configuration file is the same as
      starting the `mongod` daemon with the following options:
@@ -68,9 +68,9 @@ The following are the configuration examples:
      --inMemoryStatisticsLogDelaySecs=0
      ```
 
-# Switching storage engines
+## Switching storage engines
 
-## Considerations
+### Considerations
 
 If you have data files in your database and want to change to Percona Memory Engine, consider the following:
 
