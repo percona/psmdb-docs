@@ -250,7 +250,6 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
-      - release_notes/lifecycle.md
       - release_notes/8.0.19-7.md
       - release_notes/8.0.17-6.md
       - release_notes/8.0.16-5.md
@@ -264,4 +263,5 @@ nav:
       - telemetry.md
       - copyright.md
       - trademark-policy.md 
+  - "Percona Software and Platform Lifecycle": "lifecycle.md"
   - Join Percona Squad: "https://squad.percona.com/mongodb"
