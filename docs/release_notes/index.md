@@ -1,6 +1,8 @@
 
 # Percona Server for MongoDB 8.0 release notes
 
+* [Percona Server for MongoDB 8.0.20-8 ({{date.8_0_20}})](8.0.20-8.md)
+
 * [Percona Server for MongoDB 8.0.19-7 ({{date.8_0_19}})](8.0.19-7.md)
 
 * [Percona Server for MongoDB 8.0.17-6 ({{date.8_0_17}})](8.0.17-6.md)
