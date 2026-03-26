@@ -123,7 +123,7 @@ For example, to set the number of connections in the pool to 5, use the [setPara
 
 ### LDAP cache refresh parameters
 
-As of version **7.0.17-31**, Percona Server for MongoDB introduces parameters to optimize authentication performance and reduce unnecessary load on the LDAP server. These settings control how cached user information is refreshed, allowing administrators to fine-tune the balance between maintaining up-to-date user data and minimizing LDAP query overhead—especially in high-scale environments with many concurrent users.
+As of version 7.0.17-31, Percona Server for MongoDB introduces parameters to optimize authentication performance and reduce unnecessary load on the LDAP server. These settings control how cached user information is refreshed, allowing administrators to fine-tune the balance between maintaining up-to-date user data and minimizing LDAP query overhead—especially in high-scale environments with many concurrent users.
 
 - `ldapUserCacheRefreshInterval` defines how often (in seconds) the server refreshes cached user information from LDAP **when interval-based refresh is enabled** (see `ldapShouldRefreshUserCacheEntries` below).
 
