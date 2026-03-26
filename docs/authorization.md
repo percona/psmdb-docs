@@ -125,10 +125,14 @@ For example, to set the number of connections in the pool to 5, use the [setPara
 
 As of version **7.0.17-31**, Percona Server for MongoDB introduces parameters to optimize authentication performance and reduce unnecessary load on the LDAP server. These settings control how cached user information is refreshed, allowing administrators to fine-tune the balance between maintaining up-to-date user data and minimizing LDAP query overhead—especially in high-scale environments with many concurrent users.
 
-- `ldapUserCacheRefreshInterval` defines how often (in seconds) the server refreshes cached user information from LDAP.
+- `ldapUserCacheRefreshInterval` defines how often (in seconds) the server refreshes cached user information from LDAP **when interval-based refresh is enabled** (see `ldapShouldRefreshUserCacheEntries` below).
 
-- `ldapShouldRefreshUserCacheEntries` determines whether the refresh strategy is interval‑based (using `ldapUserCacheRefreshInterval`) or expiration‑based (using `ldapUserCacheInvalidationInterval`, already supported in PSMDB).
+- `ldapShouldRefreshUserCacheEntries` selects the refresh strategy and has the following semantics:
 
+  - When set to `true`, the server uses **interval-based** refresh. Cached LDAP user entries are proactively refreshed on the schedule defined by `ldapUserCacheRefreshInterval`, regardless of their individual age, until they are explicitly removed or invalidated.
+  - When set to `false`, the server uses **expiration-based** refresh. Cached LDAP user entries are refreshed only when they have expired according to `ldapUserCacheInvalidationInterval` and are subsequently accessed. This preserves the behavior that existed before `ldapUserCacheRefreshInterval` and `ldapShouldRefreshUserCacheEntries` were introduced.
+
+  The default value is `false` (expiration-based refresh using `ldapUserCacheInvalidationInterval`), to maintain backward-compatible behavior unless interval-based refreshing is explicitly enabled.
 You can configure these parameters at runtime, on the command line, or in the configuration file.
 
 === "Runtime (setParameter)"
