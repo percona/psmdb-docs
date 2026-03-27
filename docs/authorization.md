@@ -137,6 +137,8 @@ As of version 7.0.17-31, Percona Server for MongoDB introduces parameters to opt
 
 `ldapShouldRefreshUserCacheEntries` can only be set at startup. Interval parameters may be configured both at startup and during runtime.
 
+!!! note
+    The default value will be changed to **true** in all major versions released after March 1, 2026.
 
 === "Runtime (setParameter)"
 
