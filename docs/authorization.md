@@ -145,8 +145,7 @@ As of version 7.0.17-31, Percona Server for MongoDB introduces parameters to opt
      ```{.javascript data-prompt=">"}
      > db.adminCommand({
      ...   setParameter: 1,
-     ...   ldapUserCacheRefreshInterval: 300,
-     ...   ldapShouldRefreshUserCacheEntries: true
+     ...   ldapUserCacheRefreshInterval: 300
      ... })
      ```
 
