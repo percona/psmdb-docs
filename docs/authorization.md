@@ -129,11 +129,14 @@ As of version 7.0.17-31, Percona Server for MongoDB introduces parameters to opt
 
 - `ldapShouldRefreshUserCacheEntries` selects the refresh strategy and has the following semantics:
 
-  - When set to `true`, the server uses **interval-based** refresh. Cached LDAP user entries are proactively refreshed on the schedule defined by `ldapUserCacheRefreshInterval`, regardless of their individual age, until they are explicitly removed or invalidated.
+  - When set to `true`, each cached $`external` user is periodically re-fetched from the LDAP server at the interval defined by `ldapUserCacheRefreshInterval`. The cache is updated only if the user’s roles have changed; otherwise, existing entries remain untouched, ensuring no disruption. If a user no longer exists in LDAP, their cache entry is invalidated individually.
+
   - When set to `false`, all $external users are evicted from the user cache each `ldapUserCacheInvalidationInterval` seconds. This preserves the behavior that existed before `ldapUserCacheRefreshInterval` and `ldapShouldRefreshUserCacheEntries` were introduced.
 
-  The default value is `false` (expiration-based refresh using `ldapUserCacheInvalidationInterval`), to maintain backward-compatible behavior unless interval-based refreshing is explicitly enabled.
-You can configure these parameters at runtime, on the command line, or in the configuration file.
+  The default value is `false` (expiration-based invalidation using `ldapUserCacheInvalidationInterval`), to maintain backward-compatible behavior unless interval-based refreshing is explicitly enabled.
+
+`ldapShouldRefreshUserCacheEntries` can only be set at startup. Interval parameters may be configured both at startup and during runtime.
+
 
 === "Runtime (setParameter)"
 
