@@ -123,6 +123,8 @@ As of version 7.0.17-31, Percona Server for MongoDB introduces parameters to opt
     !!! warning
         The default value will be changed to **true** in all major versions released after March 1, 2026.
 
+**Interval-based refresh** (`ldapShouldRefreshUserCacheEntries: true`):
+
 === "Runtime (setParameter)"
 
      ```{.javascript data-prompt=">"}
@@ -145,6 +147,32 @@ As of version 7.0.17-31, Percona Server for MongoDB introduces parameters to opt
      setParameter:
        ldapUserCacheRefreshInterval: 300
        ldapShouldRefreshUserCacheEntries: true
+     ```
+
+**Expiration-based invalidation** (`ldapShouldRefreshUserCacheEntries: false`):
+
+=== "Runtime (setParameter)"
+
+     ```{.javascript data-prompt=">"}
+     > db.adminCommand({
+     ...   setParameter: 1,
+     ...   ldapUserCacheInvalidationInterval: 30
+     ... })
+     ```
+
+=== "Command line"
+
+     ```bash
+     mongod --setParameter "ldapUserCacheInvalidationInterval=30" \
+            --setParameter "ldapShouldRefreshUserCacheEntries=false"
+     ```
+
+=== "Configuration file"
+
+     ```yaml
+     setParameter:
+       ldapUserCacheInvalidationInterval: 30
+       ldapShouldRefreshUserCacheEntries: false
      ```
 
 ### Connection pool
