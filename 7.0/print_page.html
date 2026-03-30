@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -7897,6 +7897,55 @@ to authenticate the client or reject the request.</li>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ldapConnectionPoolSizePerHost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="authorization-ldap-cache-refresh-parameters">LDAP cache refresh parameters<a class="headerlink" href="#authorization-ldap-cache-refresh-parameters" title="Permanent link">¶</a></h3>
+<p>As of version 7.0.17-31, Percona Server for MongoDB introduces parameters to optimize authentication performance and reduce unnecessary load on the LDAP server. These settings control how cached user information is refreshed, allowing administrators to fine-tune the balance between maintaining up-to-date user data and minimizing LDAP query overhead—especially in high-scale environments with many concurrent users.</p>
+<ul>
+<li>
+<p><code>ldapUserCacheRefreshInterval</code> defines how often (in seconds) the server refreshes cached user information from LDAP <strong>when interval-based refresh is enabled</strong> (see <code>ldapShouldRefreshUserCacheEntries</code> below).</p>
+</li>
+<li>
+<p><code>ldapUserCacheInvalidationInterval</code> controls how long (in seconds) cached LDAP user entries remain valid before they expire and are evicted from the cache. If you do not set this parameter explicitly, Percona Server for MongoDB uses the built-in default for your version. This parameter applies when <code>ldapShouldRefreshUserCacheEntries</code> is set to <code>false</code>.</p>
+</li>
+<li>
+<p><code>ldapShouldRefreshUserCacheEntries</code> selects the refresh strategy and has the following semantics:</p>
+<ul>
+<li>
+<p>When set to <code>true</code>, each cached <code>$external</code> user is periodically re-fetched from the LDAP server at the interval defined by <code>ldapUserCacheRefreshInterval</code>. The cache is updated only if the user’s roles have changed; otherwise, existing entries remain untouched, ensuring no disruption. If a user no longer exists in LDAP, their cache entry is invalidated individually.</p>
+</li>
+<li>
+<p>When set to <code>false</code>, all <code>$external</code> users are evicted from the cache at intervals defined by <code>ldapUserCacheInvalidationInterval</code>. This preserves the behavior that existed prior to the introduction of <code>ldapUserCacheRefreshInterval</code> and <code>ldapShouldRefreshUserCacheEntries</code>.</p>
+</li>
+</ul>
+<p>The default value is <code>false</code> (expiration-based invalidation using <code>ldapUserCacheInvalidationInterval</code>), to maintain backward-compatible behavior unless interval-based refreshing is explicitly enabled.</p>
+<p><code>ldapShouldRefreshUserCacheEntries</code> can only be set at startup. Interval parameters may be configured both at startup and during runtime.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The default value will be changed to <strong>true</strong> in all major versions released after March 1, 2026.</p>
+</div>
+</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="authorization-__tabbed_2_1" name="authorization-__tabbed_2" type="radio"><input id="authorization-__tabbed_2_2" name="authorization-__tabbed_2" type="radio"><input id="authorization-__tabbed_2_3" name="authorization-__tabbed_2" type="radio"><div class="tabbed-labels"><label for="authorization-__tabbed_2_1">Runtime (setParameter)</label><label for="authorization-__tabbed_2_2">Command line</label><label for="authorization-__tabbed_2_3">Configuration file</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span>
+<span class="p">...</span><span class="w">   </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="p">...</span><span class="w">   </span><span class="nx">ldapUserCacheRefreshInterval</span><span class="o">:</span><span class="w"> </span><span class="mf">300</span>
+<span class="p">...</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--setParameter<span class="w"> </span><span class="s2">"ldapUserCacheRefreshInterval=300"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">       </span>--setParameter<span class="w"> </span><span class="s2">"ldapShouldRefreshUserCacheEntries=true"</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ldapUserCacheRefreshInterval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
+<span class="w">  </span><span class="nt">ldapShouldRefreshUserCacheEntries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </div>
 </div>
