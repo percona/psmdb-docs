@@ -5,13 +5,14 @@ not store user data on disk. Data fully resides in the main memory, making
 processing much faster and smoother. Keep in mind that you need to have enough
 memory to hold the data set, and ensure that the server does not shut down.
 
-The Percona Memory Engine is available in Percona Server for MongoDB along with the default MongoDB engine [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/).
+The Percona Memory Engine is available in Percona Server for MongoDB, along with the default MongoDB
+engine WiredTiger.
 
 ## Usage
 
-As of version 3.2, Percona Server for MongoDB runs with [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) by default. You can select a
+Percona Server for MongoDB runs with WiredTiger by default. You can select a
 storage engine using the `--storageEngine` command-line option when you start
-`mongod`.  Alternatively, you can set the `storage.engine` variable in the
+`mongod`. Alternatively, you can set the `storage.engine` variable in the
 configuration file (by default, `/etc/mongod.conf`):
 
 ```yaml
@@ -22,8 +23,26 @@ storage:
 
 ## Configuration
 
-You can configure Percona Memory Engine using either command-line options or
-corresponding parameters in the `/etc/mongod.conf` file. The following are the configuration examples:
+You can configure Percona Memory Engine using either command-line options or corresponding parameters in the `/etc/mongod.conf` file. 
+
+The following options are available (with corresponding YAML configuration file parameters):
+
+| Configuration file | {{ optionlink('storage.inMemory.engineConfig.inMemorySizeGB') }}|
+|--------------------| ---------------|
+| **Command line**   | `--inMemorySizeGB=<value>` |
+| **Default**        | 50% of total memory minus 1024 MB, but not less than 256 MB | 
+| **Description**    | Specifies the maximum memory in gigabytes to use for data |
+
+| Configuration file | {{ optionlink('storage.inMemory.engineConfig.statisticsLogDelaySecs') }}|
+|--------------------| ---------------|
+| **Command line**   | `--inMemoryStatisticsLogDelaySecs=<value>` |
+| **Default**        | 0 | 
+| **Description**    | Specifies the number of seconds between writes to the statistics log.  A 0 value means statistics are not logged |
+
+
+### Examples
+
+The following are the configuration examples:
 
 === ":octicons-file-code-24: Configuration file"
     
@@ -49,36 +68,19 @@ corresponding parameters in the `/etc/mongod.conf` file. The following are the c
      --inMemoryStatisticsLogDelaySecs=0
      ```
 
-### Options
-
-The following options are available (with corresponding YAML configuration file
-parameters):
-
-| Configuration file | {{ optionlink('storage.inMemory.engineConfig.inMemorySizeGB') }}|
-|--------------------| ---------------|
-| **Command line**   | `inMemorySizeGB()` |
-| **Default**        | 50% of total memory minus 1024 MB, but not less than 256 MB | 
-| **Description**    | Specifies the maximum memory in gigabytes to use for data |
-
-| Configuration file | {{ optionlink('storage.inMemory.engineConfig.statisticsLogDelaySecs') }}|
-|--------------------| ---------------|
-| **Command line**   | `inMemoryStatisticsLogDelaySecs()()` |
-| **Default**        | 0 | 
-| **Description**    | Specifies the number of seconds between writes to statistics log.  A 0 value means statistics are not logged |
-
-
 ## Switching storage engines
 
 ### Considerations
 
 If you have data files in your database and want to change to Percona Memory Engine, consider the following:
 
-
 * Data files created by one storage engine are not compatible with other engines, because each one has its own data model.
 
-* When changing the storage engine, the `mongod` node requires an empty `dbPath` data directory when it is restarted. Though Percona Memory Engine stores all data in memory, some metadata files, diagnostics logs and statistics metrics are still written to disk. This is controlled with the `--inMemoryStatisticsLogDelaySecs` option.
+* When changing the storage engine, the `mongod` node requires an empty `dbPath` data directory when it is restarted. Though Percona Memory Engine stores all data in memory, some metadata files, diagnostics logs, and statistics metrics are still written to disk. This is controlled with the `--inMemoryStatisticsLogDelaySecs` option.
 
 Creating a new `dbPath` data directory for a different storage engine is the simplest solution. Yet when you switch between disk-using storage engines (e.g. from [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) to Percona Memory Engine), you may have to delete the old data if there is not enough disk space for both. Double-check that your backups are solid and/or the replica set nodes are healthy before you switch to the new storage engine.
+
+* In addition to running as standalones, `mongod` instances that use Percona Memory Engine storage can run as part of a Replica Set and be part of a sharded cluster.
 
 ### Procedure
 
@@ -141,7 +143,7 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
 
 #### Switch to Percona Memory Engine with data migration and compatibility
 
-=== "Standalone instance"
+=== "Standalone or single-node Replica Set"
 
     For a standalone instance or a single-node replica set, use the `mongodump` and `mongorestore` utilities:
 
@@ -178,7 +180,7 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
         mongorestore <dumpDir>
         ```
 
-=== "Replica set"
+=== "Replica Set"
 
     Use the “rolling restart” process.
 
@@ -215,11 +217,10 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
     3. Repeat the procedure to switch the remaining nodes to Percona Memory Engine.
 
 
-### Data at rest encryption
+## Data at rest encryption
 
 Using [Data at Rest Encryption](data-at-rest-encryption.md) means using the same `storage.\*`
-configuration options as for [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/). To change from normal to [Data at Rest Encryption](data-at-rest-encryption.md) mode or backward, you must clean up the `dbPath` data directory, just as if you change the storage engine. This is because
-**mongod** cannot convert the data files to an encrypted format ‘in place’. It
-must get the document data again either via the initial sync from another
-replica set member, or from imported backup dump.
+configuration options as for [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/). To change from normal to [Data at Rest Encryption](data-at-rest-encryption.md) mode or backward, you must clean up the `dbPath` data directory, just as if you change the storage engine. This is because `mongod` cannot convert the data files to an encrypted format **in place**. It
+must get the document data again, either via the initial sync from another
+replica set member or from an imported backup.
 
