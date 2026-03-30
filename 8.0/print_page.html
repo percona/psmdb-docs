@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -6543,19 +6543,66 @@ test&gt;
 not store user data on disk. Data fully resides in the main memory, making
 processing much faster and smoother. Keep in mind that you need to have enough
 memory to hold the data set, and ensure that the server does not shut down.</p>
-<p>The Percona Memory Engine is available in Percona Server for MongoDB along with the default MongoDB engine <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a>.</p>
+<p>The Percona Memory Engine is available in Percona Server for MongoDB, along with the default MongoDB
+engine WiredTiger.</p>
 <h2 id="inmemory-usage">Usage<a class="headerlink" href="#inmemory-usage" title="Permanent link">¶</a></h2>
-<p>As of version 3.2, Percona Server for MongoDB runs with <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> by default. You can select a
+<p>Percona Server for MongoDB runs with WiredTiger by default. You can select a
 storage engine using the <code>--storageEngine</code> command-line option when you start
-<code>mongod</code>.  Alternatively, you can set the <code>storage.engine</code> variable in the
+<code>mongod</code>. Alternatively, you can set the <code>storage.engine</code> variable in the
 configuration file (by default, <code>/etc/mongod.conf</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;dataDir&gt;</span>
 <span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span>
 </code></pre></div>
 <h2 id="inmemory-configuration">Configuration<a class="headerlink" href="#inmemory-configuration" title="Permanent link">¶</a></h2>
-<p>You can configure Percona Memory Engine using either command-line options or
-corresponding parameters in the <code>/etc/mongod.conf</code> file. The following are the configuration examples:</p>
+<p>You can configure Percona Memory Engine using either command-line options or corresponding parameters in the <code>/etc/mongod.conf</code> file. </p>
+<p>The following options are available (with corresponding YAML configuration file parameters):</p>
+<table>
+<thead>
+<tr>
+<th>Configuration file</th>
+<th><a name="storage-inmemory-engineconfig-inmemorysizegb"></a> <a href="#inmemory-storage-inmemory-engineconfig-inmemorysizegb">storage.inMemory.engineConfig.inMemorySizeGB</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Command line</strong></td>
+<td><code>--inMemorySizeGB=&lt;value&gt;</code></td>
+</tr>
+<tr>
+<td><strong>Default</strong></td>
+<td>50% of total memory minus 1024 MB, but not less than 256 MB</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Specifies the maximum memory in gigabytes to use for data</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Configuration file</th>
+<th><a name="storage-inmemory-engineconfig-statisticslogdelaysecs"></a> <a href="#inmemory-storage-inmemory-engineconfig-statisticslogdelaysecs">storage.inMemory.engineConfig.statisticsLogDelaySecs</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Command line</strong></td>
+<td><code>--inMemoryStatisticsLogDelaySecs=&lt;value&gt;</code></td>
+</tr>
+<tr>
+<td><strong>Default</strong></td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Specifies the number of seconds between writes to the statistics log.  A 0 value means statistics are not logged</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inmemory-examples">Examples<a class="headerlink" href="#inmemory-examples" title="Permanent link">¶</a></h3>
+<p>The following are the configuration examples:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="inmemory-__tabbed_1_1" name="inmemory-__tabbed_1" type="radio"><input id="inmemory-__tabbed_1_2" name="inmemory-__tabbed_1" type="radio"><div class="tabbed-labels"><label for="inmemory-__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="inmemory-__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6578,53 +6625,6 @@ corresponding parameters in the <code>/etc/mongod.conf</code> file. The followin
 </div>
 </div>
 </div>
-<h3 id="inmemory-options">Options<a class="headerlink" href="#inmemory-options" title="Permanent link">¶</a></h3>
-<p>The following options are available (with corresponding YAML configuration file
-parameters):</p>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="storage-inmemory-engineconfig-inmemorysizegb"></a> <a href="#inmemory-storage-inmemory-engineconfig-inmemorysizegb">storage.inMemory.engineConfig.inMemorySizeGB</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>inMemorySizeGB()</code></td>
-</tr>
-<tr>
-<td><strong>Default</strong></td>
-<td>50% of total memory minus 1024 MB, but not less than 256 MB</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>Specifies the maximum memory in gigabytes to use for data</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Configuration file</th>
-<th><a name="storage-inmemory-engineconfig-statisticslogdelaysecs"></a> <a href="#inmemory-storage-inmemory-engineconfig-statisticslogdelaysecs">storage.inMemory.engineConfig.statisticsLogDelaySecs</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Command line</strong></td>
-<td><code>inMemoryStatisticsLogDelaySecs()()</code></td>
-</tr>
-<tr>
-<td><strong>Default</strong></td>
-<td>0</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>Specifies the number of seconds between writes to statistics log.  A 0 value means statistics are not logged</td>
-</tr>
-</tbody>
-</table>
 <h2 id="inmemory-switching-storage-engines">Switching storage engines<a class="headerlink" href="#inmemory-switching-storage-engines" title="Permanent link">¶</a></h2>
 <h3 id="inmemory-considerations">Considerations<a class="headerlink" href="#inmemory-considerations" title="Permanent link">¶</a></h3>
 <p>If you have data files in your database and want to change to Percona Memory Engine, consider the following:</p>
@@ -6633,10 +6633,13 @@ parameters):</p>
 <p>Data files created by one storage engine are not compatible with other engines, because each one has its own data model.</p>
 </li>
 <li>
-<p>When changing the storage engine, the <code>mongod</code> node requires an empty <code>dbPath</code> data directory when it is restarted. Though Percona Memory Engine stores all data in memory, some metadata files, diagnostics logs and statistics metrics are still written to disk. This is controlled with the <code>--inMemoryStatisticsLogDelaySecs</code> option.</p>
+<p>When changing the storage engine, the <code>mongod</code> node requires an empty <code>dbPath</code> data directory when it is restarted. Though Percona Memory Engine stores all data in memory, some metadata files, diagnostics logs, and statistics metrics are still written to disk. This is controlled with the <code>--inMemoryStatisticsLogDelaySecs</code> option.</p>
 </li>
 </ul>
 <p>Creating a new <code>dbPath</code> data directory for a different storage engine is the simplest solution. Yet when you switch between disk-using storage engines (e.g. from <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> to Percona Memory Engine), you may have to delete the old data if there is not enough disk space for both. Double-check that your backups are solid and/or the replica set nodes are healthy before you switch to the new storage engine.</p>
+<ul>
+<li>In addition to running as standalones, <code>mongod</code> instances that use Percona Memory Engine storage can run as part of a Replica Set and be part of a sharded cluster.</li>
+</ul>
 <h3 id="inmemory-procedure">Procedure<a class="headerlink" href="#inmemory-procedure" title="Permanent link">¶</a></h3>
 <p>To change a storage engine, you have the following options:</p>
 <h4 id="inmemory-temporarily-test-percona-memory-engine">Temporarily test Percona Memory Engine<a class="headerlink" href="#inmemory-temporarily-test-percona-memory-engine" title="Permanent link">¶</a></h4>
@@ -6687,7 +6690,7 @@ parameters):</p>
 </li>
 </ol>
 <h4 id="inmemory-switch-to-percona-memory-engine-with-data-migration-and-compatibility">Switch to Percona Memory Engine with data migration and compatibility<a class="headerlink" href="#inmemory-switch-to-percona-memory-engine-with-data-migration-and-compatibility" title="Permanent link">¶</a></h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="inmemory-__tabbed_2_1" name="inmemory-__tabbed_2" type="radio"><input id="inmemory-__tabbed_2_2" name="inmemory-__tabbed_2" type="radio"><div class="tabbed-labels"><label for="inmemory-__tabbed_2_1">Standalone instance</label><label for="inmemory-__tabbed_2_2">Replica set</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="inmemory-__tabbed_2_1" name="inmemory-__tabbed_2" type="radio"><input id="inmemory-__tabbed_2_2" name="inmemory-__tabbed_2" type="radio"><div class="tabbed-labels"><label for="inmemory-__tabbed_2_1">Standalone or single-node Replica Set</label><label for="inmemory-__tabbed_2_2">Replica Set</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>For a standalone instance or a single-node replica set, use the <code>mongodump</code> and <code>mongorestore</code> utilities:</p>
@@ -6761,12 +6764,11 @@ value for the <code>storage.engine</code> variable. Set the engine-specific sett
 </div>
 </div>
 </div>
-<h3 id="inmemory-data-at-rest-encryption">Data at rest encryption<a class="headerlink" href="#inmemory-data-at-rest-encryption" title="Permanent link">¶</a></h3>
+<h2 id="inmemory-data-at-rest-encryption">Data at rest encryption<a class="headerlink" href="#inmemory-data-at-rest-encryption" title="Permanent link">¶</a></h2>
 <p>Using <a href="#data-at-rest-encryption">Data at Rest Encryption</a> means using the same <code>storage.\*</code>
-configuration options as for <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a>. To change from normal to <a href="#data-at-rest-encryption">Data at Rest Encryption</a> mode or backward, you must clean up the <code>dbPath</code> data directory, just as if you change the storage engine. This is because
-<strong>mongod</strong> cannot convert the data files to an encrypted format ‘in place’. It
-must get the document data again either via the initial sync from another
-replica set member, or from imported backup dump.</p></body></html></section></section>
+configuration options as for <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a>. To change from normal to <a href="#data-at-rest-encryption">Data at Rest Encryption</a> mode or backward, you must clean up the <code>dbPath</code> data directory, just as if you change the storage engine. This is because <code>mongod</code> cannot convert the data files to an encrypted format <strong>in place</strong>. It
+must get the document data again, either via the initial sync from another
+replica set member or from an imported backup.</p></body></html></section></section>
                     <section class='print-page md-section' id='section-4-3' heading-number='4.3'>
                         <h1>Backup<a class='headerlink' href='#section-4-3' title='Permanent link'></a>
                         </h1>
