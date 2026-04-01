@@ -1631,6 +1631,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ldap-cache-refresh-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LDAP cache refresh parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#connection-pool" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3731,6 +3742,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
+  <a href="#ldap-cache-refresh-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LDAP cache refresh parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#connection-pool" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3883,11 +3905,84 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">ldapFollowReferrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
+<h3 id="ldap-cache-refresh-parameters">LDAP cache refresh parameters<a class="headerlink" href="#ldap-cache-refresh-parameters" title="Permanent link">¶</a></h3>
+<p>As of version 8.0.20-8, Percona Server for MongoDB introduced parameters to optimize authentication performance and reduce unnecessary load on the LDAP server. These settings control how cached user information is refreshed, allowing administrators to fine-tune the balance between maintaining up-to-date user data and minimizing LDAP query overhead—especially in high-scale environments with many concurrent users.</p>
+<ul>
+<li>
+<p><code>ldapUserCacheRefreshInterval</code> defines how often (in seconds) the server refreshes cached user information from LDAP <strong>when interval-based refresh is enabled</strong> (see <code>ldapShouldRefreshUserCacheEntries</code> below).</p>
+</li>
+<li>
+<p><code>ldapUserCacheInvalidationInterval</code> controls how long (in seconds) cached LDAP user entries remain valid before they expire and are evicted from the cache. If you do not set this parameter explicitly, Percona Server for MongoDB uses the built-in default for your version. This parameter applies when <code>ldapShouldRefreshUserCacheEntries</code> is set to <code>false</code>.</p>
+</li>
+<li>
+<p><code>ldapShouldRefreshUserCacheEntries</code> selects the refresh strategy and has the following semantics:</p>
+<ul>
+<li>
+<p>When set to <code>true</code>, each cached <code>$external</code> user is periodically re-fetched from the LDAP server at the interval defined by <code>ldapUserCacheRefreshInterval</code>. The cache is updated only if the user’s roles have changed; otherwise, existing entries remain untouched, ensuring no disruption. If a user no longer exists in LDAP, their cache entry is invalidated individually.</p>
+</li>
+<li>
+<p>When set to <code>false</code>, all <code>$external</code> users are evicted from the cache at intervals defined by <code>ldapUserCacheInvalidationInterval</code>. This preserves the behavior that existed prior to the introduction of <code>ldapUserCacheRefreshInterval</code> and <code>ldapShouldRefreshUserCacheEntries</code>.</p>
+</li>
+</ul>
+<p>The default value is <code>false</code> (expiration-based invalidation using <code>ldapUserCacheInvalidationInterval</code>), to maintain backward-compatible behavior unless interval-based refreshing is explicitly enabled.</p>
+<p><code>ldapShouldRefreshUserCacheEntries</code> can only be set at startup. Interval parameters may be configured both at startup and during runtime.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The default value will be changed to <strong>true</strong> in all major versions released after March 1, 2026.</p>
+</div>
+</li>
+</ul>
+<p><strong>Interval-based refresh</strong> (<code>ldapShouldRefreshUserCacheEntries: true</code>):</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Runtime (setParameter)</label><label for="__tabbed_1_2">Command line</label><label for="__tabbed_1_3">Configuration file</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span>
+<span class="p">...</span><span class="w">   </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="p">...</span><span class="w">   </span><span class="nx">ldapUserCacheRefreshInterval</span><span class="o">:</span><span class="w"> </span><span class="mf">300</span>
+<span class="p">...</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--setParameter<span class="w"> </span><span class="s2">"ldapUserCacheRefreshInterval=300"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">       </span>--setParameter<span class="w"> </span><span class="s2">"ldapShouldRefreshUserCacheEntries=true"</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ldapUserCacheRefreshInterval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
+<span class="w">  </span><span class="nt">ldapShouldRefreshUserCacheEntries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><strong>Expiration-based invalidation</strong> (<code>ldapShouldRefreshUserCacheEntries: false</code>):</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Runtime (setParameter)</label><label for="__tabbed_2_2">Command line</label><label for="__tabbed_2_3">Configuration file</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span>
+<span class="p">...</span><span class="w">   </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="p">...</span><span class="w">   </span><span class="nx">ldapUserCacheInvalidationInterval</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span>
+<span class="p">...</span><span class="w"> </span><span class="p">})</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--setParameter<span class="w"> </span><span class="s2">"ldapUserCacheInvalidationInterval=30"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">       </span>--setParameter<span class="w"> </span><span class="s2">"ldapShouldRefreshUserCacheEntries=false"</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ldapUserCacheInvalidationInterval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">  </span><span class="nt">ldapShouldRefreshUserCacheEntries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="connection-pool">Connection pool<a class="headerlink" href="#connection-pool" title="Permanent link">¶</a></h3>
 <p>As of version 6.0.2-1, Percona Server for MongoDB always uses a connection pool to LDAP server to process bind requests. The connection pool is enabled by default. The default connection pool size is 2 connections.</p>
 <p>You can change the connection pool size either at the server startup or dynamically by specifying the value for the <code>ldapConnectionPoolSizePerHost</code> server parameter.</p>
 <p>For example, to set the number of connections in the pool to 5, use the <a href="set-parameter.html">setParameter</a> command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label><label for="__tabbed_3_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapConnectionPoolSizePerHost</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
@@ -3945,7 +4040,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 2, 2025 14:37:28 UTC">December 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 28, 2026 14:49:15 UTC">March 28, 2026</span>
   </span>
 
     
@@ -3973,9 +4068,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
     <nav>
       
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+        <a href="https://github.com/rasika-chivate" class="md-author" title="@rasika-chivate">
           
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
+          <img src="https://avatars.githubusercontent.com/u/95711051?v=4&amp;size=72" alt="rasika-chivate">
         </a>
       
         <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
@@ -3983,12 +4078,23 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
           <img src="https://avatars.githubusercontent.com/u/19864447?v=4&amp;size=72" alt="web-flow">
         </a>
       
-        <a href="https://github.com/radoslawszulgo" class="md-author" title="@radoslawszulgo">
+        <a href="https://github.com/apps/copilot-swe-agent" class="md-author" title="@Copilot">
           
-          <img src="https://avatars.githubusercontent.com/u/175048287?v=4&amp;size=72" alt="radoslawszulgo">
+          <img src="https://avatars.githubusercontent.com/in/1143301?v=4&amp;size=72" alt="Copilot">
+        </a>
+      
+        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+          
+          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
         </a>
       
       
+      
+        
+          <a href="https://github.com/percona/psmdb-docs/blob/8.0/docs/authorization.md" class="md-author md-author--more">
+            +1
+          </a>
+        
       
     </nav>
   </span>
