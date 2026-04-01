@@ -1,7 +1,7 @@
 # PBM Variables set for HTML output
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
-release: '8.0.19-7'
+release: '8.0.20-8'
 version: '8.0'
 mongosh: '2.6.0'
 year: "2026"
@@ -10,6 +10,7 @@ product:
   psmdb_full_name: "Percona Server for MongoDB"
 
 date:
+  8_0_20: "2026-04-01"
   8_0_19: "2026-02-19"
   8_0_17: "2026-01-06"
   8_0_16: "2025-12-02"
