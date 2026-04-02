@@ -1,4 +1,4 @@
-# Percona Server for MongoDB Documentation Code of Conduct
+# Code of conduct
 
 All Percona Products follow the [Percona Community Code of Conduct](https://percona.community/contribute/coc/).
 
