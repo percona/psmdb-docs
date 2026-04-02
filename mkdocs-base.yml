@@ -262,6 +262,7 @@ nav:
   - Reference:
       - glossary.md
       - telemetry.md
+      - code-of-conduct.md
       - copyright.md
       - trademark-policy.md 
   - Join Percona Squad: "https://squad.percona.com/mongodb"
