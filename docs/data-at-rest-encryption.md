@@ -14,7 +14,7 @@ Data encryption at rest was first introduced in Percona Server for MongoDB 3.6 a
 
     You can only enable data at rest encryption on an empty database, when you start the `mongod` instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must remain the same.
 
-Percona Server for MongoDB uses a two-level key hierarchy. It encrypts each database with an individual key, and puts those keys into a special, so-called "key database". Then, Percona Server for MongoDB randomly generates a unique master encryption key and encrypts the key database with this key. 
+Percona Server for MongoDB uses a two-level key hierarchy. It encrypts each database with an individual key, and puts those keys into a special, so-called "key database". Then, Percona Server for MongoDB uses a master encryption key, provided and managed via the configured key management option, to encrypt the key database. 
 
 Thus, two types of keys are used for data at rest encryption:
 
