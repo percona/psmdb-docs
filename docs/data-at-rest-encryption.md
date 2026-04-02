@@ -20,11 +20,11 @@ Thus, two types of keys are used for data at rest encryption:
 
 * Database keys to encrypt data. They are stored internally, near the data that they encrypt.
 
-* Master key to encrypt database keys. It is kept separately from the data and database keys and requires external management.
+* The master key to encrypt database keys. It is kept separately from the data and database keys and requires external management.
 
 !!! important
 
-    Each node of a replica set uses the same Master key to encrypt the key database.
+    Each node of a replica set uses the same master key to encrypt the key database.
     
 To manage the master encryption key, use one of the supported key management options:
 
