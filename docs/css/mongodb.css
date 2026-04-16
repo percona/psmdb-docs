@@ -1,23 +1,25 @@
 /* Overrides */
 
-/* Variables */
-$primary-color: #1fa23a;
-$nav-bg-color: #282727;
-$gradient-angle: 110deg;
+// Color variables
+$primary-green: #1FA23A;
+$dark-bg: #282727;
 $overlay-dark: rgba(0, 0, 0, 0.3);
 
-/* Header and tabs */
+// Header + tabs
 .md-header,
 .md-tabs {
-  background: linear-gradient($gradient-angle, $primary-color 100%);
+  background: linear-gradient(
+    110deg,
+    $primary-green 100%
+  );
 }
 
-/* Super nav and source */
+// Secondary navigation
 .superNav,
 .md-nav__source {
-  background-color: $nav-bg-color;
+  background-color: $dark-bg;
   background-image: linear-gradient(
-    $gradient-angle,
+    110deg,
     $overlay-dark 100%
   );
 }
