@@ -5,7 +5,6 @@ To reduce the number of round trips to the LDAP server during authentication and
 The cache is controlled by the following server parameters:
 
 - `ldapUserToDNCacheTTLSeconds`: Specifies how long (in seconds) a cache entry remains valid.
-
     - Default: `30`
     - Set to `0` to disable caching.
 
