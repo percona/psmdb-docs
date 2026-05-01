@@ -15,14 +15,6 @@ The cache is controlled by the following server parameters:
 !!! note
     Both parameters can be set at startup and at runtime using `setParameter`.
 
-## Synchronization
-
-The cache uses two synchronization mechanisms:
-
-- `synchronized_value`: Protects the cache configuration snapshot, minimizing blocking during configuration changes.
-
-- Inner Mutex: Serializes concurrent cache access.
-
 ## Cache invalidation
 
 The cache is automatically invalidated when any of the following parameters change at runtime:
