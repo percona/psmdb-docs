@@ -2,7 +2,7 @@
 
 To reduce the number of round trips to the LDAP server during authentication and authorization, Percona Server for MongoDB caches the results of `LDAPManagerImpl::mapUserToDN()`.
 
-Cache is controlled by the following server parameters:
+The cache is controlled by the following server parameters:
 
 - `ldapUserToDNCacheTTLSeconds`: Specifies how long (in seconds) a cache entry remains valid.
 
