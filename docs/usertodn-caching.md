@@ -38,9 +38,3 @@ The cache is automatically invalidated when any of the following parameters chan
 - `ldapQueryUser`
 
 - `ldapQueryPassword`
-
-
-
-
-
-
