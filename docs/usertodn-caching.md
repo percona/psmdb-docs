@@ -1,6 +1,6 @@
 # LDAP UserToDN cache
 
-To reduce the number of round trips to the LDAP server during authentication and authorization, Percona Server for MongoDB caches the results of the LDAP user-to-DN mapping (`userToDNMapping` processing).
+To reduce the number of round trips to the LDAP server during authentication and authorization, Percona Server for MongoDB caches the results of LDAP user-to-DN mapping configured by `security.ldap.userToDNMapping` (exposed as `--ldapUserToDNMapping` at startup and `ldapUserToDNMapping` at runtime).
 
 The cache is controlled by the following server parameters:
 
