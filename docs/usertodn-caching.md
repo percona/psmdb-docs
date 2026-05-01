@@ -13,7 +13,7 @@ The cache is controlled by the following server parameters:
     - Set to `0` to disable caching.
 
 !!! note
-    Both the parameters can be set at startup and at runtime using `setParameter`.
+    Both parameters can be set at startup and at runtime using `setParameter`.
 
 ## Synchronization
 
