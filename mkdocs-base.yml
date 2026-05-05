@@ -214,7 +214,7 @@ nav:
           - sasl-auth.md
           - x509-ldap.md
           - ldap-setup.md
-          - usertodn-caching.md
+          - ldap-parameters.md
         - OIDC:
           - OIDC authentication: oidc.md
           - Configure OIDC authentication:
