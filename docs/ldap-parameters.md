@@ -24,12 +24,12 @@ The cache is controlled by the following server parameters:
 
 The cache is automatically invalidated when any of the following parameters change at runtime:
 
-| **Parameter**                  | **Required** | **Description**                                                |
-|-----------------------------|----------|------------------------------------------------------------|
-| `ldapUserToDNMapping`       | Yes      | Rules for mapping usernames to LDAP DNs.                   |
-| `ldapUserToDNCacheTTLSeconds` | No       | Changing the TTL value clears the cache.                   |
-| `ldapUserToDNCacheSize`     | No       | Changing the cache size clears the cache.                  |
-| `ldapServers`               | Yes      | Comma-separated list of LDAP servers to connect to.         |
-| `ldapQueryUser`             | Yes      |Distinguished Name (DN) of the user used to perform LDAP queries.                |
-| `ldapQueryPassword`         | Yes      | Password for the query user.                               |
+| Parameter                  | Required    | Description                                                |
+|-----------------------------|-------------|------------------------------------------------------------|
+| `ldapUserToDNMapping`       | Yes         | Rules for mapping usernames to LDAP DNs.                   |
+| `ldapUserToDNCacheTTLSeconds` | No          | Changing the TTL value clears the cache.                   |
+| `ldapUserToDNCacheSize`     | No          | Changing the cache size clears the cache.                  |
+| `ldapServers`               | Yes         | Comma-separated list of LDAP servers to connect to.        |
+| `ldapQueryUser`             | Conditional | DN of the user used to perform LDAP queries when anonymous binds are disabled; corresponds to `security.ldap.bind.queryUser` in the configuration file. |
+| `ldapQueryPassword`         | Conditional | Password for the query user when anonymous binds are disabled; corresponds to `security.ldap.bind.queryPassword` in the configuration file. |
 
