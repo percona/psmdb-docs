@@ -1,4 +1,4 @@
-# LDAP configuration options
+# LDAP configuration parameters
 
 Percona Server for MongoDB provides a set of configuration parameters to enable and fine‑tune LDAP authentication and authorization.
 
