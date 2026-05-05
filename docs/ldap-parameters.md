@@ -11,7 +11,7 @@ For more details on configuring user-to-DN mapping, see [LDAP authorization](aut
 
 The cache is controlled by the following server parameters:
 
-| Parameter  | Required    | Description |
+| **Parameter**  | **Required**    | **Description** |
 |------------|-------------|-------------| 
 | `ldapUserToDNCacheTTLSeconds`   | No         | Specifies how long (in seconds) a cache entry remains valid. Default: `30`. Set to `0` to disable caching. |
 | `ldapUserToDNCacheSize`   | No         | Defines the maximum number of entries stored in the cache. Default: `10000`. Set to `0` to disable caching.|
@@ -24,7 +24,7 @@ The cache is controlled by the following server parameters:
 
 The cache is automatically invalidated when any of the following parameters change at runtime:
 
-| Parameter                  | Required | Description                                                |
+| **Parameter**                  | **Required** | **Description**                                                |
 |-----------------------------|----------|------------------------------------------------------------|
 | `ldapUserToDNMapping`       | Yes      | Rules for mapping usernames to LDAP DNs.                   |
 | `ldapUserToDNCacheTTLSeconds` | No       | Changing the TTL value clears the cache.                   |
