@@ -1622,6 +1622,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ldap-conf-parameters.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP configuration parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -4255,6 +4283,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <span class="md-ellipsis">
       
         Set up LDAP authentication and authorization using NativeLDAP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldap-conf-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LDAP configuration parameters
       
     </span>
   </a>
@@ -8772,7 +8811,108 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 <li><a href="https://www.percona.com/blog/2020/04/24/percona-server-for-mongodb-ldap-enhancements-user-to-dn-mapping/">Percona Server for MongoDB LDAP Enhancements: User-to-<abbr title="Distinguished Name">DN</abbr> Mapping</a> by Igor Solodovnikov</li>
 <li><a href="https://www.percona.com/blog/2021/07/08/authenticate-percona-server-for-mongodb-users-via-native-ldap/">Authenticate Percona Server for MongoDB Users via Native LDAP</a> by Ivan Groenewold</li>
 </ul>
-</div></body></html></section></section>
+</div></body></html></section><section class="print-page" id="ldap-conf-parameters" heading-number="4.4.4.5"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="ldap-configuration-parameters">LDAP configuration parameters<a class="headerlink" href="#ldap-conf-parameters-ldap-configuration-parameters" title="Permanent link">¶</a></h1>
+<p>Percona Server for MongoDB provides a set of configuration parameters to enable and fine-tune LDAP authentication and authorization.</p>
+<h2 id="ldap-conf-parameters-user-to-dn-cache-parameters">User-to-DN cache parameters<a class="headerlink" href="#ldap-conf-parameters-user-to-dn-cache-parameters" title="Permanent link">¶</a></h2>
+<p>To reduce the number of round trips to the LDAP server during authentication and authorization, Percona Server for MongoDB caches the results of LDAP user-to-DN mapping configured by <code>security.ldap.userToDNMapping</code> (exposed as <code>--ldapUserToDNMapping</code> at startup and <code>ldapUserToDNMapping</code> at runtime).</p>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Configuration file (<code>mongod.conf</code>)</td>
+<td><code>security.ldap.userToDNMapping</code></td>
+</tr>
+<tr>
+<td>Command-line option (startup)</td>
+<td><code>--ldapUserToDNMapping</code></td>
+</tr>
+<tr>
+<td>Runtime (<code>setParameter</code>)</td>
+<td><code>ldapUserToDNMapping</code></td>
+</tr>
+</tbody>
+</table>
+<p>For more details on configuring user-to-DN mapping, see <a href="#authorization-username-transformation">LDAP authorization</a> and <a href="#ldap-setup">Set up LDAP authentication and authorization using NativeLDAP</a>.</p>
+<p>The cache is controlled by the following server parameters:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Required</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ldapUserToDNCacheTTLSeconds</code></td>
+<td>No</td>
+<td>Specifies how long (in seconds) a cache entry remains valid. Default: <code>30</code>. Set to <code>0</code> to disable caching.</td>
+</tr>
+<tr>
+<td><code>ldapUserToDNCacheSize</code></td>
+<td>No</td>
+<td>Defines the maximum number of entries stored in the cache. Default: <code>10000</code>. Set to <code>0</code> to disable caching.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both parameters can be set at startup and at runtime using <code>setParameter</code>.</p>
+</div>
+<p><strong>Cache invalidation parameters</strong></p>
+<p>The cache is automatically invalidated when any of the following parameters change at runtime:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Required</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ldapUserToDNMapping</code></td>
+<td>Yes</td>
+<td>Rules for mapping usernames to LDAP DNs.</td>
+</tr>
+<tr>
+<td><code>ldapUserToDNCacheTTLSeconds</code></td>
+<td>No</td>
+<td>Changing the TTL value clears the cache.</td>
+</tr>
+<tr>
+<td><code>ldapUserToDNCacheSize</code></td>
+<td>No</td>
+<td>Changing the cache size clears the cache.</td>
+</tr>
+<tr>
+<td><code>ldapServers</code></td>
+<td>Yes</td>
+<td>Comma-separated list of LDAP servers to connect to.</td>
+</tr>
+<tr>
+<td><code>ldapQueryUser</code></td>
+<td>No</td>
+<td>Distinguished Name (DN) of the user used to perform LDAP queries, when authenticated queries are required.</td>
+</tr>
+<tr>
+<td><code>ldapQueryPassword</code></td>
+<td>No</td>
+<td>Password for the query user, when authenticated queries are required.</td>
+</tr>
+</tbody>
+</table></body></html></section></section>
                     <section class='print-page md-section' id='section-4-4-5' heading-number='4.4.5'>
                         <h1>OIDC<a class='headerlink' href='#section-4-4-5' title='Permanent link'></a>
                         </h1>
@@ -14370,6 +14510,8 @@ we will do our very best to be helpful.</p></body></html></section></section></d
 .print-site-enumerate-headings #x509-ldap > h1:before { content: '4.4.4.3 ' }
 
 .print-site-enumerate-headings #ldap-setup > h1:before { content: '4.4.4.4 ' }
+
+.print-site-enumerate-headings #ldap-conf-parameters > h1:before { content: '4.4.4.5 ' }
 
 .print-site-enumerate-headings #section-4-4-5 > h1:before { content: '4.4.5 ' }
 .print-site-enumerate-headings #oidc > h1:before { content: '4.4.5.1 ' }
