@@ -104,31 +104,32 @@ As of **version 8.0.20-8**, Percona Server for MongoDB introduced parameters to 
         ldapShouldRefreshUserCacheEntries: true
         ```
 
-**Expiration-based invalidation** (`ldapShouldRefreshUserCacheEntries: false`):
+??? example "Expiration-based invalidation: `ldapShouldRefreshUserCacheEntries: false`"
 
-=== "Runtime (setParameter)"
 
-     ```{.javascript data-prompt=">"}
-     > db.adminCommand({
-     ...   setParameter: 1,
-     ...   ldapUserCacheInvalidationInterval: 30
-     ... })
-     ```
+    === "Runtime (setParameter)"
 
-=== "Command line"
+        ```{.javascript data-prompt=">"}
+        > db.adminCommand({
+        ...   setParameter: 1,
+        ...   ldapUserCacheInvalidationInterval: 30
+        ... })
+        ```
 
-     ```bash
-     mongod --setParameter "ldapUserCacheInvalidationInterval=30" \
-            --setParameter "ldapShouldRefreshUserCacheEntries=false"
-     ```
+    === "Command line"
 
-=== "Configuration file"
+        ```bash
+        mongod --setParameter "ldapUserCacheInvalidationInterval=30" \
+                --setParameter "ldapShouldRefreshUserCacheEntries=false"
+        ```
 
-     ```yaml
-     setParameter:
-       ldapUserCacheInvalidationInterval: 30
-       ldapShouldRefreshUserCacheEntries: false
-     ```
+    === "Configuration file"
+
+        ```yaml
+        setParameter:
+        ldapUserCacheInvalidationInterval: 30
+        ldapShouldRefreshUserCacheEntries: false
+        ```
 
 
 
