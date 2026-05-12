@@ -33,7 +33,7 @@ The cache is automatically invalidated when any of the following parameters chan
 | `ldapQueryUser`             | optional      | Distinguished Name (DN) of the user used to perform LDAP queries. |
 | `ldapQueryPassword`         | optional      | Password for the query user.                               |
 
-## Connection pool management parameters
+## Connection pool parameters
 
 These parameters control how MongoDB maintains its pool of connections to the LDAP server.
 
@@ -65,3 +65,7 @@ These parameters control how MongoDB maintains its pool of connections to the LD
       ldapConnectionPoolMaximumConnectionsPerHost: 100
       ldapConnectionPoolIdleHostTimeoutSecs: 600
     ```
+
+## User cache and invalidation
+
+
