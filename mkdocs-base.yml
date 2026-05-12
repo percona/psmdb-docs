@@ -267,4 +267,5 @@ nav:
       - code-of-conduct.md
       - copyright.md
       - trademark-policy.md 
+  - "Percona Software and Platform Lifecycle": "lifecycle.md"
   - Join Percona Squad: "https://squad.percona.com/mongodb"
