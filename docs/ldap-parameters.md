@@ -50,7 +50,7 @@ These parameters control how Percona Server for MongoDB maintains its pool of co
 | `ldapConnectionPoolMinimumConnectionsPerHost`           | No       | Minimum number of connections to maintain per LDAP host. Default: `1`.                                      |
 | `ldapConnectionPoolMaximumConnectionsPerHost`           | No       | Maximum number of open connections per LDAP host. Default: `2147483647`.                                  |
 | `ldapConnectionPoolMaximumConnectionsInProgressPerHost` | No       | Limits concurrent **in-progress** connection attempts per host to prevent spikes. Default: `2`.                |
-| `ldapConnectionPoolUseLatencyForHostPriority`           | No       | When `true`, the pool prioritizes connections to hosts with the lowest latency. Default: `TRUE`.            |
+| `ldapConnectionPoolUseLatencyForHostPriority`           | No       | When `true`, the pool prioritizes connections to hosts with the lowest latency. Default: `true`.            |
 
 ??? example "MongoDB configuration file (LDAP section)"
     ```sh
