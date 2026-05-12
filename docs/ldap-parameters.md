@@ -38,7 +38,7 @@ These parameters control how Percona Server for MongoDB maintains its pool of co
 
 
 !!! info "Important"
-    All the connection Pool parameters can be set at **startup only**. They must be defined in the configuration file or via `--setParameter` at launch and cannot be changed via `db.adminCommand()` while the instance is running.
+    All connection pool parameters are **startup-only**. They must be defined in the configuration file or via `--setParameter` at launch and cannot be changed via `db.adminCommand()` while the instance is running.
 
 
 | Parameter                                               | Required | Description                                                                                                                  |
