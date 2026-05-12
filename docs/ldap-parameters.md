@@ -38,12 +38,17 @@ The cache is automatically invalidated when any of the following parameters chan
 These parameters control how MongoDB maintains its pool of connections to the LDAP server.
 
 
+!!! info "Important"
+    All Connection Pool parameters except `ldapUseConnectionPool` can be set at **startup only**. They must be defined in the configuration file or via `--setParameter` at launch and cannot be changed via `db.adminCommand()` while the instance is running.
+
+
 | Parameter                                               | Required | Description                                                                                                                  |
 | ------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `ldapUseConnectionPool`                                 | No       | Enables/disables connection pooling. Default is OS dependent: `true` on Windows and specific Linux builds using `libldap_r`. |
-| `ldapConnectionPoolHostRefreshIntervalMillis`           | No       | Frequency (in ms) of health checks for pooled connections. Default: `60000`. *(This parameter can be applied only when PSMDB starts.)*                                |
-| `ldapConnectionPoolIdleHostTimeoutSecs`                 | No       | Seconds a pooled connection can remain idle before being closed. Default: `300`. *(This parameter can be applied only when PSMDB starts.)*                            |
-| `ldapConnectionPoolMinimumConnectionsPerHost`           | No       | Minimum number of connections to maintain per LDAP host. Default: `1`. *(This parameter can be applied only when PSMDB starts.)*                                      |
-| `ldapConnectionPoolMaximumConnectionsPerHost`           | No       | Maximum number of open connections per LDAP host. Default: `2147483647`. *(This parameter can be applied only when PSMDB starts.)*                                    |
-| `ldapConnectionPoolMaximumConnectionsInProgressPerHost` | No       | Limits concurrent “in-progress” connection attempts per host to prevent spikes. Default: `2`. *(This parameter can be applied only when PSMDB starts.)*               |
-| `ldapConnectionPoolUseLatencyForHostPriority`           | No       | When `true`, the pool prioritizes connections to hosts with the lowest latency. Default: `TRUE`. *(This parameter can be applied only when PSMDB starts.)*            |
+| `ldapConnectionPoolHostRefreshIntervalMillis`           | No       | Frequency (in ms) of health checks for pooled connections. Default: `60000`.                                |
+| `ldapConnectionPoolIdleHostTimeoutSecs`                 | No       | Seconds a pooled connection can remain idle before being closed. Default: `300`.                           |
+| `ldapConnectionPoolMinimumConnectionsPerHost`           | No       | Minimum number of connections to maintain per LDAP host. Default: `1`.                                      |
+| `ldapConnectionPoolMaximumConnectionsPerHost`           | No       | Maximum number of open connections per LDAP host. Default: `2147483647`.                                  |
+| `ldapConnectionPoolMaximumConnectionsInProgressPerHost` | No       | Limits concurrent **in-progress** connection attempts per host to prevent spikes. Default: `2`.                |
+| `ldapConnectionPoolUseLatencyForHostPriority`           | No       | When `true`, the pool prioritizes connections to hosts with the lowest latency. Default: `TRUE`.            |
+
