@@ -66,6 +66,76 @@ These parameters control how MongoDB maintains its pool of connections to the LD
       ldapConnectionPoolIdleHostTimeoutSecs: 600
     ```
 
-## User cache and invalidation
+## LDAP cache refresh parameters
+
+As of **version 8.0.20-8**, Percona Server for MongoDB introduced parameters to optimize authentication performance and reduce unnecessary load on the LDAP server. These settings control how cached user information is refreshed, allowing administrators to fine-tune the balance between maintaining up-to-date user data and minimizing LDAP query overhead—especially in high-scale environments with many concurrent users.
+
+
+| **Parameter**                  | **Required** | **Description**                                                |
+|-----------------------------|----------|------------------------------------------------------------|
+| `ldapUserCacheRefreshInterval`       | No      | controls how long (in seconds) cached LDAP user entries remain valid before they expire and are evicted from the cache. If you do not set this parameter explicitly, Percona Server for MongoDB uses the built-in default for your version. This parameter applies when `ldapShouldRefreshUserCacheEntries` is set to `false`.                   |
+| `ldapShouldRefreshUserCacheEntries`  | No       | selects the refresh strategy and has the following semantics:  
+    - When set to `true`, each cached `$external` user is periodically re-fetched from the LDAP server at the interval defined by `ldapUserCacheRefreshInterval`. The cache is updated only if the user’s roles have changed; otherwise, existing entries remain untouched, ensuring no disruption. If a user no longer exists in LDAP, their cache entry is invalidated individually.
+    - When set to `false`, all `$external` users are evicted from the cache at intervals defined by `ldapUserCacheInvalidationInterval`. This preserves the behavior that existed prior to the introduction of `ldapUserCacheRefreshInterval` and `ldapShouldRefreshUserCacheEntries`. 
+    
+    The default value is `false` (expiration-based invalidation using `ldapUserCacheInvalidationInterval`), to maintain backward-compatible behavior unless interval-based refreshing is explicitly enabled. The default value will be changed to **true** in all major versions released after March 1, 2026.
+
+    `ldapShouldRefreshUserCacheEntries` can only be set at startup. Interval parameters may be configured both at startup and during runtime.               |
+| `ldapUserCacheInvalidationInterval`     | No       | Seconds between total external user cache flushes (re-acquires data on next operation). Default value is `30s`.                 |
+| `ldapUserCacheStalenessInterval`     | No       | Time mongod retains cache after a failed refresh before invalidating it. Max: 86,400s. Default value is `30s`.                 |
+
+**Interval-based refresh** (`ldapShouldRefreshUserCacheEntries: true`):
+
+=== "Runtime (setParameter)"
+
+     ```{.javascript data-prompt=">"}
+     > db.adminCommand({
+     ...   setParameter: 1,
+     ...   ldapUserCacheRefreshInterval: 300
+     ... })
+     ```
+
+=== "Command line"
+
+     ```bash
+     mongod --setParameter "ldapUserCacheRefreshInterval=300" \
+            --setParameter "ldapShouldRefreshUserCacheEntries=true"
+     ```
+
+=== "Configuration file"
+
+     ```yaml
+     setParameter:
+       ldapUserCacheRefreshInterval: 300
+       ldapShouldRefreshUserCacheEntries: true
+     ```
+
+**Expiration-based invalidation** (`ldapShouldRefreshUserCacheEntries: false`):
+
+=== "Runtime (setParameter)"
+
+     ```{.javascript data-prompt=">"}
+     > db.adminCommand({
+     ...   setParameter: 1,
+     ...   ldapUserCacheInvalidationInterval: 30
+     ... })
+     ```
+
+=== "Command line"
+
+     ```bash
+     mongod --setParameter "ldapUserCacheInvalidationInterval=30" \
+            --setParameter "ldapShouldRefreshUserCacheEntries=false"
+     ```
+
+=== "Configuration file"
+
+     ```yaml
+     setParameter:
+       ldapUserCacheInvalidationInterval: 30
+       ldapShouldRefreshUserCacheEntries: false
+     ```
+
+
 
 
