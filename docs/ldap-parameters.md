@@ -132,5 +132,19 @@ As of **version 8.0.20-8**, Percona Server for MongoDB introduced parameters to 
         ```
 
 
+## Security and concurrency parameters
+
+These parameters are used for LDAP server authentication, secure connection handling, and ensuring thread-safe operations during concurrent access.
+
+| **Parameter**              | **Required** | **Description**                                                                                                                              |
+| -------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ldapQueryUser`            | No           | Specifies the DN (Distinguished Name) of the user that binds to the LDAP server. Default: `N/A`.                                             |
+| `ldapQueryPassword`        | No           | Specifies the password for `ldapQueryUser`. Default: `N/A`.                                                                                  |
+| `ldapForceMultiThreadMode` | No           | Enables concurrent LDAP operations. Required for connection pooling. Use only with a thread-safe `libldap` implementation. Default: `FALSE`. |
+| `ldapRetryCount`           | No           | Specifies the number of times the server retries an LDAP operation after a network error. Default: `0`.                                      |
+
+
+
+
 
 
