@@ -30,8 +30,7 @@ The cache is automatically invalidated when any of the following parameters chan
 | `ldapUserToDNCacheTTLSeconds` | No       | Changing the TTL value clears the cache.                   |
 | `ldapUserToDNCacheSize`     | No       | Changing the cache size clears the cache.                  |
 | `ldapServers`               | Yes      | Comma-separated list of LDAP servers to connect to.         |
-| `ldapQueryUser`             | optional      | Distinguished Name (DN) of the user used to perform LDAP queries. |
-| `ldapQueryPassword`         | optional      | Password for the query user.                               |
+
 
 ## Connection pool parameters
 
@@ -39,7 +38,7 @@ These parameters control how MongoDB maintains its pool of connections to the LD
 
 
 !!! info "Important"
-    All Connection Pool parameters except `ldapUseConnectionPool` can be set at **startup only**. They must be defined in the configuration file or via `--setParameter` at launch and cannot be changed via `db.adminCommand()` while the instance is running.
+    All the connection Pool parameters can be set at **startup only**. They must be defined in the configuration file or via `--setParameter` at launch and cannot be changed via `db.adminCommand()` while the instance is running.
 
 
 | Parameter                                               | Required | Description                                                                                                                  |
