@@ -78,8 +78,7 @@ As of **version 8.0.20-8**, Percona Server for MongoDB introduced parameters to 
 | `ldapUserCacheInvalidationInterval` | No           | Defines the interval between total external user cache flushes. Cached LDAP user entries are evicted after this interval and are re-acquired from LDAP on the next operation. Default: `30s`. This parameter can be configured at startup and runtime.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `ldapUserCacheStalenessInterval`    | No           | Defines how long `mongod` retains cached LDAP user information after a failed refresh attempt before invalidating the cache entry. Maximum allowed value: `86400s`. Default: `30s`. This parameter can be configured at startup and runtime. |
 
-??? example "Example"
-    **Interval-based refresh** (`ldapShouldRefreshUserCacheEntries: true`):
+??? example "Interval-based refresh: `ldapShouldRefreshUserCacheEntries: true` "
 
     === "Runtime (setParameter)"
 
