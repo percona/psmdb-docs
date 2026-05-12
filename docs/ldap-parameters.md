@@ -141,7 +141,7 @@ These parameters are used for LDAP server authentication, secure connection hand
 | -------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ldapQueryUser`            | No           | Specifies the DN (Distinguished Name) of the user that binds to the LDAP server. Default: `N/A`.                                             |
 | `ldapQueryPassword`        | No           | Specifies the password for `ldapQueryUser`. Default: `N/A`.                                                                                  |
-| `ldapForceMultiThreadMode` | No           | Enables concurrent LDAP operations. Required for connection pooling. Use only with a thread-safe `libldap` implementation. Default: `FALSE`. |
+| `ldapForceMultiThreadMode` | No           | Enables concurrent LDAP operations. Required for connection pooling. Use only with a thread-safe `libldap` implementation. Default: `false`. |
 | `ldapRetryCount`           | No           | Specifies the number of times the server retries an LDAP operation after a network error. Default: `0`.                                      |
 
 
