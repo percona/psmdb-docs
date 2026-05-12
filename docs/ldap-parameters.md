@@ -52,3 +52,17 @@ These parameters control how MongoDB maintains its pool of connections to the LD
 | `ldapConnectionPoolMaximumConnectionsInProgressPerHost` | No       | Limits concurrent **in-progress** connection attempts per host to prevent spikes. Default: `2`.                |
 | `ldapConnectionPoolUseLatencyForHostPriority`           | No       | When `true`, the pool prioritizes connections to hosts with the lowest latency. Default: `TRUE`.            |
 
+??? example "Config file"
+    ```sh
+    # Sample MongoDB Configuration File (LDAP Section)
+    security:
+     authorization: enabled
+     ldap:
+       mode: authzAndAuthn
+    # --- Connection Pool Settings (Startup Only) ---
+    ldapUseConnectionPool: true
+    ldapForceMultiThreadMode: true
+    ldapConnectionPoolMinimumConnectionsPerHost: 5
+    ldapConnectionPoolMaximumConnectionsPerHost: 100
+    ldapConnectionPoolIdleHostTimeoutSecs: 600
+    ```
