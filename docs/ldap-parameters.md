@@ -144,7 +144,16 @@ These parameters are used for LDAP server authentication, secure connection hand
 | `ldapRetryCount`           | No           | Specifies the number of times the server retries an LDAP operation after a network error. Default: `0`.                                      |
 
 
+??? example "MongoDB configuration file: Performance and retries"
 
+    ```
+    security:
+      authorization: enabled
+      ldap:
+        mode: authzAndAuthn
+      # --- Performance & Retries ---
+      ldapRetryCount: 3
+      ```
 
 
 
