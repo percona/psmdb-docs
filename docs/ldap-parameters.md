@@ -146,12 +146,13 @@ These parameters are used for LDAP server authentication, secure connection hand
 
 ??? example "MongoDB configuration file: Performance and retries"
 
-    ```sh
+    ```yaml
     security:
       authorization: enabled
       ldap:
         mode: authzAndAuthn
-      # --- Performance & Retries ---
+    # --- Performance & Retries ---
+    setParameter:
       ldapRetryCount: 3
     ```
 
