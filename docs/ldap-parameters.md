@@ -76,33 +76,34 @@ As of **version 8.0.20-8**, Percona Server for MongoDB introduced parameters to 
 | `ldapUserCacheRefreshInterval`      | No           | Defines how often (in seconds) the server refreshes cached user information from LDAP when interval-based refresh is enabled through `ldapShouldRefreshUserCacheEntries=true`. If not explicitly configured, Percona Server for MongoDB uses the built-in default for the server version. Can be configured at startup and runtime.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `ldapShouldRefreshUserCacheEntries` | No           | Selects the LDAP user cache refresh strategy. <br><br> - When set to `true`, each cached `$external` user is periodically re-fetched from the LDAP server at the interval defined by `ldapUserCacheRefreshInterval`. The cache is updated only if the user’s roles have changed; otherwise, existing entries remain untouched, ensuring no disruption. If a user no longer exists in LDAP, their cache entry is invalidated individually. <br><br> - When set to `false`, all `$external` users are evicted from the cache at intervals defined by `ldapUserCacheInvalidationInterval`. This preserves the behavior that existed prior to the introduction of `ldapUserCacheRefreshInterval` and `ldapShouldRefreshUserCacheEntries`. <br><br> Default: `false` (expiration-based invalidation using `ldapUserCacheInvalidationInterval`) to maintain backward-compatible behavior unless interval-based refreshing is explicitly enabled. The default value will change to `true` in all major versions released after March 1, 2026. <br><br> This parameter can be configured at startup only.|
 | `ldapUserCacheInvalidationInterval` | No           | Defines the interval between total external user cache flushes. Cached LDAP user entries are evicted after this interval and are re-acquired from LDAP on the next operation. Default: `30s`. This parameter can be configured at startup and runtime.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `ldapUserCacheStalenessInterval`    | No           | Defines how long `mongod` retains cached LDAP user information after a failed refresh attempt before invalidating the cache entry. Maximum allowed value: `86400s`. Default: `30s`. This parameter can be configured at startup and runtime.  |                                                                               
+| `ldapUserCacheStalenessInterval`    | No           | Defines how long `mongod` retains cached LDAP user information after a failed refresh attempt before invalidating the cache entry. Maximum allowed value: `86400s`. Default: `30s`. This parameter can be configured at startup and runtime. |
 
-**Interval-based refresh** (`ldapShouldRefreshUserCacheEntries: true`):
+??? example "Example"
+    **Interval-based refresh** (`ldapShouldRefreshUserCacheEntries: true`):
 
-=== "Runtime (setParameter)"
+    === "Runtime (setParameter)"
 
-     ```{.javascript data-prompt=">"}
-     > db.adminCommand({
-     ...   setParameter: 1,
-     ...   ldapUserCacheRefreshInterval: 300
-     ... })
-     ```
+        ```{.javascript data-prompt=">"}
+        > db.adminCommand({
+        ...   setParameter: 1,
+        ...   ldapUserCacheRefreshInterval: 300
+        ... })
+        ```
 
-=== "Command line"
+    === "Command line"
 
-     ```bash
-     mongod --setParameter "ldapUserCacheRefreshInterval=300" \
-            --setParameter "ldapShouldRefreshUserCacheEntries=true"
-     ```
+        ```bash
+        mongod --setParameter "ldapUserCacheRefreshInterval=300" \
+                --setParameter "ldapShouldRefreshUserCacheEntries=true"
+        ```
 
-=== "Configuration file"
+    === "Configuration file"
 
-     ```yaml
-     setParameter:
-       ldapUserCacheRefreshInterval: 300
-       ldapShouldRefreshUserCacheEntries: true
-     ```
+        ```yaml
+        setParameter:
+        ldapUserCacheRefreshInterval: 300
+        ldapShouldRefreshUserCacheEntries: true
+        ```
 
 **Expiration-based invalidation** (`ldapShouldRefreshUserCacheEntries: false`):
 
