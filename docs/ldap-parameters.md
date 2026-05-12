@@ -153,7 +153,7 @@ These parameters are used for LDAP server authentication, secure connection hand
         mode: authzAndAuthn
       # --- Performance & Retries ---
       ldapRetryCount: 3
-      ```
+    ```
 
 
 
