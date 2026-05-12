@@ -3350,6 +3350,33 @@
   
   
     <li class="md-nav__item">
+      <a href="lifecycle.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Percona Software and Platform Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="https://squad.percona.com/mongodb" class="md-nav__link">
         
   
@@ -4725,6 +4752,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Percona Software and Platform Lifecycle
+      
+    </span>
+  </a>
   
 </li>
       
@@ -10122,8 +10160,8 @@ You can add other users with various roles depending on your needs.</p>
         })
         </script>
         </head><body><h1 id="encryption-at-rest">Encryption at Rest<a class="headerlink" href="#data-at-rest-encryption-encryption-at-rest" title="Permanent link">¶</a></h1>
-<p>Encryption at rest should be used with data in transit encryption and policies that protect accounts, passwords, and encryption keys. When implemented well, encryption at rest helps organizations to comply with security and privacy standards like HIPAA, PCI-DSS, GDPR, and FIPS, ensuring sensitive data is protected both when it’s being transmitted and when it’s stored.</p>
-<p>Data encryption at rest was introduced in Percona Server for MongoDB 3.6 and is fully compatible with MongoDB’s encryption interface. Percona Server for MongoDB supports the following Key Management System (KMS) integrations:</p>
+<p>Encryption at rest should be used together with data in transit encryption and policies that protect accounts, passwords, and encryption keys. When implemented well, encryption at rest helps organizations comply with security and privacy standards like HIPAA, PCI-DSS, GDPR, and FIPS, ensuring sensitive data is protected both when it’s being transmitted and when it’s stored.</p>
+<p>Data encryption at rest was first introduced in Percona Server for MongoDB 3.6 and is fully compatible with MongoDB’s encryption interface. Percona Server for MongoDB supports the following Key Management System (KMS) integrations:</p>
 <ul>
 <li><a href="#vault">HashiCorp Vault</a></li>
 <li><a href="#openbao">OpenBao</a></li>
@@ -10132,9 +10170,9 @@ You can add other users with various roles depending on your needs.</p>
 <h2 id="data-at-rest-encryption-workflow">Workflow<a class="headerlink" href="#data-at-rest-encryption-workflow" title="Permanent link">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>You can only enable data at rest encryption and provide all encryption settings on an empty database, when you start the <code>mongod</code> instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and / or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must be the same.</p>
+<p>You can only enable data at rest encryption on an empty database when you start the <code>mongod</code> instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and/or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must remain the same.</p>
 </div>
-<p>Each node of Percona Server for MongoDB generates a random, individual key for every database. It encrypts every database with an individual key and puts those keys into the special, so-called key database. Then each node of Percona Server for MongoDB randomly generates a unique master encryption key and encrypts the key database with this key. </p>
+<p>Percona Server for MongoDB uses a two-level key hierarchy. It encrypts each database with an individual key, and puts those keys into a special, so-called “key database”. Then, Percona Server for MongoDB uses a master encryption key, provided and managed via the configured key management option, to encrypt the key database. </p>
 <p>Thus, two types of keys are used for data at rest encryption:</p>
 <ul>
 <li>
@@ -10144,6 +10182,10 @@ You can add other users with various roles depending on your needs.</p>
 <p>The master key to encrypt database keys. It is kept separately from the data and database keys and requires external management.</p>
 </li>
 </ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Each node of a replica set uses the same master key to encrypt the key database.</p>
+</div>
 <p>To manage the master encryption key, use one of the supported key management options:</p>
 <ul>
 <li>
@@ -14046,7 +14088,14 @@ However, it is acceptable to omit the word “Percona” for brevity on the seco
 and subsequent uses, where such omission does not cause confusion.</p>
 <p>In the event of doubt as to any of the conditions or exceptions outlined in
 this Trademark Policy, please contact <a href="mailto:trademarks@percona.com">trademarks@percona.com</a> for assistance and
-we will do our very best to be helpful.</p></body></html></section></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
+we will do our very best to be helpful.</p></body></html></section></section><section class="print-page" id="lifecycle" heading-number="9"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="percona-software-and-platform-lifecycle">Percona Software and Platform Lifecycle<a class="headerlink" href="#lifecycle-percona-software-and-platform-lifecycle" title="Permanent link">¶</a></h1>
+<p>See the <a href="https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb">Percona Release Lifecycle Overview</a> for information about support and platform end-of-life dates</p></body></html></section></div><style>.print-site-enumerate-headings #index > h1:before { content: '1 ' }
 
                 .print-site-enumerate-headings #index h2:before { content: '1.' counter(counter-index-2) ' ' }
                 .print-site-enumerate-headings #index h2 {  counter-increment: counter-index-2 }
@@ -14215,7 +14264,12 @@ we will do our very best to be helpful.</p></body></html></section></section></d
 .print-site-enumerate-headings #copyright > h1:before { content: '8.4 ' }
 
 .print-site-enumerate-headings #trademark-policy > h1:before { content: '8.5 ' }
-</style>
+
+.print-site-enumerate-headings #lifecycle > h1:before { content: '9 ' }
+
+                .print-site-enumerate-headings #lifecycle h2:before { content: '9.' counter(counter-lifecycle-2) ' ' }
+                .print-site-enumerate-headings #lifecycle h2 {  counter-increment: counter-lifecycle-2 }
+            </style>
 
 
 
