@@ -146,7 +146,7 @@ These parameters are used for LDAP server authentication, secure connection hand
 
 ??? example "MongoDB configuration file: Performance and retries"
 
-    ```
+    ```sh
     security:
       authorization: enabled
       ldap:
