@@ -101,8 +101,8 @@ As of **version 8.0.20-8**, Percona Server for MongoDB introduced parameters to 
 
         ```yaml
         setParameter:
-        ldapUserCacheRefreshInterval: 300
-        ldapShouldRefreshUserCacheEntries: true
+          ldapUserCacheRefreshInterval: 300
+          ldapShouldRefreshUserCacheEntries: true
         ```
 
 ??? example "Expiration-based invalidation: `ldapShouldRefreshUserCacheEntries: false`"
@@ -128,8 +128,8 @@ As of **version 8.0.20-8**, Percona Server for MongoDB introduced parameters to 
 
         ```yaml
         setParameter:
-        ldapUserCacheInvalidationInterval: 30
-        ldapShouldRefreshUserCacheEntries: false
+          ldapUserCacheInvalidationInterval: 30
+          ldapShouldRefreshUserCacheEntries: false
         ```
 
 
