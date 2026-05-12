@@ -102,6 +102,10 @@ setParameter:
    ldapFollowReferrals: true
 ```
 
+!!! note
+
+    For information about LDAP cache refresh parameters, see [LDAP cache refresh parameters](ldap-parameters.md#ldap-cache-refresh-parameters).
+
 ### Connection pool
 
 As of version 6.0.2-1, Percona Server for MongoDB always uses a connection pool to LDAP server to process bind requests. The connection pool is enabled by default. The default connection pool size is 2 connections.
