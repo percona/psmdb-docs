@@ -35,7 +35,7 @@ The cache is automatically invalidated when any of the following parameters chan
 
 ## Connection pool parameters
 
-These parameters control how MongoDB maintains its pool of connections to the LDAP server.
+These parameters control how Percona Server for MongoDB maintains its pool of connections to the LDAP server.
 
 
 !!! info "Important"
