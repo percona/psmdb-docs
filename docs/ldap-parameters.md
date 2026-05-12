@@ -53,11 +53,12 @@ These parameters control how Percona Server for MongoDB maintains its pool of co
 | `ldapConnectionPoolUseLatencyForHostPriority`           | No       | When `true`, the pool prioritizes connections to hosts with the lowest latency. Default: `true`.            |
 
 ??? example "MongoDB configuration file (LDAP section)"
-    ```sh
+    ```yaml
     security:
       authorization: enabled
       ldap:
         mode: authzAndAuthn
+    setParameter:
       # --- Connection Pool Settings (Startup Only) ---
       ldapUseConnectionPool: true
       ldapForceMultiThreadMode: true
@@ -155,6 +156,5 @@ These parameters are used for LDAP server authentication, secure connection hand
     setParameter:
       ldapRetryCount: 3
     ```
-
 
 
