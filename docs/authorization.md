@@ -156,3 +156,5 @@ db.adminCommand( { setParameter: 1, ldapServers:"localhost,ldap1.example.net,lda
 To configure LDAP authorization with the native LDAP authentication, see [Setting up LDAP authentication and authorization using NativeLDAP](ldap-setup.md).
 
 For details on available configuration options, refer to [LDAP parameters](ldap-parameters.md).
+
+*[DN]: Distinguished Name
