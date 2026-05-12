@@ -90,7 +90,6 @@ To summarize, username escaping happens in the following cases:
 
 
 
-
 ### LDAP referrals
 
 As of version 6.0.2-1, Percona Server for MongoDB supports LDAP referrals as defined in [RFC 4511 4.1.10](https://www.rfc-editor.org/rfc/rfc4511.txt). For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.
@@ -101,10 +100,6 @@ To enable LDAP referrals, set the `ldapFollowReferrals` server parameter to `tru
 setParameter:
    ldapFollowReferrals: true
 ```
-
-!!! note
-
-    For information about LDAP cache refresh parameters, see [LDAP cache refresh parameters](ldap-parameters.md#ldap-cache-refresh-parameters).
 
 ### Connection pool
 
@@ -159,6 +154,10 @@ db.adminCommand( { setParameter: 1, ldapServers:"localhost,ldap1.example.net,lda
 ## Configuration
 
 For how to configure LDAP authorization with the native LDAP authentication, see [Setting up LDAP authentication and authorization using NativeLDAP](ldap-setup.md).
+
+For information about LDAP parameters, see [LDAP parameters](ldap-parameters.md).
+
+
 
 
 
