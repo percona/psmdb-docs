@@ -10,6 +10,7 @@ product:
   psmdb_full_name: "Percona Server for MongoDB"
 
 date:
+  8_0_23: "2026-05-21"
   8_0_21: "2026-05-06"
   8_0_20: "2026-04-01"
   8_0_19: "2026-02-19"
