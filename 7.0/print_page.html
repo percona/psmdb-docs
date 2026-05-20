@@ -2901,6 +2901,34 @@
   
   
     <li class="md-nav__item">
+      <a href="release_notes/7.0.34-19.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Percona Server for MongoDB 7.0.34-19 (2026-05-20)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release_notes/7.0.32-18.html" class="md-nav__link">
         
   
@@ -4810,6 +4838,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
+  <a href="#release_notes-7.0.34-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Percona Server for MongoDB 7.0.34-19 (2026-05-20)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#release_notes-7.0.32-18" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5110,11 +5149,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>
 <img src="_images/Percona_Color_Dark.svg" alt="Percona logo" />
 </p>
-<h1>Server for MongoDB 7.0.32-18</h1>
+<h1>Server for MongoDB 7.0.34-19</h1>
 
 <h1>Documentation</h1>
  
-<h2>7.0.32-18 (May 7, 2026)</h2>
+<h2>7.0.34-19 (May 20, 2026)</h2>
 <br>
 <br>
         </section>
@@ -5139,7 +5178,7 @@ for MongoDB 7.0 Community Edition with <a href="#comparison">enterprise-grade fe
 <div class="admonition hint">
 <p>To see which version of Percona Server for MongoDB you are using check the value of the <code>psmdbVersion</code> key in the output of the <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo">buildInfo</a> database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.</p>
 </div>
-<p><a class="md-button md-button" href="#release_notes-7.0.32-18">What’s new in Percona Server for MongoDB 7.0.32-18</a></p>
+<p><a class="md-button md-button" href="#release_notes-7.0.34-19">What’s new in Percona Server for MongoDB 7.0.34-19</a></p>
 <div data-grid="data-grid">
 <div data-banner="data-banner">
 <h2 class="title" id="index-installation-guides"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2.03c4.73.47 8.5 4.22 8.95 8.97A9.976 9.976 0 0 1 13 21.93v-2c3.64-.43 6.5-3.32 6.96-6.96A7.994 7.994 0 0 0 13 4.05V2.03m-2 .03v2c-1.43.2-2.78.78-3.9 1.68L5.67 4.26A9.83 9.83 0 0 1 11 2.06M4.26 5.67 5.69 7.1A8 8 0 0 0 4.05 11h-2c.2-1.96.95-3.81 2.21-5.33M2.06 13h2c.18 1.42.75 2.77 1.63 3.9l-1.42 1.43A10.04 10.04 0 0 1 2.06 13m5.04 5.37c1.13.88 2.48 1.45 3.9 1.63v2c-1.96-.21-3.82-1-5.33-2.26zM12 16.5 7.5 12H11V8h2v4h3.5z"></path></svg></span> Installation guides<a class="headerlink" href="#index-installation-guides" title="Permanent link">¶</a></h2>
@@ -5633,12 +5672,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>.0.32-18.el9<span class="w">       </span>psmdb-70-release-x86_64
+percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>.0.34-19.el9<span class="w">       </span>psmdb-70-release-x86_64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.32-18, run the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.32-18.el9
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.34-19, run the following command:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.34-19.el9
 </code></pre></div>
 </li>
 </ol>
@@ -5767,12 +5806,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>.0.32-18.el9<span class="w">       </span>psmdb-70-release-x86_64
+percona-server-mongodb.x86_64<span class="w">    </span><span class="m">7</span>.0.34-19.el9<span class="w">       </span>psmdb-70-release-x86_64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.32-18, run the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.32-18.el9
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.34-19, run the following command:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.34-19.el9
 </code></pre></div>
 </li>
 </ol>
@@ -5923,12 +5962,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.aarch64<span class="w">    </span><span class="m">7</span>.0.32-18.amzn2023<span class="w">       </span>psmdb-70-release-aarch64
+percona-server-mongodb.aarch64<span class="w">    </span><span class="m">7</span>.0.34-19.amzn2023<span class="w">       </span>psmdb-70-release-aarch64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.32-18, run the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.32-18.amzn2023
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 7.0.34-19, run the following command:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-7.0.34-19.amzn2023
 </code></pre></div>
 </li>
 </ol>
@@ -5979,9 +6018,9 @@ after you reboot the system.</p>
         </head><body><h1 id="install-percona-server-for-mongodb-from-binary-tarball">Install Percona Server for MongoDB from binary tarball<a class="headerlink" href="#install-tarball-install-percona-server-for-mongodb-from-binary-tarball" title="Permanent link">¶</a></h1>
 <p>You can find links to the binary tarballs under the <em>Generic Linux</em> menu item on the <a href="https://www.percona.com/downloads/percona-server-mongodb-7.0/">Percona website</a></p>
 <p>There are the following tarballs available:</p>
-<p><code>percona-server-mongodb-7.0.32-18-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
+<p><code>percona-server-mongodb-7.0.34-19-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
 <ul>
-<li><code>percona-mongodb-mongosh-2.8.2-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</li>
+<li><code>percona-mongodb-mongosh-2.8.3-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</li>
 </ul>
 <p>Note that tarballs are available only for the x86_64 architecture.</p>
 <h2 id="install-tarball-tarball-types">Tarball types<a class="headerlink" href="#install-tarball-tarball-types" title="Permanent link">¶</a></h2>
@@ -5996,17 +6035,17 @@ after you reboot the system.</p>
 <tbody>
 <tr>
 <td>Full</td>
-<td>percona-server-mongodb-7.0.32-18-x86_64.<operating-system>.tar.gz</operating-system></td>
+<td>percona-server-mongodb-7.0.34-19-x86_64.<operating-system>.tar.gz</operating-system></td>
 <td>Contains binaries and libraries</td>
 </tr>
 <tr>
 <td>Minimal</td>
-<td>percona-server-mongodb-7.0.32-18-x86_64.<operating-system>-minimal.tar.gz</operating-system></td>
+<td>percona-server-mongodb-7.0.34-19-x86_64.<operating-system>-minimal.tar.gz</operating-system></td>
 <td>Contains binaries and libraries without debug symbols</td>
 </tr>
 <tr>
 <td>Checksum</td>
-<td>percona-server-mongodb-7.0.32-18-x86_64.<operating-system>-minimal.tar.gz.sha256sum</operating-system></td>
+<td>percona-server-mongodb-7.0.34-19-x86_64.<operating-system>-minimal.tar.gz.sha256sum</operating-system></td>
 <td>Contains the MD5 checksum to verify the integrity of the files after the extraction</td>
 </tr>
 </tbody>
@@ -6043,19 +6082,19 @@ sudo<span class="w"> </span>apt<span class="w"> </span>curl<span class="w"> </sp
 <ol>
 <li>
 <p>Fetch the binary tarballs:    </p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.32-18/binary/tarball/percona-server-mongodb-7.0.32-18-x86_64.ol9.tar.gz<span class="se">\</span>
-curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.32-18/binary/tarball/percona-mongodb-mongosh-2.8.2-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.34-19/binary/tarball/percona-server-mongodb-7.0.34-19-x86_64.ol9.tar.gz<span class="se">\</span>
+curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.34-19/binary/tarball/percona-mongodb-mongosh-2.8.3-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs    </p>
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.32-18-x86_64.ol9.tar.gz
-tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.8.2-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.34-19-x86_64.ol9.tar.gz
+tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.8.3-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:    </p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.32-18-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.8.2-x86_64/bin/:<span class="nv">$PATH</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.34-19-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.8.3-x86_64/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -6075,19 +6114,19 @@ directory and run <code>mongod</code>.</p>
 <ol>
 <li>
 <p>Fetch the binary tarballs:    </p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.32-18/binary/tarball/percona-server-mongodb-7.0.32-18-x86_64.jammy.tar.gz<span class="se">\</span>
-curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.32-18/binary/tarball/percona-mongodb-mongosh-2.8.2-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.34-19/binary/tarball/percona-server-mongodb-7.0.34-19-x86_64.jammy.tar.gz<span class="se">\</span>
+curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-7.0/percona-server-mongodb-7.0.34-19/binary/tarball/percona-mongodb-mongosh-2.8.3-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs    </p>
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.32-18-x86_64.jammy.tar.gz
-tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.8.2-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-7.0.34-19-x86_64.jammy.tar.gz
+tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.8.3-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:    </p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.32-18-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.8.2-x86_64/bin/:<span class="nv">$PATH</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-7.0.34-19-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.8.3-x86_64/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -6461,7 +6500,7 @@ and restart it if the container exits.</p>
 <p><code>percona/percona-server-mongodb</code> is the name of the image to derive the container from.</p>
 </li>
 <li>
-<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.32-18</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb/tags">See the full list of tags</a>.</p>
+<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>7.0.34-19</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb/tags">See the full list of tags</a>.</p>
 </li>
 </ul>
 <h2 id="install-docker-access-container-shell">Access container shell<a class="headerlink" href="#install-docker-access-container-shell" title="Permanent link">¶</a></h2>
@@ -6673,7 +6712,7 @@ run the following command: </p>
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 6598270a3a0c418751550ded
 Connecting to:      mongodb://127.0.0.1:27017/?directConnection=true&amp;serverSelectionTimeoutMS=2000&amp;appName=mongosh+2.0.0
-Using MongoDB:      7.0.32-18
+Using MongoDB:      7.0.34-19
 Using Mongosh:      2.0.0    
 
 For mongosh info see: https://docs.mongodb.com/mongodb-shell/    
@@ -9474,8 +9513,8 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 </li>
 <li>
 <p>Upon successful log in you must see the <strong>Login successful</strong> screen. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.32-18
-Using Mongosh:      2.8.2
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.34-19
+Using Mongosh:      2.8.3
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -9502,8 +9541,8 @@ Enter the following code on that page: LRVCRLXP
 <li>Enter the code in the <strong>Activation Code</strong> field and click <strong>Next</strong></li>
 <li>
 <p>You should see the <strong>Device Activated</strong> message on the screen. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.32-18
-Using Mongosh:      2.8.2
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.34-19
+Using Mongosh:      2.8.3
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -9946,8 +9985,8 @@ Waiting....
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.32-18
-Using Mongosh:      2.8.2
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.34-19
+Using Mongosh:      2.8.3
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -9975,8 +10014,8 @@ Waiting...
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.32-18
-Using Mongosh:      2.8.2
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.34-19
+Using Mongosh:      2.8.3
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -10206,8 +10245,8 @@ test&gt;
 <li>Log in with your credentials.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.32-18
-Using Mongosh:      2.8.2
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.34-19
+Using Mongosh:      2.8.3
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -10235,8 +10274,8 @@ Waiting...
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.32-18
-Using Mongosh:      2.8.2
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.34-19
+Using Mongosh:      2.8.3
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -12538,9 +12577,9 @@ to make changes at runtime:    </p>
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
-Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.8.2
-Using MongoDB:      7.0.32-18
-Using Mongosh:      2.8.2
+Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.8.3
+Using MongoDB:      7.0.34-19
+Using Mongosh:      2.8.3
 
 rs0 [primary] test&gt;
 </code></pre></div>
@@ -12573,9 +12612,9 @@ rs0 [primary] test&gt;
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
-Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.8.2
-Using MongoDB:  7.0.32-18
-Using Mongosh:  2.8.2
+Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.8.3
+Using MongoDB:  7.0.34-19
+Using Mongosh:  2.8.3
 
 rs0 [primary] test&gt;
 </code></pre></div>
@@ -13142,6 +13181,9 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>
         </head><body><h1 id="percona-server-for-mongodb-70-release-notes">Percona Server for MongoDB 7.0 release notes<a class="headerlink" href="#release_notes-index-percona-server-for-mongodb-70-release-notes" title="Permanent link">¶</a></h1>
 <ul>
 <li>
+<p><a href="#release_notes-7.0.34-19">Percona Server for MongoDB 7.0.34-19 (2026-05-20)</a></p>
+</li>
+<li>
 <p><a href="#release_notes-7.0.32-18">Percona Server for MongoDB 7.0.32-18 (2026-05-07)</a></p>
 </li>
 <li>
@@ -13195,7 +13237,70 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>
 <li>
 <p><a href="#release_notes-7.0.2-1">Percona Server for MongoDB 7.0.2-1 (2023-10-05)</a></p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.32-18" heading-number="6.2"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.34-19" heading-number="6.2"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="percona-server-for-mongodb-7034-19-2026-05-20">Percona Server for MongoDB 7.0.34-19 (2026-05-20)<a class="headerlink" href="#release_notes-7.0.34-19-percona-server-for-mongodb-7034-19-2026-05-20" title="Permanent link">¶</a></h1>
+<p><a class="md-button" href="#install-index">Installation</a>
+<a class="md-button" href="#install-upgrade-from-mongodb">Upgrade from MongoDB Community</a></p>
+<p>Percona Server for MongoDB 7.0.34-19 is an enhanced, source-available, and highly-scalable database that is a fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
+<p>Percona Server for MongoDB <strong>7.0.34-19</strong> includes the improvements and bug fixes of: </p>
+<ul>
+<li>
+<p><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.34---may-12--2026" target="_blank">MongoDB 7.0.34 Community Edition <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></p>
+</li>
+<li>
+<p>Supports protocols and drivers of MongoDB Community <strong>7.0.34</strong>.</p>
+</li>
+</ul>
+<h2 id="release_notes-7.0.34-19-security-updates-cve-fixes-from-upstream-mongodb">Security updates: CVE fixes from upstream MongoDB<a class="headerlink" href="#release_notes-7.0.34-19-security-updates-cve-fixes-from-upstream-mongodb" title="Permanent link">¶</a></h2>
+<p>This release includes upstream MongoDB security fixes for the following vulnerabilities:</p>
+<h3 id="release_notes-7.0.34-19-high-severity">High severity<a class="headerlink" href="#release_notes-7.0.34-19-high-severity" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-126021" target="_blank">SERVER-126021 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> <strong>(CVE-2026-8053):</strong> A vulnerability in the time-series collection implementation allows an authenticated user with write privileges to trigger an out-of-bounds memory write in the <code>mongod</code> process. Under certain conditions, this can lead to arbitrary code execution.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-122449" target="_blank">SERVER-122449 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> <strong>(CVE-2026-8199):</strong> A vulnerability in AST processing allows an authenticated user to cause excessive memory consumption using the following operators: <code>$bitsAllSet</code>, <code>$bitsAnySet</code>, <code>$bitsAllClear</code>, <code>$bitsAnyClear</code>. This can trigger out-of-memory (OOM) conditions and service unavailability.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-121610" target="_blank">SERVER-121610 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> <strong>(CVE-2026-8336):</strong> A vulnerability in server-side JavaScript execution allows an authenticated user to crash the <code>mongod</code> process through specially crafted use of <code>$_internalJsEmit</code>, or by manipulating the <code>mapReduce</code> map function in combination with <code>$where</code>, <code>$function</code>, or the <code>mapReduce</code> reduce stage.</p>
+</li>
+</ul>
+<h3 id="release_notes-7.0.34-19-medium-severity">Medium severity<a class="headerlink" href="#release_notes-7.0.34-19-medium-severity" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-120668" target="_blank">SERVER-120668 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> <strong>(CVE-2026-8202):</strong> A vulnerability in the <code>$trim</code>, <code>$ltrim</code>, and <code>$rtrim</code> aggregation operators allows an authenticated user with aggregation privileges to supply specially crafted inputs that cause excessive CPU consumption, degrading database performance and availability.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-121895" target="_blank">SERVER-121895 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> <strong>(CVE-2026-8200):</strong> A vulnerability in schema validation error handling causes unredacted user data to be written to local server log files when <code>insert</code> or <code>update</code> operations violate schema validation rules.</p>
+</li>
+</ul>
+<h2 id="release_notes-7.0.34-19-tools-packaged-with-this-release">Tools packaged with this release<a class="headerlink" href="#release_notes-7.0.34-19-tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Tool</strong></th>
+<th><strong>Version</strong></th>
+<th><strong>Release notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MongoDB Shell (<code>mongosh</code>)</td>
+<td>2.8.3</td>
+<td><a href="https://www.mongodb.com/docs/mongodb-shell/changelog/#v2.8.3" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
+</tr>
+<tr>
+<td>Mongo Tools</td>
+<td>100.17.0</td>
+<td><a href="https://www.mongodb.com/docs/database-tools/release-notes/dbtools-100.17.0-changelog/" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
+</tr>
+</tbody>
+</table></body></html></section><section class="print-page" id="release_notes-7.0.32-18" heading-number="6.3"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13273,7 +13378,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <p>Percona Server for MongoDB packages the following MongoDB tools:</p>
 <ul>
 <li>MongoDB Shell (mongosh): 2.8.2 — <a href="https://www.mongodb.com/docs/mongodb-shell/changelog/#v2.8.2" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.31-17" heading-number="6.3"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.31-17" heading-number="6.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13307,7 +13412,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <h3 id="release_notes-7.0.31-17-improvements">Improvements<a class="headerlink" href="#release_notes-7.0.31-17-improvements" title="Permanent link">¶</a></h3>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1947">PSMDB-1947</a>: To provide better parity with MongoDB Enterprise and improve performance in high-scale environments, we have introduced two new configuration parameters for LDAP user caching. These options allow administrators to fine-tune how and when cached user information is refreshed, reducing unnecessary overhead on LDAP servers while ensuring security data remains current.</p>
 <h3 id="release_notes-7.0.31-17-bugs">Bugs<a class="headerlink" href="#release_notes-7.0.31-17-bugs" title="Permanent link">¶</a></h3>
-<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1998">PSMDB-1998</a>: Resolved an issue where user authentication was stuck indefinitely when the LDAP server was unreachable. Timeouts are now applied to LDAP connections to avoid blocking and ensure more reliable authentication.</p></body></html></section><section class="print-page" id="release_notes-7.0.30-16" heading-number="6.4"><html><head>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1998">PSMDB-1998</a>: Resolved an issue where user authentication was stuck indefinitely when the LDAP server was unreachable. Timeouts are now applied to LDAP connections to avoid blocking and ensure more reliable authentication.</p></body></html></section><section class="print-page" id="release_notes-7.0.30-16" heading-number="6.5"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13414,7 +13519,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <h2 id="release_notes-7.0.30-16-bugs-fixed">Bugs fixed<a class="headerlink" href="#release_notes-7.0.30-16-bugs-fixed" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1922">PSMDB-1922</a>: Resolved an issue where the <code>auditGetOptions</code> command could be executed by users with any privilege level. Access is now strictly restricted to users with <strong>admin privileges</strong>, aligning its security requirements with the <code>getParameter</code> command to prevent unauthorized access to audit configuration options.</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.28-15" heading-number="6.5"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.28-15" heading-number="6.6"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13474,7 +13579,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <ul>
 <li><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.27---dec-19--2025">MongoDB 7.0.27 Community Edition</a></li>
 <li><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.28---dec-19--2025">MongoDB 7.0.28 Community Edition</a></li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.26-14" heading-number="6.6"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.26-14" heading-number="6.7"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13523,7 +13628,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <h3 id="release_notes-7.0.26-14-fixed-bugs">Fixed bugs<a class="headerlink" href="#release_notes-7.0.26-14-fixed-bugs" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1838">PSMDB-1838</a> - Fixed high-severity vulnerabilities identified in latest Percona Server for MongoDB Docker images</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.24-13" heading-number="6.7"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.24-13" heading-number="6.8"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13605,7 +13710,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1757">PSMDB-1757</a> - Prevented file copy-based initial sync if the storage engine is not WiredTiger</p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.22-12" heading-number="6.8"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.22-12" heading-number="6.9"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13674,7 +13779,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1730">PSMDB-1730</a> - Fixed the issue with LDAP authentication via SASL by adding the package <code>cyrus-sasl-plain</code> in Docker images for Percona Server for MongoDB 6, 7 and 8 </p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.18-11" heading-number="6.9"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.18-11" heading-number="6.10"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13749,7 +13854,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1617">PSMDB-1617</a> - Improved error messages when there are insufficient permissions to access client/CA certificates for KMIP authentication</p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.16-10" heading-number="6.10"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.16-10" heading-number="6.11"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13783,7 +13888,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1243">PSMDB-1243</a> - Fixed the issue with starting Percona Server for MongoDB Docker container with data-at-rest encryption configured via the configuration file</li>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1573">PSMDB-1573</a> - Added escaping of special characters when building LDAP queries</li>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1567">PSMDB-1567</a> - Fixed the issue with the crashing server during LDAP authentication when the LDAP server is down. </li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.15-9" heading-number="6.11"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.15-9" heading-number="6.12"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13820,7 +13925,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <h3 id="release_notes-7.0.15-9-fixed-bugs">Fixed Bugs<a class="headerlink" href="#release_notes-7.0.15-9-fixed-bugs" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1527">PSMDB-1527</a> - Improve the <code>activateKeys</code> option handling by changing its type to boolean.</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.14-8" heading-number="6.12"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.14-8" heading-number="6.13"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13857,7 +13962,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.12.</p>
 <h3 id="release_notes-7.0.14-8-improvements">Improvements<a class="headerlink" href="#release_notes-7.0.14-8-improvements" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1283">PSMDB-1283</a> - Add the ability to activate master encryption keys in KMIP server and check their state.</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.12-7" heading-number="6.13"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.12-7" heading-number="6.14"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13877,7 +13982,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.12.</p>
 <li><a href="https://jira.mongodb.org/browse/SERVER-90485">SERVER-90485</a> - Fixed the sorting of results produced by the <code>$unwind</code> aggregation with the array index field specified</li>
 <li><a href="https://jira.mongodb.org/browse/WT-12736">WT-12736</a> - Marked the page clean in WiredTiger after re-instantiating the page with prepared updates to avoid reconciling the page every time</li>
 </ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.12---jun-28--2024">MongoDB 7.0.12 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.11-6" heading-number="6.14"><html><head>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.12---jun-28--2024">MongoDB 7.0.12 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.11-6" heading-number="6.15"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13901,7 +14006,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.11.</p>
 <li><a href="https://jira.mongodb.org/browse/SERVER-89625">SERVER-89625</a> - Improve handling of directoryPerDb and wiredTigerDirectoryForIndexes to not insert directories as key when reporting namespaces and UUIDs during a backup   </li>
 <li><a href="https://jira.mongodb.org/browse/WT-12609">WT-12609</a> - Improved checkpoint cleanup and page eviction logic to prevent their unnecessary slowdown by evicting the internal pages read by the checkpoint like a regular page.  </li>
 </ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.9---apr-26--2024">MongoDB 7.0.9 Community Edition release notes</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.11---may-23--2024">MongoDB 7.0.11 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.8-5" heading-number="6.15"><html><head>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.9---apr-26--2024">MongoDB 7.0.9 Community Edition release notes</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.11---may-23--2024">MongoDB 7.0.11 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.8-5" heading-number="6.16"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13941,7 +14046,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.8.</p>
 <h2 id="release_notes-7.0.8-5-bugs-fixed">Bugs Fixed<a class="headerlink" href="#release_notes-7.0.8-5-bugs-fixed" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1418">PSMDB-1418</a> - Fixed the issue with the server crash when using LDAP authentication by ensuring that LDAP connections borrowed by a client thread are not disposed.</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.7-4" heading-number="6.16"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.7-4" heading-number="6.17"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13975,7 +14080,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
 <h2 id="release_notes-7.0.7-4-bugs-fixed">Bugs Fixed<a class="headerlink" href="#release_notes-7.0.7-4-bugs-fixed" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1434">PSMDB-1434</a> - Fixed the auditing behavior by removing excessive logging for CRUD operations</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.5-3" heading-number="6.17"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.5-3" heading-number="6.18"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13994,7 +14099,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
 <li><a href="https://jira.mongodb.org/browse/SERVER-83091">SERVER-83091</a> - Fixed infinite loop in lockstep $or plan enumeration</li>
 <li><a href="https://jira.mongodb.org/browse/WT-7929">WT-7929</a> - Investigated a solution to avoid a Full Time Diagnostic Data Capture (FTDC) mechanism to stall during checkpoint</li>
 </ul>
-<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.5---jan-5--2024">MongoDB 7.0.5 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.4-2" heading-number="6.18"><html><head>
+<p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.5---jan-5--2024">MongoDB 7.0.5 Community Edition release notes</a>.</p></body></html></section><section class="print-page" id="release_notes-7.0.4-2" heading-number="6.19"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14049,7 +14154,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.5.</p>
 <h2 id="release_notes-7.0.4-2-new-features">New Features<a class="headerlink" href="#release_notes-7.0.4-2-new-features" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://jira.percona.com/browse/PSMDB-1241">PSMDB-1241</a> - Implement the <code>connectRetries</code> and the <code>connectTimeoutMS</code> configuration file options</li>
-</ul></body></html></section><section class="print-page" id="release_notes-7.0.2-1" heading-number="6.19"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-7.0.2-1" heading-number="6.20"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14465,7 +14570,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p></body></html>
 <li><code>--name psmdb</code> - Assigns the name “psmdb” to the container.</li>
 <li><code>--restart always</code> - Configures the container to restart automatically if it stops or crashes.</li>
 <li><code>-e PERCONA_TELEMETRY_DISABLE=1</code> - Sets an environment variable within the container. In this case, it disables telemetry for Percona Server for MongoDB.</li>
-<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>7.0.32-18-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
+<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>7.0.34-19-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
 </ul>
 </div>
 </div>
@@ -14731,41 +14836,43 @@ we will do our very best to be helpful.</p></body></html></section></section></d
 .print-site-enumerate-headings #section-6 > h1:before { content: '6 ' }
 .print-site-enumerate-headings #release_notes-index > h1:before { content: '6.1 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.32-18 > h1:before { content: '6.2 ' }
+.print-site-enumerate-headings #release_notes-7.0.34-19 > h1:before { content: '6.2 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.31-17 > h1:before { content: '6.3 ' }
+.print-site-enumerate-headings #release_notes-7.0.32-18 > h1:before { content: '6.3 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.30-16 > h1:before { content: '6.4 ' }
+.print-site-enumerate-headings #release_notes-7.0.31-17 > h1:before { content: '6.4 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.28-15 > h1:before { content: '6.5 ' }
+.print-site-enumerate-headings #release_notes-7.0.30-16 > h1:before { content: '6.5 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.26-14 > h1:before { content: '6.6 ' }
+.print-site-enumerate-headings #release_notes-7.0.28-15 > h1:before { content: '6.6 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.24-13 > h1:before { content: '6.7 ' }
+.print-site-enumerate-headings #release_notes-7.0.26-14 > h1:before { content: '6.7 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.22-12 > h1:before { content: '6.8 ' }
+.print-site-enumerate-headings #release_notes-7.0.24-13 > h1:before { content: '6.8 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.18-11 > h1:before { content: '6.9 ' }
+.print-site-enumerate-headings #release_notes-7.0.22-12 > h1:before { content: '6.9 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.16-10 > h1:before { content: '6.10 ' }
+.print-site-enumerate-headings #release_notes-7.0.18-11 > h1:before { content: '6.10 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.15-9 > h1:before { content: '6.11 ' }
+.print-site-enumerate-headings #release_notes-7.0.16-10 > h1:before { content: '6.11 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.14-8 > h1:before { content: '6.12 ' }
+.print-site-enumerate-headings #release_notes-7.0.15-9 > h1:before { content: '6.12 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.12-7 > h1:before { content: '6.13 ' }
+.print-site-enumerate-headings #release_notes-7.0.14-8 > h1:before { content: '6.13 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.11-6 > h1:before { content: '6.14 ' }
+.print-site-enumerate-headings #release_notes-7.0.12-7 > h1:before { content: '6.14 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.8-5 > h1:before { content: '6.15 ' }
+.print-site-enumerate-headings #release_notes-7.0.11-6 > h1:before { content: '6.15 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.7-4 > h1:before { content: '6.16 ' }
+.print-site-enumerate-headings #release_notes-7.0.8-5 > h1:before { content: '6.16 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.5-3 > h1:before { content: '6.17 ' }
+.print-site-enumerate-headings #release_notes-7.0.7-4 > h1:before { content: '6.17 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.4-2 > h1:before { content: '6.18 ' }
+.print-site-enumerate-headings #release_notes-7.0.5-3 > h1:before { content: '6.18 ' }
 
-.print-site-enumerate-headings #release_notes-7.0.2-1 > h1:before { content: '6.19 ' }
+.print-site-enumerate-headings #release_notes-7.0.4-2 > h1:before { content: '6.19 ' }
+
+.print-site-enumerate-headings #release_notes-7.0.2-1 > h1:before { content: '6.20 ' }
 
 .print-site-enumerate-headings #faq > h1:before { content: '7 ' }
 
