@@ -4263,6 +4263,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h1 id="percona-server-for-mongodb-7032-18-2026-05-07">Percona Server for MongoDB 7.0.32-18 (2026-05-07)<a class="headerlink" href="#percona-server-for-mongodb-7032-18-2026-05-07" title="Permanent link">¶</a></h1>
 <p><a class="md-button" href="../install/index.html">Installation</a>
 <a class="md-button" href="../install/upgrade-from-mongodb.html">Upgrade from MongoDB Community</a></p>
+<div class="admonition tip">
+<p class="admonition-title">Release notes updated</p>
+<p>CVE-2026-8843 has been added on <strong>2026-05-18</strong>.</p>
+</div>
 <p>Percona Server for MongoDB 7.0.32-18 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <p>Percona Server for MongoDB <strong>7.0.32-18</strong> includes the improvements and bug fixes of: </p>
@@ -4308,11 +4312,16 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <p>This release includes upstream MongoDB security fixes for the following vulnerabilities:</p>
 <h3 id="high-severity">High severity<a class="headerlink" href="#high-severity" title="Permanent link">¶</a></h3>
 <ul>
-<li><a href="https://jira.mongodb.org/browse/SERVER-119981">SERVER-119981</a> <strong>(CVE-2026-6914)</strong>: Fixed an issue where computing the MD5 checksum of a specifically malformed <code>BSON</code> object under certain conditions could cause the MongoDB server to crash, resulting in temporary loss of availability.</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-116327" target="_blank">SERVER-116327 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> <strong>(CVE-2026-8843)</strong>: Fixed a vulnerability where creating <code>2dsphere_bucket</code> or <code>queryable_encrypted_range</code> indexes on unsupported collection types appeared to succeed but caused <code>mongod</code> to crash on the next <code>insert</code> that updated those indexes. An authenticated user with <strong>index creation privileges</strong> could exploit this to cause a denial of service. These conditions are now enforced prior to index creation, which prevents the creation of invalid indexes and eliminates server crashes during both index creation and subsequent inserts.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-119981" target="_blank">SERVER-119981 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> <strong>(CVE-2026-6914)</strong>: Fixed an issue where computing the MD5 checksum of a specifically malformed <code>BSON</code> object under certain conditions could cause the MongoDB server to crash, resulting in temporary loss of availability.</p>
+</li>
 </ul>
 <h3 id="medium-severity">Medium severity<a class="headerlink" href="#medium-severity" title="Permanent link">¶</a></h3>
 <ul>
-<li><a href="https://jira.mongodb.org/browse/SERVER-119679">SERVER-119679</a> <strong>(CVE-2026-6915)</strong>: Resolved an issue where an authorization flaw in the user management command allowed authenticated users to make limited changes to authentication-related data associated with another user’s account. This issue could potentially affect how authentication was performed for the impacted account.</li>
+<li><a href="https://jira.mongodb.org/browse/SERVER-119679" target="_blank">SERVER-119679 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> <strong>(CVE-2026-6915)</strong>: Resolved an issue where an authorization flaw in the user management command allowed authenticated users to make limited changes to authentication-related data associated with another user’s account. This issue could potentially affect how authentication was performed for the impacted account.</li>
 </ul>
 <h3 id="affected-versions">Affected versions<a class="headerlink" href="#affected-versions" title="Permanent link">¶</a></h3>
 <p>These vulnerabilities affect the following versions of MongoDB Community Edition and Percona Server for MongoDB:</p>
@@ -4323,10 +4332,10 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <h2 id="security-fixes-cves-addressed-in-percona-server-for-mongodb-docker-images">Security fixes: CVEs addressed in Percona Server for MongoDB Docker images<a class="headerlink" href="#security-fixes-cves-addressed-in-percona-server-for-mongodb-docker-images" title="Permanent link">¶</a></h2>
 <p>We have identified and <strong>fixed</strong> the following security vulnerabilities (CVEs) in the <a href="https://hub.docker.com/r/percona/percona-server-mongodb" target="_blank">Percona Server for MongoDB Docker images <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>. These issues have been addressed and are resolved in the <strong>latest release</strong>.</p>
 <ul>
-<li><a href="https://access.redhat.com/security/cve/cve-2026-4424">CVE-2026-4424</a></li>
-<li><a href="https://access.redhat.com/security/cve/cve-2026-27135">CVE-2026-27135</a></li>
-<li><a href="https://access.redhat.com/security/cve/cve-2026-32281">CVE-2026-32281</a></li>
-<li><a href="https://access.redhat.com/security/cve/cve-2026-33810">CVE-2026-33810</a></li>
+<li><a href="https://access.redhat.com/security/cve/cve-2026-4424" target="_blank">CVE-2026-4424 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></li>
+<li><a href="https://access.redhat.com/security/cve/cve-2026-27135" target="_blank">CVE-2026-27135 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></li>
+<li><a href="https://access.redhat.com/security/cve/cve-2026-32281" target="_blank">CVE-2026-32281 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></li>
+<li><a href="https://access.redhat.com/security/cve/cve-2026-33810" target="_blank">CVE-2026-33810 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></li>
 </ul>
 <h2 id="tools-packaged-with-this-release">Tools packaged with this release<a class="headerlink" href="#tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB packages the following MongoDB tools:</p>
@@ -4355,7 +4364,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 5, 2026 15:30:09 UTC">May 5, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 20, 2026 10:09:29 UTC">May 20, 2026</span>
   </span>
 
     
