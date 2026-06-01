@@ -303,4 +303,16 @@ If you restart Percona Server for MongoDB with auditing enabled or manually star
 
 Read more about log rotation in [Log rotation in Percona Server for MongoDB](log-rotation.md)
 
+## Audit Log Write Semantics
 
+The audit logging behavior differs depending on the configured destination. Understanding these differences is important when evaluating the durability and performance characteristics of audit logging.
+
+| Destination | Write Behavior | Notes |
+|-------------|----------------|-------|
+| `console` | **Synchronous** | Each audit log entry is written to standard output and the output buffer is flushed immediately. The operation completes only after the entry has been handed off to the operating system. |
+| `syslog` | **Asynchronous** | Percona Server for MongoDB issues a `syslog()` system call for each audit log entry. In typical configurations, this call does not force the system log file to be flushed to disk, so audit records may remain buffered by the operating system or syslog daemon before being persisted. |
+| `file` | **Synchronous** | Audit log entries are written to disk before journal data is persisted. To reduce overhead, Percona Server for MongoDB buffers audit records in memory between writes, but it ensures that buffered audit records are written to disk before the corresponding journal data is committed. |
+
+### Durability considerations
+
+The `console` and `file` destinations provide synchronous handling of audit records, ensuring that audit events are written before the associated operation is considered durable. The `syslog` destination relies on the operating system and syslog implementation, which typically buffer writes and therefore provide asynchronous handling unless additional system-level measures are configured to force log flushing.
