@@ -90,7 +90,6 @@ To summarize, username escaping happens in the following cases:
 
 
 
-
 ### LDAP referrals
 
 As of version 6.0.2-1, Percona Server for MongoDB supports LDAP referrals as defined in [RFC 4511 4.1.10](https://www.rfc-editor.org/rfc/rfc4511.txt). For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.
@@ -101,79 +100,6 @@ To enable LDAP referrals, set the `ldapFollowReferrals` server parameter to `tru
 setParameter:
    ldapFollowReferrals: true
 ```
-
-### LDAP cache refresh parameters
-
-As of version 8.0.20-8, Percona Server for MongoDB introduced parameters to optimize authentication performance and reduce unnecessary load on the LDAP server. These settings control how cached user information is refreshed, allowing administrators to fine-tune the balance between maintaining up-to-date user data and minimizing LDAP query overhead—especially in high-scale environments with many concurrent users.
-
-- `ldapUserCacheRefreshInterval` defines how often (in seconds) the server refreshes cached user information from LDAP **when interval-based refresh is enabled** (see `ldapShouldRefreshUserCacheEntries` below).
-
-- `ldapUserCacheInvalidationInterval` controls how long (in seconds) cached LDAP user entries remain valid before they expire and are evicted from the cache. If you do not set this parameter explicitly, Percona Server for MongoDB uses the built-in default for your version. This parameter applies when `ldapShouldRefreshUserCacheEntries` is set to `false`.
-
-- `ldapShouldRefreshUserCacheEntries` selects the refresh strategy and has the following semantics:
-
-      - When set to `true`, each cached `$external` user is periodically re-fetched from the LDAP server at the interval defined by `ldapUserCacheRefreshInterval`. The cache is updated only if the user’s roles have changed; otherwise, existing entries remain untouched, ensuring no disruption. If a user no longer exists in LDAP, their cache entry is invalidated individually.
-
-      - When set to `false`, all `$external` users are evicted from the cache at intervals defined by `ldapUserCacheInvalidationInterval`. This preserves the behavior that existed prior to the introduction of `ldapUserCacheRefreshInterval` and `ldapShouldRefreshUserCacheEntries`.
-
-    The default value is `false` (expiration-based invalidation using `ldapUserCacheInvalidationInterval`), to maintain backward-compatible behavior unless interval-based refreshing is explicitly enabled.
-
-    `ldapShouldRefreshUserCacheEntries` can only be set at startup. Interval parameters may be configured both at startup and during runtime.
-
-    !!! warning
-        The default value will be changed to **true** in all major versions released after March 1, 2026.
-
-**Interval-based refresh** (`ldapShouldRefreshUserCacheEntries: true`):
-
-=== "Runtime (setParameter)"
-
-     ```{.javascript data-prompt=">"}
-     > db.adminCommand({
-     ...   setParameter: 1,
-     ...   ldapUserCacheRefreshInterval: 300
-     ... })
-     ```
-
-=== "Command line"
-
-     ```bash
-     mongod --setParameter "ldapUserCacheRefreshInterval=300" \
-            --setParameter "ldapShouldRefreshUserCacheEntries=true"
-     ```
-
-=== "Configuration file"
-
-     ```yaml
-     setParameter:
-       ldapUserCacheRefreshInterval: 300
-       ldapShouldRefreshUserCacheEntries: true
-     ```
-
-**Expiration-based invalidation** (`ldapShouldRefreshUserCacheEntries: false`):
-
-=== "Runtime (setParameter)"
-
-     ```{.javascript data-prompt=">"}
-     > db.adminCommand({
-     ...   setParameter: 1,
-     ...   ldapUserCacheInvalidationInterval: 30
-     ... })
-     ```
-
-=== "Command line"
-
-     ```bash
-     mongod --setParameter "ldapUserCacheInvalidationInterval=30" \
-            --setParameter "ldapShouldRefreshUserCacheEntries=false"
-     ```
-
-=== "Configuration file"
-
-     ```yaml
-     setParameter:
-       ldapUserCacheInvalidationInterval: 30
-       ldapShouldRefreshUserCacheEntries: false
-     ```
 
 ### Connection pool
 
@@ -227,8 +153,8 @@ db.adminCommand( { setParameter: 1, ldapServers:"localhost,ldap1.example.net,lda
 
 ## Configuration
 
-For how to configure LDAP authorization with the native LDAP authentication, see [Setting up LDAP authentication and authorization using NativeLDAP](ldap-setup.md).
+To configure LDAP authorization with the native LDAP authentication, see [Setting up LDAP authentication and authorization using NativeLDAP](ldap-setup.md).
 
-
+For details on available configuration options, refer to [LDAP parameters](ldap-parameters.md).
 
 *[DN]: Distinguished Name
