@@ -44,20 +44,20 @@ The `ldap.userToDNCache` document reports the status and performance of the in-m
 
 Run the following command:
 
-```sh
+```javascript
 db.serverStatus().ldap.userToDNCache
 ```
 
 ??? example "Output"
-    ```bash
+    ```{.json .no-copy}
     {
-     "enabled": true,
-     "maxSize": 10000,
-     "currentSize": 42,
-     "ttlSeconds": 30,
-     "hits": 1847,
-     "misses": 63,
-     "invalidations": 2
+    "enabled": true,
+    "maxSize": 10000,
+    "currentSize": 42,
+    "ttlSeconds": 30,
+    "hits": 1847,
+    "misses": 63,
+    "invalidations": 2
     }
     ```
 
@@ -90,7 +90,6 @@ A higher hit rate means more LDAP `userToDN` lookups are served from cache, redu
 
 !!! note
     If `hits` and `misses` drop sharply and `invalidations` increases, an LDAP-related runtime parameter was likely changed. This does not necessarily indicate degraded cache performance.
-
 
 
 
