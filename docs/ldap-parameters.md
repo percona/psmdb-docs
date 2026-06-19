@@ -31,7 +31,7 @@ The cache is automatically invalidated when any of the following parameters chan
 | `ldapUserToDNCacheSize`     | No       | Changing the cache size clears the cache.                  |
 | `ldapServers`               | Yes      | Comma-separated list of LDAP servers to connect to.         |
 | `ldapQueryUser`             | optional      | Distinguished Name (DN) of the user used to perform LDAP queries. |
-| `ldapQueryPassword`         | optional      | Password for the query user. 
+| `ldapQueryPassword`         | optional      | Password for the query user. |
 
 
 ## Monitor userToDNCache
