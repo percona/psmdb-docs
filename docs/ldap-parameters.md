@@ -2,7 +2,8 @@
 
 Percona Server for MongoDB provides a set of configuration parameters to enable and fine-tune LDAP authentication and authorization.
 
-## User-to-DN cache parameters
+
+## userToDNCache cache parameters
 
 To reduce the number of round trips to the LDAP server during authentication and authorization, Percona Server for MongoDB caches the results of LDAP user-to-DN mapping configured by `security.ldap.userToDNMapping` (exposed as `--ldapUserToDNMapping` at startup and `ldapUserToDNMapping` at runtime).
 
@@ -23,14 +24,76 @@ The cache is controlled by the following server parameters:
 
 The cache is automatically invalidated when any of the following parameters change at runtime:
 
-| **Parameter**                  | **Required** | **Description**                                                |
-|-----------------------------|----------|------------------------------------------------------------|
+| **Parameter**| **Required** | **Description** |
+|--------------|----------|---------------------|
 | `ldapUserToDNMapping`       | Yes      | Rules for mapping usernames to LDAP DNs.                   |
 | `ldapUserToDNCacheTTLSeconds` | No       | Changing the TTL value clears the cache.                   |
 | `ldapUserToDNCacheSize`     | No       | Changing the cache size clears the cache.                  |
 | `ldapServers`               | Yes      | Comma-separated list of LDAP servers to connect to.         |
 | `ldapQueryUser`             | optional      | Distinguished Name (DN) of the user used to perform LDAP queries. |
 | `ldapQueryPassword`         | optional      | Password for the query user. 
+
+
+##  Monitor userToDNCache
+
+Percona Server for MongoDB exposes LDAP userToDN cache statistics in the `db.serverStatus()` output when the server is configured to use LDAP authentication with `--ldapServers`.
+
+The `ldap.userToDNCache` document reports the status and performance of the in-memory Least Recently Used (LRU) cache that maps LDAP usernames to Distinguished Names (DNs). You can use this information to verify whether the cache is enabled, monitor cache usage, and identify whether LDAP lookups are being served from cache or sent to the LDAP server.
+
+### View LDAP userToDN cache statistics
+
+Run the following command:
+
+```sh
+db.serverStatus().ldap.userToDNCache
+```
+
+??? example "Output"
+    ```bash
+    {
+     "enabled": true,
+     "maxSize": 10000,
+     "currentSize": 42,
+     "ttlSeconds": 30,
+     "hits": 1847,
+     "misses": 63,
+     "invalidations": 2
+    }
+    ```
+
+The different fields are described in the table below.
+
+| **Field** | **Description** |
+|-------|-------------|
+| `enabled` | Indicates whether the LDAP user-to-DN cache is active.<br><br>The cache is disabled when either `ldapUserToDNCacheTTLSeconds` or `ldapUserToDNCacheSize` is set to `0`.<br><br>When disabled, all user-to-DN lookups are sent directly to the LDAP server. |
+| `maxSize` | The maximum number of username-to-DN mappings that can be stored in the cache.<br><br>Corresponds to the `ldapUserToDNCacheSize` server parameter.<br><br>When the cache reaches this limit, the least recently used entry is evicted to make room for a new one. |
+| `currentSize` | The current number of username-to-DN mappings stored in the cache. |
+| `ttlSeconds` | The time-to-live (TTL) for cache entries, in seconds.<br><br>Corresponds to the `ldapUserToDNCacheTTLSeconds` server parameter.<br><br>Entries older than this value are treated as expired and are not served from the cache. |
+| `hits` | The number of `mapUserToDN` lookups served from the cache since the last cache invalidation.<br><br>This counter resets to `0` when the cache is invalidated, for example after changing `ldapUserToDNMapping`, `ldapUserToDNCacheSize`, or `ldapUserToDNCacheTTLSeconds` using `setParameter`.<br><br>A successful LDAP authentication may perform two internal `mapUserToDN` lookups (during SASL bind and role resolution), increasing this counter by up to `2` per login. |
+| `misses` | The number of `mapUserToDN` lookups not served from the cache since the last cache invalidation.<br><br>A miss occurs when an entry is missing or has expired.<br><br>This counter resets to `0` whenever the cache is invalidated. |
+| `invalidations` | The total number of cache invalidations since server startup.<br><br>This value increases whenever `ldapUserToDNMapping`, `ldapUserToDNCacheSize`, or `ldapUserToDNCacheTTLSeconds` is changed using `setParameter`.<br><br>Unlike `hits` and `misses`, this counter does not reset.<br><br>The initial cache creation during startup is not counted as an invalidation. |
+
+### Calculate the cache hit rate
+
+You can calculate the hit rate for the current cache generation using the following command:
+
+```sh
+var c = db.serverStatus().ldap.userToDNCache;
+var total = c.hits + c.misses;
+var hitRate = total > 0 ? c.hits / total : null;
+```
+
+A higher hit rate means more LDAP userToDN lookups are served from cache, reducing requests to the LDAP server.
+
+Monitor invalidations together with hits and misses. If hits and misses suddenly drop to low values and invalidations increases, this usually indicates that an LDAP-related runtime parameter was changed. It does not necessarily indicate degraded cache performance.
+
+### Related parameters
+
+| **Parameter** | **Description** |
+|:----------|:------------|
+| `ldapUserToDNCacheSize` | Maximum number of cache entries. The default value is `10000`. Set to `0` to disable the cache. |
+| `ldapUserToDNCacheTTLSeconds` | Time-to-live (TTL) for cache entries, in seconds. The default value is `30`. Set to `0` to disable the cache. |
+| `ldapUserToDNMapping` | JSON mapping rules used to map LDAP usernames to Distinguished Names (DNs). Changing this parameter at runtime invalidates the cache. |
 
 
 
