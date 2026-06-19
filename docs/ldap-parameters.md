@@ -71,7 +71,7 @@ The following table describes the fields returned in the `ldap.userToDNCache` do
 | `ttlSeconds` | The time-to-live (TTL) for cache entries, in seconds.<br><br>Corresponds to the `ldapUserToDNCacheTTLSeconds` server parameter.<br><br>Entries older than this value are treated as expired and are not served from the cache. |
 | `hits` | The number of `mapUserToDN` lookups served from the cache since the last cache invalidation.|
 | `misses` | The number of `mapUserToDN` lookups not served from the cache since the last cache invalidation.<br><br>A miss occurs when an entry is missing or has expired.|
-| `invalidations` | The total number of cache invalidations since server startup.<br><br>Unlike `hits` and `misses`, this counter does not reset.<br><br>|
+| `invalidations` | The total number of cache invalidations since server startup.<br><br>Unlike `hits` and `misses`, this counter does not reset. |
 
 !!! note
     The `hits` and `misses` counters reset to `0` on each cache invalidation. `invalidations` never resets.
