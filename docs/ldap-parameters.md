@@ -44,7 +44,7 @@ The `ldap.userToDNCache` document reports the status and performance of the in-m
 
 Run the following command:
 
-```sh
+```javascript
 db.serverStatus().ldap.userToDNCache
 ```
 
@@ -94,7 +94,6 @@ Monitor invalidations together with hits and misses. If hits and misses suddenly
 | `ldapUserToDNCacheSize` | Maximum number of cache entries. The default value is `10000`. Set to `0` to disable the cache. |
 | `ldapUserToDNCacheTTLSeconds` | Time-to-live (TTL) for cache entries, in seconds. The default value is `30`. Set to `0` to disable the cache. |
 | `ldapUserToDNMapping` | JSON mapping rules used to map LDAP usernames to Distinguished Names (DNs). Changing this parameter at runtime invalidates the cache. |
-
 
 
 
