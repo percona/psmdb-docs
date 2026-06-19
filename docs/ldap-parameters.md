@@ -73,6 +73,9 @@ The different fields are described in the table below.
 | `misses` | The number of `mapUserToDN` lookups not served from the cache since the last cache invalidation.<br><br>A miss occurs when an entry is missing or has expired.<br><br>This counter resets to `0` whenever the cache is invalidated. |
 | `invalidations` | The total number of cache invalidations since server startup.<br><br>This value increases whenever `ldapUserToDNMapping`, `ldapUserToDNCacheSize`, or `ldapUserToDNCacheTTLSeconds` is changed using `setParameter`.<br><br>Unlike `hits` and `misses`, this counter does not reset.<br><br>The initial cache creation during startup is not counted as an invalidation. |
 
+!!! note
+    The `hits` and `misses` counters reset to `0` on each cache invalidation. `invalidations` never resets.
+
 ### Calculate the cache hit rate
 
 You can calculate the hit rate for the current cache generation using the following command:
@@ -85,8 +88,9 @@ var hitRate = total > 0 ? c.hits / total : null;
 
 A higher hit rate means more LDAP userToDN lookups are served from cache, reducing requests to the LDAP server.
 
-Monitor invalidations together with hits and misses. If hits and misses suddenly drop to low values and invalidations increase, this usually indicates that an LDAP-related runtime parameter was changed. It does not necessarily indicate degraded cache performance.
-
+!!! note
+    If `hits` and `misses` drop sharply and `invalidations` increases, an LDAP-related runtime parameter was likely changed. This does not necessarily indicate degraded cache performance.
+    
 ### Related parameters
 
 | **Parameter** | **Description** |
