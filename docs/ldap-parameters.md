@@ -73,6 +73,28 @@ The different fields are described in the table below.
 | `misses` | The number of `mapUserToDN` lookups not served from the cache since the last cache invalidation.<br><br>A miss occurs when an entry is missing or has expired.<br><br>This counter resets to `0` whenever the cache is invalidated. |
 | `invalidations` | The total number of cache invalidations since server startup.<br><br>This value increases whenever `ldapUserToDNMapping`, `ldapUserToDNCacheSize`, or `ldapUserToDNCacheTTLSeconds` is changed using `setParameter`.<br><br>Unlike `hits` and `misses`, this counter does not reset.<br><br>The initial cache creation during startup is not counted as an invalidation. |
 
+### Calculate the cache hit rate
+
+You can calculate the hit rate for the current cache generation using the following command:
+
+```sh
+var c = db.serverStatus().ldap.userToDNCache;
+var total = c.hits + c.misses;
+var hitRate = total > 0 ? c.hits / total : null;
+```
+
+A higher hit rate means more LDAP userToDN lookups are served from cache, reducing requests to the LDAP server.
+
+Monitor invalidations together with hits and misses. If hits and misses suddenly drop to low values and invalidations increases, this usually indicates that an LDAP-related runtime parameter was changed. It does not necessarily indicate degraded cache performance.
+
+### Related parameters
+
+| **Parameter** | **Description** |
+|:----------|:------------|
+| `ldapUserToDNCacheSize` | Maximum number of cache entries. The default value is `10000`. Set to `0` to disable the cache. |
+| `ldapUserToDNCacheTTLSeconds` | Time-to-live (TTL) for cache entries, in seconds. The default value is `30`. Set to `0` to disable the cache. |
+| `ldapUserToDNMapping` | JSON mapping rules used to map LDAP usernames to Distinguished Names (DNs). Changing this parameter at runtime invalidates the cache. |
+
 
 
 
