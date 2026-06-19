@@ -8847,6 +8847,37 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 <td>The total number of cache invalidations since server startup.<br><br>This value increases whenever <code>ldapUserToDNMapping</code>, <code>ldapUserToDNCacheSize</code>, or <code>ldapUserToDNCacheTTLSeconds</code> is changed using <code>setParameter</code>.<br><br>Unlike <code>hits</code> and <code>misses</code>, this counter does not reset.<br><br>The initial cache creation during startup is not counted as an invalidation.</td>
 </tr>
 </tbody>
+</table>
+<h3 id="ldap-parameters-calculate-the-cache-hit-rate">Calculate the cache hit rate<a class="headerlink" href="#ldap-parameters-calculate-the-cache-hit-rate" title="Permanent link">¶</a></h3>
+<p>You can calculate the hit rate for the current cache generation using the following command:</p>
+<div class="highlight"><pre><span></span><code>var<span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>db.serverStatus<span class="o">()</span>.ldap.userToDNCache<span class="p">;</span>
+var<span class="w"> </span><span class="nv">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>c.hits<span class="w"> </span>+<span class="w"> </span>c.misses<span class="p">;</span>
+var<span class="w"> </span><span class="nv">hitRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>total<span class="w"> </span>&gt;<span class="w"> </span><span class="m">0</span><span class="w"> </span>?<span class="w"> </span>c.hits<span class="w"> </span>/<span class="w"> </span>total<span class="w"> </span>:<span class="w"> </span>null<span class="p">;</span>
+</code></pre></div>
+<p>A higher hit rate means more LDAP userToDN lookups are served from cache, reducing requests to the LDAP server.</p>
+<p>Monitor invalidations together with hits and misses. If hits and misses suddenly drop to low values and invalidations increases, this usually indicates that an LDAP-related runtime parameter was changed. It does not necessarily indicate degraded cache performance.</p>
+<h3 id="ldap-parameters-related-parameters">Related parameters<a class="headerlink" href="#ldap-parameters-related-parameters" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parameter</strong></th>
+<th style="text-align: left;"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ldapUserToDNCacheSize</code></td>
+<td style="text-align: left;">Maximum number of cache entries. The default value is <code>10000</code>. Set to <code>0</code> to disable the cache.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ldapUserToDNCacheTTLSeconds</code></td>
+<td style="text-align: left;">Time-to-live (TTL) for cache entries, in seconds. The default value is <code>30</code>. Set to <code>0</code> to disable the cache.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ldapUserToDNMapping</code></td>
+<td style="text-align: left;">JSON mapping rules used to map LDAP usernames to Distinguished Names (DNs). Changing this parameter at runtime invalidates the cache.</td>
+</tr>
+</tbody>
 </table></body></html></section></section>
                     <section class='print-page md-section' id='section-4-4-5' heading-number='4.4.5'>
                         <h1>OIDC<a class='headerlink' href='#section-4-4-5' title='Permanent link'></a>
