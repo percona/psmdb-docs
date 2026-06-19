@@ -51,13 +51,13 @@ db.serverStatus().ldap.userToDNCache
 ??? example "Output"
     ```{.json .no-copy}
     {
-    "enabled": true,
-    "maxSize": 10000,
-    "currentSize": 42,
-    "ttlSeconds": 30,
-    "hits": 1847,
-    "misses": 63,
-    "invalidations": 2
+      "enabled": true,
+      "maxSize": 10000,
+      "currentSize": 42,
+      "ttlSeconds": 30,
+      "hits": 1847,
+      "misses": 63,
+      "invalidations": 2
     }
     ```
 
