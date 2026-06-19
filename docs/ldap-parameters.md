@@ -24,7 +24,7 @@ The cache is controlled by the following server parameters:
 
 The cache is automatically invalidated when any of the following parameters change at runtime:
 
-| **Parameter**| **Required** | **Description** |
+| **Parameter** | **Required** | **Description** |
 |--------------|----------|---------------------|
 | `ldapUserToDNMapping`       | Yes      | Rules for mapping usernames to LDAP DNs.                   |
 | `ldapUserToDNCacheTTLSeconds` | No       | Changing the TTL value clears the cache.                   |
