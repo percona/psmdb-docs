@@ -85,7 +85,7 @@ var hitRate = total > 0 ? c.hits / total : null;
 
 A higher hit rate means more LDAP userToDN lookups are served from cache, reducing requests to the LDAP server.
 
-Monitor invalidations together with hits and misses. If hits and misses suddenly drop to low values and invalidations increases, this usually indicates that an LDAP-related runtime parameter was changed. It does not necessarily indicate degraded cache performance.
+Monitor invalidations together with hits and misses. If hits and misses suddenly drop to low values and invalidations increase, this usually indicates that an LDAP-related runtime parameter was changed. It does not necessarily indicate degraded cache performance.
 
 ### Related parameters
 
