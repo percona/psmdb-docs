@@ -80,7 +80,7 @@ The following table describes the fields returned in the `ldap.userToDNCache` do
 
 You can calculate the hit rate for the current cache generation using the following command:
 
-```sh
+```javascript
 var c = db.serverStatus().ldap.userToDNCache;
 var total = c.hits + c.misses;
 var hitRate = total > 0 ? c.hits / total : null;
