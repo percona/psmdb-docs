@@ -34,7 +34,7 @@ The cache is automatically invalidated when any of the following parameters chan
 | `ldapQueryPassword`         | optional      | Password for the query user. 
 
 
-##  Monitor userToDNCache
+## Monitor userToDNCache
 
 Percona Server for MongoDB exposes LDAP userToDN cache statistics in the `db.serverStatus()` output when the server is configured to use LDAP authentication with `--ldapServers`.
 
