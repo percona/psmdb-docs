@@ -3,7 +3,7 @@
 Percona Server for MongoDB provides a set of configuration parameters to enable and fine-tune LDAP authentication and authorization.
 
 
-## userToDNCache cache parameters
+## User-to-DN cache parameters
 
 To reduce the number of round trips to the LDAP server during authentication and authorization, Percona Server for MongoDB caches the results of LDAP user-to-DN mapping configured by `security.ldap.userToDNMapping` (exposed as `--ldapUserToDNMapping` at startup and `ldapUserToDNMapping` at runtime).
 
