@@ -30,36 +30,8 @@ The cache is automatically invalidated when any of the following parameters chan
 | `ldapUserToDNCacheTTLSeconds` | No       | Changing the TTL value clears the cache.                   |
 | `ldapUserToDNCacheSize`     | No       | Changing the cache size clears the cache.                  |
 | `ldapServers`               | Yes      | Comma-separated list of LDAP servers to connect to.         |
-| `ldapQueryUser`             | No      | Distinguished Name (DN) of the user used to perform LDAP queries. |
-| `ldapQueryPassword`         | No      | Password for the query user. |
-
-
-## Monitor userToDNCache
-
-Percona Server for MongoDB exposes LDAP userToDN cache statistics in the `db.serverStatus()` output when the server is configured to use LDAP authentication with `--ldapServers`.
-
-The `ldap.userToDNCache` document reports the status and performance of the in-memory Least Recently Used (LRU) cache that maps LDAP usernames to Distinguished Names (DNs). You can use this information to verify whether the cache is enabled, monitor cache usage, and identify whether LDAP lookups are being served from cache or sent to the LDAP server.
-
-### View LDAP userToDN cache statistics
-
-Run the following command:
-
-```javascript
-db.serverStatus().ldap.userToDNCache
-```
-
-??? example "Output"
-    ```{.json .no-copy}
-    {
-      "enabled": true,
-      "maxSize": 10000,
-      "currentSize": 42,
-      "ttlSeconds": 30,
-      "hits": 1847,
-      "misses": 63,
-      "invalidations": 2
-    }
-    ```
+| `ldapQueryUser`             | optional      | Username of the account used to connect to and query the LDAP server.|
+| `ldapQueryPassword`         | optional      | Password for the query user. 
 
 The following table describes the fields returned in the `ldap.userToDNCache` document.
 
