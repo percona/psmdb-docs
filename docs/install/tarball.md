@@ -88,8 +88,8 @@ The following steps show how to install Percona Server for MongoDB from a tarbal
     5. Create a user and group for mongod
         
         ```bash
-        $ groupadd -r mongod
-        $ useradd -M -r -g mongod -d /var/lib/mongo -s /bin/false -c mongod mongod
+        sudo groupadd -r mongod
+        sudo useradd -M -r -g mongod -d /var/lib/mongo -s /bin/false -c mongod mongod
         ```
         
     6. The new TCMalloc requires [Restartable Sequences (rseq) :octicons-link-external-16:](https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc) to implement [per-CPU caches :octicons-link-external-16:](https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache). To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:
@@ -101,8 +101,8 @@ The following steps show how to install Percona Server for MongoDB from a tarbal
 
     7. (Optional) Create a systemd unit file. Specify the following configuration:
     
-    	```bash
-    	tee /usr/lib/systemd/system/mongod.service <<EOF
+        ```bash
+        sudo tee /etc/systemd/system/mongod.service <<'EOF' > /dev/null
         [Unit]
         Description=MongoDB Database Server instance
         After=time-sync.target network.target
@@ -136,6 +136,8 @@ The following steps show how to install Percona Server for MongoDB from a tarbal
         [Install]
         WantedBy=multi-user.target
         EOF
+        sudo systemctl daemon-reload
+        sudo systemctl enable --now mongod
         ```
      
     8. Make sure that you have read and write permissions for the data directory and run `mongod`.
