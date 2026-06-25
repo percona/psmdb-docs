@@ -8717,7 +8717,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
         </script>
         </head><body><h1 id="ldap-configuration-parameters">LDAP configuration parameters<a class="headerlink" href="#ldap-parameters-ldap-configuration-parameters" title="Permanent link">¶</a></h1>
 <p>Percona Server for MongoDB provides a set of configuration parameters to enable and fine-tune LDAP authentication and authorization.</p>
-<h2 id="ldap-parameters-user-to-dn-cache-parameters">User-to-DN cache parameters<a class="headerlink" href="#ldap-parameters-user-to-dn-cache-parameters" title="Permanent link">¶</a></h2>
+<h2 id="ldap-parameters-usertodn-cache-parameters">userToDN cache parameters<a class="headerlink" href="#ldap-parameters-usertodn-cache-parameters" title="Permanent link">¶</a></h2>
 <p>To reduce the number of round trips to the LDAP server during authentication and authorization, Percona Server for MongoDB caches the results of LDAP user-to-DN mapping configured by <code>security.ldap.userToDNMapping</code> (exposed as <code>--ldapUserToDNMapping</code> at startup and <code>ldapUserToDNMapping</code> at runtime).</p>
 <p>For more details on configuring user-to-DN mapping, see <a href="#authorization-username-transformation">LDAP authorization</a> and <a href="#ldap-setup">Set up LDAP authentication and authorization using NativeLDAP</a>.</p>
 <p>The cache is controlled by the following server parameters:</p>
@@ -8779,16 +8779,90 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </tr>
 <tr>
 <td><code>ldapQueryUser</code></td>
-<td>optional</td>
+<td>No</td>
 <td>Username of the account used to connect to and query the LDAP server.</td>
 </tr>
 <tr>
 <td><code>ldapQueryPassword</code></td>
-<td>optional</td>
+<td>No</td>
 <td>Password for the query user.</td>
 </tr>
 </tbody>
-</table></body></html></section></section>
+</table>
+<h2 id="ldap-parameters-monitor-usertodncache">Monitor userToDNCache<a class="headerlink" href="#ldap-parameters-monitor-usertodncache" title="Permanent link">¶</a></h2>
+<p>Percona Server for MongoDB exposes LDAP userToDN cache statistics in the <code>db.serverStatus()</code> output when the server is configured to use LDAP authentication with <code>--ldapServers</code>.</p>
+<p>The <code>ldap.userToDNCache</code> document reports the status and performance of the in-memory Least Recently Used (LRU) cache that maps LDAP usernames to Distinguished Names (DNs). You can use this information to verify whether the cache is enabled, monitor cache usage, and identify whether LDAP lookups are being served from cache or sent to the LDAP server.</p>
+<h3 id="ldap-parameters-view-ldap-usertodn-cache-statistics">View LDAP userToDN cache statistics<a class="headerlink" href="#ldap-parameters-view-ldap-usertodn-cache-statistics" title="Permanent link">¶</a></h3>
+<p>Run the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">ldap</span><span class="p">.</span><span class="nx">userToDNCache</span>
+</code></pre></div>
+<details class="example">
+<summary>Output</summary>
+<div class="no-copy highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"maxSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"currentSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"ttlSeconds"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"hits"</span><span class="p">:</span><span class="w"> </span><span class="mi">1847</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"misses"</span><span class="p">:</span><span class="w"> </span><span class="mi">63</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"invalidations"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
+<p>The following table describes the fields returned in the <code>ldap.userToDNCache</code> document.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Field</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enabled</code></td>
+<td>Indicates whether the LDAP user-to-DN cache is active.<br><br>The cache is disabled when either <code>ldapUserToDNCacheTTLSeconds</code> or <code>ldapUserToDNCacheSize</code> is set to <code>0</code>.<br><br>When disabled, all user-to-DN lookups are sent directly to the LDAP server.</td>
+</tr>
+<tr>
+<td><code>maxSize</code></td>
+<td>The maximum number of <code>username-to-DN mappings</code> that can be stored in the cache.<br><br>Corresponds to the <code>ldapUserToDNCacheSize</code> server parameter.<br><br>When the cache reaches this limit, the least recently used entry is evicted.</td>
+</tr>
+<tr>
+<td><code>currentSize</code></td>
+<td>The current number of <code>username-to-DN</code> mappings stored in the cache.</td>
+</tr>
+<tr>
+<td><code>ttlSeconds</code></td>
+<td>The time-to-live (TTL) for cache entries, in seconds.<br><br>Corresponds to the <code>ldapUserToDNCacheTTLSeconds</code> server parameter.<br><br>Entries older than this value are treated as expired and are not served from the cache.</td>
+</tr>
+<tr>
+<td><code>hits</code></td>
+<td>The number of <code>mapUserToDN</code> lookups served from the cache since the last cache invalidation.</td>
+</tr>
+<tr>
+<td><code>misses</code></td>
+<td>The number of <code>mapUserToDN</code> lookups not served from the cache since the last cache invalidation.<br><br>A miss occurs when an entry is missing or has expired.</td>
+</tr>
+<tr>
+<td><code>invalidations</code></td>
+<td>The total number of cache invalidations since server startup.<br><br>Unlike <code>hits</code> and <code>misses</code>, this counter does not reset.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>hits</code> and <code>misses</code> counters reset to <code>0</code> on each cache invalidation. <code>invalidations</code> never resets.</p>
+</div>
+<h3 id="ldap-parameters-calculate-the-cache-hit-rate">Calculate the cache hit rate<a class="headerlink" href="#ldap-parameters-calculate-the-cache-hit-rate" title="Permanent link">¶</a></h3>
+<p>You can calculate the hit rate for the current cache generation using the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">ldap</span><span class="p">.</span><span class="nx">userToDNCache</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">hits</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">misses</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">hitRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">hits</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</code></pre></div>
+<p>A higher hit rate means more LDAP <code>userToDN</code> lookups are served from cache, reducing requests to the LDAP server.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <code>hits</code> and <code>misses</code> drop sharply and <code>invalidations</code> increases, an LDAP-related runtime parameter was likely changed. This does not necessarily indicate degraded cache performance.</p>
+</div></body></html></section></section>
                     <section class='print-page md-section' id='section-4-4-5' heading-number='4.4.5'>
                         <h1>OIDC<a class='headerlink' href='#section-4-4-5' title='Permanent link'></a>
                         </h1>
