@@ -200,6 +200,8 @@ nav:
       - Feature comparison with MongoDB: comparison.md
       - Storage:
         - "Percona Memory Engine": "inmemory.md"
+      - Search:
+        - overview-search.md
       - Backup:
         - "Hot Backup": "hot-backup.md"
         - backup-cursor.md
