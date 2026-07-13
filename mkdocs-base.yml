@@ -202,6 +202,8 @@ nav:
         - "Percona Memory Engine": "inmemory.md"
       - Search:
         - overview-search.md
+        - vector-search-architecture.md
+        - vector-search-compatibility.md
       - Backup:
         - "Hot Backup": "hot-backup.md"
         - backup-cursor.md
