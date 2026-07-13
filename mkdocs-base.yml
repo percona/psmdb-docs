@@ -204,6 +204,7 @@ nav:
         - overview-search.md
         - vector-search-architecture.md
         - vector-search-compatibility.md
+        - install-mongot.md
       - Backup:
         - "Hot Backup": "hot-backup.md"
         - backup-cursor.md
