@@ -1,4 +1,4 @@
-# Install and enable mongot
+# Install mongot on Linux
 
 Before deploying vector search for PSMDB, ensure that you have:
 
