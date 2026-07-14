@@ -204,11 +204,9 @@ nav:
         - overview-search.md
         - vector-search-architecture.md
         - vector-search-compatibility.md
-        - Install mongot
-          - install-mongot-linux.md
-          - install-mongot-docker.md
-        - Configure mongot
-          - configure-mongot.md
+        - install-mongot-linux.md
+        - install-mongot-docker.md
+        - configure-mongot.md
       - Backup:
         - "Hot Backup": "hot-backup.md"
         - backup-cursor.md
