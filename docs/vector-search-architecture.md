@@ -2,8 +2,6 @@
 
 `mongod` and `mongot` work together to provide full-text and vector search capabilities. While `mongod` continues to store and manage your application data, `mongot` is responsible for building search indexes and executing search queries. The two processes run alongside each other and communicate internally to keep search indexes synchronized with the underlying data.
 
-![image](_images/vector-search.png)
-
 ## Components
 
 | **Component** | **Description** |
@@ -28,6 +26,5 @@ The following steps describe how a vector search request is processed:
 
 ## Data synchronization
 `mongot` does not store the primary copy of your data. Instead, it maintains vector indexes that are synchronized with the collections stored in `mongod`. Whenever documents are inserted, updated, or deleted, the corresponding vector indexes are updated automatically. This synchronization ensures that vector search queries operate on current data without requiring manual index maintenance.
-
 
 
