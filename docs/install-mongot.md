@@ -151,7 +151,7 @@ For more details, refer to the [vector search compatibility](vector-search-compa
         ```sh
         echo "<mongot-password>" > /etc/mongot/mongot.passwd
         chmod 600 /etc/mongot/mongot.passwd
-        chown mongod: /etc/mongot/mongot.passwd
+        chown mongod:mongod /etc/mongot/mongot.passwd
         ```
 
     6. Copy `mongot` to the installation directory:
