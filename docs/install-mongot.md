@@ -226,8 +226,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
     !!! info "Important"
         - `mongot` syncs data from `mongod` and requires a PSMDB replica set. A standalone deployment doesn't support `mongot`.
-        - If you want PSMDB Vector Search to automatically generate embeddings for text data in your collection, create endpoint service API keys. For more information, see [Automated Embedding]().
-
+        - If you want PSMDB Vector Search to automatically generate embeddings for text data in your collection, create endpoint service API keys. For more information, see Automated Embedding.
     Follow these steps to install `mongot` from Docker:
     {.power-number}
 
