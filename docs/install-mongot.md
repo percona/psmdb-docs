@@ -380,6 +380,34 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
     Both containers run on the same Docker network.
 
+10. Start the `mongot` process.
+
+    - Replace </path/to/data/mongot> with the path to the local directory for the mounted volume to store mongot data.
+
+    - Replace </path/to/mongot.conf> with the path to the mongot configuration file that you created in the previous step.
+
+    - Replace </path/to/passwordFile> with the path to the password file you created.
+
+    ```sh
+    docker run --rm \
+   --name mongot-community \
+   -v </path/to/data/mongot>:/data/mongot \
+   -v </path/to/mongot.conf>:/mongot-community/config.default.yml \
+   -v </path/to/passwordFile>:/passwordFile:ro \
+   --network search-community \
+   -p 8080:8080 \
+   -p 9946:9946 \
+   mongodb/mongodb-community-search:latest
+    ```
+
+11. Verify the health of the mongot process.
+
+    To verify, send a request by using a HTTP client or curl to the /health endpoint. For example, send a curl request similar to the following sample request:
+
+
+    ```sh
+    curl localhost:8080/health
+    ```
 
 
 
