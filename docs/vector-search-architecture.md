@@ -1,6 +1,6 @@
 # Architecture
 
-`mongod` and `mongot` work together to provide full text and vector search capabilities. While `mongod` continues to store and manage your application data, mongot is responsible for building search indexes and executing search queries. The two processes run alongside each other and communicate internally to keep search indexes synchronized with the underlying data.
+`mongod` and `mongot` work together to provide full-text and vector search capabilities. While `mongod` continues to store and manage your application data, `mongot` is responsible for building search indexes and executing search queries. The two processes run alongside each other and communicate internally to keep search indexes synchronized with the underlying data.
 
 ![image](_images/vector-search.png)
 
