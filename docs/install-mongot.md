@@ -3,9 +3,10 @@
 Before deploying Vector Search for Percona Server for MongoDB, ensure that you have:
 
 - Percona Server for MongoDB 8.3 or later installed.
-- A running standalone, replica set, or sharded deployment.
+- An initiated replica set with keyfile access control or sharded deployment.
 - Administrative privileges to install and configure `mongot`.
 - A supported Linux operating system.
+- Install Docker and Docker Compose (For Docker).
 
 For more information, see [Vector Search compatibility](vector-search-compatibility.md).
 
@@ -13,7 +14,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
 === "Tarballs"
 
-    ### Install mongot from tarballs:
+    ### Install mongot from tarballs
 
     Follow these steps to install `mongot` from a tarball:
     {.power-number}
@@ -116,7 +117,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
             syncSource:
               replicaSet:
                 hostAndPort: 127.0.0.1:27017
-                username: "<mongot-username>"
+                username: searchCoordinator
                 passwordFile: /etc/mongot/mongot.passwd
                 tls: false
 
@@ -147,9 +148,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
     7. Create the password file.
 
         ```sh
-        read -s -p "Enter mongot password: " MONGOT_PASSWORD && echo
-        printf "%s" "$MONGOT_PASSWORD" | sudo tee /etc/mongot/mongot.passwd > /dev/null
-        unset MONGOT_PASSWORD
+        echo "<mongot-password>" | sudo tee /etc/mongot/mongot.passwd
         sudo chmod 600 /etc/mongot/mongot.passwd
         sudo chown mongod:mongod /etc/mongot/mongot.passwd
         ```
@@ -218,3 +217,9 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
         ```json
         {"status":"SERVING"}
         ```
+
+=== "Docker"
+
+    ### Install mongot from tarballs
+
+
