@@ -8,13 +8,13 @@ You can create search indexes on your collections and use aggregation pipeline s
 
 ## What is mongot?
 
-[mongot :octicons-link-external-16:](https://www.mongodb.com/docs/manual/tutorial/mongot-sizing/advanced-guidance/architecture/){:target="_blank"} is a companion process that builds and maintains search indexes for your MongoDB collections. While mongod stores and manages your application data, `mongot` creates optimized search indexes and processes search queries.
+[mongot :octicons-link-external-16:](https://www.mongodb.com/docs/manual/tutorial/mongot-sizing/advanced-guidance/architecture/){:target="_blank"} is a companion process that builds and maintains search indexes for your MongoDB collections. While `mongod` stores and manages your application data, `mongot` creates optimized search indexes and processes search queries.
 
 The two services communicate internally during query execution:
 
 - `mongod` stores documents and handles database operations.
 - `mongot` maintains search indexes.
-- Search queries are processed by `mongot`, while mongod retrieves the matching documents and returns the results to the client.
+- Search queries are processed by `mongot`, while `mongod` retrieves the matching documents and returns the results to the client.
 
 This architecture separates search workloads from core database operations while keeping the indexed data synchronized with the database.
 
