@@ -387,13 +387,16 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
     - Replace </path/to/passwordFile> with the path to the password file you created.
 
+    - Replace `<docker-network-name>` with the Docker network name you created in step 4.
+
     ```sh
     docker run --rm \
    --name mongot-community \
    -v </path/to/data/mongot>:/data/mongot \
    -v </path/to/mongot.conf>:/mongot-community/config.default.yml \
    -v </path/to/passwordFile>:/passwordFile:ro \
-   --network search-community \
+   --network <docker-network-name> \
+   -p 27028:27028 \
    -p 8080:8080 \
    -p 9946:9946 \
    mongodb/mongodb-community-search:latest
@@ -424,7 +427,6 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
 
     
-
 
 
 
