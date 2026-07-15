@@ -116,7 +116,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
             syncSource:
               replicaSet:
                 hostAndPort: 127.0.0.1:27017
-                username: searchCoordinator
+                username: "<mongot-username>"
                 passwordFile: /etc/mongot/mongot.passwd
                 tls: false
 
