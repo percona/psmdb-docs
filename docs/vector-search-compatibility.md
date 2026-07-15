@@ -7,7 +7,7 @@ Before deploying Vector Search in Percona Server for MongoDB (PSMDB), ensure tha
 
 ## Version compatibility
 
-`mongot` requires Percona Server for MongoDB (PSMDB) version 8.3 or later. Ensure that the `mongot` version matches the version of PSMDB deployed in your environment.
+`mongot` requires Percona Server for MongoDB (PSMDB) version 8.3 or later. Ensure that the `mongot` build you deploy is compatible with the PSMDB version in your environment.
 
 ## Operating system support
 
