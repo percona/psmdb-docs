@@ -49,16 +49,17 @@ For more details, refer to the [vector search compatibility](vector-search-compa
 
     3. Configure `mongod` to communicate with `mongot`.
 
-    Configure the following `mongod` parameters to route Search and MongoDB Vector Search queries and manage indexes.
+        Configure the following `mongod` parameters to route Search and MongoDB Vector Search queries and manage indexes.
 
-    |**Parameter**|**Description**|
-    |--------------|---------------|
-    |`searchIndexManagementHostAndPort`|Specifies the host and port of the `mongot` service used for search index management operations.|
-    |`mongotHost`|Specifies the host and port of the mongot service used to process search queries. This value must match `searchIndexManagementHostAndPort`.|
-            |`skipAuthenticationToSearchIndexManagementServer`|Specifies the host and port of the `mongot` service used for search index management operations.|
-    |`useGrpcForSearch`|Enables or disables gRPC communication between `mongod` and `mongot` for MongoDB Search operations.|
+        |**Parameter**|**Description**|
+        |--------------|---------------|
+        |`searchIndexManagementHostAndPort`|Specifies the host and port of the `mongot` service used for search index management operations.|
+        |`mongotHost`|Specifies the host and port of the mongot service used to process search queries. This value must match `searchIndexManagementHostAndPort`.|
+                |`skipAuthenticationToSearchIndexManagementServer`|Specifies the host and port of the `mongot` service used for search index management operations.|
+        |`useGrpcForSearch`|Enables or disables gRPC communication between `mongod` and `mongot` for MongoDB Search operations.|
 
         ??? example "Example: mongod config"
+
             ```sh
             setParameter:
             searchIndexManagementHostAndPort: localhost:27028
@@ -69,7 +70,7 @@ For more details, refer to the [vector search compatibility](vector-search-compa
 
     4. Create a user for the `mongot` process on your PSMDB deployment.
 
-    `mongot` must be able to connect to your PSMDB deployment through a user with the `searchCoordinator` role.
+        `mongot` must be able to connect to your PSMDB deployment through a user with the `searchCoordinator` role.
 
         a. Connect to `mongosh` as the admin user.
 
@@ -95,14 +96,14 @@ For more details, refer to the [vector search compatibility](vector-search-compa
 
                 - Run the following command:
 
-                    ```sh
-                    db.createUser(
-                        {
-                            user: <mongot-username>,
-                            pwd: <mongot-password>,
-                            roles: [ "searchCoordinator"]
-                        }
-                    )
+                        ```sh
+                        db.createUser(
+                            {
+                                user: <mongot-username>,
+                                pwd: <mongot-password>,
+                                roles: [ "searchCoordinator"]
+                            }
+                        )
 
     5. Prepare `mongot` directories
 
@@ -112,7 +113,7 @@ chown mongod: /var/lib/mongot /etc/mongot /opt/mongot
 chmod 750 /etc/mongot
         ```
 
-    4.  Create the `mongot` configuration file:
+    6.  Create the `mongot` configuration file:
 
         The tarball contains the following sample configuration file, `config.default.yml`, with the default `mongot` settings. You can modify the settings for your deployment:
 
@@ -154,14 +155,14 @@ chmod 750 /etc/mongot
         chown mongod: /etc/mongot/mongot.passwd
         ```
 
-    6. Copy `mongot` to the installation directory:
+    7. Copy `mongot` to the installation directory:
 
         ```sh
         cp -a mongot-community/* /opt/mongot/
         chown -R mongod: /opt/mongot
         ```
 
-    7. Create `systemd` unit file for `mongot`:
+    8. Create `systemd` unit file for `mongot`:
 
         ```sh
         tee /etc/systemd/system/mongot.service <<EOF
@@ -184,14 +185,14 @@ chmod 750 /etc/mongot
         WantedBy=multi-user.target
         EOF
         ```
-    8. Adjust the permissions and SELinux security labels (contexts):
+    9. Adjust the permissions and SELinux security labels (contexts):
 
     ```sh
     chmod 600 /etc/mongot/config.yml
     restorecon -Rv /opt/mongot
     ```
 
-    9. Enable and start `mongot`:
+    10. Enable and start `mongot`:
 
         ```sh
         sudo systemctl daemon-reload
@@ -199,7 +200,7 @@ chmod 750 /etc/mongot
         sudo systemctl start mongot
         ```
 
-    10. Check `mongot` health:
+    11. Check `mongot` health:
 
         ```sh
         curl localhost:8080/health
