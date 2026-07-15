@@ -20,8 +20,6 @@ For more details, refer to the [vector search compatibility](vector-search-compa
 
     1. Download the `mongot` tarball. 
 
-        Click the following link to download the Search in tarball.
-
         === "ARM Architectures"
 
             For `ARM architectures`, use [ARM-compatible tarball :octicons-link-external-16:](https://downloads.mongodb.org/mongodb-search-community/0.53.0/mongot_community_0.53.0_linux_aarch64.tgz){:target="_blank"}.
@@ -60,14 +58,14 @@ For more details, refer to the [vector search compatibility](vector-search-compa
             |`skipAuthenticationToSearchIndexManagementServer`|Specifies the host and port of the `mongot` service used for search index management operations.|
     |`useGrpcForSearch`|Enables or disables gRPC communication between `mongod` and `mongot` for MongoDB Search operations.|
 
-    ??? example "Example: mongod config"
-        ```sh
-        setParameter:
-           searchIndexManagementHostAndPort: localhost:27028
-           mongotHost: localhost:27028
-           skipAuthenticationToSearchIndexManagementServer: false
-          useGrpcForSearch: true
-        ``` 
+        ??? example "Example: mongod config"
+            ```sh
+            setParameter:
+            searchIndexManagementHostAndPort: localhost:27028
+            mongotHost: localhost:27028
+            skipAuthenticationToSearchIndexManagementServer: false
+            useGrpcForSearch: true
+            ``` 
 
     4. Create a user for the `mongot` process on your PSMDB deployment.
 
