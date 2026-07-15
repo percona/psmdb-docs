@@ -342,7 +342,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         ??? example "Example: Configuration file"
 
-            ```sh
+            ```yaml
             syncSource:
                replicaSet:
                    hostAndPort: "mongod.search-community:27017"
