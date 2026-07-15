@@ -6,7 +6,9 @@ Before deploying Vector Search for Percona Server for MongoDB, ensure that you h
 - An initiated replica set with keyfile access control or sharded deployment.
 - Administrative privileges to install and configure `mongot`.
 - A supported Linux operating system.
-- Install Docker and Docker Compose (For Docker).
+- Docker engine with Compose v2 (if you are installing on Docker).
+- `mongosh` installed on the host.
+
 
 For more information, see [Vector Search compatibility](vector-search-compatibility.md).
 
@@ -220,6 +222,43 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
 === "Docker"
 
-    ### Install mongot from tarballs
+    ### Install Vector Search with Docker
+
+    !!! info "Important"
+        - `mongot` syncs data from `mongod` and requires a PSMDB replica set. A standalone deployment doesn't support `mongot`.
+        - If you want PSMDB Vector Search to automatically generate embeddings for text data in your collection, create endpoint service API keys. For more information, see [Automated Embedding]().
+
+    Follow these steps to install `mongot` from Docker:
+    {.power-number}
+
+    1. Pull the `mongot` Docker image.
+
+        ```sh
+        docker pull mongodb/mongodb-community-search:latest
+        ```
+    2.  Verify the image running on your Docker Desktop:
+
+        ```sh
+        docker image ls mongodb/mongodb-community-search
+        ```
+
+    3. Create a Docker network.
+
+        To create a docker network for inter-container communication between the database and search containers, run the following command:
+
+        ```sh
+        docker network create search-community
+        ```
+
+
+
+
+
+
+
+
+
+
+
 
 
