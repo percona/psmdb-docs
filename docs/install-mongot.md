@@ -293,7 +293,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
             --network <network-name> \
    percona/percona-server-mongodb:8.3.4-1 \
             --config /etc/mongod.conf \
-            --replSetMember=mongod.<docker-network-name>:27017
+            --replSet rs0
         ```
 
     7. In a new shell, start `mongosh`.
