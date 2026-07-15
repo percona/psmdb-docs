@@ -158,7 +158,7 @@ For more details, refer to the [vector search compatibility](vector-search-compa
 
         ```sh
         cp -a mongot-community/* /opt/mongot/
-        chown -R mongod: /opt/mongot
+        chown -R mongod:mongod /opt/mongot
         ```
 
     7. Create `systemd` unit file for `mongot`:
