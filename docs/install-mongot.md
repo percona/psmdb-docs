@@ -341,7 +341,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         For more information on `mongot` configuration options, see the documentation on [mongot options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"}.
 
-        ??? example" "Example: Configuration file"
+        ??? example "Example: Configuration file"
 
             ```sh
             syncSource:
