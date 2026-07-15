@@ -225,9 +225,10 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
     ### Install Vector Search with Docker
 
     !!! info "Important"
-        - `mongot` syncs data from `mongod` and requires a PSMDB replica set. A standalone deployment doesn't support `mongot`.
-        - If you want PSMDB Vector Search to automatically generate embeddings for text data in your collection, create endpoint service API keys. For more information, see Automated Embedding.
-    Follow these steps to install `mongot` from Docker:
+        - `mongot` synchronizes data from `mongod` and requires a PSMDB replica set. Standalone deployments are not supported.
+        - If you want PSMDB Vector Search to automatically generate embeddings for text stored in your collections, create endpoint service API keys. For more information, see **Automated Embedding**.
+
+    Follow these steps to install and configure `mongot` using Docker:
     {.power-number}
 
     1. Pull the `mongod` Docker image.
@@ -235,95 +236,93 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
         ```bash
         docker pull percona/percona-server-mongodb:8.3.4-1
         ```
+
     2. Pull the `mongot` Docker image.
 
         ```bash
-        docker pull percona/percona-server-mongodb:1.70.1-1
+        docker pull percona/percona-server-mongodb-mongot:1.70.1-1
         ```
-    3.  Verify the downloaded images
 
-        ```sh
+    3. Verify the downloaded images.
+
+        ```bash
         docker image ls | grep percona-server-mongodb
         ```
 
     4. Create a Docker network.
 
-        To create a docker network for inter-container communication between the database and search containers, run the following command:
+        Create a Docker network for communication between the `mongod` and `mongot` containers.
 
-        ```sh
+        ```bash
         docker network create <docker-network-name>
         ```
 
-    5. Create your `mongod` configuration file.
+    5. Create the `mongod` configuration file.
 
-        To create your configuration file, save the following code to `mongod.conf` or your desired location.
+        Save the following configuration as `mongod.conf`.
 
         ```yaml
         net:
-           port: 27017
-           bindIpAll: true
+          port: 27017
+          bindIpAll: true
 
         replication:
           replSetName: rs0
 
         setParameter:
-            searchIndexManagementHostAndPort: <mongot-container-name>:27028
-            mongotHost: <mongot-container-name>:27028
-            skipAuthenticationToSearchIndexManagementServer: false
-            useGrpcForSearch: true
-            searchTLSMode: disabled
+          searchIndexManagementHostAndPort: <mongot-container-name>:27028
+          mongotHost: <mongot-container-name>:27028
+          skipAuthenticationToSearchIndexManagementServer: false
+          useGrpcForSearch: true
+          searchTLSMode: disabled
         ```
 
     6. Start `mongod`.
 
-        - Replace `<your_admin_username>` with the username you want to specify for your admin user.
+        Replace:
 
-        - Replace `<your_admin_password>` with the password you want to specify for your admin user.
+        - `<path-to-data-db>` with the path to the MongoDB data directory.
+        - `<path-to-mongod-conf>` with the path to the `mongod.conf` file.
+        - `<docker-network-name>` with the Docker network created in the previous step.
 
-        - Replace `</path/to/data/db>` with the path to the local directory for the mounted volume.
-
-        - Replace `</path/to/mongod.conf>` with the path to the configuration file you created above.
-
-        ```sh
+        ```bash
         docker run --rm \
-            --name mongod \
-            -v </path/to/mongod.conf>:/etc/mongod.conf:ro \
-            -v </path/to/data/db>:/data/db \
-            -p 27017:27017 \
-            --network <network-name> \
-   percona/percona-server-mongodb:8.3.4-1 \
-            --config /etc/mongod.conf \
-            --replSet rs0
+          --name mongod \
+          -v <path-to-mongod-conf>:/etc/mongod.conf:ro \
+          -v <path-to-data-db>:/data/db \
+          -p 27017:27017 \
+          --network <docker-network-name> \
+          percona/percona-server-mongodb:8.3.4-1 \
+          --config /etc/mongod.conf \
+          --replSet rs0
         ```
 
-    7. In a new shell, start `mongosh`.
+    7. Connect to the database.
 
-        Run the following command to connect to the `mongod` instance you started on port 27017, replacing <your_admin_username> and <your_admin_password> with the username and password you created for your admin user.
+        Open a new terminal and connect to the running `mongod` instance.
 
-        ```sh
+        ```bash
         docker exec -it mongod mongosh --port 27017
         ```
-    
-    8. Create a user for the `mongot` process on your PSMDB deployment.
 
-    `mongot` must be able to connect to your PSMDB deployment through a user with the `searchCoordinator` role.
+    8. Create a user for the `mongot` process.
 
-    The `searchCoordinator` role grants `readAnyDatabase` privileges and write access to the internal `__mdb_internal_search` database, which `mongot` uses to store index metadata.
+        `mongot` requires a database user with the `searchCoordinator` role.
 
-        a. Connect `mongosh` as an administrator.
+        The `searchCoordinator` role grants `readAnyDatabase` privileges and write access to the internal `__mdb_internal_search` database, which `mongot` uses to store search index metadata.
 
-            ```javascript
-            use admin
-            ```
-       
+        a. Switch to the `admin` database.
+
+        ```javascript
+        use admin
+        ```
+
         b. Create the `mongot` user.
 
         Replace:
 
         - `<mongot-username>` with the username for the `mongot` user.
-        - `<mongot-password>` with the password that you will save in the password file in the next step.
-
-        Run the following command:
+        - `<mongot-password>` with the password that you will store in the password file.
 
         ```javascript
         db.createUser({
@@ -336,80 +335,84 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
     9. Create the `mongot` configuration file.
 
         !!! info "Important"
-            Specify the username from the previous step as `syncSource.replicaSet.scramAuth.username`, and provide a `syncSource.replicaSet.scramAuth.passwordFile` that contains that user’s password.
+            Set `syncSource.replicaSet.scramAuth.username` to the user created in the previous step, and set `syncSource.replicaSet.scramAuth.passwordFile` to the password file that contains that user's password.
 
-        For more information on `mongot` configuration options, see the documentation on [mongot options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"}.
+        For more information about the available configuration options, see the MongoDB documentation for [mongot configuration options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"}.
 
-        ??? example "Example: Configuration file"
+        ??? example "Example: `mongot.conf`"
 
             ```yaml
             syncSource:
-               replicaSet:
-                   hostAndPort: "mongod.search-community:27017"
-                    scramAuth:
-                        username: "mongotUser"
-                        passwordFile: "/passwordFile"
-                        authSource: "admin"
-                        tls:
-                           enabled: false
-                replicationReader:
-                    readPreference: "secondaryPreferred"
+              replicaSet:
+                hostAndPort: "mongod:27017"
+                scramAuth:
+                  username: "mongotUser"
+                  passwordFile: "/passwordFile"
+                  authSource: "admin"
+                  tls:
+                    enabled: false
+              replicationReader:
+                readPreference: "secondaryPreferred"
 
             storage:
-               dataPath: "/data/mongot"
+              dataPath: "/data/mongot"
 
             server:
               grpc:
-                address: "mongot-community.search-community:27028"
-               tls:
+                address: "mongot:27028"
+                tls:
                   mode: "disabled"
 
             metrics:
-                enabled: true
-                address: "mongot-community.search-community:9946"
+              enabled: true
+              address: "mongot:9946"
 
             healthCheck:
-               address: "mongot-community.search-community:8080"
+              address: "mongot:8080"
 
             logging:
-               verbosity: INFO
+              verbosity: INFO
+            ```
+
+        Save the configuration as `mongot.conf` or another preferred file name.
+
+        Both the `mongod` and `mongot` containers must run on the same Docker network.
+
+    10. Start the `mongot` container.
+
+        Replace:
+
+        - `<path-to-data-mongot>` with the directory used to store search index data.
+        - `<path-to-mongot-conf>` with the path to the `mongot.conf` file.
+        - `<path-to-password-file>` with the path to the password file.
+        - `<docker-network-name>` with the Docker network created earlier.
+
+        ```bash
+        docker run --rm \
+          --name mongot \
+          -v <path-to-data-mongot>:/data/mongot \
+          -v <path-to-mongot-conf>:/mongot-community/config.default.yml:ro \
+          -v <path-to-password-file>:/passwordFile:ro \
+          --network <docker-network-name> \
+          -p 27028:27028 \
+          -p 8080:8080 \
+          -p 9946:9946 \
+          percona/percona-server-mongodb-mongot:1.70.1-1
         ```
 
-        Save your file to mongot.config or your preferred file location.
+    11. Verify the health of the `mongot` process.
 
-    Both containers run on the same Docker network.
+        Send a request to the readiness endpoint.
 
-10. Start the `mongot` process.
+        ```bash
+        curl localhost:8080/health
+        ```
 
-    - Replace </path/to/data/mongot> with the path to the local directory for the mounted volume to store mongot data.
+        If `mongot` is running successfully, the endpoint returns:
 
-    - Replace </path/to/mongot.conf> with the path to the mongot configuration file that you created in the previous step.
-
-    - Replace </path/to/passwordFile> with the path to the password file you created.
-
-    - Replace `<docker-network-name>` with the Docker network name you created in step 4.
-
-    ```sh
-    docker run --rm \
-   --name mongot-community \
-   -v </path/to/data/mongot>:/data/mongot \
-   -v </path/to/mongot.conf>:/mongot-community/config.default.yml \
-   -v </path/to/passwordFile>:/passwordFile:ro \
-   --network <docker-network-name> \
-   -p 27028:27028 \
-   -p 8080:8080 \
-   -p 9946:9946 \
-   mongodb/mongodb-community-search:latest
-    ```
-
-11. Verify the health of the mongot process.
-
-    To verify, send a request by using a HTTP client or curl to the /health endpoint. For example, send a curl request similar to the following sample request:
-
-
-    ```sh
-    curl localhost:8080/health
-    ```
+        ```text
+        SERVING
+        ```
 
 
 
