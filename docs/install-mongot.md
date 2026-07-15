@@ -42,7 +42,7 @@ For more details, refer to the [vector search compatibility](vector-search-compa
         === "AMD x86_64 Architectures"
 
             ```sh
-            tar -zxvf mongot_community_0.53.0_linux_aarch64.tgz
+            tar -zxvf mongot_community_0.53.0_linux_x86_64.tgz
             ```
 
         The tarball contains a sample configuration file, the `mongot` launcher script, and MongoDB Search and Vector Search license information.
