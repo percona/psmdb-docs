@@ -187,11 +187,11 @@ For more details, refer to the [vector search compatibility](vector-search-compa
         ```
     9. Adjust the permissions and SELinux security labels (contexts):
 
-    ```sh
-    chown mongod:mongod /etc/mongot/config.yml
-    chmod 600 /etc/mongot/config.yml
-    restorecon -Rv /opt/mongot
-    ```
+        ```sh
+        chown mongod:mongod /etc/mongot/config.yml
+        chmod 600 /etc/mongot/config.yml
+        restorecon -Rv /opt/mongot
+        ```
 
     10. Enable and start `mongot`:
 
