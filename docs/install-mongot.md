@@ -313,7 +313,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         a. Connect `mongosh` as an administrator.
 
-            ```sh
+            ```javascript
             use admin
             ```
        
