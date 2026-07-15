@@ -113,7 +113,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         The tarball includes a sample configuration file, `config.default.yml`. Modify it as needed for your deployment.
 
-        ??? example "Example configuration"
+        ??? example "Example: Configuration file"
 
             ```yaml
             syncSource:
@@ -231,25 +231,172 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
     Follow these steps to install `mongot` from Docker:
     {.power-number}
 
-    1. Pull the `mongot` Docker image.
+    1. Pull the `mongod` Docker image.
+
+        ```bash
+        docker pull percona/percona-server-mongodb:8.3.4-1
+        ```
+    2. Pull the `mongot` Docker image.
+
+        ```bash
+        docker pull percona/percona-server-mongodb:1.70.1-1
+        ```
+    3.  Verify the downloaded images
 
         ```sh
-        docker pull mongodb/mongodb-community-search:latest
-        ```
-    2.  Verify the image running on your Docker Desktop:
-
-        ```sh
-        docker image ls mongodb/mongodb-community-search
+        docker image ls | grep percona-server-mongodb
         ```
 
-    3. Create a Docker network.
+    4. Create a Docker network.
 
         To create a docker network for inter-container communication between the database and search containers, run the following command:
 
         ```sh
-        docker network create search-community
+        docker network create <docker-network-name>
         ```
 
+    5. Create your `mongod` configuration file.
+
+        To create your configuration file, save the following code to `mongod.conf` or your desired location.
+
+        ```yaml
+        net:
+           port: 27017
+           bindIpAll: true
+
+        replication:
+          replSetName: rs0
+
+        setParameter:
+            searchIndexManagementHostAndPort: mongot-percona-server-mongodb:1.70.1-1:27028
+            mongotHost: mongot-percona-server-mongodb:1.70.1-1:27028
+            skipAuthenticationToSearchIndexManagementServer: false
+            useGrpcForSearch: true
+            searchTLSMode: disabled
+        ```
+
+    6. Start `mongod`.
+
+        - Replace `<your_admin_username>` with the username you want to specify for your admin user.
+
+        - Replace `<your_admin_password>` with the password you want to specify for your admin user.
+
+        - Replace `</path/to/data/db>` with the path to the local directory for the mounted volume.
+
+        - Replace `</path/to/mongod.conf>` with the path to the configuration file you created above.
+
+        ```sh
+        docker run --rm \
+            --name mongod \
+            -v </path/to/mongod.conf>:/etc/mongod.conf:ro \
+            -v </path/to/data/db>:/data/db \
+            -p 27017:27017 \
+            --network <network-name> \
+   percona/percona-server-mongodb:8.3.4-1 \
+            --config /etc/mongod.conf \
+            --replSetMember=mongod.<docker-network-name>:27017
+        ```
+
+    7. In a new shell, start `mongosh`.
+
+        Run the following command to connect to the `mongod` instance you started on port 27017, replacing <your_admin_username> and <your_admin_password> with the username and password you created for your admin user.
+
+        ```sh
+        docker exec -it mongod mongosh --port 27017
+        ```
+    
+    8. Create a user for the `mongot` process on your PSMDB deployment.
+
+    `mongot` must be able to connect to your PSMDB deployment through a user with the `searchCoordinator` role.
+
+    The `searchCoordinator` role grants `readAnyDatabase` privileges and write access to the internal `__mdb_internal_search` database, which `mongot` uses to store index metadata.
+
+        a. Connect `mongosh` as an administrator.
+
+            ```sh
+            use admin
+            ```
+       
+        b. Create the `mongot` user.
+
+        Replace:
+
+        - `<mongot-username>` with the username for the `mongot` user.
+        - `<mongot-password>` with the password that you will save in the password file in the next step.
+
+        Run the following command:
+
+        ```javascript
+        db.createUser({
+          user: "<mongot-username>",
+          pwd: "<mongot-password>",
+          roles: ["searchCoordinator"]
+        })
+        ```
+
+    9. Create the `mongot` configuration file.
+
+        !!! info "Important"
+            Specify the username that you specified in the previous step as the `syncSource.replicaSet.username`. You must also specify the `passwordFile` that you created in the previous step as the `syncSource.replicaSet.passwordFile`.
+
+        For more information on `mongot` configuration options, see the documentation on [mongot options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"}.
+
+        ??? example" "Example: Configuration file"
+
+            ```sh
+            syncSource:
+               replicaSet:
+                   hostAndPort: "mongod.search-community:27017"
+                    scramAuth:
+                        username: "mongotUser"
+                        passwordFile: "/passwordFile"
+                        authSource: "admin"
+                        tls:
+                           enabled: false
+                replicationReader:
+                    readPreference: "secondaryPreferred"
+
+            storage:
+               dataPath: "/data/mongot"
+
+            server:
+              grpc:
+                address: "mongot-community.search-community:27028"
+               tls:
+                  mode: "disabled"
+
+            metrics:
+                enabled: true
+                address: "mongot-community.search-community:9946"
+
+            healthCheck:
+               address: "mongot-community.search-community:8080"
+
+            logging:
+               verbosity: INFO
+        ```
+
+        Save your file to mongot.config or your preferred file location.
+
+    Both containers run on the same search-community Docker network.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 
