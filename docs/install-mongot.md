@@ -268,8 +268,8 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
           replSetName: rs0
 
         setParameter:
-            searchIndexManagementHostAndPort: mongot-percona-server-mongodb:1.70.1-1:27028
-            mongotHost: mongot-percona-server-mongodb:1.70.1-1:27028
+            searchIndexManagementHostAndPort: <mongot-container-name>:27028
+            mongotHost: <mongot-container-name>:27028
             skipAuthenticationToSearchIndexManagementServer: false
             useGrpcForSearch: true
             searchTLSMode: disabled
