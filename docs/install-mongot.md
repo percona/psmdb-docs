@@ -336,7 +336,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
     9. Create the `mongot` configuration file.
 
         !!! info "Important"
-            Specify the username that you specified in the previous step as the `syncSource.replicaSet.username`. You must also specify the `passwordFile` that you created in the previous step as the `syncSource.replicaSet.passwordFile`.
+            Specify the username from the previous step as `syncSource.replicaSet.scramAuth.username`, and provide a `syncSource.replicaSet.scramAuth.passwordFile` that contains that user’s password.
 
         For more information on `mongot` configuration options, see the documentation on [mongot options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"}.
 
