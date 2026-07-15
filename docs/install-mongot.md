@@ -187,6 +187,7 @@ chmod 750 /etc/mongot
     8. Adjust the permissions and SELinux security labels (contexts):
 
     ```sh
+    chown mongod:mongod /etc/mongot/config.yml
     chmod 600 /etc/mongot/config.yml
     restorecon -Rv /opt/mongot
     ```
