@@ -1,13 +1,13 @@
 # System requirements and compatibility
 
-Before deploying Vector Search Percona Server for MongoDB (PSMDB), ensure that your environment meets the software, hardware, and deployment requirements for `mongot`. 
+Before deploying Vector Search in Percona Server for MongoDB (PSMDB), ensure that your environment meets the software, hardware, and deployment requirements for `mongot`.
 
 !!! info "Important"
     The requirements listed below provide the minimum supported configuration. Production environments that handle large collections or high search traffic typically require additional CPU, memory, and storage resources.
 
 ## Version compatibility
 
-`mongot` requires a supported MongoDB deployment running version 8.3 or later. Ensure that the `mongot` version matches the version of MongoDB deployed in your environment.
+`mongot` requires Percona Server for MongoDB (PSMDB) version 8.3 or later. Ensure that the `mongot` version matches the version of PSMDB deployed in your environment.
 
 ## Operating system support
 

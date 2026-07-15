@@ -109,8 +109,8 @@ For more details, refer to the [vector search compatibility](vector-search-compa
 
         ```sh
         mkdir -p /var/lib/mongot /etc/mongot /opt/mongot
-chown mongod: /var/lib/mongot /etc/mongot /opt/mongot
-chmod 750 /etc/mongot
+        chown -R mongod:mongod /var/lib/mongot /etc/mongot /opt/mongot
+        chmod 750 /etc/mongot
         ```
 
     6.  Create the `mongot` configuration file:
@@ -152,14 +152,14 @@ chmod 750 /etc/mongot
         ```sh
         echo "<mongot-password>" > /etc/mongot/mongot.passwd
         chmod 600 /etc/mongot/mongot.passwd
-        chown mongod: /etc/mongot/mongot.passwd
+        chown mongod:mongod /etc/mongot/mongot.passwd
         ```
 
     7. Copy `mongot` to the installation directory:
 
         ```sh
         cp -a mongot-community/* /opt/mongot/
-        chown -R mongod: /opt/mongot
+        chown -R mongod:mongod /opt/mongot
         ```
 
     8. Create `systemd` unit file for `mongot`:
@@ -188,6 +188,7 @@ chmod 750 /etc/mongot
     9. Adjust the permissions and SELinux security labels (contexts):
 
     ```sh
+    chown mongod:mongod /etc/mongot/config.yml
     chmod 600 /etc/mongot/config.yml
     restorecon -Rv /opt/mongot
     ```

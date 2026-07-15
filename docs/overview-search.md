@@ -48,5 +48,5 @@ Use cases include:
 - Customer support knowledge bases
 
 
-For information about the search architecture and the eventual consistency model, see Search in Percona Server for MongoDB.
+For information about the search architecture and the eventual consistency model, see [Architecture](vector-search-architecture.md).
 
