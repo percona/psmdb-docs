@@ -108,8 +108,8 @@ For more details, refer to the [vector search compatibility](vector-search-compa
 
         ```sh
         mkdir -p /var/lib/mongot /etc/mongot /opt/mongot
-chown mongod: /var/lib/mongot /etc/mongot /opt/mongot
-chmod 750 /etc/mongot
+        chown -R mongod:mongod /var/lib/mongot /etc/mongot /opt/mongot
+        chmod 750 /etc/mongot
         ```
 
     4.  Create the `mongot` configuration file:
