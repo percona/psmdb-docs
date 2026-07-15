@@ -70,40 +70,40 @@ For more details, refer to the [vector search compatibility](vector-search-compa
 
     4. Create a user for the `mongot` process on your PSMDB deployment.
 
-        `mongot` must be able to connect to your PSMDB deployment through a user with the `searchCoordinator` role.
+       `mongot` must be able to connect to your PSMDB deployment through a user with the `searchCoordinator` role.
 
-        a. Connect to `mongosh` as the admin user.
+            a. Connect to `mongosh` as the admin user.
 
-            ```sh
-            mongosh --port 27017 -u <your_admin_username> -p <your_admin_password>
-            ```
+                ```sh
+                mongosh --port 27017 -u <your_admin_username> -p <your_admin_password>
+                ```
 
-        b. Connect to the admin database.
+            b. Connect to the admin database.
 
-            Run the following command to connect to the admin database:
+                Run the following command to connect to the admin database:
 
-            ```sh
-            use admin
-            ```
+                ```sh
+                use admin
+                ```
 
-        c. Create your `mongot` user.
+            c. Create your `mongot` user.
 
-                To create a user with the searchCoordinator role:
+                    To create a user with the searchCoordinator role:
 
-                - Replace <mongot-username> with a username for your mongot user
+                    - Replace <mongot-username> with a username for your mongot user
 
-                - Replace <mongot-password> with the password that you specify in your passwordFile in the next step
+                    - Replace <mongot-password> with the password that you specify in your passwordFile in the next step
 
-                - Run the following command:
+                    - Run the following command:
 
-                        ```sh
-                        db.createUser(
-                            {
-                                user: <mongot-username>,
-                                pwd: <mongot-password>,
-                                roles: [ "searchCoordinator"]
-                            }
-                        )
+                            ```sh
+                            db.createUser(
+                                {
+                                    user: <mongot-username>,
+                                    pwd: <mongot-password>,
+                                    roles: [ "searchCoordinator"]
+                                }
+                            )
 
     5. Prepare `mongot` directories
 
