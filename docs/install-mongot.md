@@ -119,7 +119,7 @@ For more details, refer to the [vector search compatibility](vector-search-compa
 
         ??? example "Config file"
 
-        ```yaml
+        ```sh
         tee /etc/mongot/config.yml <<EOF
         syncSource:
             replicaSet:
