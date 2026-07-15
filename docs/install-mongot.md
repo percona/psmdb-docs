@@ -378,7 +378,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         Save your file to mongot.config or your preferred file location.
 
-    Both containers run on the same search-community Docker network.
+    Both containers run on the same Docker network.
 
 
 
