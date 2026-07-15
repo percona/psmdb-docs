@@ -1,175 +1,172 @@
 # Install mongot
 
-Before deploying vector search for PSMDB, ensure that you have:
+Before deploying Vector Search for Percona Server for MongoDB, ensure that you have:
 
 - Percona Server for MongoDB 8.3 or later installed.
 - A running standalone, replica set, or sharded deployment.
 - Administrative privileges to install and configure `mongot`.
-- A supported **Linux operating system**.
+- A supported Linux operating system.
 
-For more details, refer to the [vector search compatibility](vector-search-compatibility.md) section.
+For more information, see [Vector Search compatibility](vector-search-compatibility.md).
 
 ## Procedure
 
 === "Tarballs"
 
-    ### Install mongot from tarballs
+    ### Install mongot from tarballs:
 
-    Follow these steps to install `mongot` from tarball:
+    Follow these steps to install `mongot` from a tarball:
     {.power-number}
 
-    1. Download the `mongot` tarball. 
+    1. Download the `mongot` tarball.
 
-        === "ARM Architectures"
+        === "ARM64"
 
-            For `ARM architectures`, use [ARM-compatible tarball :octicons-link-external-16:](https://downloads.mongodb.org/mongodb-search-community/0.53.0/mongot_community_0.53.0_linux_aarch64.tgz){:target="_blank"}.
+            Download the [ARM64 tarball :octicons-link-external-16:](https://downloads.mongodb.org/mongodb-search-community/0.53.0/mongot_community_0.53.0_linux_aarch64.tgz){:target="_blank"}.
 
-        === "AMD x86_64 Architectures"
+        === "AMD64 (x86_64)"
 
-            For `AMD x86_64` architectures, use [AMD x86-64-compatible tarball :octicons-link-external-16:](https://downloads.mongodb.org/mongodb-search-community/0.53.0/mongot_community_0.53.0_linux_x86_64.tgz){:target="_blank"}.
+            Download the [AMD64 tarball :octicons-link-external-16:](https://downloads.mongodb.org/mongodb-search-community/0.53.0/mongot_community_0.53.0_linux_x86_64.tgz){:target="_blank"}.
 
+    2. Extract the tarball.
 
-    2. Extract the `mongot` tarball.
-
-        Run the following command to extract the tarball:
-
-        === "ARM Architectures"
+        === "ARM64"
 
             ```sh
             tar -zxvf mongot_community_0.53.0_linux_aarch64.tgz
             ```
 
-        === "AMD x86_64 Architectures"
+        === "AMD64 (x86_64)"
 
             ```sh
             tar -zxvf mongot_community_0.53.0_linux_x86_64.tgz
             ```
 
-        The tarball contains a sample configuration file, the `mongot` launcher script, and MongoDB Search and Vector Search license information.
+        The extracted archive contains the `mongot` binary, a sample configuration file, the `mongot` launcher script, and MongoDB Search and Vector Search license information.
 
     3. Configure `mongod` to communicate with `mongot`.
 
-        Configure the following `mongod` parameters to route Search and MongoDB Vector Search queries and manage indexes.
+        Configure the following `mongod` parameters.
 
-        |**Parameter**|**Description**|
-        |--------------|---------------|
-        |`searchIndexManagementHostAndPort`|Specifies the host and port of the `mongot` service used for search index management operations.|
-        |`mongotHost`|Specifies the host and port of the mongot service used to process search queries. This value must match `searchIndexManagementHostAndPort`.|
-                |`skipAuthenticationToSearchIndexManagementServer`|Specifies the host and port of the `mongot` service used for search index management operations.|
-        |`useGrpcForSearch`|Enables or disables gRPC communication between `mongod` and `mongot` for MongoDB Search operations.|
+        | Parameter | Description |
+        |-----------|-------------|
+        | `searchIndexManagementHostAndPort` | Specifies the host and port of the `mongot` service used for search index management operations. |
+        | `mongotHost` | Specifies the host and port of the `mongot` service used to process search queries. This value must match `searchIndexManagementHostAndPort`. |
+        | `skipAuthenticationToSearchIndexManagementServer` | Enables or disables authentication between `mongod` and `mongot` for search index management operations. |
+        | `useGrpcForSearch` | Enables or disables gRPC communication between `mongod` and `mongot`. |
 
-        ??? example "Example: mongod config"
+        ??? example "Example: mongod configuration"
 
-            ```sh
+            ```yaml
             setParameter:
-            searchIndexManagementHostAndPort: localhost:27028
-            mongotHost: localhost:27028
-            skipAuthenticationToSearchIndexManagementServer: false
-            useGrpcForSearch: true
-            ``` 
+              searchIndexManagementHostAndPort: localhost:27028
+              mongotHost: localhost:27028
+              skipAuthenticationToSearchIndexManagementServer: false
+              useGrpcForSearch: true
+            ```
 
-    4. Create a user for the `mongot` process on your PSMDB deployment.
+    4. Create a user for the `mongot` process.
 
-       `mongot` must be able to connect to your PSMDB deployment through a user with the `searchCoordinator` role.
+        `mongot` must be able to connect to your Percona Server for MongoDB deployment through a user with the `searchCoordinator` role.
 
-            a. Connect to `mongosh` as the admin user.
-
-                ```sh
-                mongosh --port 27017 -u <your_admin_username> -p <your_admin_password>
-                ```
-
-            b. Connect to the admin database.
-
-                Run the following command to connect to the admin database:
-
-                ```sh
-                use admin
-                ```
-
-            c. Create your `mongot` user.
-
-                    To create a user with the searchCoordinator role:
-
-                    - Replace <mongot-username> with a username for your mongot user
-
-                    - Replace <mongot-password> with the password that you specify in your passwordFile in the next step
-
-                    - Run the following command:
-
-                            ```sh
-                            db.createUser(
-                                {
-                                    user: <mongot-username>,
-                                    pwd: <mongot-password>,
-                                    roles: [ "searchCoordinator"]
-                                }
-                            )
-
-    5. Prepare `mongot` directories
+        a. Connect to `mongosh` as an administrator.
 
         ```sh
-        mkdir -p /var/lib/mongot /etc/mongot /opt/mongot
-        chown -R mongod:mongod /var/lib/mongot /etc/mongot /opt/mongot
-        chmod 750 /etc/mongot
+        mongosh --port 27017 -u <admin-username> -p <admin-password>
         ```
 
-    6.  Create the `mongot` configuration file:
+        b. Switch to the `admin` database.
 
-        The tarball contains the following sample configuration file, `config.default.yml`, with the default `mongot` settings. You can modify the settings for your deployment:
+        ```javascript
+        use admin
+        ```
 
-        ??? example "Config file"
+        c. Create the `mongot` user.
+
+        Replace:
+
+        - `<mongot-username>` with the username for the `mongot` user.
+        - `<mongot-password>` with the password that you will save in the password file in the next step.
+
+        Then run:
+
+        ```javascript
+        db.createUser({
+          user: "<mongot-username>",
+          pwd: "<mongot-password>",
+          roles: ["searchCoordinator"]
+        })
+        ```
+
+    5. Prepare the required directories.
 
         ```sh
-        tee /etc/mongot/config.yml <<EOF
-        syncSource:
-            replicaSet:
-              hostAndPort: 127.0.0.1:27017
-              username: searchCoordinator
-              passwordFile: /etc/mongot/mongot.passwd
-              tls: false
-        storage:
-            dataPath: /var/lib/mongot
-        server:
-            grpc:
-              address: localhost:27028
-              tls:
-                mode: disabled
-        metrics:
-            enabled: true
-            address: "localhost:9946"
-        healthCheck:
-            address: "localhost:8080"
-        logging:
-            verbosity: INFO
-        EOF
+        sudo mkdir -p /var/lib/mongot /etc/mongot /opt/mongot
+        sudo chown -R mongod:mongod /var/lib/mongot /etc/mongot /opt/mongot
+        sudo chmod 750 /etc/mongot
         ```
+
+    6. Create the `mongot` configuration file.
+
+        The tarball includes a sample configuration file, `config.default.yml`. Modify it as needed for your deployment.
+
+        ??? example "Example configuration"
+
+            ```yaml
+            syncSource:
+              replicaSet:
+                hostAndPort: 127.0.0.1:27017
+                username: searchCoordinator
+                passwordFile: /etc/mongot/mongot.passwd
+                tls: false
+
+            storage:
+              dataPath: /var/lib/mongot
+
+            server:
+              grpc:
+                address: localhost:27028
+                tls:
+                  mode: disabled
+
+            metrics:
+              enabled: true
+              address: localhost:9946
+
+            healthCheck:
+              address: localhost:8080
+
+            logging:
+              verbosity: INFO
+            ```
 
         !!! note
-            The `dataPath` directory in your configuration file must be writable by the user that runs `mongot`.
 
-    5. Create `passwordFile` for `mongot` to connect to `mongod`:
+            Ensure that the directory specified by `storage.dataPath` is writable by the user running `mongot`.
+
+    7. Create the password file.
 
         ```sh
-        echo "<mongot-password>" > /etc/mongot/mongot.passwd
-        chmod 600 /etc/mongot/mongot.passwd
-        chown mongod:mongod /etc/mongot/mongot.passwd
+        echo "<mongot-password>" | sudo tee /etc/mongot/mongot.passwd
+        sudo chmod 600 /etc/mongot/mongot.passwd
+        sudo chown mongod:mongod /etc/mongot/mongot.passwd
         ```
 
-    7. Copy `mongot` to the installation directory:
+    8. Copy the extracted files to the installation directory.
 
         ```sh
-        cp -a mongot-community/* /opt/mongot/
-        chown -R mongod:mongod /opt/mongot
+        sudo cp -a mongot-community/* /opt/mongot/
+        sudo chown -R mongod:mongod /opt/mongot
         ```
 
-    8. Create `systemd` unit file for `mongot`:
+    9. Create the `systemd` service.
 
-        ```sh
-        tee /etc/systemd/system/mongot.service <<EOF
+        ```ini
         [Unit]
         Description=MongoDB Search (mongot)
         Documentation=https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options
         After=network.target
+
         [Service]
         User=mongod
         Group=mongod
@@ -181,19 +178,26 @@ For more details, refer to the [vector search compatibility](vector-search-compa
         TimeoutStartSec=30
         TimeoutStopSec=30
         SuccessExitStatus=143
+
         [Install]
         WantedBy=multi-user.target
-        EOF
         ```
-    9. Adjust the permissions and SELinux security labels (contexts):
+
+        Save the file as:
+
+        ```text
+        /etc/systemd/system/mongot.service
+        ```
+
+    10. Set the required file permissions and SELinux contexts.
 
         ```sh
-        chown mongod:mongod /etc/mongot/config.yml
-        chmod 600 /etc/mongot/config.yml
-        restorecon -Rv /opt/mongot
+        sudo chown mongod:mongod /etc/mongot/config.yml
+        sudo chmod 600 /etc/mongot/config.yml
+        sudo restorecon -Rv /opt/mongot
         ```
 
-    10. Enable and start `mongot`:
+    11. Enable and start `mongot`.
 
         ```sh
         sudo systemctl daemon-reload
@@ -201,27 +205,14 @@ For more details, refer to the [vector search compatibility](vector-search-compa
         sudo systemctl start mongot
         ```
 
-    11. Check `mongot` health:
+    12. Verify that `mongot` is running.
 
         ```sh
         curl localhost:8080/health
-        {"status":"SERVING"}
         ```
 
+        Example output:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        ```json
+        {"status":"SERVING"}
+        ```
