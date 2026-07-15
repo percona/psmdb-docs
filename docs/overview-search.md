@@ -4,7 +4,7 @@ Starting with Percona Server for MongoDB (PSMDB) 8.3, you can use **Full-text Se
 
 You can create search indexes on your collections and use aggregation pipeline stages such as `$search`, `$searchMeta`, and `$vectorSearch` to retrieve relevant results.
 
-`mongot` is available via binary distributions and installation packages.
+`mongot` is available via binary distributions (tarballs).
 
 ## What is mongot?
 
