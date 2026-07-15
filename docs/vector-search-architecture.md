@@ -22,7 +22,7 @@ The following steps describe how a vector search request is processed:
 1. The application converts the search query into a vector embedding using an embedding model.
 2. The application submits the vector search request to `mongod` or `mongos` using the `$vectorSearch` aggregation stage.
 3. `mongod` forwards the vector search portion of the request to `mongot`.
-4. `mongot` searches the vector index for the nearest matching embeddings. The vector indexes are continuously synchronized with the data stored in mongod, ensuring that search results reflect the latest changes.
+4. `mongot` searches the vector index for the nearest matching embeddings. The vector indexes are continuously synchronized with the data stored in `mongod`, ensuring that search results reflect the latest changes.
 5. `mongot` returns the matching document identifiers and similarity scores to `mongod`.
 6. `mongod` retrieves the corresponding documents from the database, applies any remaining aggregation pipeline stages, and returns the final results to the application.
 
