@@ -9,7 +9,6 @@ Before deploying Vector Search for Percona Server for MongoDB, ensure that you h
 - Docker engine with Compose v2 (if you are installing on Docker).
 - `mongosh` installed on the host.
 
-
 For more information, see [Vector Search compatibility](vector-search-compatibility.md).
 
 ## Procedure
@@ -234,13 +233,13 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
     1. Pull the `mongod` Docker image.
 
         ```bash
-        docker pull percona/percona-server-mongodb:8.3.4-1
+        docker pull percona/percona-server-mongodb:<tag>
         ```
 
     2. Pull the `mongot` Docker image.
 
         ```bash
-        docker pull percona/percona-server-mongodb-mongot:1.70.1-1
+        docker pull percona/percona-server-mongodb-mongot:<tag>
         ```
 
     3. Verify the downloaded images.
