@@ -92,13 +92,13 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         Then run:
 
-        ```javascript
-        db.createUser({
-          user: "<mongot-username>",
-          pwd: "<mongot-password>",
-          roles: ["searchCoordinator"]
-        })
-        ```
+            ```javascript
+            db.createUser({
+              user: "<mongot-username>",
+              pwd: "<mongot-password>",
+              roles: ["searchCoordinator"]
+            })
+            ```
 
     5. Prepare the required directories.
 
