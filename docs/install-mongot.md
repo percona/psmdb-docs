@@ -73,15 +73,15 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         a. Connect to `mongosh` as an administrator.
 
-        ```sh
-        mongosh --port 27017 -u <admin-username> -p <admin-password>
-        ```
+            ```sh
+            mongosh --port 27017 -u <admin-username> -p <admin-password>
+            ```
 
         b. Switch to the `admin` database.
 
-        ```javascript
-        use admin
-        ```
+            ```javascript
+            use admin
+            ```
 
         c. Create the `mongot` user.
 
