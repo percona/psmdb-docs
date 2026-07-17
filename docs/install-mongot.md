@@ -419,7 +419,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
           -p 27028:27028 \
           -p 8080:8080 \
           -p 9946:9946 \
-          percona/percona-server-mongodb-mongot:1.70.1-1
+          percona/percona-server-mongodb-mongot:<tag>
         ```
 
     11. Verify the health of the `mongot` process.
