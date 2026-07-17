@@ -108,11 +108,6 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
               roles: ["searchCoordinator"]
             })
             ```
-<<<<<<< Updated upstream
-    
-=======
-
->>>>>>> Stashed changes
     5. Create the password file.
 
         ```sh
