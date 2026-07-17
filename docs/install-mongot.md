@@ -286,7 +286,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
           searchTLSMode: disabled
         ```
 
-        The `mongot:27028` address is the container name and gRPC port of the `mongot` container that you start in step 10. You must specify the same address in `mongotHost` and `searchIndexManagementHostAndPort`.
+        The `mongot:27028` address is the container name and gRPC port of the `mongot` container that you start in step 11. You must specify the same address in `mongotHost` and `searchIndexManagementHostAndPort`.
 
 
     7. Start `mongod`.
