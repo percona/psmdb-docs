@@ -85,20 +85,20 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         c. Create the `mongot` user.
 
-        Replace:
+            Replace:
 
-        - `<mongot-username>` with the username for the `mongot` user.
-        - `<mongot-password>` with the password that you will save in the password file in the next step.
+            - `<mongot-username>` with the username for the `mongot` user.
+            - `<mongot-password>` with the password that you will save in the password file in the next step.
 
-        Then run:
+            Then run:
 
-        ```javascript
-        db.createUser({
-          user: "<mongot-username>",
-          pwd: "<mongot-password>",
-          roles: ["searchCoordinator"]
-        })
-        ```
+            ```javascript
+            db.createUser({
+              user: "<mongot-username>",
+              pwd: "<mongot-password>",
+              roles: ["searchCoordinator"]
+            })
+            ```
 
     5. Prepare the required directories.
 
