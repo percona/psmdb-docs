@@ -305,7 +305,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
           -p 27017:27017 \
           --network <docker-network-name> \
           percona/percona-server-mongodb:<tag> \
-          --config /etc/mongod.conf \
+          --config /etc/mongod.conf
         ```
 
         The container name `mongod` is the hostname that `mongot` uses to reach the database. If you change it, also change the `syncSource.replicaSet.hostAndPort` value in step 6.
