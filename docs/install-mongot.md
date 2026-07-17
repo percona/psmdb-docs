@@ -437,9 +437,6 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
           -v <path-to-mongot-conf>:/mongot-community/config.default.yml:ro \
           -v <path-to-password-file>:/passwordFile:ro \
           --network <network-name> \
-          -p 27028:27028 \
-          -p 8080:8080 \
-          -p 9946:9946 \
           percona/percona-server-mongodb-mongot:<TAG>
         ```
 
