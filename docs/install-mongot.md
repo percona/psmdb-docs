@@ -233,13 +233,13 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
     1. Pull the `mongod` Docker image.
 
         ```bash
-        docker pull percona/percona-server-mongodb:<tag>
+        docker pull percona/percona-server-mongodb:<TAG>
         ```
 
     2. Pull the `mongot` Docker image.
 
         ```bash
-        docker pull percona/percona-server-mongodb-mongot:<tag>
+        docker pull percona/percona-server-mongodb-mongot:<TAG>
         ```
 
     3. Verify the downloaded images.
