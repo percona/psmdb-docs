@@ -400,7 +400,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         For the full list of configuration options, see the upstream [mongot configuration options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"} documentation.
 
-    10. Start the `mongot` container.
+    11. Start the `mongot` container.
 
         Replace:
 
