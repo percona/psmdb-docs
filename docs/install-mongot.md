@@ -106,6 +106,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
               pwd: "<mongot-password>",
               roles: ["searchCoordinator"]
             })
+            ```
     
     5. Create the password file.
 
