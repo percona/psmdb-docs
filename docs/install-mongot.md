@@ -73,15 +73,15 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         a. Connect to `mongosh` as an administrator.
 
-            ```sh
-            mongosh --port 27017 -u <admin-username> -p <admin-password>
-            ```
+        ```sh
+        mongosh --port 27017 -u <admin-username> -p <admin-password>
+        ```
 
         b. Switch to the `admin` database.
 
-            ```javascript
-            use admin
-            ```
+        ```javascript
+        use admin
+        ```
 
         c. Create the `mongot` user.
 
@@ -92,13 +92,13 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         Then run:
 
-            ```javascript
-            db.createUser({
-              user: "<mongot-username>",
-              pwd: "<mongot-password>",
-              roles: ["searchCoordinator"]
-            })
-            ```
+        ```javascript
+        db.createUser({
+          user: "<mongot-username>",
+          pwd: "<mongot-password>",
+          roles: ["searchCoordinator"]
+        })
+        ```
 
     5. Prepare the required directories.
 
@@ -250,13 +250,23 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
     4. Create a Docker network.
 
-        Create a Docker network for communication between the `mongod` and `mongot` containers.
+        The `mongod` and `mongot` containers must run on the same Docker network so that they can resolve each other by container name.
 
         ```bash
-        docker network create <docker-network-name>
+        docker network create <network-name>
         ```
 
-    5. Create the `mongod` configuration file.
+    5. Create the password file for the `mongot` user.
+
+        ```sh
+        echo "<mongot-password>" > mongot-password.txt
+        chmod 400 mongot-password.txt
+        ```
+
+        Replace `<mongot-password>` with a password of your choice. You use the same password when you create the database user in step 8.
+
+
+    6. Create the `mongod` configuration file.
 
         Save the following configuration as `mongod.conf`.
 
@@ -269,14 +279,17 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
           replSetName: rs0
 
         setParameter:
-          searchIndexManagementHostAndPort: <mongot-container-name>:27028
-          mongotHost: <mongot-container-name>:27028
+          searchIndexManagementHostAndPort: mongot:27028
+          mongotHost: mongot:27028
           skipAuthenticationToSearchIndexManagementServer: false
           useGrpcForSearch: true
           searchTLSMode: disabled
         ```
 
-    6. Start `mongod`.
+        The `mongot:27028` address is the container name and gRPC port of the `mongot` container that you start in step 10. You must specify the same address in `mongotHost` and `searchIndexManagementHostAndPort`.
+
+
+    7. Start `mongod`.
 
         Replace:
 
@@ -291,17 +304,23 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
           -v <path-to-data-db>:/data/db \
           -p 27017:27017 \
           --network <docker-network-name> \
-          percona/percona-server-mongodb:8.3.4-1 \
+          percona/percona-server-mongodb:<tag> \
           --config /etc/mongod.conf \
-          --replSet rs0
         ```
 
-    7. Connect to the database.
+        The container name `mongod` is the hostname that `mongot` uses to reach the database. If you change it, also change the `syncSource.replicaSet.hostAndPort` value in step 6.
+        To check the server logs, run `docker logs -f mongod`.
 
-        Open a new terminal and connect to the running `mongod` instance.
+    8. Initiate the replica set.
 
-        ```bash
+        Connect to the running `mongod` instance and initiate the single-node replica set:
+
+        ```sh
         docker exec -it mongod mongosh --port 27017
+        ```
+        
+        ```sh
+        rs.initiate()
         ```
 
     8. Create a user for the `mongot` process.
@@ -376,6 +395,10 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
         Save the configuration as `mongot.conf` or another preferred file name.
 
         Both the `mongod` and `mongot` containers must run on the same Docker network.
+
+        The `scramAuth.username` and `passwordFile` values must match the user from step 8 and the password file from step 3. The `mongot` image reads its configuration from `/mongot-community/config.default.yml` inside the container; you mount your file to that path in the next step.
+
+    For the full list of configuration options, see the upstream [mongot configuration options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"} documentation.
 
     10. Start the `mongot` container.
 
