@@ -440,7 +440,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
           -p 27028:27028 \
           -p 8080:8080 \
           -p 9946:9946 \
-          percona/percona-server-mongodb-mongot:<tag>
+          percona/percona-server-mongodb-mongot:<TAG>
         ```
 
         To view the `mongot` logs:
