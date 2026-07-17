@@ -422,7 +422,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
           percona/percona-server-mongodb-mongot:<tag>
         ```
 
-    11. Verify the health of the `mongot` process.
+    12. Verify the health of the `mongot` process.
 
         Send a request to the readiness endpoint.
 
