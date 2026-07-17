@@ -323,7 +323,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
         rs.initiate()
         ```
 
-    8. Create a user for the `mongot` process.
+    9. Create a user for the `mongot` process.
 
         `mongot` requires a database user with the `searchCoordinator` role.
 
