@@ -110,7 +110,8 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
     5. Create the password file.
 
         ```sh
-        echo "<mongot-password>" | sudo tee /etc/mongot/mongot.passwd > /dev/null
+        sudo mkdir -p /etc/mongot
+        echo -n "<mongot-password>" | sudo tee /etc/mongot/mongot.passwd > /dev/null
         sudo chmod 600 /etc/mongot/mongot.passwd
         sudo chown mongod:mongod /etc/mongot/mongot.passwd
         ```
