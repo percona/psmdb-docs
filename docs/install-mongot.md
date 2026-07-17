@@ -350,7 +350,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
             })
             ```
 
-    9. Create the `mongot` configuration file.
+    10. Create the `mongot` configuration file.
 
         !!! info "Important"
             Set `syncSource.replicaSet.scramAuth.username` to the user created in the previous step, and set `syncSource.replicaSet.scramAuth.passwordFile` to the password file that contains that user's password.
