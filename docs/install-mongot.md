@@ -329,26 +329,26 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         The `searchCoordinator` role grants `readAnyDatabase` privileges and write access to the internal `__mdb_internal_search` database, which `mongot` uses to store search index metadata.
 
-            a. Switch to the `admin` database.
+          a. Switch to the `admin` database.
 
             ```javascript
             use admin
             ```
 
-            b. Create the `mongot` user.
+          b. Create the `mongot` user.
 
             Replace:
 
-            - `<mongot-username>` with the username for the `mongot` user.
-            - `<mongot-password>` with the password that you will store in the password file.
+             - `<mongot-username>` with the username for the `mongot` user.
+             - `<mongot-password>` with the password that you will store in the password file.
 
-            ```javascript
-            db.createUser({
-            user: "<mongot-username>",
-            pwd: "<mongot-password>",
-            roles: ["searchCoordinator"]
-            })
-            ```
+              ```javascript
+              db.createUser({
+              user: "<mongot-username>",
+              pwd: "<mongot-password>",
+              roles: ["searchCoordinator"]
+              })
+              ```
 
     10. Create the `mongot` configuration file.
 
