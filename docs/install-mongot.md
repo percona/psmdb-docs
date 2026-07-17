@@ -3,11 +3,14 @@
 Before deploying Vector Search for Percona Server for MongoDB, ensure that you have:
 
 - Percona Server for MongoDB 8.3 or later installed.
-- An initiated replica set with keyfile access control or sharded deployment.
 - Administrative privileges to install and configure `mongot`.
 - A supported Linux operating system.
-- Docker engine with Compose v2 (if you are installing on Docker).
-- `mongosh` installed on the host.
+
+Additional requirements depend on the installation method:
+
+- **Tarballs** - An initiated replica set with keyfile access control or sharded deployment. `mongosh` installed on the host.
+
+- **Docker** - Docker engine with Compose v2 installed on the host.
 
 For more information, see [Vector Search compatibility](vector-search-compatibility.md).
 
@@ -66,10 +69,15 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
               skipAuthenticationToSearchIndexManagementServer: false
               useGrpcForSearch: true
             ```
+        These are startup parameters. Restart `mongod` for the changes to take effect:
 
+        ```sh
+        sudo systemctl restart mongod
+        ```
+        
     4. Create a user for the `mongot` process.
 
-        `mongot` must be able to connect to your Percona Server for MongoDB deployment through a user with the `searchCoordinator` role.
+        `mongot` connects to your Percona Server for MongoDB deployment through a user with the `searchCoordinator` role.
 
         a. Connect to `mongosh` as an administrator.
 
@@ -98,9 +106,16 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
               pwd: "<mongot-password>",
               roles: ["searchCoordinator"]
             })
-            ```
+    
+    5. Create the password file.
 
-    5. Prepare the required directories.
+        ```sh
+        echo "<mongot-password>" | sudo tee /etc/mongot/mongot.passwd > /dev/null
+        sudo chmod 600 /etc/mongot/mongot.passwd
+        sudo chown mongod:mongod /etc/mongot/mongot.passwd
+        ```
+
+    6. Prepare the required directories.
 
         ```sh
         sudo mkdir -p /var/lib/mongot /etc/mongot /opt/mongot
@@ -108,7 +123,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
         sudo chmod 750 /etc/mongot
         ```
 
-    6. Create the `mongot` configuration file.
+    7. Create the `mongot` configuration file.
 
         The tarball includes a sample configuration file, `config.default.yml`. Modify it as needed for your deployment.
 
@@ -117,7 +132,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
             ```yaml
             syncSource:
               replicaSet:
-                hostAndPort: 127.0.0.1:27017
+                hostAndPort: localhost:27017
                 username: <mongot-username>
                 passwordFile: /etc/mongot/mongot.passwd
                 tls: false
@@ -143,16 +158,9 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
             ```
 
         !!! note
+            The user that runs `mongot` must have write access to the directory specified by `storage.dataPath`.
 
-            Ensure that the directory specified by `storage.dataPath` is writable by the user running `mongot`.
-
-    7. Create the password file.
-
-        ```sh
-        echo "<mongot-password>" | sudo tee /etc/mongot/mongot.passwd > /dev/null
-        sudo chmod 600 /etc/mongot/mongot.passwd
-        sudo chown mongod:mongod /etc/mongot/mongot.passwd
-        ```
+          For the full list of configuration options, see the upstream [mongot configuration options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"} documentation.
 
     8. Copy the extracted files to the installation directory.
 
@@ -225,7 +233,6 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
     !!! info "Important"
         - `mongot` synchronizes data from `mongod` and requires a PSMDB replica set. Standalone deployments are not supported.
-        - If you want PSMDB Vector Search to automatically generate embeddings for text stored in your collections, create endpoint service API keys. For more information, see **Automated Embedding**.
 
     Follow these steps to install and configure `mongot` using Docker:
     {.power-number}
@@ -250,22 +257,24 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
     4. Create a Docker network.
 
-        The `mongod` and `mongot` containers must run on the same Docker network so that they can communicate using their container names.
+        The `mongod` and `mongot` containers must run on the same Docker network so that they can communicate using their container names. Use the same `<network-name>` value when you start both containers.
 
         ```bash
         docker network create <network-name>
         ```
+        Replace `<network-name>` with a name for the network, for example `psmdb-search`.
 
     5. Create the password file for the `mongot` user.
 
-        Replace `<mongot-password>` with a password of your choice.
+        `mongot` reads the password for its database user from a file. Create the file and restrict its permissions. The `-n` option prevents a trailing newline from being written to the file, which would otherwise become part of the password:
+
 
         ```bash
         echo -n "<mongot-password>" > mongot-password.txt
         chmod 400 mongot-password.txt
         ```
 
-        The `-n` option prevents a trailing newline from being written to the password file. Use the same password when creating the `mongot` database user in step 9.
+        Replace `<mongot-password>` with a password of your choice. You use the same password when you create the `mongot` database user in step 9.
 
     6. Create the `mongod` configuration file.
 
@@ -304,7 +313,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
           -v <path-to-data-db>:/data/db \
           -p 27017:27017 \
           --network <network-name> \
-          percona/percona-server-mongodb:<tag> \
+          percona/percona-server-mongodb:<TAG> \
           --config /etc/mongod.conf
         ```
 
