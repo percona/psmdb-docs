@@ -18,7 +18,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
 === "Tarballs"
 
-    ### Install mongot from tarballs
+    ### Install `mongot` from tarballs
 
     Follow these steps to install `mongot` from a tarball:
     {.power-number}
@@ -47,11 +47,11 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
             tar -zxvf mongot_community_0.53.0_linux_x86_64.tgz
             ```
 
-        The extracted archive contains the `mongot` binary, a sample configuration file, the `mongot` launcher script, and MongoDB Search and Vector Search license information.
+        The extracted archive contains the `mongot` binary, the sample configuration file, the `mongot` launcher script, and the MongoDB Search and Vector Search license files.
 
     3. Configure `mongod` to communicate with `mongot`.
 
-        Configure the following `mongod` parameters.
+        Configure the following `mongod` startup parameters.
 
         | Parameter | Description |
         |-----------|-------------|
@@ -60,7 +60,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
         | `skipAuthenticationToSearchIndexManagementServer` | Enables or disables authentication between `mongod` and `mongot` for search index management operations. |
         | `useGrpcForSearch` | Enables or disables gRPC communication between `mongod` and `mongot`. |
 
-        ??? example "Example: mongod configuration"
+        ??? example "Example: `mongod` configuration"
 
             ```yaml
             setParameter:
@@ -69,34 +69,35 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
               skipAuthenticationToSearchIndexManagementServer: false
               useGrpcForSearch: true
             ```
-        These are startup parameters. Restart `mongod` for the changes to take effect:
+
+        These are startup parameters. Restart `mongod` for the changes to take effect.
 
         ```sh
         sudo systemctl restart mongod
         ```
-        
+
     4. Create a user for the `mongot` process.
 
-        `mongot` connects to your Percona Server for MongoDB deployment through a user with the `searchCoordinator` role.
+        `mongot` connects to your Percona Server for MongoDB deployment by using a user with the `searchCoordinator` role.
 
-        a. Connect to `mongosh` as an administrator.
+        1. Connect to `mongosh` as an administrator.
 
             ```sh
             mongosh --port 27017 -u <admin-username> -p <admin-password>
             ```
 
-        b. Switch to the `admin` database.
+        2. Switch to the `admin` database.
 
             ```javascript
             use admin
             ```
 
-        c. Create the `mongot` user.
+        3. Create the `mongot` user.
 
             Replace:
 
             - `<mongot-username>` with the username for the `mongot` user.
-            - `<mongot-password>` with the password that you will save in the password file in the next step.
+            - `<mongot-password>` with the password that you save in the password file in the next step.
 
             Then run:
 
@@ -107,7 +108,11 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
               roles: ["searchCoordinator"]
             })
             ```
+<<<<<<< Updated upstream
     
+=======
+
+>>>>>>> Stashed changes
     5. Create the password file.
 
         ```sh
@@ -127,9 +132,9 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
     7. Create the `mongot` configuration file.
 
-        The tarball includes a sample configuration file, `config.default.yml`. Modify it as needed for your deployment.
+        The tarball includes a sample configuration file named `config.default.yml`. Modify it as needed for your deployment.
 
-        ??? example "Example: Configuration file"
+        ??? example "Example: `config.default.yml`"
 
             ```yaml
             syncSource:
@@ -160,9 +165,10 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
             ```
 
         !!! note
-            The user that runs `mongot` must have write access to the directory specified by `storage.dataPath`.
 
-          For the full list of configuration options, see the upstream [mongot configuration options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"} documentation.
+            The user running `mongot` must have write access to the directory specified by `storage.dataPath`.
+
+        For the complete list of configuration options, see the upstream [mongot configuration options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"} documentation.
 
     8. Copy the extracted files to the installation directory.
 
@@ -172,6 +178,12 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
         ```
 
     9. Create the `systemd` service.
+
+        Create the following file:
+
+        ```text
+        /etc/systemd/system/mongot.service
+        ```
 
         ```ini
         [Unit]
@@ -193,12 +205,6 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         [Install]
         WantedBy=multi-user.target
-        ```
-
-        Save the file as:
-
-        ```text
-        /etc/systemd/system/mongot.service
         ```
 
     10. Set the required file permissions and SELinux contexts.
