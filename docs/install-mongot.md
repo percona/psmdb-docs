@@ -454,7 +454,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
         Send a request to the readiness endpoint.
 
         ```bash
-        docker exec mongot curl -s http://mongot:8080/health
+        docker exec mongot -- curl localhost:8080/health
         ```
 
         If `mongot` starts successfully, the endpoint returns:
