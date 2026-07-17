@@ -263,7 +263,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
         chmod 400 mongot-password.txt
         ```
 
-        Replace `<mongot-password>` with a password of your choice. You use the same password when you create the database user in step 8.
+        Replace `<mongot-password>` with a password of your choice. You use the same password when you create the database user in step 9.
 
 
     6. Create the `mongod` configuration file.
@@ -329,26 +329,26 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         The `searchCoordinator` role grants `readAnyDatabase` privileges and write access to the internal `__mdb_internal_search` database, which `mongot` uses to store search index metadata.
 
-        a. Switch to the `admin` database.
+            a. Switch to the `admin` database.
 
-        ```javascript
-        use admin
-        ```
+            ```javascript
+            use admin
+            ```
 
-        b. Create the `mongot` user.
+            b. Create the `mongot` user.
 
-        Replace:
+            Replace:
 
-        - `<mongot-username>` with the username for the `mongot` user.
-        - `<mongot-password>` with the password that you will store in the password file.
+            - `<mongot-username>` with the username for the `mongot` user.
+            - `<mongot-password>` with the password that you will store in the password file.
 
-        ```javascript
-        db.createUser({
-          user: "<mongot-username>",
-          pwd: "<mongot-password>",
-          roles: ["searchCoordinator"]
-        })
-        ```
+            ```javascript
+            db.createUser({
+            user: "<mongot-username>",
+            pwd: "<mongot-password>",
+            roles: ["searchCoordinator"]
+            })
+            ```
 
     9. Create the `mongot` configuration file.
 
@@ -398,7 +398,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         The `scramAuth.username` and `passwordFile` values must match the user from step 8 and the password file from step 3. The `mongot` image reads its configuration from `/mongot-community/config.default.yml` inside the container; you mount your file to that path in the next step.
 
-    For the full list of configuration options, see the upstream [mongot configuration options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"} documentation.
+        For the full list of configuration options, see the upstream [mongot configuration options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"} documentation.
 
     10. Start the `mongot` container.
 
