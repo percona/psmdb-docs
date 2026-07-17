@@ -319,7 +319,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
         docker exec -it mongod mongosh --port 27017
         ```
         
-        ```sh
+        ```javascript
         rs.initiate()
         ```
 
