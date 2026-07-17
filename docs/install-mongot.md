@@ -407,7 +407,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
         - `<path-to-data-mongot>` with the directory used to store search index data.
         - `<path-to-mongot-conf>` with the path to the `mongot.conf` file.
         - `<path-to-password-file>` with the path to the password file.
-        - `<docker-network-name>` with the Docker network created earlier.
+        - `<network-name>` with the Docker network created earlier.
 
         ```bash
         docker run --rm \
