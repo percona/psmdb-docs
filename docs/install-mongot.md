@@ -396,7 +396,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
 
         Both the `mongod` and `mongot` containers must run on the same Docker network.
 
-        The `scramAuth.username` and `passwordFile` values must match the user from step 8 and the password file from step 3. The `mongot` image reads its configuration from `/mongot-community/config.default.yml` inside the container; you mount your file to that path in the next step.
+        The `scramAuth.username` and `passwordFile` values must match the user from step 9 and the password file from step 5. The `mongot` image reads its configuration from `/mongot-community/config.default.yml` inside the container; you mount your file to that path in the next step.
 
         For the full list of configuration options, see the upstream [mongot configuration options :octicons-link-external-16:](https://www.mongodb.com/docs/manual/reference/configuration-options/#std-label-mongot-configuration-options){:target="_blank"} documentation.
 
