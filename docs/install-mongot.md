@@ -308,7 +308,7 @@ For more information, see [Vector Search compatibility](vector-search-compatibil
           --config /etc/mongod.conf
         ```
 
-        The container name `mongod` is the hostname that `mongot` uses to reach the database. If you change it, also change the `syncSource.replicaSet.hostAndPort` value in step 6.
+        The container name `mongod` is the hostname that `mongot` uses to reach the database. If you change it, also change the `syncSource.replicaSet.hostAndPort` value in step 10.
         To check the server logs, run `docker logs -f mongod`.
 
     8. Initiate the replica set.
