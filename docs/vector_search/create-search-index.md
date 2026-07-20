@@ -6,7 +6,6 @@ A search index is a data structure that maps the terms in your documents to the 
 - Search queries use the aggregation pipeline stages `$search` and `$searchMeta`.
 - When you create a search index, Percona Search for MongoDB transforms your data into a sequence of tokens or terms.
 
-
 ## How Search Indexes work
 
 When you create a search index on a collection, `mongot` does the following:
@@ -16,16 +15,14 @@ When you create a search index on a collection, `mongot` does the following:
 2. Opens a change stream on the collection to watch for inserts, updates, and deletes.
 3. Applies those changes to the index continuously, keeping it in sync with the collection.
 
+## Types of Search Indexes
 
+Percona Search for MongoDB supports two index types:
 
+- Search indexes power full-text search with the `$search` and `$searchMeta` stages. They support text analyzers, relevance-based scoring, autocomplete, faceting, and highlighting.
+- Vector search indexes power semantic and similarity search with the `$vectorSearch` stage. They index vector embeddings that you store in your documents and support [approximate nearest neighbor (ANN) :octicons-link-external-16:](https://www.mongodb.com/resources/basics/ann-search){:target="_blank"} search. 
 
-
-
-
-
-
-
-
+For more information, see [how vector search works]().
 
 ## Create a Search Index
 
@@ -53,5 +50,7 @@ db.products.createSearchIndex(
   }
 );
 ```
+
+The following code shows how to create a Multiple Search indexes:
 
 
