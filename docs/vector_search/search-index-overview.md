@@ -34,5 +34,7 @@ A search index definition specifies which fields to index and how to index them.
 
 
 [Create a search index :material-arrow-right:](../create-search-index.md){.md-button}
+
 [Update a search index :material-arrow-right:](../cupdate-search-index.md){.md-button}
+
 [Delete a search index :material-arrow-right:](../delete-search-index.md){.md-button}

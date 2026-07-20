@@ -210,6 +210,11 @@ nav:
           - "Create a search index": vector_search/create-search-index.md
           - "Update search index": vector_search/update-search-index.md
           - "Delete search index": vector_search/delete-search-index.md
+          - Run search queries:
+            - Query with $search: vector_search/query-search.md
+            - Retrieve metadata with $searchMeta: vector_search/query-searchmeta.md
+            - Operators: vector_search/operators.md                 # phase 2 candidate
+            - Scoring: vector_search/scoring.md     
       - Backup:
         - "Hot Backup": "hot-backup.md"
         - backup-cursor.md
