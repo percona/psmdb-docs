@@ -53,4 +53,10 @@ db.products.createSearchIndex(
 
 The following code shows how to create a Multiple Search indexes:
 
+## Field mappings
 
+A search index definition specifies which fields to index and how to index them. You can choose between two mapping strategies:
+
+- [Dynamic mapping :octicons-link-external-16:](https://www.mongodb.com/docs/search/index/define-field-mappings/#dynamic-mappings){:target="_blank"} indexes all fields of supported types automatically, including fields added to documents later. Fields can be indexed based on the default set of types or by configuring a `typeSet`.
+
+- [Static mapping :octicons-link-external-16:](https://www.mongodb.com/docs/search/index/define-field-mappings/#static-mappings){:target="_blank"} indexes only the fields you explicitly define. To use static mappings to configure index options for only some fields, set `mappings.dynamic` to false and specify the field name, [data type :octicons-link-external-16:](https://www.mongodb.com/docs/search/index/define-field-mappings/#mongodb-search-field-types){:target="_blank"}, and other configuration options for each field that you want to index. You can specify the fields in any order.
