@@ -7,6 +7,6 @@
 
 ## Create a Search Index
 
-You can use the `createSearchIndex()` method to create a single Percona Search for MongoDB or Vector Search index on a collection, or the `createSearchIndexes()` method to create multiple indexes simultaneously.
+You can use the `createSearchIndex()` method to create a single Search or Vector Search index on a collection, or the `createSearchIndexes()` method to create multiple indexes simultaneously.
 
 
