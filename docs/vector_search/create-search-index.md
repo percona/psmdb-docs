@@ -7,7 +7,7 @@ You can use the `createSearchIndex()` method to create a single Search or Vector
 Follow these steps to create a single search index:
 {.power-number}
 
-    1. Insert test data from mongosh:
+1. Insert test data from mongosh:
 
     ```javascript
     use test
