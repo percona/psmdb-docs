@@ -201,10 +201,10 @@ nav:
       - Storage:
         - "Percona Memory Engine": "inmemory.md"
       - Search:
-        - overview-search.md
-        - vector-search-architecture.md
-        - vector-search-compatibility.md
-        - install-mongot.md
+        - vector_search/overview-search.md
+        - vector_search/vector-search-architecture.md
+        - vector_search/vector-search-compatibility.md
+        - vector_search/install-mongot.md
         - Search indexes:
           - "Search index overview": vector_search/search-index-overview.md
           - "Create a search index": vector_search/create-search-index.md
