@@ -206,10 +206,10 @@ nav:
         - vector-search-compatibility.md
         - install-mongot.md
         - Search indexes:
-          - "Create a search index": create-search-index.md
-          - "Search index types": search-index-types.md
-          - "Search index options": search-index-options.md
-          - "Search index management": search-index-management.md
+          - "Search index overview": vector_search/search-index-overview.md
+          - "Create a search index": vector_search/create-search-index.md
+          - "Update search index": vector_search/update-search-index.md
+          - "Delete search index": vector_search/delete-search-index.md
       - Backup:
         - "Hot Backup": "hot-backup.md"
         - backup-cursor.md
