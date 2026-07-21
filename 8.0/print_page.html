@@ -24,7 +24,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -32,7 +32,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -11624,7 +11624,37 @@ when running <code>mongod</code> or <code>mongos</code> process:</p>
 <li>Closes this renamed file</li>
 <li>Opens a new audit log file and starts writing auditing events to it.</li>
 </ul>
-<p>Read more about log rotation in <a href="#log-rotation">Log rotation in Percona Server for MongoDB</a></p></body></html></section><section class="print-page" id="rate-limit" heading-number="4.8"><html><head>
+<p>Read more about log rotation in <a href="#log-rotation">Log rotation in Percona Server for MongoDB</a></p>
+<h2 id="audit-logging-audit-log-write-semantics">Audit log write semantics<a class="headerlink" href="#audit-logging-audit-log-write-semantics" title="Permanent link">¶</a></h2>
+<p>The audit logging behavior differs depending on the configured destination. Understanding these differences is important when evaluating the durability and performance characteristics of audit logging.</p>
+<table>
+<thead>
+<tr>
+<th>Destination</th>
+<th>Write Behavior</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>console</code></td>
+<td><strong>Synchronous</strong></td>
+<td>Each audit log entry is written to standard output and the output buffer is flushed immediately. The operation completes only after the entry has been handed off to the operating system.</td>
+</tr>
+<tr>
+<td><code>syslog</code></td>
+<td><strong>Asynchronous</strong></td>
+<td>Percona Server for MongoDB issues a <code>syslog()</code> system call for each audit log entry. In typical configurations, this call does not force the system log file to be flushed to disk, so audit records may remain buffered by the operating system or syslog daemon before being persisted.</td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td><strong>Synchronous</strong></td>
+<td>Audit log entries are written to disk before journal data is persisted. To reduce overhead, Percona Server for MongoDB buffers audit records in memory between writes, but it ensures that buffered audit records are written to disk before the corresponding journal data is committed.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="audit-logging-durability-considerations">Durability considerations<a class="headerlink" href="#audit-logging-durability-considerations" title="Permanent link">¶</a></h3>
+<p>The <code>console</code> and <code>file</code> destinations provide synchronous handling of audit records, ensuring that audit events are written before the associated operation is considered durable. The <code>syslog</code> destination relies on the operating system and syslog implementation, which typically buffer writes and therefore provide asynchronous handling unless additional system-level measures are configured to force log flushing.</p></body></html></section><section class="print-page" id="rate-limit" heading-number="4.8"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14739,7 +14769,7 @@ window.addEventListener('afterprint', (event) => {
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="js/print-site.js"></script>
       
