@@ -303,7 +303,7 @@ If you restart Percona Server for MongoDB with auditing enabled or manually star
 
 Read more about log rotation in [Log rotation in Percona Server for MongoDB](log-rotation.md)
 
-## Audit Log Write Semantics
+## Audit log write semantics
 
 The audit logging behavior differs depending on the configured destination. Understanding these differences is important when evaluating the durability and performance characteristics of audit logging.
 
