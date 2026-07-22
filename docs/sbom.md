@@ -48,7 +48,7 @@ rpm -ql percona-server-mongodb-server | grep cdx.json
 
 # Scan it (replace 9.x with your RHEL/OL version)
 trivy sbom --severity HIGH,CRITICAL --ignore-unfixed --distro redhat/9.x \
-    /usr/share/doc/percona-server-mongodb-server/percona-server-mongodb-server.cdx.json
+    /usr/share/doc/percona-server-mongodb-server.cdx.json
 ```
 
 ### DEB package
@@ -59,7 +59,7 @@ dpkg -L percona-server-mongodb-server | grep cdx.json
 
 # Scan it
 trivy sbom --severity HIGH,CRITICAL --ignore-unfixed \
-    /usr/share/doc/percona-server-mongodb-server/percona-server-mongodb-server.cdx.json
+    /usr/share/doc/percona-server-mongodb-server.cdx.json
 ```
 
 ### Docker images
@@ -87,7 +87,7 @@ To scan the embedded SBOM from inside the container image:
 ```bash
 docker run --rm -it --entrypoint cat \
     docker.io/percona/percona-server-mongodb-server \
-    /usr/share/doc/percona-server-mongodb-server/percona-server-mongodb-server.cdx.json \
+    /usr/share/doc/percona-server-mongodb-server.cdx.json \
     | trivy sbom --severity HIGH,CRITICAL --ignore-unfixed -
 ```
 
