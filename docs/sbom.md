@@ -17,7 +17,7 @@ An SBOM helps you:
 
 | Distribution method | SBOM location |
 |---|---|
-| Binary tarball | `percona-server-mongodb/percona-server-mongodb.cdx.json` |
+| Binary tarball | `doc/percona-server-mongodb/sbom.cdx.json` |
 | RPM package | `/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json` |
 | DEB package | `/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json` |
 | Docker image | Embedded in the image and available as an attached OCI artifact. See [Docker images](#docker-images). |
