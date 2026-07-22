@@ -77,7 +77,7 @@ Each PSMDB Docker image (Docker Hub `percona/percona-server-mongodb-server`, Per
 
 ```bash
 trivy image --severity HIGH,CRITICAL --ignore-unfixed --sbom-sources oci \
-    docker.io/percona-server-mongodb-server
+    docker.io/percona/percona-server-mongodb-server
 ```
 
 #### Scan the embedded SBOM
