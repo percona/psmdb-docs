@@ -8,7 +8,7 @@ Starting with version 8.3, every Percona Server for MongoDB (PSMDB) release incl
 
 An SBOM helps you:
 
-- Identify the components and dependencies included in a PBM release.
+- Identify the components and dependencies included in a PSMDB release.
 - Assess known vulnerabilities using SBOM-compatible security scanners.
 - Support security reviews, compliance processes, and software supply chain requirements.
 - Verify the contents of deployed software artifacts.
