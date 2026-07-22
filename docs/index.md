@@ -1,4 +1,4 @@
-# Percona Server for MongoDB 8.0 Documentation
+# Percona Server for MongoDB 8.3 Documentation
 
 Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
 for MongoDB 8.0 Community Edition with [enterprise-grade features](comparison.md).
