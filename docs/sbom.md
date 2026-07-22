@@ -31,11 +31,11 @@ The examples below use [Trivy :octicons-link-external-16:](https://trivy.dev/){:
 
 ```bash
 # Confirm the SBOM is bundled
-tar tzf percona-server-mongodb.cdx.json | grep cdx.json
+tar tzf percona-server-mongodb-{{release}}-x86_64.<operating-system>.tar.gz | grep percona-server-mongodb.cdx.json
 
 # Extract and scan
-tar xzf percona-server-mongodb.cdx.json \
-    -C /tmp percona-server-mongodb-{{release}}/percona-server-mongodb-{{release}}.cdx.json
+tar xzf percona-server-mongodb-{{release}}-x86_64.<operating-system>.tar.gz \
+    -C /tmp percona-server-mongodb/percona-server-mongodb.cdx.json
 trivy sbom --severity HIGH,CRITICAL --ignore-unfixed \
     /tmp/percona-server-mongodb/percona-server-mongodb.cdx.json
 ```
