@@ -31,13 +31,13 @@ The examples below use [Trivy :octicons-link-external-16:](https://trivy.dev/){:
 
 ```bash
 # Confirm the SBOM is bundled
-tar tzf percona-server-mongodb-{{release}}-x86_64.<operating-system>.tar.gz | grep percona-server-mongodb.cdx.json
+tar tzf percona-server-mongodb-{{release}}-x86_64.<operating-system>.tar.gz | grep percona-server-mongodb.sbom.cdx.json
 
 # Extract and scan
 tar xzf percona-server-mongodb-{{release}}-x86_64.<operating-system>.tar.gz \
-    -C /tmp percona-server-mongodb/percona-server-mongodb.cdx.json
+    -C /tmp percona-server-mongodb/percona-server-mongodb.sbom.cdx.json
 trivy sbom --severity HIGH,CRITICAL --ignore-unfixed \
-    /tmp/percona-server-mongodb/percona-server-mongodb.cdx.json
+    /tmp/percona-server-mongodb/percona-server-mongodb.sbom.cdx.json
 ```
 
 ### RPM package
@@ -48,18 +48,18 @@ rpm -ql percona-server-mongodb-server | grep cdx.json
 
 # Scan it (replace 9.x with your RHEL/OL version)
 trivy sbom --severity HIGH,CRITICAL --ignore-unfixed --distro redhat/9.x \
-    /usr/share/doc/percona-server-mongodb-server.cdx.json
+    /usr/share/doc/percona-server-mongodb-server.sbom.cdx.json
 ```
 
 ### DEB package
 
 ```bash
 # Confirm the package installs the SBOM
-dpkg -L percona-server-mongodb-server | grep cdx.json
+dpkg -L percona-server-mongodb-server | grep sbom.cdx.json
 
 # Scan it
 trivy sbom --severity HIGH,CRITICAL --ignore-unfixed \
-    /usr/share/doc/percona-server-mongodb-server.cdx.json
+    /usr/share/doc/percona-server-mongodb-server.sbom.cdx.json
 ```
 
 ### Docker images
@@ -86,8 +86,8 @@ To scan the embedded SBOM from inside the container image:
 
 ```bash
 docker run --rm -it --entrypoint cat \
-    docker.io/percona/percona-server-mongodb-server \
-    /usr/share/doc/percona-server-mongodb-server.cdx.json \
+    docker.io/percona/percona-server-mongodb \
+    /usr/share/doc/percona-server-mongodb/sbom.cdx.json \
     | trivy sbom --severity HIGH,CRITICAL --ignore-unfixed -
 ```
 
@@ -98,8 +98,8 @@ You can use the [ORAS CLI :octicons-link-external-16:](https://oras.land/){:targ
 ```bash
 # Use the per-architecture tag to resolve directly to the image manifest
 oras discover --format tree \
-    docker.io/percona/percona-server-mongodb-server-amd64
+    docker.io/percona/percona-server-mongodb-amd64
 
 # Pull the SBOM artifact using the digest from the discover output
-oras pull docker.io/percona/percona-server-mongodb-server@sha256:<referrer-digest>
+oras pull docker.io/percona/percona-server-mongodb@sha256:<referrer-digest>
 ```
