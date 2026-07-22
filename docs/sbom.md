@@ -31,40 +31,40 @@ The examples below use [Trivy :octicons-link-external-16:](https://trivy.dev/){:
 
 ```bash
 # Confirm the SBOM is bundled
-tar tzf percona-backup-mongodb-{{release}}-x86_64.tar.gz | grep cdx.json
+tar tzf percona-server-mongodb.cdx.json | grep cdx.json
 
 # Extract and scan
-tar xzf percona-backup-mongodb-{{release}}-x86_64.tar.gz \
-    -C /tmp percona-backup-mongodb-{{release}}/percona-backup-mongodb-{{release}}.cdx.json
+tar xzf percona-server-mongodb.cdx.json \
+    -C /tmp percona-server-mongodb-{{release}}/percona-server-mongodb-{{release}}.cdx.json
 trivy sbom --severity HIGH,CRITICAL --ignore-unfixed \
-    /tmp/percona-backup-mongodb-{{release}}/percona-backup-mongodb-{{release}}.cdx.json
+    /tmp/percona-server-mongodb/percona-server-mongodb.cdx.json
 ```
 
 ### RPM package
 
 ```bash
 # Confirm the package installs the SBOM
-rpm -ql percona-backup-mongodb | grep cdx.json
+rpm -ql percona-server-mongodb-server | grep cdx.json
 
 # Scan it (replace 9.x with your RHEL/OL version)
 trivy sbom --severity HIGH,CRITICAL --ignore-unfixed --distro redhat/9.x \
-    /usr/share/doc/percona-backup-mongodb/percona-backup-mongodb-{{release}}.cdx.json
+    /usr/share/doc/percona-server-mongodb-server/percona-server-mongodb-server.cdx.json
 ```
 
 ### DEB package
 
 ```bash
 # Confirm the package installs the SBOM
-dpkg -L percona-backup-mongodb | grep cdx.json
+dpkg -L percona-server-mongodb-server | grep cdx.json
 
 # Scan it
 trivy sbom --severity HIGH,CRITICAL --ignore-unfixed \
-    /usr/share/doc/percona-backup-mongodb/percona-backup-mongodb-{{release}}.cdx.json
+    /usr/share/doc/percona-server-mongodb-server/percona-server-mongodb-server.cdx.json
 ```
 
 ### Docker images
 
-Each PBM Docker image (Docker Hub `percona/percona-backup-mongodb`, PerconaLab `perconalab/percona-backup-mongodb`) ships with **two** CycloneDX 1.6 SBOMs that describe overlapping scopes:
+Each PSMDB Docker image (Docker Hub `percona/percona-server-mongodb-server`, PerconaLab `perconalab/percona-server-mongodb-server`) ships with **two** CycloneDX 1.6 SBOMs that describe overlapping scopes:
 
 | SBOM | Scope | How to access |
 |---|---|---|
@@ -77,10 +77,8 @@ Each PBM Docker image (Docker Hub `percona/percona-backup-mongodb`, PerconaLab `
 
 ```bash
 trivy image --severity HIGH,CRITICAL --ignore-unfixed --sbom-sources oci \
-    docker.io/percona/percona-backup-mongodb:{{release}}
+    docker.io/percona-server-mongodb-server
 ```
-
-
 
 #### Scan the embedded SBOM
 
@@ -88,8 +86,8 @@ To scan the embedded SBOM from inside the container image:
 
 ```bash
 docker run --rm -it --entrypoint cat \
-    docker.io/percona/percona-backup-mongodb:{{release}} \
-    /usr/share/doc/percona-backup-mongodb/percona-backup-mongodb-{{release}}.cdx.json \
+    docker.io/percona/percona-server-mongodb-server \
+    /usr/share/doc/percona-server-mongodb-server/percona-server-mongodb-server.cdx.json \
     | trivy sbom --severity HIGH,CRITICAL --ignore-unfixed -
 ```
 
@@ -100,8 +98,8 @@ You can use the [ORAS CLI :octicons-link-external-16:](https://oras.land/){:targ
 ```bash
 # Use the per-architecture tag to resolve directly to the image manifest
 oras discover --format tree \
-    docker.io/percona/percona-backup-mongodb:{{release}}-amd64
+    docker.io/percona/percona-server-mongodb-server-amd64
 
 # Pull the SBOM artifact using the digest from the discover output
-oras pull docker.io/percona/percona-backup-mongodb@sha256:<referrer-digest>
+oras pull docker.io/percona/percona-server-mongodb-server@sha256:<referrer-digest>
 ```
