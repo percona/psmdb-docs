@@ -68,8 +68,8 @@ Each PSMDB Docker image (Docker Hub `percona/percona-server-mongodb-server`, Per
 
 | SBOM | Scope | How to access |
 |---|---|---|
-| **Embedded** | PBM binary and Go modules only | Inside the image filesystem |
-| **OCI-attached** | Full image — PBM and UBI9 base OS packages | Registry-side, via the OCI Referrers API |
+| **Embedded** | PSMDB packages only | Inside the image filesystem |
+| **OCI-attached** | Full image — PSMDB and UBI9 base OS packages | Registry-side, via the OCI Referrers API |
 
 #### Scan via OCI Referrers API (recommended)
 
