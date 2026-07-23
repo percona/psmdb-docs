@@ -70,7 +70,7 @@ grype sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
 
 Each PSMDB Docker image (Docker Hub `docker.io/percona/percona-server-mongodb-server, PerconaLab docker.io/perconalab/percona-server-mongodb-server`) ships with **two** CycloneDX SBOMs that describe overlapping scopes:
 
-| SBOM | Scope |CyclonxDX version |How to access |
+| SBOM | Scope |CyclonDX version |How to access |
 |---|---|---|----|
 | **Embedded** | PSMDB packages only | 1.5|Inside the image filesystem |
 | **OCI-attached** | Full image — PSMDB and UBI9 base OS packages | 1.6|Registry-side, via the OCI Referrers API |
