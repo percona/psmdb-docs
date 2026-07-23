@@ -26,10 +26,10 @@ Before the upgrade, do the following:
           sudo systemctl stop mongod
           ```
 
-     2. Enable Percona repository for Percona Server for MongoDB 8.0:
+     2. Enable Percona repository for Percona Server for MongoDB 8.3:
 
          ```bash
-         sudo percona-release enable psmdb-80
+         sudo percona-release enable psmdb-83
          ```
 
      3. Update the local cache:
