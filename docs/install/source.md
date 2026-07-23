@@ -266,7 +266,7 @@ The steps are the following:
         ??? example "Sample output"
 
             ```{.text .no-copy}
-            -rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_8.3.4.orig.tar.gz
+            -rw-r--r-- 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_8.3.4.orig.tar.gz
             ```
                 
     === ":material-redhat: RPM"    
