@@ -316,11 +316,12 @@ The steps are the following:
         ??? example "Sample output"
 
             ```{.text .no-copy}
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-dbg_8.3.4-1.jammy_amd64.deb  
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos_8.3.4-1.jammy_amd64.deb 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server_8.3.4-1.jammy_amd64.deb 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_8.3.4-1.jammy_amd64.deb  
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_8.3.4-1.jammy_amd64.deb
+            -rw-rw-r-- 1 root nogroup 1123619378 Jul  7 10:03 percona-server-mongodb-dbg_8.3.4-1.jammy_amd64.deb
+            -rw-rw-r-- 1 root nogroup   65470306 Jul  7 10:03 percona-server-mongodb-mongos_8.3.4-1.jammy_amd64.deb
+            -rw-rw-r-- 1 root nogroup  140745416 Jul  7 10:03 percona-server-mongodb-server_8.3.4-1.jammy_amd64.deb
+            -rw-rw-r-- 1 root nogroup   44086996 Jul  7 10:03 percona-server-mongodb-shell_8.3.4-1.jammy_amd64.deb
+            -rw-rw-r-- 1 root nogroup   41889286 Jul  7 10:03 percona-server-mongodb-tools_8.3.4-1.jammy_amd64.deb
+            -rw-rw-r-- 1 root nogroup      19898 Jul  7 10:03 percona-server-mongodb_8.3.4-1.jammy_amd64.deb
             ```
         
     === ":material-redhat:  RPM"
@@ -344,14 +345,15 @@ The steps are the following:
         ??? example "Sample output"
 
             ```{.text .no-copy}
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-8.3.4-1.el8.x86_64.rpm  
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-8.3.4-1.el8.x86_64.rpm 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-8.3.4-1.el8.x86_64.rpm    
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-8.3.4-1.el8.x86_64.rpm 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-8.3.4-1.el8.x86_64.rpm    
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-8.3.4-1.el8.x86_64.rpm 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-8.3.4-1.el8.x86_64.rpm 
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-8.3.4-1.el8.x86_64.rpm
+            -rw-r--r-- 1 root nogroup      8360 Jun 25 09:11 percona-server-mongodb-8.3.4-1.el8.x86_64.rpm
+            -rw-r--r-- 1 root nogroup  48696252 Jun 25 09:11 percona-server-mongodb-mongos-8.3.4-1.el8.x86_64.rpm
+            -rw-r--r-- 1 root nogroup 171255180 Jun 25 09:11 percona-server-mongodb-mongos-debuginfo-8.3.4-1.el8.x86_64.rpm
+            -rw-r--r-- 1 root nogroup 103814612 Jun 25 09:12 percona-server-mongodb-server-8.3.4-1.el8.x86_64.rpm
+            -rw-r--r-- 1 root nogroup 346268020 Jun 25 09:12 percona-server-mongodb-server-debuginfo-8.3.4-1.el8.x86_64.rpm
+            -rw-r--r-- 1 root nogroup  32837836 Jun 25 09:12 percona-server-mongodb-shell-8.3.4-1.el8.x86_64.rpm
+            -rw-r--r-- 1 root nogroup  92092564 Jun 25 09:12 percona-server-mongodb-shell-debuginfo-8.3.4-1.el8.x86_64.rpm
+            -rw-r--r-- 1 root nogroup  34839404 Jun 25 09:12 percona-server-mongodb-tools-8.3.4-1.el8.x86_64.rpm
+            -rw-r--r-- 1 root nogroup  29566940 Jun 25 09:12 percona-server-mongodb-tools-debuginfo-8.3.4-1.el8.x86_64.rpm
             ```
 
 
