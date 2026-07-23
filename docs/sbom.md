@@ -2,7 +2,7 @@
 
 A Software Bill of Materials (SBOM) is a machine-readable inventory of the components and dependencies included in a software release. It helps you understand what is included in a build and assess potential security or compliance risks.
 
-Starting with version 8.3, every Percona Server for MongoDB (PSMDB) release includes a [CycloneDX 1.6 :octicons-link-external-16:](https://cyclonedx.org/specification/overview/){:target="_blank"} SBOM in JSON format.
+Starting with version 8.3, every Percona Server for MongoDB (PSMDB) release includes a [CycloneDX :octicons-link-external-16:](https://cyclonedx.org/specification/overview/){:target="_blank"} SBOM in JSON format.
 
 ## Why it matters
 
@@ -25,30 +25,35 @@ An SBOM helps you:
 
 ## Verifying and scanning the SBOM
 
-The examples below use [Trivy :octicons-link-external-16:](https://trivy.dev/){:target="_blank"}. You can also use other CycloneDX-compatible scanners, such as [Grype :octicons-link-external-16:](https://github.com/anchore/grype){:target="_blank"} or Snyk.
+The examples below use [Grype :octicons-link-external-16:](https://github.com/anchore/grype){:target="_blank"}.
+
+!!! note
+    [Trivy :octicons-link-external-16:](https://trivy.dev/){:target="_blank"} cannot currently scan the SBOMs included with Percona Server for MongoDB DEB and RPM packages or binary tarballs. Most dependencies in these SBOMs are identified using the GitHub package type, which Trivy does not fully support in this context.
+
+    Trivy can, however, scan the SBOMs associated with Percona Server for MongoDB Docker images.
+
+
 
 ### Binary tarball
 
 ```bash
 # Confirm the SBOM is bundled
-tar tzf percona-server-mongodb-{{release}}-x86_64.<operating-system>.tar.gz | grep percona-server-mongodb.sbom.cdx.json
+tar tzf percona-server-mongodb-{{release}}-x86_64.<operating-system>.tar.gz | grep sbom.cdx.json
 
 # Extract and scan
 tar xzf percona-server-mongodb-{{release}}-x86_64.<operating-system>.tar.gz \
-    -C /tmp percona-server-mongodb/percona-server-mongodb.sbom.cdx.json
-trivy sbom --severity HIGH,CRITICAL --ignore-unfixed \
-    /tmp/percona-server-mongodb/percona-server-mongodb.sbom.cdx.json
+    -C /tmp doc/sbom.cdx.json
+grype sbom:/tmp/doc/sbom.cdx.json
 ```
 
 ### RPM package
 
 ```bash
 # Confirm the package installs the SBOM
-rpm -ql percona-server-mongodb-server | grep cdx.json
+rpm -ql percona-server-mongodb-server | grep sbom.cdx.json
 
 # Scan it (replace 9.x with your RHEL/OL version)
-trivy sbom --severity HIGH,CRITICAL --ignore-unfixed --distro redhat/9.x \
-    /usr/share/doc/percona-server-mongodb-server.sbom.cdx.json
+grype sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
 ```
 
 ### DEB package
@@ -58,18 +63,17 @@ trivy sbom --severity HIGH,CRITICAL --ignore-unfixed --distro redhat/9.x \
 dpkg -L percona-server-mongodb-server | grep sbom.cdx.json
 
 # Scan it
-trivy sbom --severity HIGH,CRITICAL --ignore-unfixed \
-    /usr/share/doc/percona-server-mongodb-server.sbom.cdx.json
+grype sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
 ```
 
 ### Docker images
 
-Each PSMDB Docker image (Docker Hub `percona/percona-server-mongodb-server`, PerconaLab `perconalab/percona-server-mongodb-server`) ships with **two** CycloneDX 1.6 SBOMs that describe overlapping scopes:
+Each PSMDB Docker image (Docker Hub `docker.io/percona/percona-server-mongodb-server, PerconaLab docker.io/perconalab/percona-server-mongodb-server`) ships with **two** CycloneDX SBOMs that describe overlapping scopes:
 
-| SBOM | Scope | How to access |
-|---|---|---|
-| **Embedded** | PSMDB packages only | Inside the image filesystem |
-| **OCI-attached** | Full image — PSMDB and UBI9 base OS packages | Registry-side, via the OCI Referrers API |
+| SBOM | Scope |CyclonxDX version |How to access |
+|---|---|---|----|
+| **Embedded** | PSMDB packages only | 1.5|Inside the image filesystem |
+| **OCI-attached** | Full image — PSMDB and UBI9 base OS packages | 1.6|Registry-side, via the OCI Referrers API |
 
 #### Scan via OCI Referrers API (recommended)
 
@@ -88,7 +92,7 @@ To scan the embedded SBOM from inside the container image:
 docker run --rm -it --entrypoint cat \
     docker.io/percona/percona-server-mongodb \
     /usr/share/doc/percona-server-mongodb/sbom.cdx.json \
-    | trivy sbom --severity HIGH,CRITICAL --ignore-unfixed -
+    | grype --from sbom
 ```
 
 #### Advanced: Inspect OCI-attached SBOMs with ORAS
