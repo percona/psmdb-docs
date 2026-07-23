@@ -118,13 +118,13 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
 
          ```bash
          sudo yum remove \
-         mongodb-org-shell-8.3.4-1.el9.x86_64
-         mongodb-org-database-8.3.4-1.el9.x86_64
-         mongodb-org-8.3.4-1.el9.x86_64
-         mongodb-database-tools-100.17.0-1.x86_64
-         mongodb-org-server-8.3.4-1.el8.x86_64
-         mongodb-org-mongos-8.3.4-1.el8.x86_64
-         mongodb-org-tools-8.3.4-1.el8.x86_64
+         mongodb-org-shell-8.3.4-1.el9.x86_64 \
+         mongodb-org-database-8.3.4-1.el9.x86_64 \
+         mongodb-org-8.3.4-1.el9.x86_64 \
+         mongodb-database-tools-100.17.0-1.x86_64 \
+         mongodb-org-server-8.3.4-1.el9.x86_64 \
+         mongodb-org-mongos-8.3.4-1.el9.x86_64 \
+         mongodb-org-tools-8.3.4-1.el9.x86_64
          ```
      
      4. [Install Percona Server for MongoDB](yum.md). 
