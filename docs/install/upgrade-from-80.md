@@ -1,9 +1,9 @@
-# Upgrading from Percona Server for MongoDB 7.0 to 8.0
+# Upgrading from Percona Server for MongoDB 8.0 to 8.3
 
 ## Considerations
 
 
-1. To upgrade Percona Server for MongoDB to version 8.0, you must be running version 7.0. Upgrades from earlier versions are not supported.
+1. To upgrade Percona Server for MongoDB to version 8.3, you must be running version 8.0. Upgrades from earlier versions are not supported.
 
 2. Before upgrading your production Percona Server for MongoDB deployments, test all your applications
 in a testing environment to make sure they are compatible with the new version.
