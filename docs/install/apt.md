@@ -93,7 +93,7 @@ and configuration parameters in `/etc/mongod.conf`.
 
 ## Enable Transparent Hugepages (THP)
 
-Enable Transparent Hugepages (THP) before starting Percona Server for MongoDB 8.0. THP is required to use the new TCMalloc version with MongoDB. For how to enable THP, see [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/upcoming/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-) section of documentation.
+Enable Transparent Hugepages (THP) before starting Percona Server for MongoDB 8.3. THP is required to use the new TCMalloc version with MongoDB. For how to enable THP, see [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/upcoming/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-) section of documentation.
 
 ## Run Percona Server for MongoDB
 
