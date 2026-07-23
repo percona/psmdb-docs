@@ -62,8 +62,8 @@ The following steps show how to install Percona Server for MongoDB from a tarbal
     1. Fetch the binary tarballs:    
 
         ```bash
-        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.ol9.tar.gz\
-        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.3/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.ol9.tar.gz\
+        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.3/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
         ```
 
     2. Extract the tarballs    
@@ -103,8 +103,8 @@ The following steps show how to install Percona Server for MongoDB from a tarbal
     1. Fetch the binary tarballs:    
 
         ```bash
-        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz\
-        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
+        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.3/percona-server-mongodb-{{release}}/binary/tarball/percona-server-mongodb-{{release}}-x86_64.jammy.tar.gz\
+        curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.3/percona-server-mongodb-{{release}}/binary/tarball/percona-mongodb-mongosh-{{mongosh}}-x86_64.tar.gz
         ```
 
     2. Extract the tarballs    
