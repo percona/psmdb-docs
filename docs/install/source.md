@@ -201,7 +201,7 @@ To build tarballs, the steps are the following:
     cd /tmp/psmdb
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-    --branch=release-8.3.4-1 --psm_ver=8.3.4 --psm_release=1 --mongo_tools_tag=100.4.1 --get_sources=1 --build_tarball=1
+    --branch=release-8.3.4-1 --psm_ver=8.3.4 --psm_release=1 --mongo_tools_tag=100.17.0 --get_sources=1 --build_tarball=1
     '
     ```
      
@@ -238,7 +238,7 @@ The steps are the following:
     set -o xtrace
     cd /tmp/psmdb
     bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
-    bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git --branch=release-67.0.4-2 --psm_ver=8.3.4 --psm_release=1 --mongo_tools_tag=100.4.1 --get_sources=1'
+    bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git --branch=release-8.3.4-1 --psm_ver=8.3.4 --psm_release=1 --mongo_tools_tag=100.17.0 --get_sources=1'
     ```
 
 2. Build source packages. These packages include the source code and patches and are used to build binary packages.
@@ -253,7 +253,7 @@ The steps are the following:
         cd /tmp/psmdb
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-        --branch=release-8.3.4-1 --psm_ver=8.3.4--psm_release=1 --mongo_tools_tag=100.4.1 --build_src_deb=1
+        --branch=release-8.3.4-1 --psm_ver=8.3.4--psm_release=1 --mongo_tools_tag=100.17.0 --build_src_deb=1
         '
         ```    
 
@@ -303,7 +303,7 @@ The steps are the following:
         cd /tmp/psmdb
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-        --branch=release-8.3.4-1 --psm_ver=8.3.4--psm_release=1 --mongo_tools_tag=100.4.1 --build_deb=1
+        --branch=release-8.3.4-1 --psm_ver=8.3.4--psm_release=1 --mongo_tools_tag=100.17.0 --build_deb=1
         '
         ```
 
@@ -331,7 +331,7 @@ The steps are the following:
         cd /tmp/psmdb
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-        --branch=release-8.3.4-1 --psm_ver=8.3.4 --psm_release=1 --mongo_tools_tag=100.4.1 --build_rpm=1
+        --branch=release-8.3.4-1 --psm_ver=8.3.4 --psm_release=1 --mongo_tools_tag=100.17.0 --build_rpm=1
         '
         ```
 
@@ -345,11 +345,11 @@ The steps are the following:
 
             ```{.text .no-copy}
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-8.3.4-1.el8.x86_64.rpm  
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-7.0.4-2.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-8.3.4-1.el8.x86_64.rpm 
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-8.3.4-1.el8.x86_64.rpm    
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-8.0.1-1.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-8.3.4-1.el8.x86_64.rpm 
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-8.3.4-1.el8.x86_64.rpm    
-            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-8.0.1-1.el8.x86_64.rpm 
+            rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-8.3.4-1.el8.x86_64.rpm 
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-8.3.4-1.el8.x86_64.rpm 
             rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-8.3.4-1.el8.x86_64.rpm
             ```
