@@ -1,28 +1,14 @@
-# Upgrading from Percona Server for MongoDB 7.0 to 8.0
+# Upgrading from Percona Server for MongoDB 8.0 to 8.3
 
 ## Considerations
 
 
-1. To upgrade Percona Server for MongoDB to version 8.0, you must be running version 7.0. Upgrades from earlier versions are not supported.
+1. To upgrade Percona Server for MongoDB to version 8.3, you must be running version 8.0. Upgrades from earlier versions are not supported.
 
 2. Before upgrading your production Percona Server for MongoDB deployments, test all your applications
 in a testing environment to make sure they are compatible with the new version.
-For more information, see [Compatibility Changes in MongoDB 8.0](https://www.mongodb.com/docs/v8.0/release-notes/8.0-compatibility/)
+For more information, see [Compatibility Changes in MongoDB 8.3](https://www.mongodb.com/docs/manual/release-notes/8.3-compatibility/)
 
-3. Enable Transparent Hugepages (THP) before starting Percona Server forMongoDB 8.0. THP is required to use the new TCMalloc version with MongoDB. For how to enable THP, see [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/upcoming/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-) section of documentation.
-
-4. If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](../kmip.md#upgrade-considerations)
-
-4. If you run Amazon Linux 2023, consider the following:
-
-    --8<-- "al-compatibility.md"
-
-
-We recommend to upgrade Percona Server for MongoDB from official Percona repositories using [`percona-release` repository management tool](https://docs.percona.com/percona-software-repositories/index.html) and
-the corresponding package manager for your system. 
-
-This document describes this method for the in-place upgrade (where your existing
-data and configuration files are preserved).
 
 ## Prerequisites
 
@@ -30,7 +16,7 @@ Before the upgrade, do the following:
 
 1. Make a full backup of your data and configuration files
 
-2. In Percona Server for MongoDB 8.0, journaling is enabled by default. Both the `storage.journal.enabled` configuration option and the corresponding `--journal`, `--no-journal` command-line options are ignored. You receive the corresponding warning during the server start after the upgrade. To get rid of this warning, change your configuration to remove the journaling options. 
+2. In Percona Server for MongoDB 8.3, journaling is enabled by default. Both the `storage.journal.enabled` configuration option and the corresponding `--journal`, `--no-journal` command-line options are ignored. You receive the corresponding warning during the server start after the upgrade. To get rid of this warning, change your configuration to remove the journaling options. 
 
 === ":material-debian: Upgrade on Debian and Ubuntu"
 
@@ -60,7 +46,7 @@ Before the upgrade, do the following:
             pidFilePath: /var/run/mongod.pid
          ```
          
-     5. Install Percona Server for MongoDB 8.0 packages:
+     5. Install Percona Server for MongoDB 8.3 packages:
 
          ```bash
          sudo apt install percona-server-mongodb
@@ -96,7 +82,7 @@ Before the upgrade, do the following:
             pidFilePath: /var/run/mongod.pid
          ```
 
-     4. Install Percona Server for MongoDB 8.0 packages:
+     4. Install Percona Server for MongoDB 8.3 packages:
 
          ```bash
          sudo yum install percona-server-mongodb
@@ -108,7 +94,7 @@ Before the upgrade, do the following:
          sudo systemctl start mongod
          ```
 
-After the upgrade, Percona Server for MongoDB is started with the feature set of 7.0 version. Assuming that your applications are compatible with the new version, enable 8.0 version features. Run the following command against the `admin` database:
+After the upgrade, Percona Server for MongoDB is started with the feature set of 8.0 version. Assuming that your applications are compatible with the new version, enable 8.3 version features. Run the following command against the `admin` database:
 
 ```javascript 
 db.adminCommand( { setFeatureCompatibilityVersion: "8.0", confirm: true } )
@@ -118,6 +104,6 @@ db.adminCommand( { setFeatureCompatibilityVersion: "8.0", confirm: true } )
 
     MongoDB Documentation:
 
-    * [Upgrade a Standalone](https://docs.mongodb.com/manual/release-notes/8.0-upgrade-standalone/)
-    * [Upgrade a Replica Set](https://docs.mongodb.com/manual/release-notes/8.0-upgrade-replica-set/)
-    * [Upgrade a Sharded Cluster](https://docs.mongodb.com/manual/release-notes/8.0-upgrade-sharded-cluster/)
+    * [Upgrade a Standalone](https://www.mongodb.com/docs/manual/release-notes/8.3-upgrade-from-8.0-standalone/)
+    * [Upgrade a Replica Set](https://www.mongodb.com/docs/manual/release-notes/8.3-upgrade-from-8.0-replica-set/)
+    * [Upgrade a Sharded Cluster](https://www.mongodb.com/docs/manual/release-notes/8.3-upgrade-from-8.0-sharded-cluster/)
