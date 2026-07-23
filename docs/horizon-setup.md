@@ -286,7 +286,7 @@ To check internal connection, you can spin up a new Docker container with the Mo
      -v <path/to/certs>:/certs \
      -p 27020:27017 \
      --restart always \
-     percona/percona-server-mongodb:8.0
+     percona/percona-server-mongodb:8.3
    ```
 
 2. Execute in the container and connect to the replica set:

@@ -26,7 +26,7 @@ We gather [Telemetry data](../telemetry.md) to understand the use of the softwar
          ```{.bash .no-copy}
              Available Packages
          
-         percona-server-mongodb.aarch64    {{release}}.amzn2023       psmdb-80-release-aarch64
+         percona-server-mongodb.aarch64    {{release}}.amzn2023       psmdb-83-release-aarch64
          ```
 
      2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
