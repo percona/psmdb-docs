@@ -1,6 +1,6 @@
 # OIDC authentication
 
-!!! note "Version added: [8.0.12-4](release_notes/8.0.12-4.md)"
+!!! note "Version added: 8.0.12-4"
 
 
 OpenID Connect (OIDC) is an identity authentication protocol built on top of the OAuth 2.0 framework. OIDC is designed to verify user identities and provide authentication, ensuring that users are who they claim to be. OAuth 2.0 is used for user authorization to access resources. 
