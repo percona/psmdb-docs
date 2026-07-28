@@ -290,7 +290,7 @@ The steps are the following:
         ??? example "Sample output"   
 
             ```{.text .no-copy}
-            rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-8.3.7-1.generic.src.rpm
+            -rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-8.3.7-1.generic.src.rpm
             ```    
 
 2. Build Percona Server for MongoDB packages. Here you can use the operating system of your choice. In the commands below, we use Oracle Linux 9 for RPMs and Ubuntu 22.04 (Jammy Jellyfish) for DEB packages.
@@ -303,7 +303,7 @@ The steps are the following:
         cd /tmp/psmdb
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-        --branch=release-8.3.7-1 --psm_ver=8.3.7--psm_release=1 --mongo_tools_tag=100.17.0 --build_deb=1
+        --branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --build_deb=1
         '
         ```
 
