@@ -17,7 +17,7 @@ An SBOM helps you:
 
 | Distribution method | SBOM location |
 |---|---|
-| Binary tarball | `doc/percona-server-mongodb/sbom.cdx.json` |
+| Binary tarball | `doc/sbom.cdx.json` |
 | RPM package | `/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json` |
 | DEB package | `/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json` |
 | Docker image | Embedded in the image and available as an attached OCI artifact. See [Docker images](#docker-images). |
@@ -86,7 +86,7 @@ trivy image --severity HIGH,CRITICAL --ignore-unfixed --sbom-sources oci \
 
 #### Scan the embedded SBOM
 
-To scan the embedded SBOM from inside the container image:
+To scan the embedded SBOM from inside the container image: 8.3.7-1-amd64
 
 ```bash
 docker run --rm -it --entrypoint cat \
