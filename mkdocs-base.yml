@@ -245,7 +245,7 @@ nav:
         - "Configure Horizons in Percona Server for MongoDB": horizon-setup.md
       - mongos-config.md
       - Upgrade:
-        - "Upgrade from 7.0 to 8.0": "install/upgrade-from-70.md"
+        - "Upgrade from 8.0 to 8.3": "install/upgrade-from-80.md"
         - "Upgrade from MongoDB Community": "install/upgrade-from-mongodb.md"
         - install/minor-upgrade.md
       - install/uninstall.md
