@@ -99,11 +99,25 @@ docker run --rm -it --entrypoint cat \
 
 You can use the [ORAS CLI :octicons-link-external-16:](https://oras.land/){:target="_blank"} to discover and download OCI-attached SBOMs.
 
+Use the per-architecture tag to resolve directly to the image manifest:
 ```bash
-# Use the per-architecture tag to resolve directly to the image manifest
 oras discover --format tree \
-    docker.io/percona/percona-server-mongodb-amd64
-
-# Pull the SBOM artifact using the digest from the discover output
-oras pull docker.io/percona/percona-server-mongodb@sha256:<referrer-digest>
+    docker.io/percona/percona-server-mongodb:8.3.4-1-amd64
+```
+Example output:
+```
+docker.io/percona/percona-server-mongodb@sha256:<some_fingerprint>
+└── application/vnd.cyclonedx+json
+    └── sha256:<another_fingerprint>
+        └── [annotations]
+            └── org.opencontainers.image.created: "2026-07-28T14:24:59Z"
+```
+Pull the SBOM artifact using the digest from the discover output and see the file locally:
+```bash
+oras pull docker.io/percona/percona-server-mongodb@sha256:<another_fingerprint>
+ls 
+```
+Example output:
+```
+percona-server-mongodb-8.3.4-1-amd64.cdx.json
 ```
