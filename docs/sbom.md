@@ -63,8 +63,8 @@ grype --distro rhel:9.8 sbom:/usr/share/doc/percona-server-mongodb-server/sbom.c
 # Confirm the package installs the SBOM
 dpkg -L percona-server-mongodb-server | grep sbom.cdx.json
 
-# Scan it
-grype sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
+# Scan it (replace `ubuntu:24.04` with your `<os_name>:<os_version>`)
+grype --distro ubuntu:24.04 sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
 ```
 
 ### Docker images
