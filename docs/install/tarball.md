@@ -129,11 +129,11 @@ The following steps show how to install Percona Server for MongoDB from a tarbal
 
     5. The new TCMalloc requires [Restartable Sequences (rseq) :octicons-link-external-16:](https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc) to implement [per-CPU caches :octicons-link-external-16:](https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache). To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:
 
-        ```bash
+        ```sh
         GLIBC_TUNABLES=glibc.pthread.rseq=0
         export GLIBC_TUNABLES
         ```
-
+        
     6. Make sure that you have read and write permissions for the data
     directory and run `mongod`.
 
