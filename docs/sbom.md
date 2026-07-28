@@ -53,8 +53,8 @@ grype sbom:/tmp/percona-server-mongodb-<version>-x86_64.<os_codename>/doc/sbom.c
 # Confirm the package installs the SBOM
 rpm -ql percona-server-mongodb-server | grep sbom.cdx.json
 
-# Scan it (replace 9.x with your RHEL/OL version)
-grype sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
+# Scan it (replace `rhel:9.8` with your `<os_name>:<os_version>`)
+grype --distro rhel:9.8 sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
 ```
 
 ### DEB package
