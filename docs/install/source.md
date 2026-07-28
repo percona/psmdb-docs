@@ -277,7 +277,7 @@ The steps are the following:
         cd /tmp/psmdb
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
         bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
-        --branch=release-8.3.7-1 --psm_ver=8.3.7--psm_release=1 --mongo_tools_tag=100.7.0 --build_src_rpm=1
+        --branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --build_src_rpm=1
         '
         ```    
 
