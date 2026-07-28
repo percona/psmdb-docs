@@ -38,7 +38,8 @@ The examples below use [Grype :octicons-link-external-16:](https://github.com/an
 
 ```bash
 # Confirm the SBOM is bundled
-tar tzf percona-server-mongodb-{{tag}}-x86_64.<operating-system>.tar.gz | grep doc/percona-server-mongodb/sbom.cdx.json
+tar tzf percona-server-mongodb-<version>-x86_64.<os_codename>.tar.gz \
+    | grep doc/sbom.cdx.json
 
 # Extract and scan
 tar xzf percona-server-mongodb-{{tag}}-x86_64.<operating-system>.tar.gz \
