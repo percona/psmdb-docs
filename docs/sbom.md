@@ -120,5 +120,5 @@ ls
 ```
 Example output:
 ```
-percona-server-mongodb-{{ tag }}-amd64.cdx.json
+percona-server-mongodb-<version>-amd64.cdx.json
 ```
