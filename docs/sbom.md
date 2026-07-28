@@ -91,8 +91,8 @@ To scan the embedded SBOM from inside the container image: {{ tag }}-amd64
 
 ```bash
 docker run --rm -it --entrypoint cat \
-    docker.io/percona/percona-server-mongodb \
-    /usr/share/doc/percona-server-mongodb/sbom.cdx.json \
+    docker.io/percona/percona-server-mongodb:<version>-amd64 \
+    /usr/share/doc/percona-server-mongodb-server/sbom.cdx.json \
     | grype --from sbom
 ```
 
