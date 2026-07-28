@@ -3,6 +3,7 @@
 
 release: '8.0.26-11'
 version: '8.0'
+tag: '8.3.7-1'
 mongosh: '2.8.3'
 year: "2026"
 

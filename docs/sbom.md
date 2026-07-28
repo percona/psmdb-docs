@@ -86,7 +86,7 @@ trivy image --severity HIGH,CRITICAL --ignore-unfixed --sbom-sources oci \
 
 #### Scan the embedded SBOM
 
-To scan the embedded SBOM from inside the container image: 8.3.7-1-amd64
+To scan the embedded SBOM from inside the container image: {{ tag }}-amd64
 
 ```bash
 docker run --rm -it --entrypoint cat \
@@ -102,7 +102,7 @@ You can use the [ORAS CLI :octicons-link-external-16:](https://oras.land/){:targ
 Use the per-architecture tag to resolve directly to the image manifest:
 ```bash
 oras discover --format tree \
-    docker.io/percona/percona-server-mongodb:8.3.4-1-amd64
+    docker.io/percona/percona-server-mongodb:{{ tag }}-amd64
 ```
 Example output:
 ```
@@ -119,5 +119,5 @@ ls
 ```
 Example output:
 ```
-percona-server-mongodb-8.3.4-1-amd64.cdx.json
+percona-server-mongodb-{{ tag }}-amd64.cdx.json
 ```
