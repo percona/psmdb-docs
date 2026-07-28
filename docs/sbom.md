@@ -42,9 +42,9 @@ tar tzf percona-server-mongodb-<version>-x86_64.<os_codename>.tar.gz \
     | grep doc/sbom.cdx.json
 
 # Extract and scan
-tar xzf percona-server-mongodb-{{tag}}-x86_64.<operating-system>.tar.gz \
-    -C /tmp doc/percona-server-mongodb/sbom.cdx.json
-grype sbom:/tmp/doc/percona-server-mongodb/sbom.cdx.json
+tar xzf percona-server-mongodb-<verson>-x86_64.<os_codename>.tar.gz \
+    -C /tmp percona-server-mongodb-<version>-x86_64.<os_codename>/doc/sbom.cdx.json
+grype sbom:/tmp/percona-server-mongodb-<version>-x86_64.<os_codename>/doc/sbom.cdx.json
 ```
 
 ### RPM package
