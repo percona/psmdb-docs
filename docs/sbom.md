@@ -32,8 +32,6 @@ The examples below use [Grype :octicons-link-external-16:](https://github.com/an
 
     Trivy can, however, scan the SBOMs associated with Percona Server for MongoDB Docker images.
 
-
-
 ### Binary tarball
 
 ```bash
@@ -42,9 +40,9 @@ tar tzf percona-server-mongodb-<version>-x86_64.<os_codename>.tar.gz \
     | grep doc/sbom.cdx.json
 
 # Extract and scan
-tar xzf percona-server-mongodb-<verson>-x86_64.<os_codename>.tar.gz \
-    -C /tmp percona-server-mongodb-<version>-x86_64.<os_codename>/doc/sbom.cdx.json
-grype sbom:/tmp/percona-server-mongodb-<version>-x86_64.<os_codename>/doc/sbom.cdx.json
+tar xzf percona-server-mongodb-{{ release }}-x86_64.<os_codename>.tar.gz \
+    -C /tmp percona-server-mongodb-{{ release }}-x86_64.<os_codename>/doc/sbom.cdx.json
+grype sbom:/tmp/percona-server-mongodb-{{ release }}-x86_64.<os_codename>/doc/sbom.cdx.json
 ```
 
 ### RPM package
@@ -87,11 +85,11 @@ trivy image --severity HIGH,CRITICAL --ignore-unfixed --sbom-sources oci \
 
 #### Scan the embedded SBOM
 
-To scan the embedded SBOM from inside the container image: <version>-amd64
+To scan the embedded SBOM from inside the container image: {{ release }}-amd64
 
 ```bash
 docker run --rm -it --entrypoint cat \
-    docker.io/percona/percona-server-mongodb:<version>-amd64 \
+    docker.io/percona/percona-server-mongodb:{{ release }}-amd64 \
     /usr/share/doc/percona-server-mongodb-server/sbom.cdx.json \
     | grype --from sbom
 ```
@@ -99,26 +97,35 @@ docker run --rm -it --entrypoint cat \
 #### Advanced: Inspect OCI-attached SBOMs with ORAS
 
 You can use the [ORAS CLI :octicons-link-external-16:](https://oras.land/){:target="_blank"} to discover and download OCI-attached SBOMs.
+{.power-number}
 
-Use the per-architecture tag to resolve directly to the image manifest:
+1. Use the per-architecture tag to resolve directly to the image manifest:
+
 ```bash
 oras discover --format tree \
-    docker.io/percona/percona-server-mongodb:<version>-amd64
+    docker.io/percona/percona-server-mongodb:{{ release }}-amd64
 ```
-Example output:
-```
-docker.io/percona/percona-server-mongodb@sha256:<some_fingerprint>
-└── application/vnd.cyclonedx+json
-    └── sha256:<another_fingerprint>
-        └── [annotations]
-            └── org.opencontainers.image.created: "2026-07-28T14:24:59Z"
-```
-Pull the SBOM artifact using the digest from the discover output and see the file locally:
-```bash
-oras pull docker.io/percona/percona-server-mongodb@sha256:<another_fingerprint>
-ls 
-```
-Example output:
-```
-percona-server-mongodb-<version>-amd64.cdx.json
-```
+
+    ??? example "Output"
+        ```
+        docker.io/percona/percona-server-mongodb@sha256:<image_manifest_digest>
+        └── application/vnd.cyclonedx+json
+            └── sha256:<sbom_artifact_digest>
+                └── [annotations]
+                    └── org.opencontainers.image.created: "2026-07-28T14:24:59Z"
+        ```
+        The `<image_manifest_digest>` identifies the container image. The `<sbom_artifact_digest>` identifies the CycloneDX SBOM artifact attached to that image.
+
+2. Copy the SBOM artifact digest from the output and use it to download the SBOM to the current directory. Replace `SBOM_ARTIFACT_DIGEST` with the value displayed after sha256:
+
+    ```bash
+    oras pull docker.io/percona/percona-server-mongodb@sha256:SBOM_ARTIFACT_DIGEST
+    ls
+    ```
+
+2. Confirm that the SBOM file was downloaded:
+
+    ??? example "Output"
+        ```
+        percona-server-mongodb-{{ release }}-amd64.cdx.json
+        ```
