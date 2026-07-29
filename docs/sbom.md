@@ -87,7 +87,7 @@ trivy image --severity HIGH,CRITICAL --ignore-unfixed --sbom-sources oci \
 
 #### Scan the embedded SBOM
 
-To scan the embedded SBOM from inside the container image: {{ tag }}-amd64
+To scan the embedded SBOM from inside the container image: <version>-amd64
 
 ```bash
 docker run --rm -it --entrypoint cat \
