@@ -97,35 +97,43 @@ docker run --rm -it --entrypoint cat \
 #### Advanced: Inspect OCI-attached SBOMs with ORAS
 
 You can use the [ORAS CLI :octicons-link-external-16:](https://oras.land/){:target="_blank"} to discover and download OCI-attached SBOMs.
+
+Follow these steps:
 {.power-number}
 
 1. Use the per-architecture tag to resolve directly to the image manifest:
 
-```bash
-oras discover --format tree \
-    docker.io/percona/percona-server-mongodb:{{ release }}-amd64
-```
+    ```bash
+    oras discover --format tree \
+        docker.io/percona/percona-server-mongodb:{{ release }}-amd64
+    ```
 
     ??? example "Output"
-        ```
+
+        ```text
         docker.io/percona/percona-server-mongodb@sha256:<image_manifest_digest>
         └── application/vnd.cyclonedx+json
             └── sha256:<sbom_artifact_digest>
                 └── [annotations]
                     └── org.opencontainers.image.created: "2026-07-28T14:24:59Z"
         ```
+
         The `<image_manifest_digest>` identifies the container image. The `<sbom_artifact_digest>` identifies the CycloneDX SBOM artifact attached to that image.
 
-2. Copy the SBOM artifact digest from the output and use it to download the SBOM to the current directory. Replace `SBOM_ARTIFACT_DIGEST` with the value displayed after sha256:
+2. Copy the SBOM artifact digest from the output and use it to download the SBOM to the current directory. Replace `SBOM_ARTIFACT_DIGEST` with the value displayed after `sha256:`:
 
     ```bash
     oras pull docker.io/percona/percona-server-mongodb@sha256:SBOM_ARTIFACT_DIGEST
+    ```
+
+3. Confirm that the SBOM file was downloaded:
+
+    ```bash
     ls
     ```
 
-2. Confirm that the SBOM file was downloaded:
-
     ??? example "Output"
-        ```
+
+        ```text
         percona-server-mongodb-{{ release }}-amd64.cdx.json
         ```
