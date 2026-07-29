@@ -103,7 +103,7 @@ You can use the [ORAS CLI :octicons-link-external-16:](https://oras.land/){:targ
 Use the per-architecture tag to resolve directly to the image manifest:
 ```bash
 oras discover --format tree \
-    docker.io/percona/percona-server-mongodb:{{ tag }}-amd64
+    docker.io/percona/percona-server-mongodb:<version>-amd64
 ```
 Example output:
 ```
