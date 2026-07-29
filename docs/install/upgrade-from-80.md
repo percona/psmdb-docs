@@ -8,6 +8,9 @@
 in a testing environment to make sure they are compatible with the new version.
 For more information, see [Compatibility Changes in MongoDB 8.3](https://www.mongodb.com/docs/manual/release-notes/8.3-compatibility/).
 
+3. If you run Amazon Linux 2023, consider the following:
+
+
 
 ## Prerequisites
 
