@@ -79,8 +79,8 @@ Each PSMDB Docker image (Docker Hub `docker.io/percona/percona-server-mongodb-se
 `trivy image --sbom-sources oci` fetches the attached SBOM via the OCI Referrers API and scans it, without pulling the image:
 
 ```bash
-trivy image --severity HIGH,CRITICAL --ignore-unfixed --sbom-sources oci \
-    docker.io/percona/percona-server-mongodb-server
+trivy image --severity HIGH,CRITICAL --sbom-sources oci \
+    docker.io/percona/percona-server-mongodb:{{ release }}-amd64
 ```
 
 #### Scan the embedded SBOM
