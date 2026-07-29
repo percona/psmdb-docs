@@ -120,10 +120,10 @@ Follow these steps:
 
         The `<image_manifest_digest>` identifies the container image. The `<sbom_artifact_digest>` identifies the CycloneDX SBOM artifact attached to that image.
 
-2. Copy the SBOM artifact digest from the output and use it to download the SBOM to the current directory. Replace `SBOM_ARTIFACT_DIGEST` with the value displayed after `sha256:`:
+2. Copy the SBOM artifact digest from the output and use it to download the SBOM to the current directory. Replace `<sbom_artifact_digest>` with the value displayed after `sha256:`:
 
     ```bash
-    oras pull docker.io/percona/percona-server-mongodb@sha256:SBOM_ARTIFACT_DIGEST
+    oras pull docker.io/percona/percona-server-mongodb@sha256:<sbom_artifact_digest>
     ```
 
 3. Confirm that the SBOM file was downloaded:
