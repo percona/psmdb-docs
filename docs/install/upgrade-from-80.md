@@ -7,7 +7,7 @@
 2. Before upgrading your production Percona Server for MongoDB deployments, test all your applications
 in a testing environment to make sure they are compatible with the new version.
 
-    Review the [Compatibility Changes in MongoDB 8.2 :octicons-link-external-16:](https://www.mongodb.com/docs/manual/release-notes/8.3-compatibility/){:target="_blank"} and [Compatibility Changes in MongoDB 8.3 :octicons-link-external-16:](https://www.mongodb.com/docs/manual/release-notes/8.3-compatibility/){:target="_blank"} before you begin the upgrade.
+    Review the [Compatibility changes in MongoDB 8.2 :octicons-link-external-16:](https://www.mongodb.com/docs/manual/release-notes/8.3-compatibility/){:target="_blank"} and [Compatibility changes in MongoDB 8.3 :octicons-link-external-16:](https://www.mongodb.com/docs/manual/release-notes/8.3-compatibility/){:target="_blank"} before you begin the upgrade.
 
 3. If you run Amazon Linux 2023, consider the following:
 
