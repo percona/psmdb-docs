@@ -1,7 +1,5 @@
 # File copy based initial sync
 
-!!! admonition "Version added: [8.0.12-4](release_notes/8.0.12-4.md)"
-
 When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. 
 
 In Percona Server for MongoDB, you can choose a file copy-based initial sync for a new node. You must have WiredTiger defined as the storage. Both source and target nodes must run Percona Server for MongoDB version 8.0.12-4 or higher.
