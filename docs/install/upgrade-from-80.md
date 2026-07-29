@@ -10,6 +10,7 @@ For more information, see [Compatibility Changes in MongoDB 8.3](https://www.mon
 
 3. If you run Amazon Linux 2023, consider the following:
 
+    --8<-- "al-compatibility.md"
 
 
 ## Prerequisites
