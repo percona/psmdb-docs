@@ -30,7 +30,7 @@ The examples below use [Grype :octicons-link-external-16:](https://github.com/an
 !!! note
     [Trivy :octicons-link-external-16:](https://trivy.dev/){:target="_blank"} cannot currently scan the SBOMs included with Percona Server for MongoDB DEB and RPM packages or binary tarballs. Most dependencies in these SBOMs are identified using the GitHub package type, which Trivy does not fully support in this context.
 
-    Trivy can, however, scan the SBOMs associated with Percona Server for MongoDB Docker images.
+    Trivy can, however, scan the SBOMs attached to Percona Server for MongoDB Docker images as OCI artifacts.
 
 ### Binary tarball
 
