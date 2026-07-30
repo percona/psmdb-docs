@@ -45,7 +45,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 3. Enable the repository:    
 
     ```bash
-    sudo percona-release enable psmdb-80 release
+    sudo percona-release enable psmdb-83 release
     ```    
 
 4. Remember to update the local cache:    
@@ -79,7 +79,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
          Sample output:
 
          ```{.bash .no-copy}
-         percona-server-mongodb | {{release}}.bullseye | http://repo.percona.com/psmdb-80/apt bullseye/main amd64 Packages
+         percona-server-mongodb | {{release}}.bullseye | http://repo.percona.com/psmdb-83/apt bullseye/main amd64 Packages
          ```
 
       2. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB {{release}}, run the following command:
