@@ -149,11 +149,9 @@ Percona publishes an OpenVEX document for every PSMDB release, plus one combined
 | Per-release | `https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-<VERSION>.openvex.json` |
 | All releases | <https://percona.github.io/percona-server-mongodb/vex/openvex.json> |
 
-For example, the document for version 8.3.7-1 is available at:
+For example, the document for version {{ release }} is available at:
 
-```text
-https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.3.7-1.openvex.json
-```
+`https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-{{ release }}.openvex.json`
 
 Pass the document to Grype's `--vex` flag together with any SBOM scan on this page. For example, combined with the binary tarball scan:
 
