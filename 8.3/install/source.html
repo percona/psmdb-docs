@@ -3885,13 +3885,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Switch to the Percona Server for MongoDB branch that you are building:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>percona-server-mongodb<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>v8.0
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>percona-server-mongodb<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>v8.3
 </code></pre></div>
 </li>
 <li>
-<p>Define Percona Server for MongoDB version (8.0.1 for the time of
+<p>Define Percona Server for MongoDB version (8.3.7 for the time of
    writing this document)</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">'{"version": "8.0.1"}'</span><span class="w"> </span>&gt;<span class="w"> </span>version.json
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">'{"version": "8.3.7"}'</span><span class="w"> </span>&gt;<span class="w"> </span>version.json
 </code></pre></div>
 </li>
 </ol>
@@ -3912,7 +3912,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 </li>
 <li>
-<p>Check that you are in the <code>percona-server-mongodb</code> directory and in the <code>8.0</code> Git branch and  install Python dependencies with Poetry:</p>
+<p>Check that you are in the <code>percona-server-mongodb</code> directory and in the <code>8.3</code> Git branch and  install Python dependencies with Poetry:</p>
 <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>poetry<span class="w"> </span>install<span class="w"> </span>--no-root<span class="w"> </span>--sync
 </code></pre></div>
 </li>
@@ -3956,13 +3956,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p class="power-number">To build tarballs, the steps are the following:</p>
 <ol>
 <li>
-<p>The following command builds tarballs of Percona Server for MongoDB 8.0.4-1 on Oracle Linux 8. Change the Docker image and the values for <code>--branch</code>, <code>--psm_ver</code>, <code>--psm_release</code> flags to build tarballs of a different version and on a different operating system.</p>
+<p>The following command builds tarballs of Percona Server for MongoDB 8.3.7-1 on Oracle Linux 8. Change the Docker image and the values for <code>--branch</code>, <code>--psm_ver</code>, <code>--psm_release</code> flags to build tarballs of a different version and on a different operating system.</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-ti<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-v<span class="w"> </span>/tmp/psmdb:/tmp/psmdb<span class="w"> </span>oraclelinux:8<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">'</span>
 <span class="s1">set -o xtrace</span>
 <span class="s1">cd /tmp/psmdb</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
-<span class="s1">--branch=release-8.0.4-1 --psm_ver=8.0.4 --psm_release=1 --mongo_tools_tag=100.4.1 --get_sources=1 --build_tarball=1</span>
+<span class="s1">--branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --get_sources=1 --build_tarball=1</span>
 <span class="s1">'</span>
 </code></pre></div>
 <p>The command does the following:</p>
@@ -3971,7 +3971,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>mounts the build directory into the container</li>
 <li>establishes the shell session inside the container</li>
 <li>inside the container, navigates to the build directory and runs the build script to install dependencies </li>
-<li>runs the build script again to build the tarball for the Percona Server for MongoDB version 8.0.4-1</li>
+<li>runs the build script again to build the tarball for the Percona Server for MongoDB version 8.3.7-1</li>
 </ul>
 </li>
 <li>
@@ -3981,7 +3981,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>total 88292
--rw-r--r--. 1 root root 90398894 Jul  1 10:58 percona-server-mongodb-8.0.4-1.x86_64.glibc2.17.tar.gz
+-rw-r--r--. 1 root root 90398894 Jul  1 10:58 percona-server-mongodb-8.3.7-1.x86_64.glibc2.17.tar.gz
 </code></pre></div>
 </details>
 </li>
@@ -3995,7 +3995,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="s1">set -o xtrace</span>
 <span class="s1">cd /tmp/psmdb</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
-<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git --branch=release-67.0.4-2 --psm_ver=8.0.4 --psm_release=1 --mongo_tools_tag=100.4.1 --get_sources=1'</span>
+<span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git --branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --get_sources=1'</span>
 </code></pre></div>
 </li>
 <li>
@@ -4009,7 +4009,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="s1">cd /tmp/psmdb</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
-<span class="s1">--branch=release-8.0.4-1 --psm_ver=8.0.4--psm_release=1 --mongo_tools_tag=100.4.1 --build_src_deb=1</span>
+<span class="s1">--branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --build_src_deb=1</span>
 <span class="s1">'</span>
 </code></pre></div>
 <p>Check that source packages are created    </p>
@@ -4017,7 +4017,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_8.0.4.orig.tar.gz
+<div class="no-copy highlight"><pre><span></span><code>-rw-r--r-- 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_8.3.7.orig.tar.gz
 </code></pre></div>
 </details>
 </div>
@@ -4027,7 +4027,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="s1">cd /tmp/psmdb</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
-<span class="s1">--branch=release-8.0.4-1 --psm_ver=8.0.4--psm_release=1 --mongo_tools_tag=100.7.0 --build_src_rpm=1</span>
+<span class="s1">--branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --build_src_rpm=1</span>
 <span class="s1">'</span>
 </code></pre></div>
 <p>Check that source packages are created    </p>
@@ -4035,7 +4035,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-8.0.4-1.generic.src.rpm
+<div class="no-copy highlight"><pre><span></span><code>-rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-8.3.7-1.generic.src.rpm
 </code></pre></div>
 </details>
 </div>
@@ -4052,7 +4052,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="s1">cd /tmp/psmdb</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
-<span class="s1">--branch=release-8.0.4-1 --psm_ver=8.0.4--psm_release=1 --mongo_tools_tag=100.4.1 --build_deb=1</span>
+<span class="s1">--branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --build_deb=1</span>
 <span class="s1">'</span>
 </code></pre></div>
 <p>Check that packages are created</p>
@@ -4060,11 +4060,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-dbg_8.0.4-1.jammy_amd64.deb  
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos_8.0.4-1.jammy_amd64.deb 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server_8.0.4-1.jammy_amd64.deb 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools_8.0.4-1.jammy_amd64.deb  
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_8.0.4-1.jammy_amd64.deb
+<div class="no-copy highlight"><pre><span></span><code>-rw-rw-r-- 1 root nogroup 1123619378 Jul  7 10:03 percona-server-mongodb-dbg_8.3.7-1.jammy_amd64.deb
+-rw-rw-r-- 1 root nogroup   65470306 Jul  7 10:03 percona-server-mongodb-mongos_8.3.7-1.jammy_amd64.deb
+-rw-rw-r-- 1 root nogroup  140745416 Jul  7 10:03 percona-server-mongodb-server_8.3.7-1.jammy_amd64.deb
+-rw-rw-r-- 1 root nogroup   44086996 Jul  7 10:03 percona-server-mongodb-shell_8.3.7-1.jammy_amd64.deb
+-rw-rw-r-- 1 root nogroup   41889286 Jul  7 10:03 percona-server-mongodb-tools_8.3.7-1.jammy_amd64.deb
+-rw-rw-r-- 1 root nogroup      19898 Jul  7 10:03 percona-server-mongodb_8.3.7-1.jammy_amd64.deb
 </code></pre></div>
 </details>
 </div>
@@ -4074,7 +4075,7 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_8.0.4-1.jamm
 <span class="s1">cd /tmp/psmdb</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1</span>
 <span class="s1">bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \</span>
-<span class="s1">--branch=release-8.0.4-1 --psm_ver=8.0.4 --psm_release=1 --mongo_tools_tag=100.4.1 --build_rpm=1</span>
+<span class="s1">--branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --build_rpm=1</span>
 <span class="s1">'</span>
 </code></pre></div>
 <p>Check that packages are created</p>
@@ -4082,14 +4083,15 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb_8.0.4-1.jamm
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-8.0.4-1.el8.x86_64.rpm  
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-debugsource-7.0.4-2.el8.x86_64.rpm 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-8.0.4-1.el8.x86_64.rpm    
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-mongos-debuginfo-8.0.1-1.el8.x86_64.rpm 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-8.0.4-1.el8.x86_64.rpm    
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-server-debuginfo-8.0.1-1.el8.x86_64.rpm 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-8.0.4-1.el8.x86_64.rpm 
-rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debuginfo-8.0.4-1.el8.x86_64.rpm
+<div class="no-copy highlight"><pre><span></span><code>-rw-r--r-- 1 root nogroup      8360 Jun 25 09:11 percona-server-mongodb-8.3.7-1.el8.x86_64.rpm
+-rw-r--r-- 1 root nogroup  48696252 Jun 25 09:11 percona-server-mongodb-mongos-8.3.7-1.el8.x86_64.rpm
+-rw-r--r-- 1 root nogroup 171255180 Jun 25 09:11 percona-server-mongodb-mongos-debuginfo-8.3.7-1.el8.x86_64.rpm
+-rw-r--r-- 1 root nogroup 103814612 Jun 25 09:12 percona-server-mongodb-server-8.3.7-1.el8.x86_64.rpm
+-rw-r--r-- 1 root nogroup 346268020 Jun 25 09:12 percona-server-mongodb-server-debuginfo-8.3.7-1.el8.x86_64.rpm
+-rw-r--r-- 1 root nogroup  32837836 Jun 25 09:12 percona-server-mongodb-shell-8.3.7-1.el8.x86_64.rpm
+-rw-r--r-- 1 root nogroup  92092564 Jun 25 09:12 percona-server-mongodb-shell-debuginfo-8.3.7-1.el8.x86_64.rpm
+-rw-r--r-- 1 root nogroup  34839404 Jun 25 09:12 percona-server-mongodb-tools-8.3.7-1.el8.x86_64.rpm
+-rw-r--r-- 1 root nogroup  29566940 Jun 25 09:12 percona-server-mongodb-tools-debuginfo-8.3.7-1.el8.x86_64.rpm
 </code></pre></div>
 </details>
 </div>
@@ -4121,7 +4123,7 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debugi
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 2, 2025 14:37:28 UTC">December 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2026 15:15:28 UTC">July 28, 2026</span>
   </span>
 
     
@@ -4136,39 +4138,6 @@ rw-r--r--. 1 root root 90398894 Jul  1 13:16 percona-server-mongodb-tools-debugi
 
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
-          
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
-        </a>
-      
-        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
-          
-          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&amp;size=72" alt="web-flow">
-        </a>
-      
-        <a href="https://github.com/bedlaj" class="md-author" title="@bedlaj">
-          
-          <img src="https://avatars.githubusercontent.com/u/23356034?v=4&amp;size=72" alt="bedlaj">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
