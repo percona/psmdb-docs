@@ -1,19 +1,15 @@
-# Upgrading from Percona Server for MongoDB 7.0 to 8.0
+# Upgrading from Percona Server for MongoDB 8.0 to 8.3
 
 ## Considerations
 
 
-1. To upgrade Percona Server for MongoDB to version 8.0, you must be running version 7.0. Upgrades from earlier versions are not supported.
+1. To upgrade Percona Server for MongoDB to version 8.3, you must be running version 8.0. Upgrades from earlier versions are not supported.
 
 2. Before upgrading your production Percona Server for MongoDB deployments, test all your applications
 in a testing environment to make sure they are compatible with the new version.
 For more information, see [Compatibility Changes in MongoDB 8.0](https://www.mongodb.com/docs/v8.0/release-notes/8.0-compatibility/)
 
-3. Enable Transparent Hugepages (THP) before starting Percona Server forMongoDB 8.0. THP is required to use the new TCMalloc version with MongoDB. For how to enable THP, see [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/upcoming/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-) section of documentation.
-
-4. If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](../kmip.md#upgrade-considerations)
-
-4. If you run Amazon Linux 2023, consider the following:
+3. If you run Amazon Linux 2023, consider the following:
 
     --8<-- "al-compatibility.md"
 

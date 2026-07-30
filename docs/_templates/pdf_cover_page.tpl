@@ -3,10 +3,10 @@
 <p>
 <img src="_images/Percona_Color_Dark.svg" alt="Percona logo" />
 </p>
-<h1>Server for MongoDB 8.0.26-11</h1>
+<h1>Server for MongoDB 8.3.7-1</h1>
 {% if config.site_description %}
 <h1>{{ config.site_description }}</h1>
 {% endif %} 
-<h2>8.0.26-11 (June 25, 2026)</h2>
+<h2>8.3.7-1 (July 30, 2026)</h2>
 <br>
 <br>
