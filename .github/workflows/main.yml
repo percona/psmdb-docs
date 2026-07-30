@@ -45,6 +45,4 @@ jobs:
       - name: Deploy docs
         run: |
           mike deploy 8.0 -b publish -p
-          mike set-default 8.0 -b publish -p
-          mike retitle 8.0 "8.0 (LATEST)" -b publish -p
-
+          mike retitle 8.0 "8.0" -b publish -p
