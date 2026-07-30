@@ -3207,41 +3207,9 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="https://squad.percona.com/mongodb" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Join Percona Squad
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
-                    <br>
-                    <label class="md-nav__title" for="__drawer">
-    <a href="https://learn.percona.com/download-percona-server-mongodb-8-3-manual" onclick="_gaq.push(['b._trackEvent', 'Percona Server for MongoDB 8.3', 'Download', 'Download Manual Server for MongoDB 8.3']);" class="md-nav__link md-nav__link--active" style="font-size: .7rem;">
-      Download PDF
-    </a>
-  </label> 
+                    
                   </div>
                 </div>
               </div>
@@ -4575,6 +4543,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         })
         </script>
         </head><body><h1 id="percona-server-for-mongodb-83-documentation">Percona Server for MongoDB 8.3 Documentation<a class="headerlink" href="#index-percona-server-for-mongodb-83-documentation" title="Permanent link">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Technical Preview</p>
+<p>Percona Server for MongoDB 8.3.7-1 is available as a technical preview.</p>
+<p>We recommend that early adopters use this release for testing purposes only and not in production environments.</p>
+</div>
 <p>Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
 for MongoDB 8.3 Community Edition with <a href="#comparison">enterprise-grade features</a>.</p>
 <p><a href="#install-upgrade-from-mongodb">To migrate to Percona Server for MongoDB</a> requires no changes to MongoDB applications or code.</p>
@@ -4928,7 +4901,7 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 </li>
 <li>
 <p>Enable the repository:    </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-80<span class="w"> </span>release
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-83<span class="w"> </span>release
 </code></pre></div>
 </li>
 <li>
@@ -4953,7 +4926,7 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-cache<span class="w"> </span>madison<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 <p>Sample output:</p>
-<div class="no-copy highlight"><pre><span></span><code>percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">8</span>.3.7-1.bullseye<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-80/apt<span class="w"> </span>bullseye/main<span class="w"> </span>amd64<span class="w"> </span>Packages
+<div class="no-copy highlight"><pre><span></span><code>percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">8</span>.3.7-1.bullseye<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-83/apt<span class="w"> </span>bullseye/main<span class="w"> </span>amd64<span class="w"> </span>Packages
 </code></pre></div>
 </li>
 <li>
