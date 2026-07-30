@@ -137,3 +137,33 @@ Follow these steps:
         ```text
         percona-server-mongodb-{{ release }}-amd64.cdx.json
         ```
+
+## Filtering vulnerabilities with OpenVEX
+
+[OpenVEX :octicons-link-external-16:](https://github.com/openvex/spec){:target="_blank"} is an open, minimal format for Vulnerability Exploitability eXchange (VEX) statements. A VEX document records whether a known vulnerability (CVE) in a component actually affects a given product — for example, the vulnerable code path is unreachable, the issue is already fixed, or it's still under investigation. Scanners that support VEX use these statements to suppress vulnerabilities that don't actually apply, cutting down on noise from CVEs in bundled dependencies that PSMDB isn't actually exposed to.
+
+Percona publishes an OpenVEX document for every PSMDB release, plus one combined document covering all releases and CVE statuses:
+
+| OpenVEX document | URL |
+|---|---|
+| Per-release | `https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-<VERSION>.openvex.json` |
+| All releases | <https://percona.github.io/percona-server-mongodb/vex/openvex.json> |
+
+For example, the document for version 8.3.7-1 is available at:
+
+```text
+https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.3.7-1.openvex.json
+```
+
+Pass the document to Grype's `--vex` flag together with any SBOM scan on this page. For example, combined with the binary tarball scan:
+
+```bash
+# Download the OpenVEX document for this release
+curl -sLO https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-{{ release }}.openvex.json
+
+# Scan the SBOM and filter out vulnerabilities addressed in the VEX document
+grype sbom:/tmp/percona-server-mongodb-{{ release }}-x86_64.<os_codename>/doc/sbom.cdx.json \
+    --vex percona-server-mongodb-{{ release }}.openvex.json
+```
+
+Vulnerabilities that Percona has marked as `not_affected` or `fixed` in the VEX document are excluded from the scan results.
