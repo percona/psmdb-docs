@@ -259,5 +259,5 @@ nav:
       - telemetry.md
       - code-of-conduct.md
       - copyright.md
-      - trademark-policy.md 
+      - trademark-policy.md
   - "Percona Software and Platform Lifecycle": "lifecycle.md"
