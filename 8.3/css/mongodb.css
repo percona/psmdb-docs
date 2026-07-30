@@ -1,0 +1,14 @@
+/* Overrides */
+
+.md-header,
+.md-tabs {
+    background: 
+        linear-gradient(
+            #1fa23a
+        );
+}
+
+.superNav,
+.md-nav__source {
+    background-color: #282727;
+}
