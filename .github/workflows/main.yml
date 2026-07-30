@@ -46,5 +46,5 @@ jobs:
         run: |
           mike deploy 8.3 -b publish -p
           mike set-default 8.3 -b publish -p
-          mike retitle 8.3 "8.3 (LATEST)" -b publish -p
+          mike retitle 8.3 "8.3 (TECH PREVIEW)" -b publish -p
 

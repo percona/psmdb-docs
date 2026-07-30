@@ -1,5 +1,10 @@
 # Percona Server for MongoDB 8.3 Documentation
 
+!!! warning "Technical Preview"
+    Percona Server for MongoDB 8.3.7-1 is available as a technical preview.
+
+    We recommend that early adopters use this release for testing purposes only and not in production environments.
+
 Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
 for MongoDB 8.3 Community Edition with [enterprise-grade features](comparison.md).
 
