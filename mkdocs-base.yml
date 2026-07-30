@@ -254,6 +254,7 @@ nav:
       - release_notes/8.3.7-1.md
   - faq.md
   - Reference:
+      - Software Bill of Materials (SBOM): sbom.md
       - glossary.md
       - telemetry.md
       - code-of-conduct.md
