@@ -67,7 +67,7 @@ grype --distro ubuntu:24.04 sbom:/usr/share/doc/percona-server-mongodb-server/sb
 
 ### Docker images
 
-Each PSMDB Docker image (Docker Hub `docker.io/percona/percona-server-mongodb-server`, PerconaLab `docker.io/perconalab/percona-server-mongodb-server`) ships with **two** CycloneDX SBOMs that describe overlapping scopes:
+Each PSMDB Docker image (Docker Hub `docker.io/percona/percona-server-mongodb`, PerconaLab `docker.io/perconalab/percona-server-mongodb`) ships with **two** CycloneDX SBOMs that describe overlapping scopes:
 
 | SBOM | Scope | CycloneDX version | How to access |
 |---|---|---|---|
