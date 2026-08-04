@@ -148,7 +148,7 @@ The `VEX` file for version {{ release }} is available at:
 
 `https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-{{ release }}.openvex.json`
 
-Pass the document to Grype's `--vex` flag together with any SBOM scan on this page. For example, combined with the binary tarball scan:
+Pass the document to Grype's `--vex` flag along with any SBOM scan on this page. For example, when scanning the SBOM of an RPM package:
 
 ```bash
 # Download the OpenVEX document for this release
