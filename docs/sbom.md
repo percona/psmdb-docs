@@ -137,3 +137,31 @@ Follow these steps:
         ```text
         percona-server-mongodb-{{ release }}-amd64.cdx.json
         ```
+
+## Filtering vulnerabilities with OpenVEX
+
+[OpenVEX :octicons-link-external-16:](https://github.com/openvex/spec){:target="_blank"} is an open, minimal format for Vulnerability Exploitability eXchange (VEX) statements. A VEX document records whether a known vulnerability (CVE) in a component actually affects a given product — for example, the vulnerable code path is unreachable, the issue is already fixed, or it's still under investigation. Scanners that support VEX use these statements to suppress vulnerabilities that don't actually apply, cutting down on noise from CVEs in bundled dependencies that PSMDB isn't actually exposed to.
+
+Percona publishes an OpenVEX document for every PSMDB release, plus one combined document covering all releases and CVE statuses:
+
+| OpenVEX document | URL |
+|---|---|
+| Per-release | `https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-{{ release }}.openvex.json` |
+| All releases | <https://percona.github.io/percona-server-mongodb/vex/openvex.json> |
+
+For example, the document for version {{ release }} is available at:
+
+`https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-{{ release }}.openvex.json`
+
+Pass the document to Grype's `--vex` flag together with any SBOM scan on this page. For example, combined with the binary tarball scan:
+
+```bash
+# Download the OpenVEX document for this release
+curl -fsSLO https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-{{ release }}.vex.json
+
+# Scan the SBOM and filter out vulnerabilities addressed in the VEX document
+grype --distro <os_name>:<os_version> --vex=percona-server-mongodb-{{ release }}.vex.json sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
+```
+
+!!! note
+    The example above reports only [CVE-2026-6231 :octicons-link-external-16:](https://nvd.nist.gov/vuln/detail/cve-2026-6231){:target="_blank"}. This vulnerability affects Percona Server for MongoDB deployments that use [Queryable Encryption :octicons-link-external-16:](https://www.mongodb.com/docs/manual/core/queryable-encryption/about-qe-csfle/){:target="_blank"}. The vulnerability existed before version {{ release }}, but the SBOM now makes it visible. Percona plans to fix it in a future release.
