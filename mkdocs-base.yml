@@ -262,6 +262,7 @@ nav:
       - release_notes/7.0.2-1.md
   - faq.md
   - Reference:
+      - Software Bill of Materials (SBOM): sbom.md
       - glossary.md
       - telemetry.md
       - copyright.md
