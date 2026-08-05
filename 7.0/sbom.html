@@ -3,19 +3,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation">
+        <meta name="description" content="A Software Bill of Materials (SBOM) is a machine-readable inventory of the components and dependencies included in a software release. It helps you understand what is included in a build and assess potential security or compliance risks.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/faq.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/sbom.html">
       
       
-        <link rel="prev" href="release_notes/7.0.2-1.html">
+        <link rel="prev" href="faq.html">
       
       
-        <link rel="next" href="sbom.html">
+        <link rel="next" href="glossary.html">
       
       
         
@@ -26,7 +26,7 @@
     
     
       
-        <title>FAQ - Percona Server for MongoDB 7.0</title>
+        <title>Software Bill of Materials (SBOM) - Percona Server for MongoDB 7.0</title>
       
     
     
@@ -97,7 +97,7 @@
                  
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Percona Server for MongoDB 7.0 - FAQ">
+<meta property="og:title" content="Percona Server for MongoDB 7.0 - Software Bill of Materials (SBOM)">
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
 <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#faq" class="md-skip">
+        <a href="#software-bill-of-materials" class="md-skip">
           Skip to content
         </a>
       
@@ -248,7 +248,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FAQ
+              Software Bill of Materials (SBOM)
             
           </span>
         </div>
@@ -3446,6 +3446,82 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="faq.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
     
   
   
@@ -3465,7 +3541,7 @@
   <span class="md-ellipsis">
     
   
-    FAQ
+    Software Bill of Materials (SBOM)
   
 
     
@@ -3476,14 +3552,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="faq.html" class="md-nav__link md-nav__link--active">
+      <a href="sbom.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    FAQ
+    Software Bill of Materials (SBOM)
   
 
     
@@ -3511,10 +3587,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#how-to-check-percona-server-for-mongodb-version" class="md-nav__link">
+  <a href="#why-it-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to check Percona Server for MongoDB version?
+        Why it matters
       
     </span>
   </a>
@@ -3522,10 +3598,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#where-is-the-location-of-the-configuration-and-data-files" class="md-nav__link">
+  <a href="#where-to-find-the-sbom" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Where is the location of the configuration and data files?
+        Where to find the SBOM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-and-scanning-the-sbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying and scanning the SBOM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verifying and scanning the SBOM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-tarball" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Binary tarball
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpm-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPM package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deb-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DEB package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker images
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-vulnerabilities-with-openvex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering vulnerabilities with OpenVEX
       
     </span>
   </a>
@@ -3536,80 +3684,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reference
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Reference
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="sbom.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Software Bill of Materials (SBOM)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -4002,7 +4076,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
                     <div data-banner="data-banner" class="edit-contrib-banner">
     <div class="banner-content">
       <!-- Edit link centered -->
-      <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/faq.md" title="Edit this page on GitHub" class="edit-page-link">
+      <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/sbom.md" title="Edit this page on GitHub" class="edit-page-link">
         <span class="edit-page-icon">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
@@ -4050,10 +4124,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#how-to-check-percona-server-for-mongodb-version" class="md-nav__link">
+  <a href="#why-it-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to check Percona Server for MongoDB version?
+        Why it matters
       
     </span>
   </a>
@@ -4061,10 +4135,82 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
       
         <li class="md-nav__item">
-  <a href="#where-is-the-location-of-the-configuration-and-data-files" class="md-nav__link">
+  <a href="#where-to-find-the-sbom" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Where is the location of the configuration and data files?
+        Where to find the SBOM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-and-scanning-the-sbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying and scanning the SBOM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verifying and scanning the SBOM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-tarball" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Binary tarball
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpm-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPM package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deb-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DEB package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker images
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-vulnerabilities-with-openvex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering vulnerabilities with OpenVEX
       
     </span>
   </a>
@@ -4094,19 +4240,172 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/faq.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/sbom.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
     </a>
   
 
 
-<h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">¶</a></h1>
-<h2 id="how-to-check-percona-server-for-mongodb-version">How to check Percona Server for MongoDB version?<a class="headerlink" href="#how-to-check-percona-server-for-mongodb-version" title="Permanent link">¶</a></h2>
-<p>To see which version of Percona Server for MongoDB you are using, check the value of the <code>psmdbVersion</code> key in the output of the <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo">buildInfo</a> database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.</p>
-<h2 id="where-is-the-location-of-the-configuration-and-data-files">Where is the location of the configuration and data files?<a class="headerlink" href="#where-is-the-location-of-the-configuration-and-data-files" title="Permanent link">¶</a></h2>
-<p>By default, Percona Server for MongoDB stores data files in <code>/var/lib/mongodb/</code>
-and configuration parameters in <code>/etc/mongod.conf</code>.</p>
+<h1 id="software-bill-of-materials">Software Bill of Materials<a class="headerlink" href="#software-bill-of-materials" title="Permanent link">¶</a></h1>
+<p>A Software Bill of Materials (SBOM) is a machine-readable inventory of the components and dependencies included in a software release. It helps you understand what is included in a build and assess potential security or compliance risks.</p>
+<p>Starting with version 7.0.39-21, every Percona Server for MongoDB (PSMDB) release includes a <a href="https://cyclonedx.org/specification/overview/" target="_blank">CycloneDX <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> SBOM in JSON format.</p>
+<h2 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">¶</a></h2>
+<p>An SBOM helps you:</p>
+<ul>
+<li>Identify the components and dependencies included in a PSMDB release.</li>
+<li>Assess known vulnerabilities using SBOM-compatible security scanners.</li>
+<li>Support security reviews, compliance processes, and software supply chain requirements.</li>
+<li>Verify the contents of deployed software artifacts.</li>
+</ul>
+<h2 id="where-to-find-the-sbom">Where to find the SBOM<a class="headerlink" href="#where-to-find-the-sbom" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Distribution method</th>
+<th>SBOM location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binary tarball</td>
+<td><code>doc/sbom.cdx.json</code></td>
+</tr>
+<tr>
+<td>RPM package</td>
+<td><code>/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json</code></td>
+</tr>
+<tr>
+<td>DEB package</td>
+<td><code>/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json</code></td>
+</tr>
+<tr>
+<td>Docker image</td>
+<td>Embedded in the image and available as an attached OCI artifact. See <a href="#docker-images">Docker images</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="verifying-and-scanning-the-sbom">Verifying and scanning the SBOM<a class="headerlink" href="#verifying-and-scanning-the-sbom" title="Permanent link">¶</a></h2>
+<p>The examples below use <a href="https://github.com/anchore/grype" target="_blank">Grype <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a href="https://trivy.dev/" target="_blank">Trivy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> cannot currently scan the SBOMs included with Percona Server for MongoDB DEB and RPM packages or binary tarballs. Most dependencies in these SBOMs are identified using the GitHub package type, which Trivy does not fully support in this context.</p>
+<p>Trivy can, however, scan the SBOMs attached to Percona Server for MongoDB Docker images as OCI artifacts.</p>
+</div>
+<h3 id="binary-tarball">Binary tarball<a class="headerlink" href="#binary-tarball" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Confirm the SBOM is bundled</span>
+tar<span class="w"> </span>tzf<span class="w"> </span>percona-server-mongodb-7.0.37-20-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>doc/sbom.cdx.json
+
+<span class="c1"># Extract and scan</span>
+tar<span class="w"> </span>xzf<span class="w"> </span>percona-server-mongodb-7.0.37-20-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-C<span class="w"> </span>/tmp<span class="w"> </span>percona-server-mongodb-7.0.37-20-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
+grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-7.0.37-20-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
+</code></pre></div>
+<h3 id="rpm-package">RPM package<a class="headerlink" href="#rpm-package" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Confirm the package installs the SBOM</span>
+rpm<span class="w"> </span>-ql<span class="w"> </span>percona-server-mongodb-server<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sbom.cdx.json
+
+<span class="c1"># Scan it (replace `rhel:9.8` with your `&lt;os_name&gt;:&lt;os_version&gt;`)</span>
+grype<span class="w"> </span>--distro<span class="w"> </span>rhel:9.8<span class="w"> </span>sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
+</code></pre></div>
+<h3 id="deb-package">DEB package<a class="headerlink" href="#deb-package" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Confirm the package installs the SBOM</span>
+dpkg<span class="w"> </span>-L<span class="w"> </span>percona-server-mongodb-server<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sbom.cdx.json
+
+<span class="c1"># Scan it (replace `ubuntu:24.04` with your `&lt;os_name&gt;:&lt;os_version&gt;`)</span>
+grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span class="w"> </span>sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
+</code></pre></div>
+<h3 id="docker-images">Docker images<a class="headerlink" href="#docker-images" title="Permanent link">¶</a></h3>
+<p>Each PSMDB Docker image (Docker Hub <code>docker.io/percona/percona-server-mongodb</code>, PerconaLab <code>docker.io/perconalab/percona-server-mongodb</code>) ships with <strong>two</strong> CycloneDX SBOMs that describe overlapping scopes:</p>
+<table>
+<thead>
+<tr>
+<th>SBOM</th>
+<th>Scope</th>
+<th>CycloneDX version</th>
+<th>How to access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Embedded</strong></td>
+<td>PSMDB packages only</td>
+<td>1.5</td>
+<td>Inside the image filesystem</td>
+</tr>
+<tr>
+<td><strong>OCI-attached</strong></td>
+<td>Full image — PSMDB and UBI9 base OS packages</td>
+<td>1.6</td>
+<td>Registry-side, via the OCI Referrers API</td>
+</tr>
+</tbody>
+</table>
+<h4 id="scan-via-oci-referrers-api-recommended">Scan via OCI Referrers API (recommended)<a class="headerlink" href="#scan-via-oci-referrers-api-recommended" title="Permanent link">¶</a></h4>
+<p><code>trivy image --sbom-sources oci</code> fetches the attached SBOM via the OCI Referrers API and scans it, without pulling the image:</p>
+<div class="highlight"><pre><span></span><code>trivy<span class="w"> </span>image<span class="w"> </span>--severity<span class="w"> </span>HIGH,CRITICAL<span class="w"> </span>--sbom-sources<span class="w"> </span>oci<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:7.0.37-20-amd64
+</code></pre></div>
+<h4 id="scan-the-embedded-sbom">Scan the embedded SBOM<a class="headerlink" href="#scan-the-embedded-sbom" title="Permanent link">¶</a></h4>
+<p>Scan the embedded SBOM from inside the container image: <code>7.0.37-20-amd64</code>:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--entrypoint<span class="w"> </span>cat<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:7.0.37-20-amd64<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>grype<span class="w"> </span>--from<span class="w"> </span>sbom
+</code></pre></div>
+<h4 id="advanced-inspect-oci-attached-sboms-with-oras">Advanced: Inspect OCI-attached SBOMs with ORAS<a class="headerlink" href="#advanced-inspect-oci-attached-sboms-with-oras" title="Permanent link">¶</a></h4>
+<p>You can use the <a href="https://oras.land/" target="_blank">ORAS CLI <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> to discover and download OCI-attached SBOMs.</p>
+<p class="power-number">Follow these steps:</p>
+<ol>
+<li>
+<p>Use the per-architecture tag to resolve directly to the image manifest:</p>
+<div class="highlight"><pre><span></span><code>oras<span class="w"> </span>discover<span class="w"> </span>--format<span class="w"> </span>tree<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:7.0.37-20-amd64
+</code></pre></div>
+<details class="example">
+<summary>Output</summary>
+<div class="highlight"><pre><span></span><code>docker.io/percona/percona-server-mongodb@sha256:&lt;image_manifest_digest&gt;
+└── application/vnd.cyclonedx+json
+    └── sha256:&lt;sbom_artifact_digest&gt;
+        └── [annotations]
+            └── org.opencontainers.image.created: "2026-07-28T14:24:59Z"
+</code></pre></div>
+<p>The <code>&lt;image_manifest_digest&gt;</code> identifies the container image. The <code>&lt;sbom_artifact_digest&gt;</code> identifies the CycloneDX SBOM artifact attached to that image.</p>
+</details>
+</li>
+<li>
+<p>Copy the SBOM artifact digest from the output and use it to download the SBOM to the current directory. Replace <code>&lt;sbom_artifact_digest&gt;</code> with the value displayed after <code>sha256:</code>:</p>
+<div class="highlight"><pre><span></span><code>oras<span class="w"> </span>pull<span class="w"> </span>docker.io/percona/percona-server-mongodb@sha256:&lt;sbom_artifact_digest&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Confirm that the SBOM file was downloaded:</p>
+<div class="highlight"><pre><span></span><code>ls
+</code></pre></div>
+<details class="example">
+<summary>Output</summary>
+<div class="highlight"><pre><span></span><code>percona-server-mongodb-7.0.37-20-amd64.cdx.json
+</code></pre></div>
+</details>
+</li>
+</ol>
+<h2 id="filtering-vulnerabilities-with-openvex">Filtering vulnerabilities with OpenVEX<a class="headerlink" href="#filtering-vulnerabilities-with-openvex" title="Permanent link">¶</a></h2>
+<p><a href="https://github.com/openvex/spec" target="_blank">OpenVEX <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> is an open, minimal format for Vulnerability Exploitability eXchange (VEX) statements. A VEX document records whether a known vulnerability (CVE) in a component actually affects a given product — for example, the vulnerable code path is unreachable, the issue is already fixed, or it’s still under investigation. Scanners that support VEX use these statements to suppress vulnerabilities that don’t actually apply, cutting down on noise from CVEs in bundled dependencies that PSMDB isn’t actually exposed to.</p>
+<p>Percona publishes an OpenVEX document for every PSMDB release.</p>
+<p>The <code>VEX</code> file for version 7.0.37-20 is available at:</p>
+<p><code>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-7.0.37-20.openvex.json</code></p>
+<p>Pass the document to Grype’s <code>--vex</code> flag along with any SBOM scan on this page. For example, when scanning the SBOM of an RPM package:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Download the OpenVEX document for this release</span>
+curl<span class="w"> </span>-fsSLO<span class="w"> </span>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-7.0.37-20.vex.json
+
+<span class="c1"># Scan the SBOM and filter out vulnerabilities addressed in the VEX document</span>
+grype<span class="w"> </span>--distro<span class="w"> </span>&lt;os_name&gt;:&lt;os_version&gt;<span class="w"> </span>--vex<span class="o">=</span>percona-server-mongodb-7.0.37-20.vex.json<span class="w"> </span>sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The example above reports only <a href="https://nvd.nist.gov/vuln/detail/cve-2026-6231" target="_blank">CVE-2026-6231 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>. This vulnerability affects Percona Server for MongoDB deployments that use <a href="https://www.mongodb.com/docs/manual/core/queryable-encryption/about-qe-csfle/" target="_blank">Queryable Encryption <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>. The vulnerability existed before version 7.0.37-20, but the SBOM now makes it visible. Percona plans to fix it in a future release.</p>
+</div>
 
 
 
@@ -4129,7 +4428,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 28, 2024 15:50:52 UTC">February 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 4, 2026 16:52:35 UTC">August 4, 2026</span>
   </span>
 
     
@@ -4139,7 +4438,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 28, 2024 15:50:52 UTC">February 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 31, 2026 13:30:31 UTC">July 31, 2026</span>
   </span>
 
     
@@ -4157,9 +4456,9 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
     
     <nav>
       
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+        <a href="https://github.com/rasika-chivate" class="md-author" title="@rasika-chivate">
           
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
+          <img src="https://avatars.githubusercontent.com/u/95711051?v=4&amp;size=72" alt="rasika-chivate">
         </a>
       
         <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
