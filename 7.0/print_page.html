@@ -13536,6 +13536,10 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-2150">PSMDB-2150</a>: Percona Server for MongoDB (PSMDB) now provides Software Bills of Materials (SBOMs) for every release.</li>
 </ul>
+<h2 id="release_notes-7.0.39-21-bug-fixed">Bug fixed<a class="headerlink" href="#release_notes-7.0.39-21-bug-fixed" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="https://perconadev.atlassian.net/browse/PSMDB-2212">PSMDB-2212</a>: Fixed an issue where <code>mongod</code> could terminate unexpectedly with a <code>SIGABRT</code> signal when using native LDAP authentication if an LDAP operation timed out. <code>mongod</code> now handles LDAP timeout conditions correctly, preventing unexpected process termination.</li>
+</ul>
 <h2 id="release_notes-7.0.39-21-tools-packaged-with-this-release">Tools packaged with this release<a class="headerlink" href="#release_notes-7.0.39-21-tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
 <table>
 <thead>
