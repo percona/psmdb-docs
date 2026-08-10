@@ -146,7 +146,7 @@ Percona publishes an OpenVEX document for every PSMDB release.
 
 The `VEX` file for version {{ release }} is available at:
 
-`https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-{{ release }}.openvex.json`
+`https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-{{ release }}.vex.json`
 
 Pass the document to Grype's `--vex` flag along with any SBOM scan on this page. For example, when scanning the SBOM of an RPM package:
 
