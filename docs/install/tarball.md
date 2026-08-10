@@ -84,15 +84,63 @@ The following steps show how to install Percona Server for MongoDB from a tarbal
         ```bash
         sudo mkdir -p /data/db
         ```    
+
+    5. Create a user and group for mongod
+        
+        ```bash
+        sudo groupadd -r mongod
+        sudo useradd -M -r -g mongod -d /var/lib/mongo -s /bin/false -c mongod mongod
+        ```
+        
+    6. The new TCMalloc requires [Restartable Sequences (rseq) :octicons-link-external-16:](https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc) to implement [per-CPU caches :octicons-link-external-16:](https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache). To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:
+
+        ```bash
+        GLIBC_TUNABLES=glibc.pthread.rseq=0
+        export GLIBC_TUNABLES
+        ```
+
+    7. (Optional) Create a systemd unit file. Specify the following configuration:
     
-    5. The new TCMalloc requires [Restartable Sequences (rseq) :octicons-link-external-16:](https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc) to implement [per-CPU caches :octicons-link-external-16:](https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache). To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:
-
-    ```bash
-    GLIBC_TUNABLES=glibc.pthread.rseq=0
-    export GLIBC_TUNABLES
-
-    6. Make sure that you have read and write permissions for the data
-    directory and run `mongod`.
+        ```bash
+        sudo tee /etc/systemd/system/mongod.service <<'EOF' > /dev/null
+        [Unit]
+        Description=MongoDB Database Server instance
+        After=time-sync.target network.target
+        
+        [Service]
+        User=mongod
+        Group=mongod
+        PermissionsStartOnly=true
+        LimitFSIZE=infinity
+        LimitCPU=infinity
+        LimitAS=infinity
+        LimitNOFILE=64000
+        LimitNPROC=64000
+        LimitMEMLOCK=infinity
+        TasksMax=infinity
+        TasksAccounting=false
+        Environment="OPTIONS=-f /etc/mongod.conf"
+        Environment="MONGODB_CONFIG_OVERRIDE_NOFORK=1"
+        Environment="GLIBC_TUNABLES=glibc.pthread.rseq=0"
+        EnvironmentFile=-/etc/sysconfig/mongod
+        ExecStart=/usr/bin/mongod $OPTIONS
+        RuntimeDirectory=mongodb
+        ExecStartPre=/usr/bin/mkdir -p /var/run/mongodb
+        ExecStartPre=/usr/bin/chown mongod:mongod /var/run/mongodb
+        ExecStartPre=/usr/bin/chmod 0755 /var/run/mongodb
+        PIDFile=/var/run/mongodb/mongod.pid
+        ExecReload=/bin/kill -s HUP $MAINPID
+        Restart=always
+        RestartSec=5
+        
+        [Install]
+        WantedBy=multi-user.target
+        EOF
+        sudo systemctl daemon-reload
+        sudo systemctl enable --now mongod
+        ```
+     
+    8. Make sure that you have read and write permissions for the data directory and run `mongod`.
 
 === ":material-ubuntu: Debian and Ubuntu"
 
@@ -128,13 +176,12 @@ The following steps show how to install Percona Server for MongoDB from a tarbal
 
     5. The new TCMalloc requires [Restartable Sequences (rseq) :octicons-link-external-16:](https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc) to implement [per-CPU caches :octicons-link-external-16:](https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache). To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:
 
-       ```bash
-       GLIBC_TUNABLES=glibc.pthread.rseq=0
-       export GLIBC_TUNABLES
-       ```
+        ```bash
+        GLIBC_TUNABLES=glibc.pthread.rseq=0
+        export GLIBC_TUNABLES
+        ```
 
-    6. Make sure that you have read and write permissions for the data
-    directory and run `mongod`.
+    6. Make sure that you have read and write permissions for the data directory and run `mongod`.
 
 ## Next steps
 
