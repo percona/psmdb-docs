@@ -152,7 +152,7 @@ Pass the document to Grype's `--vex` flag along with any SBOM scan on this page.
 
 ```bash
 # Download the OpenVEX document for this release
-curl -fsSLO https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-{{ release }}.vex.json
+curl -fsSLO https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-{{release}}.openvex.json
 
 # Scan the SBOM and filter out vulnerabilities addressed in the VEX document
 grype --distro <os_name>:<os_version> --vex=percona-server-mongodb-{{ release }}.vex.json sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
