@@ -3,37 +3,37 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="This guide walks you through the installation of Percona Server for MongoDB on Rocky Linux.">
+        <meta name="description" content="A Software Bill of Materials (SBOM) is a machine-readable inventory of the components and dependencies included in a software release. It helps you understand what is included in a build and assess potential security or compliance risks.">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/install/rocky-linux.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/8.0/sbom.html">
       
       
-        <link rel="prev" href="yum.html">
+        <link rel="prev" href="faq.html">
       
       
-        <link rel="next" href="amazon-linux.html">
+        <link rel="next" href="glossary.html">
       
       
         
       
       
-      <link rel="icon" href="../_images/mongodb-fav.svg">
+      <link rel="icon" href="_images/mongodb-fav.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
-        <title>On Rocky Linux - Percona Server for MongoDB 8.0</title>
+        <title>Software Bill of Materials (SBOM) - Percona Server for MongoDB 8.0</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -52,29 +52,29 @@
       
     
     
-      <link rel="stylesheet" href="../css/print-site.css">
+      <link rel="stylesheet" href="css/print-site.css">
     
-      <link rel="stylesheet" href="../css/print-site-material.css">
+      <link rel="stylesheet" href="css/print-site-material.css">
     
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="../css/nocopy.css">
+      <link rel="stylesheet" href="css/nocopy.css">
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="css/extra.css">
     
-      <link rel="stylesheet" href="../css/design.css">
+      <link rel="stylesheet" href="css/design.css">
     
-      <link rel="stylesheet" href="../css/osano.css">
+      <link rel="stylesheet" href="css/osano.css">
     
-      <link rel="stylesheet" href="../css/mongodb.css">
+      <link rel="stylesheet" href="css/mongodb.css">
     
-      <link rel="stylesheet" href="../css/landing.css">
+      <link rel="stylesheet" href="css/landing.css">
     
-      <link rel="stylesheet" href="../css/rating.css">
+      <link rel="stylesheet" href="css/rating.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -97,10 +97,10 @@
                  
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Percona Server for MongoDB 8.0 - On Rocky Linux">
+<meta property="og:title" content="Percona Server for MongoDB 8.0 - Software Bill of Materials (SBOM)">
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/8.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -134,7 +134,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install-percona-server-for-mongodb-on-rocky-linux" class="md-skip">
+        <a href="#software-bill-of-materials" class="md-skip">
           Skip to content
         </a>
       
@@ -225,9 +225,9 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
 
     <!-- Link to home -->
-    <a href="../index.html" title="Percona Server for MongoDB 8.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 8.0" data-md-component="logo">
+    <a href="index.html" title="Percona Server for MongoDB 8.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 8.0" data-md-component="logo">
       
-  <img src="../_images/mongodb-mark.svg" alt="logo">
+  <img src="_images/mongodb-mark.svg" alt="logo">
 
     </a>
 
@@ -240,7 +240,7 @@
     <!-- Header title -->
     <div class="md-header__title">
       <div class="md-header__ellipsis">
-        <a href="../index.html" class="md-header__topic">
+        <a href="index.html" class="md-header__topic">
           <span class="md-ellipsis">
             Percona Server for MongoDB 8.0
           </span>
@@ -248,7 +248,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              On Rocky Linux
+              Software Bill of Materials (SBOM)
             
           </span>
         </div>
@@ -392,9 +392,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../index.html" title="Percona Server for MongoDB 8.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 8.0" data-md-component="logo">
+    <a href="index.html" title="Percona Server for MongoDB 8.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 8.0" data-md-component="logo">
       
-  <img src="../_images/mongodb-mark.svg" alt="logo">
+  <img src="_images/mongodb-mark.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 8.0
@@ -421,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -448,7 +448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../get-help.html" class="md-nav__link">
+      <a href="get-help.html" class="md-nav__link">
         
   
   
@@ -472,20 +472,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -506,7 +504,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -524,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="install/index.html" class="md-nav__link">
         
   
   
@@ -599,7 +597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../system-requirements.html" class="md-nav__link">
+      <a href="system-requirements.html" class="md-nav__link">
         
   
   
@@ -627,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="cloud-deployments.html" class="md-nav__link">
+      <a href="install/cloud-deployments.html" class="md-nav__link">
         
   
   
@@ -660,20 +658,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
         
           
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
@@ -694,7 +690,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -712,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="apt.html" class="md-nav__link">
+      <a href="install/apt.html" class="md-nav__link">
         
   
   
@@ -740,7 +736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="yum.html" class="md-nav__link">
+      <a href="install/yum.html" class="md-nav__link">
         
   
   
@@ -765,37 +761,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    On Rocky Linux
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="rocky-linux.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="install/rocky-linux.html" class="md-nav__link">
         
   
   
@@ -811,117 +780,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Procedure
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Procedure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configure-percona-repository" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configure Percona repository
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-percona-server-for-mongodb-packages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Install Percona Server for MongoDB packages
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-transparent-hugepages-thp" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enable Transparent Hugepages (THP)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-percona-server-for-mongodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Percona Server for MongoDB
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Run Percona Server for MongoDB">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#run-after-reboot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run after reboot
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next steps
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -934,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="amazon-linux.html" class="md-nav__link">
+      <a href="install/amazon-linux.html" class="md-nav__link">
         
   
   
@@ -962,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tarball.html" class="md-nav__link">
+      <a href="install/tarball.html" class="md-nav__link">
         
   
   
@@ -990,7 +848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="source.html" class="md-nav__link">
+      <a href="install/source.html" class="md-nav__link">
         
   
   
@@ -1018,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docker.html" class="md-nav__link">
+      <a href="install/docker.html" class="md-nav__link">
         
   
   
@@ -1054,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../connect.html" class="md-nav__link">
+      <a href="connect.html" class="md-nav__link">
         
   
   
@@ -1082,7 +940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../crud.html" class="md-nav__link">
+      <a href="crud.html" class="md-nav__link">
         
   
   
@@ -1110,7 +968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../what-next.html" class="md-nav__link">
+      <a href="what-next.html" class="md-nav__link">
         
   
   
@@ -1192,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../comparison.html" class="md-nav__link">
+      <a href="comparison.html" class="md-nav__link">
         
   
   
@@ -1267,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inmemory.html" class="md-nav__link">
+      <a href="inmemory.html" class="md-nav__link">
         
   
   
@@ -1350,7 +1208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hot-backup.html" class="md-nav__link">
+      <a href="hot-backup.html" class="md-nav__link">
         
   
   
@@ -1378,7 +1236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../backup-cursor.html" class="md-nav__link">
+      <a href="backup-cursor.html" class="md-nav__link">
         
   
   
@@ -1461,7 +1319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authentication.html" class="md-nav__link">
+      <a href="authentication.html" class="md-nav__link">
         
   
   
@@ -1536,7 +1394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws-iam.html" class="md-nav__link">
+      <a href="aws-iam.html" class="md-nav__link">
         
   
   
@@ -1564,7 +1422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../aws-iam-setup.html" class="md-nav__link">
+      <a href="aws-iam-setup.html" class="md-nav__link">
         
   
   
@@ -1600,7 +1458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kerberos.html" class="md-nav__link">
+      <a href="kerberos.html" class="md-nav__link">
         
   
   
@@ -1675,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authorization.html" class="md-nav__link">
+      <a href="authorization.html" class="md-nav__link">
         
   
   
@@ -1703,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sasl-auth.html" class="md-nav__link">
+      <a href="sasl-auth.html" class="md-nav__link">
         
   
   
@@ -1731,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../x509-ldap.html" class="md-nav__link">
+      <a href="x509-ldap.html" class="md-nav__link">
         
   
   
@@ -1759,7 +1617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ldap-setup.html" class="md-nav__link">
+      <a href="ldap-setup.html" class="md-nav__link">
         
   
   
@@ -1787,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ldap-parameters.html" class="md-nav__link">
+      <a href="ldap-parameters.html" class="md-nav__link">
         
   
   
@@ -1870,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oidc.html" class="md-nav__link">
+      <a href="oidc.html" class="md-nav__link">
         
   
   
@@ -1945,7 +1803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oidc-okta.html" class="md-nav__link">
+      <a href="oidc-okta.html" class="md-nav__link">
         
   
   
@@ -1973,7 +1831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oidc-entra.html" class="md-nav__link">
+      <a href="oidc-entra.html" class="md-nav__link">
         
   
   
@@ -2001,7 +1859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oidc-ping.html" class="md-nav__link">
+      <a href="oidc-ping.html" class="md-nav__link">
         
   
   
@@ -2029,7 +1887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oidc-keycloak.html" class="md-nav__link">
+      <a href="oidc-keycloak.html" class="md-nav__link">
         
   
   
@@ -2057,7 +1915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../oidc-ldap.html" class="md-nav__link">
+      <a href="oidc-ldap.html" class="md-nav__link">
         
   
   
@@ -2101,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enable-auth.html" class="md-nav__link">
+      <a href="enable-auth.html" class="md-nav__link">
         
   
   
@@ -2184,7 +2042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data-at-rest-encryption.html" class="md-nav__link">
+      <a href="data-at-rest-encryption.html" class="md-nav__link">
         
   
   
@@ -2212,7 +2070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vault.html" class="md-nav__link">
+      <a href="vault.html" class="md-nav__link">
         
   
   
@@ -2240,7 +2098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../openbao.html" class="md-nav__link">
+      <a href="openbao.html" class="md-nav__link">
         
   
   
@@ -2268,7 +2126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../kmip.html" class="md-nav__link">
+      <a href="kmip.html" class="md-nav__link">
         
   
   
@@ -2296,7 +2154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../keyfile.html" class="md-nav__link">
+      <a href="keyfile.html" class="md-nav__link">
         
   
   
@@ -2324,7 +2182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../encryption-mode-switch.html" class="md-nav__link">
+      <a href="encryption-mode-switch.html" class="md-nav__link">
         
   
   
@@ -2352,7 +2210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fips.html" class="md-nav__link">
+      <a href="fips.html" class="md-nav__link">
         
   
   
@@ -2388,7 +2246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fcbis.html" class="md-nav__link">
+      <a href="fcbis.html" class="md-nav__link">
         
   
   
@@ -2416,7 +2274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../audit-logging.html" class="md-nav__link">
+      <a href="audit-logging.html" class="md-nav__link">
         
   
   
@@ -2444,7 +2302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rate-limit.html" class="md-nav__link">
+      <a href="rate-limit.html" class="md-nav__link">
         
   
   
@@ -2472,7 +2330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../log-redaction.html" class="md-nav__link">
+      <a href="log-redaction.html" class="md-nav__link">
         
   
   
@@ -2500,7 +2358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ngram-full-text-search.html" class="md-nav__link">
+      <a href="ngram-full-text-search.html" class="md-nav__link">
         
   
   
@@ -2582,7 +2440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../set-parameter.html" class="md-nav__link">
+      <a href="set-parameter.html" class="md-nav__link">
         
   
   
@@ -2610,7 +2468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../log-rotation.html" class="md-nav__link">
+      <a href="log-rotation.html" class="md-nav__link">
         
   
   
@@ -2685,7 +2543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../horizon.html" class="md-nav__link">
+      <a href="horizon.html" class="md-nav__link">
         
   
   
@@ -2713,7 +2571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../horizon-setup.html" class="md-nav__link">
+      <a href="horizon-setup.html" class="md-nav__link">
         
   
   
@@ -2749,7 +2607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mongos-config.html" class="md-nav__link">
+      <a href="mongos-config.html" class="md-nav__link">
         
   
   
@@ -2824,7 +2682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="upgrade-from-70.html" class="md-nav__link">
+      <a href="install/upgrade-from-70.html" class="md-nav__link">
         
   
   
@@ -2852,7 +2710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
         
   
   
@@ -2880,7 +2738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="minor-upgrade.html" class="md-nav__link">
+      <a href="install/minor-upgrade.html" class="md-nav__link">
         
   
   
@@ -2916,7 +2774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="uninstall.html" class="md-nav__link">
+      <a href="install/uninstall.html" class="md-nav__link">
         
   
   
@@ -2998,7 +2856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/index.html" class="md-nav__link">
+      <a href="release_notes/index.html" class="md-nav__link">
         
   
   
@@ -3026,7 +2884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.28-12.html" class="md-nav__link">
+      <a href="release_notes/8.0.28-12.html" class="md-nav__link">
         
   
   
@@ -3054,7 +2912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.26-11.html" class="md-nav__link">
+      <a href="release_notes/8.0.26-11.html" class="md-nav__link">
         
   
   
@@ -3082,7 +2940,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.23-10.html" class="md-nav__link">
+      <a href="release_notes/8.0.23-10.html" class="md-nav__link">
         
   
   
@@ -3110,7 +2968,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.21-9.html" class="md-nav__link">
+      <a href="release_notes/8.0.21-9.html" class="md-nav__link">
         
   
   
@@ -3138,7 +2996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.20-8.html" class="md-nav__link">
+      <a href="release_notes/8.0.20-8.html" class="md-nav__link">
         
   
   
@@ -3166,7 +3024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.19-7.html" class="md-nav__link">
+      <a href="release_notes/8.0.19-7.html" class="md-nav__link">
         
   
   
@@ -3194,7 +3052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.17-6.html" class="md-nav__link">
+      <a href="release_notes/8.0.17-6.html" class="md-nav__link">
         
   
   
@@ -3222,7 +3080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.16-5.html" class="md-nav__link">
+      <a href="release_notes/8.0.16-5.html" class="md-nav__link">
         
   
   
@@ -3250,7 +3108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.12-4.html" class="md-nav__link">
+      <a href="release_notes/8.0.12-4.html" class="md-nav__link">
         
   
   
@@ -3278,7 +3136,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.8-3.html" class="md-nav__link">
+      <a href="release_notes/8.0.8-3.html" class="md-nav__link">
         
   
   
@@ -3306,7 +3164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.4-2.html" class="md-nav__link">
+      <a href="release_notes/8.0.4-2.html" class="md-nav__link">
         
   
   
@@ -3334,7 +3192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release_notes/8.0.4-1.html" class="md-nav__link">
+      <a href="release_notes/8.0.4-1.html" class="md-nav__link">
         
   
   
@@ -3369,7 +3227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../faq.html" class="md-nav__link">
+      <a href="faq.html" class="md-nav__link">
         
   
   
@@ -3393,18 +3251,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked="">
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -3425,7 +3285,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3440,10 +3300,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../sbom.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Bill of Materials (SBOM)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="sbom.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -3459,6 +3346,122 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-find-the-sbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to find the SBOM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-and-scanning-the-sbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying and scanning the SBOM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verifying and scanning the SBOM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary-tarball" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Binary tarball
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpm-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPM package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deb-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DEB package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker images
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-vulnerabilities-with-openvex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtering vulnerabilities with OpenVEX
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3471,7 +3474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../glossary.html" class="md-nav__link">
+      <a href="glossary.html" class="md-nav__link">
         
   
   
@@ -3499,7 +3502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../telemetry.html" class="md-nav__link">
+      <a href="telemetry.html" class="md-nav__link">
         
   
   
@@ -3527,7 +3530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../code-of-conduct.html" class="md-nav__link">
+      <a href="code-of-conduct.html" class="md-nav__link">
         
   
   
@@ -3555,7 +3558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../copyright.html" class="md-nav__link">
+      <a href="copyright.html" class="md-nav__link">
         
   
   
@@ -3583,7 +3586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../trademark-policy.html" class="md-nav__link">
+      <a href="trademark-policy.html" class="md-nav__link">
         
   
   
@@ -3618,7 +3621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lifecycle.html" class="md-nav__link">
+      <a href="lifecycle.html" class="md-nav__link">
         
   
   
@@ -3905,7 +3908,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
                   <div class="md-sidebar__inner">
                     <div data-banner="data-banner">
     <div class="actions">
-        <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/install/rocky-linux.md" title="Edit this page on GitHub" class="edit-page-link">
+        <a href="https://github.com/percona/psmdb-docs/edit/8.0/docs/sbom.md" title="Edit this page on GitHub" class="edit-page-link">
             <span class="edit-page-icon">
                 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
@@ -3945,22 +3948,44 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#procedure" class="md-nav__link">
+  <a href="#why-it-matters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Procedure
+        Why it matters
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Procedure">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-find-the-sbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to find the SBOM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying-and-scanning-the-sbom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verifying and scanning the SBOM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verifying and scanning the SBOM">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configure-percona-repository" class="md-nav__link">
+  <a href="#binary-tarball" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure Percona repository
+        Binary tarball
       
     </span>
   </a>
@@ -3968,10 +3993,32 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-percona-server-for-mongodb-packages" class="md-nav__link">
+  <a href="#rpm-package" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install Percona Server for MongoDB packages
+        RPM package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deb-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DEB package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker images
       
     </span>
   </a>
@@ -3984,49 +4031,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
       
         <li class="md-nav__item">
-  <a href="#enable-transparent-hugepages-thp" class="md-nav__link">
+  <a href="#filtering-vulnerabilities-with-openvex" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enable Transparent Hugepages (THP)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-percona-server-for-mongodb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Percona Server for MongoDB
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Run Percona Server for MongoDB">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#run-after-reboot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run after reboot
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next steps
+        Filtering vulnerabilities with OpenVEX
       
     </span>
   </a>
@@ -4056,142 +4064,172 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/install/rocky-linux.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/8.0/docs/sbom.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
     </a>
   
 
 
-<h1 id="install-percona-server-for-mongodb-on-rocky-linux">Install Percona Server for MongoDB on Rocky Linux<a class="headerlink" href="#install-percona-server-for-mongodb-on-rocky-linux" title="Permanent link">¶</a></h1>
-<p>This guide walks you through the installation of Percona Server for MongoDB on Rocky Linux. </p>
-<p>We gather <a href="../telemetry.html">Telemetry data</a> to understand the use of the software and improve our products.</p>
-<details class="admonition">
-<summary>Package contents</summary>
+<h1 id="software-bill-of-materials">Software Bill of Materials<a class="headerlink" href="#software-bill-of-materials" title="Permanent link">¶</a></h1>
+<p>A Software Bill of Materials (SBOM) is a machine-readable inventory of the components and dependencies included in a software release. It helps you understand what is included in a build and assess potential security or compliance risks.</p>
+<p>Starting with version 8.0.28-12, every Percona Server for MongoDB (PSMDB) release includes a <a href="https://cyclonedx.org/specification/overview/" target="_blank">CycloneDX <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> SBOM in JSON format.</p>
+<h2 id="why-it-matters">Why it matters<a class="headerlink" href="#why-it-matters" title="Permanent link">¶</a></h2>
+<p>An SBOM helps you:</p>
+<ul>
+<li>Identify the components and dependencies included in a PSMDB release.</li>
+<li>Assess known vulnerabilities using SBOM-compatible security scanners.</li>
+<li>Support security reviews, compliance processes, and software supply chain requirements.</li>
+<li>Verify the contents of deployed software artifacts.</li>
+</ul>
+<h2 id="where-to-find-the-sbom">Where to find the SBOM<a class="headerlink" href="#where-to-find-the-sbom" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
-<th>Package</th>
-<th>Contains</th>
+<th>Distribution method</th>
+<th>SBOM location</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>percona-server-mongodb</code></td>
-<td>The <code>mongosh</code> shell, import/export tools, other client utilities, server software, default configuration, and <code>init.d</code> scripts.</td>
+<td>Binary tarball</td>
+<td><code>doc/sbom.cdx.json</code></td>
 </tr>
 <tr>
-<td><code>percona-server-mongodb-server</code></td>
-<td>The <code>mongod</code> server, default configuration files, and <code>init.d</code> scripts</td>
+<td>RPM package</td>
+<td><code>/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json</code></td>
 </tr>
 <tr>
-<td><code>percona-server-mongodb-shell</code></td>
-<td>The <code>mongosh</code> shell</td>
+<td>DEB package</td>
+<td><code>/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json</code></td>
 </tr>
 <tr>
-<td><code>percona-server-mongodb-mongos</code></td>
-<td>The <code>mongos</code> sharded cluster query router</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-tools</code></td>
-<td>Mongo tools for high-performance MongoDB fork from Percona</td>
-</tr>
-<tr>
-<td><code>percona-server-mongodb-dbg</code></td>
-<td>Debug symbols for the server</td>
+<td>Docker image</td>
+<td>Embedded in the image and available as an attached OCI artifact. See <a href="#docker-images">Docker images</a>.</td>
 </tr>
 </tbody>
 </table>
-</details>
-<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">¶</a></h2>
-<p>Before you start, check the <a href="../system-requirements.html">system requirements</a>.</p>
-<h3 id="configure-percona-repository">Configure Percona repository<a class="headerlink" href="#configure-percona-repository" title="Permanent link">¶</a></h3>
-<p>Percona provides the <a href="https://docs.percona.com/percona-software-repositories/index.html"><code>percona-release</code></a> configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    </p>
-<ol>
-<li>
-<p>Install <strong>percona-release</strong>:     </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-</code></pre></div>
-<details class="example">
-<summary>Example output</summary>
-<div class="no-copy highlight"><pre><span></span><code>Retrieving<span class="w"> </span>https://repo.percona.com/yum/percona-release-latest.noarch.rpm
-Preparing...<span class="w">                </span><span class="c1">########################################### [100%]</span>
-<span class="m">1</span>:percona-release<span class="w">        </span><span class="c1">########################################### [100%]</span>
-</code></pre></div>
-</details>
-</li>
-<li>
-<p>Enable the repository: </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-80<span class="w"> </span>release
-</code></pre></div>
-</li>
-</ol>
-<h3 id="install-percona-server-for-mongodb-packages">Install Percona Server for MongoDB packages<a class="headerlink" href="#install-percona-server-for-mongodb-packages" title="Permanent link">¶</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 5.5a2 2 0 0 0 2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2 2 2 0 0 0 2 2m-3.6 13.9 1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3A7.3 7.3 0 0 0 22 13v-2c-1.76.03-3.4-.89-4.3-2.4l-1-1.6c-.36-.6-1-1-1.7-1-.3 0-.5.1-.8.1L9 8.3V13h2V9.6l1.8-.7-1.6 8.1-4.9-1-.4 2zM4 9a1 1 0 0 1-1-1 1 1 0 0 1 1-1h3v2zm1-4a1 1 0 0 1-1-1 1 1 0 0 1 1-1h5v2zm-2 8a1 1 0 0 1-1-1 1 1 0 0 1 1-1h4v2z"></path></svg></span> Install the latest version</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9 4.75A.75.75 0 0 1 9.75 4h4a.75.75 0 0 1 .53 1.28l-1.89 1.892c.312.076.604.18.867.319.742.391 1.244 1.063 1.244 2.005 0 .653-.231 1.208-.629 1.627-.386.408-.894.653-1.408.777-1.01.243-2.225.063-3.124-.527a.751.751 0 0 1 .822-1.254c.534.35 1.32.474 1.951.322.306-.073.53-.201.67-.349.129-.136.218-.32.218-.596 0-.308-.123-.509-.444-.678-.373-.197-.98-.318-1.806-.318a.75.75 0 0 1-.53-1.28l1.72-1.72H9.75A.75.75 0 0 1 9 4.75m-3.587 5.763c-.35-.05-.77.113-.983.572a.75.75 0 1 1-1.36-.632c.508-1.094 1.589-1.565 2.558-1.425 1 .145 1.872.945 1.872 2.222 0 1.433-1.088 2.192-1.79 2.681-.308.216-.571.397-.772.573H7a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75c0-.69.3-1.211.67-1.61.348-.372.8-.676 1.15-.92.8-.56 1.18-.904 1.18-1.474 0-.473-.267-.69-.587-.737M5.604.089A.75.75 0 0 1 6 .75v4.77h.711a.75.75 0 0 1 0 1.5H3.759a.75.75 0 0 1 0-1.5H4.5V2.15l-.334.223a.75.75 0 0 1-.832-1.248l1.5-1a.75.75 0 0 1 .77-.037Z"></path></svg></span> Install a specific version</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>To install the latest version of <em>Percona Server for MongoDB</em>, use the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<p>To install a specific version of <em>Percona Server for MongoDB</em>, do the following:</p>
-<ol>
-<li>
-<p>List available versions:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>list<span class="w"> </span>percona-server-mongodb<span class="w"> </span>--showduplicates
-</code></pre></div>
-<p>Sample output:</p>
-<div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
-
-percona-server-mongodb.x86_64<span class="w">    </span><span class="m">8</span>.0.28-12.el9<span class="w">       </span>psmdb-80-release-x86_64
-</code></pre></div>
-</li>
-<li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.28-12, run the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.28-12.el9
-</code></pre></div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<p>and configuration parameters in <code>/etc/mongod.conf</code>.</p>
-<h2 id="enable-transparent-hugepages-thp">Enable Transparent Hugepages (THP)<a class="headerlink" href="#enable-transparent-hugepages-thp" title="Permanent link">¶</a></h2>
-<p>Enable Transparent Hugepages (THP) before starting Percona Server for MongoDB 8.0. THP is required to use the new TCMalloc version with MongoDB. For how to enable THP, see <a href="https://www.mongodb.com/docs/upcoming/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-">Enable Transparent Hugepages (THP)</a> section of documentation.</p>
-<h2 id="run-percona-server-for-mongodb">Run Percona Server for MongoDB<a class="headerlink" href="#run-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
+<h2 id="verifying-and-scanning-the-sbom">Verifying and scanning the SBOM<a class="headerlink" href="#verifying-and-scanning-the-sbom" title="Permanent link">¶</a></h2>
+<p>The examples below use <a href="https://github.com/anchore/grype" target="_blank">Grype <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you use SELinux in enforcing mode, you must customize your SELinux user policies to allow access to certain <code>/sys</code> and <code>/proc</code> files for OS-level statistics. Also, you must customize directory and port access policies if you are using non-default locations.</p>
-<p>Please refer to <a href="https://docs.mongodb.com/v8.0/tutorial/install-mongodb-on-red-hat/#configure-selinux">Configure SELinux</a> section of MongoDB Documentation for policy configuration guidelines.</p>
+<p><a href="https://trivy.dev/" target="_blank">Trivy <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> cannot currently scan the SBOMs included with Percona Server for MongoDB DEB and RPM packages or binary tarballs. Most dependencies in these SBOMs are identified using the GitHub package type, which Trivy does not fully support in this context.</p>
+<p>Trivy can, however, scan the SBOMs attached to Percona Server for MongoDB Docker images as OCI artifacts.</p>
 </div>
-<p>By default, Percona Server for MongoDB stores data files in <code>/var/lib/mongodb/</code>
-and configuration parameters in <code>/etc/mongod.conf</code>.</p>
-<p><strong>Start the service</strong></p>
-<p>Percona Server for MongoDB is not started automatically after installation.
-Start it manually using the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<h3 id="binary-tarball">Binary tarball<a class="headerlink" href="#binary-tarball" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Confirm the SBOM is bundled</span>
+tar<span class="w"> </span>tzf<span class="w"> </span>percona-server-mongodb-8.0.28-12-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>doc/sbom.cdx.json
+
+<span class="c1"># Extract and scan</span>
+tar<span class="w"> </span>xzf<span class="w"> </span>percona-server-mongodb-8.0.28-12-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-C<span class="w"> </span>/tmp<span class="w"> </span>percona-server-mongodb-8.0.28-12-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
+grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.0.28-12-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
 </code></pre></div>
-<p><strong>Confirm that the service is running</strong></p>
-<p>Check the service status using the following command: </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
+<h3 id="rpm-package">RPM package<a class="headerlink" href="#rpm-package" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Confirm the package installs the SBOM</span>
+rpm<span class="w"> </span>-ql<span class="w"> </span>percona-server-mongodb-server<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sbom.cdx.json
+
+<span class="c1"># Scan it (replace `rhel:9.8` with your `&lt;os_name&gt;:&lt;os_version&gt;`)</span>
+grype<span class="w"> </span>--distro<span class="w"> </span>rhel:9.8<span class="w"> </span>sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
 </code></pre></div>
-<p><strong>Stop the service</strong></p>
-<p>Stop the service using the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+<h3 id="deb-package">DEB package<a class="headerlink" href="#deb-package" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Confirm the package installs the SBOM</span>
+dpkg<span class="w"> </span>-L<span class="w"> </span>percona-server-mongodb-server<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sbom.cdx.json
+
+<span class="c1"># Scan it (replace `ubuntu:24.04` with your `&lt;os_name&gt;:&lt;os_version&gt;`)</span>
+grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span class="w"> </span>sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
 </code></pre></div>
-<p><strong>Restart the service</strong></p>
-<p>Restart the service using the following command: </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+<h3 id="docker-images">Docker images<a class="headerlink" href="#docker-images" title="Permanent link">¶</a></h3>
+<p>Each PSMDB Docker image (Docker Hub <code>docker.io/percona/percona-server-mongodb</code>, PerconaLab <code>docker.io/perconalab/percona-server-mongodb</code>) ships with <strong>two</strong> CycloneDX SBOMs that describe overlapping scopes:</p>
+<table>
+<thead>
+<tr>
+<th>SBOM</th>
+<th>Scope</th>
+<th>CycloneDX version</th>
+<th>How to access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Embedded</strong></td>
+<td>PSMDB packages only</td>
+<td>1.5</td>
+<td>Inside the image filesystem</td>
+</tr>
+<tr>
+<td><strong>OCI-attached</strong></td>
+<td>Full image — PSMDB and UBI9 base OS packages</td>
+<td>1.6</td>
+<td>Registry-side, via the OCI Referrers API</td>
+</tr>
+</tbody>
+</table>
+<h4 id="scan-via-oci-referrers-api-recommended">Scan via OCI Referrers API (recommended)<a class="headerlink" href="#scan-via-oci-referrers-api-recommended" title="Permanent link">¶</a></h4>
+<p><code>trivy image --sbom-sources oci</code> fetches the attached SBOM via the OCI Referrers API and scans it, without pulling the image:</p>
+<div class="highlight"><pre><span></span><code>trivy<span class="w"> </span>image<span class="w"> </span>--severity<span class="w"> </span>HIGH,CRITICAL<span class="w"> </span>--sbom-sources<span class="w"> </span>oci<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.0.28-12-amd64
 </code></pre></div>
-<h3 id="run-after-reboot">Run after reboot<a class="headerlink" href="#run-after-reboot" title="Permanent link">¶</a></h3>
-<p>The <code>mongod</code> service is not automatically started
-after you reboot the system.</p>
-<p>To make it start automatically after reboot, enable it using the systemctl utility:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>mongod
+<h4 id="scan-the-embedded-sbom">Scan the embedded SBOM<a class="headerlink" href="#scan-the-embedded-sbom" title="Permanent link">¶</a></h4>
+<p>Scan the embedded SBOM from inside the container image: <code>8.0.28-12-amd64</code>:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--entrypoint<span class="w"> </span>cat<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.0.28-12-amd64<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="p">|</span><span class="w"> </span>grype<span class="w"> </span>--from<span class="w"> </span>sbom
 </code></pre></div>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
-<p><a class="md-button" href="../connect.html">Connect to MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p>
+<h4 id="advanced-inspect-oci-attached-sboms-with-oras">Advanced: Inspect OCI-attached SBOMs with ORAS<a class="headerlink" href="#advanced-inspect-oci-attached-sboms-with-oras" title="Permanent link">¶</a></h4>
+<p>You can use the <a href="https://oras.land/" target="_blank">ORAS CLI <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> to discover and download OCI-attached SBOMs.</p>
+<p class="power-number">Follow these steps:</p>
+<ol>
+<li>
+<p>Use the per-architecture tag to resolve directly to the image manifest:</p>
+<div class="highlight"><pre><span></span><code>oras<span class="w"> </span>discover<span class="w"> </span>--format<span class="w"> </span>tree<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.0.28-12-amd64
+</code></pre></div>
+<details class="example">
+<summary>Output</summary>
+<div class="highlight"><pre><span></span><code>docker.io/percona/percona-server-mongodb@sha256:&lt;image_manifest_digest&gt;
+└── application/vnd.cyclonedx+json
+    └── sha256:&lt;sbom_artifact_digest&gt;
+        └── [annotations]
+            └── org.opencontainers.image.created: "2026-07-28T14:24:59Z"
+</code></pre></div>
+<p>The <code>&lt;image_manifest_digest&gt;</code> identifies the container image. The <code>&lt;sbom_artifact_digest&gt;</code> identifies the CycloneDX SBOM artifact attached to that image.</p>
+</details>
+</li>
+<li>
+<p>Copy the SBOM artifact digest from the output and use it to download the SBOM to the current directory. Replace <code>&lt;sbom_artifact_digest&gt;</code> with the value displayed after <code>sha256:</code>:</p>
+<div class="highlight"><pre><span></span><code>oras<span class="w"> </span>pull<span class="w"> </span>docker.io/percona/percona-server-mongodb@sha256:&lt;sbom_artifact_digest&gt;
+</code></pre></div>
+</li>
+<li>
+<p>Confirm that the SBOM file was downloaded:</p>
+<div class="highlight"><pre><span></span><code>ls
+</code></pre></div>
+<details class="example">
+<summary>Output</summary>
+<div class="highlight"><pre><span></span><code>percona-server-mongodb-8.0.28-12-amd64.cdx.json
+</code></pre></div>
+</details>
+</li>
+</ol>
+<h2 id="filtering-vulnerabilities-with-openvex">Filtering vulnerabilities with OpenVEX<a class="headerlink" href="#filtering-vulnerabilities-with-openvex" title="Permanent link">¶</a></h2>
+<p><a href="https://github.com/openvex/spec" target="_blank">OpenVEX <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> is an open, minimal format for Vulnerability Exploitability eXchange (VEX) statements. A VEX document records whether a known vulnerability (CVE) in a component actually affects a given product — for example, the vulnerable code path is unreachable, the issue is already fixed, or it’s still under investigation. Scanners that support VEX use these statements to suppress vulnerabilities that don’t actually apply, cutting down on noise from CVEs in bundled dependencies that PSMDB isn’t actually exposed to.</p>
+<p>Percona publishes an OpenVEX document for every PSMDB release.</p>
+<p>The <code>VEX</code> file for version 8.0.28-12 is available at:</p>
+<p><code>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.0.28-12.vex.json</code></p>
+<p>Pass the document to Grype’s <code>--vex</code> flag along with any SBOM scan on this page. For example, when scanning the SBOM of an RPM package:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Download the OpenVEX document for this release</span>
+curl<span class="w"> </span>-fsSLO<span class="w"> </span>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.0.28-12.vex.json
+
+<span class="c1"># Scan the SBOM and filter out vulnerabilities addressed in the VEX document</span>
+grype<span class="w"> </span>--distro<span class="w"> </span>&lt;os_name&gt;:&lt;os_version&gt;<span class="w"> </span>--vex<span class="o">=</span>percona-server-mongodb-8.0.28-12.vex.json<span class="w"> </span>sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The example above reports only <a href="https://nvd.nist.gov/vuln/detail/cve-2026-6231" target="_blank">CVE-2026-6231 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>. This vulnerability affects Percona Server for MongoDB deployments that use <a href="https://www.mongodb.com/docs/manual/core/queryable-encryption/about-qe-csfle/" target="_blank">Queryable Encryption <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>. The vulnerability existed before version 8.0.28-12, but the SBOM now makes it visible. Percona plans to fix it in a future release.</p>
+</div>
 
 
 
@@ -4214,7 +4252,7 @@ after you reboot the system.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 2, 2025 14:37:28 UTC">December 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 10, 2026 08:50:01 UTC">August 10, 2026</span>
   </span>
 
     
@@ -4224,7 +4262,7 @@ after you reboot the system.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 19, 2025 11:23:44 UTC">February 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 10, 2026 01:57:22 UTC">August 10, 2026</span>
   </span>
 
     
@@ -4242,9 +4280,9 @@ after you reboot the system.</p>
     
     <nav>
       
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+        <a href="https://github.com/rasika-chivate" class="md-author" title="@rasika-chivate">
           
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
+          <img src="https://avatars.githubusercontent.com/u/95711051?v=4&amp;size=72" alt="rasika-chivate">
         </a>
       
         <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
@@ -4342,20 +4380,20 @@ window.addEventListener('afterprint', (event) => {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../js/print-site.js"></script>
+        <script src="js/print-site.js"></script>
       
-        <script src="../js/version-select.js"></script>
+        <script src="js/version-select.js"></script>
       
-        <script src="../js/promptremover.js"></script>
+        <script src="js/promptremover.js"></script>
       
-        <script src="../js/rating.js"></script>
+        <script src="js/rating.js"></script>
       
     
 
