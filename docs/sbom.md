@@ -36,13 +36,13 @@ The examples below use [Grype :octicons-link-external-16:](https://github.com/an
 
 ```bash
 # Confirm the SBOM is bundled
-tar tzf percona-server-mongodb-{{ release }}-x86_64.<os_codename>.tar.gz \
+tar tzf percona-server-mongodb-{{release}}-x86_64.<os_codename>.tar.gz \
     | grep doc/sbom.cdx.json
 
 # Extract and scan
-tar xzf percona-server-mongodb-{{ release }}-x86_64.<os_codename>.tar.gz \
-    -C /tmp percona-server-mongodb-{{ release }}-x86_64.<os_codename>/doc/sbom.cdx.json
-grype sbom:/tmp/percona-server-mongodb-{{ release }}-x86_64.<os_codename>/doc/sbom.cdx.json
+tar xzf percona-server-mongodb-{{release}}-x86_64.<os_codename>.tar.gz \
+    -C /tmp percona-server-mongodb-{{release}}-x86_64.<os_codename>/doc/sbom.cdx.json
+grype sbom:/tmp/percona-server-mongodb-{{release}}-x86_64.<os_codename>/doc/sbom.cdx.json
 ```
 
 ### RPM package
