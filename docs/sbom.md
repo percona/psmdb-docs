@@ -2,7 +2,7 @@
 
 A Software Bill of Materials (SBOM) is a machine-readable inventory of the components and dependencies included in a software release. It helps you understand what is included in a build and assess potential security or compliance risks.
 
-Starting with version 8.0.18-12, every Percona Server for MongoDB (PSMDB) release includes a [CycloneDX :octicons-link-external-16:](https://cyclonedx.org/specification/overview/){:target="_blank"} SBOM in JSON format.
+Starting with version 8.0.28-12, every Percona Server for MongoDB (PSMDB) release includes a [CycloneDX :octicons-link-external-16:](https://cyclonedx.org/specification/overview/){:target="_blank"} SBOM in JSON format.
 
 ## Why it matters
 
