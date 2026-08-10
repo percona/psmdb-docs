@@ -5951,15 +5951,60 @@ tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.
 </code></pre></div>
 </li>
 <li>
-<p>The new TCMalloc requires <a href="https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc">Restartable Sequences (rseq) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> to implement <a href="https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache">per-CPU caches <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>. To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:</p>
+<p>Create a user and group for mongod</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>groupadd<span class="w"> </span>-r<span class="w"> </span>mongod
+sudo<span class="w"> </span>useradd<span class="w"> </span>-M<span class="w"> </span>-r<span class="w"> </span>-g<span class="w"> </span>mongod<span class="w"> </span>-d<span class="w"> </span>/var/lib/mongo<span class="w"> </span>-s<span class="w"> </span>/bin/false<span class="w"> </span>-c<span class="w"> </span>mongod<span class="w"> </span>mongod
+</code></pre></div>
 </li>
-</ol>
-<p>```bash
-GLIBC_TUNABLES=glibc.pthread.rseq=0
-export GLIBC_TUNABLES</p>
-<ol>
-<li>Make sure that you have read and write permissions for the data
-directory and run <code>mongod</code>.</li>
+<li>
+<p>The new TCMalloc requires <a href="https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc">Restartable Sequences (rseq) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> to implement <a href="https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache">per-CPU caches <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>. To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">GLIBC_TUNABLES</span><span class="o">=</span>glibc.pthread.rseq<span class="o">=</span><span class="m">0</span>
+<span class="nb">export</span><span class="w"> </span>GLIBC_TUNABLES
+</code></pre></div>
+</li>
+<li>
+<p>(Optional) Create a systemd unit file. Specify the following configuration:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/systemd/system/mongod.service<span class="w"> </span><span class="s">&lt;&lt;'EOF' &gt; /dev/null</span>
+<span class="s">[Unit]</span>
+<span class="s">Description=MongoDB Database Server instance</span>
+<span class="s">After=time-sync.target network.target</span>
+
+<span class="s">[Service]</span>
+<span class="s">User=mongod</span>
+<span class="s">Group=mongod</span>
+<span class="s">PermissionsStartOnly=true</span>
+<span class="s">LimitFSIZE=infinity</span>
+<span class="s">LimitCPU=infinity</span>
+<span class="s">LimitAS=infinity</span>
+<span class="s">LimitNOFILE=64000</span>
+<span class="s">LimitNPROC=64000</span>
+<span class="s">LimitMEMLOCK=infinity</span>
+<span class="s">TasksMax=infinity</span>
+<span class="s">TasksAccounting=false</span>
+<span class="s">Environment="OPTIONS=-f /etc/mongod.conf"</span>
+<span class="s">Environment="MONGODB_CONFIG_OVERRIDE_NOFORK=1"</span>
+<span class="s">Environment="GLIBC_TUNABLES=glibc.pthread.rseq=0"</span>
+<span class="s">EnvironmentFile=-/etc/sysconfig/mongod</span>
+<span class="s">ExecStart=/usr/bin/mongod $OPTIONS</span>
+<span class="s">RuntimeDirectory=mongodb</span>
+<span class="s">ExecStartPre=/usr/bin/mkdir -p /var/run/mongodb</span>
+<span class="s">ExecStartPre=/usr/bin/chown mongod:mongod /var/run/mongodb</span>
+<span class="s">ExecStartPre=/usr/bin/chmod 0755 /var/run/mongodb</span>
+<span class="s">PIDFile=/var/run/mongodb/mongod.pid</span>
+<span class="s">ExecReload=/bin/kill -s HUP $MAINPID</span>
+<span class="s">Restart=always</span>
+<span class="s">RestartSec=5</span>
+
+<span class="s">[Install]</span>
+<span class="s">WantedBy=multi-user.target</span>
+<span class="s">EOF</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>mongod
+</code></pre></div>
+</li>
+<li>
+<p>Make sure that you have read and write permissions for the data directory and run <code>mongod</code>.</p>
+</li>
 </ol>
 </div>
 <div class="tabbed-block">
@@ -5990,14 +6035,13 @@ tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.
 </li>
 <li>
 <p>The new TCMalloc requires <a href="https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc">Restartable Sequences (rseq) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> to implement <a href="https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache">per-CPU caches <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>. To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:</p>
-</li>
-</ol>
 <div class="highlight"><pre><span></span><code><span class="nv">GLIBC_TUNABLES</span><span class="o">=</span>glibc.pthread.rseq<span class="o">=</span><span class="m">0</span>
 <span class="nb">export</span><span class="w"> </span>GLIBC_TUNABLES
 </code></pre></div>
-<ol>
-<li>Make sure that you have read and write permissions for the data
-directory and run <code>mongod</code>.</li>
+</li>
+<li>
+<p>Make sure that you have read and write permissions for the data directory and run <code>mongod</code>.</p>
+</li>
 </ol>
 </div>
 </div>
