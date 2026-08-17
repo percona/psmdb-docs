@@ -4,7 +4,7 @@
 
 release: '7.0.40-22'
 version: '7.0'
-mongosh: '2.9.2'
+mongosh: '2.10.0'
 
 year: '2026'
 
