@@ -27,7 +27,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -35,7 +35,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3575,20 +3575,20 @@ EOF
 <p>Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the <code>admin</code> database with the name that exactly matches the  of the LDAP group.</p>
 <p>Percona Server for MongoDB maps the user’s LDAP group to the roles and determines what role is assigned to the user. Percona Server for MongoDB then grants privileges defined by this role.</p>
 <p>To create the roles, use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">)</span>
 <span class="nx">admin</span><span class="p">.</span><span class="nx">createRole</span><span class="p">(</span>
 <span class="w">   </span><span class="p">{</span>
-<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cn=testusers,dc=percona,dc=com&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"cn=testusers,dc=percona,dc=com"</span><span class="p">,</span>
 <span class="w">     </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
-<span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;readWrite&quot;</span><span class="p">]</span>
+<span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"readWrite"</span><span class="p">]</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">)</span>
 
 <span class="nx">admin</span><span class="p">.</span><span class="nx">createRole</span><span class="p">(</span>
 <span class="w">   </span><span class="p">{</span>
-<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cn=otherusers,dc=percona,dc=com&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"cn=otherusers,dc=percona,dc=com"</span><span class="p">,</span>
 <span class="w">     </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
-<span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;read&quot;</span><span class="p">]</span>
+<span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"read"</span><span class="p">]</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -3599,15 +3599,15 @@ EOF
 <li>
 <p>Edit the Percona Server for MongoDB configuration file (by default, <code>/etc/mongod.conf</code>) and specify the following configuration:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;enabled&quot;</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">    </span><span class="nt">transportSecurity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls</span>
 <span class="w">    </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={PROVIDED_USER}))&quot;</span>
+<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={PROVIDED_USER}))"</span>
 
 <span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 <p>The <code>{PROVIDED_USER}</code> variable substitutes the provided username before authentication or username transformation takes place.</p>
 <p>Replace <code>ldap.example.com</code> with the hostname of your LDAP server. In the LDAP query template, replace the domain controllers <code>percona</code> and <code>com</code> with those relevant to your organization.</p>
@@ -3619,7 +3619,7 @@ EOF
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;cn=alice,dc=percona,dc=com&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"cn=alice,dc=percona,dc=com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -3635,22 +3635,22 @@ EOF
 <li>
 <p>Edit the Percona Server for MongoDB configuration file (by default, <code>/etc/mongod.conf</code>) and specify the <code>userToDNMapping</code> parameter:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;enabled&quot;</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">    </span><span class="nt">transportSecurity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls</span>
 <span class="w">    </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))&quot;</span>
+<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))"</span>
 <span class="w">    </span><span class="nt">userToDNMapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">          </span><span class="no">[</span>
 <span class="w">            </span><span class="no">{</span>
-<span class="w">              </span><span class="no">match: &quot;([^@]+)@percona\\.com&quot;,</span>
-<span class="w">              </span><span class="no">substitution: &quot;CN={0},DC=percona,DC=com&quot;</span>
+<span class="w">              </span><span class="no">match: "([^@]+)@percona\\.com",</span>
+<span class="w">              </span><span class="no">substitution: "CN={0},DC=percona,DC=com"</span>
 <span class="w">            </span><span class="no">}</span>
 <span class="w">          </span><span class="no">]</span>
 
 <span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 <p>The <code>{USER}</code> variable substitutes the username transformed during the <code>userToDNMapping</code> stage.</p>
 <p>Modify the given example configuration to match your deployment.</p>
@@ -3662,7 +3662,7 @@ EOF
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;alice@percona.com&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice@percona.com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -3672,22 +3672,22 @@ EOF
 <li>
 <p>Edit the Percona Server for MongoDB configuration file (by default, <code>/etc/mongod.conf</code>) and specify the <code>userToDNMapping</code> parameter:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;enabled&quot;</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">    </span><span class="nt">transportSecurity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls</span>
 <span class="w">    </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))&quot;</span>
+<span class="w">       </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))"</span>
 <span class="w">    </span><span class="nt">userToDNMapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">          </span><span class="no">[</span>
 <span class="w">            </span><span class="no">{</span>
-<span class="w">              </span><span class="no">match: &quot;([^@]+)@percona\\.com&quot;,</span>
-<span class="w">              </span><span class="no">ldapQuery: &quot;dc=percona,dc=com??sub?(&amp;(objectClass=organizationalPerson)(cn={0}))&quot;</span>
+<span class="w">              </span><span class="no">match: "([^@]+)@percona\\.com",</span>
+<span class="w">              </span><span class="no">ldapQuery: "dc=percona,dc=com??sub?(&amp;(objectClass=organizationalPerson)(cn={0}))"</span>
 <span class="w">            </span><span class="no">}</span>
 <span class="w">          </span><span class="no">]</span>
 
 <span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 <p>The <code>{USER}</code> variable substitutes the username transformed during the userToDNMapping stage.</p>
 <p>Modify the given example configuration to match your deployment, For example, replace <code>ldap.example.com</code> with the hostname of your LDAP server. Replace the domain controllers (DC) <code>percona</code> and <code>com</code> with those relevant to your organization. Depending on your LDAP schema, further modifications of the LDAP query may be required.</p>
@@ -3699,7 +3699,7 @@ EOF
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;alice&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -3742,12 +3742,12 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">  </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={PROVIDED_USER}))&quot;</span>
+<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={PROVIDED_USER}))"</span>
 
 <span class="w">  </span><span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 </li>
 <li>
@@ -3757,7 +3757,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;CN=alice,CN=Users,DC=testusers,DC=percona,DC=com&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"CN=alice,CN=Users,DC=testusers,DC=percona,DC=com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -3767,19 +3767,19 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">  </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))&quot;</span>
+<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))"</span>
 <span class="w">  </span><span class="nt">userToDNMapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">        </span><span class="no">[</span>
 <span class="w">          </span><span class="no">{</span>
-<span class="w">            </span><span class="no">match: &quot;([^@]+)@([^\\.]+)\\.percona\\.com&quot;,</span>
-<span class="w">            </span><span class="no">substitution: &quot;CN={0},CN=Users,DC={1},DC=percona,DC=com&quot;</span>
+<span class="w">            </span><span class="no">match: "([^@]+)@([^\\.]+)\\.percona\\.com",</span>
+<span class="w">            </span><span class="no">substitution: "CN={0},CN=Users,DC={1},DC=percona,DC=com"</span>
 <span class="w">          </span><span class="no">}</span>
 <span class="w">        </span><span class="no">]</span>
 
 <span class="w">  </span><span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 </li>
 <li>
@@ -3789,7 +3789,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;alice@percona.com&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice@percona.com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -3799,19 +3799,19 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">  </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))&quot;</span>
+<span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))"</span>
 <span class="w">  </span><span class="nt">userToDNMapping</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
 <span class="w">        </span><span class="no">[</span>
 <span class="w">          </span><span class="no">{</span>
-<span class="w">            </span><span class="no">match: &quot;(.+)&quot;,</span>
-<span class="w">            </span><span class="no">ldapQuery: &quot;dc=example,dc=com??sub?(&amp;(objectClass=organizationalPerson)(userPrincipalName={0}))&quot;</span>
+<span class="w">            </span><span class="no">match: "(.+)",</span>
+<span class="w">            </span><span class="no">ldapQuery: "dc=example,dc=com??sub?(&amp;(objectClass=organizationalPerson)(userPrincipalName={0}))"</span>
 <span class="w">          </span><span class="no">}</span>
 <span class="w">        </span><span class="no">]</span>
 
 <span class="w">  </span><span class="nt">setParameter</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PLAIN&quot;</span>
+<span class="w">    </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="s">"PLAIN"</span>
 </code></pre></div>
 </li>
 <li>
@@ -3821,7 +3821,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;alice&quot;</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;secretpwd&quot;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">&#39;PLAIN&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -4013,7 +4013,7 @@ window.addEventListener('afterprint', (event) => {
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="js/print-site.js"></script>
       

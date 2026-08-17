@@ -27,7 +27,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -35,7 +35,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3486,8 +3486,8 @@
 <div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">$external</span>
 <span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">(</span>
 <span class="w">   </span><span class="p">{</span>
-<span class="w">       </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:iam::000000000000:user/myUser&quot;</span><span class="p">,</span>
-<span class="w">       </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;read&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">}]</span>
+<span class="w">       </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">"arn:aws:iam::000000000000:user/myUser"</span><span class="p">,</span>
+<span class="w">       </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">}]</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -3496,8 +3496,8 @@
 <div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">$external</span>
 <span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">(</span>
 <span class="w">   </span><span class="p">{</span>
-<span class="w">       </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;arn:aws:iam::111111111111:role/myRole&quot;</span><span class="p">,</span>
-<span class="w">       </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;read&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">}]</span>
+<span class="w">       </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">"arn:aws:iam::111111111111:role/myRole"</span><span class="p">,</span>
+<span class="w">       </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">}]</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -3544,25 +3544,25 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Replace <code>&lt;aws_access_key_id&gt;</code>, <code>&lt;aws_secret_access_key&gt;</code> and <code>psmdb.example.com</code> with actual values in the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span><span class="s1">&#39;mongodb://&lt;aws_access_key_id&gt;:&lt;aws_secret_access_key&gt;:@psmdb.example.com/admin?authSource=$external&amp;authMechanism=MONGODB-AWS&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span><span class="s1">'mongodb://&lt;aws_access_key_id&gt;:&lt;aws_secret_access_key&gt;:@psmdb.example.com/admin?authSource=$external&amp;authMechanism=MONGODB-AWS'</span>
 </code></pre></div>
 <p>To pass temporary credentials and <abbr title="Amazon Web Service">AWS</abbr> token, replace <code>&lt;aws_access_key_id&gt;</code>, <code>&lt;aws_secret_access_key&gt;</code>, <code>&lt;aws_session_token&gt;</code> and <code>psmdb.example.com</code> in the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span><span class="s1">&#39;mongodb://&lt;aws_access_key_id&gt;:&lt;aws_secret_access_key&gt;:@psmdb.example.com/admin?authSource=$external&amp;authMechanism=MONGODB-AWS&amp;authMechanismProperties=AWS_SESSION_TOKEN:&lt;aws_session_token&gt;&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span><span class="s1">'mongodb://&lt;aws_access_key_id&gt;:&lt;aws_secret_access_key&gt;:@psmdb.example.com/admin?authSource=$external&amp;authMechanism=MONGODB-AWS&amp;authMechanismProperties=AWS_SESSION_TOKEN:&lt;aws_session_token&gt;'</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Set <abbr title="Amazon Web Service">AWS</abbr> environment variables:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s1">&#39;&lt;aws_access_key_id&gt;&#39;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s1">&#39;&lt;aws_secret_access_key&gt;&#39;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SESSION_TOKEN</span><span class="o">=</span><span class="s1">&#39;&lt;aws_session_token&gt;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span><span class="s1">'&lt;aws_access_key_id&gt;'</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span><span class="s1">'&lt;aws_secret_access_key&gt;'</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">AWS_SESSION_TOKEN</span><span class="o">=</span><span class="s1">'&lt;aws_session_token&gt;'</span>
 </code></pre></div>
 <p>Connect to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span><span class="s1">&#39;mongodb://psmdb.example.com/testdb?authSource=$external&amp;authMechanism=MONGODB-AWS&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span><span class="s1">'mongodb://psmdb.example.com/testdb?authSource=$external&amp;authMechanism=MONGODB-AWS'</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>If your application is running on the <abbr title="Amazon Web Service">AWS</abbr> resource, it receives the credentials from the resource metadata. To connect to Percona Server for MongoDB, run the command as follows:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>--authenticationMechanism<span class="o">=</span>MONGODB-AWS<span class="w"> </span>--authenticationDatabase<span class="o">=</span><span class="s1">&#39;$external&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>--authenticationMechanism<span class="o">=</span>MONGODB-AWS<span class="w"> </span>--authenticationDatabase<span class="o">=</span><span class="s1">'$external'</span>
 </code></pre></div>
 </div>
 </div>
@@ -3573,11 +3573,11 @@
 <span class="w">  </span><span class="nx">authInfo</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">authenticatedUsers</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">      </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;arn:aws:iam::00000000000:user/myUser&#39;</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;$external&#39;</span>
+<span class="w">        </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s1">'arn:aws:iam::00000000000:user/myUser'</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s1">'$external'</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="nx">authenticatedUserRoles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;read&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;admin&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+<span class="w">    </span><span class="nx">authenticatedUserRoles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s1">'read'</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s1">'admin'</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
 <span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="nx">ok</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
 <span class="p">}</span>
@@ -3759,7 +3759,7 @@ window.addEventListener('afterprint', (event) => {
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="js/print-site.js"></script>
       

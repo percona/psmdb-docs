@@ -27,7 +27,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -35,7 +35,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3430,7 +3430,7 @@
 <p>To authenticate, users must exist in the Kerberos and Percona Server for MongoDB servers. Their usernames must match exactly.</p>
 <p>After you have defined the user principals in the Kerberos server, add them to the <code>$external</code> database in Percona Server for MongoDB and assign required roles:</p>
 <div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">$external</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;demo@PERCONATEST.COM&quot;</span><span class="p">,</span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;read&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">}]})</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">"demo@PERCONATEST.COM"</span><span class="p">,</span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">}]})</span>
 </code></pre></div>
 <p>Replace <code>demo@PERCONATEST.COM</code> with your username and Kerberos realm.</p>
 <h2 id="configure-kerberos-keytab-files">Configure Kerberos <code>keytab</code> files<a class="headerlink" href="#configure-kerberos-keytab-files" title="Permanent link">&para;</a></h2>
@@ -3665,7 +3665,7 @@ window.addEventListener('afterprint', (event) => {
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="js/print-site.js"></script>
       

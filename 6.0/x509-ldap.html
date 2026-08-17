@@ -27,7 +27,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -35,7 +35,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3522,7 +3522,7 @@
 <li>CN - Common Name (your name or your server’s hostname) .</li>
 </ul>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/var/lib/mongocerts
-$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-nodes<span class="w"> </span>-x509<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-keyout<span class="w"> </span>ca.key<span class="w"> </span>-out<span class="w"> </span>ca.crt<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/C=US/ST=California/L=SanFrancisco/O=Percona/OU=root/CN=localhost&quot;</span>
+$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-nodes<span class="w"> </span>-x509<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-keyout<span class="w"> </span>ca.key<span class="w"> </span>-out<span class="w"> </span>ca.crt<span class="w"> </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=California/L=SanFrancisco/O=Percona/OU=root/CN=localhost"</span>
 </code></pre></div>
 <h4 id="generate-server-certificate">Generate server certificate<a class="headerlink" href="#generate-server-certificate" title="Permanent link">&para;</a></h4>
 <ol>
@@ -3545,7 +3545,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </s
 <p>CN - Common Name (your name or your server’s hostname) .</p>
 </li>
 </ul>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-nodes<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-keyout<span class="w"> </span>server.key<span class="w"> </span>-out<span class="w"> </span>server.csr<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/C=US/ST=California/L=SanFrancisco/O=Percona/OU=server/CN=localhost&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-nodes<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-keyout<span class="w"> </span>server.key<span class="w"> </span>-out<span class="w"> </span>server.csr<span class="w"> </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=California/L=SanFrancisco/O=Percona/OU=server/CN=localhost"</span>
 </code></pre></div>
 </li>
 <li>
@@ -3563,7 +3563,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </s
 <ol>
 <li>
 <p>Generate client certificate request and key. In the <code>-subj</code> flag, specify the information about clients in the  format.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-nodes<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-keyout<span class="w"> </span>client.key<span class="w"> </span>-out<span class="w"> </span>client.csr<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/DC=com/DC=percona/CN=John Doe&quot;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-nodes<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-keyout<span class="w"> </span>client.key<span class="w"> </span>-out<span class="w"> </span>client.csr<span class="w"> </span>-subj<span class="w"> </span><span class="s2">"/DC=com/DC=percona/CN=John Doe"</span>
 </code></pre></div>
 </li>
 <li>
@@ -3592,29 +3592,29 @@ $<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </s
 <h4 id="create-roles">Create roles<a class="headerlink" href="#create-roles" title="Permanent link">&para;</a></h4>
 <p>At this step, create the roles in the <code>admin</code> database with the names that exactly match the names of the user groups on the LDAP server. These roles are used for user <a href="authorization.html">LDAP authorization</a> in Percona Server for MongoDB.</p>
 <p>In our example, we create the role <code>cn=otherusers,dc=percona,dc=com</code> that has the corresponding LDAP group.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">)</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">createRole</span><span class="p">(</span>
 <span class="w">   </span><span class="p">{</span>
-<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cn=otherusers,dc=percona,dc=com&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"cn=otherusers,dc=percona,dc=com"</span><span class="p">,</span>
 <span class="w">     </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
 <span class="w">     </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">           </span><span class="s2">&quot;userAdminAnyDatabase&quot;</span><span class="p">,</span>
-<span class="w">           </span><span class="s2">&quot;clusterMonitor&quot;</span><span class="p">,</span>
-<span class="w">           </span><span class="s2">&quot;clusterManager&quot;</span><span class="p">,</span>
-<span class="w">           </span><span class="s2">&quot;clusterAdmin&quot;</span>
+<span class="w">           </span><span class="s2">"userAdminAnyDatabase"</span><span class="p">,</span>
+<span class="w">           </span><span class="s2">"clusterMonitor"</span><span class="p">,</span>
+<span class="w">           </span><span class="s2">"clusterManager"</span><span class="p">,</span>
+<span class="w">           </span><span class="s2">"clusterAdmin"</span>
 <span class="w">            </span><span class="p">]</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>Output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">     </span><span class="nt">&quot;role&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cn=otherusers,dc=percona,dc=com&quot;</span><span class="p">,</span>
-<span class="w">     </span><span class="nt">&quot;privileges&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span>
-<span class="w">     </span><span class="nt">&quot;roles&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">             </span><span class="s2">&quot;userAdminAnyDatabase&quot;</span><span class="p">,</span>
-<span class="w">             </span><span class="s2">&quot;clusterMonitor&quot;</span><span class="p">,</span>
-<span class="w">             </span><span class="s2">&quot;clusterManager&quot;</span><span class="p">,</span>
-<span class="w">             </span><span class="s2">&quot;clusterAdmin&quot;</span>
+<span class="w">     </span><span class="nt">"role"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"cn=otherusers,dc=percona,dc=com"</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">"privileges"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span>
+<span class="w">     </span><span class="nt">"roles"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">             </span><span class="s2">"userAdminAnyDatabase"</span><span class="p">,</span>
+<span class="w">             </span><span class="s2">"clusterMonitor"</span><span class="p">,</span>
+<span class="w">             </span><span class="s2">"clusterManager"</span><span class="p">,</span>
+<span class="w">             </span><span class="s2">"clusterAdmin"</span>
 <span class="w">     </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3638,10 +3638,10 @@ $<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </s
 <span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap.example.com&quot;</span>
+<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">    </span><span class="nt">transportSecurity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
 <span class="w">    </span><span class="nt">authz</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))&quot;</span>
+<span class="w">      </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"dc=percona,dc=com??sub?(&amp;(objectClass=groupOfNames)(member={USER}))"</span>
 
 <span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PLAIN,MONGODB-X509</span>
@@ -3656,42 +3656,42 @@ $<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </s
 </ol>
 <h3 id="authenticate-with-the-x509-certificate">Authenticate with the x.509 certificate<a class="headerlink" href="#authenticate-with-the-x509-certificate" title="Permanent link">&para;</a></h3>
 <p>To test the authentication, connect to <em>Percona Server for MongoDB</em> using the following command:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--tls<span class="w"> </span>--tlsCAFile<span class="w"> </span>/var/lib/mongocerts/ca.crt<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>&lt;path_to_client_certificate&gt;/client.pem<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-X509<span class="w"> </span>--authenticationDatabase<span class="o">=</span><span class="s1">&#39;$external&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--tls<span class="w"> </span>--tlsCAFile<span class="w"> </span>/var/lib/mongocerts/ca.crt<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>&lt;path_to_client_certificate&gt;/client.pem<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-X509<span class="w"> </span>--authenticationDatabase<span class="o">=</span><span class="s1">'$external'</span>
 </code></pre></div>
 <p>The result should look like the following:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">connectionStatus</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
 <span class="p">{</span>
-<span class="w">     </span><span class="s2">&quot;authInfo&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">             </span><span class="s2">&quot;authenticatedUsers&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">     </span><span class="s2">"authInfo"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="s2">"authenticatedUsers"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;user&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CN=John Doe,DC=percona,DC=com&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$external&quot;</span>
+<span class="w">                             </span><span class="s2">"user"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"CN=John Doe,DC=percona,DC=com"</span><span class="p">,</span>
+<span class="w">                             </span><span class="s2">"db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"$external"</span>
 <span class="w">                     </span><span class="p">}</span>
 <span class="w">             </span><span class="p">],</span>
-<span class="w">             </span><span class="s2">&quot;authenticatedUserRoles&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">             </span><span class="s2">"authenticatedUserRoles"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cn=otherreaders,dc=percona,dc=com&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
+<span class="w">                             </span><span class="s2">"role"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"cn=otherreaders,dc=percona,dc=com"</span><span class="p">,</span>
+<span class="w">                             </span><span class="s2">"db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span>
 <span class="w">                     </span><span class="p">},</span>
 <span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;clusterAdmin&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
+<span class="w">                             </span><span class="s2">"role"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"clusterAdmin"</span><span class="p">,</span>
+<span class="w">                             </span><span class="s2">"db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span>
 <span class="w">                     </span><span class="p">},</span>
 <span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;userAdminAnyDatabase&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
+<span class="w">                             </span><span class="s2">"role"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"userAdminAnyDatabase"</span><span class="p">,</span>
+<span class="w">                             </span><span class="s2">"db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span>
 <span class="w">                     </span><span class="p">},</span>
 <span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;clusterManager&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
+<span class="w">                             </span><span class="s2">"role"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"clusterManager"</span><span class="p">,</span>
+<span class="w">                             </span><span class="s2">"db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span>
 <span class="w">                     </span><span class="p">},</span>
 <span class="w">                     </span><span class="p">{</span>
-<span class="w">                             </span><span class="s2">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;clusterMonitor&quot;</span><span class="p">,</span>
-<span class="w">                             </span><span class="s2">&quot;db&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span>
+<span class="w">                             </span><span class="s2">"role"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"clusterMonitor"</span><span class="p">,</span>
+<span class="w">                             </span><span class="s2">"db"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span>
 <span class="w">                     </span><span class="p">}</span>
 <span class="w">             </span><span class="p">]</span>
 <span class="w">     </span><span class="p">},</span>
-<span class="w">     </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
+<span class="w">     </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -3871,7 +3871,7 @@ window.addEventListener('afterprint', (event) => {
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="js/print-site.js"></script>
       

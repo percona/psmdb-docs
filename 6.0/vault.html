@@ -29,7 +29,7 @@ with versioning enabled.">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -37,7 +37,7 @@ with versioning enabled.">
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3642,14 +3642,14 @@ with versioning enabled.</p>
 </code></pre></div>
 <p>Starting with 6.0.18-15, Percona Server for MongoDB checks the number of the secrets on the Vault server before adding a new one thus <a href="#master-key-loss-prevention">preventing the loss of the old master key</a>. For these checks, Percona Server for MongoDB requires read permissions for the secret’s metadata and the secrets engine configuration. You configure these permissions within the access policy on the Vault server.</p>
 <p>Find the sample policy configuration below:</p>
-<div class="highlight"><pre><span></span><code><span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">&quot;secret/data/*&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="err">capabili</span><span class="kc">t</span><span class="err">ies</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;create&quot;</span><span class="p">,</span><span class="s2">&quot;read&quot;</span><span class="p">,</span><span class="s2">&quot;update&quot;</span><span class="p">,</span><span class="s2">&quot;delete&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">"secret/data/*"</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">capabili</span><span class="kc">t</span><span class="err">ies</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"create"</span><span class="p">,</span><span class="s2">"read"</span><span class="p">,</span><span class="s2">"update"</span><span class="p">,</span><span class="s2">"delete"</span><span class="p">]</span>
 <span class="p">}</span>
-<span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">&quot;secret/metadata/*&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="err">capabili</span><span class="kc">t</span><span class="err">ies</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;read&quot;</span><span class="p">]</span>
+<span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">"secret/metadata/*"</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">capabili</span><span class="kc">t</span><span class="err">ies</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"read"</span><span class="p">]</span>
 <span class="p">}</span>
-<span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">&quot;secret/config&quot;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="err">capabili</span><span class="kc">t</span><span class="err">ies</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;read&quot;</span><span class="p">]</span>
+<span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">"secret/config"</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="err">capabili</span><span class="kc">t</span><span class="err">ies</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"read"</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>During the first run of the Percona Server for MongoDB, the process generates a new random master encryption key. Then, it wraps it into a secret and puts the latter on a Vault server at the configured path. Vault increments the value of the <code>current_version</code>, associates the resulting value with a new secret, and returns the version. Percona Server for MongoDB then saves the full path and the version in the metadata and uses them later to get the key from the Vault server.</p>
@@ -3891,7 +3891,7 @@ window.addEventListener('afterprint', (event) => {
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="js/print-site.js"></script>
       

@@ -30,7 +30,7 @@ Use common sense to adapt these guidelines to your production environment.">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -38,7 +38,7 @@ Use common sense to adapt these guidelines to your production environment.">
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3570,10 +3570,10 @@ Use common sense to adapt these guidelines to your production environment.</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Use the following command to set the <code>ldap</code> value for the <code>MECHANISMS</code> option:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-ri<span class="w"> </span>s/^MECHANISMS<span class="o">=</span>.*$/MECHANISMS<span class="o">=</span><span class="se">\&quot;</span>ldap<span class="se">\&quot;</span>/g<span class="w"> </span>/etc/default/saslauthd
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>sed<span class="w"> </span>-ri<span class="w"> </span>s/^MECHANISMS<span class="o">=</span>.*$/MECHANISMS<span class="o">=</span><span class="se">\"</span>ldap<span class="se">\"</span>/g<span class="w"> </span>/etc/default/saslauthd
 </code></pre></div>
 <p>Alternatively, you can edit the <code>/etc/default/sysconfig/saslauthd</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code>MECHANISMS=&quot;ldap
+<div class="highlight"><pre><span></span><code>MECHANISMS="ldap
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3681,8 +3681,8 @@ The <code>log_level</code> is optional but may help determine configuration erro
 <p>Create a user with the <strong>root</strong> privileges in the <code>admin</code> database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:</p>
 <div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
 <span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="s2">&quot;user&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pwd&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;$3cr3tP4ssw0rd&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;root&quot;</span><span class="p">]})</span>
-<span class="nx">Successfully</span><span class="w"> </span><span class="nx">added</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="s2">"user"</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pwd"</span><span class="o">:</span><span class="w"> </span><span class="s2">"$3cr3tP4ssw0rd"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"root"</span><span class="p">]})</span>
+<span class="nx">Successfully</span><span class="w"> </span><span class="nx">added</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"user"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"root"</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <h4 id="enable-external-authentication">Enable external authentication<a class="headerlink" href="#enable-external-authentication" title="Permanent link">&para;</a></h4>
 <p>Edit the <code>etc/mongod.conf</code> configuration file to enable the external authentication:</p>
@@ -3698,15 +3698,15 @@ The <code>log_level</code> is optional but may help determine configuration erro
 <h4 id="add-an-external-user-to-percona-server-for-mongodb">Add an external user to Percona Server for MongoDB<a class="headerlink" href="#add-an-external-user-to-percona-server-for-mongodb" title="Permanent link">&para;</a></h4>
 <p>User authentication is done by mapping a user object on the LDAP server against a user created in the <code>$external</code> database. Thus, at this step, you create the user in the <code>$external</code> database and they inherit the roles and privileges. Note that the username must exactly match the name of the user object on the LDAP server.</p>
 <p>Connect to Percona Server for MongoDB and authenticate as the root user.</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-p<span class="w"> </span><span class="s1">&#39;$3cr3tP4ssw0rd&#39;</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;admin&#39;</span>
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-p<span class="w"> </span><span class="s1">'$3cr3tP4ssw0rd'</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'admin'</span>
 </code></pre></div>
 <p>Use the following command to add an external user to Percona Server for MongoDB:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;$external&quot;</span><span class="p">).</span><span class="nx">createUser</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="nx">user</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;christian&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;read&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">}</span><span class="w"> </span><span class="p">]}</span><span class="w"> </span><span class="p">);</span>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">createUser</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="nx">user</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">}</span><span class="w"> </span><span class="p">]}</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <h2 id="authenticate-as-an-external-user-in-percona-server-for-mongodb">Authenticate as an external user in Percona Server for MongoDB<a class="headerlink" href="#authenticate-as-an-external-user-in-percona-server-for-mongodb" title="Permanent link">&para;</a></h2>
 <p>When running the <code>mongo</code> client, a user can authenticate
 against a given database using the following command:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">&quot;$external&quot;</span><span class="p">).</span><span class="nx">auth</span><span class="p">({</span><span class="w"> </span><span class="nx">mechanism</span><span class="o">:</span><span class="s2">&quot;PLAIN&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="s2">&quot;christian&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">pwd</span><span class="o">:</span><span class="s2">&quot;secret&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">digestPassword</span><span class="o">:</span><span class="kc">false</span><span class="p">})</span>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">auth</span><span class="p">({</span><span class="w"> </span><span class="nx">mechanism</span><span class="o">:</span><span class="s2">"PLAIN"</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">pwd</span><span class="o">:</span><span class="s2">"secret"</span><span class="p">,</span><span class="w"> </span><span class="nx">digestPassword</span><span class="o">:</span><span class="kc">false</span><span class="p">})</span>
 </code></pre></div>
 <p>Alternatively, a user can authenticate while connecting to <em>Percona Server for MongoDB</em>:</p>
 <div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongo<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN<span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="se">\$</span>external<span class="w"> </span>-u<span class="w"> </span>christian<span class="w"> </span>-p
@@ -3891,7 +3891,7 @@ window.addEventListener('afterprint', (event) => {
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="js/print-site.js"></script>
       

@@ -27,7 +27,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -35,7 +35,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3548,7 +3548,7 @@
 <p>You can configure Percona Server for MongoDB to communicate with the LDAP server directly to authenticate and authorize users.</p>
 <p>The advantage of using this mechanism is that it is easy to setup and does not require pre-creating users  in the dummy <code>$external</code> database. Nevertheless, the <code>--authenticationDatabase</code> connection argument will still need to be specified as <code>$external</code>.</p>
 <p>The following example illustrates the connection to Percona Server for MongoDB from the <code>mongosh</code> shell:</p>
-<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;CN=alice,CN=Users,DC=engineering,DC=example,DC=com&quot;</span><span class="w"> </span>-p<span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">&#39;$external&#39;</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN
+<div class="highlight" data-prompt="$"><pre><span></span><code>$<span class="w"> </span>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"CN=alice,CN=Users,DC=engineering,DC=example,DC=com"</span><span class="w"> </span>-p<span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN
 </code></pre></div>
 <p>The following diagram illustrates the authentication and authorization flow:</p>
 <p><img alt="image" src="_images/NativeLDAP-auth.png" /></p>
@@ -3633,13 +3633,13 @@
 <p>Specify the LDAP servers as a comma-separated list in the format <code>&lt;host&gt;:&lt;port&gt;</code> for the <a href="https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-ldapservers">–ldapServers</a> option.</p>
 <p>You can define the option value at the server startup by editing the configuration file.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;enabled&quot;</span>
+<span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ldap1.example.net,ldap2.example.net&quot;</span>
+<span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap1.example.net,ldap2.example.net"</span>
 </code></pre></div>
 <p>You can change <code>ldapServers</code> dynamically at runtime using the <a href="set-parameter.html">setParameter</a>.</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapServers</span><span class="o">:</span><span class="s2">&quot;localhost,ldap1.example.net,ldap2.example.net&quot;</span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">&quot;was&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ldap1.example.net,ldap2.example.net&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapServers</span><span class="o">:</span><span class="s2">"localhost,ldap1.example.net,ldap2.example.net"</span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span><span class="w"> </span><span class="s2">"was"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"ldap1.example.net,ldap2.example.net"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
@@ -3828,7 +3828,7 @@ window.addEventListener('afterprint', (event) => {
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="js/print-site.js"></script>
       

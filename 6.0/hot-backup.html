@@ -29,7 +29,7 @@ server without notable performance and operating degradation.">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -37,7 +37,7 @@ server without notable performance and operating degradation.">
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3563,8 +3563,8 @@ server without notable performance and operating degradation.</p>
 <p>Run the <code>createBackup</code> command as administrator on the <code>admin</code> database and specify the backup directory.</p>
 <div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
 <span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;backup_data_path&gt;&quot;</span><span class="p">})</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">"&lt;backup_data_path&gt;"</span><span class="p">})</span>
+<span class="p">{</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 </li>
 </ol>
@@ -3572,8 +3572,8 @@ server without notable performance and operating degradation.</p>
 <p>If the backup was successful, you should receive an <code>{ "ok" : 1 }</code> object.
 If there was an error, you will receive a failing <code>ok</code> status
 with the error message, for example:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">})</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;errmsg&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Destination path must be absolute&quot;</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">""</span><span class="p">})</span>
+<span class="p">{</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"errmsg"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Destination path must be absolute"</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <h2 id="save-a-backup-to-a-tar-archive">Save a backup to a TAR archive<a class="headerlink" href="#save-a-backup-to-a-tar-archive" title="Permanent link">&para;</a></h2>
 <p>To save a backup as a <em>tar</em> archive, use the <code>archive</code> field to
@@ -3588,7 +3588,7 @@ as <a href="https://min.io/">MinIO</a>.</p>
 <p>This method requires that you provide the <em>bucket</em> field in the <em>s3</em> object:</p>
 <div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
 <span class="p">...</span>
-<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;backup20190510&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">some_optional_path</span><span class="o">&gt;</span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
+<span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">"backup20190510"</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">some_optional_path</span><span class="o">&gt;</span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
 </code></pre></div>
 <p>In addition to the mandatory <code>bucket</code> field, the <code>s3</code> object may contain the following fields:</p>
 <table>
@@ -3662,21 +3662,21 @@ aws_secret_access_key = secretaccesskey1secretaccesskey2secretaccesskey3
 </code></pre></div>
 <h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
 <p><strong>Backup in root of bucket on local instance of MinIO server</strong></p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;backup20190901500&quot;</span><span class="p">,</span>
-<span class="nx">scheme</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;HTTP&quot;</span><span class="p">,</span>
-<span class="nx">endpoint</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:9000&quot;</span><span class="p">,</span>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">"backup20190901500"</span><span class="p">,</span>
+<span class="nx">scheme</span><span class="o">:</span><span class="w"> </span><span class="s2">"HTTP"</span><span class="p">,</span>
+<span class="nx">endpoint</span><span class="o">:</span><span class="w"> </span><span class="s2">"127.0.0.1:9000"</span><span class="p">,</span>
 <span class="nx">useVirtualAddressing</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="nx">profile</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;localminio&quot;</span><span class="p">}})</span>
+<span class="nx">profile</span><span class="o">:</span><span class="w"> </span><span class="s2">"localminio"</span><span class="p">}})</span>
 </code></pre></div>
 <p><strong>Backup on MinIO testing server with the default credentials profile</strong></p>
 <p>The following command creates a backup under the virtual path  “year2019/day42” in the <code>backup</code> bucket:</p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;backup&quot;</span><span class="p">,</span>
-<span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;year2019/day42&quot;</span><span class="p">,</span>
-<span class="nx">endpoint</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;sandbox.min.io:9000&quot;</span><span class="p">,</span>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">"backup"</span><span class="p">,</span>
+<span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">"year2019/day42"</span><span class="p">,</span>
+<span class="nx">endpoint</span><span class="o">:</span><span class="w"> </span><span class="s2">"sandbox.min.io:9000"</span><span class="p">,</span>
 <span class="nx">useVirtualAddressing</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}})</span>
 </code></pre></div>
 <p><strong>Backup on AWS S3 service using default settings</strong></p>
-<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;backup&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;year2019/day42&quot;</span><span class="p">}})</span>
+<div class="highlight" data-prompt=">"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">"backup"</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">"year2019/day42"</span><span class="p">}})</span>
 </code></pre></div>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
@@ -3956,7 +3956,7 @@ window.addEventListener('afterprint', (event) => {
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="js/print-site.js"></script>
       

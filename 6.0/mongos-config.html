@@ -27,7 +27,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -35,7 +35,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
@@ -3412,9 +3412,9 @@
 </li>
 <li>
 <p>Create the environment file at the path <code>/etc/sysconfig/mongos</code> and specify the following environment variables within:</p>
-<div class="highlight"><span class="filename">/etc/sysconfig/mongos</span><pre><span></span><code><span class="na">OPTIONS</span><span class="o">=</span><span class="s">&quot;-f /etc/mongos.conf&quot;</span>
-<span class="na">STDOUT</span><span class="o">=</span><span class="s">&quot;/var/log/mongo/mongos.stdout&quot;</span>
-<span class="na">STDERR</span><span class="o">=</span><span class="s">&quot;/var/log/mongo/mongos.stderr&quot;</span>
+<div class="highlight"><span class="filename">/etc/sysconfig/mongos</span><pre><span></span><code><span class="na">OPTIONS</span><span class="o">=</span><span class="s">"-f /etc/mongos.conf"</span>
+<span class="na">STDOUT</span><span class="o">=</span><span class="s">"/var/log/mongo/mongos.stdout"</span>
+<span class="na">STDERR</span><span class="o">=</span><span class="s">"/var/log/mongo/mongos.stderr"</span>
 </code></pre></div>
 </li>
 <li>
@@ -3459,7 +3459,7 @@
 <span class="s">LimitNOFILE=64000</span>
 <span class="s">LimitNPROC=64000</span>
 <span class="s">EnvironmentFile=/etc/sysconfig/mongos</span>
-<span class="s">ExecStart=/usr/bin/env bash -c &quot;/usr/bin/mongos $OPTIONS &gt; ${STDOUT} 2&gt; ${STDERR}&quot;</span>
+<span class="s">ExecStart=/usr/bin/env bash -c "/usr/bin/mongos $OPTIONS &gt; ${STDOUT} 2&gt; ${STDERR}"</span>
 <span class="s">PIDFile=/var/run/mongos.pid    </span>
 
 <span class="s">[Install]</span>
@@ -3662,7 +3662,7 @@ window.addEventListener('afterprint', (event) => {
     
 <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
 
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="js/print-site.js"></script>
       
