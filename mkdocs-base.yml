@@ -62,7 +62,6 @@ extra_css:
   - css/design.css
   - css/osano.css
   - css/mongodb.css
-  - css/landing.css
   - css/rating.css
   - css/kapa.css
 
