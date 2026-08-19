@@ -3,37 +3,38 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation">
+        <meta name="description" content="Installation
+Upgrade from MongoDB Community">
       
       
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/faq.html">
+        <link rel="canonical" href="https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.40-22.html">
       
       
-        <link rel="prev" href="release_notes/7.0.2-1.html">
+        <link rel="prev" href="index.html">
       
       
-        <link rel="next" href="sbom.html">
+        <link rel="next" href="7.0.39-21.html">
       
       
         
       
       
-      <link rel="icon" href="_images/mongodb-fav.svg">
+      <link rel="icon" href="../_images/mongodb-fav.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
-        <title>FAQ - Percona Server for MongoDB 7.0</title>
+        <title>Percona Server for MongoDB 7.0.40-22 (2026-08-19) - Percona Server for MongoDB 7.0</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -52,29 +53,29 @@
       
     
     
-      <link rel="stylesheet" href="css/print-site.css">
+      <link rel="stylesheet" href="../css/print-site.css">
     
-      <link rel="stylesheet" href="css/print-site-material.css">
+      <link rel="stylesheet" href="../css/print-site-material.css">
     
       <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.3/css/line.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/nocopy.css">
+      <link rel="stylesheet" href="../css/nocopy.css">
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
-      <link rel="stylesheet" href="css/design.css">
+      <link rel="stylesheet" href="../css/design.css">
     
-      <link rel="stylesheet" href="css/osano.css">
+      <link rel="stylesheet" href="../css/osano.css">
     
-      <link rel="stylesheet" href="css/mongodb.css">
+      <link rel="stylesheet" href="../css/mongodb.css">
     
-      <link rel="stylesheet" href="css/rating.css">
+      <link rel="stylesheet" href="../css/rating.css">
     
-      <link rel="stylesheet" href="css/kapa.css">
+      <link rel="stylesheet" href="../css/kapa.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -97,10 +98,10 @@
                  
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Percona Server for MongoDB 7.0 - FAQ">
+<meta property="og:title" content="Percona Server for MongoDB 7.0 - Percona Server for MongoDB 7.0.40-22 (2026-08-19)">
 <meta property="og:image" content="https://docs.percona.com/percona-server-for-mongodb/7.0/_images/mongodb.png">
 <meta property="og:url" content="https://docs.percona.com/percona-server-for-mongodb/">
-<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -134,7 +135,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#faq" class="md-skip">
+        <a href="#percona-server-for-mongodb-7040-22-2026-08-19" class="md-skip">
           Skip to content
         </a>
       
@@ -225,9 +226,9 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
 
     <!-- Link to home -->
-    <a href="index.html" title="Percona Server for MongoDB 7.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
+    <a href="../index.html" title="Percona Server for MongoDB 7.0" class="md-header__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
       
-  <img src="_images/mongodb-mark.svg" alt="logo">
+  <img src="../_images/mongodb-mark.svg" alt="logo">
 
     </a>
 
@@ -240,7 +241,7 @@
     <!-- Header title -->
     <div class="md-header__title">
       <div class="md-header__ellipsis">
-        <a href="index.html" class="md-header__topic">
+        <a href="../index.html" class="md-header__topic">
           <span class="md-ellipsis">
             Percona Server for MongoDB 7.0
           </span>
@@ -248,7 +249,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FAQ
+              Percona Server for MongoDB 7.0.40-22 (2026-08-19)
             
           </span>
         </div>
@@ -390,9 +391,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Percona Server for MongoDB 7.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
+    <a href="../index.html" title="Percona Server for MongoDB 7.0" class="md-nav__button md-logo" aria-label="Percona Server for MongoDB 7.0" data-md-component="logo">
       
-  <img src="_images/mongodb-mark.svg" alt="logo">
+  <img src="../_images/mongodb-mark.svg" alt="logo">
 
     </a>
     Percona Server for MongoDB 7.0
@@ -419,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="index.html" class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -446,7 +447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="get-help.html" class="md-nav__link">
+      <a href="../get-help.html" class="md-nav__link">
         
   
   
@@ -520,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/index.html" class="md-nav__link">
+      <a href="../install/index.html" class="md-nav__link">
         
   
   
@@ -595,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="system-requirements.html" class="md-nav__link">
+      <a href="../system-requirements.html" class="md-nav__link">
         
   
   
@@ -623,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/cloud-deployments.html" class="md-nav__link">
+      <a href="../install/cloud-deployments.html" class="md-nav__link">
         
   
   
@@ -706,7 +707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/apt.html" class="md-nav__link">
+      <a href="../install/apt.html" class="md-nav__link">
         
   
   
@@ -734,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/yum.html" class="md-nav__link">
+      <a href="../install/yum.html" class="md-nav__link">
         
   
   
@@ -762,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/rocky-linux.html" class="md-nav__link">
+      <a href="../install/rocky-linux.html" class="md-nav__link">
         
   
   
@@ -790,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/amazon-linux.html" class="md-nav__link">
+      <a href="../install/amazon-linux.html" class="md-nav__link">
         
   
   
@@ -818,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/tarball.html" class="md-nav__link">
+      <a href="../install/tarball.html" class="md-nav__link">
         
   
   
@@ -846,7 +847,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/source.html" class="md-nav__link">
+      <a href="../install/source.html" class="md-nav__link">
         
   
   
@@ -874,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/docker.html" class="md-nav__link">
+      <a href="../install/docker.html" class="md-nav__link">
         
   
   
@@ -910,7 +911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="connect.html" class="md-nav__link">
+      <a href="../connect.html" class="md-nav__link">
         
   
   
@@ -938,7 +939,7 @@
   
   
     <li class="md-nav__item">
-      <a href="crud.html" class="md-nav__link">
+      <a href="../crud.html" class="md-nav__link">
         
   
   
@@ -966,7 +967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="what-next.html" class="md-nav__link">
+      <a href="../what-next.html" class="md-nav__link">
         
   
   
@@ -1048,7 +1049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="comparison.html" class="md-nav__link">
+      <a href="../comparison.html" class="md-nav__link">
         
   
   
@@ -1123,7 +1124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="inmemory.html" class="md-nav__link">
+      <a href="../inmemory.html" class="md-nav__link">
         
   
   
@@ -1206,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hot-backup.html" class="md-nav__link">
+      <a href="../hot-backup.html" class="md-nav__link">
         
   
   
@@ -1234,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="backup-cursor.html" class="md-nav__link">
+      <a href="../backup-cursor.html" class="md-nav__link">
         
   
   
@@ -1317,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authentication.html" class="md-nav__link">
+      <a href="../authentication.html" class="md-nav__link">
         
   
   
@@ -1392,7 +1393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aws-iam.html" class="md-nav__link">
+      <a href="../aws-iam.html" class="md-nav__link">
         
   
   
@@ -1420,7 +1421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="aws-iam-setup.html" class="md-nav__link">
+      <a href="../aws-iam-setup.html" class="md-nav__link">
         
   
   
@@ -1456,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kerberos.html" class="md-nav__link">
+      <a href="../kerberos.html" class="md-nav__link">
         
   
   
@@ -1531,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="authorization.html" class="md-nav__link">
+      <a href="../authorization.html" class="md-nav__link">
         
   
   
@@ -1559,7 +1560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sasl-auth.html" class="md-nav__link">
+      <a href="../sasl-auth.html" class="md-nav__link">
         
   
   
@@ -1587,7 +1588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="x509-ldap.html" class="md-nav__link">
+      <a href="../x509-ldap.html" class="md-nav__link">
         
   
   
@@ -1615,7 +1616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ldap-setup.html" class="md-nav__link">
+      <a href="../ldap-setup.html" class="md-nav__link">
         
   
   
@@ -1643,7 +1644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ldap-conf-parameters.html" class="md-nav__link">
+      <a href="../ldap-conf-parameters.html" class="md-nav__link">
         
   
   
@@ -1726,7 +1727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oidc.html" class="md-nav__link">
+      <a href="../oidc.html" class="md-nav__link">
         
   
   
@@ -1801,7 +1802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oidc-okta.html" class="md-nav__link">
+      <a href="../oidc-okta.html" class="md-nav__link">
         
   
   
@@ -1829,7 +1830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oidc-entra.html" class="md-nav__link">
+      <a href="../oidc-entra.html" class="md-nav__link">
         
   
   
@@ -1857,7 +1858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oidc-ping.html" class="md-nav__link">
+      <a href="../oidc-ping.html" class="md-nav__link">
         
   
   
@@ -1885,7 +1886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oidc-keycloak.html" class="md-nav__link">
+      <a href="../oidc-keycloak.html" class="md-nav__link">
         
   
   
@@ -1913,7 +1914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="oidc-ldap.html" class="md-nav__link">
+      <a href="../oidc-ldap.html" class="md-nav__link">
         
   
   
@@ -1957,7 +1958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="enable-auth.html" class="md-nav__link">
+      <a href="../enable-auth.html" class="md-nav__link">
         
   
   
@@ -2040,7 +2041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="data-at-rest-encryption.html" class="md-nav__link">
+      <a href="../data-at-rest-encryption.html" class="md-nav__link">
         
   
   
@@ -2068,7 +2069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="vault.html" class="md-nav__link">
+      <a href="../vault.html" class="md-nav__link">
         
   
   
@@ -2096,7 +2097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="openbao.html" class="md-nav__link">
+      <a href="../openbao.html" class="md-nav__link">
         
   
   
@@ -2124,7 +2125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="kmip.html" class="md-nav__link">
+      <a href="../kmip.html" class="md-nav__link">
         
   
   
@@ -2152,7 +2153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="keyfile.html" class="md-nav__link">
+      <a href="../keyfile.html" class="md-nav__link">
         
   
   
@@ -2180,7 +2181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="encryption-mode-switch.html" class="md-nav__link">
+      <a href="../encryption-mode-switch.html" class="md-nav__link">
         
   
   
@@ -2208,7 +2209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="fips.html" class="md-nav__link">
+      <a href="../fips.html" class="md-nav__link">
         
   
   
@@ -2244,7 +2245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="fcbis.html" class="md-nav__link">
+      <a href="../fcbis.html" class="md-nav__link">
         
   
   
@@ -2272,7 +2273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="audit-logging.html" class="md-nav__link">
+      <a href="../audit-logging.html" class="md-nav__link">
         
   
   
@@ -2300,7 +2301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="rate-limit.html" class="md-nav__link">
+      <a href="../rate-limit.html" class="md-nav__link">
         
   
   
@@ -2328,7 +2329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="log-redaction.html" class="md-nav__link">
+      <a href="../log-redaction.html" class="md-nav__link">
         
   
   
@@ -2356,7 +2357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ngram-full-text-search.html" class="md-nav__link">
+      <a href="../ngram-full-text-search.html" class="md-nav__link">
         
   
   
@@ -2438,7 +2439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="set-parameter.html" class="md-nav__link">
+      <a href="../set-parameter.html" class="md-nav__link">
         
   
   
@@ -2466,7 +2467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="log-rotation.html" class="md-nav__link">
+      <a href="../log-rotation.html" class="md-nav__link">
         
   
   
@@ -2541,7 +2542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="horizon.html" class="md-nav__link">
+      <a href="../horizon.html" class="md-nav__link">
         
   
   
@@ -2569,7 +2570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="horizon-setup.html" class="md-nav__link">
+      <a href="../horizon-setup.html" class="md-nav__link">
         
   
   
@@ -2605,7 +2606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="mongos-config.html" class="md-nav__link">
+      <a href="../mongos-config.html" class="md-nav__link">
         
   
   
@@ -2680,7 +2681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-60.html" class="md-nav__link">
+      <a href="../install/upgrade-from-60.html" class="md-nav__link">
         
   
   
@@ -2708,7 +2709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/upgrade-from-mongodb.html" class="md-nav__link">
+      <a href="../install/upgrade-from-mongodb.html" class="md-nav__link">
         
   
   
@@ -2736,7 +2737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/minor-upgrade.html" class="md-nav__link">
+      <a href="../install/minor-upgrade.html" class="md-nav__link">
         
   
   
@@ -2772,7 +2773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/uninstall.html" class="md-nav__link">
+      <a href="../install/uninstall.html" class="md-nav__link">
         
   
   
@@ -2804,18 +2805,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked="">
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -2836,7 +2839,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2854,7 +2857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/index.html" class="md-nav__link">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -2879,10 +2882,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="release_notes/7.0.40-22.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Percona Server for MongoDB 7.0.40-22 (2026-08-19)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="7.0.40-22.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2898,6 +2928,100 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#upgrade-recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrade recommendation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-fixes-from-upstream-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security fixes from upstream MongoDB
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security fixes from upstream MongoDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#critical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critical
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-severity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High severity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medium-severity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Medium severity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-packaged-with-this-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools packaged with this release
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2910,7 +3034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.39-21.html" class="md-nav__link">
+      <a href="7.0.39-21.html" class="md-nav__link">
         
   
   
@@ -2938,7 +3062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.37-20.html" class="md-nav__link">
+      <a href="7.0.37-20.html" class="md-nav__link">
         
   
   
@@ -2966,7 +3090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.34-19.html" class="md-nav__link">
+      <a href="7.0.34-19.html" class="md-nav__link">
         
   
   
@@ -2994,7 +3118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.32-18.html" class="md-nav__link">
+      <a href="7.0.32-18.html" class="md-nav__link">
         
   
   
@@ -3022,7 +3146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.31-17.html" class="md-nav__link">
+      <a href="7.0.31-17.html" class="md-nav__link">
         
   
   
@@ -3050,7 +3174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.30-16.html" class="md-nav__link">
+      <a href="7.0.30-16.html" class="md-nav__link">
         
   
   
@@ -3078,7 +3202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.28-15.html" class="md-nav__link">
+      <a href="7.0.28-15.html" class="md-nav__link">
         
   
   
@@ -3106,7 +3230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.26-14.html" class="md-nav__link">
+      <a href="7.0.26-14.html" class="md-nav__link">
         
   
   
@@ -3134,7 +3258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.24-13.html" class="md-nav__link">
+      <a href="7.0.24-13.html" class="md-nav__link">
         
   
   
@@ -3162,7 +3286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.22-12.html" class="md-nav__link">
+      <a href="7.0.22-12.html" class="md-nav__link">
         
   
   
@@ -3190,7 +3314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.18-11.html" class="md-nav__link">
+      <a href="7.0.18-11.html" class="md-nav__link">
         
   
   
@@ -3218,7 +3342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.16-10.html" class="md-nav__link">
+      <a href="7.0.16-10.html" class="md-nav__link">
         
   
   
@@ -3246,7 +3370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.15-9.html" class="md-nav__link">
+      <a href="7.0.15-9.html" class="md-nav__link">
         
   
   
@@ -3274,7 +3398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.14-8.html" class="md-nav__link">
+      <a href="7.0.14-8.html" class="md-nav__link">
         
   
   
@@ -3302,7 +3426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.12-7.html" class="md-nav__link">
+      <a href="7.0.12-7.html" class="md-nav__link">
         
   
   
@@ -3330,7 +3454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.11-6.html" class="md-nav__link">
+      <a href="7.0.11-6.html" class="md-nav__link">
         
   
   
@@ -3358,7 +3482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.8-5.html" class="md-nav__link">
+      <a href="7.0.8-5.html" class="md-nav__link">
         
   
   
@@ -3386,7 +3510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.7-4.html" class="md-nav__link">
+      <a href="7.0.7-4.html" class="md-nav__link">
         
   
   
@@ -3414,7 +3538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.5-3.html" class="md-nav__link">
+      <a href="7.0.5-3.html" class="md-nav__link">
         
   
   
@@ -3442,7 +3566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.4-2.html" class="md-nav__link">
+      <a href="7.0.4-2.html" class="md-nav__link">
         
   
   
@@ -3470,7 +3594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release_notes/7.0.2-1.html" class="md-nav__link">
+      <a href="7.0.2-1.html" class="md-nav__link">
         
   
   
@@ -3502,37 +3626,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    FAQ
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="faq.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../faq.html" class="md-nav__link">
         
   
   
@@ -3548,50 +3645,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-      
-        <li class="md-nav__item">
-  <a href="#how-to-check-percona-server-for-mongodb-version" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How to check Percona Server for MongoDB version?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#where-is-the-location-of-the-configuration-and-data-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Where is the location of the configuration and data files?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3650,7 +3703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sbom.html" class="md-nav__link">
+      <a href="../sbom.html" class="md-nav__link">
         
   
   
@@ -3678,7 +3731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="glossary.html" class="md-nav__link">
+      <a href="../glossary.html" class="md-nav__link">
         
   
   
@@ -3706,7 +3759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="telemetry.html" class="md-nav__link">
+      <a href="../telemetry.html" class="md-nav__link">
         
   
   
@@ -3734,7 +3787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="copyright.html" class="md-nav__link">
+      <a href="../copyright.html" class="md-nav__link">
         
   
   
@@ -3762,7 +3815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="trademark-policy.html" class="md-nav__link">
+      <a href="../trademark-policy.html" class="md-nav__link">
         
   
   
@@ -4058,7 +4111,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
                     <div data-banner="data-banner" class="edit-contrib-banner">
     <div class="banner-content">
       <!-- Edit link centered -->
-      <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/faq.md" title="Edit this page on GitHub" class="edit-page-link">
+      <a href="https://github.com/percona/psmdb-docs/edit/7.0/docs/release_notes/7.0.40-22.md" title="Edit this page on GitHub" class="edit-page-link">
         <span class="edit-page-icon">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
@@ -4106,10 +4159,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#how-to-check-percona-server-for-mongodb-version" class="md-nav__link">
+  <a href="#upgrade-recommendation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to check Percona Server for MongoDB version?
+        Upgrade recommendation
       
     </span>
   </a>
@@ -4117,10 +4170,60 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
       
         <li class="md-nav__item">
-  <a href="#where-is-the-location-of-the-configuration-and-data-files" class="md-nav__link">
+  <a href="#security-fixes-from-upstream-mongodb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Where is the location of the configuration and data files?
+        Security fixes from upstream MongoDB
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security fixes from upstream MongoDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#critical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Critical
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-severity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High severity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medium-severity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Medium severity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-packaged-with-this-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools packaged with this release
       
     </span>
   </a>
@@ -4150,19 +4253,105 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     
       
     
-    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/faq.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/percona/psmdb-docs/raw/7.0/docs/release_notes/7.0.40-22.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
     </a>
   
 
 
-<h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">¶</a></h1>
-<h2 id="how-to-check-percona-server-for-mongodb-version">How to check Percona Server for MongoDB version?<a class="headerlink" href="#how-to-check-percona-server-for-mongodb-version" title="Permanent link">¶</a></h2>
-<p>To see which version of Percona Server for MongoDB you are using, check the value of the <code>psmdbVersion</code> key in the output of the <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo">buildInfo</a> database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.</p>
-<h2 id="where-is-the-location-of-the-configuration-and-data-files">Where is the location of the configuration and data files?<a class="headerlink" href="#where-is-the-location-of-the-configuration-and-data-files" title="Permanent link">¶</a></h2>
-<p>By default, Percona Server for MongoDB stores data files in <code>/var/lib/mongodb/</code>
-and configuration parameters in <code>/etc/mongod.conf</code>.</p>
+<h1 id="percona-server-for-mongodb-7040-22-2026-08-19">Percona Server for MongoDB 7.0.40-22 (2026-08-19)<a class="headerlink" href="#percona-server-for-mongodb-7040-22-2026-08-19" title="Permanent link">¶</a></h1>
+<p><a class="md-button" href="../install/index.html">Installation</a>
+<a class="md-button" href="../install/upgrade-from-mongodb.html">Upgrade from MongoDB Community</a></p>
+<p>Percona Server for MongoDB 7.0.40-22 is an enhanced, source-available, and highly-scalable database that is a fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
+<p>Percona Server for MongoDB <strong>7.0.40-22</strong> includes the improvements and bug fixes of:</p>
+<ul>
+<li>
+<p><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.40---august-11--2026" target="_blank">MongoDB 7.0.40 Community Edition <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
+</li>
+<li>
+<p>Supports protocols and drivers of MongoDB Community <strong>7.0.40</strong>.</p>
+</li>
+</ul>
+<h2 id="upgrade-recommendation">Upgrade recommendation<a class="headerlink" href="#upgrade-recommendation" title="Permanent link">¶</a></h2>
+<p>This release contains multiple high-severity security fixes affecting all Percona Server for MongoDB 7.0.x versions. We strongly recommend <strong>upgrading to version 7.0.40-22</strong> as soon as possible.</p>
+<h2 id="security-fixes-from-upstream-mongodb">Security fixes from upstream MongoDB<a class="headerlink" href="#security-fixes-from-upstream-mongodb" title="Permanent link">¶</a></h2>
+<p>This release fixes vulnerabilities inherited from upstream MongoDB. The severity categories below follow the upstream <a href="https://nvd.nist.gov/vuln-metrics/cvss" target="_blank">CVSS scores <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> .</p>
+<h3 id="critical">Critical<a class="headerlink" href="#critical" title="Permanent link">¶</a></h3>
+<ul>
+<li><a href="https://jira.mongodb.org/browse/SERVER-130264" target="_blank">SERVER-130264 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-18691" target="_blank">CVE-2026-18691 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue in intra-cluster authentication where an attacker with access to cluster network traffic could influence the authentication mechanism used between replica set members. Under certain conditions, this could expose the cluster’s shared internal credential in a less-protected form. An attacker who recovered this credential could use it to authenticate to nodes with internal <strong>superuser</strong> privileges.</li>
+</ul>
+<h3 id="high-severity">High severity<a class="headerlink" href="#high-severity" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-129617" target="_blank">SERVER-129617 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18688" target="_blank">CVE-2026-18688 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue in MongoDB Server’s aggregation framework where an authenticated user could trigger an out-of-bounds memory read by supplying a specially crafted numeric value to an aggregation pipeline stage. This could crash the server or expose a limited amount of process memory.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130481" target="_blank">SERVER-130481 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18690">CVE-2026-18690 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>, <a href="https://www.cve.org/CVERecord?id=CVE-2026-18698" target="_blank">CVE-2026-18698 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an authorization issue where an authenticated user with limited database-level privileges could perform operations on protected system collections beyond their assigned permissions. This could allow the user to drop and recreate critical system collections without the required authorization.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-129994" target="_blank">SERVER-129994 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18693" target="_blank">CVE-2026-18693 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue in Percona Server for MongoDB’s handling of time series collections. An authenticated user with write access could insert certain documents. This could leave an internal data structure in an inconsistent state. A later insert into the affected bucket could access memory outside its intended bounds. This could cause a server crash, limited memory exposure, or memory corruption.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130188" target="_blank">SERVER-130188 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18694" target="_blank">CVE-2026-18694 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue in Percona Server for MongoDB’s geospatial query processing. An authenticated user with write access could store malformed geometry data. The server could later process this data without proper validation. A subsequent query could access memory outside its intended bounds. This could cause a server crash or expose a limited amount of process memory.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-129460" target="_blank">SERVER-129460 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18695" target="_blank">CVE-2026-18695 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue in the processing of query predicates on time series collections with a <code>metaField</code>, where an authenticated user with write access could terminate the server process, resulting in a denial-of-service.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130139" target="_blank">SERVER-130139 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18696" target="_blank">CVE-2026-18696 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an authorization bypass in the <code>applyOps</code> command. The namespace used for the permission check did not always match the namespace the operation ran against, so an authenticated user with certain non-default privileges could drop or alter collections outside their permissions.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130110" target="_blank">SERVER-130110 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18697" target="_blank">CVE-2026-18697 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue in the aggregation framework where an unauthenticated user could terminate a <code>mongos</code> process by sending a specially crafted aggregation command. This could cause a denial-of-service and interrupt client connections routed through the affected <code>mongos</code> instance.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130111" target="_blank">SERVER-130111 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18701" target="_blank">CVE-2026-18701 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Resolved an issue in MongoDB Server’s query subsystem where an authenticated user with read privileges could cause <code>mongod</code> to terminate by submitting a specially crafted query filter. This could result in a denial-of-service.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130633" target="_blank">SERVER-130633 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18712" target="_blank">CVE-2026-18712 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an authorization issue in Queryable Encryption maintenance operations where a user with privileges on one encrypted collection could modify or delete data in another collection. The issue was caused by insufficient validation of internal metadata references before operating on other namespaces.</p>
+</li>
+</ul>
+<h3 id="medium-severity">Medium severity<a class="headerlink" href="#medium-severity" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130266" target="_blank">SERVER-130266 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18699" target="_blank">CVE-2026-18699 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Resolved an issue in MongoDB Server’s query planner where an authenticated user with <strong>read-level privileges</strong> could cause the server process to terminate by submitting a specially crafted query against a collection with a text index. This could result in a denial-of-service attack, disrupting connected clients and in-flight operations.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130117" target="_blank">SERVER-130117 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18700" target="_blank">CVE-2026-18700 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue in geospatial validation where an authenticated user with write privileges could trigger invalid memory access through concurrent operations on a collection configured with a geospatial validator. This could cause the server process to crash, resulting in a denial of service. Users should review collections that use geospatial validation rules.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130198" target="_blank">SERVER-130198 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18702" target="_blank">CVE-2026-18702 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue where an authenticated user with limited database-scoped privileges could change diagnostic logging settings at the server level. This could suppress diagnostic logging across the server or generate excessive log output, reducing the effectiveness of operational monitoring.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130167" target="_blank">SERVER-130167 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18708" target="_blank">CVE-2026-18708 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue in the JavaScript scripting engine where an authenticated user with write privileges could influence query execution for other users through a specially crafted stored value processed during internal maintenance. This could return incorrect query results or cause a denial of service for operations on the same database. The issue is confined to the scripting engine sandbox and does not grant access to filesystem or network resources.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130544" target="_blank">SERVER-130544 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>(<a href="https://www.cve.org/CVERecord?id=CVE-2026-18709" target="_blank">CVE-2026-18709 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue in sharded clusters where an authenticated user with direct network access to a shard could commit or abort a prepared transaction without going through the expected transaction coordination process. This could cause cross-shard data inconsistencies, affect the cluster clock, and violate transaction atomicity.</p>
+</li>
+</ul>
+<p>For the complete upstream changelog, see <a href="https://www.mongodb.com/docs/manual/release-notes/7.0-changelog/#std-label-7.0.40-changelog" target="_blank">MongoDB 7.0.40 Community Edition <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
+<h2 id="tools-packaged-with-this-release">Tools packaged with this release<a class="headerlink" href="#tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Tool</strong></th>
+<th><strong>Base version</strong></th>
+<th><strong>Release notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MongoDB Shell (<code>mongosh</code>)</td>
+<td>2.10.0</td>
+<td><a href="https://www.mongodb.com/docs/mongodb-shell/changelog/#v2100" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
+</tr>
+<tr>
+<td>Mongo Tools</td>
+<td>100.18.0</td>
+<td><a href="https://www.mongodb.com/docs/database-tools/release-notes/dbtools-100.18.0-changelog" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -4185,7 +4374,7 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 28, 2024 15:50:52 UTC">February 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 17, 2026 14:26:02 UTC">August 17, 2026</span>
   </span>
 
     
@@ -4195,39 +4384,11 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 28, 2024 15:50:52 UTC">February 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 17, 2026 05:56:29 UTC">August 17, 2026</span>
   </span>
 
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
-          
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
-        </a>
-      
-        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
-          
-          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&amp;size=72" alt="web-flow">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -4303,21 +4464,21 @@ window.addEventListener('afterprint', (event) => {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": "content.action.view content.code.copy content.copy.annotate search.highlight search.share", "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": "content.action.view content.code.copy content.copy.annotate search.highlight search.share", "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="js/print-site.js"></script>
+        <script src="../js/print-site.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
-        <script src="js/promptremover.js"></script>
+        <script src="../js/promptremover.js"></script>
       
-        <script src="js/rating.js"></script>
+        <script src="../js/rating.js"></script>
       
-        <script src="js/kapa.js"></script>
+        <script src="../js/kapa.js"></script>
       
     
   <script src="https://cmp.osano.com/Azqe5vTyLOSbN3OuT/49ad85b5-0418-4794-ab81-7599dddd534c/osano.js"></script>
