@@ -251,6 +251,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
+      - release_notes/8.3.8-2.md
       - release_notes/8.3.7-1.md
   - faq.md
   - Reference:
