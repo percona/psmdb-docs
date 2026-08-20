@@ -32,9 +32,10 @@ There are several active versions of the documentation. Each version has a branc
 - 4.2 (EOL)
 - 4.4 (EOL)
 - 5.0 (EOL)
-- 6.0
+- 6.0 (EOL)
 - 7.0
 - 8.0
+- 8.3
 
 The .md files are in the ``docs`` directory. 
 
@@ -79,7 +80,7 @@ git fetch upstream
 git merge upstream/<branch>
 ```
 
-Make sure that your local branch and the branch you merge changes from are the same. So if you are on ``8.0`` branch, merge changes from ``upstream/8.0``.
+Make sure that your local branch and the branch you merge changes from are the same. So if you are on ``8.3`` branch, merge changes from ``upstream/8.3``.
 
 5. Create a separate branch for your changes
 
