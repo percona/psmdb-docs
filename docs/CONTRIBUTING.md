@@ -8,7 +8,7 @@ You can contribute to documentation in the following ways:
 
 1. **Request a doc change through a Jira issue**. If you’ve spotted a doc issue (a typo, broken links, inaccurate instructions, etc.) but don’t have time nor desire to fix it yourself - let us know about it.
 
-	- Click the **open a Jira ticket** link at the bottom of the page. This opens the [Jira issue tracker](https://jira.percona.com/projects/PSMDB/issues) for the doc project.
+	- Open the [Jira issue tracker](https://jira.percona.com/projects/PSMDB/issues) for the documentation project.
 	- Sign in (create a Jira account if you don’t have one) and click **Create** to create an issue.
 	- Describe the issue you have detected in the Summary, Description, Steps To Reproduce, Affects Version fields.
 
