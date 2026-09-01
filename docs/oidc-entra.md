@@ -121,7 +121,7 @@ To authorize users by identity provider groups, specify `authorizationClaim` val
               "authNamePrefix": "entra",
               "useAuthorizationClaim": true,
               "authorizationClaim": "groups",
-              "requestScopes": "api://3ef1b836-6f12-4858-876b-35245110f6bc/psmdb-access",
+              "requestScopes": [ "api://3ef1b836-6f12-4858-876b-35245110f6bc/psmdb-access" ],
               "supportsHumanFlows": true		   
            } ]'
         ```
@@ -143,7 +143,7 @@ To authorize users by identity provider groups, specify `authorizationClaim` val
        "authNamePrefix": "entra",
        "useAuthorizationClaim": true,
        "authorizationClaim": "groups",
-       "requestScopes": "api://3ef1b836-6f12-4858-876b-35245110f6bc/psmdb-access",
+       "requestScopes": [ "api://3ef1b836-6f12-4858-876b-35245110f6bc/psmdb-access" ],
        "supportsHumanFlows": true
     } ]'
     ```
