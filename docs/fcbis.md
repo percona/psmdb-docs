@@ -5,7 +5,11 @@
 When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. 
 
 In Percona Server for MongoDB, you can choose a file copy-based initial sync (FCBIS) for a new node. You must have WiredTiger defined as the storage. Both source and target nodes must run Percona Server for MongoDB version 8.0.12-4 or higher. 
-Note that if you are using v8.0.12-4, the FCBIS feature is available with Pro-Build packages or you should compile from the source to avail this feature. We recommend using the latest available version instead of an older one. See [release notes :octicons-link-external-16:](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.12-4.html#boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync) for more details.
+
+!!! admonition "Note"
+
+If you are using a version older than 8.0.16, the FCBIS feature is available in Pro-Build packages or by compiling Percona Server for MongoDB from source. Pro-Build packages were removed starting with 8.0.16.
+We recommend using the latest available version rather than an older release. For more information, see the [release notes :octicons-link-external-16:](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.12-4.html#boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync).
 
 The file copy-based initial sync method is a physical copying of the data files from the source to the target. It is much faster than the default [logical initial sync :octicons-link-external-16:](https://www.mongodb.com/docs/manual/core/replica-set-sync/#logical-initial-sync-process) for big datasets (500GB+), which is especially beneficial in heavy write environments. Using this initial sync method speeds up cluster scaling and increases restore performance. 
 
