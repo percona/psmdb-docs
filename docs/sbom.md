@@ -159,4 +159,4 @@ grype --distro <os_name>:<os_version> --vex=percona-server-mongodb-{{ release }}
 ```
 
 !!! note
-    The example above reports only [CVE-2026-6231 :octicons-link-external-16:](https://nvd.nist.gov/vuln/detail/cve-2026-6231){:target="_blank"}. This vulnerability affects Percona Server for MongoDB deployments that use [Queryable Encryption :octicons-link-external-16:](https://www.mongodb.com/docs/manual/core/queryable-encryption/about-qe-csfle/){:target="_blank"}. The vulnerability existed before version {{ release }}, but the SBOM now makes it visible. Percona plans to fix it in a future release.
+    With version {{ release }}, the example above should not report [CVE-2026-6231 :octicons-link-external-16:](https://nvd.nist.gov/vuln/detail/cve-2026-6231){:target="_blank"} because Percona fixed it in this release. In earlier releases, this vulnerability affected Percona Server for MongoDB deployments that use [Queryable Encryption :octicons-link-external-16:](https://www.mongodb.com/docs/manual/core/queryable-encryption/about-qe-csfle/){:target="_blank"}.
