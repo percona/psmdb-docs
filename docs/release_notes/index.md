@@ -3,6 +3,8 @@
 
 * [Percona Server for MongoDB 7.0.43-23 ({{date.7_0_43}})](7.0.43-23.md)
 
+* [Percona Server for MongoDB 7.0.40-22 ({{date.7_0_40}})](7.0.40-22.md)
+
 * [Percona Server for MongoDB 7.0.39-21 ({{date.7_0_39}})](7.0.39-21.md)
 
 * [Percona Server for MongoDB 7.0.37-20 ({{date.7_0_37}})](7.0.37-20.md)
