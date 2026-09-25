@@ -4,7 +4,6 @@
 release: '8.3.11-3'
 version: '8.3'
 mongosh: '2.10.0'
-mongo tools: '100.18.0'
 year: "2026"
 
 product:
