@@ -143,7 +143,7 @@ plugins:
   git-committers:
     enabled: !ENV [CI, false]
     repository: percona/psmdb-docs
-    branch: "9.0"
+    branch: "8.0"
   macros:
       include_yaml:
         - 'variables.yml' # Use in markdown as '{{ VAR }}'   
@@ -253,6 +253,7 @@ nav:
   - Release notes:
       - "Release notes index": "release_notes/index.md"
       - release_notes/9.0.0-1.md
+
   - faq.md
   - Reference:
       - Software Bill of Materials (SBOM): sbom.md
