@@ -15,7 +15,7 @@ This repository contains the source files for [Percona Server for MongoDB docume
 
 ## Contributing
 
-We welcome all contributors. For how to contribute to documentation, read the [Contributing guide](https://github.com/percona/psmdb-docs/blob/8.0/CONTRIBUTING.md).
+We welcome all contributors. For how to contribute to documentation, read the [Contributing guide](https://github.com/percona/psmdb-docs/blob/9.0/CONTRIBUTING.md).
  
 ## License
 
