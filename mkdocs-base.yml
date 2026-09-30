@@ -32,7 +32,6 @@ theme:
     - search.suggest
     - navigation.top
     - navigation.tracking 
-    - navigation.instant
     - navigation.instant.progress
     - content.tooltips
     - content.tabs.link
