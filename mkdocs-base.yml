@@ -1,6 +1,6 @@
 # MkDocs configuration for builds with material theme
 
-site_name: Percona Server for MongoDB 8.0
+site_name: Percona Server for MongoDB 9.0
 site_description: Documentation
 site_author: Percona LLC
 copyright: >
@@ -252,21 +252,6 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
-      - release_notes/9.0.0-1.md
-      - release_notes/8.0.32-14.md
-      - release_notes/8.0.29-13.md
-      - release_notes/8.0.28-12.md
-      - release_notes/8.0.26-11.md
-      - release_notes/8.0.23-10.md
-      - release_notes/8.0.21-9.md
-      - release_notes/8.0.20-8.md
-      - release_notes/8.0.19-7.md
-      - release_notes/8.0.17-6.md
-      - release_notes/8.0.16-5.md
-      - release_notes/8.0.12-4.md
-      - release_notes/8.0.8-3.md
-      - release_notes/8.0.4-2.md
-      - release_notes/8.0.4-1.md
   - faq.md
   - Reference:
       - Software Bill of Materials (SBOM): sbom.md
