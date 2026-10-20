@@ -17,7 +17,7 @@ You can contribute to documentation in the following ways:
 ## Contribute to documentation yourself
 
 Percona Distribution for MongoDB documentation is written in [Markdown](https://www.markdownguide.org/basic-syntax/) language, so you can 
-[edit it online via GitHub](#edit-documentation-online-vi-github). If you wish to have more control over the doc process, jump to how to [edit documentation locally](#edit-documentation-locally). 
+[edit it online via GitHub](#edit-documentation-online-via-github). If you wish to have more control over the doc process, jump to how to [edit documentation locally](#edit-documentation-locally). 
 
 To contribute to the documentation, you should be familiar with the following technologies:
 
@@ -100,7 +100,7 @@ You can do it in these ways:
 - [use Docker](#use-docker)
 - [install MkDocs and build locally](#install-mkdocs-and-build-locally)
 
-Learn more about the documentation structure in the [Repository structure](#repository-stucture) section.
+Learn more about the documentation structure in the [Repository structure](#repository-structure) section.
 
 
 #### Use Docker
