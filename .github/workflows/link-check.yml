@@ -4,7 +4,7 @@ on:
 
 jobs:
   mkdocs-link-check:
-    name: Check links
+    name: Check external and internal links
     runs-on: ubuntu-latest
 
     steps:
@@ -16,14 +16,15 @@ jobs:
       #Relative links are skipped: the checker resolves them against the
       #rendered page URL, not the source file, so they all report as broken.
       #percona.community is skipped: its TLD is too long for the checker's URL regex.
+      #Azure pricing pages are skipped: they often respond slower than the checker's fixed 3s timeout.
       #Sync mode records timeouts as broken links instead of crashing.
-      - name: Check links
+      - name: Check external links
         uses: byrnereese/github-action-mkdocs-link-check@1.0
         with:
           folder-path: 'docs'
           recurse: 'yes'
           synchronous: 'yes'
-          excludes: '^(?!https?://)|percona\.community'
+          excludes: '^(?!https?://)|percona\.community|azure\.microsoft\.com/.*/pricing'
           verbose-mode: 'yes'
 
   mkdocs-strict-build:
