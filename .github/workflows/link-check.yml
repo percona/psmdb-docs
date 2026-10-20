@@ -15,7 +15,6 @@ jobs:
       #Check external links in docs (internal links are checked by the strict build)
       #Skipped:
       #  - localhost: example addresses, not links
-      #  - Azure pricing pages: often slow to respond
       #  - entra.microsoft.com: sign-in portal that blocks automated requests
       #  - VEX files: URLs built with {{ macros }} are incomplete in the Markdown source
       #The GitHub token avoids rate limits on github.com links.
@@ -30,7 +29,6 @@ jobs:
             --max-retries 5
             --retry-wait-time 2
             --exclude-loopback
-            --exclude 'azure\.microsoft\.com/.*/pricing'
             --exclude 'entra\.microsoft\.com'
             --exclude 'percona\.github\.io/percona-server-mongodb/vex/'
             'docs/**/*.md'
