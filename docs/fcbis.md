@@ -18,7 +18,7 @@ In Percona Server for MongoDB, you can choose a file copy-based initial sync for
 
 !!! warning
 
-    A node that restarts after an unclean shutdown to perform a file copy-based initial sync may crash on every restart. See [Known issues](#known-issues) for the recovery steps.
+    In Percona Server for MongoDB 8.3.7-1 and later, a node that restarts after an unclean shutdown to perform a file copy-based initial sync may crash on every restart. See [Known issues](#known-issues) for the recovery steps.
     
 ## Workflow
 
@@ -58,6 +58,8 @@ Using file copy-based initial sync has the following limitations:
 ## Known issues
 
 * [SERVER-136961 :octicons-link-external-16:](https://jira.mongodb.org/browse/SERVER-136961){:target="_blank"}: If a node has an unclean shutdown for any reason and then restarts to perform a file copy-based initial sync, the node crashes each time it restarts and cannot complete initial sync without manual intervention.
+
+    This issue affects Percona Server for MongoDB 8.3.7-1 and later versions.
 
     To recover a node in a self-managed deployment, do one of the following:
 
