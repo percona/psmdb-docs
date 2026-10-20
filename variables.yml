@@ -5,7 +5,7 @@
 release: '7.0.45-24'
 version: '7.0'
 
-mongosh: '2.12.0'
+mongosh: '2.13.0'
 year: '2026'
 
 product:
