@@ -28,7 +28,7 @@ Protecting your data from unauthorized access is crucial. Introducing data-at-re
 
 Protect your database against data loss by implementing a backup strategy. You can either use the built-in [hot backup feature](hot-backup.md) or consider deploying Percona Backup for MongoDB - an open source solution for making consistent backups and restores in sharded clusters and replica sets.
 
-[Percona Backup for MongoDB :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/installation.html){.md-button}
+[Percona Backup for MongoDB :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/latest/installation.html){.md-button}
 
 ## Monitoring
 

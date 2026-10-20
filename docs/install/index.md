@@ -60,5 +60,5 @@ You can use any of the easy-install guides. We recommend to use **the package ma
 
 If you are already using MongoDB, see [Upgrading from MongoDB](upgrade-from-mongodb.md).
 
-If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 7.0](upgrade-from-70.md).
+If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 8.0](upgrade-from-80.md).
 

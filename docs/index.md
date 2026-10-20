@@ -38,7 +38,7 @@ Define who has access to the database and manage their permissions in a single p
 
 Make enterprise-level backups and restores with guaranteed data consistency using Percona Backup for MongoDB (PBM). Or, create physical backups on a running server using the built-in [hot backup](hot-backup.md) functionality. 
 
-[Get started with PBM :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/installation.html){ .md-button }
+[Get started with PBM :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/latest/installation.html){ .md-button }
 
 </div><div data-banner markdown>
 
