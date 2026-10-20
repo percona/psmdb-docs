@@ -12,10 +12,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-      #Check links in docs (boolean inputs expect 'yes')
+      #Check external links in docs (boolean inputs expect 'yes')
+      #Relative links are skipped: the checker resolves them against the
+      #rendered page URL, not the source file, so they all report as broken.
+      #percona.community is skipped: its TLD is too long for the checker's URL regex.
+      #Sync mode records timeouts as broken links instead of crashing.
       - name: Check links
         uses: byrnereese/github-action-mkdocs-link-check@1.0
         with:
           folder-path: 'docs'
           recurse: 'yes'
+          synchronous: 'yes'
+          excludes: '^(?!https?://)|percona\.community'
           verbose-mode: 'yes'
