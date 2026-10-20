@@ -4217,7 +4217,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h2 id="role-authentication">Role authentication<a class="headerlink" href="#role-authentication" title="Permanent link">¶</a></h2>
 <p>This type is typically used for applications / MongoDB clients. For instance, if your application is running on <abbr title="Amazon Web Service">AWS</abbr> resources like EC2 instance or ECS (Elastic Container Service) which uses the <abbr title="Identity Access Management">IAM</abbr> role assigned to it. Another scenario is to allow users to assume the <abbr title="Identity Access Management">IAM</abbr> role and in such a way, grant a user the permissions outlined in the <abbr title="Identity Access Management">IAM</abbr> role. The ARN of the <abbr title="Identity Access Management">IAM</abbr> role is used to authenticate the application in Percona Server for MongoDB.  </p>
 <p>For either type of <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication, the flow is the following:</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/aws-iam-auth.png" data-desc-position="bottom"><img alt="image" src="_images/aws-iam-auth.png"></a></p>
+<p></p>
 <ol>
 <li>A MongoDB client (a Mongo shell or an application that talks to Percona Server for MongoDB via a driver) gets <abbr title="Amazon Web Service">AWS</abbr> credentials from either EC2/ECS instance metadata service, environmental variables or MongoDB URI connection string.</li>
 <li>
