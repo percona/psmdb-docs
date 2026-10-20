@@ -1,9 +1,5 @@
 # File copy based initial sync
 
-When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. 
-
-In Percona Server for MongoDB, you can choose a file copy-based initial sync for a new node. You must have WiredTiger defined as the storage. Both source and target nodes must run Percona Server for MongoDB version 8.0.12-4 or higher.
-
 The file copy-based initial sync method is a physical copying of the data files from the source to the target. It is much faster than the default [logical initial sync :octicons-link-external-16:](https://www.mongodb.com/docs/manual/core/replica-set-sync/#logical-initial-sync-process) for big datasets (500GB+), which is especially beneficial in heavy write environments. Using this initial sync method speeds up cluster scaling and increases restore performance. 
 
 File copy-based initial sync implementation is compatible with that of MongoDB Enterprise Advanced and has the same [configuration parameters](#configuration-parameters).
@@ -17,6 +13,13 @@ setParameter:
 
 You can only set this server parameter at startup.
 
+When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync. 
+In Percona Server for MongoDB, you can choose a file copy-based initial sync for a new node. You must have `WiredTiger` defined as the storage. 
+
+!!! warning
+
+    A node that restarts after an unclean shutdown to perform a file copy-based initial sync may crash on every restart. See [Known issues](#known-issues) for the recovery steps.
+    
 ## Workflow
 
 When you start a new node for the replica set, the workflow is the following:
@@ -51,6 +54,17 @@ Using file copy-based initial sync has the following limitations:
 * If you're using encrypted storage, Percona Server for MongoDB applies the encryption key from the sync source node to secure the data on the syncing node.
 * You must have WiredTiger defined as the storage engine to run file copy-based initial sync. [Percona memory engine](inmemory.md) is not supported.
 * Both source and target nodes must run the same Percona Server for MongoDB version. 
+
+## Known issues
+
+* [SERVER-136961 :octicons-link-external-16:](https://jira.mongodb.org/browse/SERVER-136961){:target="_blank"}: If a node has an unclean shutdown for any reason and then restarts to perform a file copy-based initial sync, the node crashes each time it restarts and cannot complete initial sync without manual intervention.
+
+    To recover a node in a self-managed deployment, do one of the following:
+
+    * Restart the node with the `initialSyncMethod` parameter set to `logical`.
+    * Delete the contents of the node's `dbPath` directory, then restart the node to begin a new file copy-based initial sync.
+
+    For details, see the [Percona Server for MongoDB 8.3.13-4 release notes](release_notes/8.3.13-4.md#known-issues).
 
 
 
