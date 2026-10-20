@@ -12,20 +12,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-      #Check external links in docs (boolean inputs expect 'yes')
-      #Relative links are skipped: the checker resolves them against the
-      #rendered page URL, not the source file, so they all report as broken.
-      #percona.community is skipped: its TLD is too long for the checker's URL regex.
-      #Azure pricing pages are skipped: they often respond slower than the checker's fixed 3s timeout.
-      #Sync mode records timeouts as broken links instead of crashing.
+      #Check external links in docs (internal links are checked by the strict build)
+      #Skipped:
+      #  - localhost: example addresses, not links
+      #  - Azure pricing pages: often slow to respond
+      #  - entra.microsoft.com: sign-in portal that blocks automated requests
+      #  - VEX files: URLs built with {{ macros }} are incomplete in the Markdown source
+      #The GitHub token avoids rate limits on github.com links.
       - name: Check external links
-        uses: byrnereese/github-action-mkdocs-link-check@1.0
+        uses: lycheeverse/lychee-action@v2.9.0
         with:
-          folder-path: 'docs'
-          recurse: 'yes'
-          synchronous: 'yes'
-          excludes: '^(?!https?://)|percona\.community|azure\.microsoft\.com/.*/pricing'
-          verbose-mode: 'yes'
+          args: >-
+            --no-progress
+            --scheme https
+            --scheme http
+            --timeout 30
+            --max-retries 5
+            --retry-wait-time 2
+            --exclude-loopback
+            --exclude 'azure\.microsoft\.com/.*/pricing'
+            --exclude 'entra\.microsoft\.com'
+            --exclude 'percona\.github\.io/percona-server-mongodb/vex/'
+            'docs/**/*.md'
 
   mkdocs-strict-build:
     name: Check internal links
