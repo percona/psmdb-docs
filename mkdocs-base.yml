@@ -251,10 +251,11 @@ nav:
         - install/minor-upgrade.md
       - install/uninstall.md
   - Release notes:
-      - "Release notes index": "release_notes/index.md"
-      - release_notes/8.3.11-3.md
-      - release_notes/8.3.8-2.md
-      - release_notes/8.3.7-1.md
+      - "Release notes index": release_notes/index.md
+      - "8.3.13-4 (2026-10-27)": release_notes/8.3.13-4.md
+      - "8.3.11-3 (2026-09-28)": release_notes/8.3.11-3.md
+      - "8.3.8-2 (2026-08-24)": release_notes/8.3.8-2.md
+      - "8.3.7-1 (2026-07-30)": release_notes/8.3.7-1.md
   - faq.md
   - Reference:
       - Software Bill of Materials (SBOM): sbom.md
