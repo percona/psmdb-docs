@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.0">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -48,10 +48,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -2878,6 +2878,34 @@
   
   
     <li class="md-nav__item">
+      <a href="release_notes/8.3.13-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8.3.13-4 (2026-10-27)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release_notes/8.3.11-3.html" class="md-nav__link">
         
   
@@ -2885,7 +2913,7 @@
   <span class="md-ellipsis">
     
   
-    Percona Server for MongoDB release notes version 8.3.11-3
+    8.3.11-3 (2026-09-28)
   
 
     
@@ -2913,7 +2941,7 @@
   <span class="md-ellipsis">
     
   
-    Percona Server for MongoDB release notes version 8.3.8-2
+    8.3.8-2 (2026-08-24)
   
 
     
@@ -2941,7 +2969,7 @@
   <span class="md-ellipsis">
     
   
-    Percona Server for MongoDB release notes version 8.3.7-1
+    8.3.7-1 (2026-07-30)
   
 
     
@@ -3837,13 +3865,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 <h3 id="binary-tarball">Binary tarball<a class="headerlink" href="#binary-tarball" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm the SBOM is bundled</span>
-tar<span class="w"> </span>tzf<span class="w"> </span>percona-server-mongodb-8.3.11-3-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
+tar<span class="w"> </span>tzf<span class="w"> </span>percona-server-mongodb-8.3.13-4-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>doc/sbom.cdx.json
 
 <span class="c1"># Extract and scan</span>
-tar<span class="w"> </span>xzf<span class="w"> </span>percona-server-mongodb-8.3.11-3-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-C<span class="w"> </span>/tmp<span class="w"> </span>percona-server-mongodb-8.3.11-3-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
-grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.11-3-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
+tar<span class="w"> </span>xzf<span class="w"> </span>percona-server-mongodb-8.3.13-4-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-C<span class="w"> </span>/tmp<span class="w"> </span>percona-server-mongodb-8.3.13-4-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
+grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
 </code></pre></div>
 <h3 id="rpm-package">RPM package<a class="headerlink" href="#rpm-package" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm the package installs the SBOM</span>
@@ -3888,12 +3916,12 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 <h4 id="scan-via-oci-referrers-api-recommended">Scan via OCI Referrers API (recommended)<a class="headerlink" href="#scan-via-oci-referrers-api-recommended" title="Permanent link">¶</a></h4>
 <p><code>trivy image --sbom-sources oci</code> fetches the attached SBOM via the OCI Referrers API and scans it, without pulling the image:</p>
 <div class="highlight"><pre><span></span><code>trivy<span class="w"> </span>image<span class="w"> </span>--severity<span class="w"> </span>HIGH,CRITICAL<span class="w"> </span>--sbom-sources<span class="w"> </span>oci<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.3.11-3-amd64
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.3.13-4-amd64
 </code></pre></div>
 <h4 id="scan-the-embedded-sbom">Scan the embedded SBOM<a class="headerlink" href="#scan-the-embedded-sbom" title="Permanent link">¶</a></h4>
-<p>Scan the embedded SBOM from inside the container image: <code>8.3.11-3-amd64</code>:</p>
+<p>Scan the embedded SBOM from inside the container image: <code>8.3.13-4-amd64</code>:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--entrypoint<span class="w"> </span>cat<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.3.11-3-amd64<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.3.13-4-amd64<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="p">|</span><span class="w"> </span>grype<span class="w"> </span>--from<span class="w"> </span>sbom
 </code></pre></div>
@@ -3904,7 +3932,7 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 <li>
 <p>Use the per-architecture tag to resolve directly to the image manifest:</p>
 <div class="highlight"><pre><span></span><code>oras<span class="w"> </span>discover<span class="w"> </span>--format<span class="w"> </span>tree<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.3.11-3-amd64
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.3.13-4-amd64
 </code></pre></div>
 <details class="example">
 <summary>Output</summary>
@@ -3928,7 +3956,7 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 </code></pre></div>
 <details class="example">
 <summary>Output</summary>
-<div class="highlight"><pre><span></span><code>percona-server-mongodb-8.3.11-3-amd64.cdx.json
+<div class="highlight"><pre><span></span><code>percona-server-mongodb-8.3.13-4-amd64.cdx.json
 </code></pre></div>
 </details>
 </li>
@@ -3954,15 +3982,15 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 </tr>
 </tbody>
 </table>
-<p>For example, the document for version 8.3.11-3 is available at:</p>
-<p><code>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.3.11-3.openvex.json</code></p>
+<p>For example, the document for version 8.3.13-4 is available at:</p>
+<p><code>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.3.13-4.openvex.json</code></p>
 <p>Pass the document to Grype’s <code>--vex</code> flag together with any SBOM scan on this page. For example, combined with the binary tarball scan:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Download the OpenVEX document for this release</span>
-curl<span class="w"> </span>-sLO<span class="w"> </span>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.3.11-3.openvex.json
+curl<span class="w"> </span>-sLO<span class="w"> </span>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.3.13-4.openvex.json
 
 <span class="c1"># Scan the SBOM and filter out vulnerabilities addressed in the VEX document</span>
-grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.11-3-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--vex<span class="w"> </span>percona-server-mongodb-8.3.11-3.openvex.json
+grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--vex<span class="w"> </span>percona-server-mongodb-8.3.13-4.openvex.json
 </code></pre></div>
 <p>Vulnerabilities that Percona has marked as <code>not_affected</code> or <code>fixed</code> in the VEX document are excluded from the scan results.</p>
 
@@ -4120,11 +4148,11 @@ window.addEventListener('afterprint', (event) => {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="js/print-site.js"></script>
       
