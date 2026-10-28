@@ -13,6 +13,10 @@ edit_uri: edit/8.3/docs/
 
 use_directory_urls: false
 
+# Report links to missing headings as warnings (fails `mkdocs build --strict`)
+validation:
+  anchors: warn
+
 # Theme setup
 theme:
   name: material
