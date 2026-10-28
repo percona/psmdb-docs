@@ -26,7 +26,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.0">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -51,10 +51,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -7713,7 +7713,7 @@ to create data necessary for the authentication mechanism.</p>
 </li>
 </ul>
 <p>The following image illustrates this architecture:</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/psmdb-ext-auth.png" data-desc-position="bottom"><img alt="image" src="_images/psmdb-ext-auth.png"></a></p>
 <p>An authentication session uses the following sequence:</p>
 <ol>
 <li>A <code>mongosh</code> client connects to a running <code>mongod</code> instance.</li>
@@ -7743,7 +7743,7 @@ to authenticate the client or reject the request.</li>
 <p>A realm is the logical network, similar to a domain, for all Kerberos nodes under the same master KDC.</p>
 <p>A principal is a user or a service which is known to Kerberos. A principal name is used for authentication in Kerberos. A service principal represents the service, e.g. <code>mongodb</code>. A user principal represents the user. The user principal name corresponds to the username in the <code>$external</code> database in Percona Server for MongoDB.</p>
 <p>The following diagram shows the authentication workflow:</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/Kerberos_auth.png" data-desc-position="bottom"><img alt="image" src="_images/Kerberos_auth.png"></a></p>
 <p>The sequence is the following:</p>
 <ol>
 <li>
@@ -7791,7 +7791,7 @@ to authenticate the client or reject the request.</li>
 <h2 id="aws-iam-role-authentication">Role authentication<a class="headerlink" href="#aws-iam-role-authentication" title="Permanent link">¶</a></h2>
 <p>This type is typically used for applications / MongoDB clients. For instance, if your application is running on <abbr title="Amazon Web Service">AWS</abbr> resources like EC2 instance or ECS (Elastic Container Service) which uses the <abbr title="Identity Access Management">IAM</abbr> role assigned to it. Another scenario is to allow users to assume the <abbr title="Identity Access Management">IAM</abbr> role and in such a way, grant a user the permissions outlined in the <abbr title="Identity Access Management">IAM</abbr> role. The ARN of the <abbr title="Identity Access Management">IAM</abbr> role is used to authenticate the application in Percona Server for MongoDB.  </p>
 <p>For either type of <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication, the flow is the following:</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/aws-iam-auth.png" data-desc-position="bottom"><img alt="image" src="_images/aws-iam-auth.png"></a></p>
 <ol>
 <li>A MongoDB client (a Mongo shell or an application that talks to Percona Server for MongoDB via a driver) gets <abbr title="Amazon Web Service">AWS</abbr> credentials from either EC2/ECS instance metadata service, environmental variables or MongoDB URI connection string.</li>
 <li>
@@ -8093,7 +8093,7 @@ to authenticate the client or reject the request.</li>
 <div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"CN=alice,CN=Users,DC=engineering,DC=example,DC=com"</span><span class="w"> </span>-p<span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN
 </code></pre></div>
 <p>The following diagram illustrates the authentication and authorization flow:</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/NativeLDAP-auth.png" data-desc-position="bottom"><img alt="image" src="_images/NativeLDAP-auth.png"></a></p>
 <ol>
 <li>
 <p>A user connects to the database providing their credentials</p>
@@ -9212,7 +9212,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 </ul>
 <p>The following diagram illustrates the authentication flow.</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/OIDC-flow.png" data-desc-position="bottom"><img alt="image" src="_images/OIDC-flow.png"></a></p>
 <ol>
 <li>A user connects to Percona Server for MongoDB using a MongoDB client. The client must support OIDC.</li>
 <li>Percona Server for MongoDB redirects the MongoDB client to the IdP for authentication and provides the IdP information such as URL, requests scopes, clientID. </li>
@@ -11071,7 +11071,7 @@ sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span clas
 <p>When a Percona Server for MongoDB node generates a new master encryption key, it registers the key on the KMIP server with the <code>Pre-Active</code> state. Starting with version 7.0.14-8, Percona Server for MongoDB automatically activates the master encryption key and periodically checks (polls) its state. If a master encryption key for a node is not in the <code>Active</code> state, the node reports an error and shuts down. This process helps security engineers identify the nodes that require out-of-schedule master key rotation.</p>
 <p>Key state polling is enabled by default and is regulated by these configuration file options: <code>kmip.activateKeys</code> and <code>kmip.keyStatePollingSeconds</code>.</p>
 <p>The following diagram illustrates the master key lifecycle with key state polling:</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/kmip-state-polling.png" data-desc-position="bottom"><img alt="image" src="_images/kmip-state-polling.png"></a></p>
 <p>The master key state polling functionality is particularly useful in cluster deployments with hundreds of nodes. If some master keys are compromised, security engineers change their state from <code>Active</code> so that the nodes encrypted with these keys identify themselves. This approach allows the security engineers to rotate master keys only on the affected nodes instead of the entire cluster, thus reducing the mean time to resolve (MTTR) compromised encryption key incidents.</p>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
@@ -12427,7 +12427,7 @@ to make changes at runtime:    </p>
 <li><strong>External access</strong>: Using public DNS records, load balancer hostnames, or specific host-mapped ports (<code>mongo1.external.mycompany.com:32768</code>)</li>
 </ul>
 <p>The following diagram shows the use of Horizons work:</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/horizons_diagram.png" data-desc-position="bottom"><img alt="Horizons workflow" src="_images/horizons_diagram.png"></a></p>
 <p>Horizons rely on a crucial component of the TLS handshake: Server Name Indication (SNI).</p>
 <p>Here’s how it works:</p>
 <ol>
@@ -14549,7 +14549,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <p>This release provides the following features and improvements:</p>
 <h3 id="release_notes-8.0.12-4-boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync">Boost performance during cluster restore and scaling with file copy-based initial sync<a class="headerlink" href="#release_notes-8.0.12-4-boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync" title="Permanent link">¶</a></h3>
 <p>You can now select how a newly added or a restored replica set member synchronizes the data from other members - via logical or file copy-based initial sync. File copy-based initial sync copies physical files from the source node. This sync method is faster than the logical one and it reduces your maintenance time on scaling your cluster.</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/fcbis.png" data-desc-position="bottom"><img alt="File copy-based initial sync performance comparison diagram" src="_images/fcbis.png"></a></p>
 <p>The performance advantage of file copy-based over logical initial sync varies based on data set characteristics. While file copy-based initial sync can be significantly quicker, its efficiency is influenced by factors such as document count, collection distribution, and indexing structure.</p>
 <p>This feature is available in Percona Server for MongoDB Pro out of the box. <a href="https://www.percona.com/about/contact">Become a Percona Customer</a> to enjoy all Pro features with little to no effort from your side. Alternatively, you can receive it by building Percona Server from the source code.</p>
 <p><em>Update from 2025-12-02: We no longer release Percona Server for MongoDB Pro Builds. All features included in Pro Builds are accessible for everyone in our public regular builds. If you need a Pro Build for that specific version, please contact your Percona representative for guidance. We’re here to help ensure a smooth transition and continued success with Percona open-source solutions.</em></p>
@@ -15779,11 +15779,11 @@ we will do our very best to be helpful.</p></body></html></section></section><se
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/percona-server-for-mongodb/8.0", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "/percona-server-for-mongodb/8.0", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
   
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="js/print-site.js"></script>
       

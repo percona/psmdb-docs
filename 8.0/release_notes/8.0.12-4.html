@@ -24,7 +24,7 @@ Upgrade from MongoDB Community">
       
       
       <link rel="icon" href="../_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.0">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -49,10 +49,10 @@ Upgrade from MongoDB Community">
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -4244,7 +4244,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <p>This release provides the following features and improvements:</p>
 <h3 id="boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync">Boost performance during cluster restore and scaling with file copy-based initial sync<a class="headerlink" href="#boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync" title="Permanent link">¶</a></h3>
 <p>You can now select how a newly added or a restored replica set member synchronizes the data from other members - via logical or file copy-based initial sync. File copy-based initial sync copies physical files from the source node. This sync method is faster than the logical one and it reduces your maintenance time on scaling your cluster.</p>
-<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_images/fcbis.png" data-desc-position="bottom"><img alt="File copy-based initial sync performance comparison diagram" src="../_images/fcbis.png"></a></p>
 <p>The performance advantage of file copy-based over logical initial sync varies based on data set characteristics. While file copy-based initial sync can be significantly quicker, its efficiency is influenced by factors such as document count, collection distribution, and indexing structure.</p>
 <p>This feature is available in Percona Server for MongoDB Pro out of the box. <a href="https://www.percona.com/about/contact">Become a Percona Customer</a> to enjoy all Pro features with little to no effort from your side. Alternatively, you can receive it by building Percona Server from the source code.</p>
 <p><em>Update from 2025-12-02: We no longer release Percona Server for MongoDB Pro Builds. All features included in Pro Builds are accessible for everyone in our public regular builds. If you need a Pro Build for that specific version, please contact your Percona representative for guidance. We’re here to help ensure a smooth transition and continued success with Percona open-source solutions.</em></p>
@@ -4346,34 +4346,6 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 
     
     
-    
-      
-  <span class="md-source-file__fact">
-    
-      
-  <span class="md-icon" title="Contributors">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
-  </span>
-  <span>GitHub</span>
-
-    
-    <nav>
-      
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
-          
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
-        </a>
-      
-        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
-          
-          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&amp;size=72" alt="web-flow">
-        </a>
-      
-      
-      
-    </nav>
-  </span>
-
     
   </aside>
 
@@ -4479,11 +4451,11 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.highlight", "search.share", "search.suggest", "navigation.top", "navigation.tracking", "navigation.instant.progress", "content.tooltips", "content.tabs.link", "content.action.view", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
   
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../js/print-site.js"></script>
       
