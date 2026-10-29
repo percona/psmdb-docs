@@ -1,8 +1,6 @@
 # Telemetry and data collection
 
-Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements. 
-
-Currently, telemetry is added only to the Percona packages for both basic and Pro builds and to Docker images. 
+Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements. Telemetry is added to the Percona packages and to Docker images. 
 
 ## What information is collected
 
@@ -67,9 +65,23 @@ The telemetry also uses the Percona Platform with the following components:
 
 The Telemetry Subsystem extends the functionality of the database. It is built-in in Percona Server for MongoDB and is implemented separately for `mongod` and `mongos` instances. The Telemetry Subsystem is enabled by default during the initial database deployment.
 
-The Telemetry Subsystem collects metrics from the database instance daily to the Metrics File. It creates a new Metrics File for each collection. Before generating a new file, the Telemetry Subsystem deletes the Metrics Files that are older than seven days. This process ensures that only the most recent week's data is maintained.
+!!! note
+    The Telemetry Subsystem doesn't create any Metrics Files during the first 24 hours after the instance starts. This grace period gives you time to [disable telemetry](#disable-telemetry) before any data is collected.
 
-The Telemetry Subsystem creates a file in the local file system using a timestamp as the name with a `.json` extension.
+After the grace period, the Telemetry Subsystem collects metrics from the database instance daily to the Metrics File. It creates a new Metrics File for each collection. Before generating a new file, the Telemetry Subsystem deletes the Metrics Files that are older than seven days. This process ensures that only the most recent week's data is maintained.
+
+A `mongod` instance stores the time of the next collection in the `local.percona.telemetry` collection. This way, the daily schedule is preserved across server restarts. This collection is not replicated. A `mongos` instance has no storage, so it starts a new 24-hour grace period after every restart.
+
+The Telemetry Subsystem creates a file in the local file system named `<timestamp>-<db_instance_id>.json`, where `<timestamp>` is the UNIX time of the collection. The file has `660` permissions so that the Telemetry Agent can read it. The Telemetry Subsystem doesn't create the telemetry directory. If the directory doesn't exist, no Metrics Files are written.
+
+#### Instance identifiers
+
+The Telemetry Subsystem uses the following identifiers to distinguish database instances:
+
+* `db_instance_id` - identifies the database host. A `mongod` instance stores it in the `psmdb_telemetry.data` file in the [`dbPath`](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.dbPath) directory. A `mongos` instance generates a new identifier on every start.
+* `db_internal_id` - identifies the data set. A `mongod` instance stores it in the `local.percona.telemetry` collection.
+
+When the instance starts for the first time, both identifiers have the same value. They may differ later, for example, after you restore a backup, change the `dbPath`, or remove one of these files.
 
 ### Metrics File
 
@@ -86,6 +98,12 @@ Percona stores the Metrics File in one of the following directories on the local
     * `mongod` root path -  `${telemetry root path}/psmdb/`
     * `mongos` root path -  `${telemetry root path}/psmdbs/`
 
+To check the directory that the instance uses, run the following command:
+
+```javascript
+db.adminCommand({getParameter: 1, perconaTelemetryPath: 1})
+```
+
 Percona archives the telemetry history in `${telemetry root path}/history/`.
 
 #### Metrics File format
@@ -100,16 +118,46 @@ The Metrics File uses the Javascript Object Notation (JSON) format. Percona rese
     {
         "source": "mongod",
         "pillar_version": "8.3.7",
-        "pro_features": [],
+        "percona_features": [
+            "MemoryEngine",
+            "HotBackup",
+            "BackupCursorAggregationStage",
+            "BackupCursorExtendAggregationStage",
+            "AWSIAM",
+            "Kerberos",
+            "LDAP",
+            "OIDC",
+            "TDE",
+            "FIPSMode",
+            "FCBIS",
+            "Auditing",
+            "ProfilingRateLimit",
+            "LogRedaction",
+            "ngram"
+        ],
         "db_instance_id": "65e9977d58deb2f66faa591c",
         "db_internal_id": "65e9977d58deb2f66faa591c",
-        "db_cluster_id": "65e997cb58deb2f66faa5954",
-        "shard_svr": "true",
-        "config_svr": "true",
+        "oidc_enabled": "false",
+        "ldap_enabled": "false",
+        "ldap_authorization_enabled": "false",
+        "ldap_sasl_authentication_enabled": "false",
+        "kerberos_enabled": "false",
+        "x509_enabled": "true",
+        "x509_server_enabled": "true",
         "uptime": "102",
         "storage_engine": "wiredTiger",
         "db_replication_id": "65e997cb58deb2f66faa5944",
-        "replication_state": "PRIMARY"
+        "replication_state": "PRIMARY",
+        "initial_sync_method": "logical",
+        "tde_key_storage": "vault",
+        "tde_vault_info": {
+            "title": "HashiCorp Vault API",
+            "version": "1.15.2"
+        },
+        "db_cluster_id": "65e997cb58deb2f66faa5954",
+        "shard_svr": "false",
+        "config_svr": "true",
+        "pbm_active": "2.9.0"
     }
     ```
 
@@ -121,12 +169,65 @@ The Metrics File uses the Javascript Object Notation (JSON) format. Percona rese
     {
         "source": "mongos",
         "pillar_version": "8.3.7",
-        "pro_features": [],
+        "percona_features": [
+            "MemoryEngine",
+            "HotBackup",
+            "BackupCursorAggregationStage",
+            "BackupCursorExtendAggregationStage",
+            "AWSIAM",
+            "Kerberos",
+            "LDAP",
+            "OIDC",
+            "TDE",
+            "FIPSMode",
+            "FCBIS",
+            "Auditing",
+            "ProfilingRateLimit",
+            "LogRedaction",
+            "ngram"
+        ],
         "db_instance_id": "6690fea9066216c6d9d77044",
+        "oidc_enabled": "false",
+        "ldap_enabled": "false",
+        "ldap_authorization_enabled": "false",
+        "ldap_sasl_authentication_enabled": "false",
+        "kerberos_enabled": "false",
+        "x509_enabled": "false",
+        "x509_server_enabled": "false",
         "uptime": "4",
         "db_cluster_id": "6690fea65d86eb061c0bd728"
     }
     ```
+
+#### Collected metrics
+
+The Metrics File includes the following fields. Some fields are present only for a specific instance type or configuration.
+
+| Key | Instance | Description |
+|---|---|---|
+| `source` | `mongod`, `mongos` | The instance type that generated the file: `mongod` or `mongos` |
+| `pillar_version` | `mongod`, `mongos` | The Percona Server for MongoDB version |
+| `percona_features` | `mongod`, `mongos` | The list of Percona features available in the build. The same list is returned in the `perconaFeatures` field of the `buildInfo` command output |
+| `db_instance_id` | `mongod`, `mongos` | The identifier of the database host. See [Instance identifiers](#instance-identifiers) |
+| `db_internal_id` | `mongod` | The identifier of the data set. See [Instance identifiers](#instance-identifiers) |
+| `oidc_enabled` | `mongod`, `mongos` | Whether [OpenID Connect authentication](oidc.md) is configured, that is, at least one identity provider is defined |
+| `ldap_enabled` | `mongod`, `mongos` | Whether an LDAP server is configured with the `ldapServers` option |
+| `ldap_authorization_enabled` | `mongod`, `mongos` | Whether [LDAP authorization](authorization.md) is configured with the `ldapQueryTemplate` option |
+| `ldap_sasl_authentication_enabled` | `mongod`, `mongos` | Whether the `PLAIN` authentication mechanism, used for [LDAP authentication with SASL](sasl-auth.md), is enabled |
+| `kerberos_enabled` | `mongod`, `mongos` | Whether the `GSSAPI` authentication mechanism, used for [Kerberos authentication](kerberos.md), is enabled |
+| `x509_enabled` | `mongod`, `mongos` | Whether client x.509 certificate authentication is enabled. The value is `true` when the `MONGODB-X509` authentication mechanism is enabled, TLS is enabled, and a CA file or the system CA store (`tlsUseSystemCA`) is configured to validate client certificates |
+| `x509_server_enabled` | `mongod`, `mongos` | Whether x.509 certificates are used for cluster member authentication. The value is `true` when `clusterAuthMode` is `x509` or `sendX509`, TLS is enabled, and a CA file (`tlsCAFile` or `tlsClusterCAFile`) is configured to validate peer certificates |
+| `uptime` | `mongod`, `mongos` | The number of seconds since the instance started |
+| `storage_engine` | `mongod` | The storage engine in use. For example, `wiredTiger` or `inMemory` |
+| `db_replication_id` | `mongod` | The replica set identifier. Present only for replica set members |
+| `replication_state` | `mongod` | The member state in the replica set. For example, `PRIMARY` or `SECONDARY`. Present only for replica set members |
+| `initial_sync_method` | `mongod` | The [initial sync](fcbis.md) method: `logical` or `fileCopyBased`. Present only for replica set members |
+| `tde_key_storage` | `mongod` | The key storage used for [data-at-rest encryption](data-at-rest-encryption.md): `keyfile`, `vault`, or `kmip`. Present only if encryption is enabled |
+| `tde_vault_info` | `mongod` | The `title` and `version` of the HashiCorp Vault API, taken from the Vault server's OpenAPI specification. Present only if the [Vault server](vault.md) is used as the key storage |
+| `db_cluster_id` | `mongod`, `mongos` | The sharded cluster identifier. Present only for sharded cluster members |
+| `shard_svr` | `mongod` | Whether the instance is a shard server. Present only for sharded cluster members |
+| `config_svr` | `mongod` | Whether the instance is a config server. Present only for sharded cluster members |
+| `pbm_active` | `mongod` | The version of [Percona Backup for MongoDB :octicons-link-external-16:](https://docs.percona.com/percona-backup-mongodb/index.html) agents. Present only if PBM agents are registered in the `admin.pbmAgents` collection |
 
 ### Telemetry Agent
 
