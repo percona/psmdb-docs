@@ -1,7 +1,7 @@
-# Percona Server for MongoDB 8.0 Documentation
+# Percona Server for MongoDB 9.0 documentation
 
 Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
-for MongoDB 8.0 Community Edition with [enterprise-grade features](comparison.md).
+for MongoDB 9.0 Community Edition with [enterprise-grade features](comparison.md).
 
 [To migrate to Percona Server for MongoDB](install/upgrade-from-mongodb.md) requires no changes to MongoDB applications or code.
 
@@ -10,7 +10,7 @@ for MongoDB 8.0 Community Edition with [enterprise-grade features](comparison.md
     To see which version of Percona Server for MongoDB you are using check the value of the `psmdbVersion` key in the output of the [buildInfo](https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo) database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.
 
 
-[What's new in Percona Server for MongoDB {{release}}](release_notes/{{release}}.md){ .md-button .md-button }
+[Release notes](release_notes/index.md){ .md-button .md-button }
     
 <div data-grid markdown><div data-banner markdown>
 
