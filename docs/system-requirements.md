@@ -20,3 +20,14 @@ Percona Server for MongoDB requires the following minimum x86_64 microarchitectu
 ## ARM64
 
 Percona Server for MongoDB requires the ARMv8.2-A or later microarchitectures. Support for ARM64 (AARch64) includes [AWS Graviton2 or newer processors](https://aws.amazon.com/ec2/graviton/).﻿
+
+## Ubuntu 26.04
+
+Percona Server for MongoDB 9.0.4-1 **testing packages** are available for Ubuntu 26.04 LTS (Resolute Raccoon) on AMD64 and ARM64. The CPU requirements in the [x86_64](#x86_64) and [ARM64](#arm64) sections also apply.
+
+The packages are in the [Percona Server for MongoDB 9.0 testing
+repository](https://repo.percona.com/psmdb-90/apt/pool/testing/p/percona-server-mongodb/).
+Select packages whose names contain `9.0.4-1.resolute` and the architecture for your system: `amd64` or `arm64`.
+
+!!! warning
+    These are testing packages. Their availability does not indicate a general availability release. See the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb) for supported production platforms.
