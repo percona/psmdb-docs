@@ -30,4 +30,4 @@ repository](https://repo.percona.com/psmdb-90/apt/pool/testing/p/percona-server-
 Select packages whose names contain `9.0.4-1.resolute` and the architecture for your system: `amd64` or `arm64`.
 
 !!! warning
-   These are testing packages. Their availability does not indicate a general availability release. See the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb) for supported production platforms.
+    These are testing packages. Their availability does not indicate a general availability release. See the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb) for supported production platforms.
