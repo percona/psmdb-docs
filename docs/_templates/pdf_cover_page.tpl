@@ -7,6 +7,6 @@
 {% if config.site_description %}
 <h1>{{ config.site_description }}</h1>
 {% endif %} 
-<h2>7.0.48-25 (November 16, 2026)</h2>
+<h2>7.0.48-25 (November 13, 2026)</h2>
 <br>
 <br>
