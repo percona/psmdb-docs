@@ -66,7 +66,7 @@ The telemetry also uses the Percona Platform with the following components:
 The Telemetry Subsystem extends the database's functionality. It is built into Percona Server for MongoDB and is implemented separately for `mongod` and `mongos` instances. The Telemetry Subsystem is enabled by default during the initial database deployment.
 
 !!! note
-    The Telemetry Subsystem doesn't create any Metrics Files during the first 24 hours after the first start of the instance. This grace period gives you time to [disable telemetry](#disable-telemetry) before any data is collected. You can control the grace period with `perconaTelemetryGracePeriod` server parameter (default value is `86400` seconds = 24 hours).
+    The Telemetry Subsystem doesn't create any Metrics Files during the first 24 hours after the `mongod` instance's first start or after each start of a `mongos` instance. Restarting `mongod` preserves its existing collection schedule rather than starting a new grace period. The grace period gives you time to [disable telemetry](#disable-telemetry) before any data is collected. You can control the grace period with `perconaTelemetryGracePeriod` server parameter (default value is `86400` seconds = 24 hours).
 
 After the grace period, the Telemetry Subsystem collects metrics from the database instance daily and writes them to the Metrics File. It creates a new Metrics File for each collection. Before generating a new file, the Telemetry Subsystem deletes Metrics Files older than 7 days. This process ensures that only the most recent week's data is maintained.
 
