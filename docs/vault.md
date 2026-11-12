@@ -112,7 +112,7 @@ Rotating the master key process also re-encrypts the keystore using the new mast
 
 ### Key rotation in replica sets
 
-Starting with version [6.0.5-4](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.md), you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The `mongod` server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.
+You can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The `mongod` server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.
 
 The key rotation steps are the following:
 

@@ -200,7 +200,7 @@ For example, to set the number of connections in the pool to 5, use the [setPara
 
 As of version 6.0.2-1, you can specify multiple LDAP servers for failover. Percona Server for MongoDB sends bind requests to the first server defined in the list. When this server is down or unavailable, it sends requests to the next server  and so on. Note that Percona Server for MongoDB keeps sending requests to this server even after the unavailable server recovers.
 
-Specify the LDAP servers as a comma-separated list in the format `<host>:<port>` for the [–ldapServers](https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-ldapservers) option.
+Specify the LDAP servers as a comma-separated list in the format `<host>:<port>` for the [–ldapServers](https://www.mongodb.com/docs/manual/reference/program/mongod/#std-option-mongod.--ldapServers) option.
 
 You can define the option value at the server startup by editing the configuration file.
 
