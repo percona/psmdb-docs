@@ -13669,19 +13669,18 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
         })
         </script>
         </head><body><h1 id="telemetry-and-data-collection">Telemetry and data collection<a class="headerlink" href="#telemetry-telemetry-and-data-collection" title="Permanent link">¶</a></h1>
-<p>Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements. </p>
-<p>Currently, telemetry is added only to the Percona packages for both basic and Pro builds and to Docker images. </p>
+<p>Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements. Telemetry is added to the Percona packages and to Docker images. </p>
 <h2 id="telemetry-what-information-is-collected">What information is collected<a class="headerlink" href="#telemetry-what-information-is-collected" title="Permanent link">¶</a></h2>
 <p>Telemetry collects the following information:</p>
 <ul>
-<li>The information about the installation environment when you install the software.</li>
-<li>The information about the operating system such as OS name, the architecture, the list of Percona packages. See more in the <a href="#telemetry-telemetry-agent">Telemetry Agent section</a>.</li>
+<li>Information about the installation environment when you install the software.</li>
+<li>Information about the operating system, such as the OS name, the architecture, and the list of Percona packages. See more in the <a href="#telemetry-telemetry-agent">Telemetry Agent section</a>.</li>
 <li>The metrics from the database instance. See more in the <a href="#telemetry-telemetry-subsystem">Telemetry Subsystem section</a>.</li>
 </ul>
 <h2 id="telemetry-what-is-not-collected">What is NOT collected<a class="headerlink" href="#telemetry-what-is-not-collected" title="Permanent link">¶</a></h2>
-<p>Percona protects your privacy and doesn’t collect any personal information about you like database names, user names or credentials or any user-entered values. </p>
+<p>Percona protects your privacy and doesn’t collect any personal information about you, such as database names, usernames, credentials, or any user-entered values. </p>
 <p>All collected data is anonymous, meaning it can’t be traced back to any individual user. To learn more about how Percona handles your data, read the <a href="https://www.percona.com/privacy-policy">Percona Privacy statement</a>.</p>
-<p>You control whether to share this information. Participation in this program is completely voluntary. If don’t want to share anonymous data, you can <a href="#telemetry-disable-telemetry">disable telemetry</a>.</p>
+<p>You control whether to share this information. Participation in this program is completely voluntary. If you don’t want to share anonymous data, you can <a href="#telemetry-disable-telemetry">disable telemetry</a>.</p>
 <h2 id="telemetry-why-telemetry-matters">Why telemetry matters<a class="headerlink" href="#telemetry-why-telemetry-matters" title="Permanent link">¶</a></h2>
 <p>Benefits for Percona:</p>
 <table>
@@ -13729,7 +13728,7 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
 <p>Percona collects information using the following components:</p>
 <ul>
 <li>
-<p>Telemetry script that sends the information about the software and the environment where it is installed. This information is collected only once during the installation.</p>
+<p>Telemetry script that sends information about the software and the environment where it is installed. This information is collected only once during the installation.</p>
 </li>
 <li>
 <p>The Telemetry Subsystem collects the necessary metrics directly from the database and stores them in a Metrics File.</p>
@@ -13744,7 +13743,7 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
 <p>Collects OS-level metrics</p>
 </li>
 <li>
-<p>Reads the Metrics File, adds the OS-level metrics</p>
+<p>Reads the Metrics File and adds the OS-level metrics</p>
 </li>
 <li>
 <p>Sends the full set of metrics to the Percona Platform</p>
@@ -13765,9 +13764,21 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
 </li>
 </ul>
 <h3 id="telemetry-telemetry-subsystem">Telemetry Subsystem<a class="headerlink" href="#telemetry-telemetry-subsystem" title="Permanent link">¶</a></h3>
-<p>The Telemetry Subsystem extends the functionality of the database. It is built-in in Percona Server for MongoDB and is implemented separately for <code>mongod</code> and <code>mongos</code> instances. The Telemetry Subsystem is enabled by default during the initial database deployment.</p>
-<p>The Telemetry Subsystem collects metrics from the database instance daily to the Metrics File. It creates a new Metrics File for each collection. Before generating a new file, the Telemetry Subsystem deletes the Metrics Files that are older than seven days. This process ensures that only the most recent week’s data is maintained.</p>
-<p>The Telemetry Subsystem creates a file in the local file system using a timestamp as the name with a <code>.json</code> extension.</p>
+<p>The Telemetry Subsystem extends the database’s functionality. It is built into Percona Server for MongoDB and is implemented separately for <code>mongod</code> and <code>mongos</code> instances. The Telemetry Subsystem is enabled by default during the initial database deployment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Telemetry Subsystem doesn’t create any Metrics Files during the first 24 hours after the <code>mongod</code> instance’s first start or after each start of a <code>mongos</code> instance. Restarting <code>mongod</code> preserves its existing collection schedule rather than starting a new grace period. The grace period gives you time to <a href="#telemetry-disable-telemetry">disable telemetry</a> before any data is collected. You can control the grace period with <code>perconaTelemetryGracePeriod</code> server parameter (default value is <code>86400</code> seconds = 24 hours).</p>
+</div>
+<p>After the grace period, the Telemetry Subsystem collects metrics from the database instance daily and writes them to the Metrics File. It creates a new Metrics File for each collection. Before generating a new file, the Telemetry Subsystem deletes Metrics Files older than 7 days. This process ensures that only the most recent week’s data is maintained.</p>
+<p>A <code>mongod</code> instance stores the time of the next collection in the <code>local.percona.telemetry</code> collection. This way, the daily schedule is preserved across server restarts. This collection is not replicated. A <code>mongos</code> instance has no storage, so it starts a new 24-hour grace period after every restart.</p>
+<p>The Telemetry Subsystem creates a file in the local file system named <code>&lt;timestamp&gt;-&lt;db_instance_id&gt;.json</code>, where <code>&lt;timestamp&gt;</code> is the UNIX time of the collection. The file has <code>660</code> permissions so that the Telemetry Agent can read it. The Telemetry Subsystem doesn’t create the telemetry directory. If the directory doesn’t exist, no Metrics Files are written.</p>
+<h4 id="telemetry-instance-identifiers">Instance identifiers<a class="headerlink" href="#telemetry-instance-identifiers" title="Permanent link">¶</a></h4>
+<p>The Telemetry Subsystem uses the following identifiers to distinguish database instances:</p>
+<ul>
+<li><code>db_instance_id</code> - identifies the database host. A <code>mongod</code> instance stores it in the <code>psmdb_telemetry.data</code> file in the <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.dbPath"><code>dbPath</code></a> directory. A <code>mongos</code> instance generates a new identifier on every start.</li>
+<li><code>db_internal_id</code> - identifies the data set. A <code>mongod</code> instance stores it in the <code>local.percona.telemetry</code> collection.</li>
+</ul>
+<p>When the instance starts for the first time, both identifiers have the same value. They may differ later, for example, after you restore a backup, change the <code>dbPath</code>, or remove one of these files.</p>
 <h3 id="telemetry-metrics-file">Metrics File<a class="headerlink" href="#telemetry-metrics-file" title="Permanent link">¶</a></h3>
 <p>The Metrics File is a JSON file with the metrics collected by the Telemetry Subsystem. </p>
 <h4 id="telemetry-locations">Locations<a class="headerlink" href="#telemetry-locations" title="Permanent link">¶</a></h4>
@@ -13777,16 +13788,19 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
 <p>Telemetry root path - <code>/usr/local/percona/telemetry</code></p>
 </li>
 <li>
-<p>Percona Server for MongoDB has two root paths since the telemetry Subsystem is enabled both for the <code>mongod</code> and <code>mongos</code> instances. The paths are the following:  </p>
+<p>Percona Server for MongoDB has two root paths since the telemetry Subsystem is enabled for both the <code>mongod</code> and <code>mongos</code> instances. The paths are the following:  </p>
 <ul>
 <li><code>mongod</code> root path -  <code>${telemetry root path}/psmdb/</code></li>
 <li><code>mongos</code> root path -  <code>${telemetry root path}/psmdbs/</code></li>
 </ul>
 </li>
 </ul>
+<p>To check the directory that the instance uses, run the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span><span class="nx">getParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">perconaTelemetryPath</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
+</code></pre></div>
 <p>Percona archives the telemetry history in <code>${telemetry root path}/history/</code>.</p>
 <h4 id="telemetry-metrics-file-format">Metrics File format<a class="headerlink" href="#telemetry-metrics-file-format" title="Permanent link">¶</a></h4>
-<p>The Metrics File uses the Javascript Object Notation (JSON) format. Percona reserves the right to extend the current set of JSON structure attributes in the future.</p>
+<p>The Metrics File uses the JavaScript Object Notation (JSON) format. Percona reserves the right to extend the current set of JSON structure attributes in the future.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="telemetry-__tabbed_1_1" name="telemetry-__tabbed_1" type="radio"><input id="telemetry-__tabbed_1_2" name="telemetry-__tabbed_1" type="radio"><div class="tabbed-labels"><label for="telemetry-__tabbed_1_1"><code>mongod</code> Metrics File</label><label for="telemetry-__tabbed_1_2"><code>mongos</code> Metrics File</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -13794,16 +13808,46 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mongod"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"pillar_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8.3.7"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"pro_features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">"percona_features"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"MemoryEngine"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"HotBackup"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"BackupCursorAggregationStage"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"BackupCursorExtendAggregationStage"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"AWSIAM"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"Kerberos"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"LDAP"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"OIDC"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"TDE"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"FIPSMode"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"FCBIS"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"Auditing"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"ProfilingRateLimit"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"LogRedaction"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"ngram"</span>
+<span class="w">    </span><span class="p">],</span>
 <span class="w">    </span><span class="nt">"db_instance_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65e9977d58deb2f66faa591c"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"db_internal_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65e9977d58deb2f66faa591c"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"db_cluster_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65e997cb58deb2f66faa5954"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"shard_svr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"config_svr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"oidc_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ldap_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ldap_authorization_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ldap_sasl_authentication_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"kerberos_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"x509_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"x509_server_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"storage_engine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wiredTiger"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"db_replication_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65e997cb58deb2f66faa5944"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"replication_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRIMARY"</span>
+<span class="w">    </span><span class="nt">"replication_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PRIMARY"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"initial_sync_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"logical"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"tde_key_storage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vault"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"tde_vault_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HashiCorp Vault API"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.15.2"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"db_cluster_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65e997cb58deb2f66faa5954"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"shard_svr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"config_svr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"pbm_active"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.9.0"</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -13812,8 +13856,31 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mongos"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"pillar_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8.3.7"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"pro_features"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">"percona_features"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"MemoryEngine"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"HotBackup"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"BackupCursorAggregationStage"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"BackupCursorExtendAggregationStage"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"AWSIAM"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"Kerberos"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"LDAP"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"OIDC"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"TDE"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"FIPSMode"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"FCBIS"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"Auditing"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"ProfilingRateLimit"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"LogRedaction"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"ngram"</span>
+<span class="w">    </span><span class="p">],</span>
 <span class="w">    </span><span class="nt">"db_instance_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6690fea9066216c6d9d77044"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"oidc_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ldap_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ldap_authorization_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ldap_sasl_authentication_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"kerberos_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"x509_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"x509_server_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"uptime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"db_cluster_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6690fea65d86eb061c0bd728"</span>
 <span class="p">}</span>
@@ -13821,6 +13888,134 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
 </div>
 </div>
 </div>
+<h4 id="telemetry-collected-metrics">Collected metrics<a class="headerlink" href="#telemetry-collected-metrics" title="Permanent link">¶</a></h4>
+<p>The Metrics File includes the following fields. Some fields are present only for a specific instance type or configuration.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Instance</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>The instance type that generated the file: <code>mongod</code> or <code>mongos</code></td>
+</tr>
+<tr>
+<td><code>pillar_version</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>The Percona Server for MongoDB version</td>
+</tr>
+<tr>
+<td><code>percona_features</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>The list of Percona features available in the build. The same list is returned in the <code>perconaFeatures</code> field of the <code>buildInfo</code> command output</td>
+</tr>
+<tr>
+<td><code>db_instance_id</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>The identifier of the database host. See <a href="#telemetry-instance-identifiers">Instance identifiers</a></td>
+</tr>
+<tr>
+<td><code>db_internal_id</code></td>
+<td><code>mongod</code></td>
+<td>The identifier of the data set. See <a href="#telemetry-instance-identifiers">Instance identifiers</a></td>
+</tr>
+<tr>
+<td><code>oidc_enabled</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>Whether <a href="#oidc">OpenID Connect authentication</a> is configured, that is, at least one identity provider is defined</td>
+</tr>
+<tr>
+<td><code>ldap_enabled</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>Whether an LDAP server is configured with the <code>ldapServers</code> option</td>
+</tr>
+<tr>
+<td><code>ldap_authorization_enabled</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>Whether <a href="#authorization">LDAP authorization</a> is configured with the <code>security.ldap.authz.queryTemplate</code> option</td>
+</tr>
+<tr>
+<td><code>ldap_sasl_authentication_enabled</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>Whether the <code>PLAIN</code> authentication mechanism, used for <a href="#sasl-auth">LDAP authentication with SASL</a>, is enabled</td>
+</tr>
+<tr>
+<td><code>kerberos_enabled</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>Whether the <code>GSSAPI</code> authentication mechanism, used for <a href="#kerberos">Kerberos authentication</a>, is enabled</td>
+</tr>
+<tr>
+<td><code>x509_enabled</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>Whether client x.509 certificate authentication is enabled. The value is <code>true</code> when the <code>MONGODB-X509</code> authentication mechanism is enabled, TLS is enabled, and a CA file or the system CA store (<code>tlsUseSystemCA</code>) is configured to validate client certificates</td>
+</tr>
+<tr>
+<td><code>x509_server_enabled</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>Whether x.509 certificates are used for cluster member authentication. The value is <code>true</code> when <code>clusterAuthMode</code> is <code>x509</code> or <code>sendX509</code>, TLS is enabled, and a CA file (<code>tlsCAFile</code> or <code>tlsClusterCAFile</code>) is configured to validate peer certificates</td>
+</tr>
+<tr>
+<td><code>uptime</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>The number of seconds since the instance started</td>
+</tr>
+<tr>
+<td><code>storage_engine</code></td>
+<td><code>mongod</code></td>
+<td>The storage engine in use. For example, <code>wiredTiger</code> or <code>inMemory</code></td>
+</tr>
+<tr>
+<td><code>db_replication_id</code></td>
+<td><code>mongod</code></td>
+<td>The replica set identifier. Present only for replica set members</td>
+</tr>
+<tr>
+<td><code>replication_state</code></td>
+<td><code>mongod</code></td>
+<td>The member state in the replica set. For example, <code>PRIMARY</code> or <code>SECONDARY</code>. Present only for replica set members</td>
+</tr>
+<tr>
+<td><code>initial_sync_method</code></td>
+<td><code>mongod</code></td>
+<td>The <a href="#fcbis">initial sync</a> method: <code>logical</code> or <code>fileCopyBased</code>. Present only for replica set members</td>
+</tr>
+<tr>
+<td><code>tde_key_storage</code></td>
+<td><code>mongod</code></td>
+<td>The key storage used for <a href="#data-at-rest-encryption">data-at-rest encryption</a>: <code>keyfile</code>, <code>vault</code>, or <code>kmip</code>. Present only if encryption is enabled</td>
+</tr>
+<tr>
+<td><code>tde_vault_info</code></td>
+<td><code>mongod</code></td>
+<td>The <code>title</code> and <code>version</code> of the HashiCorp Vault API, taken from the Vault server’s OpenAPI specification. Present only if the <a href="#vault">Vault server</a> is used as the key storage</td>
+</tr>
+<tr>
+<td><code>db_cluster_id</code></td>
+<td><code>mongod</code>, <code>mongos</code></td>
+<td>The sharded cluster identifier. Present only for sharded cluster members</td>
+</tr>
+<tr>
+<td><code>shard_svr</code></td>
+<td><code>mongod</code></td>
+<td>Whether the instance is a shard server. Present only for sharded cluster members</td>
+</tr>
+<tr>
+<td><code>config_svr</code></td>
+<td><code>mongod</code></td>
+<td>Whether the instance is a config server. Present only for sharded cluster members</td>
+</tr>
+<tr>
+<td><code>pbm_active</code></td>
+<td><code>mongod</code></td>
+<td>The version of <a href="https://docs.percona.com/percona-backup-mongodb/index.html">Percona Backup for MongoDB <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> agents. Present only if PBM agents are registered in the <code>admin.pbmAgents</code> collection</td>
+</tr>
+</tbody>
+</table>
 <h3 id="telemetry-telemetry-agent">Telemetry Agent<a class="headerlink" href="#telemetry-telemetry-agent" title="Permanent link">¶</a></h3>
 <p>The Percona Telemetry Agent runs as a dedicated OS daemon process <code>percona-telemetry-agent</code>. It creates, reads, writes, and deletes JSON files in the <a href="#telemetry-locations"><code>${telemetry root path}</code></a>. You can find the agent’s log file at <code>/var/log/percona/telemetry-agent.log</code>.</p>
 <p>The agent does not send anything if there are no Percona-specific files in the target directory.</p>
@@ -13892,7 +14087,7 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
 </tr>
 <tr>
 <td>“hardware_arch”</td>
-<td>The type of process used in the environment</td>
+<td>The type of processor used in the environment</td>
 </tr>
 <tr>
 <td>“deployment”</td>
@@ -13953,7 +14148,7 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
 <p>Telemetry is enabled by default when you install the software. It is also included in the software packages (Telemetry Subsystem and Telemetry Agent) and enabled by default.</p>
 <p>If you don’t want to send the telemetry data, here’s how: </p>
 <h3 id="telemetry-disable-the-telemetry-collected-during-the-installation">Disable the telemetry collected during the installation<a class="headerlink" href="#telemetry-disable-the-telemetry-collected-during-the-installation" title="Permanent link">¶</a></h3>
-<p>If you decide not to send usage data to Percona when you install the software, you can set the <code>PERCONA_TELEMETRY_DISABLE=1</code> environment variable for either the root user or in the operating system prior to the installation process.</p>
+<p>If you decide not to send usage data to Percona when installing the software, you can set the <code>PERCONA_TELEMETRY_DISABLE=1</code> environment variable for the root user or in the operating system prior to installation.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="telemetry-__tabbed_2_1" name="telemetry-__tabbed_2" type="radio"><input id="telemetry-__tabbed_2_2" name="telemetry-__tabbed_2" type="radio"><input id="telemetry-__tabbed_2_3" name="telemetry-__tabbed_2" type="radio"><div class="tabbed-labels"><label for="telemetry-__tabbed_2_1">Debian-derived distribution</label><label for="telemetry-__tabbed_2_2">Red Hat-derived distribution</label><label for="telemetry-__tabbed_2_3">Docker</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -13979,20 +14174,20 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
 <li><code>--name psmdb</code> - Assigns the name “psmdb” to the container.</li>
 <li><code>--restart always</code> - Configures the container to restart automatically if it stops or crashes.</li>
 <li><code>-e PERCONA_TELEMETRY_DISABLE=1</code> - Sets an environment variable within the container. In this case, it disables telemetry for Percona Server for MongoDB.</li>
-<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>8.3.13-4-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
+<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>8.3.13-4-multi</code>. The <code>multi</code> part of the tag identifies the architecture (x86_64 or ARM64) and selects the corresponding image.</li>
 </ul>
 </div>
 </div>
 </div>
 <h2 id="telemetry-disable-telemetry-for-the-installed-software">Disable telemetry for the installed software<a class="headerlink" href="#telemetry-disable-telemetry-for-the-installed-software" title="Permanent link">¶</a></h2>
-<p>Percona software you installed includes the telemetry feature that collects information about how you use this software. It is enabled by default. To turn  off telemetry, you need to disable both the Telemetry Agent and the Telemetry Subsystem.</p>
+<p>The Percona software you installed includes a telemetry feature that collects information about how you use it. It is enabled by default. To turn  off telemetry, you need to disable both the Telemetry Agent and the Telemetry Subsystem.</p>
 <h3 id="telemetry-disable-telemetry-agent">Disable Telemetry Agent<a class="headerlink" href="#telemetry-disable-telemetry-agent" title="Permanent link">¶</a></h3>
 <p>In the first 24 hours, no information is collected or sent.</p>
 <p>You can either disable the Telemetry Agent temporarily or permanently.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="telemetry-__tabbed_3_1" name="telemetry-__tabbed_3" type="radio"><input id="telemetry-__tabbed_3_2" name="telemetry-__tabbed_3" type="radio"><div class="tabbed-labels"><label for="telemetry-__tabbed_3_1">Disable temporarily</label><label for="telemetry-__tabbed_3_2">Disable permanently</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Turn off Telemetry Agent temporarily until the next server restart with this command:</p>
+<p>Turn off the Telemetry Agent temporarily until the next server restart with this command:</p>
 <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>stop<span class="w"> </span>percona-telemetry-agent
 </code></pre></div>
 </div>
@@ -14003,9 +14198,9 @@ grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.13-4-x86_64.&l
 </div>
 </div>
 </div>
-<p>Even after stopping the Telemetry Agent service, a different part of the software (Telemetry Subsystem) continues to create the Metrics File related to telemetry every day and saves that file for seven days.</p>
+<p>Even after stopping the Telemetry Agent service, another part of the software (Telemetry Subsystem) continues to create the telemetry Metrics File every day and save it for 7 days.</p>
 <h3 id="telemetry-telemetry-agent-dependencies-and-removal-considerations">Telemetry Agent dependencies and removal considerations<a class="headerlink" href="#telemetry-telemetry-agent-dependencies-and-removal-considerations" title="Permanent link">¶</a></h3>
-<p>If you decide to remove the Telemetry Agent, this also removes the database. That’s because the Telemetry Agent is a mandatory dependency for Percona Server for MongoDB. </p>
+<p>If you decide to remove the Telemetry Agent, it will also remove the database. That’s because the Telemetry Agent is a mandatory dependency for Percona Server for MongoDB. </p>
 <p>On YUM-based systems, the system removes the Telemetry Agent package when you remove the last dependency package.</p>
 <p>On APT-based systems, you must use the ‘–autoremove’ option to remove all dependencies, as the system doesn’t automatically remove the Telemetry Agent when you remove the database package.</p>
 <p>The ‘–autoremove’ option only removes unnecessary dependencies. It doesn’t remove dependencies required by other packages or guarantee the removal of all package-associated dependencies.</p>
@@ -14021,7 +14216,7 @@ for persistent changes:    </p>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>Use the <code>--setParameter</code> command line option arguments for both <code>mongod</code> and <code>mongos</code> processes. The server starts with the telemetry Subsystem disabled:    </p>
+<p>Use the <code>--setParameter</code> command-line option arguments for both <code>mongod</code> and <code>mongos</code> processes. The server starts with the telemetry Subsystem disabled:    </p>
 <div class="highlight"><pre><span></span><code>mongod<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--setParameter<span class="w"> </span><span class="nv">perconaTelemetry</span><span class="o">=</span><span class="nb">false</span>
 mongos<span class="w"> </span><span class="se">\</span>
@@ -14038,7 +14233,7 @@ to make changes at runtime. The changes apply until the server restart.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you wish to re-enable the Telemetry Subsystem, set the <code>perconaTelemetry</code> to <code>true</code> for the <code>setParameter</code> command.</p>
+<p>If you wish to re-enable the Telemetry Subsystem, set <code>perconaTelemetry</code> to <code>true</code> for the <code>setParameter</code> command.</p>
 </div></body></html></section><section class="print-page" id="code-of-conduct" heading-number="8.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
