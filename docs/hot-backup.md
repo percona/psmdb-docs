@@ -40,7 +40,7 @@ An `ok` value of `1` indicates that the backup succeeded. Starting with
 ```json
 {
     "warning": "The `createBackup` command has been deprecated and will be removed in version 9.0; use Percona Backup for MongoDB instead",
-    "ok": 1
+    "ok": 1.0
 }
 ```
 
@@ -56,7 +56,7 @@ db.runCommand({createBackup: 1, backupDir: ""})
 ```json
 {
     "warning": "The `createBackup` command has been deprecated and will be removed in version 9.0; use Percona Backup for MongoDB instead",
-    "ok": 0,
+    "ok": 0.0,
     "errmsg": "Destination path must be absolute"
 }
 ```
