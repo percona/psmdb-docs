@@ -6,7 +6,7 @@ Percona Server for MongoDB 8.3 is based on [MongoDB Community Edition 8.3](https
 |------------------------| ------ | -------- |
 | **Storage Engines**    | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br> - [Percona Memory Engine](inmemory.md) | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br>- [In-Memory](https://docs.mongodb.com/v6.0/core/inmemory/) (Enterprise only)|
 | **Encryption-at-Rest** | - Key servers = [Hashicorp Vault](vault.md), [KMIP](kmip.md) <br> - Fully open source | - Key server = KMIP <br> - Enterprise only |
-| **Hot Backup**         | [YES](hot-backup.md) (replica set) | NO  |
+| **Hot Backup**         | [YES](hot-backup.md) (replica set; `createBackup` deprecated starting with 8.3.17-5; removal in 9.0) | NO  |
 | **LDAP Authentication**| (legacy) [LDAP authentication with SASL](authentication.md) | Enterprise only |
 | **LDAP Authorization** | [YES](authorization.md)| Enterprise only |
 | **Kerberos Authentication** | [YES](authentication.md)| Enterprise only |
