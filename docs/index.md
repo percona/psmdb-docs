@@ -31,7 +31,9 @@ Define who has access to the database and manage their permissions in a single p
 
 ### :material-backup-restore: Backup and restore { .title }
 
-Make enterprise-level backups and restores with guaranteed data consistency using Percona Backup for MongoDB (PBM). Or, create physical backups on a running server using the built-in [hot backup](hot-backup.md) functionality. 
+Use Percona Backup for MongoDB (PBM) for consistent backups and restores of
+replica sets and sharded clusters. The built-in [`createBackup` command](hot-backup.md)
+is deprecated starting with 8.3.17-5 and will be removed in 9.0.
 
 [Get started with PBM :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/installation.html){ .md-button }
 
