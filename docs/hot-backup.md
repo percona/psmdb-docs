@@ -5,14 +5,10 @@ Percona Server for MongoDB includes an integrated open source hot backup system 
 server without notable performance and operating degradation.
 
 !!! warning "Deprecated starting with 8.3.17-5"
+    The `createBackup` command is deprecated and will be removed in Percona Server for MongoDB 9.0. Use [Percona Backup for MongoDB
+    :octicons-link-external-16:](https://docs.percona.com/percona-backup-mongodb/index.html){:target="_blank"} instead. The command is available in 8.3.
 
-    The `createBackup` command is deprecated and will be removed in Percona
-    Server for MongoDB 9.0. Use [Percona Backup for MongoDB
-    :octicons-link-external-16:](https://docs.percona.com/percona-backup-mongodb/index.html){:target="_blank"}
-    instead. The command remains available in 8.3.
-
-Hot backups run on each `mongod` independently. They are not synchronized
-across replica set members or shards in a cluster.
+Hot backups run on each `mongod` independently. They are not synchronized across replica set members or shards in a cluster.
 
 ## Make a backup
 

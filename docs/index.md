@@ -31,9 +31,7 @@ Define who has access to the database and manage their permissions in a single p
 
 ### :material-backup-restore: Backup and restore { .title }
 
-Use Percona Backup for MongoDB (PBM) for consistent backups and restores of
-replica sets and sharded clusters. The built-in [`createBackup` command](hot-backup.md)
-is deprecated starting with 8.3.17-5 and will be removed in 9.0.
+Use Percona Backup for MongoDB (PBM) for consistent backups and restores of replica sets and sharded clusters. The built-in [`createBackup` command](hot-backup.md) is deprecated starting with 8.3.17-5 and will be removed in 9.0.
 
 [Get started with PBM :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/installation.html){ .md-button }
 
