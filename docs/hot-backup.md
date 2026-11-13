@@ -41,7 +41,20 @@ An `ok` value of `1` indicates that the backup succeeded. Starting with
 }
 ```
 
-The server also logs the deprecation warning.
+The server also logs the deprecation warning. For example:
+
+```json
+{
+    "t": {
+        "$date": "2026-11-13T13:23:50.919+00:00"
+    },
+    "s": "W",
+    "c": "COMMAND",
+    "id": 29176,
+    "ctx": "conn1",
+    "msg": "The `createBackup` command has been deprecated and will be removed in version 9.0; use Percona Backup for MongoDB instead"
+}
+```
 
 If the backup fails, the response contains an `ok` value of `0` and an error
 message. For example, an empty destination path causes an error:
