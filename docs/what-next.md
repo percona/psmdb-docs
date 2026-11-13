@@ -28,8 +28,7 @@ Protecting your data from unauthorized access is crucial. Introducing data-at-re
 
 Protect your database against data loss with Percona Backup for MongoDB, an open
 source solution for consistent backups and restores of sharded clusters and
-replica sets. The built-in [`createBackup` command](hot-backup.md) is deprecated
-starting with 8.3.17-5 and will be removed in 9.0.
+replica sets.
 
 [Percona Backup for MongoDB :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/installation.html){.md-button}
 
