@@ -7,6 +7,6 @@
 {% if config.site_description %}
 <h1>{{ config.site_description }}</h1>
 {% endif %} 
-<h2>{{ config.plugins.macros.variables.release }} ({{ config.plugins.macros.variables.date['8_3_17'] }})</h2>
+<h2>{{ config.plugins.macros.variables.release }} ({{ config.plugins.macros.variables.release_date }})</h2>
 <br>
 <br>
