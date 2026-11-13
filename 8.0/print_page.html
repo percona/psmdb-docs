@@ -26,7 +26,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.0">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -2895,6 +2895,34 @@
   
   
     <li class="md-nav__item">
+      <a href="release_notes/8.0.38-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Percona Server for MongoDB 8.0.38-16 (2026-11-13)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="release_notes/8.0.34-15.html" class="md-nav__link">
         
   
@@ -4828,6 +4856,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
         
           <li class="md-nav__item">
+  <a href="#release_notes-8.0.38-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Percona Server for MongoDB 8.0.38-16 (2026-11-13)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#release_notes-8.0.34-15" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5133,11 +5172,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>
 <img src="_images/Percona_Color_Dark.svg" alt="Percona logo" />
 </p>
-<h1>Server for MongoDB 8.0.34-15</h1>
+<h1>Server for MongoDB 8.0.38-16</h1>
 
 <h1>Documentation</h1>
  
-<h2>8.0.34-15 (October 22, 2026)</h2>
+<h2>8.0.38-16 (November 13, 2026)</h2>
 <br>
 <br>
         </section>
@@ -5162,7 +5201,7 @@ for MongoDB 8.0 Community Edition with <a href="#comparison">enterprise-grade fe
 <div class="admonition hint">
 <p>To see which version of Percona Server for MongoDB you are using check the value of the <code>psmdbVersion</code> key in the output of the <a href="https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo">buildInfo</a> database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.</p>
 </div>
-<p><a class="md-button md-button" href="#release_notes-8.0.34-15">What’s new in Percona Server for MongoDB 8.0.34-15</a></p>
+<p><a class="md-button md-button" href="#release_notes-8.0.38-16">What’s new in Percona Server for MongoDB 8.0.38-16</a></p>
 <div data-grid="data-grid">
 <div data-banner="data-banner">
 <h2 class="title" id="index-installation-guides"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2.03c4.73.47 8.5 4.22 8.95 8.97A9.976 9.976 0 0 1 13 21.93v-2c3.64-.43 6.5-3.32 6.96-6.96A7.994 7.994 0 0 0 13 4.05V2.03m-2 .03v2c-1.43.2-2.78.78-3.9 1.68L5.67 4.26A9.83 9.83 0 0 1 11 2.06M4.26 5.67 5.69 7.1A8 8 0 0 0 4.05 11h-2c.2-1.96.95-3.81 2.21-5.33M2.06 13h2c.18 1.42.75 2.77 1.63 3.9l-1.42 1.43A10.04 10.04 0 0 1 2.06 13m5.04 5.37c1.13.88 2.48 1.45 3.9 1.63v2c-1.96-.21-3.82-1-5.33-2.26zM12 16.5 7.5 12H11V8h2v4h3.5z"></path></svg></span> Installation guides<a class="headerlink" href="#index-installation-guides" title="Permanent link">¶</a></h2>
@@ -5534,12 +5573,12 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-cache<span class="w"> </span>madison<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 <p>Sample output:</p>
-<div class="no-copy highlight"><pre><span></span><code>percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">8</span>.0.34-15.bullseye<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-80/apt<span class="w"> </span>bullseye/main<span class="w"> </span>amd64<span class="w"> </span>Packages
+<div class="no-copy highlight"><pre><span></span><code>percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">8</span>.0.38-16.bullseye<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-80/apt<span class="w"> </span>bullseye/main<span class="w"> </span>amd64<span class="w"> </span>Packages
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 8.0.34-15, run the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb<span class="o">=</span><span class="m">8</span>.0.34-15.bullseye<span class="w"> </span>percona-server-mongodb-mongos<span class="o">=</span><span class="m">8</span>.0.34-15.bullseye<span class="w"> </span>percona-server-mongodb-shell<span class="o">=</span><span class="m">8</span>.0.34-15.bullseye<span class="w"> </span>percona-server-mongodb-server<span class="o">=</span><span class="m">8</span>.0.34-15.bullseye<span class="w"> </span>percona-server-mongodb-tools<span class="o">=</span><span class="m">8</span>.0.34-15.bullseye
+<p>Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 8.0.38-16, run the following command:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb<span class="o">=</span><span class="m">8</span>.0.38-16.bullseye<span class="w"> </span>percona-server-mongodb-mongos<span class="o">=</span><span class="m">8</span>.0.38-16.bullseye<span class="w"> </span>percona-server-mongodb-shell<span class="o">=</span><span class="m">8</span>.0.38-16.bullseye<span class="w"> </span>percona-server-mongodb-server<span class="o">=</span><span class="m">8</span>.0.38-16.bullseye<span class="w"> </span>percona-server-mongodb-tools<span class="o">=</span><span class="m">8</span>.0.38-16.bullseye
 </code></pre></div>
 </li>
 </ol>
@@ -5660,12 +5699,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.x86_64<span class="w">    </span><span class="m">8</span>.0.34-15.el9<span class="w">       </span>psmdb-80-release-x86_64
+percona-server-mongodb.x86_64<span class="w">    </span><span class="m">8</span>.0.38-16.el9<span class="w">       </span>psmdb-80-release-x86_64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.34-15, run the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.34-15.el9
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.38-16, run the following command:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.38-16.el9
 </code></pre></div>
 </li>
 </ol>
@@ -5798,12 +5837,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.x86_64<span class="w">    </span><span class="m">8</span>.0.34-15.el9<span class="w">       </span>psmdb-80-release-x86_64
+percona-server-mongodb.x86_64<span class="w">    </span><span class="m">8</span>.0.38-16.el9<span class="w">       </span>psmdb-80-release-x86_64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.34-15, run the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.34-15.el9
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.38-16, run the following command:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.38-16.el9
 </code></pre></div>
 </li>
 </ol>
@@ -5954,12 +5993,12 @@ Preparing...<span class="w">                </span><span class="c1">############
 <p>Sample output:</p>
 <div class="no-copy highlight"><pre><span></span><code><span class="w">    </span>Available<span class="w"> </span>Packages
 
-percona-server-mongodb.aarch64<span class="w">    </span><span class="m">8</span>.0.34-15.amzn2023<span class="w">       </span>psmdb-80-release-aarch64
+percona-server-mongodb.aarch64<span class="w">    </span><span class="m">8</span>.0.38-16.amzn2023<span class="w">       </span>psmdb-80-release-aarch64
 </code></pre></div>
 </li>
 <li>
-<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.34-15, run the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.34-15.amzn2023
+<p>Install a specific version packages. For example, to install <em>Percona Server for MongoDB</em> 8.0.38-16, run the following command:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb-8.0.38-16.amzn2023
 </code></pre></div>
 </li>
 </ol>
@@ -6016,10 +6055,10 @@ after you reboot the system.</p>
 <p>There are the following tarballs available:</p>
 <ul>
 <li>
-<p><code>percona-server-mongodb-8.0.34-15-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
+<p><code>percona-server-mongodb-8.0.38-16-x86_64.&lt;operating-system&gt;.tar.gz</code> is the  tarball for a <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported operating system</a>.</p>
 </li>
 <li>
-<p><code>percona-mongodb-mongosh-2.13.0-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</p>
+<p><code>percona-mongodb-mongosh-2.14.1-x86_64.tar.gz</code> is the tarball for <code>mongosh</code> shell.</p>
 </li>
 </ul>
 <p>Note that tarballs are available only for the x86_64 architecture.</p>
@@ -6035,17 +6074,17 @@ after you reboot the system.</p>
 <tbody>
 <tr>
 <td>Full</td>
-<td>percona-server-mongodb-8.0.34-15-x86_64.<operating-system>.tar.gz</operating-system></td>
+<td>percona-server-mongodb-8.0.38-16-x86_64.<operating-system>.tar.gz</operating-system></td>
 <td>Contains binaries and libraries</td>
 </tr>
 <tr>
 <td>Minimal</td>
-<td>percona-server-mongodb-8.0.34-15-x86_64.<operating-system>-minimal.tar.gz</operating-system></td>
+<td>percona-server-mongodb-8.0.38-16-x86_64.<operating-system>-minimal.tar.gz</operating-system></td>
 <td>Contains binaries and libraries without debug symbols</td>
 </tr>
 <tr>
 <td>Checksum</td>
-<td>percona-server-mongodb-8.0.34-15-x86_64.<operating-system>-minimal.tar.gz.sha256sum</operating-system></td>
+<td>percona-server-mongodb-8.0.38-16-x86_64.<operating-system>-minimal.tar.gz.sha256sum</operating-system></td>
 <td>Contains the MD5 checksum to verify the integrity of the files after the extraction</td>
 </tr>
 </tbody>
@@ -6082,19 +6121,19 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <ol>
 <li>
 <p>Fetch the binary tarballs:    </p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.34-15/binary/tarball/percona-server-mongodb-8.0.34-15-x86_64.ol9.tar.gz<span class="se">\</span>
-curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.34-15/binary/tarball/percona-mongodb-mongosh-2.13.0-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.38-16/binary/tarball/percona-server-mongodb-8.0.38-16-x86_64.ol9.tar.gz<span class="se">\</span>
+curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.38-16/binary/tarball/percona-mongodb-mongosh-2.14.1-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs    </p>
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-8.0.34-15-x86_64.ol9.tar.gz
-tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.13.0-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-8.0.38-16-x86_64.ol9.tar.gz
+tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.14.1-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:    </p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-8.0.34-15-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.13.0-x86_64/bin/:<span class="nv">$PATH</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-8.0.38-16-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.14.1-x86_64/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -6165,19 +6204,19 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">en
 <ol>
 <li>
 <p>Fetch the binary tarballs:    </p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.34-15/binary/tarball/percona-server-mongodb-8.0.34-15-x86_64.jammy.tar.gz<span class="se">\</span>
-curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.34-15/binary/tarball/percona-mongodb-mongosh-2.13.0-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.38-16/binary/tarball/percona-server-mongodb-8.0.38-16-x86_64.jammy.tar.gz<span class="se">\</span>
+curl<span class="w"> </span>-O<span class="w"> </span>https://downloads.percona.com/downloads/percona-server-mongodb-8.0/percona-server-mongodb-8.0.38-16/binary/tarball/percona-mongodb-mongosh-2.14.1-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Extract the tarballs    </p>
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-8.0.34-15-x86_64.jammy.tar.gz
-tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.13.0-x86_64.tar.gz
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xf<span class="w"> </span>percona-server-mongodb-8.0.38-16-x86_64.jammy.tar.gz
+tar<span class="w"> </span>-xf<span class="w"> </span>percona-mongodb-mongosh-2.14.1-x86_64.tar.gz
 </code></pre></div>
 </li>
 <li>
 <p>Add the location of the binaries to the <code>PATH</code> variable:    </p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-8.0.34-15-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.13.0-x86_64/bin/:<span class="nv">$PATH</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>~/percona-server-mongodb-8.0.38-16-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.14.1-x86_64/bin/:<span class="nv">$PATH</span>
 </code></pre></div>
 </li>
 <li>
@@ -6575,7 +6614,7 @@ and restart it if the container exits.</p>
 <p><code>percona/percona-server-mongodb</code> is the name of the image to derive the container from.</p>
 </li>
 <li>
-<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>8.0.34-15</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb/tags">See the full list of tags</a>.</p>
+<p><code>&lt;TAG&gt;</code> is the tag specifying the version you need. For example, <code>8.0.38-16</code>. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. <a href="https://hub.docker.com/r/percona/percona-server-mongodb/tags">See the full list of tags</a>.</p>
 </li>
 </ul>
 <h2 id="install-docker-access-container-shell">Access container shell<a class="headerlink" href="#install-docker-access-container-shell" title="Permanent link">¶</a></h2>
@@ -6787,7 +6826,7 @@ run the following command: </p>
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 6598270a3a0c418751550ded
 Connecting to:      mongodb://127.0.0.1:27017/?directConnection=true&amp;serverSelectionTimeoutMS=2000&amp;appName=mongosh+2.0.0
-Using MongoDB:      8.0.34-15
+Using MongoDB:      8.0.38-16
 Using Mongosh:      2.0.0    
 
 For mongosh info see: https://docs.mongodb.com/mongodb-shell/    
@@ -9657,8 +9696,8 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 </li>
 <li>
 <p>Upon successful log in you must see the <strong>Login successful</strong> screen. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.34-15
-Using Mongosh:      2.13.0
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.38-16
+Using Mongosh:      2.14.1
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -9685,8 +9724,8 @@ Enter the following code on that page: LRVCRLXP
 <li>Enter the code in the <strong>Activation Code</strong> field and click <strong>Next</strong></li>
 <li>
 <p>You should see the <strong>Device Activated</strong> message on the screen. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.34-15
-Using Mongosh:      2.13.0
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.38-16
+Using Mongosh:      2.14.1
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -10129,8 +10168,8 @@ Waiting....
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.34-15
-Using Mongosh:      2.13.0
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.38-16
+Using Mongosh:      2.14.1
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -10158,8 +10197,8 @@ Waiting...
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.34-15
-Using Mongosh:      2.13.0
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.38-16
+Using Mongosh:      2.14.1
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -10389,8 +10428,8 @@ test&gt;
 <li>Log in with your credentials.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.34-15
-Using Mongosh:      2.13.0
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.38-16
+Using Mongosh:      2.14.1
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -10418,8 +10457,8 @@ Waiting...
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.34-15
-Using Mongosh:      2.13.0
+<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      8.0.38-16
+Using Mongosh:      2.14.1
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
 
@@ -12743,9 +12782,9 @@ to make changes at runtime:    </p>
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
-Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.13.0
-Using MongoDB:      8.0.34-15
-Using Mongosh:      2.13.0
+Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.14.1
+Using MongoDB:      8.0.38-16
+Using Mongosh:      2.14.1
 
 rs0 [primary] test&gt;
 </code></pre></div>
@@ -12778,9 +12817,9 @@ rs0 [primary] test&gt;
 <details class="example">
 <summary>Sample output</summary>
 <div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
-Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.13.0
-Using MongoDB:  8.0.34-15
-Using Mongosh:  2.13.0
+Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.14.1
+Using MongoDB:  8.0.38-16
+Using Mongosh:  2.14.1
 
 rs0 [primary] test&gt;
 </code></pre></div>
@@ -13368,6 +13407,9 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>
         </head><body><h1 id="percona-server-for-mongodb-80-release-notes">Percona Server for MongoDB 8.0 release notes<a class="headerlink" href="#release_notes-index-percona-server-for-mongodb-80-release-notes" title="Permanent link">¶</a></h1>
 <ul>
 <li>
+<p><a href="#release_notes-8.0.38-16">Percona Server for MongoDB 8.0.38-16 (2026-11-13)</a></p>
+</li>
+<li>
 <p><a href="#release_notes-8.0.34-15">Percona Server for MongoDB 8.0.34-15 (2026-10-22)</a></p>
 </li>
 <li>
@@ -13412,7 +13454,114 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>
 <li>
 <p><a href="#release_notes-8.0.4-1">Percona Server for MongoDB 8.0.4-1 (2024-12-17)</a></p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.34-15" heading-number="6.2"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.38-16" heading-number="6.2"><html><head>
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
+        })
+        </script>
+        </head><body><h1 id="percona-server-for-mongodb-8038-16-2026-11-13">Percona Server for MongoDB 8.0.38-16 (2026-11-13)<a class="headerlink" href="#release_notes-8.0.38-16-percona-server-for-mongodb-8038-16-2026-11-13" title="Permanent link">¶</a></h1>
+<p><a class="md-button" href="#install-index">Installation</a>
+<a class="md-button" href="#install-minor-upgrade">Upgrade</a></p>
+<p>Percona Server for MongoDB 8.0.38-16 is a drop-in replacement for MongoDB Community Edition. It supports MongoDB Community protocols and drivers and provides <a href="#comparison">enterprise-grade features at no cost</a>.</p>
+<p>This release includes the improvements and bug fixes from <a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8037---nov-10-2026" target="_blank">MongoDB 8.0.37 Community Edition <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> and <a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8038---nov-10-2026" target="_blank">MongoDB 8.0.38 Community Edition <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
+<h2 id="release_notes-8.0.38-16-upgrade-recommendation">Upgrade recommendation<a class="headerlink" href="#release_notes-8.0.38-16-upgrade-recommendation" title="Permanent link">¶</a></h2>
+<p>This release fixes multiple security vulnerabilities inherited from upstream MongoDB. We strongly recommend <strong>upgrading to version 8.0.38-16</strong> as soon as possible.</p>
+<p>See <a href="#install-minor-upgrade">Upgrade Percona Server for MongoDB</a> for upgrade instructions.</p>
+<h2 id="release_notes-8.0.38-16-changelog">Changelog<a class="headerlink" href="#release_notes-8.0.38-16-changelog" title="Permanent link">¶</a></h2>
+<h3 id="release_notes-8.0.38-16-bugs-fixed">Bugs fixed<a class="headerlink" href="#release_notes-8.0.38-16-bugs-fixed" title="Permanent link">¶</a></h3>
+<ul>
+<li><a href="https://perconadev.atlassian.net/browse/PSMDB-2279">PSMDB-2279</a>: Fixed AWS IAM authentication for assumed roles in non-commercial AWS partitions, including GovCloud and China. The server now preserves the partition when converting an assumed-role ARN to the IAM role ARN used to match a user in <code>$external</code>.</li>
+</ul>
+<h3 id="release_notes-8.0.38-16-aws-iam-upgrade-considerations">AWS IAM upgrade considerations<a class="headerlink" href="#release_notes-8.0.38-16-aws-iam-upgrade-considerations" title="Permanent link">¶</a></h3>
+<p>Before upgrading in GovCloud, China, or ISO partitions, review existing <code>$external</code> users named with IAM role ARNs. All sessions of the matching role can now authenticate as that user. Users named with full STS assumed-role session ARNs no longer match. Replace these per-session users with appropriately authorized IAM role-ARN users. See <a href="#aws-iam-setup">Configure AWS IAM authentication</a>.</p>
+<h2 id="release_notes-8.0.38-16-issues-fixed-from-upstream-mongodb">Issues fixed from upstream MongoDB<a class="headerlink" href="#release_notes-8.0.38-16-issues-fixed-from-upstream-mongodb" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="https://jira.mongodb.org/browse/SERVER-138547" target="_blank">SERVER-138547 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>: Fixed directory names in cross-compiled MongoDB archives to reflect the target architecture.</li>
+</ul>
+<h2 id="release_notes-8.0.38-16-security-fixes-from-upstream-mongodb">Security fixes from upstream MongoDB<a class="headerlink" href="#release_notes-8.0.38-16-security-fixes-from-upstream-mongodb" title="Permanent link">¶</a></h2>
+<p>The following entries describe upstream MongoDB security fixes. Severity follows the MongoDB-published <a href="https://nvd.nist.gov/vuln-metrics/cvss" target="_blank">CVSS 4.0 scores <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>. Platform-specific entries retain their upstream scope and do not imply that Linux deployments are affected.</p>
+<h3 id="release_notes-8.0.38-16-critical-severity">Critical severity<a class="headerlink" href="#release_notes-8.0.38-16-critical-severity" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-138119" target="_blank">SERVER-138119 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>, <a href="https://jira.mongodb.org/browse/SERVER-138175" target="_blank">SERVER-138175 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-118383" target="_blank">CVE-2026-118383 (Critical) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed a use-after-free when a newly elected replica set primary completes catch-up. Unauthenticated requests could trigger a server crash or, under certain conditions, arbitrary code execution. The issue affects replica set members, including shard and config server members, but not standalone <code>mongod</code> instances.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130681" target="_blank">SERVER-130681 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120808" target="_blank">CVE-2026-120808 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): On macOS with Apple SecureTransport, outbound TLS connections to IPv6 peers could bypass certificate trust validation. An attacker on the network path could use a self-signed certificate containing the target’s IPv6 address in its Subject Alternative Name to intercept or alter the traffic.</p>
+</li>
+</ul>
+<h3 id="release_notes-8.0.38-16-high-severity">High severity<a class="headerlink" href="#release_notes-8.0.38-16-high-severity" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-138119" target="_blank">SERVER-138119 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120828" target="_blank">CVE-2026-120828 (High) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue where an unauthenticated user with network access could send read requests for a point in time that a replica set member would never reach. Internal wait records could accumulate after the requests ended, exhausting server memory and causing a denial of service.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130261" target="_blank">SERVER-130261 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120806" target="_blank">CVE-2026-120806 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Dropping database roles could leave stale user and role references. Recreating a role with different privileges could then grant those privileges to previously associated users without an explicit grant or audit event. Exploitation requires database administrative privileges.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-130169" target="_blank">SERVER-130169 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120807" target="_blank">CVE-2026-120807 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): With a non-default X.509 cluster authentication configuration, user lookup errors could let a holder of a valid cluster-member certificate bypass the membership guard and gain internal system privileges.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-132430" target="_blank">SERVER-132430 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120810" target="_blank">CVE-2026-120810 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): An authenticated user with read privileges could exhaust server memory through crafted aggregation requests using an internal expression, causing <code>mongod</code> to terminate.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-132517" target="_blank">SERVER-132517 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120813" target="_blank">CVE-2026-120813 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): A malicious client-side field-level encryption (CSFLE) schema could cause encryption metadata to be discarded, leaving fields intended for encryption stored in plaintext. Exploitation requires control over the schema delivered to the client, such as through an untrusted server or interception.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-133600" target="_blank">SERVER-133600 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120814" target="_blank">CVE-2026-120814 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): A user with certain shard-level administrative privileges and direct access to a cluster member could cause internal coordination state to be processed with elevated authority, allowing unauthorized data access and changes across the cluster.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-134872" target="_blank">SERVER-134872 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120815" target="_blank">CVE-2026-120815 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): An incorrect localhost-exception check could let an unauthenticated user with local access obtain administrative privileges, exposing data and credentials and allowing data modification or service disruption.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-135655" target="_blank">SERVER-135655 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120817" target="_blank">CVE-2026-120817 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Concurrent writes checked against a collection validator with geospatial query operators could trigger a race condition and crash the server. Exploitation requires an authenticated user with write privileges.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-135727" target="_blank">SERVER-135727 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120818" target="_blank">CVE-2026-120818 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): An authenticated user, even without assigned roles, could submit a crafted aggregation request that reads freed memory through server-side JavaScript. This could disclose server memory and affect availability.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-136182" target="_blank">SERVER-136182 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120822" target="_blank">CVE-2026-120822 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): A user with backup and restore privileges could bypass authorization checks in a replication-related administrative command to read or relocate collections outside their permitted scope.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-136505" target="_blank">SERVER-136505 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120824" target="_blank">CVE-2026-120824 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): A user permitted to write directly to time series bucket documents could trigger a use-after-free during validation, causing a crash or, in some circumstances, arbitrary code execution.</p>
+</li>
+</ul>
+<h3 id="release_notes-8.0.38-16-medium-severity">Medium severity<a class="headerlink" href="#release_notes-8.0.38-16-medium-severity" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-132279" target="_blank">SERVER-132279 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120809" target="_blank">CVE-2026-120809 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): An authenticated user could trigger a use-after-free through an aggregation pipeline with <code>$unwind</code> on a time series collection, exposing server memory or crashing the server. This requires a non-default server parameter for the slot-based execution (SBE) engine.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-135353" target="_blank">SERVER-135353 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120811" target="_blank">CVE-2026-120811 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): A use-after-free in the classic query engine plan cache could expose server memory through diagnostic commands issued by an authenticated user. Under certain conditions, it could also crash the server.</p>
+</li>
+<li>
+<p><a href="https://jira.mongodb.org/browse/SERVER-135737" target="_blank">SERVER-135737 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-120820" target="_blank">CVE-2026-120820 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): For operations carrying encrypted-field information, per-namespace statistics could accumulate without a limit. A user with basic read privileges could repeatedly send read requests referencing arbitrary namespaces, causing memory to remain allocated and slowing the affected code path. Reclaiming this memory requires a process restart.</p>
+</li>
+</ul>
+<p>For the complete upstream changelog, see <a href="https://www.mongodb.com/docs/manual/release-notes/8.0-changelog/#8037-changelog" target="_blank">MongoDB 8.0.37 Community Edition <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> and <a href="https://www.mongodb.com/docs/manual/release-notes/8.0-changelog/#8038-changelog" target="_blank">MongoDB 8.0.38 Community Edition <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
+<h2 id="release_notes-8.0.38-16-tools-packaged-with-this-release">Tools packaged with this release<a class="headerlink" href="#release_notes-8.0.38-16-tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
+<p>The following tool versions accompany this release:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Base version</th>
+<th>Release notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MongoDB Shell (<code>mongosh</code>)</td>
+<td>2.14.1</td>
+<td><a href="https://www.mongodb.com/docs/mongodb-shell/changelog/#v2141" target="_blank">Upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
+</tr>
+<tr>
+<td>MongoDB Database Tools</td>
+<td>100.20.1</td>
+<td><a href="https://www.mongodb.com/docs/database-tools/release-notes/dbtools-100.20.0-changelog/#100201-changelog" target="_blank">Upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
+</tr>
+</tbody>
+</table></body></html></section><section class="print-page" id="release_notes-8.0.34-15" heading-number="6.3"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13520,7 +13669,7 @@ sudo<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>
 <td><a href="https://www.mongodb.com/docs/database-tools/release-notes/dbtools-100.19.0-changelog/#100191-changelog" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
 </tr>
 </tbody>
-</table></body></html></section><section class="print-page" id="release_notes-8.0.32-14" heading-number="6.3"><html><head>
+</table></body></html></section><section class="print-page" id="release_notes-8.0.32-14" heading-number="6.4"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13634,7 +13783,7 @@ Fixed uncontrolled resource consumption in the request-handling path of the Mong
 <td><a href="https://www.mongodb.com/docs/database-tools/release-notes/dbtools-100.18.0-changelog" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
 </tr>
 </tbody>
-</table></body></html></section><section class="print-page" id="release_notes-8.0.29-13" heading-number="6.4"><html><head>
+</table></body></html></section><section class="print-page" id="release_notes-8.0.29-13" heading-number="6.5"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13737,7 +13886,7 @@ Fixed uncontrolled resource consumption in the request-handling path of the Mong
 <td><a href="https://www.mongodb.com/docs/database-tools/release-notes/dbtools-100.18.0-changelog" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
 </tr>
 </tbody>
-</table></body></html></section><section class="print-page" id="release_notes-8.0.28-12" heading-number="6.5"><html><head>
+</table></body></html></section><section class="print-page" id="release_notes-8.0.28-12" heading-number="6.6"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -13777,7 +13926,7 @@ Fixed uncontrolled resource consumption in the request-handling path of the Mong
 <ul>
 <li>Each release has a separate file that follows this format:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.0.34-15.vex.json
+<div class="highlight"><pre><span></span><code>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.0.38-16.vex.json
 </code></pre></div>
 <p>For comprehensive information, refer to our <a href="#sbom">documentation</a>.</p>
 <h3 id="release_notes-8.0.28-12-extended-platform-support-rhel-10-and-its-derivatives-and-debian-13">Extended platform support: RHEL 10 and its derivatives, and Debian 13<a class="headerlink" href="#release_notes-8.0.28-12-extended-platform-support-rhel-10-and-its-derivatives-and-debian-13" title="Permanent link">¶</a></h3>
@@ -13945,7 +14094,7 @@ Fixed uncontrolled resource consumption in the request-handling path of the Mong
 <td><a href="https://www.mongodb.com/docs/database-tools/release-notes/dbtools-100.17.0-changelog/" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
 </tr>
 </tbody>
-</table></body></html></section><section class="print-page" id="release_notes-8.0.26-11" heading-number="6.6"><html><head>
+</table></body></html></section><section class="print-page" id="release_notes-8.0.26-11" heading-number="6.7"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14052,7 +14201,7 @@ Fixed uncontrolled resource consumption in the request-handling path of the Mong
 <td><a href="https://www.mongodb.com/docs/database-tools/release-notes/dbtools-100.17.0-changelog/" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
 </tr>
 </tbody>
-</table></body></html></section><section class="print-page" id="release_notes-8.0.23-10" heading-number="6.7"><html><head>
+</table></body></html></section><section class="print-page" id="release_notes-8.0.23-10" heading-number="6.8"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14115,7 +14264,7 @@ Fixed uncontrolled resource consumption in the request-handling path of the Mong
 <td><a href="https://www.mongodb.com/docs/database-tools/release-notes/dbtools-100.17.0-changelog/" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></td>
 </tr>
 </tbody>
-</table></body></html></section><section class="print-page" id="release_notes-8.0.21-9" heading-number="6.8"><html><head>
+</table></body></html></section><section class="print-page" id="release_notes-8.0.21-9" heading-number="6.9"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14202,7 +14351,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <p>Percona Server for MongoDB packages the following MongoDB tools:</p>
 <ul>
 <li>MongoDB Shell (mongosh): 2.8.2 — <a href="https://www.mongodb.com/docs/mongodb-shell/changelog/#v2.8.2" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.20-8" heading-number="6.9"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.20-8" heading-number="6.10"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14236,7 +14385,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <h3 id="release_notes-8.0.20-8-improvements">Improvements<a class="headerlink" href="#release_notes-8.0.20-8-improvements" title="Permanent link">¶</a></h3>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1947">PSMDB-1947</a>: To provide better parity with MongoDB Enterprise and improve performance in high-scale environments, we have introduced two new configuration parameters for LDAP user caching. These options allow administrators to fine-tune how and when cached user information is refreshed, reducing unnecessary overhead on LDAP servers while ensuring security data remains current.</p>
 <h3 id="release_notes-8.0.20-8-bugs">Bugs<a class="headerlink" href="#release_notes-8.0.20-8-bugs" title="Permanent link">¶</a></h3>
-<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1998">PSMDB-1998</a>: Resolved an issue where user authentication was stuck indefinitely when the LDAP server was unreachable. Timeouts are now applied to LDAP connections to avoid blocking and ensure more reliable authentication.</p></body></html></section><section class="print-page" id="release_notes-8.0.19-7" heading-number="6.10"><html><head>
+<p><a href="https://perconadev.atlassian.net/browse/PSMDB-1998">PSMDB-1998</a>: Resolved an issue where user authentication was stuck indefinitely when the LDAP server was unreachable. Timeouts are now applied to LDAP connections to avoid blocking and ensure more reliable authentication.</p></body></html></section><section class="print-page" id="release_notes-8.0.19-7" heading-number="6.11"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14348,7 +14497,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <h2 id="release_notes-8.0.19-7-bugs-fixed">Bugs fixed<a class="headerlink" href="#release_notes-8.0.19-7-bugs-fixed" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1922">PSMDB-1922</a>: Resolved an issue where the <code>auditGetOptions</code> command could be executed by users with any privilege level. Access is now strictly restricted to users with <strong>admin privileges</strong>, aligning its security requirements with the <code>getParameter</code> command to prevent unauthorized access to audit configuration options.</li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.17-6" heading-number="6.11"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.17-6" heading-number="6.12"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14402,7 +14551,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <h3 id="release_notes-8.0.17-6-upstream-improvements">Upstream Improvements<a class="headerlink" href="#release_notes-8.0.17-6-upstream-improvements" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://jira.mongodb.org/browse/SERVER-115508">SERVER-115508</a> - Fixed a critical security vulnerability (CVE-2025-14847) where unauthenticated remote attackers could read uninitialized heap memory via the zlib compression protocol. This was caused by improper handling of length parameter inconsistencies in zlib-compressed protocol headers. The fix ensures the server uses minimally sized buffers for uncompressed messages, preventing sensitive information disclosure.</li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.16-5" heading-number="6.12"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.16-5" heading-number="6.13"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14531,7 +14680,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1839">PSMDB-1839</a> - Fixed the output display of the <code>db.adminCommand()</code> command to show the authorization result, aligning with upstream behavior.</p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.12-4" heading-number="6.13"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.12-4" heading-number="6.14"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14613,7 +14762,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1754">PSMDB-1754</a> - Fixed the issue with log rotation behavior that was caused by replacing the rotated audit log file with a timestamp if it existed. The fix is to reopen a current audit log file in the append mode and write events there. </p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.8-3" heading-number="6.14"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.8-3" heading-number="6.15"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14691,7 +14840,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1617">PSMDB-1617</a> - Improved error messages when there are insufficient permissions to access client/CA certificates for KMIP authentication</p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-2" heading-number="6.15"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-2" heading-number="6.16"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14721,7 +14870,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1567">PSMDB-1567</a> - Fixed the issue with the crashing server during LDAP authentication when the LDAP server is down. </p>
 </li>
-</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-1" heading-number="6.16"><html><head>
+</ul></body></html></section><section class="print-page" id="release_notes-8.0.4-1" heading-number="6.17"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
             remove_material_navigation();remove_mkdocs_theme_navigation();generate_toc();
@@ -14874,13 +15023,13 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p></body></html>
 </div>
 <h3 id="sbom-binary-tarball">Binary tarball<a class="headerlink" href="#sbom-binary-tarball" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm the SBOM is bundled</span>
-tar<span class="w"> </span>tzf<span class="w"> </span>percona-server-mongodb-8.0.34-15-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
+tar<span class="w"> </span>tzf<span class="w"> </span>percona-server-mongodb-8.0.38-16-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>doc/sbom.cdx.json
 
 <span class="c1"># Extract and scan</span>
-tar<span class="w"> </span>xzf<span class="w"> </span>percona-server-mongodb-8.0.34-15-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-C<span class="w"> </span>/tmp<span class="w"> </span>percona-server-mongodb-8.0.34-15-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
-grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.0.34-15-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
+tar<span class="w"> </span>xzf<span class="w"> </span>percona-server-mongodb-8.0.38-16-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-C<span class="w"> </span>/tmp<span class="w"> </span>percona-server-mongodb-8.0.38-16-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
+grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.0.38-16-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
 </code></pre></div>
 <h3 id="sbom-rpm-package">RPM package<a class="headerlink" href="#sbom-rpm-package" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Confirm the package installs the SBOM</span>
@@ -14925,12 +15074,12 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 <h4 id="sbom-scan-via-oci-referrers-api-recommended">Scan via OCI Referrers API (recommended)<a class="headerlink" href="#sbom-scan-via-oci-referrers-api-recommended" title="Permanent link">¶</a></h4>
 <p><code>trivy image --sbom-sources oci</code> fetches the attached SBOM via the OCI Referrers API and scans it, without pulling the image:</p>
 <div class="highlight"><pre><span></span><code>trivy<span class="w"> </span>image<span class="w"> </span>--severity<span class="w"> </span>HIGH,CRITICAL<span class="w"> </span>--sbom-sources<span class="w"> </span>oci<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.0.34-15-amd64
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.0.38-16-amd64
 </code></pre></div>
 <h4 id="sbom-scan-the-embedded-sbom">Scan the embedded SBOM<a class="headerlink" href="#sbom-scan-the-embedded-sbom" title="Permanent link">¶</a></h4>
-<p>Scan the embedded SBOM from inside the container image: <code>8.0.34-15-amd64</code>:</p>
+<p>Scan the embedded SBOM from inside the container image: <code>8.0.38-16-amd64</code>:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--entrypoint<span class="w"> </span>cat<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.0.34-15-amd64<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.0.38-16-amd64<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="p">|</span><span class="w"> </span>grype<span class="w"> </span>--from<span class="w"> </span>sbom
 </code></pre></div>
@@ -14941,7 +15090,7 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 <li>
 <p>Use the per-architecture tag to resolve directly to the image manifest:</p>
 <div class="highlight"><pre><span></span><code>oras<span class="w"> </span>discover<span class="w"> </span>--format<span class="w"> </span>tree<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.0.34-15-amd64
+<span class="w">    </span>docker.io/percona/percona-server-mongodb:8.0.38-16-amd64
 </code></pre></div>
 <details class="example">
 <summary>Output</summary>
@@ -14965,7 +15114,7 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 </code></pre></div>
 <details class="example">
 <summary>Output</summary>
-<div class="highlight"><pre><span></span><code>percona-server-mongodb-8.0.34-15-amd64.cdx.json
+<div class="highlight"><pre><span></span><code>percona-server-mongodb-8.0.38-16-amd64.cdx.json
 </code></pre></div>
 </details>
 </li>
@@ -14973,18 +15122,18 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 <h2 id="sbom-filtering-vulnerabilities-with-openvex">Filtering vulnerabilities with OpenVEX<a class="headerlink" href="#sbom-filtering-vulnerabilities-with-openvex" title="Permanent link">¶</a></h2>
 <p><a href="https://github.com/openvex/spec" target="_blank">OpenVEX <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> is an open, minimal format for Vulnerability Exploitability eXchange (VEX) statements. A VEX document records whether a known vulnerability (CVE) in a component actually affects a given product — for example, the vulnerable code path is unreachable, the issue is already fixed, or it’s still under investigation. Scanners that support VEX use these statements to suppress vulnerabilities that don’t actually apply, cutting down on noise from CVEs in bundled dependencies that PSMDB isn’t actually exposed to.</p>
 <p>Percona publishes an OpenVEX document for every PSMDB release.</p>
-<p>The <code>VEX</code> file for version 8.0.34-15 is available at:</p>
-<p><code>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.0.34-15.vex.json</code></p>
+<p>The <code>VEX</code> file for version 8.0.38-16 is available at:</p>
+<p><code>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.0.38-16.vex.json</code></p>
 <p>Pass the document to Grype’s <code>--vex</code> flag along with any SBOM scan on this page. For example, when scanning the SBOM of an RPM package:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Download the OpenVEX document for this release</span>
-curl<span class="w"> </span>-fsSLO<span class="w"> </span>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.0.34-15.vex.json
+curl<span class="w"> </span>-fsSLO<span class="w"> </span>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.0.38-16.vex.json
 
 <span class="c1"># Scan the SBOM and filter out vulnerabilities addressed in the VEX document</span>
-grype<span class="w"> </span>--distro<span class="w"> </span>&lt;os_name&gt;:&lt;os_version&gt;<span class="w"> </span>--vex<span class="o">=</span>percona-server-mongodb-8.0.34-15.vex.json<span class="w"> </span>sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
+grype<span class="w"> </span>--distro<span class="w"> </span>&lt;os_name&gt;:&lt;os_version&gt;<span class="w"> </span>--vex<span class="o">=</span>percona-server-mongodb-8.0.38-16.vex.json<span class="w"> </span>sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>With version 8.0.34-15, the example above should not report <a href="https://nvd.nist.gov/vuln/detail/cve-2026-6231" target="_blank">CVE-2026-6231 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> because Percona fixed it in this release. In earlier releases, this vulnerability affected Percona Server for MongoDB deployments that use <a href="https://www.mongodb.com/docs/manual/core/queryable-encryption/about-qe-csfle/" target="_blank">Queryable Encryption <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
+<p>With version 8.0.38-16, the example above should not report <a href="https://nvd.nist.gov/vuln/detail/cve-2026-6231" target="_blank">CVE-2026-6231 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> because Percona fixed it in this release. In earlier releases, this vulnerability affected Percona Server for MongoDB deployments that use <a href="https://www.mongodb.com/docs/manual/core/queryable-encryption/about-qe-csfle/" target="_blank">Queryable Encryption <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
 </div></body></html></section><section class="print-page" id="glossary" heading-number="8.2"><html><head>
         <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
@@ -15335,7 +15484,7 @@ grype<span class="w"> </span>--distro<span class="w"> </span>&lt;os_name&gt;:&lt
 <li><code>--name psmdb</code> - Assigns the name “psmdb” to the container.</li>
 <li><code>--restart always</code> - Configures the container to restart automatically if it stops or crashes.</li>
 <li><code>-e PERCONA_TELEMETRY_DISABLE=1</code> - Sets an environment variable within the container. In this case, it disables telemetry for Percona Server for MongoDB.</li>
-<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>8.0.34-15-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
+<li><code>percona/percona-server-mongodb:&lt;TAG&gt;-multi</code> - Specifies the image to use for the container. For example, <code>8.0.38-16-multi</code>. The <code>multi</code> part of the tag serves to identify the architecture (x86_64 or ARM64) and use the respective image.</li>
 </ul>
 </div>
 </div>
@@ -15616,35 +15765,37 @@ we will do our very best to be helpful.</p></body></html></section></section><se
 .print-site-enumerate-headings #section-6 > h1:before { content: '6 ' }
 .print-site-enumerate-headings #release_notes-index > h1:before { content: '6.1 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.34-15 > h1:before { content: '6.2 ' }
+.print-site-enumerate-headings #release_notes-8.0.38-16 > h1:before { content: '6.2 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.32-14 > h1:before { content: '6.3 ' }
+.print-site-enumerate-headings #release_notes-8.0.34-15 > h1:before { content: '6.3 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.29-13 > h1:before { content: '6.4 ' }
+.print-site-enumerate-headings #release_notes-8.0.32-14 > h1:before { content: '6.4 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.28-12 > h1:before { content: '6.5 ' }
+.print-site-enumerate-headings #release_notes-8.0.29-13 > h1:before { content: '6.5 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.26-11 > h1:before { content: '6.6 ' }
+.print-site-enumerate-headings #release_notes-8.0.28-12 > h1:before { content: '6.6 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.23-10 > h1:before { content: '6.7 ' }
+.print-site-enumerate-headings #release_notes-8.0.26-11 > h1:before { content: '6.7 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.21-9 > h1:before { content: '6.8 ' }
+.print-site-enumerate-headings #release_notes-8.0.23-10 > h1:before { content: '6.8 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.20-8 > h1:before { content: '6.9 ' }
+.print-site-enumerate-headings #release_notes-8.0.21-9 > h1:before { content: '6.9 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.19-7 > h1:before { content: '6.10 ' }
+.print-site-enumerate-headings #release_notes-8.0.20-8 > h1:before { content: '6.10 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.17-6 > h1:before { content: '6.11 ' }
+.print-site-enumerate-headings #release_notes-8.0.19-7 > h1:before { content: '6.11 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.16-5 > h1:before { content: '6.12 ' }
+.print-site-enumerate-headings #release_notes-8.0.17-6 > h1:before { content: '6.12 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.12-4 > h1:before { content: '6.13 ' }
+.print-site-enumerate-headings #release_notes-8.0.16-5 > h1:before { content: '6.13 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.8-3 > h1:before { content: '6.14 ' }
+.print-site-enumerate-headings #release_notes-8.0.12-4 > h1:before { content: '6.14 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.4-2 > h1:before { content: '6.15 ' }
+.print-site-enumerate-headings #release_notes-8.0.8-3 > h1:before { content: '6.15 ' }
 
-.print-site-enumerate-headings #release_notes-8.0.4-1 > h1:before { content: '6.16 ' }
+.print-site-enumerate-headings #release_notes-8.0.4-2 > h1:before { content: '6.16 ' }
+
+.print-site-enumerate-headings #release_notes-8.0.4-1 > h1:before { content: '6.17 ' }
 
 .print-site-enumerate-headings #faq > h1:before { content: '7 ' }
 
@@ -15783,7 +15934,7 @@ we will do our very best to be helpful.</p></body></html></section></section><se
     
     
   
-      <script src="assets/javascripts/bundle.c21346df.min.js"></script>
+      <script src="assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
         <script src="js/print-site.js"></script>
       
