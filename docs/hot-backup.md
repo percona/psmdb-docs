@@ -4,9 +4,15 @@ Percona Server for MongoDB includes an integrated open source hot backup system 
 [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) storage engine.  It creates a physical data backup on a running
 server without notable performance and operating degradation.
 
-!!! note
+!!! warning "Deprecated starting with 8.3.17-5"
 
-    Hot backups are done on `mongod` servers independently, without synchronizing them across replica set members and shards in a cluster. To ensure data consistency during backups and restores, we recommend using [Percona Backup for MongoDB](https://docs.percona.com/percona-backup-mongodb/index.html).
+    The `createBackup` command is deprecated and will be removed in Percona
+    Server for MongoDB 9.0. Use [Percona Backup for MongoDB
+    :octicons-link-external-16:](https://docs.percona.com/percona-backup-mongodb/index.html){:target="_blank"}
+    instead. The command remains available in 8.3.
+
+Hot backups run on each `mongod` independently. They are not synchronized
+across replica set members or shards in a cluster.
 
 ## Make a backup
 
@@ -23,20 +29,36 @@ To take a hot backup of the database in your current `dbpath`, do the following:
     
     ```javascript
     use admin
-    switched to db admin
     db.runCommand({createBackup: 1, backupDir: "<backup_data_path>"})
-    { "ok" : 1 }
     ```
 
 The backup taken is the snapshot of the `mongod` server’s `dataDir` at the moment of the `createBackup` command start.
 
-If the backup was successful, you should receive an `{ "ok" : 1 }` object.
-If there was an error, you will receive a failing `ok` status
-with the error message, for example:
+An `ok` value of `1` indicates that the backup succeeded. Starting with
+8.3.17-5, a successful response also includes a deprecation warning:
+
+```json
+{
+    "warning": "The `createBackup` command has been deprecated and will be removed in version 9.0; use Percona Backup for MongoDB instead",
+    "ok": 1
+}
+```
+
+The server also logs the deprecation warning.
+
+If the backup fails, the response contains an `ok` value of `0` and an error
+message. For example, an empty destination path causes an error:
 
 ```javascript
 db.runCommand({createBackup: 1, backupDir: ""})
-{ "ok" : 0, "errmsg" : "Destination path must be absolute" }
+```
+
+```json
+{
+    "warning": "The `createBackup` command has been deprecated and will be removed in version 9.0; use Percona Backup for MongoDB instead",
+    "ok": 0,
+    "errmsg": "Destination path must be absolute"
+}
 ```
 
 ## Save a backup to a TAR archive
