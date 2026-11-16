@@ -70,16 +70,18 @@ The following are the configuration examples:
 
 ### How WiredTiger settings apply
 
-When you select `storage.engine: inMemory`, Percona Memory Engine inherits WiredTiger settings, with exceptions for memory size, statistics logging, and custom configuration strings. 
+When you select `storage.engine: inMemory`, Percona Memory Engine inherits most WiredTiger settings.
+Exceptions apply to memory size, statistics logging, and custom configuration strings.
 
-Use the following sections when you configure the engine or migrate a configuration from MongoDB Enterprise Advanced.
-
+Use the following configuration rules when you migrate a configuration from MongoDB Enterprise Advanced.
 
 #### Precedence rules
 
-`storage.inMemory` settings take precedence over the corresponding `storage.wiredTiger` settings. This also applies when you omit an InMemory setting: the engine uses its InMemory default, not the WiredTiger value.
- 
-#### Settings replaced by InMemory options
+`storage.inMemory` settings take precedence over the corresponding `storage.wiredTiger` settings.
+When you omit a `storage.inMemory` setting, Percona Memory Engine uses the default for that setting.
+Percona Memory Engine ignores the corresponding WiredTiger value.
+
+#### Settings replaced by `storage.inMemory` options
 
 Option names in this table are relative to `storage`. For example, `inMemory.engineConfig.inMemorySizeGB` means `storage.inMemory.engineConfig.inMemorySizeGB`.
 
@@ -93,29 +95,38 @@ Option names in this table are relative to `storage`. For example, `inMemory.eng
 | `wiredTiger.indexConfig.configString` | `inMemory.indexConfig.configString` |
 
 !!! note
-    * `cacheSizePct` does not control the InMemory memory limit. Set `inMemorySizeGB` instead.
-    * Custom configuration strings don't carry over from the WiredTiger section. If you use them, review each string before you move it to the matching `storage.inMemory` option. Percona Memory Engine enforces `cache_resident=false` for collection and index configuration strings.
+
+    * `cacheSizePct` does not control the Percona Memory Engine memory limit. Set `inMemorySizeGB` instead.
+
+    * Percona Memory Engine ignores custom configuration strings from `storage.wiredTiger`.
+      Review each string before you copy the string to the corresponding `storage.inMemory` option.
+      Percona Memory Engine enforces `cache_resident=false` for collection and index configuration strings.
 
 #### Inherited settings
 
-These WiredTiger settings apply to Percona Memory Engine. Option names are relative to `storage.wiredTiger`.
+The following WiredTiger settings apply to Percona Memory Engine:
+
+Option names are relative to `storage.wiredTiger`.
 
 | **WiredTiger setting** | **Behavior with Percona Memory Engine** |
 | --- | --- |
-| `engineConfig.zstdCompressionLevel` | Used as the compression level for the `zstd` compressor. |
-| `engineConfig.directoryForIndexes` | Recorded in storage metadata. |
-| `collectionConfig.blockCompressor` | Used as the default block compressor for collections. |
-| `indexConfig.prefixCompression` | Used as the default prefix compression setting for indexes. |
+| `engineConfig.zstdCompressionLevel` | Percona Memory Engine uses the compression level for the `zstd` compressor. |
+| `engineConfig.directoryForIndexes` | Percona Memory Engine records the value in storage metadata. |
+| `collectionConfig.blockCompressor` | Percona Memory Engine uses the default block compressor for collections. |
+| `indexConfig.prefixCompression` | Percona Memory Engine uses the default prefix compression setting for indexes. |
 
 #### Settings with no effect
 
-You can still set these options, but Percona Memory Engine ignores them. Option names are relative to `storage.wiredTiger`.
+You can specify the following options.
+Percona Memory Engine ignores these options.
+Option names are relative to `storage.wiredTiger`:
+
 
 | **WiredTiger setting** | **Reason** |
 | --- | --- |
-| `engineConfig.journalCompressor` | The InMemory engine disables journaling. |
-| `engineConfig.checkpointSizeMB` | The InMemory engine disables checkpoints. |
-| `engineConfig.liveRestoreSource`, `engineConfig.liveRestoreThreads`, `engineConfig.liveRestoreReadSizeMB` | Live restore is not enabled for the InMemory engine. |
+| `engineConfig.journalCompressor` | Percona Memory Engine disables journaling. |
+| `engineConfig.checkpointSizeMB` | Percona Memory Engine disables checkpoints. |
+| `engineConfig.liveRestoreSource`, `engineConfig.liveRestoreThreads`, `engineConfig.liveRestoreReadSizeMB` | Percona Memory Engine does not enable live restore. |
 | `engineConfig.maxCacheOverflowFileSizeGB` | Deprecated. |
 
 #### `setParameter` settings
@@ -123,18 +134,22 @@ You can still set these options, but Percona Memory Engine ignores them. Option 
 The following `setParameter` settings also apply to Percona Memory Engine:
 
 * `wiredTigerSessionMax`
+
 * `wiredTigerEvictionDirtyTargetGB`
+
 * `wiredTigerEvictionDirtyMaxGB`
+
 * `wiredTigerEvictionUpdatesMaxGB`
 
-Keep them under `setParameter`, not under `storage.inMemory`.
+Specify these settings in `setParameter`.
 
 ??? example "Example with inherited settings"
 
-    This example sets a 3 GB memory limit, logs statistics every two seconds, and sets the inherited collection and index compression options.
+    This configuration sets a memory limit of three GB.
+    Percona Memory Engine logs statistics every two seconds.
+    This configuration specifies inherited compression options for collections and indexes.
 
     The values are illustrative. Choose a memory limit that fits your data set and available memory.
-
 
     ```yaml
     storage:
@@ -152,7 +167,8 @@ Keep them under `setParameter`, not under `storage.inMemory`.
           prefixCompression: true
     ```
 
-      These options don't migrate existing data when you switch from another storage engine. Follow the [storage engine switching procedure](#switching-storage-engines).
+    These options do not migrate existing data when you switch from another storage engine.
+    Follow the [storage engine migration procedure](#switching-storage-engines).
 
 ## Switching storage engines
 
