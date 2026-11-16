@@ -81,7 +81,9 @@ Use the following sections when you configure the engine or migrate a configurat
  
 #### Settings replaced by InMemory options
 
-Option names in this table are relative to `storage`. For example, `inMemory.engineConfig.inMemorySizeGB` means `storage.inMemory.engineConfig.inMemorySizeGB`.
+Option names in this table are relative to `storage`. 
+
+For example, `inMemory.engineConfig.inMemorySizeGB` means `storage.inMemory.engineConfig.inMemorySizeGB`.
 
 | **WiredTiger setting**| **Use instead** |
 | --- | --- |
