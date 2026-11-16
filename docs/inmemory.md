@@ -104,9 +104,9 @@ Option names in this table are relative to `storage`. For example, `inMemory.eng
 
 #### Inherited settings
 
-The following WiredTiger settings apply to Percona Memory Engine:
-
 Option names are relative to `storage.wiredTiger`.
+
+The following WiredTiger settings apply to Percona Memory Engine:
 
 | **WiredTiger setting** | **Behavior with Percona Memory Engine** |
 | --- | --- |
@@ -117,10 +117,9 @@ Option names are relative to `storage.wiredTiger`.
 
 #### Settings with no effect
 
-You can specify the following options.
+Option names are relative to `storage.wiredTiger`.
 Percona Memory Engine ignores these options.
-Option names are relative to `storage.wiredTiger`:
-
+You can specify the following options:
 
 | **WiredTiger setting** | **Reason** |
 | --- | --- |
