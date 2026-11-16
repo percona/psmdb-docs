@@ -68,6 +68,83 @@ The following are the configuration examples:
      --inMemoryStatisticsLogDelaySecs=0
      ```
 
+### How WiredTiger settings apply
+
+When you select `storage.engine: inMemory`, Percona Memory Engine inherits
+WiredTiger settings, with exceptions for memory size, statistics logging, and
+custom configuration strings. Use the following tables when configuring the
+engine or migrating a configuration from MongoDB Enterprise Advanced.
+
+The `storage.inMemory` settings take precedence over the corresponding
+`storage.wiredTiger` settings. This also applies when you omit an InMemory
+setting: the engine uses its InMemory default, not the WiredTiger value.
+
+In the following table, option names are relative to `storage`. For example,
+`inMemory.engineConfig.inMemorySizeGB` means
+`storage.inMemory.engineConfig.inMemorySizeGB`.
+
+| WiredTiger setting | Setting to use for Percona Memory Engine |
+| --- | --- |
+| `wiredTiger.engineConfig.cacheSizeGB` | `inMemory.engineConfig.inMemorySizeGB` |
+| `wiredTiger.engineConfig.cacheSizePct` | `inMemory.engineConfig.inMemorySizeGB`; the WiredTiger percentage does not control the InMemory memory limit. |
+| `wiredTiger.engineConfig.statisticsLogDelaySecs` | `inMemory.engineConfig.statisticsLogDelaySecs` |
+| `wiredTiger.engineConfig.configString` | `inMemory.engineConfig.configString` |
+| `wiredTiger.collectionConfig.configString` | `inMemory.collectionConfig.configString` |
+| `wiredTiger.indexConfig.configString` | `inMemory.indexConfig.configString` |
+
+The custom configuration strings in the WiredTiger section do not carry over
+to the InMemory section. If you use custom strings, review the settings before
+moving them to the corresponding `storage.inMemory` options. Percona Memory
+Engine enforces `cache_resident=false` for collection and index configuration
+strings.
+
+Other WiredTiger settings remain available, but some have no effect on the
+InMemory engine. The following table describes the settings relevant to this
+configuration change. Option names are relative to `storage.wiredTiger`.
+
+| WiredTiger setting | Behavior with Percona Memory Engine |
+| --- | --- |
+| `engineConfig.zstdCompressionLevel` | Inherited as the compression level for the `zstd` compressor. |
+| `engineConfig.directoryForIndexes` | Inherited and recorded in storage metadata. |
+| `collectionConfig.blockCompressor` | Inherited as the default block compressor for collections. |
+| `indexConfig.prefixCompression` | Inherited as the default prefix compression setting for indexes. |
+| `engineConfig.journalCompressor` | Has no effect because the InMemory engine disables journaling. |
+| `engineConfig.checkpointSizeMB` | Has no effect on the InMemory engine, which disables checkpoints. |
+| `engineConfig.liveRestoreSource`, `engineConfig.liveRestoreThreads`, `engineConfig.liveRestoreReadSizeMB` | Have no effect because live restore is not enabled for the InMemory engine. |
+| `engineConfig.maxCacheOverflowFileSizeGB` | Deprecated; has no effect on storage engine operation. |
+
+The `setParameter` settings `wiredTigerSessionMax`,
+`wiredTigerEvictionDirtyTargetGB`, `wiredTigerEvictionDirtyMaxGB`, and
+`wiredTigerEvictionUpdatesMaxGB` also apply to Percona Memory Engine. Keep
+these settings under `setParameter`, not under `storage.inMemory`.
+
+### Example with inherited settings
+
+This example sets a 3 GB memory limit and enables statistics logging every two
+seconds. It also sets the inherited collection and index compression options.
+The values are illustrative; choose a memory limit that fits your data set and
+available memory.
+
+```yaml
+storage:
+  engine: inMemory
+  inMemory:
+    engineConfig:
+      inMemorySizeGB: 3
+      statisticsLogDelaySecs: 2
+  wiredTiger:
+    engineConfig:
+      zstdCompressionLevel: 6
+    collectionConfig:
+      blockCompressor: zstd
+    indexConfig:
+      prefixCompression: true
+```
+
+When switching from another storage engine, setting these options alone does
+not migrate existing data. Follow the [storage engine switching
+procedure](#switching-storage-engines).
+
 ## Switching storage engines
 
 ### Considerations
