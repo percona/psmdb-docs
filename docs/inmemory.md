@@ -117,10 +117,10 @@ The following WiredTiger settings apply to Percona Memory Engine:
 | `collectionConfig.blockCompressor` | Percona Memory Engine uses the default block compressor for collections. |
 | `indexConfig.prefixCompression` | Percona Memory Engine uses the default prefix compression setting for indexes. |
 
-#### Settings with no effect
+#### Settings not used by the InMemory engine
 
-Option names are relative to `storage.wiredTiger`.
-Percona Memory Engine ignores these options.
+Option names are relative to `storage.wiredTiger`. Percona Memory Engine ignores these options.
+
 You can specify the following options:
 
 | **WiredTiger setting** | **Reason** |
