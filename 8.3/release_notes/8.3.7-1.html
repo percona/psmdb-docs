@@ -132,7 +132,7 @@ Upgrade">
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3959,7 +3959,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-server-for-mongodb-837-1-2026-07-30">Percona Server for MongoDB 8.3.7-1 (2026-07-30)<a class="headerlink" href="#percona-server-for-mongodb-837-1-2026-07-30" title="Permanent link">¶</a></h1>
+<h1 id="percona-server-for-mongodb-837-1-2026-07-30">Percona Server for MongoDB 8.3.7-1 (2026-07-30)<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-837-1-2026-07-30" title="Permanent link">¶</a></h1>
 <p><a class="md-button" href="../install/index.html">Installation</a>
 <a class="md-button" href="../install/upgrade-from-80.html">Upgrade</a></p>
 <div class="admonition warning">
@@ -3969,7 +3969,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 <p>We are pleased to announce the new major version of <strong>Percona Server for MongoDB 8.3.7-1</strong> – the drop-in replacement for MongoDB Community Edition. Percona Server for MongoDB supports MongoDB Community protocols and drivers and enhances it with the <a href="../comparison.html">enterprise-grade features for free</a>, enabling you to effectively meet the requirements of your organization in terms of high-availability, reliability and data security. </p>
 <p>This release of Percona Server for MongoDB includes the improvements and bug fixes of <a href="https://www.mongodb.com/docs/manual/release-notes/8.3/#8.3.7---july-22--2026" target="_blank">MongoDB 8.3.7 Community Edition <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
-<h2 id="upgrade-considerations">Upgrade considerations<a class="headerlink" href="#upgrade-considerations" title="Permanent link">¶</a></h2>
+<h2 id="upgrade-considerations">Upgrade considerations<a data-markdown-ignore class="headerlink" href="#upgrade-considerations" title="Permanent link">¶</a></h2>
 <p>To upgrade to Percona Server for MongoDB 8.3 from an 8.0 deployment, the deployment must have <code>featureCompatibilityVersion</code> set to 8.0.</p>
 <div class="highlight"><pre><span></span><code><span class="s1">'db.adminCommand({ setFeatureCompatibilityVersion: "8.0", confirm: true })'</span>
 <span class="p">{</span><span class="w"> </span><span class="nx">ok</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
@@ -3978,8 +3978,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="p">{</span><span class="w"> </span><span class="nx">featureCompatibilityVersion</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s1">'8.0'</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">ok</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>For detailed upgrade instructions, see <a href="../install/upgrade-from-80.html">Upgrade from Percona Server for MongoDB 8.0</a>.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
-<h3 id="software-bill-of-materials-sbom-and-vulnerability-exploitability-exchange-vex">Software Bill of Materials (SBOM) and Vulnerability Exploitability Exchange (VEX)<a class="headerlink" href="#software-bill-of-materials-sbom-and-vulnerability-exploitability-exchange-vex" title="Permanent link">¶</a></h3>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
+<h3 id="software-bill-of-materials-sbom-and-vulnerability-exploitability-exchange-vex">Software Bill of Materials (SBOM) and Vulnerability Exploitability Exchange (VEX)<a data-markdown-ignore class="headerlink" href="#software-bill-of-materials-sbom-and-vulnerability-exploitability-exchange-vex" title="Permanent link">¶</a></h3>
 <p>Percona Server for MongoDB (PSMDB) now provides Software Bills of Materials (SBOMs) and Vulnerability Exploitability Exchange (VEX) for every release. SBOMs improve software supply chain transparency by documenting the components and dependencies included in a build. They are generated automatically as part of the release pipeline in the industry standard <a href="https://cyclonedx.org/specification/overview/" target="_blank">CycloneDX <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> format. Additionally, to help users filter out false-positive alerts, we’ve published VEX files that clearly indicate whether and how Percona Server for MongoDB is affected by specific CVEs reported by an SBOM scanner.</p>
 <p>SBOMs are distributed through the following channels:</p>
 <ul>
@@ -3996,9 +3996,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>OpenVEX files are available to download via GitHub Pages.
 You can always find the main <a href="https://percona.github.io/percona-server-mongodb/vex/openvex.json">openvex.json</a> file with the latest vulnerability exploitability status, along with a dedicated OpenVEX file for each release, formatted <code>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-&lt;VERSION&gt;.openvex.json</code>. This release 8.3.7-1 is available at: <a href="https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.3.7-1.openvex.json">https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.3.7-1.openvex.json</a>.</p>
 <p>For comprehensive information, refer to our <a href="../sbom.html">documentation</a>.</p>
-<h3 id="upstream-improvements">Upstream improvements<a class="headerlink" href="#upstream-improvements" title="Permanent link">¶</a></h3>
+<h3 id="upstream-improvements">Upstream improvements<a data-markdown-ignore class="headerlink" href="#upstream-improvements" title="Permanent link">¶</a></h3>
 <p>The key upstream improvements include:</p>
-<h4 id="aggregation-and-search">Aggregation and search<a class="headerlink" href="#aggregation-and-search" title="Permanent link">¶</a></h4>
+<h4 id="aggregation-and-search">Aggregation and search<a data-markdown-ignore class="headerlink" href="#aggregation-and-search" title="Permanent link">¶</a></h4>
 <ul>
 <li>
 <p>The <code>$scoreFusion</code> aggregation stage is now available, and new expressions support hashing, Extended JSON conversion, binary subtypes, and <code>ObjectId</code> generation.</p>
@@ -4007,13 +4007,13 @@ You can always find the main <a href="https://percona.github.io/percona-server-m
 <p>The <code>$map</code>,<code>$filter</code>, and <code>$reduce</code> expressions can access array element indexes. This release also expands conversions between BSON types, strings, arrays, objects, numeric values, and Extended JSON.</p>
 </li>
 </ul>
-<h4 id="monitoring-and-diagnostics">Monitoring and diagnostics<a class="headerlink" href="#monitoring-and-diagnostics" title="Permanent link">¶</a></h4>
+<h4 id="monitoring-and-diagnostics">Monitoring and diagnostics<a data-markdown-ignore class="headerlink" href="#monitoring-and-diagnostics" title="Permanent link">¶</a></h4>
 <p><a href="https://www.mongodb.com/docs/manual/administration/full-time-diagnostic-data-capture/" target="_blank">Full-time diagnostic data capture (FTDC) <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> collects connection pool statistics for <code>mongod</code>. The <code>serverStatus</code> output includes additional metrics for query planning, replication, TTL processing, search operations, and execution queues.</p>
-<h4 id="resource-management">Resource management<a class="headerlink" href="#resource-management" title="Permanent link">¶</a></h4>
+<h4 id="resource-management">Resource management<a data-markdown-ignore class="headerlink" href="#resource-management" title="Permanent link">¶</a></h4>
 <p>Text search operations that process text score metadata have a 100 MB memory limit. When <code>allowDiskUse</code> is enabled, intermediate results can spill to disk. New controls also limit memory consumption from pre-authentication connections and improve retry behavior during high load.</p>
-<h4 id="shard-removal">Shard removal<a class="headerlink" href="#shard-removal" title="Permanent link">¶</a></h4>
+<h4 id="shard-removal">Shard removal<a data-markdown-ignore class="headerlink" href="#shard-removal" title="Permanent link">¶</a></h4>
 <p>The <code>removeShard</code> command is deprecated in favor of commands that provide more control over shard draining and removal. New commands let administrators start, stop, monitor, and complete shard draining as separate operations.</p>
-<h4 id="indexes-and-time-series-collections">Indexes and time series collections<a class="headerlink" href="#indexes-and-time-series-collections" title="Permanent link">¶</a></h4>
+<h4 id="indexes-and-time-series-collections">Indexes and time series collections<a data-markdown-ignore class="headerlink" href="#indexes-and-time-series-collections" title="Permanent link">¶</a></h4>
 <p><code>2dsphere</code> index version 4 is introduced as the default and changed how geospatial indexes handle documents containing both <code>GeoJSON</code> and legacy coordinates. It also adds validation and naming restrictions for time series collections.</p>
 <p>For the complete list of upstream changes, see <a href="https://www.mongodb.com/docs/manual/release-notes/8.3/" target="_blank">Release Notes for MongoDB 8.3 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> and <a href="https://www.mongodb.com/docs/manual/release-notes/8.3-compatibility/" target="_blank">Compatibility Changes in MongoDB 8.3 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
 <p>Other improvements include the following:</p>
@@ -4028,13 +4028,13 @@ You can always find the main <a href="https://percona.github.io/percona-server-m
 <p><a href="https://jira.mongodb.org/browse/SERVER-127346" target="_blank">SERVER-127346 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>: Improved session refresh and cleanup during heavy workloads. These tasks now bypass busy queues, preventing delays and errors.</p>
 </li>
 </ul>
-<h2 id="security-fixes-from-upstream-mongodb">Security fixes from upstream MongoDB<a class="headerlink" href="#security-fixes-from-upstream-mongodb" title="Permanent link">¶</a></h2>
+<h2 id="security-fixes-from-upstream-mongodb">Security fixes from upstream MongoDB<a data-markdown-ignore class="headerlink" href="#security-fixes-from-upstream-mongodb" title="Permanent link">¶</a></h2>
 <p>This release fixes vulnerabilities inherited from upstream MongoDB. The severity categories below follow the upstream <a href="https://nvd.nist.gov/vuln-metrics/cvss" target="_blank">CVSS scores <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
-<h3 id="critical-severity">Critical severity<a class="headerlink" href="#critical-severity" title="Permanent link">¶</a></h3>
+<h3 id="critical-severity">Critical severity<a data-markdown-ignore class="headerlink" href="#critical-severity" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://jira.mongodb.org/browse/SERVER-128494" target="_blank">SERVER-128494</a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-13072" target="_blank">CVE-2026-13072 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue where compute mode on a standalone MongoDB instance could cause memory corruption while processing externally sourced <code>BSON</code> data in an aggregation pipeline. This could cause the process to terminate or behave unexpectedly. Compute mode is disabled by default and must be enabled explicitly at startup.</li>
 </ul>
-<h3 id="high-severity">High severity<a class="headerlink" href="#high-severity" title="Permanent link">¶</a></h3>
+<h3 id="high-severity">High severity<a data-markdown-ignore class="headerlink" href="#high-severity" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p><a href="https://jira.mongodb.org/browse/SERVER-123081" target="_blank">SERVER-123081 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-13055" target="_blank">CVE-2026-13055 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue in the <code>$_internalIndexKey</code> aggregation expression. An authenticated user with permission to run aggregation pipelines could submit a compound wildcard index specification that caused mongod to stop, resulting in a denial-of-service attack.</p>
@@ -4085,7 +4085,7 @@ You can always find the main <a href="https://percona.github.io/percona-server-m
 <p><a href="https://jira.mongodb.org/browse/SERVER-129103" target="_blank">SERVER-129103</a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-13077" target="_blank">CVE-2026-13077 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue where MongoDB did not properly validate <code>CodeWScope</code> elements in malformed <code>BSONColumn</code> data. An authenticated user could exploit this with a crafted aggregation pipeline, causing mongod to stop or expose nearby process memory.</p>
 </li>
 </ul>
-<h3 id="medium-severity">Medium severity<a class="headerlink" href="#medium-severity" title="Permanent link">¶</a></h3>
+<h3 id="medium-severity">Medium severity<a data-markdown-ignore class="headerlink" href="#medium-severity" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p><a href="https://jira.mongodb.org/browse/SERVER-126247" target="_blank">SERVER-126247 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-13057" target="_blank">CVE-2026-13057 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): Fixed an issue where the internal <code>mergingPipeline</code> field in search queries was not properly validated.</p>
@@ -4107,7 +4107,7 @@ You can always find the main <a href="https://percona.github.io/percona-server-m
 </li>
 </ul>
 <p>For the complete upstream changelog, see <a href="https://www.mongodb.com/docs/manual/release-notes/8.3-changelog/#8.3.7-changelog" target="_blank">MongoDB 8.3.7 Community Edition <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
-<h2 id="known-issues">Known issues<a class="headerlink" href="#known-issues" title="Permanent link">¶</a></h2>
+<h2 id="known-issues">Known issues<a data-markdown-ignore class="headerlink" href="#known-issues" title="Permanent link">¶</a></h2>
 <p>This section describes known issues in Percona Server for MongoDB 8.3.7-1 and their resolution status.</p>
 <ul>
 <li>
@@ -4120,8 +4120,8 @@ You can always find the main <a href="https://percona.github.io/percona-server-m
 </ul>
 </li>
 </ul>
-<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
-<h3 id="new-features">New features<a class="headerlink" href="#new-features" title="Permanent link">¶</a></h3>
+<h2 id="changelog">Changelog<a data-markdown-ignore class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
+<h3 id="new-features">New features<a data-markdown-ignore class="headerlink" href="#new-features" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-2150">PSMDB-2150</a>: Percona Server for MongoDB (PSMDB) now provides Software Bills of Materials (SBOMs) for every release.</p>
@@ -4133,7 +4133,7 @@ You can always find the main <a href="https://percona.github.io/percona-server-m
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-2038">PSMDB-2038</a>: Percona Server for MongoDB now exposes LDAP <code>userToDN</code> cache statistics through the <code>serverStatus</code> command. These metrics provide visibility into cache utilization and effectiveness, helping administrators troubleshoot LDAP authentication latency, validate cache behavior after configuration changes, and optimize cache sizing for their workloads. The new <code>ldap.userToDNCache</code> section reports runtime information such as cache usage, hits, misses, and invalidations, making LDAP authentication performance easier to monitor and tune.</p>
 </li>
 </ul>
-<h2 id="tools-packaged-with-this-release">Tools packaged with this release<a class="headerlink" href="#tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
+<h2 id="tools-packaged-with-this-release">Tools packaged with this release<a data-markdown-ignore class="headerlink" href="#tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB packages the following MongoDB tools:</p>
 <p>MongoDB Shell (mongosh): 2.9.2 — <a href="https://www.mongodb.com/docs/mongodb-shell/changelog/#v2.9.2" target="_blank">upstream release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></p>
 
@@ -4173,6 +4173,44 @@ You can always find the main <a href="https://percona.github.io/percona-server-m
 
     
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/rasika-chivate" class="md-author" title="@rasika-chivate">
+          
+          <img src="https://avatars.githubusercontent.com/u/95711051?v=4&amp;size=72" alt="rasika-chivate">
+        </a>
+      
+        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
+          
+          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&amp;size=72" alt="web-flow">
+        </a>
+      
+        <a href="https://github.com/radoslawszulgo" class="md-author" title="@radoslawszulgo">
+          
+          <img src="https://avatars.githubusercontent.com/u/175048287?v=4&amp;size=72" alt="radoslawszulgo">
+        </a>
+      
+        <a href="https://github.com/apps/copilot-swe-agent" class="md-author" title="@Copilot">
+          
+          <img src="https://avatars.githubusercontent.com/in/1143301?v=4&amp;size=72" alt="Copilot">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 

@@ -133,7 +133,7 @@ with versioning enabled.">
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3896,7 +3896,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="hashicorp-vault-integration">HashiCorp Vault integration<a class="headerlink" href="#hashicorp-vault-integration" title="Permanent link">¶</a></h1>
+<h1 id="hashicorp-vault-integration">HashiCorp Vault integration<a data-markdown-ignore class="headerlink" href="#hashicorp-vault-integration" title="Permanent link">¶</a></h1>
 <p>Percona Server for MongoDB is integrated with HashiCorp Vault. HashiCorp Vault supports different secrets engines. Percona Server for MongoDB only supports the HashiCorp Vault
 back end with KV Secrets Engine - Version 2 (API)
 with versioning enabled.</p>
@@ -3905,7 +3905,7 @@ with versioning enabled.</p>
 <p>Percona Blog: <a href="https://www.percona.com/blog/2020/04/21/using-vault-to-store-the-master-key-for-data-at-rest-encryption-on-percona-server-for-mongodb/">Using Vault to Store the Master Key for Data at Rest Encryption on Percona Server for MongoDB</a></p>
 <p>HashiCorp Vault Documentation: <a href="https://www.vaultproject.io/api/secret/kv/kv-v2.html">How to configure the KV Engine</a></p>
 </div>
-<h2 id="hashicorp-vault-parameters">HashiCorp Vault parameters<a class="headerlink" href="#hashicorp-vault-parameters" title="Permanent link">¶</a></h2>
+<h2 id="hashicorp-vault-parameters">HashiCorp Vault parameters<a data-markdown-ignore class="headerlink" href="#hashicorp-vault-parameters" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -3972,7 +3972,7 @@ with versioning enabled.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="config-file-example">Config file example<a class="headerlink" href="#config-file-example" title="Permanent link">¶</a></h3>
+<h3 id="config-file-example">Config file example<a data-markdown-ignore class="headerlink" href="#config-file-example" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">vault</span><span class="p">:</span>
@@ -3981,7 +3981,7 @@ with versioning enabled.</p>
 <span class="w">    </span><span class="nt">tokenFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/user/path/token</span>
 <span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/data/hello</span>
 </code></pre></div>
-<h4 id="vault-access-policy-configuration">Vault access policy configuration<a class="headerlink" href="#vault-access-policy-configuration" title="Permanent link">¶</a></h4>
+<h4 id="vault-access-policy-configuration">Vault access policy configuration<a data-markdown-ignore class="headerlink" href="#vault-access-policy-configuration" title="Permanent link">¶</a></h4>
 <p>Percona Server for MongoDB checks the number of the secrets on the Vault server before adding a new one thus <a href="#master-key-loss-prevention">preventing the loss of the old master key</a>. For these checks, Percona Server for MongoDB requires read permissions for the secret’s metadata and the secrets engine configuration. You configure these permissions within the access policy on the Vault server.</p>
 <p>Find the sample policy configuration below:</p>
 <div class="highlight"><pre><span></span><code><span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">"secret/data/*"</span><span class="w"> </span><span class="p">{</span>
@@ -3996,13 +3996,13 @@ with versioning enabled.</p>
 </code></pre></div>
 <p>During the first run of the Percona Server for MongoDB, the process generates a new random master encryption key. Then, it wraps it into a secret and puts the latter on a Vault server at the configured path. Vault increments the value of the <code>current_version</code>, associates the resulting value with a new secret, and returns the version. Percona Server for MongoDB then saves the full path and the version in the metadata and uses them later to get the key from the Vault server.</p>
 <p>During the subsequent start, the server tries to read the master key from the Vault. If the configured secret does not exist, Vault responds with the HTTP 404 error.</p>
-<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">¶</a></h2>
+<h2 id="namespaces">Namespaces<a data-markdown-ignore class="headerlink" href="#namespaces" title="Permanent link">¶</a></h2>
 <p>Namespaces are isolated environments in Vault that allow for separate secret key and policy management.</p>
 <p>You can use Vault namespaces with Percona Server for MongoDB. Specify the namespace(s) for the <code>security.vault.secret</code> option value as follows:</p>
 <div class="highlight"><pre><span></span><code>&lt;namespace&gt;/secret/data/&lt;secret_path&gt;
 </code></pre></div>
 <p>For example, the path to secret keys for namespace <code>test</code> on  the secrets engine <code>secret</code> will be <code>test/secret/&lt;my_secret_path&gt;</code>.</p>
-<h3 id="targeting-a-namespace-in-vault-configuration">Targeting a namespace in Vault configuration<a class="headerlink" href="#targeting-a-namespace-in-vault-configuration" title="Permanent link">¶</a></h3>
+<h3 id="targeting-a-namespace-in-vault-configuration">Targeting a namespace in Vault configuration<a data-markdown-ignore class="headerlink" href="#targeting-a-namespace-in-vault-configuration" title="Permanent link">¶</a></h3>
 <p>You have the following options of how to target a particular namespace when configuring Vault:</p>
 <ol>
 <li>Set the <code>VAULT_NAMESPACE</code> environment variable so that all subsequent commands are executed against that namespace. Use the following command to set the environment variable for the namespace <code>test</code>:</li>
@@ -4022,7 +4022,7 @@ with versioning enabled.</p>
 </li>
 </ul>
 </div>
-<h2 id="key-rotation">Key rotation<a class="headerlink" href="#key-rotation" title="Permanent link">¶</a></h2>
+<h2 id="key-rotation">Key rotation<a data-markdown-ignore class="headerlink" href="#key-rotation" title="Permanent link">¶</a></h2>
 <p>Key rotation is replacing the old master key with a new one. This process helps to comply with regulatory requirements.</p>
 <p>To rotate the keys for a single <code>mongod</code> instance, do the following:</p>
 <ol>
@@ -4043,7 +4043,7 @@ with versioning enabled.</p>
 </li>
 </ol>
 <p>Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the Vault. The entire dataset is not re-encrypted.</p>
-<h3 id="key-rotation-in-replica-sets">Key rotation in replica sets<a class="headerlink" href="#key-rotation-in-replica-sets" title="Permanent link">¶</a></h3>
+<h3 id="key-rotation-in-replica-sets">Key rotation in replica sets<a data-markdown-ignore class="headerlink" href="#key-rotation-in-replica-sets" title="Permanent link">¶</a></h3>
 <p>Starting with version <a href="https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.md">6.0.5-4</a>, you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The <code>mongod</code> server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.</p>
 <p>The key rotation steps are the following:</p>
 <ol>
@@ -4051,11 +4051,11 @@ with versioning enabled.</p>
 <li>Step down the primary and wait for another primary to be elected.</li>
 <li>Rotate the master key for the previous primary node.</li>
 </ol>
-<h3 id="master-key-loss-prevention">Master key loss prevention<a class="headerlink" href="#master-key-loss-prevention" title="Permanent link">¶</a></h3>
+<h3 id="master-key-loss-prevention">Master key loss prevention<a data-markdown-ignore class="headerlink" href="#master-key-loss-prevention" title="Permanent link">¶</a></h3>
 <p>Percona Server for MongoDB checks if the number of secret versions has reached the maximum (10 by default) before adding a new master key to the Vault server as a versioned secret. You configure this number using the <code>max_versions</code> parameter on the Vault server.</p>
 <p>If the number of secrets reaches the maximum, Percona Server for MongoDB logs an error and exits. This prevents the Vault server from dropping the oldest secret version and the encryption key it stores.</p>
 <p>To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has <a href="#vault-access-policy-configuration">read permissions for the secret’s metadata and the secrets engine configuration</a>.</p>
-<h2 id="check-encryption-status">Check encryption status<a class="headerlink" href="#check-encryption-status" title="Permanent link">¶</a></h2>
+<h2 id="check-encryption-status">Check encryption status<a data-markdown-ignore class="headerlink" href="#check-encryption-status" title="Permanent link">¶</a></h2>
 <p>You can check the encryption status and the current configuration using the following command:</p>
 <div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span>
 </code></pre></div>
@@ -4068,7 +4068,7 @@ with versioning enabled.</p>
 }
 </code></pre></div>
 </details>
-<h2 id="upgrade-considerations">Upgrade considerations<a class="headerlink" href="#upgrade-considerations" title="Permanent link">¶</a></h2>
+<h2 id="upgrade-considerations">Upgrade considerations<a data-markdown-ignore class="headerlink" href="#upgrade-considerations" title="Permanent link">¶</a></h2>
 <p>If you upgraded to Percona Server for MongoDB 8.0.x from version 7.0.14-9 or earlier, where there is no check for the number of secrets versions on the Vault server, configure the read permissions for Percona Server for MongoDB within the access policy on the Vault server after the upgrade. </p>
 <p>See <a href="#vault-access-policy-configuration">the policy configuration example</a>.</p>
 
@@ -4120,6 +4120,11 @@ with versioning enabled.</p>
 
     
     <nav>
+      
+        <a href="https://github.com/EvgeniyPatlan" class="md-author" title="@EvgeniyPatlan">
+          
+          <img src="https://avatars.githubusercontent.com/u/18436759?v=4&amp;size=72" alt="EvgeniyPatlan">
+        </a>
       
         <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
           

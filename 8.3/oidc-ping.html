@@ -131,7 +131,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3942,7 +3942,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="configure-oidc-authentication-and-authorization-with-ping-identity">Configure OIDC authentication and authorization with Ping Identity<a class="headerlink" href="#configure-oidc-authentication-and-authorization-with-ping-identity" title="Permanent link">¶</a></h1>
+<h1 id="configure-oidc-authentication-and-authorization-with-ping-identity">Configure OIDC authentication and authorization with Ping Identity<a data-markdown-ignore class="headerlink" href="#configure-oidc-authentication-and-authorization-with-ping-identity" title="Permanent link">¶</a></h1>
 <p>This document provides step-by-step instructions how to configure OIDC authentication and authorization the Percona Server for MongoDB using <a href="https://www.pingidentity.com/en.html">Ping Identity <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> as an external identity provider.</p>
 <p>The setup process consists of three main stages:</p>
 <ol>
@@ -3959,14 +3959,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>Connect to Percona Server for MongoDB using OIDC authentication</li>
 </ol>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<h2 id="prerequisites">Prerequisites<a data-markdown-ignore class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <p>Before you start, ensure you have the following:</p>
 <ol>
 <li>Percona Server for MongoDB 8.0.12-4 and higher</li>
 <li>Ping Identity account with the active subscription</li>
 </ol>
-<h2 id="identity-provider-setup">Identity provider setup<a class="headerlink" href="#identity-provider-setup" title="Permanent link">¶</a></h2>
-<h3 id="create-an-environment">Create an environment<a class="headerlink" href="#create-an-environment" title="Permanent link">¶</a></h3>
+<h2 id="identity-provider-setup">Identity provider setup<a data-markdown-ignore class="headerlink" href="#identity-provider-setup" title="Permanent link">¶</a></h2>
+<h3 id="create-an-environment">Create an environment<a data-markdown-ignore class="headerlink" href="#create-an-environment" title="Permanent link">¶</a></h3>
 <p>An environment is the way to organize your Ping Identity resources. It contains applications, users, and groups. Each environment has its own settings and configurations.</p>
 <p>To create a new environment in Ping Identity, follow these steps:</p>
 <ol>
@@ -3987,7 +3987,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Click <strong>Finish</strong> to create the environment.</p>
 </li>
 </ol>
-<h3 id="configure-an-oidc-application">Configure an OIDC application<a class="headerlink" href="#configure-an-oidc-application" title="Permanent link">¶</a></h3>
+<h3 id="configure-an-oidc-application">Configure an OIDC application<a data-markdown-ignore class="headerlink" href="#configure-an-oidc-application" title="Permanent link">¶</a></h3>
 <ol>
 <li>Select the created environment from the Environments list at the bottom of the Home page.</li>
 <li>On the Environment overview page, click <strong>Manage environment</strong>. The environment dashboard opens.</li>
@@ -4041,14 +4041,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 </li>
 </ol>
-<h3 id="create-users-and-groups">Create users and groups<a class="headerlink" href="#create-users-and-groups" title="Permanent link">¶</a></h3>
+<h3 id="create-users-and-groups">Create users and groups<a data-markdown-ignore class="headerlink" href="#create-users-and-groups" title="Permanent link">¶</a></h3>
 <p>Groups define user access rights to resources. Identity provider groups are then mapped to roles in Percona Server for MongoDB to authorize users to access the database.</p>
 <ol>
 <li>Create groups as described in the <a href="https://docs.pingidentity.com/pingone/directory/p1_managing_groups.html#creating-a-group">Creating a group <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> guide.</li>
 <li>Add users. Follow the steps in the <a href="https://docs.pingidentity.com/pingone/directory/p1_adduser.html">Adding a user <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> guide to add users. Specify the user email as the username.</li>
 <li>Assign groups you created earlier to the users. </li>
 </ol>
-<h2 id="configure-percona-server-for-mongodb">Configure Percona Server for MongoDB<a class="headerlink" href="#configure-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
+<h2 id="configure-percona-server-for-mongodb">Configure Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#configure-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
 <p>Now you need to configure authentication in Percona Server for MongoDB. Specify the external identity provider configuration for the <code>oidcIdentityProviders</code> server parameter either via the configuration file or the command line. </p>
 <p>The following table maps the Ping Identity configuration parameters to the Percona Server for MongoDB configuration:</p>
 <p>| Ping Identity Parameter | Percona Server for MongoDB Parameter |
@@ -4056,7 +4056,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 | <code>Issuer ID</code>             | <code>issuer</code>                             |
 | <code>Client ID</code>             | <code>clientID</code> <br> <code>audience</code>           |
 | Attribute in Attribute Mappings | <code>authorizationClaim</code>         |</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Configuration file</label><label for="__tabbed_1_2">Command line</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">Configuration file</label><label for="__tabbed_1_2">Command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -4102,7 +4102,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>When set to <code>true</code>, users are authorized using identity provider groups. Users are created and stored on the IdP side.</li>
 <li>When set to <code>false</code>, users are authorized by their usernames in the <code>$external</code> database in Percona Server for MongoDB. When using <code>useAuthorizationClaim: false</code>, <strong>do not</strong> specify <code>authorizationClaim</code>.</li>
 </ul>
-<h2 id="create-user-roles">Create user roles<a class="headerlink" href="#create-user-roles" title="Permanent link">¶</a></h2>
+<h2 id="create-user-roles">Create user roles<a data-markdown-ignore class="headerlink" href="#create-user-roles" title="Permanent link">¶</a></h2>
 <p>To enable users to access Percona Server for MongoDB, you must create roles and define privileges for them. </p>
 <p>The role name must match the identity provider group name and must have the prefix that matches the <code>authNamePrefix</code> in Percona Server for MongoDB configuration.</p>
 <p>For example, to create a role for the group named <code>admin</code> in Ping and with the <code>authNamePrefix</code> set to <code>ping</code>, use the following command:</p>
@@ -4112,7 +4112,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="w">  </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"readWriteAnyDatabase"</span><span class="w"> </span><span class="p">]</span>
 <span class="p">})</span>
 </code></pre></div>
-<h3 id="create-users">Create users<a class="headerlink" href="#create-users" title="Permanent link">¶</a></h3>
+<h3 id="create-users">Create users<a data-markdown-ignore class="headerlink" href="#create-users" title="Permanent link">¶</a></h3>
 <p><strong>Complete this step if you set <code>useAuthorizationClaim</code> to <code>false</code></strong></p>
 <p>Create users in the <code>$external</code> database. The username must consist of the <code>authNamePrefix</code> and the email that you specified when you created users in Ping Identity. The username format is:</p>
 <div class="highlight"><pre><span></span><code>authNamePrefix/email
@@ -4125,8 +4125,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="w">  </span><span class="p">]</span>
 <span class="p">})</span>
 </code></pre></div>
-<h2 id="authenticate-in-percona-server-for-mongodb">Authenticate in Percona Server for MongoDB<a class="headerlink" href="#authenticate-in-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
-<h3 id="authorization-code-flow">Authorization Code flow<a class="headerlink" href="#authorization-code-flow" title="Permanent link">¶</a></h3>
+<h2 id="authenticate-in-percona-server-for-mongodb">Authenticate in Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#authenticate-in-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
+<h3 id="authorization-code-flow">Authorization Code flow<a data-markdown-ignore class="headerlink" href="#authorization-code-flow" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Connect to Percona Server for MongoDB:</p>
@@ -4149,7 +4149,7 @@ test&gt;
 </code></pre></div>
 </li>
 </ol>
-<h3 id="device-authorization-flow">Device Authorization flow<a class="headerlink" href="#device-authorization-flow" title="Permanent link">¶</a></h3>
+<h3 id="device-authorization-flow">Device Authorization flow<a data-markdown-ignore class="headerlink" href="#device-authorization-flow" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Connect to Percona Server for MongoDB:</p>

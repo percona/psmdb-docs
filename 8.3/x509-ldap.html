@@ -131,7 +131,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3806,10 +3806,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="set-up-x509-authentication-and-ldap-authorization">Set up x.509 authentication and LDAP authorization<a class="headerlink" href="#set-up-x509-authentication-and-ldap-authorization" title="Permanent link">¶</a></h1>
+<h1 id="set-up-x509-authentication-and-ldap-authorization">Set up x.509 authentication and LDAP authorization<a data-markdown-ignore class="headerlink" href="#set-up-x509-authentication-and-ldap-authorization" title="Permanent link">¶</a></h1>
 <p><a href="authentication.html#x509-certificate-authentication">x.509 certificate authentication</a> is one of the supported authentication mechanisms in Percona Server for MongoDB. It is compatible with <a href="authorization.html">LDAP authorization</a> to enable you to control user access and operations in your database environment.</p>
 <p>This document provides the steps on how to configure and use x.509 certificates for authentication in Percona Server for MongoDB and authorize users in the LDAP server.</p>
-<h2 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">¶</a></h2>
+<h2 id="considerations">Considerations<a data-markdown-ignore class="headerlink" href="#considerations" title="Permanent link">¶</a></h2>
 <ol>
 <li>
 <p>For testing purposes, in this tutorial we use <a href="https://www.openssl.org/">OpenSSL</a> to issue self-signed certificates. For production use, we recommend using certificates issued and signed by the <abbr title="Certificate Authority">CA</abbr> in Percona Server for MongoDB. Client certificates must meet the <a href="https://docs.mongodb.com/manual/core/security-x.509/#client-certificate-requirements">client certificate requirements</a>.</p>
@@ -3818,8 +3818,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>The setup of the LDAP server and the configuration of the LDAP schema is out of scope of this document. We assume that you have the LDAP server up and running and accessible to Percona Server for MongoDB.</p>
 </li>
 </ol>
-<h2 id="setup-procedure">Setup procedure<a class="headerlink" href="#setup-procedure" title="Permanent link">¶</a></h2>
-<h3 id="issue-certificates">Issue certificates<a class="headerlink" href="#issue-certificates" title="Permanent link">¶</a></h3>
+<h2 id="setup-procedure">Setup procedure<a data-markdown-ignore class="headerlink" href="#setup-procedure" title="Permanent link">¶</a></h2>
+<h3 id="issue-certificates">Issue certificates<a data-markdown-ignore class="headerlink" href="#issue-certificates" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Create a directory to store the certificates. For example, <code>/var/lib/mongocerts</code>.</p>
@@ -3832,7 +3832,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 </li>
 </ol>
-<h4 id="generate-the-root-certificate-authority-certificate">Generate the root Certificate Authority certificate<a class="headerlink" href="#generate-the-root-certificate-authority-certificate" title="Permanent link">¶</a></h4>
+<h4 id="generate-the-root-certificate-authority-certificate">Generate the root Certificate Authority certificate<a data-markdown-ignore class="headerlink" href="#generate-the-root-certificate-authority-certificate" title="Permanent link">¶</a></h4>
 <p>The root Certificate Authority certificate will be used to sign the SSL certificates.</p>
 <p>Run the following command and in the <code>-subj</code> flag, provide the details about your organization:</p>
 <ul>
@@ -3845,7 +3845,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/var/lib/mongocerts
 sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-nodes<span class="w"> </span>-x509<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-keyout<span class="w"> </span>ca.key<span class="w"> </span>-out<span class="w"> </span>ca.crt<span class="w"> </span>-subj<span class="w"> </span><span class="s2">"/C=US/ST=California/L=SanFrancisco/O=Percona/OU=root/CN=localhost"</span>
 </code></pre></div>
-<h4 id="generate-server-certificate">Generate server certificate<a class="headerlink" href="#generate-server-certificate" title="Permanent link">¶</a></h4>
+<h4 id="generate-server-certificate">Generate server certificate<a data-markdown-ignore class="headerlink" href="#generate-server-certificate" title="Permanent link">¶</a></h4>
 <ol>
 <li>
 <p>Create the server certificate request and key. In the <code>-subj</code> flag, provide the details about your organization:</p>
@@ -3880,7 +3880,7 @@ sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> <
 </code></pre></div>
 </li>
 </ol>
-<h4 id="generate-client-certificates">Generate client certificates<a class="headerlink" href="#generate-client-certificates" title="Permanent link">¶</a></h4>
+<h4 id="generate-client-certificates">Generate client certificates<a data-markdown-ignore class="headerlink" href="#generate-client-certificates" title="Permanent link">¶</a></h4>
 <ol>
 <li>
 <p>Generate client certificate request and key. In the <code>-subj</code> flag, specify the information about clients in the  format.</p>
@@ -3898,9 +3898,9 @@ sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> <
 </code></pre></div>
 </li>
 </ol>
-<h3 id="set-up-the-ldap-server">Set up the LDAP server<a class="headerlink" href="#set-up-the-ldap-server" title="Permanent link">¶</a></h3>
+<h3 id="set-up-the-ldap-server">Set up the LDAP server<a data-markdown-ignore class="headerlink" href="#set-up-the-ldap-server" title="Permanent link">¶</a></h3>
 <p>The setup of the LDAP server is out of scope of this document. Please work with your LDAP administrators to set up the LDAP server and configure the LDAP schema.</p>
-<h3 id="configure-the-mongod-server">Configure the <code>mongod</code> server<a class="headerlink" href="#configure-the-mongod-server" title="Permanent link">¶</a></h3>
+<h3 id="configure-the-mongod-server">Configure the <code>mongod</code> server<a data-markdown-ignore class="headerlink" href="#configure-the-mongod-server" title="Permanent link">¶</a></h3>
 <p>The configuration consists of the following steps:</p>
 <ul>
 <li>Creating a role that matches the user group on the LDAP server</li>
@@ -3910,7 +3910,7 @@ sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> <
 <p class="admonition-title">Note</p>
 <p>When you use x.509 authentication with LDAP authorization, you don’t need to create users in the <code>$external</code> database.  User management is done on the LDAP server so when a client connects to the database, they are authenticated and authorized through the LDAP server.</p>
 </div>
-<h4 id="create-roles">Create roles<a class="headerlink" href="#create-roles" title="Permanent link">¶</a></h4>
+<h4 id="create-roles">Create roles<a data-markdown-ignore class="headerlink" href="#create-roles" title="Permanent link">¶</a></h4>
 <p>At this step, create the roles in the <code>admin</code> database with the names that exactly match the names of the user groups on the LDAP server. These roles are used for user <a href="authorization.html">LDAP authorization</a> in Percona Server for MongoDB.</p>
 <p>In our example, we create the role <code>cn=otherusers,dc=percona,dc=com</code> that has the corresponding LDAP group.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">)</span>
@@ -3939,7 +3939,7 @@ sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> <
 <span class="w">     </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<h4 id="enable-x509-authentication">Enable x.509 authentication<a class="headerlink" href="#enable-x509-authentication" title="Permanent link">¶</a></h4>
+<h4 id="enable-x509-authentication">Enable x.509 authentication<a data-markdown-ignore class="headerlink" href="#enable-x509-authentication" title="Permanent link">¶</a></h4>
 <ol>
 <li>
 <p>Stop the <code>mongod</code> service</p>
@@ -3975,7 +3975,7 @@ sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> <
 </code></pre></div>
 </li>
 </ol>
-<h3 id="authenticate-with-the-x509-certificate">Authenticate with the x.509 certificate<a class="headerlink" href="#authenticate-with-the-x509-certificate" title="Permanent link">¶</a></h3>
+<h3 id="authenticate-with-the-x509-certificate">Authenticate with the x.509 certificate<a data-markdown-ignore class="headerlink" href="#authenticate-with-the-x509-certificate" title="Permanent link">¶</a></h3>
 <p>To test the authentication, connect to <em>Percona Server for MongoDB</em> using the following command:</p>
 <div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--tls<span class="w"> </span>--tlsCAFile<span class="w"> </span>/var/lib/mongocerts/ca.crt<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>&lt;path_to_client_certificate&gt;/client.pem<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-X509<span class="w"> </span>--authenticationDatabase<span class="o">=</span><span class="s1">'$external'</span>
 </code></pre></div>

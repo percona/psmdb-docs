@@ -1,0 +1,255 @@
+> For the complete documentation index, see [llms.txt](https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt).
+
+# Run Percona Server for MongoDB in a Docker container
+
+Docker images of Percona Server for MongoDB are hosted publicly on [Docker Hub](https://hub.docker.com/r/percona/percona-server-mongodb/).
+
+For more information about using Docker, see the [Docker Docs](https://docs.docker.com/).
+
+Note
+
+Make sure that you are using the latest version of Docker. The ones provided via `apt` and `yum` may be outdated and cause errors.
+
+By default, Docker will pull the image from Docker Hub if it is not available locally.
+
+We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/8.3/telemetry.html) to understand the use of the software and improve our products.
+
+To run the latest Percona Server for MongoDB 8.3 in a Docker container, run the following command as the root user or via `sudo`:
+
+```
+docker run -d --name psmdb -p 27017:27017 --restart always percona/percona-server-mongodb:<TAG>
+```
+
+The command does the following:
+
+- The `docker run` command instructs the `docker` daemon to run a container from an image.
+- The `-d` option starts the container in detached mode (that is, in the background).
+- The `--name` option assigns a custom name for the container that you can use to reference the container within a Docker network. In this case: `psmdb`.
+- The `-p` option binds the container’s port `27017` to TCP port `27017` on all host network interfaces. This makes the container accessible externally.
+- The `--restart` option defines the container’s restart policy. Setting it to `always` ensures that the Docker daemon will start the container on startup and restart it if the container exits.
+
+Note that if you plan to run physical backups and restores with Percona Backup for MongoDB, the restart policy must **not** be set to `always` or `on-success`. This is because the database must not be automatically restarted during physical restores, as this is controlled by the pbm-agent. Read more about [physical restores in PBM documentation](https://docs.percona.com/percona-backup-mongodb/usage/restore-physical.html#considerations) .
+
+- `percona/percona-server-mongodb` is the name of the image to derive the container from.
+- `<TAG>` is the tag specifying the version you need. For example, `8.3.17-5`. Docker automatically identifies the architecture (x86_64 or ARM64) and pulls the respective image. [See the full list of tags](https://hub.docker.com/r/percona/percona-server-mongodb/tags).
+
+## Access container shell
+
+Run the following command to start the bash session and run commands inside the container:
+
+```
+docker exec -it <container-name>
+```
+
+where `<container-name>` is the name of your database container.
+
+For example, to connect to Percona Server for MongoDB, run:
+
+```
+mongosh
+```
+
+## Connecting from another Docker container
+
+The Percona Server for MongoDB container exposes standard MongoDB port (27017), which can be used for connection from an application running in another container.
+
+For example, to set up a replica set for testing purposes, you have the following options:
+
+- Interconnect the `mongod` nodes in containers on a default `bridge` network. In this scenario, containers communicate with each other by their IP address.
+- Create a [user-defined network](https://docs.docker.com/network/bridge/) and interconnect the `mongod` nodes on it. In this scenario, containers communicate with each other by name.
+- Automate the container provisioning and the replica set setup via the [Docker Compose tool](https://docs.docker.com/compose/).
+
+The following example demonstrates the setup on x86_64 platforms. The `rs101`, `rs102`, `rs103` are the container names for Percona Server for MongoDB and `rs` is the replica set name.
+
+**Bridge network**
+
+When you start Docker, a default `bridge` network is created and all containers are automatically attached to it unless otherwise specified.
+
+1. Start the containers and expose different ports
+
+   ```
+   docker run --rm -d --name rs101 -p 27017:27017  percona/percona-server-mongodb:8.3 --port=27017 --replSet rs
+   docker run --rm -d --name rs102 -p 28017:28017  percona/percona-server-mongodb:8.3 --port=28017 --replSet rs
+   docker run --rm -d --name rs103 -p 29017:29017  percona/percona-server-mongodb:8.3 --port=29017 --replSet rs
+   ```
+
+1. Check that the containers are started
+
+   ```
+   docker container ls
+   ```
+
+   Output:
+
+   ```
+   CONTAINER ID  IMAGE                                         COMMAND               CREATED         STATUS             PORTS                     NAMES
+   3a4b70cd386b  percona/percona-server-mongodb:8.3  --port=27017 --re...  3 minutes ago   Up 3 minutes ago   0.0.0.0:27017->27017/tcp  rs101
+   c9b40a00e32b  percona/percona-server-mongodb:8.3  --port=28017 --re...  11 seconds ago  Up 11 seconds ago  0.0.0.0:28017->28017/tcp  rs102
+   b8aebc00309e  percona/percona-server-mongodb:8.3  --port=29017 --re...  3 seconds ago   Up 3 seconds ago   0.0.0.0:29017->29017/tcp  rs103
+   ```
+
+1. Get the IP addresses of each container
+
+   ```
+   docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs101
+   docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs102
+   docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs103
+   ```
+
+1. Interconnect the containers and initiate the replica set. Replace `rs101SERVER`, `rs102SERVER` and `rs103SERVER` with the IP address of each respective container.
+
+   ```
+   docker exec -ti rs101 mongosh --eval 'config={"_id":"rs","members":[{"_id":0,"host":"rs101SERVER:27017"},{"_id":1,"host":"rs102SERVER:28017"},{"_id":2,"host":"rs103SERVER:29017"}]};rs.initiate(config);'
+   ```
+
+1. Check your setup
+
+   ```
+   docker exec -ti rs101 mongosh --eval 'rs.status()'
+   ```
+
+**User-defined network**
+
+You can isolate desired containers in a user-defined network and provide DNS resolution across them so that they communicate with each other by hostname.
+
+1. Create the network:
+
+   ```
+   docker network create my-network
+   ```
+
+1. Start the containers and connect them to your network, exposing different ports
+
+   ```
+   docker run --rm -d --name rs101 --net my-network -p 27017:27017  percona/percona-server-mongodb:8.3 --port=27017 --replSet rs
+   docker run --rm -d --name rs102 --net my-network -p 28017:28017  percona/percona-server-mongodb:8.3 --port=28017 --replSet rs
+   docker run --rm -d --name rs103 --net my-network -p 29017:29017  percona/percona-server-mongodb:8.3 --port=29017 --replSet rs
+   ```
+
+   Alternatively, you can connect the already running containers to your network:
+
+   ```
+   docker network connect my-network rs101 rs102 rs103
+   ```
+
+1. Interconnect the containers and initiate the replica set.
+
+   ```
+   docker exec -ti rs101 mongosh --eval 'config={"_id":"rs","members":[{"_id":0,"host":"rs101:27017"},{"_id":1,"host":"rs102:28017"},{"_id":2,"host":"rs103:29017"}]};rs.initiate(config);'
+   ```
+
+1. Check your setup
+
+   ```
+   docker exec -ti rs101 mongosh --eval 'rs.status()'
+   ```
+
+**Docker Compose**
+
+As the precondition, you need to have Docker Engine and Docker Compose on your machine. Refer to [Docker documentation](https://docs.docker.com/compose/install/) for how to get Docker Compose.
+
+1. Create a compose file and define the services in it.
+
+   docker-compose.yaml
+
+   ```
+   version: "3"
+   services:
+     rs101:
+       image: percona/percona-server-mongodb:8.3
+       container_name: rs101
+       hostname: rs101
+       ports:
+         - "27017:27017"
+       networks:
+         - my-network
+       command: "--port=27017 --replSet rs"
+
+     rs102:
+       image: percona/percona-server-mongodb:8.3
+       container_name: rs102
+       hostname: rs102
+       ports:
+         - "28017:28017"    
+       networks:
+         - my-network
+       command: "--port=28017 --replSet rs"
+
+     rs103:
+       image: percona/percona-server-mongodb:8.3
+       container_name: rs103
+       hostname: rs103
+       ports:
+         - "29017:29017"    
+       networks:
+         - my-network
+       command: "--port=29017 --replSet rs"
+
+     rs-init:
+       image: percona/percona-server-mongodb:8.3
+       container_name: rs-init
+       restart: "no"
+       networks:
+         - my-network
+       depends_on:
+         - rs101
+         - rs102
+         - rs103
+       entrypoint: >
+         mongosh --host rs101:27017 --eval 
+         '
+         config = {
+         "_id" : "rs",
+         "members" : [
+           {
+             "_id" : 0,
+             "host" : "rs101:27017"
+           },
+           {
+             "_id" : 1,
+             "host" : "rs102:28017"
+           },
+           {
+             "_id" : 2,
+             "host" : "rs103:29017"
+           }
+         ]
+         };
+         rs.initiate(config);
+         ' 
+   networks:
+     my-network:
+       driver: bridge
+   ```
+
+1. Build and run the replica set with Compose
+
+   ```
+   docker compose up -d
+   ```
+
+1. Check your setup
+
+   ```
+   docker exec -ti rs101 mongosh --eval 'rs.status()'
+   ```
+
+## Connecting with the `mongosh` shell
+
+To start another container with the `mongosh` shell that connects to your Percona Server for MongoDB container, run the following command:
+
+```
+docker run -it --link psmdb --rm percona/percona-server-mongodb:8.3 mongosh mongodb://MONGODB_SERVER:PORT/DB_NAME
+```
+
+Set `MONGODB_SERVER`, `PORT`, and `DB_NAME` with the IP address of the `psmdb` container, the port of your MongoDB Server (default value is 27017), and the name of the database you want to connect to.
+
+You can get the IP address by running this command:
+
+```
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' psmdb
+```
+
+## Next steps
+
+[Run simple queries](https://docs.percona.com/percona-server-for-mongodb/8.3/crud.html)

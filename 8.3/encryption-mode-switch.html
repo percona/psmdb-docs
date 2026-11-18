@@ -131,7 +131,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3682,13 +3682,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="migrate-from-key-file-encryption-to-hashicorp-vault-openbao-encryption">Migrate from key file encryption to HashiCorp Vault / OpenBao encryption<a class="headerlink" href="#migrate-from-key-file-encryption-to-hashicorp-vault-openbao-encryption" title="Permanent link">¶</a></h1>
+<h1 id="migrate-from-key-file-encryption-to-hashicorp-vault-openbao-encryption">Migrate from key file encryption to HashiCorp Vault / OpenBao encryption<a data-markdown-ignore class="headerlink" href="#migrate-from-key-file-encryption-to-hashicorp-vault-openbao-encryption" title="Permanent link">¶</a></h1>
 <p>The steps below describe how to migrate from the key file encryption to using  HashiCorp Vault. This guide also applies to migration to <a href="https://openbao.org/">OpenBao</a> - an open-source alternative to HashiCorp Vault. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is a sample guideline and it should be used for testing purposes only. We recommend to contact <a href="https://www.percona.com/services/consulting">Percona Consulting Services</a> to assist you with migration in production environment.</p>
 </div>
-<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">¶</a></h3>
+<h3 id="assumptions">Assumptions<a data-markdown-ignore class="headerlink" href="#assumptions" title="Permanent link">¶</a></h3>
 <p>We assume that you have installed and configured the vault server and enabled the KV Secrets Engine as the secrets storage for it.</p>
 <ol>
 <li>

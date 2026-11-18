@@ -1,0 +1,85 @@
+> For the complete documentation index, see [llms.txt](https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt).
+
+# Log redaction
+
+Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.
+
+To enable log redaction, run `mongod` with the `--redactClientLogData` option.
+
+Note
+
+Metadata such as error or operation codes, line numbers, and source file names remain visible in the logs.
+
+Log redaction is important for complying with security requirements, but it can make troubleshooting and diagnostics more difficult due to the lack of data related to the log event. For this reason, debug messages are not redacted even when log redaction is enabled. Keep this in mind when switching between log levels.
+
+You can permanently enable log redaction by adding the following to the configuration file:
+
+```
+security:
+  redactClientLogData: true
+```
+
+To enable log redaction at runtime, use the `setParameter` command as follows:
+
+```
+db.adminCommand(
+  { setParameter: 1, redactClientLogData : true }
+)
+```
+
+Note
+
+If you enable the profiler, the query is still logged to the `system.profile` collection without any redaction.
+
+## Example
+
+This is an example of a log entry with redaction enabled:
+
+```
+{
+  "t": {
+    "$date": "2025-02-11T15:37:16.902+00:00"
+  },
+  "s": "I",
+  "c": "COMMAND",
+  "id": 51803,
+  "svc": "S",
+  "ctx": "conn1592",
+  "msg": "Slow query",
+  "attr": {
+    "type": "command",
+    "isFromUserConnection": true,
+    "ns": "admin.mytestcol",
+    "collectionType": "admin",
+    "appName": "mongosh 2.3.2",
+    "command": {
+      "insert": "###",
+      "documents": [
+        {
+          "a": "###",
+          "b": "###",
+          "c": "###",
+          "_id": "###"
+        }
+      ],
+      "ordered": "###",
+      "lsid": {
+        "id": "###"
+      },
+      "txnNumber": "###",
+      "$clusterTime": {
+        "clusterTime": "###",
+        "signature": {
+          "hash": "###",
+          "keyId": "###"
+        }
+      },
+      "$readPreference": {
+        "mode": "###"
+      },
+      "$db": "###"
+    }
+...
+```
+
+As you can see, the field names are still visible but the values are hidden. Some other fields like the `readPreference` are also hidden.

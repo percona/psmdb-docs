@@ -1,0 +1,417 @@
+> For the complete documentation index, see [llms.txt](https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt).
+
+# Telemetry and data collection
+
+Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements. Telemetry is added to the Percona packages and to Docker images.
+
+## What information is collected
+
+Telemetry collects the following information:
+
+- Information about the installation environment when you install the software.
+- Information about the operating system, such as the OS name, the architecture, and the list of Percona packages. See more in the [Telemetry Agent section](#telemetry-agent).
+- The metrics from the database instance. See more in the [Telemetry Subsystem section](#telemetry-subsystem).
+
+## What is NOT collected
+
+Percona protects your privacy and doesn’t collect any personal information about you, such as database names, usernames, credentials, or any user-entered values.
+
+All collected data is anonymous, meaning it can’t be traced back to any individual user. To learn more about how Percona handles your data, read the [Percona Privacy statement](https://www.percona.com/privacy-policy).
+
+You control whether to share this information. Participation in this program is completely voluntary. If you don’t want to share anonymous data, you can [disable telemetry](#disable-telemetry).
+
+## Why telemetry matters
+
+Benefits for Percona:
+
+| Advantages                       | Description                                                                                                                                                                                |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| See how people use your software | Telemetry collects anonymous data on how users interact with our software. This tells developers which features are popular, which ones are confusing, and if anything is causing crashes. |
+| Identify issues early            | Telemetry can catch bugs or performance problems before they become widespread.                                                                                                            |
+
+Benefits for users in the long run:
+
+| Advantages               | Description                                                                                                                                                                |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Faster bug fixes         | With telemetry data, developers can pinpoint issues affecting specific users and prioritize fixing them quickly.                                                           |
+| Improved features        | Telemetry helps developers understand user needs and preferences. This allows them to focus on features that will be genuinely useful and improve your overall experience. |
+| Improved user experience | By identifying and resolving issues early, telemetry helps create a more stable and reliable software experience for everyone.                                             |
+
+## Telemetry components
+
+Percona collects information using the following components:
+
+- Telemetry script that sends information about the software and the environment where it is installed. This information is collected only once during the installation.
+
+- The Telemetry Subsystem collects the necessary metrics directly from the database and stores them in a Metrics File.
+
+- The Metrics File stores the metrics and is a standalone file located on the database host’s file system.
+
+- The Telemetry Agent is an independent process running on your database host’s operating system and carries out the following tasks:
+
+  - Collects OS-level metrics
+  - Reads the Metrics File and adds the OS-level metrics
+  - Sends the full set of metrics to the Percona Platform
+  - Collects the list of installed Percona packages using the local package manager
+
+The telemetry also uses the Percona Platform with the following components:
+
+- Telemetry Service - offers an API endpoint for sending telemetry. The service handles incoming requests. This service saves the data into Telemetry Storage.
+- Telemetry Storage - stores all telemetry data for the long term.
+
+### Telemetry Subsystem
+
+The Telemetry Subsystem extends the database’s functionality. It is built into Percona Server for MongoDB and is implemented separately for `mongod` and `mongos` instances. The Telemetry Subsystem is enabled by default during the initial database deployment.
+
+Note
+
+The Telemetry Subsystem doesn’t create any Metrics Files during the first 24 hours after the `mongod` instance’s first start or after each start of a `mongos` instance. Restarting `mongod` preserves its existing collection schedule rather than starting a new grace period. The grace period gives you time to [disable telemetry](#disable-telemetry) before any data is collected. You can control the grace period with `perconaTelemetryGracePeriod` server parameter (default value is `86400` seconds = 24 hours).
+
+After the grace period, the Telemetry Subsystem collects metrics from the database instance daily and writes them to the Metrics File. It creates a new Metrics File for each collection. Before generating a new file, the Telemetry Subsystem deletes Metrics Files older than 7 days. This process ensures that only the most recent week’s data is maintained.
+
+A `mongod` instance stores the time of the next collection in the `local.percona.telemetry` collection. This way, the daily schedule is preserved across server restarts. This collection is not replicated. A `mongos` instance has no storage, so it starts a new 24-hour grace period after every restart.
+
+The Telemetry Subsystem creates a file in the local file system named `<timestamp>-<db_instance_id>.json`, where `<timestamp>` is the UNIX time of the collection. The file has `660` permissions so that the Telemetry Agent can read it. The Telemetry Subsystem doesn’t create the telemetry directory. If the directory doesn’t exist, no Metrics Files are written.
+
+#### Instance identifiers
+
+The Telemetry Subsystem uses the following identifiers to distinguish database instances:
+
+- `db_instance_id` - identifies the database host. A `mongod` instance stores it in the `psmdb_telemetry.data` file in the [`dbPath`](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.dbPath) directory. A `mongos` instance generates a new identifier on every start.
+- `db_internal_id` - identifies the data set. A `mongod` instance stores it in the `local.percona.telemetry` collection.
+
+When the instance starts for the first time, both identifiers have the same value. They may differ later, for example, after you restore a backup, change the `dbPath`, or remove one of these files.
+
+### Metrics File
+
+The Metrics File is a JSON file with the metrics collected by the Telemetry Subsystem.
+
+#### Locations
+
+Percona stores the Metrics File in one of the following directories on the local file system. The location depends on the product.
+
+- Telemetry root path - `/usr/local/percona/telemetry`
+
+- Percona Server for MongoDB has two root paths since the telemetry Subsystem is enabled for both the `mongod` and `mongos` instances. The paths are the following:
+
+  - `mongod` root path - `${telemetry root path}/psmdb/`
+  - `mongos` root path - `${telemetry root path}/psmdbs/`
+
+To check the directory that the instance uses, run the following command:
+
+```
+db.adminCommand({getParameter: 1, perconaTelemetryPath: 1})
+```
+
+Percona archives the telemetry history in `${telemetry root path}/history/`.
+
+#### Metrics File format
+
+The Metrics File uses the JavaScript Object Notation (JSON) format. Percona reserves the right to extend the current set of JSON structure attributes in the future.
+
+**mongod Metrics File**
+
+The following is an example of the collected data generated by the `mongod` instance of the config server replica set of the sharded cluster:
+
+```
+{
+    "source": "mongod",
+    "pillar_version": "8.3.7",
+    "percona_features": [
+        "MemoryEngine",
+        "HotBackup",
+        "BackupCursorAggregationStage",
+        "BackupCursorExtendAggregationStage",
+        "AWSIAM",
+        "Kerberos",
+        "LDAP",
+        "OIDC",
+        "TDE",
+        "FIPSMode",
+        "FCBIS",
+        "Auditing",
+        "ProfilingRateLimit",
+        "LogRedaction",
+        "ngram"
+    ],
+    "db_instance_id": "65e9977d58deb2f66faa591c",
+    "db_internal_id": "65e9977d58deb2f66faa591c",
+    "oidc_enabled": "false",
+    "ldap_enabled": "false",
+    "ldap_authorization_enabled": "false",
+    "ldap_sasl_authentication_enabled": "false",
+    "kerberos_enabled": "false",
+    "x509_enabled": "true",
+    "x509_server_enabled": "true",
+    "uptime": "102",
+    "storage_engine": "wiredTiger",
+    "db_replication_id": "65e997cb58deb2f66faa5944",
+    "replication_state": "PRIMARY",
+    "initial_sync_method": "logical",
+    "tde_key_storage": "vault",
+    "tde_vault_info": {
+        "title": "HashiCorp Vault API",
+        "version": "1.15.2"
+    },
+    "db_cluster_id": "65e997cb58deb2f66faa5954",
+    "shard_svr": "true",
+    "config_svr": "false",
+    "pbm_active": "2.9.0"
+}
+```
+
+**mongos Metrics File**
+
+The following is an example of the collected data generated by the `mongos` instance.
+
+```
+{
+    "source": "mongos",
+    "pillar_version": "8.3.7",
+    "percona_features": [
+        "MemoryEngine",
+        "HotBackup",
+        "BackupCursorAggregationStage",
+        "BackupCursorExtendAggregationStage",
+        "AWSIAM",
+        "Kerberos",
+        "LDAP",
+        "OIDC",
+        "TDE",
+        "FIPSMode",
+        "FCBIS",
+        "Auditing",
+        "ProfilingRateLimit",
+        "LogRedaction",
+        "ngram"
+    ],
+    "db_instance_id": "6690fea9066216c6d9d77044",
+    "oidc_enabled": "false",
+    "ldap_enabled": "false",
+    "ldap_authorization_enabled": "false",
+    "ldap_sasl_authentication_enabled": "false",
+    "kerberos_enabled": "false",
+    "x509_enabled": "false",
+    "x509_server_enabled": "false",
+    "uptime": "4",
+    "db_cluster_id": "6690fea65d86eb061c0bd728"
+}
+```
+
+#### Collected metrics
+
+The Metrics File includes the following fields. Some fields are present only for a specific instance type or configuration.
+
+| Key                                | Instance           | Description                                                                                                                                                                                                                                                        |
+| ---------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `source`                           | `mongod`, `mongos` | The instance type that generated the file: `mongod` or `mongos`                                                                                                                                                                                                    |
+| `pillar_version`                   | `mongod`, `mongos` | The Percona Server for MongoDB version                                                                                                                                                                                                                             |
+| `percona_features`                 | `mongod`, `mongos` | The list of Percona features available in the build. The same list is returned in the `perconaFeatures` field of the `buildInfo` command output                                                                                                                    |
+| `db_instance_id`                   | `mongod`, `mongos` | The identifier of the database host. See [Instance identifiers](#instance-identifiers)                                                                                                                                                                             |
+| `db_internal_id`                   | `mongod`           | The identifier of the data set. See [Instance identifiers](#instance-identifiers)                                                                                                                                                                                  |
+| `oidc_enabled`                     | `mongod`, `mongos` | Whether [OpenID Connect authentication](https://docs.percona.com/percona-server-for-mongodb/8.3/oidc.html) is configured, that is, at least one identity provider is defined                                                                                       |
+| `ldap_enabled`                     | `mongod`, `mongos` | Whether an LDAP server is configured with the `ldapServers` option                                                                                                                                                                                                 |
+| `ldap_authorization_enabled`       | `mongod`, `mongos` | Whether [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.3/authorization.html) is configured with the `security.ldap.authz.queryTemplate` option                                                                                         |
+| `ldap_sasl_authentication_enabled` | `mongod`, `mongos` | Whether the `PLAIN` authentication mechanism, used for [LDAP authentication with SASL](https://docs.percona.com/percona-server-for-mongodb/8.3/sasl-auth.html), is enabled                                                                                         |
+| `kerberos_enabled`                 | `mongod`, `mongos` | Whether the `GSSAPI` authentication mechanism, used for [Kerberos authentication](https://docs.percona.com/percona-server-for-mongodb/8.3/kerberos.html), is enabled                                                                                               |
+| `x509_enabled`                     | `mongod`, `mongos` | Whether client x.509 certificate authentication is enabled. The value is `true` when the `MONGODB-X509` authentication mechanism is enabled, TLS is enabled, and a CA file or the system CA store (`tlsUseSystemCA`) is configured to validate client certificates |
+| `x509_server_enabled`              | `mongod`, `mongos` | Whether x.509 certificates are used for cluster member authentication. The value is `true` when `clusterAuthMode` is `x509` or `sendX509`, TLS is enabled, and a CA file (`tlsCAFile` or `tlsClusterCAFile`) is configured to validate peer certificates           |
+| `uptime`                           | `mongod`, `mongos` | The number of seconds since the instance started                                                                                                                                                                                                                   |
+| `storage_engine`                   | `mongod`           | The storage engine in use. For example, `wiredTiger` or `inMemory`                                                                                                                                                                                                 |
+| `db_replication_id`                | `mongod`           | The replica set identifier. Present only for replica set members                                                                                                                                                                                                   |
+| `replication_state`                | `mongod`           | The member state in the replica set. For example, `PRIMARY` or `SECONDARY`. Present only for replica set members                                                                                                                                                   |
+| `initial_sync_method`              | `mongod`           | The [initial sync](https://docs.percona.com/percona-server-for-mongodb/8.3/fcbis.html) method: `logical` or `fileCopyBased`. Present only for replica set members                                                                                                  |
+| `tde_key_storage`                  | `mongod`           | The key storage used for [data-at-rest encryption](https://docs.percona.com/percona-server-for-mongodb/8.3/data-at-rest-encryption.html): `keyfile`, `vault`, or `kmip`. Present only if encryption is enabled                                                     |
+| `tde_vault_info`                   | `mongod`           | The `title` and `version` of the HashiCorp Vault API, taken from the Vault server’s OpenAPI specification. Present only if the [Vault server](https://docs.percona.com/percona-server-for-mongodb/8.3/vault.html) is used as the key storage                       |
+| `db_cluster_id`                    | `mongod`, `mongos` | The sharded cluster identifier. Present only for sharded cluster members                                                                                                                                                                                           |
+| `shard_svr`                        | `mongod`           | Whether the instance is a shard server. Present only for sharded cluster members                                                                                                                                                                                   |
+| `config_svr`                       | `mongod`           | Whether the instance is a config server. Present only for sharded cluster members                                                                                                                                                                                  |
+| `pbm_active`                       | `mongod`           | The version of [Percona Backup for MongoDB](https://docs.percona.com/percona-backup-mongodb/index.html) agents. Present only if PBM agents are registered in the `admin.pbmAgents` collection                                                                      |
+
+### Telemetry Agent
+
+The Percona Telemetry Agent runs as a dedicated OS daemon process `percona-telemetry-agent`. It creates, reads, writes, and deletes JSON files in the [`${telemetry root path}`](#locations). You can find the agent’s log file at `/var/log/percona/telemetry-agent.log`.
+
+The agent does not send anything if there are no Percona-specific files in the target directory.
+
+The following is an example of a Telemetry Agent payload:
+
+```
+{
+  "reports": [
+    {
+      "id": "B5BDC47B-B717-4EF5-AEDF-41A17C9C18BB",
+      "createTime": "2023-09-01T10:56:49Z",
+      "instanceId": "B5BDC47B-B717-4EF5-AEDF-41A17C9C18BA",
+      "productFamily": "PRODUCT_FAMILY",
+      "metrics": [
+        {
+          "key": "OS",
+          "value": "Ubuntu"
+        },
+        {
+          "key": "pillar_version",
+          "value": "8.3.7"
+        }
+      ]
+    }
+  ]
+}
+```
+
+The agent sends information about the database and metrics.
+
+| Key             | Description                                                                                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| “id”            | A generated Universally Unique Identifier (UUID) version 4                                                                                                    |
+| “createTime”    | UNIX timestamp                                                                                                                                                |
+| “instanceId”    | The DB Host ID. The value can be taken from the `instanceId`, the `/usr/local/percona/telemetry_uuid` or generated as a UUID version 4 if the file is absent. |
+| “productFamily” | The value from the file path                                                                                                                                  |
+| “metrics”       | An array of key:value pairs collected from the Metrics File.                                                                                                  |
+
+The following operating system-level metrics are sent with each check:
+
+| Key                  | Description                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------- |
+| “OS”                 | The name of the operating system                                                      |
+| “hardware_arch”      | The type of processor used in the environment                                         |
+| “deployment”         | How the application was deployed. The possible values could be “PACKAGE” or “DOCKER”. |
+| “installed_packages” | A list of the installed Percona packages.                                             |
+
+The information includes the following:
+
+- Package name
+- Package version - the same format as Red Hat Enterprise Linux or Debian
+- Package repository - if possible
+
+The package names must fit the following pattern:
+
+- `percona-*`
+- `Percona-*`
+- `proxysql*`
+- `pmm`
+- `etcd*`
+- `haproxy`
+- `patroni`
+- `pg*`
+- `postgis`
+- `wal2json`
+
+## Disable telemetry
+
+Telemetry is enabled by default when you install the software. It is also included in the software packages (Telemetry Subsystem and Telemetry Agent) and enabled by default.
+
+If you don’t want to send the telemetry data, here’s how:
+
+### Disable the telemetry collected during the installation
+
+If you decide not to send usage data to Percona when installing the software, you can set the `PERCONA_TELEMETRY_DISABLE=1` environment variable for the root user or in the operating system prior to installation.
+
+**Debian-derived distribution**
+
+Add the environment variable before the installation process.
+
+```
+sudo PERCONA_TELEMETRY_DISABLE=1 apt install percona-server-mongodb
+```
+
+**Red Hat-derived distribution**
+
+Add the environment variable before the installation process.
+
+```
+sudo PERCONA_TELEMETRY_DISABLE=1 yum install percona-server-mongodb
+```
+
+**Docker**
+
+Add the environment variable when running a command in a new container.
+
+```
+docker run -d --name psmdb --restart always \
+  -e PERCONA_TELEMETRY_DISABLE=1 \
+  percona/percona-server-mongodb:<TAG>
+```
+
+The command does the following:
+
+- `docker run` - This is the command to run a Docker container.
+- `-d` - This flag specifies that the container should run in detached mode (in the background).
+- `--name psmdb` - Assigns the name “psmdb” to the container.
+- `--restart always` - Configures the container to restart automatically if it stops or crashes.
+- `-e PERCONA_TELEMETRY_DISABLE=1` - Sets an environment variable within the container. In this case, it disables telemetry for Percona Server for MongoDB.
+- `percona/percona-server-mongodb:<TAG>-multi` - Specifies the image to use for the container. For example, `8.3.17-5-multi`. The `multi` part of the tag identifies the architecture (x86_64 or ARM64) and selects the corresponding image.
+
+## Disable telemetry for the installed software
+
+The Percona software you installed includes a telemetry feature that collects information about how you use it. It is enabled by default. To turn off telemetry, you need to disable both the Telemetry Agent and the Telemetry Subsystem.
+
+### Disable Telemetry Agent
+
+In the first 24 hours, no information is collected or sent.
+
+You can either disable the Telemetry Agent temporarily or permanently.
+
+**Disable temporarily**
+
+Turn off the Telemetry Agent temporarily until the next server restart with this command:
+
+```
+systemctl stop percona-telemetry-agent
+```
+
+**Disable permanently**
+
+Turn off Telemetry Agent permanently with this command:
+
+```
+systemctl disable percona-telemetry-agent
+```
+
+Even after stopping the Telemetry Agent service, another part of the software (Telemetry Subsystem) continues to create the telemetry Metrics File every day and save it for 7 days.
+
+### Telemetry Agent dependencies and removal considerations
+
+If you decide to remove the Telemetry Agent, it will also remove the database. That’s because the Telemetry Agent is a mandatory dependency for Percona Server for MongoDB.
+
+On YUM-based systems, the system removes the Telemetry Agent package when you remove the last dependency package.
+
+On APT-based systems, you must use the ‘–autoremove’ option to remove all dependencies, as the system doesn’t automatically remove the Telemetry Agent when you remove the database package.
+
+The ‘–autoremove’ option only removes unnecessary dependencies. It doesn’t remove dependencies required by other packages or guarantee the removal of all package-associated dependencies.
+
+### Disable the Telemetry Subsystem
+
+To disable the Telemetry Subsystem, set the `perconaTelemetry` server parameter to `false`. You can do this in one of the following ways:
+
+**Configuration file**
+
+Use the `setParameter.perconaTelemetry` parameter in the configuration file for persistent changes:
+
+```
+setParameter:
+  perconaTelemetry: false
+```
+
+**Command line**
+
+Use the `--setParameter` command-line option arguments for both `mongod` and `mongos` processes. The server starts with the telemetry Subsystem disabled:
+
+```
+mongod \
+  --setParameter perconaTelemetry=false
+mongos \
+  --setParameter perconaTelemetry=false
+```
+
+**setParameter command**
+
+Use the `setParameter` command on the `admin` database to make changes at runtime. The changes apply until the server restart.
+
+```
+db.adminCommand({setParameter: 1, "perconaTelemetry": false})
+```
+
+Tip
+
+If you wish to re-enable the Telemetry Subsystem, set `perconaTelemetry` to `true` for the `setParameter` command.

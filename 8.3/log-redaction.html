@@ -131,7 +131,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3680,7 +3680,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="log-redaction">Log redaction<a class="headerlink" href="#log-redaction" title="Permanent link">¶</a></h1>
+<h1 id="log-redaction">Log redaction<a data-markdown-ignore class="headerlink" href="#log-redaction" title="Permanent link">¶</a></h1>
 <p>Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.</p>
 <p>To enable log redaction, run <code>mongod</code> with the <code>--redactClientLogData</code> option.</p>
 <div class="admonition note">
@@ -3708,7 +3708,7 @@ use the <code>setParameter</code> command as follows:</p>
 <p class="admonition-title">Note</p>
 <p>If you enable the profiler, the query is still logged to the <code>system.profile</code> collection without any redaction.</p>
 </div>
-<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
+<h2 id="example">Example<a data-markdown-ignore class="headerlink" href="#example" title="Permanent link">¶</a></h2>
 <p>This is an example of a log entry with redaction enabled:</p>
 <div class="highlight"><pre><span></span><code>{
   "t": {

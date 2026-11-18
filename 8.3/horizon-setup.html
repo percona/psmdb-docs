@@ -131,7 +131,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3826,10 +3826,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="configure-horizons-in-percona-server-for-mongodb">Configure Horizons in Percona Server for MongoDB<a class="headerlink" href="#configure-horizons-in-percona-server-for-mongodb" title="Permanent link">¶</a></h1>
+<h1 id="configure-horizons-in-percona-server-for-mongodb">Configure Horizons in Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#configure-horizons-in-percona-server-for-mongodb" title="Permanent link">¶</a></h1>
 <p>This document focuses on configuring <a href="glossary.html#horizons">Horizons</a> in Percona Server for MongoDB deployed in Docker. To learn more about Horizons, how they work and when to use them, see <a href="horizon.html">Split-DNS Horizons usage with Percona Server for MongoDB</a>.</p>
 <p>For using Horizons in Kubernetes environment with Percona Operator for MongoDB, see the <a href="https://docs.percona.com/percona-operator-for-mongodb/expose.html#exposing-replica-set-with-split-horizon-dns">Expose replica set with split-Horizon DNS</a> chapter in Percona Operator for MongoDB documentation.</p>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
+<h2 id="requirements">Requirements<a data-markdown-ignore class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
 <p>To use Horizons in Percona Server for MongoDB, you must be aware of and meet these requirements enforced by the database:</p>
 <ul>
 <li>
@@ -3848,11 +3848,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p><strong>All-or-nothing configuration</strong>. If one member defines a horizon, all other members must define one too. You cannot mix members with and without horizons.</p>
 </li>
 </ul>
-<h2 id="configuration-example">Configuration example<a class="headerlink" href="#configuration-example" title="Permanent link">¶</a></h2>
+<h2 id="configuration-example">Configuration example<a data-markdown-ignore class="headerlink" href="#configuration-example" title="Permanent link">¶</a></h2>
 <p>Let’s say you deploy Percona Server for MongoDB replica set in Docker. You need to ensure that it is reachable for both the client running within the same network and for clients accessing the cluster from the outside. </p>
 <p>Your internal domain names are <code>psmdb1.internal.net</code>, <code>psmdb2.internal.net</code>, and <code>psmdb3.internal.net</code>. For external access, you use the <code>external.mycompany.com</code> domain name that resolves to the public IP address of your nodes with different ports mapped to each container.</p>
 <p>In this configuration, we focus on using the Docker Compose, as it simplifies the control of your entire application stack and makes it easy to manage services, networks, and volumes in a single YAML configuration file.</p>
-<h3 id="preconditions">Preconditions<a class="headerlink" href="#preconditions" title="Permanent link">¶</a></h3>
+<h3 id="preconditions">Preconditions<a data-markdown-ignore class="headerlink" href="#preconditions" title="Permanent link">¶</a></h3>
 <p>Before you start, ensure you have the following:</p>
 <ol>
 <li>
@@ -3868,7 +3868,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><code>cfssl</code> and <code>cfssljson</code> tools installed on your machine.</li>
 <li>Your user has the <code>root</code> or <code>sudo</code> privileges. </li>
 </ol>
-<h3 id="generate-multi-san-tls-certificates">Generate Multi-SAN TLS certificates<a class="headerlink" href="#generate-multi-san-tls-certificates" title="Permanent link">¶</a></h3>
+<h3 id="generate-multi-san-tls-certificates">Generate Multi-SAN TLS certificates<a data-markdown-ignore class="headerlink" href="#generate-multi-san-tls-certificates" title="Permanent link">¶</a></h3>
 <p>At this step you need to create CA and certificates where each server cert is valid for both its internal container hostname (e.g., <code>mongo1</code>) and the external access hostname (<code>localhost</code> in this example).</p>
 <ol>
 <li>
@@ -3978,7 +3978,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 </li>
 </ol>
-<h3 id="deploy-percona-server-for-mongodb-in-docker">Deploy Percona Server for MongoDB in Docker<a class="headerlink" href="#deploy-percona-server-for-mongodb-in-docker" title="Permanent link">¶</a></h3>
+<h3 id="deploy-percona-server-for-mongodb-in-docker">Deploy Percona Server for MongoDB in Docker<a data-markdown-ignore class="headerlink" href="#deploy-percona-server-for-mongodb-in-docker" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>To simplify deploying Percona Server for MongoDB in Docker, create a Docker compose file with all required configuration. For each container, we map an internal MongoDB port <code>27017</code> to external ports <code>27017</code>, <code>27018</code> and <code>27019</code>:</p>
@@ -4038,7 +4038,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 </li>
 </ol>
-<h3 id="initiate-the-replica-set-with-horizons">Initiate the replica set with Horizons<a class="headerlink" href="#initiate-the-replica-set-with-horizons" title="Permanent link">¶</a></h3>
+<h3 id="initiate-the-replica-set-with-horizons">Initiate the replica set with Horizons<a data-markdown-ignore class="headerlink" href="#initiate-the-replica-set-with-horizons" title="Permanent link">¶</a></h3>
 <p>With Percona Server for MongoDB up and running, initiate the replica set and specify the Horizons in its configuration.</p>
 <ol>
 <li>
@@ -4081,7 +4081,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 </li>
 </ol>
-<h3 id="test-connection-to-percona-server-for-mongodb">Test connection to Percona Server for MongoDB<a class="headerlink" href="#test-connection-to-percona-server-for-mongodb" title="Permanent link">¶</a></h3>
+<h3 id="test-connection-to-percona-server-for-mongodb">Test connection to Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#test-connection-to-percona-server-for-mongodb" title="Permanent link">¶</a></h3>
 <p>Now let’s verify that Percona Server for MongoDB is reachable from both inside and outside networks.</p>
 <p><strong>Internal connection</strong></p>
 <p>To check internal connection, you can spin up a new Docker container with the MongoDB client in the same network or execute into one of existing containers and connect to the replica set.</p>

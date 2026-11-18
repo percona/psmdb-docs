@@ -131,7 +131,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3768,7 +3768,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="manipulate-data-in-percona-server-for-mongodb">Manipulate data in Percona Server for MongoDB<a class="headerlink" href="#manipulate-data-in-percona-server-for-mongodb" title="Permanent link">¶</a></h1>
+<h1 id="manipulate-data-in-percona-server-for-mongodb">Manipulate data in Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#manipulate-data-in-percona-server-for-mongodb" title="Permanent link">¶</a></h1>
 <p>After you connected to Percona Server for MongoDB, let’s insert some data and operate with it.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3780,7 +3780,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><a href="keyfile.html">Using a local keyfile</a></li>
 </ul>
 </div>
-<h2 class="power-number" id="insert-data">Insert data<a class="headerlink" href="#insert-data" title="Permanent link">¶</a></h2>
+<h2 class="power-number" id="insert-data">Insert data<a data-markdown-ignore class="headerlink" href="#insert-data" title="Permanent link">¶</a></h2>
 <ol>
 <li>
 <p>For example, let’s add an item to the <code>fruits</code> collection. Use the <code>insertOne()</code> command for this purpose:</p>
@@ -3819,7 +3819,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ol>
 <p>See <a href="https://www.mongodb.com/docs/manual/tutorial/insert-documents/">Insert documents</a> for more information about data insertion.</p>
-<h2 id="query-data">Query data<a class="headerlink" href="#query-data" title="Permanent link">¶</a></h2>
+<h2 id="query-data">Query data<a data-markdown-ignore class="headerlink" href="#query-data" title="Permanent link">¶</a></h2>
 <p>Run the following command to query data in MongoDB:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">find</span><span class="p">()</span>
 </code></pre></div>
@@ -3843,7 +3843,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 </details>
 <p>Refer to the <a href="https://www.mongodb.com/docs/manual/tutorial/query-documents/">Query documents</a> documentation to for more information about reading data.</p>
-<h2 id="update-data">Update data<a class="headerlink" href="#update-data" title="Permanent link">¶</a></h2>
+<h2 id="update-data">Update data<a data-markdown-ignore class="headerlink" href="#update-data" title="Permanent link">¶</a></h2>
 <p class="power-number">Let’s update the <code>apples</code> entry by adding weight to it. </p>
 <ol>
 <li>
@@ -3884,7 +3884,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ol>
 <p>See <a href="https://www.mongodb.com/docs/manual/reference/update-methods/">Update methods</a> documentation for other available data update methods</p>
-<h2 id="delete-data">Delete data<a class="headerlink" href="#delete-data" title="Permanent link">¶</a></h2>
+<h2 id="delete-data">Delete data<a data-markdown-ignore class="headerlink" href="#delete-data" title="Permanent link">¶</a></h2>
 <p>Run the following command to delete all documents where the quantity is less than 30 kg:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">deleteMany</span><span class="p">(</span>
 <span class="p">{</span><span class="s2">"qty"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">$lt</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
@@ -3897,7 +3897,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </details>
 <p>Learn more about deleting data in <a href="https://www.mongodb.com/docs/manual/reference/delete-methods/">Delete methods</a> documentation.</p>
 <p>Congratulations! You have used basic create, read, update and delete (CRUD) operations to manipulate data in Percona Server for MongoDB. See <a href="https://www.mongodb.com/docs/manual/core/crud/">MongoDB CRUD Concepts</a> manual to learn more about CRUD operations.</p>
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
+<h2 id="next-steps">Next steps<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
 <p><a class="md-button" href="what-next.html">What’s next? <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p>
 
 

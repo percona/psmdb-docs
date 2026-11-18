@@ -1,0 +1,356 @@
+> For the complete documentation index, see [llms.txt](https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt).
+
+# Build from source code
+
+This document guides you though the steps how to build Percona Server for MongoDB from source code.
+
+### Build options
+
+- [Manually](#manual-build)
+- [Using the build script](#use-the-build-script).
+
+## Manual build
+
+To build Percona Server for MongoDB manually, you need the following:
+
+- A modern C++ compiler capable of compiling C++20. You may use GCC 11.3 or newer
+- Amazon AWS Software Development Kit for C++ library
+- Python 3.10.x and Pip modules.
+- Poetry 1.5.1.
+- The set of dependencies for your operating system. The following table lists dependencies for Ubuntu 22.04 and Red Hat Enterprise 9 and compatible derivatives:
+
+| Linux Distribution                                                | Dependencies                                                                                                                                                                                                  |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RedHat Enterprise Linux/ CentOS Stream / Rocky Linux / Alma Linux | gcc gcc-c++ cmake curl binutils-devel openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel                                        |
+| Debian/Ubuntu                                                     | gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libpcap-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev liblzma-dev libext2fs-dev e2fslibs-dev bear |
+
+- About 13 GB of disk space for the core binaries (`mongod`, `mongos`, and `mongo`) and about 600 GB for the `install-all` target.
+
+### Build steps
+
+#### Install operating system dependencies
+
+**RHEL and derivatives**
+
+The following command installs the dependencies for Oracle Linux 9:
+
+```
+sudo yum -y install gcc gcc-c++ cmake curl binutils-devel openssl-devel openldap-devel krb5-devel libcurl-devel cyrus-sasl-devel bzip2-devel zlib-devel lz4-devel xz-devel e2fsprogs-devel
+```
+
+**Debian/Ubuntu**
+
+The following command installs the dependencies for Ubuntu 22.04:
+
+```
+sudo apt install -y gcc g++ cmake curl libssl-dev libldap2-dev libkrb5-dev libcurl4-openssl-dev libsasl2-dev liblz4-dev libpcap-dev libbz2-dev libsnappy-dev zlib1g-dev libzlcore-dev liblzma-dev libext2fs-dev e2fslibs-dev bear
+```
+
+#### Build AWS Software Development Kit for C++ library
+
+1. Clone the AWS Software Development Kit for C++ repository
+
+   ```
+   git clone --recurse-submodules https://github.com/aws/aws-sdk-cpp.git
+   ```
+
+1. Create a directory to store the AWS library
+
+   ```
+   mkdir -p /tmp/lib/aws
+   ```
+
+1. Declare an environment variable `AWS_LIBS` for this directory
+
+   ```
+   export AWS_LIBS=/tmp/lib/aws
+   ```
+
+1. Percona Server for MongoDB is built with AWS SDK CPP 1.9.379 version. Switch to this version
+
+   ```
+   cd aws-sdk-cpp && git checkout 1.9.379
+   ```
+
+1. It is recommended to keep build files outside the SDK directory. Create a build directory and navigate to it
+
+   ```
+   mkdir build && cd build
+   ```
+
+1. Generate build files using `cmake`
+
+   ```
+   cmake .. -DCMAKE_BUILD_TYPE=Release '-DBUILD_ONLY=s3;transfer' -DBUILD_SHARED_LIBS=OFF -DMINIMIZE_SIZE=ON -DCMAKE_INSTALL_PREFIX="${AWS_LIBS}"
+   ```
+
+1. Install the SDK
+
+   ```
+   make install
+   ```
+
+#### Clone Percona Server for MongoDB repository
+
+1. Exit the AWS SDK build directory. You should end up in the directory where you started the build process.
+
+   ```
+   cd ../..
+   ```
+
+1. Clone Percona Server for MongoDB repository
+
+   ```
+   git clone https://github.com/percona/percona-server-mongodb.git
+   ```
+
+1. Switch to the Percona Server for MongoDB branch that you are building:
+
+   ```
+   cd percona-server-mongodb && git checkout v8.3
+   ```
+
+1. Define Percona Server for MongoDB version (8.3.7 for the time of writing this document)
+
+   ```
+   echo '{"version": "8.3.7"}' > version.json
+   ```
+
+#### Install Python and Python modules
+
+1. Make sure the `python3`, `python3-dev`, `python3-pip`, `python3-venv` Python packages are installed on your machine. Otherwise, install them using the package manager of your operating system.
+
+1. Create and activate the virtual environment for Poetry - a Python dependency management and packaging tool for Percona Server for MongoDB. It is a good practice to isolate Poetry from the rest of your system in a virtual environment to ensure that its dependencies are not accidentally upgraded nor uninstalled. Run the following commands and specify the path to your virtual environment in a `<venv_path>`. The `--prompt` flag helps you visually distinguish your virtual environment from the base Python installation.:
+
+   ```
+   python3 -m venv <venv_path> --prompt mongo
+   source <venv_path>/bin/activate
+   ```
+
+1. Install Poetry
+
+   ```
+   python3 -m pip install 'poetry==1.5.1'
+   ```
+
+1. Check that you are in the `percona-server-mongodb` directory and in the `8.3` Git branch and install Python dependencies with Poetry:
+
+   ```
+   python3 -m poetry install --no-root --sync
+   ```
+
+#### Build Percona Server for MongoDB
+
+To build Percona Server for MongoDB, you must be in the `percona-server-mongodb` directory.
+
+Build Percona Server for MongoDB from `buildscripts/scons.py`
+
+```
+buildscripts/scons.py --disable-warnings-as-errors --release --ssl --opt=on -j$(nproc --all) --use-sasl-client --wiredtiger --audit --inmemory --hotbackup CPPPATH="${AWS_LIBS}/include" LIBPATH="${AWS_LIBS}/lib ${AWS_LIBS}/lib64" install-mongod install-mongos
+```
+
+This command builds core components of the database. Other available targets for the `scons` command are:
+
+- `install-mongod`
+- `install-mongos`
+- `install-servers` (includes mongod and mongos)
+- `install-core` (includes mongod and mongos)
+- `install-devcore` (includes mongod, mongos, and jstestshell (formerly mongo shell))
+- `install-all`
+
+The built binaries are in the `percona-server-mongodb` directory.
+
+## Use the build script
+
+To automate the build process, Percona provides the build script. With this script you can either build binary tarballs or DEB/RPM packages to install Percona Server for MongoDB from.
+
+### Prerequisites
+
+To use the build script you need the following:
+
+- Docker up and running on your machine
+- About 200GB of disk space
+
+### Prepare the build environment
+
+1. Create the folder where all build actions take place. For the steps below we use the `/tmp/psmdb/test` folder.
+
+1. Navigate to the build folder and download the build script. Replace the `<tag>` placeholder with the required version of Percona Server for MongoDB:
+
+   ```
+   wget https://raw.githubusercontent.com/percona/percona-server-mongodb/psmdb-<tag>/percona-packaging/scripts/psmdb_builder.sh -O psmdb_builder.sh
+   ```
+
+### Build steps
+
+Use the following instructions to build [tarballs](#tarballs) or [packages](#packages):
+
+#### Tarballs
+
+To build tarballs, the steps are the following:
+
+1. The following command builds tarballs of Percona Server for MongoDB 8.3.7-1 on Oracle Linux 8. Change the Docker image and the values for `--branch`, `--psm_ver`, `--psm_release` flags to build tarballs of a different version and on a different operating system.
+
+   ```
+   docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:8 sh -c '
+   set -o xtrace
+   cd /tmp/psmdb
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+   --branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --get_sources=1 --build_tarball=1
+   '
+   ```
+
+   The command does the following:
+
+   - runs Docker daemon as the root user using the Oracle Linux 8 image
+   - mounts the build directory into the container
+   - establishes the shell session inside the container
+   - inside the container, navigates to the build directory and runs the build script to install dependencies
+   - runs the build script again to build the tarball for the Percona Server for MongoDB version 8.3.7-1
+
+1. Check that tarballs are built:
+
+   ```
+   ls -la /tmp/psmdb/test/tarball/
+   ```
+
+   Sample output
+
+   ```
+   total 88292
+   -rw-r--r--. 1 root root 90398894 Jul  1 10:58 percona-server-mongodb-8.3.7-1.x86_64.glibc2.17.tar.gz
+   ```
+
+#### Packages
+
+The steps are the following:
+
+1. Build the source tarball. It serves as the base for source packages. It is important to build source tarball using the oldest supported operating system, which is Oracle Linux 8.
+
+   ```
+   docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:8 sh -c '
+   set -o xtrace
+   cd /tmp/psmdb
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git --branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --get_sources=1'
+   ```
+
+1. Build source packages. These packages include the source code and patches and are used to build binary packages.
+
+   Note that to build source packages you still have to use the oldest supported operating system: Oracle Linux 8 for RPMs and Ubuntu 20.04 (Focal Fossa) for DEB packages.
+
+   **DEB**
+
+   ```
+   docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:focal sh -c '
+   set -o xtrace
+   cd /tmp/psmdb
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+   --branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --build_src_deb=1
+   '
+   ```
+
+   Check that source packages are created
+
+   ```
+   ls -la /tmp/psmdb/test/source_deb/
+   ```
+
+   Sample output
+
+   ```
+   -rw-r--r-- 1 root root 90398894 Jul  1 11:45 percona-server-mongodb_8.3.7.orig.tar.gz
+   ```
+
+   **RPM**
+
+   ```
+   docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:8 sh -c '
+   set -o xtrace
+   cd /tmp/psmdb
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+   --branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --build_src_rpm=1
+   '
+   ```
+
+   Check that source packages are created
+
+   ```
+   ls -la /tmp/psmdb/test/srpm/
+   ```
+
+   Sample output
+
+   ```
+   -rw-r--r--. 1 root root 90398894 Jul  1 11:45 percona-server-mongodb-8.3.7-1.generic.src.rpm
+   ```
+
+1. Build Percona Server for MongoDB packages. Here you can use the operating system of your choice. In the commands below, we use Oracle Linux 9 for RPMs and Ubuntu 22.04 (Jammy Jellyfish) for DEB packages.
+
+   **DEB**
+
+   ```
+   docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb ubuntu:jammy sh -c '
+   set -o xtrace
+   cd /tmp/psmdb
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+   --branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --build_deb=1
+   '
+   ```
+
+   Check that packages are created
+
+   ```
+   ls -la /tmp/psmdb/test/deb/
+   ```
+
+   Sample output
+
+   ```
+   -rw-rw-r-- 1 root nogroup 1123619378 Jul  7 10:03 percona-server-mongodb-dbg_8.3.7-1.jammy_amd64.deb
+   -rw-rw-r-- 1 root nogroup   65470306 Jul  7 10:03 percona-server-mongodb-mongos_8.3.7-1.jammy_amd64.deb
+   -rw-rw-r-- 1 root nogroup  140745416 Jul  7 10:03 percona-server-mongodb-server_8.3.7-1.jammy_amd64.deb
+   -rw-rw-r-- 1 root nogroup   44086996 Jul  7 10:03 percona-server-mongodb-shell_8.3.7-1.jammy_amd64.deb
+   -rw-rw-r-- 1 root nogroup   41889286 Jul  7 10:03 percona-server-mongodb-tools_8.3.7-1.jammy_amd64.deb
+   -rw-rw-r-- 1 root nogroup      19898 Jul  7 10:03 percona-server-mongodb_8.3.7-1.jammy_amd64.deb
+   ```
+
+   **RPM**
+
+   ```
+   docker run -ti -u root -v /tmp/psmdb:/tmp/psmdb oraclelinux:9 sh -c '
+   set -o xtrace
+   cd /tmp/psmdb
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --install_deps=1
+   bash -x ./psmdb_builder.sh --builddir=/tmp/psmdb/test --repo=https://github.com/percona/percona-server-mongodb.git \
+   --branch=release-8.3.7-1 --psm_ver=8.3.7 --psm_release=1 --mongo_tools_tag=100.17.0 --build_rpm=1
+   '
+   ```
+
+   Check that packages are created
+
+   ```
+   ls -la /tmp/psmdb/test/srpm/
+   ```
+
+   Sample output
+
+   ```
+   -rw-r--r-- 1 root nogroup      8360 Jun 25 09:11 percona-server-mongodb-8.3.7-1.el8.x86_64.rpm
+   -rw-r--r-- 1 root nogroup  48696252 Jun 25 09:11 percona-server-mongodb-mongos-8.3.7-1.el8.x86_64.rpm
+   -rw-r--r-- 1 root nogroup 171255180 Jun 25 09:11 percona-server-mongodb-mongos-debuginfo-8.3.7-1.el8.x86_64.rpm
+   -rw-r--r-- 1 root nogroup 103814612 Jun 25 09:12 percona-server-mongodb-server-8.3.7-1.el8.x86_64.rpm
+   -rw-r--r-- 1 root nogroup 346268020 Jun 25 09:12 percona-server-mongodb-server-debuginfo-8.3.7-1.el8.x86_64.rpm
+   -rw-r--r-- 1 root nogroup  32837836 Jun 25 09:12 percona-server-mongodb-shell-8.3.7-1.el8.x86_64.rpm
+   -rw-r--r-- 1 root nogroup  92092564 Jun 25 09:12 percona-server-mongodb-shell-debuginfo-8.3.7-1.el8.x86_64.rpm
+   -rw-r--r-- 1 root nogroup  34839404 Jun 25 09:12 percona-server-mongodb-tools-8.3.7-1.el8.x86_64.rpm
+   -rw-r--r-- 1 root nogroup  29566940 Jun 25 09:12 percona-server-mongodb-tools-debuginfo-8.3.7-1.el8.x86_64.rpm
+   ```
+
+## Next steps
+
+[Connect to MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.3/connect.html)

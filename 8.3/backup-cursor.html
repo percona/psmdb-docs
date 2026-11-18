@@ -131,7 +131,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3782,7 +3782,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="backupcursor-and-backupcursorextend-aggregation-stages">$backupCursor and $backupCursorExtend aggregation stages<a class="headerlink" href="#backupcursor-and-backupcursorextend-aggregation-stages" title="Permanent link">¶</a></h1>
+<h1 id="backupcursor-and-backupcursorextend-aggregation-stages">$backupCursor and $backupCursorExtend aggregation stages<a data-markdown-ignore class="headerlink" href="#backupcursor-and-backupcursorextend-aggregation-stages" title="Permanent link">¶</a></h1>
 <p><code>$backupCursor</code> and <code>$backupCursorExtend</code> aggregation stages expose the WiredTiger API which allows making consistent backups. Running these stages allows listing and freezing the files so you can copy them without the files being deleted or necessary parts within them being overwritten.</p>
 <ul>
 <li>
@@ -3793,11 +3793,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ul>
 <p>Percona provides <a href="https://www.percona.com/doc/percona-backup-mongodb/index.html">Percona Backup for MongoDB (PBM)</a> – a light-weight open source solution for consistent backups and restores across sharded clusters. PBM relies on these aggregation stages for physical backups and restores. However, if you wish to develop your own backup application, this document describes the <code>$backupCursor</code> and <code>$backupCursorExtend</code> aggregation stages.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¶</a></h2>
+<h2 id="usage">Usage<a data-markdown-ignore class="headerlink" href="#usage" title="Permanent link">¶</a></h2>
 <p>You can run these stages in any type of MongoDB deployment. If you need to back up a single node in a replica set, first run the <code>$backupCursor</code>, then the <code>$backupCursorExtend</code> and save the output files to the backup storage.</p>
 <p>To make a consistent backup of a sharded cluster, run both aggregation stages on one node from each shard and the config server replica set. It can be either the primary or the secondary node. Note that since the secondary node may lag in syncing the data from the primary one, you will have to wait for the exact same time before running the <code>$backupCursorExtend</code>.</p>
 <p>Note that for standalone MongoDB node with disabled oplogs, you can only run the <code>$backupCursor</code> aggregation stage.</p>
-<h3 id="get-a-list-of-all-files-to-copy-with-backupcursor">Get a list of all files to copy with $backupCursor<a class="headerlink" href="#get-a-list-of-all-files-to-copy-with-backupcursor" title="Permanent link">¶</a></h3>
+<h3 id="get-a-list-of-all-files-to-copy-with-backupcursor">Get a list of all files to copy with $backupCursor<a data-markdown-ignore class="headerlink" href="#get-a-list-of-all-files-to-copy-with-backupcursor" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">bkCsr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">).</span><span class="nx">aggregate</span><span class="p">([{</span><span class="nx">$backupCursor</span><span class="o">:</span><span class="w"> </span><span class="p">{}}])</span>
 <span class="nx">bkCsrMetadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bkCsr</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">metadata</span>
 </code></pre></div>
@@ -3821,7 +3821,7 @@ Make sure that the <code>$backupCursor</code> is complete on all shards in your 
 <p class="admonition-title">Note</p>
 <p>Note that when running <code>$backupCursor</code> in a standalone node deployment, <code>oplogStart</code>, <code>oplogEnd</code>, <code>checkpointTimesatmp</code> values may be absent. This is because standalone node deployments don’t have oplogs.</p>
 </div>
-<h3 id="run-backupcursorextend-to-retrieve-the-wiredtiger-transaction-logs">Run <code>$backupCursorExtend</code> to retrieve the WiredTiger transaction logs<a class="headerlink" href="#run-backupcursorextend-to-retrieve-the-wiredtiger-transaction-logs" title="Permanent link">¶</a></h3>
+<h3 id="run-backupcursorextend-to-retrieve-the-wiredtiger-transaction-logs">Run <code>$backupCursorExtend</code> to retrieve the WiredTiger transaction logs<a data-markdown-ignore class="headerlink" href="#run-backupcursorextend-to-retrieve-the-wiredtiger-transaction-logs" title="Permanent link">¶</a></h3>
 <p>Pass the <code>backupId</code> from the metadata document as the first parameter. For the <code>timestamp</code> parameter, use the maximum (latest) value among the <code>oplogEnd</code> timestamps from all shards and config server replica set. This will be the target time to restore.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">bkExtCsr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">([{</span><span class="nx">$backupCursorExtend</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">backupId</span><span class="o">:</span><span class="w"> </span><span class="nx">bkCsrMetadata</span><span class="p">.</span><span class="nx">backupId</span><span class="p">,</span><span class="w"> </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Timestamp</span><span class="p">(</span><span class="mf">1666631418</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">)}}])</span>
 </code></pre></div>
@@ -3832,9 +3832,9 @@ Make sure that the <code>$backupCursor</code> is complete on all shards in your 
 <span class="p">{</span><span class="w"> </span><span class="nt">"filename"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"/data/plain_rs/n1/data/journal/WiredTigerLog.0000000044"</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 </details>
-<h3 id="loop-the-backupcursor">Loop the <code>$backupCursor</code><a class="headerlink" href="#loop-the-backupcursor" title="Permanent link">¶</a></h3>
+<h3 id="loop-the-backupcursor">Loop the <code>$backupCursor</code><a data-markdown-ignore class="headerlink" href="#loop-the-backupcursor" title="Permanent link">¶</a></h3>
 <p>Prevent the backup cursor from closing on timeout (default – 10 minutes). This is crucial since it prevents overwriting backup snapshot file blocks with new ones if the files take longer than 10 minutes to copy.  Use the <a href="https://www.mongodb.com/docs/v6.0/reference/command/getMore/#getmore">getMore</a> command for this purpose.</p>
-<h3 id="copy-the-files-to-the-storage">Copy the files to the storage<a class="headerlink" href="#copy-the-files-to-the-storage" title="Permanent link">¶</a></h3>
+<h3 id="copy-the-files-to-the-storage">Copy the files to the storage<a data-markdown-ignore class="headerlink" href="#copy-the-files-to-the-storage" title="Permanent link">¶</a></h3>
 <p>Now you can copy the output of both aggregation stages to your backup storage.</p>
 <p>After the backup is copied to the storage, terminate the <a href="https://www.mongodb.com/docs/v6.0/reference/command/getMore/#getmore">getMore</a> command and close the cursor.</p>
 <div class="admonition note">

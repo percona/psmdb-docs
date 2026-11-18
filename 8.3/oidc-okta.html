@@ -131,7 +131,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3930,7 +3930,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="configure-oidc-authentication-and-authorization-with-okta">Configure OIDC authentication and authorization with Okta<a class="headerlink" href="#configure-oidc-authentication-and-authorization-with-okta" title="Permanent link">¶</a></h1>
+<h1 id="configure-oidc-authentication-and-authorization-with-okta">Configure OIDC authentication and authorization with Okta<a data-markdown-ignore class="headerlink" href="#configure-oidc-authentication-and-authorization-with-okta" title="Permanent link">¶</a></h1>
 <p>This document focuses on configuring OIDC authentication for Percona Server for MongoDB deployment using <a href="https://www.okta.com/">Okta <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> as the identity provider.</p>
 <p>The setup process consists of three main stages:</p>
 <ol>
@@ -3947,13 +3947,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>Connect to Percona Server for MongoDB using OIDC authentication</li>
 </ol>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<h2 id="prerequisites">Prerequisites<a data-markdown-ignore class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <ol>
 <li>Percona Server for MongoDB 8.0.12-4 or higher</li>
 <li>Access to Okta Admin console</li>
 </ol>
-<h2 id="identity-provider-setup">Identity provider setup<a class="headerlink" href="#identity-provider-setup" title="Permanent link">¶</a></h2>
-<h3 id="create-and-configure-an-oidc-application-with-okta">Create and configure an OIDC application with Okta<a class="headerlink" href="#create-and-configure-an-oidc-application-with-okta" title="Permanent link">¶</a></h3>
+<h2 id="identity-provider-setup">Identity provider setup<a data-markdown-ignore class="headerlink" href="#identity-provider-setup" title="Permanent link">¶</a></h2>
+<h3 id="create-and-configure-an-oidc-application-with-okta">Create and configure an OIDC application with Okta<a data-markdown-ignore class="headerlink" href="#create-and-configure-an-oidc-application-with-okta" title="Permanent link">¶</a></h3>
 <ol>
 <li>Log in to your Okta Admin console.</li>
 <li>Navigate to <strong>Applications</strong> &gt; <strong>Applications</strong> from the side menu.</li>
@@ -3990,7 +3990,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>After saving, you will be redirected to the application details page. On the <strong>General</strong> tab, copy the <strong>Client ID</strong> to clipboard and ensure the <strong>Proof Key for Code Exchange (PKCE)</strong> option is enabled.</p>
 </li>
 </ol>
-<h3 id="configure-an-authorization-server">Configure an authorization server<a class="headerlink" href="#configure-an-authorization-server" title="Permanent link">¶</a></h3>
+<h3 id="configure-an-authorization-server">Configure an authorization server<a data-markdown-ignore class="headerlink" href="#configure-an-authorization-server" title="Permanent link">¶</a></h3>
 <ol>
 <li>Go to <strong>Security</strong> &gt; <strong>API</strong> from the side menu, then click on the <strong>Authorization Servers</strong> tab.</li>
 <li>Click <strong>Add Authorization Server</strong>.</li>
@@ -4071,7 +4071,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>See <a href="https://help.okta.com/oie/en-us/content/topics/security/api-config-access-policies.htm?cshid=create-access-policies">Create access policies <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> for more information about access policies and rules configuration.</p>
 </li>
 </ol>
-<h3 id="create-users-and-groups">Create users and groups<a class="headerlink" href="#create-users-and-groups" title="Permanent link">¶</a></h3>
+<h3 id="create-users-and-groups">Create users and groups<a data-markdown-ignore class="headerlink" href="#create-users-and-groups" title="Permanent link">¶</a></h3>
 <p>Groups define user access rights to resources. Identity provider groups are then mapped to roles in Percona Server for MongoDB to authorize users to access the database.</p>
 <ol>
 <li>
@@ -4084,9 +4084,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Assign the groups you created to users.</p>
 </li>
 </ol>
-<h2 id="configure-percona-server-for-mongodb">Configure Percona Server for MongoDB<a class="headerlink" href="#configure-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
+<h2 id="configure-percona-server-for-mongodb">Configure Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#configure-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
 <p>Now you need to configure authentication in Percona Server for MongoDB. Specify the external identity provider configuration for the <code>oidcIdentityProviders</code> server parameter either via the configuration file or the command line. </p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Configuration file</label><label for="__tabbed_1_2">Command line</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">Configuration file</label><label for="__tabbed_1_2">Command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -4132,7 +4132,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>When set to <code>true</code>, users are authorized using identity provider groups. Users are created and stored on the IdP side.</li>
 <li>When set to <code>false</code>, users are authorized by their usernames in the <code>$external</code> database in Percona Server for MongoDB. When using <code>useAuthorizationClaim: false</code>, <strong>do not</strong> specify <code>authorizationClaim</code>.</li>
 </ul>
-<h2 id="create-user-roles">Create user roles<a class="headerlink" href="#create-user-roles" title="Permanent link">¶</a></h2>
+<h2 id="create-user-roles">Create user roles<a data-markdown-ignore class="headerlink" href="#create-user-roles" title="Permanent link">¶</a></h2>
 <p>To enable users to access Percona Server for MongoDB, you must create roles and define privileges for them. </p>
 <p>The role name must match the identity provider group name and must have the prefix that matches the <code>authNamePrefix</code> in Percona Server for MongoDB configuration.</p>
 <p>For example, to create a role for the default group <code>Everyone</code> in Okta and with the <code>authNamePrefix</code> set to <code>okta</code>, use the following command:</p>
@@ -4143,7 +4143,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="p">})</span>
 </code></pre></div>
 <p>Create roles for all groups you have defined in Okta.</p>
-<h2 id="create-users">Create users<a class="headerlink" href="#create-users" title="Permanent link">¶</a></h2>
+<h2 id="create-users">Create users<a data-markdown-ignore class="headerlink" href="#create-users" title="Permanent link">¶</a></h2>
 <p><strong>Complete this step if you set <code>useAuthorizationClaim</code> to <code>false</code></strong></p>
 <p>Create users in the <code>$external</code> database. The username must consist of the <code>authNamePrefix</code> and the email that you specified when you created users in Okta. The username format is:</p>
 <div class="highlight"><pre><span></span><code>authNamePrefix/email
@@ -4156,8 +4156,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="w">  </span><span class="p">]</span>
 <span class="p">})</span>
 </code></pre></div>
-<h2 id="authenticate-in-percona-server-for-mongodb">Authenticate in Percona Server for MongoDB<a class="headerlink" href="#authenticate-in-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
-<h3 id="authorization-code-flow">Authorization code flow<a class="headerlink" href="#authorization-code-flow" title="Permanent link">¶</a></h3>
+<h2 id="authenticate-in-percona-server-for-mongodb">Authenticate in Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#authenticate-in-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
+<h3 id="authorization-code-flow">Authorization code flow<a data-markdown-ignore class="headerlink" href="#authorization-code-flow" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Connect to Percona Server for MongoDB:</p>
@@ -4178,7 +4178,7 @@ test&gt;
 </code></pre></div>
 </li>
 </ol>
-<h3 id="device-authentication-flow">Device authentication flow<a class="headerlink" href="#device-authentication-flow" title="Permanent link">¶</a></h3>
+<h3 id="device-authentication-flow">Device authentication flow<a data-markdown-ignore class="headerlink" href="#device-authentication-flow" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Connect to Percona Server for MongoDB:</p>

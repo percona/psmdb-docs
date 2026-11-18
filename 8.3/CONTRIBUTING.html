@@ -127,7 +127,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3664,7 +3664,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="contributing-guide">Contributing Guide<a class="headerlink" href="#contributing-guide" title="Permanent link">¶</a></h1>
+<h1 id="contributing-guide">Contributing Guide<a data-markdown-ignore class="headerlink" href="#contributing-guide" title="Permanent link">¶</a></h1>
 <p>Thank you for deciding to contribute and help us improve Percona Server for MongoDB documentation!</p>
 <p>We welcome contributors from all users and community. By contributing, you agree to the <a href="https://github.com/percona/community/blob/main/content/contribute/coc.md">Percona Community code of conduct</a>.</p>
 <p>You can contribute to documentation in the following ways:</p>
@@ -3681,7 +3681,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p><strong><a href="#contribute-to-documentation-yourself">Contribute to documentation yourself</a></strong>. Click the <strong>Edit this page</strong> icon next to the page title. This link leads you to the source file of the page on GitHub. There you make changes, create a pull request that we review and add to the doc project. For details how to do it, read on.</p>
 </li>
 </ol>
-<h2 id="contribute-to-documentation-yourself">Contribute to documentation yourself<a class="headerlink" href="#contribute-to-documentation-yourself" title="Permanent link">¶</a></h2>
+<h2 id="contribute-to-documentation-yourself">Contribute to documentation yourself<a data-markdown-ignore class="headerlink" href="#contribute-to-documentation-yourself" title="Permanent link">¶</a></h2>
 <p>Percona Distribution for MongoDB documentation is written in <a href="https://www.markdownguide.org/basic-syntax/">Markdown</a> language, so you can 
 <a href="#edit-documentation-online-vi-github">edit it online via GitHub</a>. If you wish to have more control over the doc process, jump to how to <a href="#edit-documentation-locally">edit documentation locally</a>. </p>
 <p>To contribute to the documentation, you should be familiar with the following technologies:</p>
@@ -3703,7 +3703,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>8.3</li>
 </ul>
 <p>The .md files are in the <code>docs</code> directory. </p>
-<h3 id="edit-documentation-online-via-github">Edit documentation online via GitHub<a class="headerlink" href="#edit-documentation-online-via-github" title="Permanent link">¶</a></h3>
+<h3 id="edit-documentation-online-via-github">Edit documentation online via GitHub<a data-markdown-ignore class="headerlink" href="#edit-documentation-online-via-github" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Click the <strong>Edit this page</strong> link on the sidebar. The source <code>.md</code> file of the page opens in GitHub editor in your browser. If you haven’t worked with the repository before, GitHub creates a <a href="https://docs.github.com/en/github/getting-started-with-github/fork-a-repo">fork</a> of it for you.</p>
@@ -3724,7 +3724,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>Someone from our team reviews the pull request and if everything is correct, merges it into the documentation. Then it gets published on the site.</li>
 </ol>
-<h3 id="edit-documentation-locally">Edit documentation locally<a class="headerlink" href="#edit-documentation-locally" title="Permanent link">¶</a></h3>
+<h3 id="edit-documentation-locally">Edit documentation locally<a data-markdown-ignore class="headerlink" href="#edit-documentation-locally" title="Permanent link">¶</a></h3>
 <p>This option is for users who prefer to work from their computer and / or have the full control over the documentation process.</p>
 <p>The steps are the following:</p>
 <ol>
@@ -3755,7 +3755,7 @@ git<span class="w"> </span>merge<span class="w"> </span>upstream/&lt;branch&gt;
 <li>Commit your changes</li>
 <li>Open a pull request to Percona</li>
 </ol>
-<h3 id="building-the-documentation">Building the documentation<a class="headerlink" href="#building-the-documentation" title="Permanent link">¶</a></h3>
+<h3 id="building-the-documentation">Building the documentation<a data-markdown-ignore class="headerlink" href="#building-the-documentation" title="Permanent link">¶</a></h3>
 <p>To verify how your changes look, generate the static site with the documentation. This process is called <em>building</em>. You can do it in these ways:
 You can do it in these ways:</p>
 <ul>
@@ -3763,7 +3763,7 @@ You can do it in these ways:</p>
 <li><a href="#install-mkdocs-and-build-locally">install MkDocs and build locally</a></li>
 </ul>
 <p>Learn more about the documentation structure in the <a href="#repository-stucture">Repository structure</a> section.</p>
-<h4 id="use-docker">Use Docker<a class="headerlink" href="#use-docker" title="Permanent link">¶</a></h4>
+<h4 id="use-docker">Use Docker<a data-markdown-ignore class="headerlink" href="#use-docker" title="Permanent link">¶</a></h4>
 <ol>
 <li><a href="https://docs.docker.com/get-docker/">Get Docker</a></li>
 <li>We use <a href="https://github.com/Percona-Lab/percona-doc-docker">this Docker image</a> to build documentation. Run the following command:</li>
@@ -3780,7 +3780,7 @@ You can do it in these ways:</p>
 <p>Paste the 0.0.0.0:8000 in your browser and you will see the documentation. The page reloads automatically as you make changes.</p>
 <p>The doc project also includes a single-page HTML output for a PDF document. It is accessible at the <code>0.0.0.0:8000/percona-server-for-mongodb/print_page.html</code>.</p>
 <p>Save this page as a PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF or just Save and select PDF as the output format.</p>
-<h4 id="install-mkdocs-and-build-locally">Install MkDocs and build locally<a class="headerlink" href="#install-mkdocs-and-build-locally" title="Permanent link">¶</a></h4>
+<h4 id="install-mkdocs-and-build-locally">Install MkDocs and build locally<a data-markdown-ignore class="headerlink" href="#install-mkdocs-and-build-locally" title="Permanent link">¶</a></h4>
 <p>In order not to break your running workflows, it’s recommended to install MkDocs in a virtual environment.</p>
 <ol>
 <li>Install <a href="https://pip.pypa.io/en/stable/installing/">pip</a></li>
@@ -3803,7 +3803,7 @@ You can do it in these ways:</p>
 <ol>
 <li>To build the PDF documentation, open the <code>site/print_page.html</code> in your browser. Save it as PDF. Depending on the browser, you may need to select the Export to PDF, Print - Save as PDF or just Save and select PDF as the output format.</li>
 </ol>
-<h2 id="repository-structure">Repository structure<a class="headerlink" href="#repository-structure" title="Permanent link">¶</a></h2>
+<h2 id="repository-structure">Repository structure<a data-markdown-ignore class="headerlink" href="#repository-structure" title="Permanent link">¶</a></h2>
 <p>The repository includes the following directories and files:</p>
 <ul>
 <li><code>mkdocs-base.yml</code> - the base configuration file. It includes general settings and documentation structure.</li>

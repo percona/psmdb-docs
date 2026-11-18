@@ -131,7 +131,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -3870,7 +3870,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="using-the-key-management-interoperability-protocol-kmip">Using the Key Management Interoperability Protocol (KMIP)<a class="headerlink" href="#using-the-key-management-interoperability-protocol-kmip" title="Permanent link">¶</a></h1>
+<h1 id="using-the-key-management-interoperability-protocol-kmip">Using the Key Management Interoperability Protocol (KMIP)<a data-markdown-ignore class="headerlink" href="#using-the-key-management-interoperability-protocol-kmip" title="Permanent link">¶</a></h1>
 <p>Percona Server for MongoDB adds support for secure transfer of keys using the <a href="https://docs.oasis-open.org/kmip/kmip-spec/v2.0/os/kmip-spec-v2.0-os.html">OASIS Key Management Interoperability Protocol (KMIP)</a>. The KMIP implementation was tested with the <a href="https://pykmip.readthedocs.io/en/latest/server.html">PyKMIP server</a> and the <a href="https://www.vaultproject.io/docs/secrets/kmip">HashiCorp Vault Enterprise KMIP Secrets Engine</a>.</p>
 <p>KMIP enables the communication between key management systems and the database server. KMIP provides the following benefits:</p>
 <ul>
@@ -3896,13 +3896,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tbody>
 </table>
 </details>
-<h2 id="support-for-multiple-kmip-servers">Support for multiple KMIP servers<a class="headerlink" href="#support-for-multiple-kmip-servers" title="Permanent link">¶</a></h2>
+<h2 id="support-for-multiple-kmip-servers">Support for multiple KMIP servers<a data-markdown-ignore class="headerlink" href="#support-for-multiple-kmip-servers" title="Permanent link">¶</a></h2>
 <p>You can specify multiple KMIP servers for failover. On startup, Percona Server for MongoDB connects to the servers in the order listed and selects the one with which the connection is successful.</p>
-<h2 id="optional-key-identifier">Optional key identifier<a class="headerlink" href="#optional-key-identifier" title="Permanent link">¶</a></h2>
+<h2 id="optional-key-identifier">Optional key identifier<a data-markdown-ignore class="headerlink" href="#optional-key-identifier" title="Permanent link">¶</a></h2>
 <p>The <code>kmipKeyIdentifier</code> option is optional and when left blank, the database server creates a key on the KMIP server and uses that for encryption. When you specify the identifier, the key with such an ID must exist on the key storage.</p>
-<h2 id="key-rotation">Key rotation<a class="headerlink" href="#key-rotation" title="Permanent link">¶</a></h2>
+<h2 id="key-rotation">Key rotation<a data-markdown-ignore class="headerlink" href="#key-rotation" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB supports the <a href="https://www.mongodb.com/docs/manual/tutorial/rotate-encryption-key/#kmip-master-key-rotation">master key rotation</a>. This enables users to comply with data security regulations when using KMIP.</p>
-<h2 id="key-state-polling">Key state polling<a class="headerlink" href="#key-state-polling" title="Permanent link">¶</a></h2>
+<h2 id="key-state-polling">Key state polling<a data-markdown-ignore class="headerlink" href="#key-state-polling" title="Permanent link">¶</a></h2>
 <p>When a Percona Server for MongoDB node generates a new master encryption key, it registers the key on the KMIP server with the <code>Pre-Active</code> state. Starting with version 7.0.14-8, Percona Server for MongoDB automatically activates the master encryption key and periodically checks (polls) its state. If a master encryption key for a node is not in the <code>Active</code> state, the node reports an error and shuts down. This process helps security engineers identify the nodes that require out-of-schedule master key rotation.</p>
 <p>Key state polling is enabled by default and is regulated by these configuration file options: <code>kmip.activateKeys</code> and <code>kmip.keyStatePollingSeconds</code>.</p>
 <p>The following diagram illustrates the master key lifecycle with key state polling:</p>
@@ -3912,7 +3912,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p class="admonition-title">See also</p>
 <p>Percona Blog: <a href="https://www.percona.com/blog/improve-the-security-of-a-percona-server-for-mongodb-deployment-with-kmip-key-state-polling/?utm_source=employee&amp;utm_medium=share&amp;utm_campaign=advocacy">Improve the Security of a Percona Server for MongoDB Deployment with KMIP Key State Polling</a> by Konstantin Trushin.</p>
 </div>
-<h2 id="kmip-parameters">KMIP parameters<a class="headerlink" href="#kmip-parameters" title="Permanent link">¶</a></h2>
+<h2 id="kmip-parameters">KMIP parameters<a data-markdown-ignore class="headerlink" href="#kmip-parameters" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -4177,11 +4177,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tr>
 </tbody>
 </table>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
-<h3 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">¶</a></h3>
+<h2 id="configuration">Configuration<a data-markdown-ignore class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
+<h3 id="considerations">Considerations<a data-markdown-ignore class="headerlink" href="#considerations" title="Permanent link">¶</a></h3>
 <p>Make sure you have obtained the root certificate, and the keypair for the KMIP server and the MongoDB client. For testing purposes you can use the <a href="https://www.openssl.org/">OpenSSL</a> to issue self-signed certificates. For production use we recommend you use the valid certificates issued by the key management appliance.</p>
 <p>To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, the options are:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Edit the <code>/etc/mongod.conf</code> configuration file as follows:    </p>
@@ -4207,7 +4207,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 </div>
 </div>
-<h2 id="check-encryption-status">Check encryption status<a class="headerlink" href="#check-encryption-status" title="Permanent link">¶</a></h2>
+<h2 id="check-encryption-status">Check encryption status<a data-markdown-ignore class="headerlink" href="#check-encryption-status" title="Permanent link">¶</a></h2>
 <p>You can check the encryption status and the current configuration using the following command:</p>
 <div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span>
 </code></pre></div>
@@ -4220,7 +4220,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 </code></pre></div>
 </details>
-<h2 id="upgrade-considerations">Upgrade considerations<a class="headerlink" href="#upgrade-considerations" title="Permanent link">¶</a></h2>
+<h2 id="upgrade-considerations">Upgrade considerations<a data-markdown-ignore class="headerlink" href="#upgrade-considerations" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB requires that the master encryption key is in the Active state before decrypting the data directory on startup. Therefore, rotate the master encryption <strong>key after installing the new version but before starting the server</strong> as follows:</p>
 <ul>
 <li>Set the <code>security.kmip.rotateMasterKey</code> option to <code>true</code> in the configuration file; alternatively, set the <code>--kmipRotateMasterKey</code> command line option</li>
@@ -4278,6 +4278,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
     
     <nav>
+      
+        <a href="https://github.com/EvgeniyPatlan" class="md-author" title="@EvgeniyPatlan">
+          
+          <img src="https://avatars.githubusercontent.com/u/18436759?v=4&amp;size=72" alt="EvgeniyPatlan">
+        </a>
       
         <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
           
