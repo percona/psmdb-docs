@@ -1,159 +1,178 @@
 # LDAP configuration parameters
 
-Percona Server for MongoDB provides a set of configuration parameters to enable and fine-tune LDAP authentication and authorization.
+Use these parameters to tune LDAP authentication and authorization in Percona
+Server for MongoDB. Configure LDAP first with the
+[NativeLDAP configuration guide](ldap-setup.md).
 
+The server parameters on this page apply to `mongod` and `mongos` with LDAP
+configured. Unless a section specifies another version, the parameters are
+available throughout the Percona Server for MongoDB 8.0 series.
 
-## UsertoDN cache parameters
+For startup settings, use the configuration file or command-line options.
+For runtime changes, use the [`setParameter` command](set-parameter.md).
+Runtime changes affect only the instance that receives the command.
+Add persistent settings to each instance's configuration file.
 
-To reduce the number of round trips to the LDAP server during authentication and authorization, Percona Server for MongoDB caches the results of LDAP UsertoDN mapping configured by `security.ldap.userToDNMapping` (exposed as `--ldapUserToDNMapping` at startup and `ldapUserToDNMapping` at runtime).
+## userToDN cache parameters
 
-For more details on configuring UsertoDN mapping, see [LDAP authorization](authorization.md#username-transformation) and [Set up LDAP authentication and authorization using NativeLDAP](ldap-setup.md).
+The userToDN cache requires Percona Server for MongoDB 8.0.21-9 or later.
+The cache stores username-to-distinguished-name (DN) results to reduce LDAP
+queries during authentication and authorization.
 
-The cache is controlled by the following server parameters:
+Configure transformation rules through `security.ldap.userToDNMapping`.
+For rule syntax, see [Username transformation](authorization.md#username-transformation).
 
-| **Parameter**  | **Required**    | **Description** |
-|------------|-------------|-------------| 
-| `ldapUserToDNCacheTTLSeconds`   | No         | Specifies how long (in seconds) a cache entry remains valid. Default: `30`. Set to `0` to disable caching. |
-| `ldapUserToDNCacheSize`   | No         | Defines the maximum number of entries stored in the cache. Default: `10000`. Set to `0` to disable caching.|
+These optional integer parameters control the cache at startup and runtime:
 
+| Parameter | Default | Accepted values and effect |
+| --- | --- | --- |
+| `ldapUserToDNCacheTTLSeconds` | `30` | Seconds that a cache entry remains valid. Range: `0`–`86400`. Set `0` to disable the cache. |
+| `ldapUserToDNCacheSize` | `10000` | Maximum number of cached entries. Range: `0`–`1000000`. Set `0` to disable the cache. |
 
-!!! note
-    Both parameters can be set at startup and at runtime using `setParameter`.
+For example, add these settings to your LDAP-enabled instance's configuration file:
 
-**Cache invalidation parameters**
+```yaml
+setParameter:
+  ldapUserToDNCacheTTLSeconds: 60
+  ldapUserToDNCacheSize: 20000
+```
 
-The cache is automatically invalidated when any of the following parameters change at runtime:
+## userToDN cache invalidation
 
-| **Parameter**                  | **Required** | **Description**                                                |
-|-----------------------------|----------|------------------------------------------------------------|
-| `ldapUserToDNMapping`       | Yes      | Rules for mapping usernames to LDAP DNs.                   |
-| `ldapUserToDNCacheTTLSeconds` | No       | Changing the TTL value clears the cache.                   |
-| `ldapUserToDNCacheSize`     | No       | Changing the cache size clears the cache.                  |
-| `ldapServers`               | Yes      | Comma-separated list of LDAP servers to connect to.         |
+The server clears the userToDN cache when you change any of these parameters at runtime:
 
+| Parameter | Effect of the change |
+| --- | --- |
+| `ldapUserToDNMapping` | Replaces the username transformation rules. |
+| `ldapUserToDNCacheTTLSeconds` | Changes the cache entry lifetime. |
+| `ldapUserToDNCacheSize` | Changes the cache capacity. |
+| `ldapServers` | Changes the LDAP server list and invalidates LDAP connections. |
+| `ldapQueryUser` | Changes the bind user and invalidates LDAP connections. |
+| `ldapQueryPassword` | Changes the bind password and invalidates LDAP connections. |
 
 ## Connection pool parameters
 
-These parameters control how Percona Server for MongoDB maintains its pool of connections to the LDAP server.
+Percona Server for MongoDB always uses a connection pool for LDAP bind requests.
+The default pool size is two connections.
+The `ldapUseConnectionPool` setting does not disable Percona Server for MongoDB's
+connection pool.
 
+Use this optional parameter to change the pool size at startup or runtime:
 
-!!! info "Important"
-    All connection pool parameters are **startup-only**. They must be defined in the configuration file or via `--setParameter` at launch and cannot be changed via `db.adminCommand()` while the instance is running.
+| Parameter | Type | Default | Accepted values and effect |
+| --- | --- | --- | --- |
+| `ldapConnectionPoolSizePerHost` | Integer | `2` | Positive integer that controls the LDAP connection pool size. |
 
+For example, set the pool size to five connections:
 
-| Parameter                                               | Required | Description                                                                                                                  |
-| ------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `ldapUseConnectionPool`                                 | No       | Enables/disables connection pooling. Default is OS dependent: `true` on Windows and specific Linux builds using `libldap_r`. |
-| `ldapConnectionPoolHostRefreshIntervalMillis`           | No       | Frequency (in ms) of health checks for pooled connections. Default: `60000`.                                |
-| `ldapConnectionPoolIdleHostTimeoutSecs`                 | No       | Seconds a pooled connection can remain idle before being closed. Default: `300`.                           |
-| `ldapConnectionPoolMinimumConnectionsPerHost`           | No       | Minimum number of connections to maintain per LDAP host. Default: `1`.                                      |
-| `ldapConnectionPoolMaximumConnectionsPerHost`           | No       | Maximum number of open connections per LDAP host. Default: `2147483647`.                                  |
-| `ldapConnectionPoolMaximumConnectionsInProgressPerHost` | No       | Limits concurrent **in-progress** connection attempts per host to prevent spikes. Default: `2`.                |
-| `ldapConnectionPoolUseLatencyForHostPriority`           | No       | When `true`, the pool prioritizes connections to hosts with the lowest latency. Default: `true`.            |
+=== "Runtime"
 
-??? example "MongoDB configuration file (LDAP section)"
+    ```javascript
+    db.adminCommand({setParameter: 1, ldapConnectionPoolSizePerHost: 5})
+    ```
+
+=== "Configuration file"
+
     ```yaml
-    security:
-      authorization: enabled
-      ldap:
-        mode: authzAndAuthn
     setParameter:
-      # --- Connection Pool Settings (Startup Only) ---
-      ldapUseConnectionPool: true
-      ldapForceMultiThreadMode: true
-      ldapConnectionPoolMinimumConnectionsPerHost: 5
-      ldapConnectionPoolMaximumConnectionsPerHost: 100
-      ldapConnectionPoolIdleHostTimeoutSecs: 600
+      ldapConnectionPoolSizePerHost: 5
     ```
 
 ## LDAP cache refresh parameters
 
-As of **version 8.0.20-8**, Percona Server for MongoDB introduced parameters to optimize authentication performance and reduce unnecessary load on the LDAP server. These settings control how cached user information is refreshed, allowing administrators to fine-tune the balance between maintaining up-to-date user data and minimizing LDAP query overhead—especially in high-scale environments with many concurrent users.
+The LDAP user cache stores user authorization information.
+The userToDN cache stores username-to-DN results.
+The server periodically invalidates cached `$external` users by default.
+Subsequent operations retrieve the user information again.
 
+Percona Server for MongoDB 8.0.20-8 or later also supports periodic refresh.
+Set `ldapShouldRefreshUserCacheEntries` to `true` at startup to select refresh
+instead of periodic invalidation.
+The server checks cached `$external` users at each refresh interval.
+The server replaces entries when their roles change.
+The server invalidates entries for users that no longer exist.
+If the refresh fails, the server invalidates all cached `$external` users.
 
-| **Parameter**                       | **Required** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ----------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ldapUserCacheRefreshInterval`      | No           | Defines how often (in seconds) the server refreshes cached user information from LDAP when interval-based refresh is enabled through `ldapShouldRefreshUserCacheEntries=true`. If not explicitly configured, Percona Server for MongoDB uses the built-in default for the server version. Can be configured at startup and runtime.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `ldapShouldRefreshUserCacheEntries` | No           | Selects the LDAP user cache refresh strategy. <br><br> - When set to `true`, each cached `$external` user is periodically re-fetched from the LDAP server at the interval defined by `ldapUserCacheRefreshInterval`. The cache is updated only if the user’s roles have changed; otherwise, existing entries remain untouched, ensuring no disruption. If a user no longer exists in LDAP, their cache entry is invalidated individually. <br><br> - When set to `false`, all `$external` users are evicted from the cache at intervals defined by `ldapUserCacheInvalidationInterval`. This preserves the behavior that existed prior to the introduction of `ldapUserCacheRefreshInterval` and `ldapShouldRefreshUserCacheEntries`. <br><br> Default: `false` (expiration-based invalidation using `ldapUserCacheInvalidationInterval`) to maintain backward-compatible behavior unless interval-based refreshing is explicitly enabled. The default value will change to `true` in future major versions. <br><br> This parameter can be configured at startup only.|
-| `ldapUserCacheInvalidationInterval` | No           | Defines the interval between total external user cache flushes, in seconds. Cached LDAP user entries are evicted after this interval and are re-acquired from LDAP on the next operation. Default: `30` seconds. This parameter can be configured at startup and runtime.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `ldapUserCacheStalenessInterval`    | No           | Defines how long `mongod` retains cached LDAP user information after a failed refresh attempt before invalidating the cache entry, in seconds. Maximum allowed value: `86400` seconds. Default: `30` seconds. This parameter can be configured at startup and runtime. |
+These optional parameters control the strategy and its interval:
 
-??? example "Interval-based refresh: `ldapShouldRefreshUserCacheEntries: true` "
+| Parameter | Type | Default | Availability | Accepted values and effect |
+| --- | --- | --- | --- | --- |
+| `ldapShouldRefreshUserCacheEntries` | Boolean | `false` | 8.0.20-8 or later; startup only | `true` selects periodic refresh. `false` selects periodic invalidation. |
+| `ldapUserCacheRefreshInterval` | Integer | `30` | 8.0.20-8 or later; startup and runtime | Refresh interval in seconds when `ldapShouldRefreshUserCacheEntries` is `true`. Range: `1`–`86400`. |
+| `ldapUserCacheInvalidationInterval` | Integer | `30` | Throughout the 8.0 series; startup and runtime | Invalidation interval in seconds when `ldapShouldRefreshUserCacheEntries` is `false`. For version 8.0.20-8 or later, the accepted range is `1`–`86400`. |
 
-    === "Runtime (setParameter)"
+Shorter intervals increase LDAP query frequency.
+Longer intervals can delay updates to cached authorization information.
 
-        ```{.javascript data-prompt=">"}
-        > db.adminCommand({
-        ...   setParameter: 1,
-        ...   ldapUserCacheRefreshInterval: 300
-        ... })
-        ```
+### Periodic refresh
 
-    === "Command line"
+To enable periodic refresh, add these settings to your configuration file before
+you start the instance:
 
-        ```bash
-        mongod --setParameter "ldapUserCacheRefreshInterval=300" \
-                --setParameter "ldapShouldRefreshUserCacheEntries=true"
-        ```
+```yaml
+setParameter:
+  ldapShouldRefreshUserCacheEntries: true
+  ldapUserCacheRefreshInterval: 300
+```
 
-    === "Configuration file"
+For an instance that uses periodic refresh, change the interval at runtime with this command:
 
-        ```yaml
-        setParameter:
-          ldapUserCacheRefreshInterval: 300
-          ldapShouldRefreshUserCacheEntries: true
-        ```
+```javascript
+db.adminCommand({
+  setParameter: 1,
+  ldapUserCacheRefreshInterval: 300
+})
+```
 
-??? example "Expiration-based invalidation: `ldapShouldRefreshUserCacheEntries: false`"
+The runtime command changes only the interval.
+The startup setting controls the refresh strategy.
 
+### Periodic invalidation
 
-    === "Runtime (setParameter)"
+To retain periodic invalidation, use these startup settings:
 
-        ```{.javascript data-prompt=">"}
-        > db.adminCommand({
-        ...   setParameter: 1,
-        ...   ldapUserCacheInvalidationInterval: 30
-        ... })
-        ```
+```yaml
+setParameter:
+  ldapShouldRefreshUserCacheEntries: false
+  ldapUserCacheInvalidationInterval: 30
+```
 
-    === "Command line"
+For an instance that uses periodic invalidation, change the interval at runtime
+with this command:
 
-        ```bash
-        mongod --setParameter "ldapUserCacheInvalidationInterval=30" \
-                --setParameter "ldapShouldRefreshUserCacheEntries=false"
-        ```
+```javascript
+db.adminCommand({
+  setParameter: 1,
+  ldapUserCacheInvalidationInterval: 60
+})
+```
 
-    === "Configuration file"
+## LDAP server and bind parameters
 
-        ```yaml
-        setParameter:
-          ldapUserCacheInvalidationInterval: 30
-          ldapShouldRefreshUserCacheEntries: false
-        ```
+These parameters control LDAP server selection, credentials, and username
+transformation. Use their `security.ldap` configuration options at startup.
+Use the server parameter names with `setParameter` at runtime.
+Do not place these runtime-only parameter names under `setParameter` in a startup
+configuration file.
 
+| Runtime parameter | Startup configuration option | Type and default | Purpose |
+| --- | --- | --- | --- |
+| `ldapServers` | `security.ldap.servers` | String; empty by default | Comma-separated LDAP server addresses in `host:port` format. Configure the servers for your LDAP deployment. |
+| `ldapQueryUser` | `security.ldap.bind.queryUser` | String; empty by default | Bind account used for LDAP queries, such as a DN for simple binds. |
+| `ldapQueryPassword` | `security.ldap.bind.queryPassword` | String; empty by default | Password for the bind account. |
+| `ldapUserToDNMapping` | `security.ldap.userToDNMapping` | String that contains a JSON array; default `[{match: "(.+)", substitution: "{0}"}]` | Rules that transform usernames into DNs. The default leaves the username unchanged. |
+| `ldapTimeoutMS` | `security.ldap.timeoutMS` | Integer; default `10000` | Timeout in milliseconds for LDAP responses. |
 
-## Security and concurrency parameters
+For bind configuration and credentials, follow the
+[NativeLDAP configuration guide](ldap-setup.md).
+For TLS settings, see [Transport security](ldap-setup.md#configure-tlsssl-connection-for-percona-server-for-mongodb).
 
-These parameters are used for LDAP server authentication, secure connection handling, and ensuring thread-safe operations during concurrent access.
+The following optional parameters support startup and runtime changes through
+`setParameter`:
 
-| **Parameter**              | **Required** | **Description**                                                                                                                              |
-| -------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ldapQueryUser`            | No           | Specifies the DN (Distinguished Name) of the user that binds to the LDAP server. Default: `N/A`.                                             |
-| `ldapQueryPassword`        | No           | Specifies the password for `ldapQueryUser`. Default: `N/A`.                                                                                  |
-| `ldapForceMultiThreadMode` | No           | Enables concurrent LDAP operations. Required for connection pooling. Use only with a thread-safe `libldap` implementation. Default: `false`. |
-| `ldapRetryCount`           | No           | Specifies the number of times the server retries an LDAP operation after a network error. Default: `0`.                                      |
+| Parameter | Type | Default | Effect |
+| --- | --- | --- | --- |
+| `ldapFollowReferrals` | Boolean | `false` | Allows LDAP referrals with the same bind credentials when `true`. See [LDAP referrals](authorization.md#ldap-referrals). |
+| `ldapDebug` | Boolean | `false` | Enables LDAP connection debug information when `true`. |
 
-
-??? example "MongoDB configuration file: Performance and retries"
-
-    ```yaml
-    security:
-      authorization: enabled
-      ldap:
-        mode: authzAndAuthn
-    # --- Performance & Retries ---
-    setParameter:
-      ldapRetryCount: 3
-    ```
-
-
+*[DN]: Distinguished Name

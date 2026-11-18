@@ -103,7 +103,7 @@ setParameter:
 
 ### Connection pool
 
-As of version 6.0.2-1, Percona Server for MongoDB always uses a connection pool to LDAP server to process bind requests. The connection pool is enabled by default. The default connection pool size is 2 connections.
+Percona Server for MongoDB always uses a connection pool to the LDAP server for bind requests. The default connection pool size is two connections.
 
 You can change the connection pool size either at the server startup or dynamically by specifying the value for the `ldapConnectionPoolSizePerHost` server parameter.
 
@@ -153,7 +153,8 @@ db.adminCommand( { setParameter: 1, ldapServers:"localhost,ldap1.example.net,lda
 
 ## Configuration
 
-To configure LDAP authorization with the native LDAP authentication, see [Setting up LDAP authentication and authorization using NativeLDAP](ldap-setup.md).
+For native LDAP authentication and authorization, follow the
+[NativeLDAP configuration guide](ldap-setup.md).
 
 For details on available configuration options, refer to [LDAP parameters](ldap-parameters.md).
 
