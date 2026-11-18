@@ -78,12 +78,11 @@ Use the following configuration rules when you migrate a configuration from Mong
 #### Precedence rules
 
 `storage.inMemory` settings take precedence over the corresponding `storage.wiredTiger` settings.
-When you omit a `storage.inMemory` setting, Percona Memory Engine uses the default for that setting.
-Percona Memory Engine ignores the corresponding WiredTiger value.
+For the settings in the table below, when you omit the `storage.inMemory` option, Percona Memory Engine uses its default and ignores the corresponding WiredTiger value.
 
 #### Settings replaced by `storage.inMemory` options
 
-Option names in this table are relative to `storage`. 
+Option names in this table are relative to `storage`.
 
 For example, `inMemory.engineConfig.inMemorySizeGB` means `storage.inMemory.engineConfig.inMemorySizeGB`.
 
@@ -112,12 +111,12 @@ The following WiredTiger settings apply to Percona Memory Engine:
 
 | **WiredTiger setting** | **Behavior with Percona Memory Engine** |
 | --- | --- |
-| `engineConfig.zstdCompressionLevel` | Percona Memory Engine uses the compression level for the `zstd` compressor. |
+| `engineConfig.zstdCompressionLevel` | Percona Memory Engine applies this level to the `zstd` compressor; it only affects collections or indexes that use `zstd` compression. |
 | `engineConfig.directoryForIndexes` | Percona Memory Engine records the value in storage metadata. |
-| `collectionConfig.blockCompressor` | Percona Memory Engine uses the default block compressor for collections. |
-| `indexConfig.prefixCompression` | Percona Memory Engine uses the default prefix compression setting for indexes. |
+| `collectionConfig.blockCompressor` | Applies this value as the default block compressor for newly created collections (overridable per collection). |
+| `indexConfig.prefixCompression` | Applies this value as the default prefix compression for newly created indexes (overridable per index). |
 
-#### Settings not used by the InMemory engine
+#### Settings not used by Percona Memory Engine
 
 Option names are relative to `storage.wiredTiger`. Percona Memory Engine ignores these options.
 
