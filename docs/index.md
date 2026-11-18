@@ -1,10 +1,5 @@
 # Percona Server for MongoDB 8.3 Documentation
 
-!!! warning "Technical Preview"
-    Percona Server for MongoDB 8.3.7-1 is available as a technical preview.
-
-    We recommend that early adopters use this release for testing purposes only and not in production environments.
-
 Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement
 for MongoDB 8.3 Community Edition with [enterprise-grade features](comparison.md).
 
@@ -36,7 +31,7 @@ Define who has access to the database and manage their permissions in a single p
 
 ### :material-backup-restore: Backup and restore { .title }
 
-Make enterprise-level backups and restores with guaranteed data consistency using Percona Backup for MongoDB (PBM). Or, create physical backups on a running server using the built-in [hot backup](hot-backup.md) functionality. 
+Use Percona Backup for MongoDB (PBM) for consistent backups and restores of replica sets and sharded clusters.
 
 [Get started with PBM :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/latest/installation.html){ .md-button }
 
