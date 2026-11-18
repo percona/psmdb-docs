@@ -3866,10 +3866,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Percona Server for MongoDB includes an integrated open source hot backup system for the default
 <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> storage engine.  It creates a physical data backup on a running
 server without notable performance and operating degradation.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Hot backups are done on <code>mongod</code> servers independently, without synchronizing them across replica set members and shards in a cluster. To ensure data consistency during backups and restores, we recommend using <a href="https://docs.percona.com/percona-backup-mongodb/index.html">Percona Backup for MongoDB</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Deprecated starting with 8.3.17-5</p>
+<p>The <code>createBackup</code> command is deprecated and will be removed in Percona Server for MongoDB 9.0. You can still use it in 8.3.</p>
+<p>Before you upgrade to 9.0, switch your backup workflow to <a href="https://docs.percona.com/percona-backup-mongodb/index.html" target="_blank">Percona Backup for MongoDB (PBM)</a>. To get started, see the <a href="https://docs.percona.com/percona-backup-mongodb/installation.html" target="_blank">PBM quickstart guide</a>.</p>
 </div>
+<p>Hot backups run on each <code>mongod</code> independently. They are not synchronized across replica set members or shards in a cluster.</p>
 <h2 id="make-a-backup">Make a backup<a class="headerlink" href="#make-a-backup" title="Permanent link">¶</a></h2>
 <p class="power-number">To take a hot backup of the database in your current <code>dbpath</code>, do the following:</p>
 <ol>
@@ -3881,18 +3883,39 @@ server without notable performance and operating degradation.</p>
 <li>
 <p>Run the <code>createBackup</code> command as administrator on the <code>admin</code> database and specify the backup directory.</p>
 <div class="highlight"><pre><span></span><code><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
-<span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">"&lt;backup_data_path&gt;"</span><span class="p">})</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 </li>
 </ol>
 <p>The backup taken is the snapshot of the <code>mongod</code> server’s <code>dataDir</code> at the moment of the <code>createBackup</code> command start.</p>
-<p>If the backup was successful, you should receive an <code>{ "ok" : 1 }</code> object.
-If there was an error, you will receive a failing <code>ok</code> status
-with the error message, for example:</p>
+<p>An <code>ok</code> value of <code>1</code> indicates that the backup succeeded. Starting with
+8.3.17-5, a successful response also includes a deprecation warning:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The `createBackup` command has been deprecated and will be removed in version 9.0; use Percona Backup for MongoDB instead"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The server also logs the deprecation warning. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"t"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"$date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-11-13T13:23:50.919+00:00"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"s"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"c"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMMAND"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29176</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ctx"</span><span class="p">:</span><span class="w"> </span><span class="s2">"conn1"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The `createBackup` command has been deprecated and will be removed in version 9.0; use Percona Backup for MongoDB instead"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If the backup fails, the response contains an <code>ok</code> value of <code>0</code> and an error
+message. For example, an empty destination path causes an error:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">""</span><span class="p">})</span>
-<span class="p">{</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"errmsg"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Destination path must be absolute"</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The `createBackup` command has been deprecated and will be removed in version 9.0; use Percona Backup for MongoDB instead"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"ok"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"errmsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Destination path must be absolute"</span>
+<span class="p">}</span>
 </code></pre></div>
 <h2 id="save-a-backup-to-a-tar-archive">Save a backup to a TAR archive<a class="headerlink" href="#save-a-backup-to-a-tar-archive" title="Permanent link">¶</a></h2>
 <p>To save a backup as a <em>tar</em> archive, use the <code>archive</code> field to
@@ -4121,7 +4144,7 @@ cp<span class="w"> </span>-RT<span class="w"> </span>&lt;backup_data_path&gt;<sp
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 2, 2025 14:37:28 UTC">December 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 13, 2026 13:41:22 UTC">November 13, 2026</span>
   </span>
 
     
@@ -4149,14 +4172,19 @@ cp<span class="w"> </span>-RT<span class="w"> </span>&lt;backup_data_path&gt;<sp
     
     <nav>
       
-        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+        <a href="https://github.com/rasika-chivate" class="md-author" title="@rasika-chivate">
           
-          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
+          <img src="https://avatars.githubusercontent.com/u/95711051?v=4&amp;size=72" alt="rasika-chivate">
         </a>
       
         <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
           
           <img src="https://avatars.githubusercontent.com/u/19864447?v=4&amp;size=72" alt="web-flow">
+        </a>
+      
+        <a href="https://github.com/nastena1606" class="md-author" title="@nastena1606">
+          
+          <img src="https://avatars.githubusercontent.com/u/60600800?v=4&amp;size=72" alt="nastena1606">
         </a>
       
       
