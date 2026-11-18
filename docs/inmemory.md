@@ -68,6 +68,108 @@ The following are the configuration examples:
      --inMemoryStatisticsLogDelaySecs=0
      ```
 
+### How WiredTiger settings apply
+
+When you select `storage.engine: inMemory`, Percona Memory Engine inherits most WiredTiger settings.
+Exceptions apply to memory size, statistics logging, and custom configuration strings.
+
+Use the following configuration rules when you migrate a configuration from MongoDB Enterprise Advanced.
+
+#### Precedence rules
+
+`storage.inMemory` settings take precedence over the corresponding `storage.wiredTiger` settings.
+For the settings in the table below, when you omit the `storage.inMemory` option, Percona Memory Engine uses its default and ignores the corresponding WiredTiger value.
+
+#### Settings replaced by `storage.inMemory` options
+
+Option names in this table are relative to `storage`.
+
+For example, `inMemory.engineConfig.inMemorySizeGB` means `storage.inMemory.engineConfig.inMemorySizeGB`.
+
+| **WiredTiger setting**| **Use instead** |
+| --- | --- |
+| `wiredTiger.engineConfig.cacheSizeGB` | `inMemory.engineConfig.inMemorySizeGB` |
+| `wiredTiger.engineConfig.cacheSizePct` | `inMemory.engineConfig.inMemorySizeGB` |
+| `wiredTiger.engineConfig.statisticsLogDelaySecs` | `inMemory.engineConfig.statisticsLogDelaySecs` |
+| `wiredTiger.engineConfig.configString` | `inMemory.engineConfig.configString` |
+| `wiredTiger.collectionConfig.configString` | `inMemory.collectionConfig.configString` |
+| `wiredTiger.indexConfig.configString` | `inMemory.indexConfig.configString` |
+
+!!! note
+
+    * `cacheSizePct` does not control the Percona Memory Engine memory limit. Set `inMemorySizeGB` instead.
+
+    * Percona Memory Engine ignores custom configuration strings from `storage.wiredTiger`.
+      Review each string before you copy the string to the corresponding `storage.inMemory` option.
+      Percona Memory Engine enforces `cache_resident=false` for collection and index configuration strings.
+
+#### Inherited settings
+
+Option names are relative to `storage.wiredTiger`.
+
+The following WiredTiger settings apply to Percona Memory Engine:
+
+| **WiredTiger setting** | **Behavior with Percona Memory Engine** |
+| --- | --- |
+| `engineConfig.zstdCompressionLevel` | Percona Memory Engine applies this level to the `zstd` compressor; it only affects collections or indexes that use `zstd` compression. |
+| `engineConfig.directoryForIndexes` | Percona Memory Engine records the value in storage metadata. |
+| `collectionConfig.blockCompressor` | Applies this value as the default block compressor for newly created collections (overridable per collection). |
+| `indexConfig.prefixCompression` | Applies this value as the default prefix compression for newly created indexes (overridable per index). |
+
+#### Settings not used by Percona Memory Engine
+
+Option names are relative to `storage.wiredTiger`. Percona Memory Engine ignores these options.
+
+You can specify the following options:
+
+| **WiredTiger setting** | **Reason** |
+| --- | --- |
+| `engineConfig.journalCompressor` | Percona Memory Engine disables journaling. |
+| `engineConfig.checkpointSizeMB` | Percona Memory Engine disables checkpoints. |
+| `engineConfig.liveRestoreSource`, `engineConfig.liveRestoreThreads`, `engineConfig.liveRestoreReadSizeMB` | Percona Memory Engine does not enable live restore. |
+| `engineConfig.maxCacheOverflowFileSizeGB` | Deprecated. |
+
+#### `setParameter` settings
+
+The following `setParameter` settings also apply to Percona Memory Engine:
+
+* `wiredTigerSessionMax`
+
+* `wiredTigerEvictionDirtyTargetGB`
+
+* `wiredTigerEvictionDirtyMaxGB`
+
+* `wiredTigerEvictionUpdatesMaxGB`
+
+Specify these settings in `setParameter`.
+
+??? example "Example with inherited settings"
+
+    This configuration sets a memory limit of three GB.
+    Percona Memory Engine logs statistics every two seconds.
+    This configuration specifies inherited compression options for collections and indexes.
+
+    The values are illustrative. Choose a memory limit that fits your data set and available memory.
+
+    ```yaml
+    storage:
+      engine: inMemory
+      inMemory:
+        engineConfig:
+          inMemorySizeGB: 3
+          statisticsLogDelaySecs: 2
+      wiredTiger:
+        engineConfig:
+          zstdCompressionLevel: 6
+        collectionConfig:
+          blockCompressor: zstd
+        indexConfig:
+          prefixCompression: true
+    ```
+
+    These options do not migrate existing data when you switch from another storage engine.
+    Follow the [storage engine migration procedure](#switching-storage-engines).
+
 ## Switching storage engines
 
 ### Considerations
