@@ -148,7 +148,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4141,9 +4141,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="ldap-configuration-parameters">LDAP configuration parameters<a class="headerlink" href="#ldap-configuration-parameters" title="Permanent link">¶</a></h1>
+<h1 id="ldap-configuration-parameters">LDAP configuration parameters<a data-markdown-ignore class="headerlink" href="#ldap-configuration-parameters" title="Permanent link">¶</a></h1>
 <p>Percona Server for MongoDB provides a set of configuration parameters to enable and fine-tune LDAP authentication and authorization.</p>
-<h2 id="usertodn-cache-parameters">userToDN cache parameters<a class="headerlink" href="#usertodn-cache-parameters" title="Permanent link">¶</a></h2>
+<h2 id="usertodn-cache-parameters">userToDN cache parameters<a data-markdown-ignore class="headerlink" href="#usertodn-cache-parameters" title="Permanent link">¶</a></h2>
 <p>To reduce the number of round trips to the LDAP server during authentication and authorization, Percona Server for MongoDB caches the results of LDAP user-to-DN mapping configured by <code>security.ldap.userToDNMapping</code> (exposed as <code>--ldapUserToDNMapping</code> at startup and <code>ldapUserToDNMapping</code> at runtime).</p>
 <p>For more details on configuring user-to-DN mapping, see <a href="authorization.html#username-transformation">LDAP authorization</a> and <a href="ldap-setup.html">Set up LDAP authentication and authorization using NativeLDAP</a>.</p>
 <p>The cache is controlled by the following server parameters:</p>
@@ -4215,10 +4215,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tr>
 </tbody>
 </table>
-<h2 id="monitor-usertodncache">Monitor userToDNCache<a class="headerlink" href="#monitor-usertodncache" title="Permanent link">¶</a></h2>
+<h2 id="monitor-usertodncache">Monitor userToDNCache<a data-markdown-ignore class="headerlink" href="#monitor-usertodncache" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB exposes LDAP userToDN cache statistics in the <code>db.serverStatus()</code> output when the server is configured to use LDAP authentication with <code>--ldapServers</code>.</p>
 <p>The <code>ldap.userToDNCache</code> document reports the status and performance of the in-memory Least Recently Used (LRU) cache that maps LDAP usernames to Distinguished Names (DNs). You can use this information to verify whether the cache is enabled, monitor cache usage, and identify whether LDAP lookups are being served from cache or sent to the LDAP server.</p>
-<h3 id="view-ldap-usertodn-cache-statistics">View LDAP userToDN cache statistics<a class="headerlink" href="#view-ldap-usertodn-cache-statistics" title="Permanent link">¶</a></h3>
+<h3 id="view-ldap-usertodn-cache-statistics">View LDAP userToDN cache statistics<a data-markdown-ignore class="headerlink" href="#view-ldap-usertodn-cache-statistics" title="Permanent link">¶</a></h3>
 <p>Run the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">ldap</span><span class="p">.</span><span class="nx">userToDNCache</span>
 </code></pre></div>
@@ -4278,7 +4278,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p class="admonition-title">Note</p>
 <p>The <code>hits</code> and <code>misses</code> counters reset to <code>0</code> on each cache invalidation. <code>invalidations</code> never resets.</p>
 </div>
-<h3 id="calculate-the-cache-hit-rate">Calculate the cache hit rate<a class="headerlink" href="#calculate-the-cache-hit-rate" title="Permanent link">¶</a></h3>
+<h3 id="calculate-the-cache-hit-rate">Calculate the cache hit rate<a data-markdown-ignore class="headerlink" href="#calculate-the-cache-hit-rate" title="Permanent link">¶</a></h3>
 <p>You can calculate the hit rate for the current cache generation using the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">ldap</span><span class="p">.</span><span class="nx">userToDNCache</span><span class="p">;</span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">hits</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">misses</span><span class="p">;</span>

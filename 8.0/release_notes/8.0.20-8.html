@@ -149,7 +149,7 @@ Upgrade from MongoDB Community">
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4172,7 +4172,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-server-for-mongodb-8020-8-2026-04-01">Percona Server for MongoDB 8.0.20-8 (2026-04-01)<a class="headerlink" href="#percona-server-for-mongodb-8020-8-2026-04-01" title="Permanent link">¶</a></h1>
+<h1 id="percona-server-for-mongodb-8020-8-2026-04-01">Percona Server for MongoDB 8.0.20-8 (2026-04-01)<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-8020-8-2026-04-01" title="Permanent link">¶</a></h1>
 <p><a class="md-button" href="../install/index.html">Install</a>
 <a class="md-button" href="../install/upgrade-from-mongodb.html">Upgrade from MongoDB Community</a></p>
 <p>Percona Server for MongoDB 8.0.20-8 is an enhanced, source-available, and highly-scalable database that is a
@@ -4182,8 +4182,8 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li><a href="https://www.mongodb.com/docs/manual/release-notes/8.0/#8.0.20---mar-17--2026">MongoDB 8.0.20 Community Edition</a> </li>
 </ul>
 <p>Percona Server for MongoDB 8.0.20-8 supports protocols and drivers of MongoDB Community <strong>8.0.20</strong>.</p>
-<h2 id="release-highlights">Release highlights<a class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
-<h3 id="enhanced-ldap-authentication-caching">Enhanced LDAP authentication caching<a class="headerlink" href="#enhanced-ldap-authentication-caching" title="Permanent link">¶</a></h3>
+<h2 id="release-highlights">Release highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
+<h3 id="enhanced-ldap-authentication-caching">Enhanced LDAP authentication caching<a data-markdown-ignore class="headerlink" href="#enhanced-ldap-authentication-caching" title="Permanent link">¶</a></h3>
 <p>To provide better parity with MongoDB Enterprise and improve performance in high-scale environments, we have introduced two new configuration parameters for LDAP user caching. These options allow administrators to fine-tune how and when cached user information is refreshed, reducing unnecessary overhead on LDAP servers while ensuring security data remains current.</p>
 <p><strong>New parameters</strong></p>
 <p><strong>ldapUserCacheRefreshInterval:</strong> The <code>ldapUserCacheRefreshInterval</code> parameter sets the frequency (in seconds) at which the server proactively refreshes cached user information from the LDAP server. This allows the system to update permissions and group memberships in the background before the cache entry expires. For more detailed information, refer to <a href="https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.ldapUserCacheRefreshInterval">MongoDB server parameters</a>.</p>
@@ -4196,10 +4196,10 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <p>If set to false: The server will wait for the <code>ldapUserCacheInvalidationInterval</code> (already supported in PSMDB) to pass before clearing and refetching the entry on the next login attempt.</p>
 </li>
 </ul>
-<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
-<h3 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
+<h2 id="changelog">Changelog<a data-markdown-ignore class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
+<h3 id="improvements">Improvements<a data-markdown-ignore class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1947">PSMDB-1947</a>: To provide better parity with MongoDB Enterprise and improve performance in high-scale environments, we have introduced two new configuration parameters for LDAP user caching. These options allow administrators to fine-tune how and when cached user information is refreshed, reducing unnecessary overhead on LDAP servers while ensuring security data remains current.</p>
-<h3 id="bugs">Bugs<a class="headerlink" href="#bugs" title="Permanent link">¶</a></h3>
+<h3 id="bugs">Bugs<a data-markdown-ignore class="headerlink" href="#bugs" title="Permanent link">¶</a></h3>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1998">PSMDB-1998</a>: Resolved an issue where user authentication was stuck indefinitely when the LDAP server was unreachable. Timeouts are now applied to LDAP connections to avoid blocking and ensure more reliable authentication.</p>
 
 
@@ -4238,6 +4238,39 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 
     
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/rasika-chivate" class="md-author" title="@rasika-chivate">
+          
+          <img src="https://avatars.githubusercontent.com/u/95711051?v=4&amp;size=72" alt="rasika-chivate">
+        </a>
+      
+        <a href="https://github.com/radoslawszulgo" class="md-author" title="@radoslawszulgo">
+          
+          <img src="https://avatars.githubusercontent.com/u/175048287?v=4&amp;size=72" alt="radoslawszulgo">
+        </a>
+      
+        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
+          
+          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&amp;size=72" alt="web-flow">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 

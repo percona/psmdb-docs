@@ -148,7 +148,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4105,15 +4105,15 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="use-openbao-for-data-at-rest-encryption">Use OpenBao for data-at-rest encryption<a class="headerlink" href="#use-openbao-for-data-at-rest-encryption" title="Permanent link">¶</a></h1>
+<h1 id="use-openbao-for-data-at-rest-encryption">Use OpenBao for data-at-rest encryption<a data-markdown-ignore class="headerlink" href="#use-openbao-for-data-at-rest-encryption" title="Permanent link">¶</a></h1>
 <p><a href="https://openbao.org/">OpenBao</a> is an open-source alternative to HashiCorp Vault. Percona Server for MongoDB is integrated with OpenBao for encryption key management and supports only OpenBao back end with KV Secrets Engine - Version 2 (API) with versioning enabled. </p>
-<h2 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">¶</a></h2>
+<h2 id="assumptions">Assumptions<a data-markdown-ignore class="headerlink" href="#assumptions" title="Permanent link">¶</a></h2>
 <ol>
 <li>We assume that you have OpenBao up and running. Refer to <a href="https://openbao.org/docs/install/">OpenBao</a> documentation for installation instructions. </li>
 <li>For secure communication with OpenBao, <a href="https://openbao.org/docs/configuration/ui/#note-on-tls">it’s recommended to use TLS</a>. </li>
 <li>You have an empty Percona Server for MongoDB deployment. </li>
 </ol>
-<h2 id="openbao-setup">OpenBao setup<a class="headerlink" href="#openbao-setup" title="Permanent link">¶</a></h2>
+<h2 id="openbao-setup">OpenBao setup<a data-markdown-ignore class="headerlink" href="#openbao-setup" title="Permanent link">¶</a></h2>
 <p>OpenBao setup is similar to that of HashiCorp Vault. It consists of the following steps:</p>
 <ol>
 <li>
@@ -4192,7 +4192,7 @@ sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span clas
 <li><a href="vault.html#master-key-loss-prevention">Master key loss prevention</a></li>
 </ul>
 </div>
-<h2 id="percona-server-for-mongodb-configuration">Percona Server for MongoDB configuration<a class="headerlink" href="#percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h2>
+<h2 id="percona-server-for-mongodb-configuration">Percona Server for MongoDB configuration<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB configuration for OpenBao is the same as for HashCorp Vault. Refer to the <a href="vault.html#hashicorp-vault-parameters">HashiCorp Vault parameters</a> for the description of available configuration options.</p>
 <p>To enable data-at-rest encryption in Percona Server for MongoDB, you need the following information:</p>
 <ul>
@@ -4200,7 +4200,7 @@ sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span clas
 <li>OpenBao secrets engine mount path</li>
 <li>Path to the access token</li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>

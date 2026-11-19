@@ -148,7 +148,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4161,7 +4161,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="encryption-at-rest">Encryption at Rest<a class="headerlink" href="#encryption-at-rest" title="Permanent link">¶</a></h1>
+<h1 id="encryption-at-rest">Encryption at Rest<a data-markdown-ignore class="headerlink" href="#encryption-at-rest" title="Permanent link">¶</a></h1>
 <p>Encryption at rest should be used together with data in transit encryption and policies that protect accounts, passwords, and encryption keys. When implemented well, encryption at rest helps organizations comply with security and privacy standards like HIPAA, PCI-DSS, GDPR, and FIPS, ensuring sensitive data is protected both when it’s being transmitted and when it’s stored.</p>
 <p>Data encryption at rest was first introduced in Percona Server for MongoDB 3.6 and is fully compatible with MongoDB’s encryption interface. Percona Server for MongoDB supports the following Key Management System (KMS) integrations:</p>
 <ul>
@@ -4169,7 +4169,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><a href="openbao.html">OpenBao</a></li>
 <li><a href="kmip.html">Key Management Interoperability Protocol (KMIP) Servers</a></li>
 </ul>
-<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">¶</a></h2>
+<h2 id="workflow">Workflow<a data-markdown-ignore class="headerlink" href="#workflow" title="Permanent link">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>You can only enable data at rest encryption on an empty database when you start the <code>mongod</code> instance for the first time. You cannot enable or disable encryption while the Percona Server for MongoDB server is already running and/or has some data. Nor can you change the effective encryption mode by simply restarting the server. Every time you restart the server, the encryption settings must remain the same.</p>
@@ -4198,7 +4198,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ul>
 <p>Note that you can use only one of the key management options at a time. However, you can switch from one management option to another (e.g. from a keyfile to HashiCorp Vault). Refer to <a href="encryption-mode-switch.html">Migrating from Key File Encryption to HashiCorp Vault Encryption</a> section for details.</p>
-<h2 id="important-configuration-options">Important configuration options<a class="headerlink" href="#important-configuration-options" title="Permanent link">¶</a></h2>
+<h2 id="important-configuration-options">Important configuration options<a data-markdown-ignore class="headerlink" href="#important-configuration-options" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB supports the <code>encryptionCipherMode</code> option where you choose one of the following cipher modes:</p>
 <ul>
 <li>
@@ -4217,14 +4217,14 @@ demonstrates how to apply the AES256-GCM cipher mode when starting the
 <p class="admonition-title">See also</p>
 <p>MongoDB Documentation: <a href="https://docs.mongodb.com/manual/reference/program/mongod/#cmdoption-mongod-encryptionciphermode">encryptionCipherMode Option</a></p>
 </div>
-<h2 id="encryption-of-rollback-files">Encryption of rollback files<a class="headerlink" href="#encryption-of-rollback-files" title="Permanent link">¶</a></h2>
+<h2 id="encryption-of-rollback-files">Encryption of rollback files<a data-markdown-ignore class="headerlink" href="#encryption-of-rollback-files" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB encrypts rollback files when data at rest encryption is enabled. To inspect the contents of these files, use <strong>perconadecrypt</strong>. This is a tool that you run from the command line as follows:</p>
 <div class="highlight"><pre><span></span><code>perconadecrypt<span class="w"> </span>--encryptionKeyFile<span class="w"> </span>FILE<span class="w">  </span>--inputPath<span class="w"> </span>FILE<span class="w"> </span>--outputPath<span class="w"> </span>FILE<span class="w"> </span><span class="o">[</span>--encryptionCipherMode<span class="w"> </span>MODE<span class="o">]</span>
 </code></pre></div>
 <p>When decrypting, the cipher mode must match the cipher mode which was used for
 the encryption. By default, the <code>--encryptionCipherMode</code> option uses the
 <code>AES256-CBC</code> mode.</p>
-<h3 id="parameters-of-perconadecrypt">Parameters of <code>perconadecrypt</code><a class="headerlink" href="#parameters-of-perconadecrypt" title="Permanent link">¶</a></h3>
+<h3 id="parameters-of-perconadecrypt">Parameters of <code>perconadecrypt</code><a data-markdown-ignore class="headerlink" href="#parameters-of-perconadecrypt" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -4251,7 +4251,7 @@ the encryption. By default, the <code>--encryptionCipherMode</code> option uses 
 </tr>
 </tbody>
 </table>
-<h2 id="check-encryption-status">Check encryption status<a class="headerlink" href="#check-encryption-status" title="Permanent link">¶</a></h2>
+<h2 id="check-encryption-status">Check encryption status<a data-markdown-ignore class="headerlink" href="#check-encryption-status" title="Permanent link">¶</a></h2>
 <p>You can check the encryption status and the current configuration using the following command:</p>
 <div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span>
 </code></pre></div>

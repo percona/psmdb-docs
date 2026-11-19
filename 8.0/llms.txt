@@ -1,0 +1,109 @@
+# Percona Server for MongoDB 8.0
+
+> Documentation
+
+Each page below is also available as markdown. For the documentation of all Percona products, see https://docs.percona.com/llms.txt.
+
+## Overview
+
+- [Home](https://docs.percona.com/percona-server-for-mongodb/8.0/index.md)
+- [Get help from Percona](https://docs.percona.com/percona-server-for-mongodb/8.0/get-help.md)
+- [FAQ](https://docs.percona.com/percona-server-for-mongodb/8.0/faq.md)
+- [Percona Software and Platform Lifecycle](https://docs.percona.com/percona-server-for-mongodb/8.0/lifecycle.md)
+
+## Get started
+
+- [Quickstart guides](https://docs.percona.com/percona-server-for-mongodb/8.0/install/index.md)
+- [System requirements](https://docs.percona.com/percona-server-for-mongodb/8.0/system-requirements.md)
+- [Virtual hardware recommendations for cloud deployments](https://docs.percona.com/percona-server-for-mongodb/8.0/install/cloud-deployments.md)
+- [On Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/8.0/install/apt.md)
+- [On RHEL and derivatives](https://docs.percona.com/percona-server-for-mongodb/8.0/install/yum.md)
+- [On Rocky Linux](https://docs.percona.com/percona-server-for-mongodb/8.0/install/rocky-linux.md)
+- [On Amazon Linux 2023](https://docs.percona.com/percona-server-for-mongodb/8.0/install/amazon-linux.md)
+- [From tarballs](https://docs.percona.com/percona-server-for-mongodb/8.0/install/tarball.md)
+- [Build from source code](https://docs.percona.com/percona-server-for-mongodb/8.0/install/source.md)
+- [Run in Docker](https://docs.percona.com/percona-server-for-mongodb/8.0/install/docker.md)
+- [2. Connect to Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/connect.md)
+- [3. Manipulate data in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/crud.md)
+- [4. What's next?](https://docs.percona.com/percona-server-for-mongodb/8.0/what-next.md)
+
+## Features
+
+- [Feature comparison with MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/comparison.md)
+- [Percona Memory Engine](https://docs.percona.com/percona-server-for-mongodb/8.0/inmemory.md)
+- [Hot Backup](https://docs.percona.com/percona-server-for-mongodb/8.0/hot-backup.md)
+- [$backupCursor and $backupCursorExtend aggregation stages](https://docs.percona.com/percona-server-for-mongodb/8.0/backup-cursor.md)
+- [Authentication overview](https://docs.percona.com/percona-server-for-mongodb/8.0/authentication.md)
+- [AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/aws-iam.md)
+- [Setting up AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/aws-iam-setup.md)
+- [Setting up Kerberos authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/kerberos.md)
+- [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/authorization.md)
+- [Set up LDAP authentication with SASL](https://docs.percona.com/percona-server-for-mongodb/8.0/sasl-auth.md)
+- [Set up x.509 authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/x509-ldap.md)
+- [Set up LDAP authentication and authorization using NativeLDAP](https://docs.percona.com/percona-server-for-mongodb/8.0/ldap-setup.md)
+- [LDAP configuration parameters](https://docs.percona.com/percona-server-for-mongodb/8.0/ldap-parameters.md)
+- [OIDC authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc.md)
+- [With Okta](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-okta.md)
+- [With Microsoft Entra](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-entra.md)
+- [With Ping Identity](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ping.md)
+- [With Keycloak](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-keycloak.md)
+- [OIDC authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.md)
+- [Enable SCRAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/enable-auth.md)
+- [Data at rest encryption](https://docs.percona.com/percona-server-for-mongodb/8.0/data-at-rest-encryption.md)
+- [Use Vault](https://docs.percona.com/percona-server-for-mongodb/8.0/vault.md)
+- [Use OpenBao](https://docs.percona.com/percona-server-for-mongodb/8.0/openbao.md)
+- [Use KMIP](https://docs.percona.com/percona-server-for-mongodb/8.0/kmip.md)
+- [Use local keyfile](https://docs.percona.com/percona-server-for-mongodb/8.0/keyfile.md)
+- [Migrate from keyfile to Vault](https://docs.percona.com/percona-server-for-mongodb/8.0/encryption-mode-switch.md)
+- [FIPS compliance](https://docs.percona.com/percona-server-for-mongodb/8.0/fips.md)
+- [File copy based initial sync](https://docs.percona.com/percona-server-for-mongodb/8.0/fcbis.md)
+- [Auditing](https://docs.percona.com/percona-server-for-mongodb/8.0/audit-logging.md)
+- [Profiling rate limit](https://docs.percona.com/percona-server-for-mongodb/8.0/rate-limit.md)
+- [Log redaction](https://docs.percona.com/percona-server-for-mongodb/8.0/log-redaction.md)
+- [Additional text search algorithm - ngram](https://docs.percona.com/percona-server-for-mongodb/8.0/ngram-full-text-search.md)
+
+## Administration
+
+- [Tune parameters](https://docs.percona.com/percona-server-for-mongodb/8.0/set-parameter.md)
+- [Log rotation in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/log-rotation.md)
+- [Split-DNS Horizons usage with Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon.md)
+- [Configure Horizons in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon-setup.md)
+- [Configure a systemd unit file for mongos](https://docs.percona.com/percona-server-for-mongodb/8.0/mongos-config.md)
+- [Upgrade from 7.0 to 8.0](https://docs.percona.com/percona-server-for-mongodb/8.0/install/upgrade-from-70.md)
+- [Upgrade from MongoDB Community](https://docs.percona.com/percona-server-for-mongodb/8.0/install/upgrade-from-mongodb.md)
+- [Minor upgrade of Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/install/minor-upgrade.md)
+- [Uninstall Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/install/uninstall.md)
+
+## Release notes
+
+- [Release notes index](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/index.md)
+- [Percona Server for MongoDB 8.0.38-16 (2026-11-13)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.38-16.md)
+- [Percona Server for MongoDB 8.0.34-15 (2026-10-22)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.34-15.md)
+- [Percona Server for MongoDB 8.0.32-14 (2026-09-23)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.32-14.md)
+- [Percona Server for MongoDB 8.0.29-13 (2026-08-20)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.29-13.md)
+- [Percona Server for MongoDB 8.0.28-12 (2026-08-10)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.28-12.md)
+- [Percona Server for MongoDB 8.0.26-11 (2026-06-25)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.26-11.md)
+- [Percona Server for MongoDB 8.0.23-10 (2026-05-21)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.23-10.md)
+- [Percona Server for MongoDB 8.0.21-9 (2026-05-06)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.21-9.md)
+- [Percona Server for MongoDB 8.0.20-8 (2026-04-01)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.20-8.md)
+- [Percona Server for MongoDB 8.0.19-7 (2026-02-19)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.19-7.md)
+- [Percona Server for MongoDB 8.0.17-6 (2026-01-06)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.17-6.md)
+- [Percona Server for MongoDB 8.0.16-5 (2025-12-02)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.16-5.md)
+- [Percona Server for MongoDB 8.0.12-4 (2025-08-21)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.12-4.md)
+- [Percona Server for MongoDB 8.0.8-3 (2025-05-01)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.8-3.md)
+- [Percona Server for MongoDB 8.0.4-2 (2025-02-19)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.4-2.md)
+- [Percona Server for MongoDB release notes version 8.0.4-1](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.4-1.md)
+
+## Reference
+
+- [Software Bill of Materials (SBOM)](https://docs.percona.com/percona-server-for-mongodb/8.0/sbom.md)
+- [Glossary](https://docs.percona.com/percona-server-for-mongodb/8.0/glossary.md)
+- [Telemetry and data collection](https://docs.percona.com/percona-server-for-mongodb/8.0/telemetry.md)
+- [Code of conduct](https://docs.percona.com/percona-server-for-mongodb/8.0/code-of-conduct.md)
+- [Copyright and licensing information](https://docs.percona.com/percona-server-for-mongodb/8.0/copyright.md)
+- [Trademark policy](https://docs.percona.com/percona-server-for-mongodb/8.0/trademark-policy.md)
+
+## Optional
+
+- [Legal Notice](https://docs.percona.com/percona-server-for-mongodb/8.0/legal-notice.md)
+

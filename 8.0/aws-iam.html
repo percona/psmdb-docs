@@ -148,7 +148,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4107,16 +4107,16 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="aws-iam-authentication"><abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication<a class="headerlink" href="#aws-iam-authentication" title="Permanent link">¶</a></h1>
+<h1 id="aws-iam-authentication"><abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication<a data-markdown-ignore class="headerlink" href="#aws-iam-authentication" title="Permanent link">¶</a></h1>
 <div class="admonition admonition">
 <p class="admonition-title">Version added: <a href="https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.html">6.0.5-4</a></p>
 </div>
 <p><abbr title="Identity Access Management">IAM</abbr> (Identity Access Management) is the <abbr title="Amazon Web Service">AWS</abbr> service that allows you to securely control access to <abbr title="Amazon Web Service">AWS</abbr> resources. Percona Server for MongoDB supports authentication with <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> enabling you to use the same <abbr title="Amazon Web Service">AWS</abbr> credentials both for it and other components of your infrastructure. This saves your DBAs from managing different sets of secrets and frees their time on other activities. </p>
 <p>You can configure <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> for a password-less authentication. Instead of username and password, the user or the application presents the <abbr title="Amazon Web Service">AWS</abbr> security credentials for authentication, but the secret key is not sent to Percona Server for MongoDB. This significantly increases the security in your infrastructure. </p>
 <p>Percona Server for MongoDB supports two authentication types: </p>
-<h2 id="user-authentication">User authentication<a class="headerlink" href="#user-authentication" title="Permanent link">¶</a></h2>
+<h2 id="user-authentication">User authentication<a data-markdown-ignore class="headerlink" href="#user-authentication" title="Permanent link">¶</a></h2>
 <p>This authentication type is typically used by human operators. Every user account in <abbr title="Amazon Web Service">AWS</abbr> has the ARN (Amazon Resource Name), which uniquely identifies this account and the user associated with it. During authentication, the ARN is used to verify the user’s identity. </p>
-<h2 id="role-authentication">Role authentication<a class="headerlink" href="#role-authentication" title="Permanent link">¶</a></h2>
+<h2 id="role-authentication">Role authentication<a data-markdown-ignore class="headerlink" href="#role-authentication" title="Permanent link">¶</a></h2>
 <p>This type is typically used for applications / MongoDB clients. For instance, if your application is running on <abbr title="Amazon Web Service">AWS</abbr> resources like EC2 instance or ECS (Elastic Container Service) which uses the <abbr title="Identity Access Management">IAM</abbr> role assigned to it. Another scenario is to allow users to assume the <abbr title="Identity Access Management">IAM</abbr> role and in such a way, grant a user the permissions outlined in the <abbr title="Identity Access Management">IAM</abbr> role. The ARN of the <abbr title="Identity Access Management">IAM</abbr> role is used to authenticate the application in Percona Server for MongoDB.  </p>
 <p>For either type of <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication, the flow is the following:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/aws-iam-auth.png" data-desc-position="bottom"><img alt="image" src="_images/aws-iam-auth.png"></a></p>
@@ -4153,7 +4153,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ul>
 </div>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
+<h2 id="configuration">Configuration<a data-markdown-ignore class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
 <p>For how to configure <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication, see <a href="aws-iam-setup.html">Setting up <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication</a>.</p>
 
 

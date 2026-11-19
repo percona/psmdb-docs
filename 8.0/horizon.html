@@ -148,7 +148,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4139,7 +4139,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="split-dns-horizons-usage-with-percona-server-for-mongodb">Split-DNS Horizons usage with Percona Server for MongoDB<a class="headerlink" href="#split-dns-horizons-usage-with-percona-server-for-mongodb" title="Permanent link">¶</a></h1>
+<h1 id="split-dns-horizons-usage-with-percona-server-for-mongodb">Split-DNS Horizons usage with Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#split-dns-horizons-usage-with-percona-server-for-mongodb" title="Permanent link">¶</a></h1>
 <p>This overview explains the Horizons feature in Percona Server for MongoDB. If you’re familiar with the concept and want to use it, switch to the <a href="horizon-setup.html">Configure Horizons in Percona Server for MongoDB</a>.</p>
 <p>You can deploy Percona Server for MongoDB in different environments:</p>
 <ul>
@@ -4149,14 +4149,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>on virtual servers in a public cloud such as AWS EC2 instances, Azure VMs or Google Compute Engine </li>
 </ul>
 <p>Regardless of the environment you use, you may come across the issue that clients within the same network can reach the replica set just fine. However, clients running outside your cluster such as backup or monitoring tools can’t connect. Why does this happen?</p>
-<h2 id="how-mongodb-discovers-replica-set-members">How MongoDB discovers replica set members<a class="headerlink" href="#how-mongodb-discovers-replica-set-members" title="Permanent link">¶</a></h2>
+<h2 id="how-mongodb-discovers-replica-set-members">How MongoDB discovers replica set members<a data-markdown-ignore class="headerlink" href="#how-mongodb-discovers-replica-set-members" title="Permanent link">¶</a></h2>
 <p>Let’s have a closer look at how MongoDB discovers replica set members.</p>
 <p>When your client connects to the replica set, it uses an IP address or hostname of a node. The hostname can be an external one, for example, <code>mongo.external.mycompany.com:27017</code>. The MongoDB driver treats this as a starting point. It successfully connects and authenticates. Then the driver runs the <code>db.hello()</code> command to discover the full replica set topology.</p>
 <p>MongoDB responds with the list of member hostnames you defined when you initiated the replica set with the <code>rs.initiate()</code> command. By default, those are internal names like <code>psmdb1.internal.net</code> or <code>psmdb1.default.svc.cluster.local</code>.</p>
 <p>If your client is inside the same network, such as inside the same Docker bridge, Kubernetes namespace or local subnet — it can resolve those names and connect to all members. But if the client is external, running on your host machine, in another cloud or outside a VPN, it likely cannot resolve those internal hostnames.</p>
 <p>Port mismatches add another layer of complexity. Containers often expose MongoDB’s default port 27017 internally, but map it to different external ports (like 32768) to avoid conflicts. Even in non-containerized setups, NAT or firewall rules may rewrite ports, causing the driver to fail when reaching other members.</p>
 <p>To solve these issues, use the Horizons feature available in Percona Server for MongoDB and Percona Operator for MongoDB v1.16.0+.</p>
-<h3 id="how-horizons-work">How Horizons work<a class="headerlink" href="#how-horizons-work" title="Permanent link">¶</a></h3>
+<h3 id="how-horizons-work">How Horizons work<a data-markdown-ignore class="headerlink" href="#how-horizons-work" title="Permanent link">¶</a></h3>
 <p>Horizons let each replica set member advertise different hostnames and ports depending on how the client connects — whether from inside a container, across clouds, or from a remote data center. This ensures reliable discovery and connectivity across diverse environments.</p>
 <p>You configure Horizons in the replica set configuration under the horizons field:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -4191,7 +4191,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ol>
 <p>This mechanism makes TLS mandatory for Horizons to function. The SNI field is the only way for the server to reliably determine the client’s network context.</p>
-<h2 id="when-to-use-horizons">When to use Horizons<a class="headerlink" href="#when-to-use-horizons" title="Permanent link">¶</a></h2>
+<h2 id="when-to-use-horizons">When to use Horizons<a data-markdown-ignore class="headerlink" href="#when-to-use-horizons" title="Permanent link">¶</a></h2>
 <p>Horizons are especially useful if you:</p>
 <ul>
 <li>Run MongoDB in Kubernetes and need external access</li>
@@ -4200,7 +4200,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>Use virtual machines or bare-metal servers with split DNS or custom routing rules</li>
 <li>Need to expose MongoDB to external monitoring, backup, or app clients</li>
 </ul>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
+<h2 id="configuration">Configuration<a data-markdown-ignore class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
 <p><a class="md-button" href="horizon-setup.html">Configure Horizons in Percona Server for MongoDB</a></p>
 
 

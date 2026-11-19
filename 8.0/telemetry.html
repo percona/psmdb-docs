@@ -148,7 +148,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4359,21 +4359,21 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="telemetry-and-data-collection">Telemetry and data collection<a class="headerlink" href="#telemetry-and-data-collection" title="Permanent link">¶</a></h1>
+<h1 id="telemetry-and-data-collection">Telemetry and data collection<a data-markdown-ignore class="headerlink" href="#telemetry-and-data-collection" title="Permanent link">¶</a></h1>
 <p>Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements. </p>
 <p>Currently, telemetry is added only to the Percona packages for both basic and Pro builds and to Docker images. </p>
-<h2 id="what-information-is-collected">What information is collected<a class="headerlink" href="#what-information-is-collected" title="Permanent link">¶</a></h2>
+<h2 id="what-information-is-collected">What information is collected<a data-markdown-ignore class="headerlink" href="#what-information-is-collected" title="Permanent link">¶</a></h2>
 <p>Telemetry collects the following information:</p>
 <ul>
 <li>The information about the installation environment when you install the software.</li>
 <li>The information about the operating system such as OS name, the architecture, the list of Percona packages. See more in the <a href="#telemetry-agent">Telemetry Agent section</a>.</li>
 <li>The metrics from the database instance. See more in the <a href="#telemetry-subsystem">Telemetry Subsystem section</a>.</li>
 </ul>
-<h2 id="what-is-not-collected">What is NOT collected<a class="headerlink" href="#what-is-not-collected" title="Permanent link">¶</a></h2>
+<h2 id="what-is-not-collected">What is NOT collected<a data-markdown-ignore class="headerlink" href="#what-is-not-collected" title="Permanent link">¶</a></h2>
 <p>Percona protects your privacy and doesn’t collect any personal information about you like database names, user names or credentials or any user-entered values. </p>
 <p>All collected data is anonymous, meaning it can’t be traced back to any individual user. To learn more about how Percona handles your data, read the <a href="https://www.percona.com/privacy-policy">Percona Privacy statement</a>.</p>
 <p>You control whether to share this information. Participation in this program is completely voluntary. If don’t want to share anonymous data, you can <a href="#disable-telemetry">disable telemetry</a>.</p>
-<h2 id="why-telemetry-matters">Why telemetry matters<a class="headerlink" href="#why-telemetry-matters" title="Permanent link">¶</a></h2>
+<h2 id="why-telemetry-matters">Why telemetry matters<a data-markdown-ignore class="headerlink" href="#why-telemetry-matters" title="Permanent link">¶</a></h2>
 <p>Benefits for Percona:</p>
 <table>
 <thead>
@@ -4416,7 +4416,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tr>
 </tbody>
 </table>
-<h2 id="telemetry-components">Telemetry components<a class="headerlink" href="#telemetry-components" title="Permanent link">¶</a></h2>
+<h2 id="telemetry-components">Telemetry components<a data-markdown-ignore class="headerlink" href="#telemetry-components" title="Permanent link">¶</a></h2>
 <p>Percona collects information using the following components:</p>
 <ul>
 <li>
@@ -4455,13 +4455,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Telemetry Storage - stores all telemetry data for the long term.</p>
 </li>
 </ul>
-<h3 id="telemetry-subsystem">Telemetry Subsystem<a class="headerlink" href="#telemetry-subsystem" title="Permanent link">¶</a></h3>
+<h3 id="telemetry-subsystem">Telemetry Subsystem<a data-markdown-ignore class="headerlink" href="#telemetry-subsystem" title="Permanent link">¶</a></h3>
 <p>The Telemetry Subsystem extends the functionality of the database. It is built-in in Percona Server for MongoDB and is implemented separately for <code>mongod</code> and <code>mongos</code> instances. The Telemetry Subsystem is enabled by default during the initial database deployment.</p>
 <p>The Telemetry Subsystem collects metrics from the database instance daily to the Metrics File. It creates a new Metrics File for each collection. Before generating a new file, the Telemetry Subsystem deletes the Metrics Files that are older than seven days. This process ensures that only the most recent week’s data is maintained.</p>
 <p>The Telemetry Subsystem creates a file in the local file system using a timestamp as the name with a <code>.json</code> extension.</p>
-<h3 id="metrics-file">Metrics File<a class="headerlink" href="#metrics-file" title="Permanent link">¶</a></h3>
+<h3 id="metrics-file">Metrics File<a data-markdown-ignore class="headerlink" href="#metrics-file" title="Permanent link">¶</a></h3>
 <p>The Metrics File is a JSON file with the metrics collected by the Telemetry Subsystem. </p>
-<h4 id="locations">Locations<a class="headerlink" href="#locations" title="Permanent link">¶</a></h4>
+<h4 id="locations">Locations<a data-markdown-ignore class="headerlink" href="#locations" title="Permanent link">¶</a></h4>
 <p>Percona stores the Metrics File in one of the following directories on the local file system. The location depends on the product.</p>
 <ul>
 <li>
@@ -4476,9 +4476,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ul>
 <p>Percona archives the telemetry history in <code>${telemetry root path}/history/</code>.</p>
-<h4 id="metrics-file-format">Metrics File format<a class="headerlink" href="#metrics-file-format" title="Permanent link">¶</a></h4>
+<h4 id="metrics-file-format">Metrics File format<a data-markdown-ignore class="headerlink" href="#metrics-file-format" title="Permanent link">¶</a></h4>
 <p>The Metrics File uses the Javascript Object Notation (JSON) format. Percona reserves the right to extend the current set of JSON structure attributes in the future.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><code>mongod</code> Metrics File</label><label for="__tabbed_1_2"><code>mongos</code> Metrics File</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1"><code>mongod</code> Metrics File</label><label for="__tabbed_1_2"><code>mongos</code> Metrics File</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>The following is an example of the collected data generated by the <code>mongod</code> instance of the config server replica set of the sharded cluster:    </p>
@@ -4512,7 +4512,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 </div>
 </div>
-<h3 id="telemetry-agent">Telemetry Agent<a class="headerlink" href="#telemetry-agent" title="Permanent link">¶</a></h3>
+<h3 id="telemetry-agent">Telemetry Agent<a data-markdown-ignore class="headerlink" href="#telemetry-agent" title="Permanent link">¶</a></h3>
 <p>The Percona Telemetry Agent runs as a dedicated OS daemon process <code>percona-telemetry-agent</code>. It creates, reads, writes, and deletes JSON files in the <a href="#locations"><code>${telemetry root path}</code></a>. You can find the agent’s log file at <code>/var/log/percona/telemetry-agent.log</code>.</p>
 <p>The agent does not send anything if there are no Percona-specific files in the target directory.</p>
 <p>The following is an example of a Telemetry Agent payload:</p>
@@ -4640,12 +4640,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p><code>wal2json</code></p>
 </li>
 </ul>
-<h2 id="disable-telemetry">Disable telemetry<a class="headerlink" href="#disable-telemetry" title="Permanent link">¶</a></h2>
+<h2 id="disable-telemetry">Disable telemetry<a data-markdown-ignore class="headerlink" href="#disable-telemetry" title="Permanent link">¶</a></h2>
 <p>Telemetry is enabled by default when you install the software. It is also included in the software packages (Telemetry Subsystem and Telemetry Agent) and enabled by default.</p>
 <p>If you don’t want to send the telemetry data, here’s how: </p>
-<h3 id="disable-the-telemetry-collected-during-the-installation">Disable the telemetry collected during the installation<a class="headerlink" href="#disable-the-telemetry-collected-during-the-installation" title="Permanent link">¶</a></h3>
+<h3 id="disable-the-telemetry-collected-during-the-installation">Disable the telemetry collected during the installation<a data-markdown-ignore class="headerlink" href="#disable-the-telemetry-collected-during-the-installation" title="Permanent link">¶</a></h3>
 <p>If you decide not to send usage data to Percona when you install the software, you can set the <code>PERCONA_TELEMETRY_DISABLE=1</code> environment variable for either the root user or in the operating system prior to the installation process.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Debian-derived distribution</label><label for="__tabbed_2_2">Red Hat-derived distribution</label><label for="__tabbed_2_3">Docker</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">Debian-derived distribution</label><label for="__tabbed_2_2">Red Hat-derived distribution</label><label for="__tabbed_2_3">Docker</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Add the environment variable before the installation process.</p>
@@ -4675,12 +4675,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 </div>
 </div>
-<h2 id="disable-telemetry-for-the-installed-software">Disable telemetry for the installed software<a class="headerlink" href="#disable-telemetry-for-the-installed-software" title="Permanent link">¶</a></h2>
+<h2 id="disable-telemetry-for-the-installed-software">Disable telemetry for the installed software<a data-markdown-ignore class="headerlink" href="#disable-telemetry-for-the-installed-software" title="Permanent link">¶</a></h2>
 <p>Percona software you installed includes the telemetry feature that collects information about how you use this software. It is enabled by default. To turn  off telemetry, you need to disable both the Telemetry Agent and the Telemetry Subsystem.</p>
-<h3 id="disable-telemetry-agent">Disable Telemetry Agent<a class="headerlink" href="#disable-telemetry-agent" title="Permanent link">¶</a></h3>
+<h3 id="disable-telemetry-agent">Disable Telemetry Agent<a data-markdown-ignore class="headerlink" href="#disable-telemetry-agent" title="Permanent link">¶</a></h3>
 <p>In the first 24 hours, no information is collected or sent.</p>
 <p>You can either disable the Telemetry Agent temporarily or permanently.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Disable temporarily</label><label for="__tabbed_3_2">Disable permanently</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_3_1">Disable temporarily</label><label for="__tabbed_3_2">Disable permanently</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Turn off Telemetry Agent temporarily until the next server restart with this command:</p>
@@ -4695,14 +4695,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 </div>
 <p>Even after stopping the Telemetry Agent service, a different part of the software (Telemetry Subsystem) continues to create the Metrics File related to telemetry every day and saves that file for seven days.</p>
-<h3 id="telemetry-agent-dependencies-and-removal-considerations">Telemetry Agent dependencies and removal considerations<a class="headerlink" href="#telemetry-agent-dependencies-and-removal-considerations" title="Permanent link">¶</a></h3>
+<h3 id="telemetry-agent-dependencies-and-removal-considerations">Telemetry Agent dependencies and removal considerations<a data-markdown-ignore class="headerlink" href="#telemetry-agent-dependencies-and-removal-considerations" title="Permanent link">¶</a></h3>
 <p>If you decide to remove the Telemetry Agent, this also removes the database. That’s because the Telemetry Agent is a mandatory dependency for Percona Server for MongoDB. </p>
 <p>On YUM-based systems, the system removes the Telemetry Agent package when you remove the last dependency package.</p>
 <p>On APT-based systems, you must use the ‘–autoremove’ option to remove all dependencies, as the system doesn’t automatically remove the Telemetry Agent when you remove the database package.</p>
 <p>The ‘–autoremove’ option only removes unnecessary dependencies. It doesn’t remove dependencies required by other packages or guarantee the removal of all package-associated dependencies.</p>
-<h3 id="disable-the-telemetry-subsystem">Disable the Telemetry Subsystem<a class="headerlink" href="#disable-the-telemetry-subsystem" title="Permanent link">¶</a></h3>
+<h3 id="disable-the-telemetry-subsystem">Disable the Telemetry Subsystem<a data-markdown-ignore class="headerlink" href="#disable-the-telemetry-subsystem" title="Permanent link">¶</a></h3>
 <p>To disable the Telemetry Subsystem, set the <code>perconaTelemetry</code> server parameter to <code>false</code>. You can do this in one of the following ways:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="__tabbed_4_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label><label for="__tabbed_4_3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A74 74 0 0 1 11.91 24h.481a29 29 0 0 1 .51-3.07c.417-.296.604-.463.85-.693a11.34 11.34 0 0 0 3.639-8.464c.01-.814-.103-1.662-.197-2.218m-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405"></path></svg></span> <code>setParameter</code> command</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><input id="__tabbed_4_3" name="__tabbed_4" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_4_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="__tabbed_4_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label><label for="__tabbed_4_3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A74 74 0 0 1 11.91 24h.481a29 29 0 0 1 .51-3.07c.417-.296.604-.463.85-.693a11.34 11.34 0 0 0 3.639-8.464c.01-.814-.103-1.662-.197-2.218m-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405"></path></svg></span> <code>setParameter</code> command</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Use the <code>setParameter.perconaTelemetry</code> parameter in the configuration file
