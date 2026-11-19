@@ -130,7 +130,7 @@ Upgrade from MongoDB Community">
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4392,23 +4392,23 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-server-for-mongodb-7022-12-2025-07-28">Percona Server for MongoDB 7.0.22-12 (2025-07-28)<a class="headerlink" href="#percona-server-for-mongodb-7022-12-2025-07-28" title="Permanent link">¶</a></h1>
+<h1 id="percona-server-for-mongodb-7022-12-2025-07-28">Percona Server for MongoDB 7.0.22-12 (2025-07-28)<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-7022-12-2025-07-28" title="Permanent link">¶</a></h1>
 <p><a class="md-button" href="../install/index.html">Installation</a>
 <a class="md-button" href="../install/upgrade-from-mongodb.html">Upgrade from MongoDB Community</a></p>
 <p>Percona Server for MongoDB 7.0.22-12 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <p>Percona Server for MongoDB 7.0.22-12 includes the improvements and bug fixes of <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.19---apr-14--2025">MongoDB 7.0.19 Community Edition</a> through <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.22---jul-18--2025">MongoDB 7.0.22 Community Edition</a>. It supports protocols and drivers of MongoDB versions 7.0.19 - 7.0.22.</p>
-<h2 id="release-highlights">Release highlights<a class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
+<h2 id="release-highlights">Release highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
 <p>This release provides the following features and improvements:</p>
-<h3 id="boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync">Boost performance during cluster restore and scaling with file copy-based initial sync<a class="headerlink" href="#boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync" title="Permanent link">¶</a></h3>
+<h3 id="boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync">Boost performance during cluster restore and scaling with file copy-based initial sync<a data-markdown-ignore class="headerlink" href="#boost-performance-during-cluster-restore-and-scaling-with-file-copy-based-initial-sync" title="Permanent link">¶</a></h3>
 <p>You can now select how a newly added or a restored replica set member synchronizes the data from other members - via logical or file copy-based initial sync. File copy-based initial sync copies physical files from the source node. This sync method is faster than the logical one and it reduces your maintenance time on scaling your cluster.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../_images/fcbis.png" data-desc-position="bottom"><img alt="image" src="../_images/fcbis.png"></a></p>
 <p>The performance advantage of file copy-based over logical initial sync varies based on data set characteristics. While file copy-based initial sync can be significantly quicker, its efficiency is influenced by factors such as document count, collection distribution, and indexing structure.</p>
 <p>This feature is available in Percona Server for MongoDB Pro out of the box. <a href="https://www.percona.com/about/contact">Become a Percona Customer</a> to enjoy all Pro features with little to no effort from your side. Alternatively, you can receive it by building Percona Server from the source code.</p>
 <p><em>Update from 2025-11-25: We no longer release Percona Server for MongoDB Pro Builds. All features included in Pro Builds are accessible for everyone in our public regular builds. If you need a Pro Build for that specific version, please contact your Percona representative for guidance. We’re here to help ensure a smooth transition and continued success with Percona open-source solutions.</em></p>
-<h3 id="packaging-changes">Packaging changes<a class="headerlink" href="#packaging-changes" title="Permanent link">¶</a></h3>
+<h3 id="packaging-changes">Packaging changes<a data-markdown-ignore class="headerlink" href="#packaging-changes" title="Permanent link">¶</a></h3>
 <p>Percona Server for MongoDB 7.0.22-12 is no longer supported on Ubuntu 20.04 (Focal Fossa) as this operating system has reached end of life. If you’re not ready to upgrade to a newer Ubuntu OS but still want to update Percona Server for MongoDB, <a href="https://hubs.ly/Q03rRtDg0">contact us</a>! We’re here to make your databases run better.</p>
-<h3 id="upstream-improvements">Upstream Improvements<a class="headerlink" href="#upstream-improvements" title="Permanent link">¶</a></h3>
+<h3 id="upstream-improvements">Upstream Improvements<a data-markdown-ignore class="headerlink" href="#upstream-improvements" title="Permanent link">¶</a></h3>
 <p>The bug fixes, provided by MongoDB Community and included in Percona Server for MongoDB, are the following:</p>
 <ul>
 <li><a href="https://jira.mongodb.org/browse/SERVER-93120">SERVER-93120</a> - Fixed the issue with blocking Full Time Diagnostic Data Capture (FTDC) collection when checking the state of the <code>$backupCursor</code> by using atomic mode instead of a lock</li>
@@ -4430,18 +4430,18 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.21---jun-04--2025">MongoDB 7.0.21 Community Edition</a> and </li>
 <li><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.22---jul-18--2025">MongoDB 7.0.22 Community Edition</a>.</li>
 </ul>
-<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
-<h3 id="new-features">New Features<a class="headerlink" href="#new-features" title="Permanent link">¶</a></h3>
+<h2 id="changelog">Changelog<a data-markdown-ignore class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
+<h3 id="new-features">New Features<a data-markdown-ignore class="headerlink" href="#new-features" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1284">PSMDB-1284</a> - Add the ability to perform file copy-based initial sync</li>
 </ul>
-<h3 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
+<h3 id="improvements">Improvements<a data-markdown-ignore class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1619">PSMDB-1619</a> - Make log rotation behavior compatible with MongoDB by renaming existing log file to a name with a timestamp and start a new one</li>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1633">PSMDB-1633</a> - Implemented ‘encryptionAtRest’ field in ‘serverStatus()’</li>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1634">PSMDB-1634</a> - Improved the <code>mongod.1</code> manpage by adding reference to official documentation</li>
 </ul>
-<h3 id="fixed-bugs">Fixed Bugs<a class="headerlink" href="#fixed-bugs" title="Permanent link">¶</a></h3>
+<h3 id="fixed-bugs">Fixed Bugs<a data-markdown-ignore class="headerlink" href="#fixed-bugs" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1615">PSMDB-1615</a> - Fixed the issue with corrupt/unusable debug files in RPM-based systems for Percona Server for MongoDB 6, 7 and 8</p>

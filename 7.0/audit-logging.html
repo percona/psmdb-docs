@@ -133,7 +133,7 @@ including authentication, authorization failures, and so on.">
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4383,7 +4383,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="auditing">Auditing<a class="headerlink" href="#auditing" title="Permanent link">¶</a></h1>
+<h1 id="auditing">Auditing<a data-markdown-ignore class="headerlink" href="#auditing" title="Permanent link">¶</a></h1>
 <p>Auditing allows administrators to track
 and log user activity on a MongoDB server.
 With auditing enabled, the server generates an audit log file.
@@ -4436,7 +4436,7 @@ in the MongoDB configuration file:</p>
 <p class="admonition-title">Note</p>
 <p>If you start the server with auditing enabled, you cannot disable auditing dynamically during runtime.</p>
 </div>
-<h2 id="audit-options">Audit options<a class="headerlink" href="#audit-options" title="Permanent link">¶</a></h2>
+<h2 id="audit-options">Audit options<a data-markdown-ignore class="headerlink" href="#audit-options" title="Permanent link">¶</a></h2>
 <p>The following options control audit logging:</p>
 <table>
 <thead>
@@ -4474,7 +4474,7 @@ in the MongoDB configuration file:</p>
 </tr>
 </tbody>
 </table>
-<h2 id="audit-message-syntax">Audit message syntax<a class="headerlink" href="#audit-message-syntax" title="Permanent link">¶</a></h2>
+<h2 id="audit-message-syntax">Audit message syntax<a data-markdown-ignore class="headerlink" href="#audit-message-syntax" title="Permanent link">¶</a></h2>
 <p>Audit logging writes messages in JSON format with the following syntax:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nx">atype</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span><span class="p">,</span>
@@ -4529,7 +4529,7 @@ in the MongoDB configuration file:</p>
 </tr>
 </tbody>
 </table>
-<h2 id="audit-filter-examples">Audit filter examples<a class="headerlink" href="#audit-filter-examples" title="Permanent link">¶</a></h2>
+<h2 id="audit-filter-examples">Audit filter examples<a data-markdown-ignore class="headerlink" href="#audit-filter-examples" title="Permanent link">¶</a></h2>
 <p>The following examples show the flexibility of audit log filters.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">auditLog</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
@@ -4546,12 +4546,12 @@ in the MongoDB configuration file:</p>
 <span class="w">         </span><span class="s">"applicationMessage"</span>
 <span class="w">      </span><span class="s">]}}'</span>
 </code></pre></div>
-<h3 id="standard-query-selectors">Standard query selectors<a class="headerlink" href="#standard-query-selectors" title="Permanent link">¶</a></h3>
+<h3 id="standard-query-selectors">Standard query selectors<a data-markdown-ignore class="headerlink" href="#standard-query-selectors" title="Permanent link">¶</a></h3>
 <p>You can use query selectors,
 such as <code>$eq</code>, <code>$in</code>, <code>$gt</code>, <code>$lt</code>, <code>$ne</code>, and others
 to log multiple event types.</p>
 <p>For example, to log only the <code>dropCollection</code> and <code>dropDatabase</code> events:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Command line</label><label for="__tabbed_1_2">Config file</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">Command line</label><label for="__tabbed_1_2">Config file</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>--auditDestination<span class="w"> </span>file<span class="w"> </span>--auditFilter<span class="w"> </span><span class="s1">'{ atype: { $in: [ "dropCollection", "dropDatabase" ] } }'</span>
@@ -4565,10 +4565,10 @@ to log multiple event types.</p>
 </div>
 </div>
 </div>
-<h3 id="regular-expressions">Regular expressions<a class="headerlink" href="#regular-expressions" title="Permanent link">¶</a></h3>
+<h3 id="regular-expressions">Regular expressions<a data-markdown-ignore class="headerlink" href="#regular-expressions" title="Permanent link">¶</a></h3>
 <p>Another way to specify multiple event types is using regular expressions.</p>
 <p>For example, to filter all <code>drop</code> operations:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Command line</label><label for="__tabbed_2_2">Config file</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">Command line</label><label for="__tabbed_2_2">Config file</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>--auditDestination<span class="w"> </span>file<span class="w"> </span>--auditFilter<span class="w"> </span><span class="s1">'{ "atype" : /^drop.*/ }'</span>
@@ -4582,7 +4582,7 @@ to log multiple event types.</p>
 </div>
 </div>
 </div>
-<h3 id="read-and-write-operations">Read and write operations<a class="headerlink" href="#read-and-write-operations" title="Permanent link">¶</a></h3>
+<h3 id="read-and-write-operations">Read and write operations<a data-markdown-ignore class="headerlink" href="#read-and-write-operations" title="Permanent link">¶</a></h3>
 <p>By default, operations with successful authorization are not logged,
 so for this filter to work, enable <code>auditAuthorizationSuccess</code> parameter,
 as described in <a href="#enabling-auditing-of-authorization-success">Enabling auditing of authorization success</a>.</p>
@@ -4592,7 +4592,7 @@ on all the collections in the <code>test</code> database:</p>
 <p class="admonition-title">Note</p>
 <p>The dot (<code>.</code>) after the database name in the regular expression must be escaped with two backslashes (<code>\\\\</code>).</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Command line</label><label for="__tabbed_3_2">Config file</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_3_1">Command line</label><label for="__tabbed_3_2">Config file</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>--setParameter<span class="w"> </span><span class="nv">auditAuthorizationSuccess</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--auditDestination<span class="w"> </span>file<span class="w"> </span>--auditFilter<span class="w"> </span><span class="s1">'{ atype: "authCheck", "param.command": { $in: [ "find", "insert", "delete", "update", "findandmodify" ] }, "param.ns": /^test\\./ } }'</span>
@@ -4608,7 +4608,7 @@ on all the collections in the <code>test</code> database:</p>
 </div>
 </div>
 </div>
-<h2 id="enabling-auditing-of-authorization-success">Enabling auditing of authorization success<a class="headerlink" href="#enabling-auditing-of-authorization-success" title="Permanent link">¶</a></h2>
+<h2 id="enabling-auditing-of-authorization-success">Enabling auditing of authorization success<a data-markdown-ignore class="headerlink" href="#enabling-auditing-of-authorization-success" title="Permanent link">¶</a></h2>
 <p>By default, the audit system logs only authorization failures for the <code>authCheck</code> action. The <code>authCheck</code> action refers to the operations a user is or is not authorized to perform on the server according to the privileges outlined in the roles assigned to the user.</p>
 <p>To enable logging of authorization successes,
 set the <code>auditAuthorizationSuccess</code> parameter to <code>true</code>. Audit events
@@ -4682,7 +4682,7 @@ when running <code>mongod</code> or <code>mongos</code> process:</p>
 <span class="p">}</span>
 </code></pre></div>
 </details>
-<h2 id="audit-log-rotation">Audit log rotation<a class="headerlink" href="#audit-log-rotation" title="Permanent link">¶</a></h2>
+<h2 id="audit-log-rotation">Audit log rotation<a data-markdown-ignore class="headerlink" href="#audit-log-rotation" title="Permanent link">¶</a></h2>
 <p>When you enable auditing, Percona Server for MongoDB creates a log file and starts writing auditing events there. </p>
 <p>If you restart Percona Server for MongoDB with auditing enabled or manually start log rotation with the <code>logRotate</code> command, it rotates the current audit log file as follows:</p>
 <ul>

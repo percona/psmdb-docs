@@ -1,0 +1,148 @@
+> For the complete documentation index, see [llms.txt](https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt).
+
+# HashiCorp Vault integration
+
+Percona Server for MongoDB is integrated with HashiCorp Vault. HashiCorp Vault supports different secrets engines. Percona Server for MongoDB only supports the HashiCorp Vault back end with KV Secrets Engine - Version 2 (API) with versioning enabled.
+
+See also
+
+Percona Blog: [Using Vault to Store the Master Key for Data at Rest Encryption on Percona Server for MongoDB](https://www.percona.com/blog/2020/04/21/using-vault-to-store-the-master-key-for-data-at-rest-encryption-on-percona-server-for-mongodb/)
+
+HashiCorp Vault Documentation: [How to configure the KV Engine](https://www.vaultproject.io/api/secret/kv/kv-v2.html)
+
+Version changes
+
+The following table lists the changes in the implementation of HashiCorp Vault integration with Percona Server for MongoDB and the versions that introduced those changes:
+
+| Version                                                                                         | Description                |
+| ----------------------------------------------------------------------------------------------- | -------------------------- |
+| [7.0.15-9](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.15-9.html) | Master key loss prevention |
+
+## HashiCorp Vault parameters
+
+| Command line              | Configuration file                   | Type          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------------------- | ------------------------------------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| vaultServerName           | security.vault.serverName            | string        | The IP address of the Vault server                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| vaultPort                 | security.vault.port                  | int           | The port on the Vault server                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| vaultTokenFile            | security.vault.tokenFile             | string        | The path to the vault token file. The token file is used by MongoDB to access HashiCorp Vault. The vault token file consists of the raw vault token and does not include any additional strings or parameters. Example of a vault token file: `s.uTrHtzsZnEE7KyHeA797CkWA`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| vaultSecret               | security.vault.secret                | string        | The path to the Vault secret. The Vault secret path format must be `<secrets_engine_mount_path>/data/<custom_path>` where: - `<secrets_engine_mount_path>` is the path to the Key/Value Secrets Engine v2; - `data` is the mandatory path prefix required by Version 2 API; - `<custom_path>` is the path to the specific secret. Example: `secret_v2/data/psmdb-test/rs1-27017` Starting with version [6.0.5-4](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.md), a distinct Vault secret path for every replica set member is no longer mandatory. In earlier versions, it is recommended to use different secret paths for every database node in the entire deployment to avoid issues during the master key rotation. |
+| vaultSecretVersion        | security.vault. secretVersion        | unsigned long | (Optional) The version of the Vault secret to use                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| vaultRotateMasterKey      | security.vault. rotateMasterKey      | switch        | When enabled, rotates the master key and exits                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| vaultServerCAFile         | security.vault. serverCAFile         | string        | The path to the TLS certificate file                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| vaultDisableTLSForTesting | security.vault. disableTLSForTesting | switch        | Disables secure connection to Vault using SSL/TLS client certificates                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| vaultCheckMaxVersions     | security.vault. checkMaxVersions     | boolean       | Verifies that the current number of secret versions has not reached the maximum, defined by the `max_versions` parameter for the secret or the secrets engine on the Vault server. If the number of versions has reached the maximum, the server logs an error and exits. Enabled by default. Available starting with version 7.0.15-9.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+### Config file example
+
+```
+security:
+  enableEncryption: true
+  vault:
+    serverName: 127.0.0.1
+    port: 8200
+    tokenFile: /home/user/path/token
+    secret: secret/data/hello
+```
+
+#### Vault access policy configuration
+
+Starting with 7.0.15-9, Percona Server for MongoDB checks the number of the secrets on the Vault server before adding a new one thus [preventing the loss of the old master key](#master-key-loss-prevention). For these checks, Percona Server for MongoDB requires read permissions for the secret’s metadata and the secrets engine configuration. You configure these permissions within the access policy on the Vault server.
+
+Find the sample policy configuration below:
+
+```
+path "secret/data/*" {
+  capabilities = ["create","read","update","delete"]
+}
+path "secret/metadata/*" {
+  capabilities = ["read"]
+}
+path "secret/config" {
+  capabilities = ["read"]
+}
+```
+
+During the first run of the Percona Server for MongoDB, the process generates a new random master encryption key. Then, it wraps it into a secret and puts the latter on a Vault server at the configured path. Vault increments the value of the `current_version`, associates the resulting value with a new secret, and returns the version. Percona Server for MongoDB then saves the full path and the version in the metadata and uses them later to get the key from the Vault server.
+
+During the subsequent start, the server tries to read the master key from the vault. If the configured secret does not exist, vault responds with HTTP 404 error.
+
+## Namespaces
+
+Namespaces are isolated environments in Vault that allow for separate secret key and policy management.
+
+You can use Vault namespaces with Percona Server for MongoDB. Specify the namespace(s) for the `security.vault.secret` option value as follows:
+
+```
+<namespace>/secret/data/<secret_path>
+```
+
+For example, the path to secret keys for namespace `test` on the secrets engine `secret` will be `test/secret/<my_secret_path>`.
+
+### Targeting a namespace in Vault configuration
+
+You have the following options of how to target a particular namespace when configuring Vault:
+
+1. Set the VAULT_NAMESPACE environment variable so that all subsequent commands are executed against that namespace. Use the following command to set the environment variable for the namespace `test`:
+
+```
+export VAULT_NAMESPACE=test
+```
+
+2. Provide the namespace with the `-namespace` flag in commands
+
+See also
+
+HashiCorp Vault Documentation:
+
+- [Namespaces](https://www.vaultproject.io/docs/enterprise/namespaces)
+- [Secure Multi-Tenancy with Namespaces](https://learn.hashicorp.com/tutorials/vault/namespaces)
+
+## Key rotation
+
+Key rotation is replacing the old master key with a new one. This process helps to comply with regulatory requirements.
+
+To rotate the keys for a single `mongod` instance, do the following:
+
+1. Stop the `mongod` process
+1. Add `--vaultRotateMasterKey` option via the command line or `security.vault.rotateMasterKey` to the config file.
+1. Run the `mongod` process with the selected option, the process will perform the key rotation and exit.
+1. Remove the selected option from the startup command or the config file.
+1. Start `mongod` again.
+
+Rotating the master key process also re-encrypts the keystore using the new master key. The new master key is stored in the vault. The entire dataset is not re-encrypted.
+
+### Key rotation in replica sets
+
+Starting with version [6.0.5-4](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.md), you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The `mongod` server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.
+
+The key rotation steps are the following:
+
+1. Rotate the master key for the secondary nodes one by one.
+1. Step down the primary and wait for another primary to be elected.
+1. Rotate the master key for the previous primary node.
+
+### Master key loss prevention
+
+Starting with version 7.0.15-9, Percona Server for MongoDB checks if the number of secret versions has reached the maximum (10 by default) before adding a new master key to the Vault server as a versioned secret. You configure this number using the `max_versions` parameter on the Vault server.
+
+If the number of secrets reaches the maximum, Percona Server for MongoDB logs an error and exits. This prevents the Vault server from dropping the oldest secret version and the encryption key it stores.
+
+To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has [read permissions for the secret’s metadata and the secrets engine configuration](#vault-access-policy-configuration).
+
+## Check encryption status
+
+You can check the encryption status and the current configuration using the following command:
+
+```
+> db.serverStatus().encryptionAtRest
+```
+
+Expected output
+
+```
+{
+  encryptionEnabled: true,
+  encryptionCipherMode: 'AES256-CBC',
+  encryptionKeyId: 'local'
+}
+```

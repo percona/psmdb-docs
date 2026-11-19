@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4335,7 +4335,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="log-rotation-in-percona-server-for-mongodb">Log rotation in Percona Server for MongoDB<a class="headerlink" href="#log-rotation-in-percona-server-for-mongodb" title="Permanent link">¶</a></h1>
+<h1 id="log-rotation-in-percona-server-for-mongodb">Log rotation in Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#log-rotation-in-percona-server-for-mongodb" title="Permanent link">¶</a></h1>
 <p>When you start Percona Server for MongoDB with a <code>--logpath</code> or <code>systemLog.path</code> setting, it writes logs to a file instead of standard output. These logs include detailed activity and operation information. </p>
 <p>Percona Server for MongoDB has server and <a href="audit-logging.html">audit logs</a>. To maintain system performance, manage disk space, and meet audit and compliance requirements, you must effectively manage these logs. </p>
 <p>Percona Server for MongoDB supports several methods for rotating server and audit logs. You can:</p>
@@ -4347,9 +4347,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Run the <code>logRotate</code> command from <code>mongosh</code>. This must be done individually on each replica set member.</p>
 </li>
 </ul>
-<h2 id="log-rotation-considerations">Log rotation considerations<a class="headerlink" href="#log-rotation-considerations" title="Permanent link">¶</a></h2>
+<h2 id="log-rotation-considerations">Log rotation considerations<a data-markdown-ignore class="headerlink" href="#log-rotation-considerations" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB does not rotate logs automatically. You must trigger log rotation manually or integrate with external tools like the Linux/Unix <code>logrotate</code> utility. Log rotation is not propagated across replica set members; you must rotate logs on each node independently.</p>
-<h2 id="rotation-behavior-configuration">Rotation behavior configuration<a class="headerlink" href="#rotation-behavior-configuration" title="Permanent link">¶</a></h2>
+<h2 id="rotation-behavior-configuration">Rotation behavior configuration<a data-markdown-ignore class="headerlink" href="#rotation-behavior-configuration" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB supports two log rotation strategies:</p>
 <ul>
 <li><code>rename</code> (default): Renames the current log file by appending a UTC timestamp to the file name. This log file is closed. Percona Server for MongoDB creates a new log file and writes all new log entries to this file.</li>
@@ -4357,8 +4357,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 <p>You can configure a log rotation behavior using either the <code>--logRotate</code> command-line option or the <code>systemLog.logRotate</code> setting in the configuration file. </p>
 <p>Learn more about <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-systemLog.logRotate"><code>logRotate</code> :octicons-external-link-16:</a> and <a href="https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-systemLog.logAppend"><code>logAppend</code> :octicons-external-link-16:</a> settings.</p>
-<h2 id="rotation-methods">Rotation methods<a class="headerlink" href="#rotation-methods" title="Permanent link">¶</a></h2>
-<h3 id="log-rotation-with-logrotate">Log rotation with <code>logRotate</code><a class="headerlink" href="#log-rotation-with-logrotate" title="Permanent link">¶</a></h3>
+<h2 id="rotation-methods">Rotation methods<a data-markdown-ignore class="headerlink" href="#rotation-methods" title="Permanent link">¶</a></h2>
+<h3 id="log-rotation-with-logrotate">Log rotation with <code>logRotate</code><a data-markdown-ignore class="headerlink" href="#log-rotation-with-logrotate" title="Permanent link">¶</a></h3>
 <p>To rotate log files, do the following:</p>
 <ol>
 <li>
@@ -4384,12 +4384,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </details>
 </li>
 </ol>
-<h3 id="signal-based-rotation-unix-systems">Signal-Based Rotation (Unix Systems)<a class="headerlink" href="#signal-based-rotation-unix-systems" title="Permanent link">¶</a></h3>
+<h3 id="signal-based-rotation-unix-systems">Signal-Based Rotation (Unix Systems)<a data-markdown-ignore class="headerlink" href="#signal-based-rotation-unix-systems" title="Permanent link">¶</a></h3>
 <p>On Unix-based systems, you can trigger log rotation by sending a SIGUSR1 signal to the running <code>mongod</code> or <code>mongos</code> process:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span>-SIGUSR1<span class="w"> </span>&lt;PID&gt;
 </code></pre></div>
 <p>Replace <code>&lt;PID&gt;</code> with the process ID of the Percona Server for MongoDB instance.</p>
-<h3 id="integration-with-logrotate">Integration with <code>logrotate</code><a class="headerlink" href="#integration-with-logrotate" title="Permanent link">¶</a></h3>
+<h3 id="integration-with-logrotate">Integration with <code>logrotate</code><a data-markdown-ignore class="headerlink" href="#integration-with-logrotate" title="Permanent link">¶</a></h3>
 <p>You can automate log rotation by integrating Percona Server for MongoDB with the Linux/Unix <code>logrotate</code> functionality.</p>
 <p>Here’s how to do it:</p>
 <ol>

@@ -136,7 +136,7 @@ meaning that every query will be profiled.">
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4264,7 +4264,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="profiling-rate-limit">Profiling rate limit<a class="headerlink" href="#profiling-rate-limit" title="Permanent link">¶</a></h1>
+<h1 id="profiling-rate-limit">Profiling rate limit<a data-markdown-ignore class="headerlink" href="#profiling-rate-limit" title="Permanent link">¶</a></h1>
 <p>Percona Server for MongoDB can limit the number of queries collected by the database profiler
 to decrease its impact on performance.
 Rate limit is an integer between 1 and 1000
@@ -4294,7 +4294,7 @@ but may introduce unnecessary overhead.</p>
 <p>With rate limiting you can collect profiling data for all database operations
 and reduce overhead by sampling queries.
 Slow queries ignore rate limiting and are always collected by the profiler.</p>
-<h2 id="comparing-to-the-samplerate-option">Comparing to the <code>sampleRate</code> option<a class="headerlink" href="#comparing-to-the-samplerate-option" title="Permanent link">¶</a></h2>
+<h2 id="comparing-to-the-samplerate-option">Comparing to the <code>sampleRate</code> option<a data-markdown-ignore class="headerlink" href="#comparing-to-the-samplerate-option" title="Permanent link">¶</a></h2>
 <p>The <code>sampleRate</code> option (= <a href="https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-slowopsamplerate">slowOpSampleRate</a> config file option) is a similar
 concept to <code>rateLimit</code>. But it works at different profile level, completely
 ignores operations faster than <code>slowOpsThresholdMs</code> (a.k.a. <code>slowMs</code>), and affects the
@@ -4343,7 +4343,7 @@ log file printing, too.</p>
 <p><code>rateLimit</code> is a better way to have continuous profiling for monitoring or live
 analysis purposes. <code>sampleRate</code> requires setting slowOpsThresholdMs to zero if
 you want to sample all types of operations. <code>sampleRate</code> has an effect on the log file which may either decrease or increase the log volume.</p>
-<h2 id="enabling-the-rate-limit">Enabling the rate limit<a class="headerlink" href="#enabling-the-rate-limit" title="Permanent link">¶</a></h2>
+<h2 id="enabling-the-rate-limit">Enabling the rate limit<a data-markdown-ignore class="headerlink" href="#enabling-the-rate-limit" title="Permanent link">¶</a></h2>
 <p>To enable rate limiting, set the profiler mode to <code>2</code>
 and specify the value of the rate limit.
 Optionally, you can also change the default threshold for slow queries,
@@ -4384,7 +4384,7 @@ set the corresponding variables in the MongoDB configuration file
 <p class="admonition-title">Note</p>
 <p>The value of the <code>operationProfiling.mode</code> variable is a string, which you can set to either <code>off</code>, <code>slowOp</code>, or <code>all</code>, corresponding to profiling modes <code>0</code>, <code>1</code>, and <code>2</code>.</p>
 </div>
-<h2 id="profiler-collection-extension">Profiler collection extension<a class="headerlink" href="#profiler-collection-extension" title="Permanent link">¶</a></h2>
+<h2 id="profiler-collection-extension">Profiler collection extension<a data-markdown-ignore class="headerlink" href="#profiler-collection-extension" title="Permanent link">¶</a></h2>
 <p>Each document in the <code>system.profile</code> collection
 includes an additional <code>rateLimit</code> field.
 This field always has the value of <code>1</code> for <em>slow</em> queries

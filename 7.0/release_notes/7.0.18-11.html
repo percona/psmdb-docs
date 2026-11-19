@@ -130,7 +130,7 @@ Upgrade from MongoDB Community">
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4436,30 +4436,30 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-server-for-mongodb-7018-11-2025-04-24">Percona Server for MongoDB 7.0.18-11 (2025-04-24)<a class="headerlink" href="#percona-server-for-mongodb-7018-11-2025-04-24" title="Permanent link">¶</a></h1>
+<h1 id="percona-server-for-mongodb-7018-11-2025-04-24">Percona Server for MongoDB 7.0.18-11 (2025-04-24)<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-7018-11-2025-04-24" title="Permanent link">¶</a></h1>
 <p><a class="md-button" href="../install/index.html">Installation</a>
 <a class="md-button" href="../install/upgrade-from-mongodb.html">Upgrade from MongoDB Community</a></p>
 <p>Percona Server for MongoDB 7.0.18-11 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <p>Percona Server for MongoDB 7.0.18-11 includes the improvements and bug fixes of <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.17---feb-21--2025">MongoDB 7.0.17 Community Edition</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.18---mar-19--2025">MongoDB 7.0.18 Community Edition</a>. It supports its protocols and drivers of both MongoDB 7.0.17 and MongoDB 7.0.18.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
 <p>This release provides the following features and improvements:</p>
-<h3 id="improved-compatibility-for-data-at-rest-encryption-using-kmip-between-percona-server-for-mongodb-and-mongodb-enterprise-advanced">Improved compatibility for data-at-rest encryption using KMIP between Percona Server for MongoDB and MongoDB Enterprise Advanced<a class="headerlink" href="#improved-compatibility-for-data-at-rest-encryption-using-kmip-between-percona-server-for-mongodb-and-mongodb-enterprise-advanced" title="Permanent link">¶</a></h3>
+<h3 id="improved-compatibility-for-data-at-rest-encryption-using-kmip-between-percona-server-for-mongodb-and-mongodb-enterprise-advanced">Improved compatibility for data-at-rest encryption using KMIP between Percona Server for MongoDB and MongoDB Enterprise Advanced<a data-markdown-ignore class="headerlink" href="#improved-compatibility-for-data-at-rest-encryption-using-kmip-between-percona-server-for-mongodb-and-mongodb-enterprise-advanced" title="Permanent link">¶</a></h3>
 <p>We have added the <code>security.kmip.useLegacyProtocol</code> configuration option to improve compatibility of Percona Server for MongoDB with MongoDB Enterprise Edition. This enables you to migrate from MongoDB Enterprise Advanced to Percona Server for MongoDB without having to modify the configuration file. Since Percona Server for MongoDB uses KMIP protocol version 1.0 by default, it ignores this option and prints the log message about it.</p>
-<h3 id="audit-log-improvements">Audit log improvements<a class="headerlink" href="#audit-log-improvements" title="Permanent link">¶</a></h3>
+<h3 id="audit-log-improvements">Audit log improvements<a data-markdown-ignore class="headerlink" href="#audit-log-improvements" title="Permanent link">¶</a></h3>
 <p>Enjoy a better user experience with these improvements to audit logging:</p>
 <ul>
 <li>You can output logging information either to a syslog, a file or to print in the console. Now Percona Server for MongoDB correctly parses the specified destination and creates a logging file only if you explicitly defined the <code>file</code> as its value. This helps keep the system clean from unnecessary files</li>
 <li>By default, Percona Server for MongoDB saves the log file at the server’s configured log path or to a directory from where <code>mongod</code> was started if the server’s log path is undefined. You can also set a custom path to output a log file. For both cases, Percona Server for MongoDB checks if the audit log file can be opened for writing to ensure that logging information is written and available. </li>
 </ul>
-<h3 id="debug-symbols-added-in-percona-server-for-mongodb-pro-binaries">Debug symbols added in Percona Server for MongoDB Pro binaries<a class="headerlink" href="#debug-symbols-added-in-percona-server-for-mongodb-pro-binaries" title="Permanent link">¶</a></h3>
+<h3 id="debug-symbols-added-in-percona-server-for-mongodb-pro-binaries">Debug symbols added in Percona Server for MongoDB Pro binaries<a data-markdown-ignore class="headerlink" href="#debug-symbols-added-in-percona-server-for-mongodb-pro-binaries" title="Permanent link">¶</a></h3>
 <p>With this release, Percona Server for MongoDB Pro packages and binary tarballs include binaries that contain debug symbols. This changes makes Percona Server for MongoDB Pro compatible for runtime instrumentation to collect more detailed telemetry data and have improved monitoring. </p>
 <p>By integrating Percona Server for MongoDB Pro with advanced monitoring tools that use debug symbols, you have a deeper visibility into the server and receive detailed diagnostic data and logs.</p>
 <p><em>Update from 2025-11-25: We no longer release Percona Server for MongoDB Pro Builds. All features included in Pro Builds are accessible for everyone in our public regular builds. If you need a Pro Build for that specific version, please contact your Percona representative for guidance. We’re here to help ensure a smooth transition and continued success with Percona open-source solutions.</em></p>
-<h3 id="compatibility-with-amazon-linux-2023">Compatibility with Amazon Linux 2023<a class="headerlink" href="#compatibility-with-amazon-linux-2023" title="Permanent link">¶</a></h3>
+<h3 id="compatibility-with-amazon-linux-2023">Compatibility with Amazon Linux 2023<a data-markdown-ignore class="headerlink" href="#compatibility-with-amazon-linux-2023" title="Permanent link">¶</a></h3>
 <p>We build and test Percona Server for MongoDB only on the latest versions of Amazon Linux 2023. Because of the way Amazon Linux updates their libraries, Percona Server for MongoDB 7.0.18-11 is compatible only with Amazon Linux 2023.7.x and won’t work on Amazon Linux 2023.6.x and older. </p>
 <p>To upgrade to 7.0.18-11, make sure that you run Amazon Linux 2023.7.x. Use the <a href="https://docs.aws.amazon.com/linux/al2023/ug/updating.html">update instructions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></p>
-<h3 id="upstream-improvements">Upstream Improvements<a class="headerlink" href="#upstream-improvements" title="Permanent link">¶</a></h3>
+<h3 id="upstream-improvements">Upstream Improvements<a data-markdown-ignore class="headerlink" href="#upstream-improvements" title="Permanent link">¶</a></h3>
 <p>The bug fixes, provided by MongoDB Community and included in Percona Server for MongoDB, are the following:</p>
 <ul>
 <li><a href="https://jira.mongodb.org/browse/SERVER-73641">SERVER-73641</a> - Fixed the issue with timeseries filtering missing extended-range events when sharded by generating timeseries _id comparisons only on mongod nodes</li>
@@ -4471,12 +4471,12 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li><a href="https://jira.mongodb.org/browse/SERVER-100901">SERVER-100901</a> - Reduce the strictness of an invariant check for the unique ID (uid) in the session identifier (lsid) to match between the operation’s context (opCtx) and the incoming command request by treating it as a code error, logging it and have the server continue operating</li>
 </ul>
 <p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.17---feb-21--2025">MongoDB 7.0.17 Community Edition release notes</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.18---mar-19--2025">MongoDB 7.0.18 Community Edition release notes</a>.</p>
-<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
-<h3 id="new-features">New Features<a class="headerlink" href="#new-features" title="Permanent link">¶</a></h3>
+<h2 id="changelog">Changelog<a data-markdown-ignore class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
+<h3 id="new-features">New Features<a data-markdown-ignore class="headerlink" href="#new-features" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1282">PSMDB-1282</a> - Add the <code>security.kmip.useLegacyProtocol</code> config file option to simplify migration from MongoDB Enterprise Edition to Percona Server for MongoDB</li>
 </ul>
-<h3 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
+<h3 id="improvements">Improvements<a data-markdown-ignore class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1620">PSMDB-1620</a> - Do not create an empty audit log file if the log destination is not <code>file</code></p>
@@ -4485,7 +4485,7 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1621">PSMDB-1621</a> - Check if an audit log file can be opened for writing at default path</p>
 </li>
 </ul>
-<h3 id="fixed-bugs">Fixed Bugs<a class="headerlink" href="#fixed-bugs" title="Permanent link">¶</a></h3>
+<h3 id="fixed-bugs">Fixed Bugs<a data-markdown-ignore class="headerlink" href="#fixed-bugs" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-118">PSMDB-118</a> - Fixed the audit log file extension to be created based on the specified audit log format.</p>

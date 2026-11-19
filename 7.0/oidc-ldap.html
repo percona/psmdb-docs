@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4319,17 +4319,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="setting-up-oidc-authentication-and-ldap-authorization">Setting up OIDC authentication and LDAP authorization<a class="headerlink" href="#setting-up-oidc-authentication-and-ldap-authorization" title="Permanent link">¶</a></h1>
+<h1 id="setting-up-oidc-authentication-and-ldap-authorization">Setting up OIDC authentication and LDAP authorization<a data-markdown-ignore class="headerlink" href="#setting-up-oidc-authentication-and-ldap-authorization" title="Permanent link">¶</a></h1>
 <p>You can use OIDC authentication and LDAP authorization together. For example, in hybrid environments where modern applications are integrated with some legacy systems. Or, if your organization has strict user access management requirements.</p>
 <p>You can also use both solutions in parallel. For example, to have a pool of users to both authenticate and authorize in the LDAP server, while the remaining ones pass OIDC authentication and are then authorized in the LDAP server. What flow to use is determined by the authentication mechanism in Percona Server for MongoDB configuration and in the MongoDB connection string URL. </p>
 <p>This document primarily focuses on configuring OIDC to authenticate users and using LDAP server for their authorization. </p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<h2 id="prerequisites">Prerequisites<a data-markdown-ignore class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <ol>
 <li>Percona Server for MongoDB 7.0.24-13 or the Regular builds with the OIDC feature enabled. </li>
 <li>Access to an IdP administrative console</li>
 <li>LDAP server up and running and it’s accessible to the servers with Percona Server for MongoDB installed.</li>
 </ol>
-<h2 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">¶</a></h2>
+<h2 id="procedure">Procedure<a data-markdown-ignore class="headerlink" href="#procedure" title="Permanent link">¶</a></h2>
 <p>To configure OIDC authentication and LDAP authorization, complete the following steps:</p>
 <ol>
 <li>Configure an IdP provider. Refer to the <a href="oidc.html#configuration">OIDC Configuration</a> section and then use the corresponding tutorial for the IdP of your choice.</li>
@@ -4347,7 +4347,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>Configure Percona Server for MongoDB </li>
 <li>Authenticate and authorize users in Percona Server for MongoDB</li>
 </ol>
-<h3 id="create-roles-for-ldap-groups-in-percona-server-for-mongodb">Create roles for LDAP groups in Percona Server for MongoDB<a class="headerlink" href="#create-roles-for-ldap-groups-in-percona-server-for-mongodb" title="Permanent link">¶</a></h3>
+<h3 id="create-roles-for-ldap-groups-in-percona-server-for-mongodb">Create roles for LDAP groups in Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#create-roles-for-ldap-groups-in-percona-server-for-mongodb" title="Permanent link">¶</a></h3>
 <p>Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the <code>admin</code> database with the name that exactly matches the  of the LDAP group.</p>
 <p>Percona Server for MongoDB maps the user’s LDAP group to the roles and determines what role is assigned to the user. Percona Server for MongoDB then grants privileges defined by this role.</p>
 <p>To create the roles, use the following command:</p>
@@ -4368,7 +4368,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="w">   </span><span class="p">}</span>
 <span class="p">)</span>
 </code></pre></div>
-<h3 id="percona-server-for-mongodb-configuration">Percona Server for MongoDB configuration<a class="headerlink" href="#percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h3>
+<h3 id="percona-server-for-mongodb-configuration">Percona Server for MongoDB configuration<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h3>
 <p>If your users connect to Percona Server for MongoDB with usernames that are not LDAP Distinguished Names (DN), you must transform the usernames so that LDAP server accepts them. Also, you must <a href="ldap-setup.html#escaping-special-characters">escape special characters</a> if usernames contain them.</p>
 <p>To transform usernames into LDAP DN, use the <code>userToDNMapping</code> configuration option. Specify the match pattern as a regexp to capture the name. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.</p>
 <p>If you don’t know what the Substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out.</p>
@@ -4409,7 +4409,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ul>
 <p>In this configuration, Percona Server for MongoDB receives the usernames in the format <code>authNamePrefix/email</code> (e.g. <code>okta/testuser@perconatest.com</code>). The <code>userToDNMapping</code> option contains a regular expression to match usernames, extract the local part of the email and substitute the <code>cn</code> part of the LDAP DN with it. Then the transformed username is added to the LDAP query to retrieve groups where the <code>testuser</code> is listed as a member. These groups are mapped to roles you created in Percona Server for MongoDB at the previous step.</p>
-<h3 id="authenticate-and-authorize-users">Authenticate and authorize users<a class="headerlink" href="#authenticate-and-authorize-users" title="Permanent link">¶</a></h3>
+<h3 id="authenticate-and-authorize-users">Authenticate and authorize users<a data-markdown-ignore class="headerlink" href="#authenticate-and-authorize-users" title="Permanent link">¶</a></h3>
 <p>The <code>authenticationMechanisms</code> parameter contains authentication mechanisms to use when authenticating users. Then, depending on which authentication mechanism is specified in the MongoDB connection string URL, users are authenticated either with OIDC (<code>MONGODB-OIDC</code>) or with LDAP (<code>PLAIN</code>).</p>
 <ol>
 <li>

@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4257,7 +4257,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="file-copy-based-initial-sync">File copy based initial sync<a class="headerlink" href="#file-copy-based-initial-sync" title="Permanent link">¶</a></h1>
+<h1 id="file-copy-based-initial-sync">File copy based initial sync<a data-markdown-ignore class="headerlink" href="#file-copy-based-initial-sync" title="Permanent link">¶</a></h1>
 <div class="admonition admonition">
 <p class="admonition-title">Version added: <a href="release_notes/7.0.22-12.html">7.0.22-12</a></p>
 </div>
@@ -4275,7 +4275,7 @@ We recommend using the latest available version rather than an older release. Fo
 <span class="w">  </span><span class="nt">initialSyncMethod</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fileCopyBased</span>
 </code></pre></div>
 <p>You can only set this server parameter at startup.</p>
-<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">¶</a></h2>
+<h2 id="workflow">Workflow<a data-markdown-ignore class="headerlink" href="#workflow" title="Permanent link">¶</a></h2>
 <p>When you start a new node for the replica set, the workflow is the following:</p>
 <ol>
 <li>The new node (also referred to as the target node) selects the source node for the sync. This sync source is typically the node that responded first and has the passing configuration (e.g. it has WiredTiger set as the storage and the same arrangement of files and indexes as the target node.)</li>
@@ -4285,7 +4285,7 @@ We recommend using the latest available version rather than an older release. Fo
 <li>When the files are copied and the lag between the sync source and the target is acceptable, the target node closes the backup cursor. </li>
 <li>The target node internally moves the downloaded files to the local <code>dbPath</code>, applies oplog on top, reconstructs timestamps to ensure data consistency.</li>
 </ol>
-<h2 id="configuration-parameters">Configuration parameters<a class="headerlink" href="#configuration-parameters" title="Permanent link">¶</a></h2>
+<h2 id="configuration-parameters">Configuration parameters<a data-markdown-ignore class="headerlink" href="#configuration-parameters" title="Permanent link">¶</a></h2>
 <p>These configuration parameters can be used to control the file copy-based initial sync flow. You can set them only at startup.</p>
 <table>
 <thead>
@@ -4329,7 +4329,7 @@ We recommend using the latest available version rather than an older release. Fo
 </tr>
 </tbody>
 </table>
-<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">¶</a></h2>
+<h2 id="limitations">Limitations<a data-markdown-ignore class="headerlink" href="#limitations" title="Permanent link">¶</a></h2>
 <p>Using file copy-based initial sync has the following limitations:</p>
 <ul>
 <li>Don’t run backups on either sync source or syncing nodes</li>

@@ -132,7 +132,7 @@ Use common sense to adapt these guidelines to your production environment.">
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4364,13 +4364,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="set-up-ldap-authentication-with-sasl">Set up LDAP authentication with SASL<a class="headerlink" href="#set-up-ldap-authentication-with-sasl" title="Permanent link">¶</a></h1>
+<h1 id="set-up-ldap-authentication-with-sasl">Set up LDAP authentication with SASL<a data-markdown-ignore class="headerlink" href="#set-up-ldap-authentication-with-sasl" title="Permanent link">¶</a></h1>
 <p>This document describes an example configuration
 suitable only to test out the external authentication functionality
 in a non-production environment.
 Use common sense to adapt these guidelines to your production environment.</p>
 <p>To learn more about how the authentication works, see <a href="authentication.html">LDAP authentication with SASL</a>.</p>
-<h2 id="environment-setup-and-configuration">Environment setup and configuration<a class="headerlink" href="#environment-setup-and-configuration" title="Permanent link">¶</a></h2>
+<h2 id="environment-setup-and-configuration">Environment setup and configuration<a data-markdown-ignore class="headerlink" href="#environment-setup-and-configuration" title="Permanent link">¶</a></h2>
 <p>The following components are required:</p>
 <ul>
 <li>
@@ -4384,7 +4384,7 @@ Use common sense to adapt these guidelines to your production environment.</p>
 </li>
 </ul>
 <p>The following steps will help you configure your environment:</p>
-<h3 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">¶</a></h3>
+<h3 id="assumptions">Assumptions<a data-markdown-ignore class="headerlink" href="#assumptions" title="Permanent link">¶</a></h3>
 <p>Before we move on to the configuration steps, we assume the following:</p>
 <ol>
 <li>
@@ -4397,11 +4397,11 @@ Use common sense to adapt these guidelines to your production environment.</p>
 <p>You have <code>sudo</code> privilege to the server with the <em>Percona Server for MongoDB</em> installed.</p>
 </li>
 </ol>
-<h3 id="configuring-saslauthd">Configuring <code>saslauthd</code><a class="headerlink" href="#configuring-saslauthd" title="Permanent link">¶</a></h3>
+<h3 id="configuring-saslauthd">Configuring <code>saslauthd</code><a data-markdown-ignore class="headerlink" href="#configuring-saslauthd" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Install the SASL packages. Depending on your OS, use the following command:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Debian and Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">Debian and Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sasl2-bin<span class="w"> </span>libsasl2-modules<span class="w"> </span>libsasl2-modules-gssapi-mit
@@ -4420,7 +4420,7 @@ Use common sense to adapt these guidelines to your production environment.</p>
 <p class="admonition-title">Note</p>
 <p>Back up the original configuration file before making changes.</p>
 </div>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Debian and Ubuntu</label><label for="__tabbed_2_2">RHEL and derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">Debian and Ubuntu</label><label for="__tabbed_2_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Use the following command to set the <code>ldap</code> value for the <code>MECHANISMS</code> option:</p>
@@ -4443,7 +4443,7 @@ Use common sense to adapt these guidelines to your production environment.</p>
 </li>
 <li>
 <p>Create the <code>/etc/saslauthd.conf</code> configuration file and specify the settings that <code>saslauthd</code> requires to connect to a local LDAP service:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">OpenLDAP server</label><label for="__tabbed_3_2">Microsoft Windows Active Directory</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_3_1">OpenLDAP server</label><label for="__tabbed_3_2">Microsoft Windows Active Directory</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>The following is the example configuration file. Note that the server address <strong>MUST</strong> match the OpenLDAP installation:</p>
@@ -4494,7 +4494,7 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">en
 </code></pre></div>
 </li>
 </ol>
-<h3 id="sanity-check">Sanity check<a class="headerlink" href="#sanity-check" title="Permanent link">¶</a></h3>
+<h3 id="sanity-check">Sanity check<a data-markdown-ignore class="headerlink" href="#sanity-check" title="Permanent link">¶</a></h3>
 <p>Verify that the <code>saslauthd</code> service can authenticate
 against the users created in the LDAP service:</p>
 <div class="highlight"><pre><span></span><code>testsaslauthd<span class="w"> </span>-u<span class="w"> </span>christian<span class="w"> </span>-p<span class="w"> </span>secret<span class="w">  </span>-f<span class="w"> </span>/var/run/saslauthd/mux
@@ -4502,7 +4502,7 @@ against the users created in the LDAP service:</p>
 <p>This should return <code>0:OK "Success"</code>.
 If it doesn’t, then either the user name and password
 are not in the LDAP service, or <code>sasaluthd</code> is not configured properly.</p>
-<h3 id="configuring-libsasl2">Configuring libsasl2<a class="headerlink" href="#configuring-libsasl2" title="Permanent link">¶</a></h3>
+<h3 id="configuring-libsasl2">Configuring libsasl2<a data-markdown-ignore class="headerlink" href="#configuring-libsasl2" title="Permanent link">¶</a></h3>
 <p>The <code>mongod</code> and <code>mongos</code> also use the SASL library for communications. To configure the SASL library, create a configuration file.</p>
 <p>The configuration file <strong>must</strong> be named <code>mongodb.conf</code> and placed in a directory
 where <code>libsasl2</code> can find and read it.
@@ -4521,7 +4521,7 @@ The <code>log_level</code> is optional but may help determine configuration erro
 <p class="admonition-title">See also</p>
 <p><a href="https://www.cyrusimap.org/sasl/index.html">SASL documentation</a></p>
 </div>
-<h3 id="configuring-mongod-server">Configuring <code>mongod</code> server<a class="headerlink" href="#configuring-mongod-server" title="Permanent link">¶</a></h3>
+<h3 id="configuring-mongod-server">Configuring <code>mongod</code> server<a data-markdown-ignore class="headerlink" href="#configuring-mongod-server" title="Permanent link">¶</a></h3>
 <p>The configuration consists of the following steps:</p>
 <ul>
 <li>
@@ -4531,14 +4531,14 @@ The <code>log_level</code> is optional but may help determine configuration erro
 <p>Editing the configuration file to enable the external authentication</p>
 </li>
 </ul>
-<h4 id="create-a-root-user">Create a root user<a class="headerlink" href="#create-a-root-user" title="Permanent link">¶</a></h4>
+<h4 id="create-a-root-user">Create a root user<a data-markdown-ignore class="headerlink" href="#create-a-root-user" title="Permanent link">¶</a></h4>
 <p>Create a user with the <strong>root</strong> privileges in the <code>admin</code> database. If you have already created this user, skip this step. Otherwise, run the following command to create the admin user:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
 <span class="err">#</span><span class="w"> </span><span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">({</span><span class="s2">"user"</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pwd"</span><span class="o">:</span><span class="w"> </span><span class="s2">"$3cr3tP4ssw0rd"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"root"</span><span class="p">]})</span>
 <span class="err">#</span><span class="w"> </span><span class="nx">Successfully</span><span class="w"> </span><span class="nx">added</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"user"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"roles"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"root"</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
-<h4 id="enable-external-authentication">Enable external authentication<a class="headerlink" href="#enable-external-authentication" title="Permanent link">¶</a></h4>
+<h4 id="enable-external-authentication">Enable external authentication<a data-markdown-ignore class="headerlink" href="#enable-external-authentication" title="Permanent link">¶</a></h4>
 <p>Edit the <code>etc/mongod.conf</code> configuration file to enable the external authentication:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
@@ -4549,7 +4549,7 @@ The <code>log_level</code> is optional but may help determine configuration erro
 <p>Restart the <code>mongod</code> service:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
-<h4 id="add-an-external-user-to-percona-server-for-mongodb">Add an external user to Percona Server for MongoDB<a class="headerlink" href="#add-an-external-user-to-percona-server-for-mongodb" title="Permanent link">¶</a></h4>
+<h4 id="add-an-external-user-to-percona-server-for-mongodb">Add an external user to Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#add-an-external-user-to-percona-server-for-mongodb" title="Permanent link">¶</a></h4>
 <p>User authentication is done by mapping a user object on the LDAP server against a user created in the <code>$external</code> database. Thus, at this step, you create the user in the <code>$external</code> database and they inherit the roles and privileges. Note that the username must exactly match the name of the user object on the LDAP server.</p>
 <p>Connect to Percona Server for MongoDB and authenticate as the root user.</p>
 <div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>--host<span class="w"> </span>localhost<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>-u<span class="w"> </span>admin<span class="w"> </span>-p<span class="w"> </span><span class="s1">'$3cr3tP4ssw0rd'</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'admin'</span>
@@ -4557,7 +4557,7 @@ The <code>log_level</code> is optional but may help determine configuration erro
 <p>Use the following command to add an external user to Percona Server for MongoDB:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">createUser</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="nx">user</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"read"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">}</span><span class="w"> </span><span class="p">]}</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
-<h2 id="authenticate-as-an-external-user-in-percona-server-for-mongodb">Authenticate as an external user in Percona Server for MongoDB<a class="headerlink" href="#authenticate-as-an-external-user-in-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
+<h2 id="authenticate-as-an-external-user-in-percona-server-for-mongodb">Authenticate as an external user in Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#authenticate-as-an-external-user-in-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
 <p>When running the MongoDB client, a user can authenticate
 against a given database using the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">auth</span><span class="p">({</span><span class="w"> </span><span class="nx">mechanism</span><span class="o">:</span><span class="s2">"PLAIN"</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="o">:</span><span class="s2">"christian"</span><span class="p">,</span><span class="w"> </span><span class="nx">pwd</span><span class="o">:</span><span class="s2">"secret"</span><span class="p">,</span><span class="w"> </span><span class="nx">digestPassword</span><span class="o">:</span><span class="kc">false</span><span class="p">})</span>

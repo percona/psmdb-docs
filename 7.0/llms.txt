@@ -1,0 +1,116 @@
+# Percona Server for MongoDB 7.0
+
+> Documentation
+
+Each page below is also available as markdown. For the documentation of all Percona products, see https://docs.percona.com/llms.txt.
+
+## Overview
+
+- [Home](https://docs.percona.com/percona-server-for-mongodb/7.0/index.md)
+- [Get help from Percona](https://docs.percona.com/percona-server-for-mongodb/7.0/get-help.md)
+- [FAQ](https://docs.percona.com/percona-server-for-mongodb/7.0/faq.md)
+
+## Get started
+
+- [Quickstart guides](https://docs.percona.com/percona-server-for-mongodb/7.0/install/index.md)
+- [System requirements](https://docs.percona.com/percona-server-for-mongodb/7.0/system-requirements.md)
+- [Virtual hardware recommendations for cloud deployments](https://docs.percona.com/percona-server-for-mongodb/7.0/install/cloud-deployments.md)
+- [On Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/7.0/install/apt.md)
+- [On RHEL and derivatives](https://docs.percona.com/percona-server-for-mongodb/7.0/install/yum.md)
+- [On Rocky Linux](https://docs.percona.com/percona-server-for-mongodb/7.0/install/rocky-linux.md)
+- [On Amazon Linux 2023](https://docs.percona.com/percona-server-for-mongodb/7.0/install/amazon-linux.md)
+- [From tarballs](https://docs.percona.com/percona-server-for-mongodb/7.0/install/tarball.md)
+- [Build from source code](https://docs.percona.com/percona-server-for-mongodb/7.0/install/source.md)
+- [Run in Docker](https://docs.percona.com/percona-server-for-mongodb/7.0/install/docker.md)
+- [2. Connect to Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/connect.md)
+- [3. Manipulate data in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/crud.md)
+- [4. What's next?](https://docs.percona.com/percona-server-for-mongodb/7.0/what-next.md)
+
+## Features
+
+- [Feature comparison with MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/comparison.md)
+- [Percona Memory Engine](https://docs.percona.com/percona-server-for-mongodb/7.0/inmemory.md)
+- [Hot Backup](https://docs.percona.com/percona-server-for-mongodb/7.0/hot-backup.md)
+- [$backupCursor and $backupCursorExtend aggregation stages](https://docs.percona.com/percona-server-for-mongodb/7.0/backup-cursor.md)
+- [Authentication overview](https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.md)
+- [AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/aws-iam.md)
+- [Setting up AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/aws-iam-setup.md)
+- [Setting up Kerberos authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/kerberos.md)
+- [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/7.0/authorization.md)
+- [Set up LDAP authentication with SASL](https://docs.percona.com/percona-server-for-mongodb/7.0/sasl-auth.md)
+- [Set up x.509 authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/7.0/x509-ldap.md)
+- [Set up LDAP authentication and authorization using NativeLDAP](https://docs.percona.com/percona-server-for-mongodb/7.0/ldap-setup.md)
+- [LDAP configuration parameters](https://docs.percona.com/percona-server-for-mongodb/7.0/ldap-conf-parameters.md)
+- [OIDC authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/oidc.md)
+- [With Okta](https://docs.percona.com/percona-server-for-mongodb/7.0/oidc-okta.md)
+- [With Microsoft Entra](https://docs.percona.com/percona-server-for-mongodb/7.0/oidc-entra.md)
+- [With Ping Identity](https://docs.percona.com/percona-server-for-mongodb/7.0/oidc-ping.md)
+- [With Keycloak](https://docs.percona.com/percona-server-for-mongodb/7.0/oidc-keycloak.md)
+- [OIDC authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/7.0/oidc-ldap.md)
+- [Enable SCRAM authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/enable-auth.md)
+- [Data at rest encryption](https://docs.percona.com/percona-server-for-mongodb/7.0/data-at-rest-encryption.md)
+- [Use Vault](https://docs.percona.com/percona-server-for-mongodb/7.0/vault.md)
+- [Use OpenBao](https://docs.percona.com/percona-server-for-mongodb/7.0/openbao.md)
+- [Use KMIP](https://docs.percona.com/percona-server-for-mongodb/7.0/kmip.md)
+- [Use local keyfile](https://docs.percona.com/percona-server-for-mongodb/7.0/keyfile.md)
+- [Migrate from keyfile to Vault](https://docs.percona.com/percona-server-for-mongodb/7.0/encryption-mode-switch.md)
+- [FIPS compliance](https://docs.percona.com/percona-server-for-mongodb/7.0/fips.md)
+- [File copy based initial sync](https://docs.percona.com/percona-server-for-mongodb/7.0/fcbis.md)
+- [Auditing](https://docs.percona.com/percona-server-for-mongodb/7.0/audit-logging.md)
+- [Profiling rate limit](https://docs.percona.com/percona-server-for-mongodb/7.0/rate-limit.md)
+- [Log redaction](https://docs.percona.com/percona-server-for-mongodb/7.0/log-redaction.md)
+- [Additional text search algorithm - ngram](https://docs.percona.com/percona-server-for-mongodb/7.0/ngram-full-text-search.md)
+
+## Administration
+
+- [Tune parameters](https://docs.percona.com/percona-server-for-mongodb/7.0/set-parameter.md)
+- [Log rotation in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/log-rotation.md)
+- [Split-DNS Horizons usage with Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/horizon.md)
+- [Configure Horizons in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/horizon-setup.md)
+- [Configure a systemd unit file for mongos](https://docs.percona.com/percona-server-for-mongodb/7.0/mongos-config.md)
+- [Upgrade from 6.0 to 7.0](https://docs.percona.com/percona-server-for-mongodb/7.0/install/upgrade-from-60.md)
+- [Upgrade from MongoDB Community](https://docs.percona.com/percona-server-for-mongodb/7.0/install/upgrade-from-mongodb.md)
+- [Minor upgrade of Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/install/minor-upgrade.md)
+- [Uninstall Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/install/uninstall.md)
+
+## Release notes
+
+- [Release notes index](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/index.md)
+- [Percona Server for MongoDB 7.0.48-25 (2026-11-13)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.48-25.md)
+- [Percona Server for MongoDB 7.0.45-24 (2026-10-21)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.45-24.md)
+- [Percona Server for MongoDB 7.0.43-23 (2026-09-22)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.43-23.md)
+- [Percona Server for MongoDB 7.0.40-22 (2026-08-19)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.40-22.md)
+- [Percona Server for MongoDB 7.0.39-21 (2026-08-05)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.39-21.md)
+- [Percona Server for MongoDB 7.0.37-20 (2026-06-23)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.37-20.md)
+- [Percona Server for MongoDB 7.0.34-19 (2026-05-20)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.34-19.md)
+- [Percona Server for MongoDB 7.0.32-18 (2026-05-07)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.32-18.md)
+- [Percona Server for MongoDB 7.0.31-17 (2026-03-30)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.31-17.md)
+- [Percona Server for MongoDB 7.0.30-16 (2026-02-18)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.30-16.md)
+- [Percona Server for MongoDB 7.0.28-15 (2026-01-06)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.28-15.md)
+- [Percona Server for MongoDB 7.0.26-14 (2025-11-25)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.26-14.md)
+- [Percona Server for MongoDB 7.0.24-13 (2025-09-11)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.24-13.md)
+- [Percona Server for MongoDB 7.0.22-12 (2025-07-28)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.22-12.md)
+- [Percona Server for MongoDB 7.0.18-11 (2025-04-24)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.18-11.md)
+- [Percona Server for MongoDB 7.0.16-10 (2025-02-19)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.16-10.md)
+- [Percona Server for MongoDB 7.0.15-9 (2024-11-27)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.15-9.md)
+- [Percona Server for MongoDB 7.0.14-8 (2024-09-23)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.14-8.md)
+- [Percona Server for MongoDB 7.0.12-7 (2024-07-23)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.12-7.md)
+- [Percona Server for MongoDB 7.0.11-6 (2024-06-03)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.11-6.md)
+- [Percona Server for MongoDB 7.0.8-5 (2024-04-24)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.8-5.md)
+- [Percona Server for MongoDB 7.0.7-4 (2024-04-04)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.7-4.md)
+- [Percona Server for MongoDB 7.0.5-3 (2024-01-23)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.5-3.md)
+- [Percona Server for MongoDB 7.0.4-2 (2023-12-11)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.4-2.md)
+- [Percona Server for MongoDB 7.0.2-1 (Release Candidate) (2023-10-05)](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.2-1.md)
+
+## Reference
+
+- [Software Bill of Materials (SBOM)](https://docs.percona.com/percona-server-for-mongodb/7.0/sbom.md)
+- [Glossary](https://docs.percona.com/percona-server-for-mongodb/7.0/glossary.md)
+- [Telemetry and data collection](https://docs.percona.com/percona-server-for-mongodb/7.0/telemetry.md)
+- [Copyright and licensing information](https://docs.percona.com/percona-server-for-mongodb/7.0/copyright.md)
+- [Trademark policy](https://docs.percona.com/percona-server-for-mongodb/7.0/trademark-policy.md)
+
+## Optional
+
+- [Legal Notice](https://docs.percona.com/percona-server-for-mongodb/7.0/legal-notice.md)
+

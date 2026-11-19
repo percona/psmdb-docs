@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4335,7 +4335,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-server-for-mongodb-702-1-release-candidate-2023-10-05">Percona Server for MongoDB 7.0.2-1 (Release Candidate) (2023-10-05)<a class="headerlink" href="#percona-server-for-mongodb-702-1-release-candidate-2023-10-05" title="Permanent link">¶</a></h1>
+<h1 id="percona-server-for-mongodb-702-1-release-candidate-2023-10-05">Percona Server for MongoDB 7.0.2-1 (Release Candidate) (2023-10-05)<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-702-1-release-candidate-2023-10-05" title="Permanent link">¶</a></h1>
 <p><a class="md-button" href="../install/index.html">Installation</a></p>
 <p>We are pleased to announce the release candidate of the new major version of Percona Server for MongoDB 7.0.2-1 – the drop in replacement for MongoDB Community Edition. Percona Server for MongoDB supports MongoDB community protocols and drivers and enhances it with the <a href="../comparison.html">enterprise-grade features for free</a>, enabling you to effectively meet the requirements of your organization in terms of high-availability, reliability and data security. </p>
 <div class="admonition warning">
@@ -4344,11 +4344,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>The issue affects time series sharded collections starting in MongoDB version 5.0.6 through versions 5.0.21, 6.0.11 and 7.0.2. It is fixed upstream in versions 5.0.22, 6.0.12 and 7.0.4 and included in Percona Server for MongoDB 5.0.22-19, 6.0.12-9 and 7.0.4-2.</p>
 <p>If you are using time series collections, upgrade to the fixed version of MongoDB / Percona Server for MongoDB as soon as possible and follow closely the upstream recommendations outlined in <a href="https://jira.mongodb.org/browse/SERVER-80203">SERVER-80203</a> for remediation steps.</p>
 </div>
-<h2 id="upgrade-considerations">Upgrade considerations<a class="headerlink" href="#upgrade-considerations" title="Permanent link">¶</a></h2>
+<h2 id="upgrade-considerations">Upgrade considerations<a data-markdown-ignore class="headerlink" href="#upgrade-considerations" title="Permanent link">¶</a></h2>
 <p>Starting with version 7.0, Percona Server for MongoDB enables journaling by default. Both the <code>storage.journal.enabled</code> configuration option and the corresponding <code>--journal</code>, <code>--no-journal</code> command-line options are now ignored. You receive the corresponding warning during the server start after the upgrade. To get rid of this warning, change your configuration to remove the journaling options. See the <a href="../install/upgrade-from-60.html">upgrade guide</a> for exact procedure.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
 <p>MongoDB 7.0 introduces a lot of major changes. We recommend testing it on staging environments before using it in production. The features and improvements in MongoDB 7.0 are focused on the following main areas: </p>
-<h3 id="streamlined-development-process">Streamlined development process<a class="headerlink" href="#streamlined-development-process" title="Permanent link">¶</a></h3>
+<h3 id="streamlined-development-process">Streamlined development process<a data-markdown-ignore class="headerlink" href="#streamlined-development-process" title="Permanent link">¶</a></h3>
 <ul>
 <li>Using the new system variable <a href="https://www.mongodb.com/docs/v7.0/reference/aggregation-variables/#mongodb-variable-variable.USER_ROLES">$USER_ROLES</a> you can build a single dynamic view instead of multiple static views to control access to data depending on the user’s roles and permissions.</li>
 <li><a href="https://www.mongodb.com/docs/v7.0/core/indexes/index-types/index-wildcard/index-wildcard-compound/#std-label-wildcard-index-compound">Compound wildcard indexes</a> enable you to filter documents that have common but not identical attributes. You can build a compound wildcard index on an always-present field as well as on one or more arbitrary fields thus reducing the number of indexes on a collection. This also simplifies coding of your application to work with such collections.</li>
@@ -4356,14 +4356,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>The new <a href="https://www.mongodb.com/docs/v7.0/reference/operator/aggregation/percentile/#mongodb-group-grp.-percentile"><code>$percentile</code></a>, <a href="https://www.mongodb.com/docs/v7.0/reference/operator/aggregation/median/#mongodb-group-grp.-median"><code>$median</code></a> and bitwise aggregation operators improve processing and operation with the stats data. </li>
 <li>The fsync is now added for <code>mongos</code> to be used more in sharded clusters and for making backups.</li>
 </ul>
-<h3 id="optimized-performance">Optimized performance<a class="headerlink" href="#optimized-performance" title="Permanent link">¶</a></h3>
+<h3 id="optimized-performance">Optimized performance<a data-markdown-ignore class="headerlink" href="#optimized-performance" title="Permanent link">¶</a></h3>
 <ul>
 <li>Added support for processing large documents for event-driven solutions: you can now split the <a href="https://www.mongodb.com/docs/v7.0/changeStreams/#std-label-changeStreams">change streams events</a> that exceed 16MB into fragments and then put them together to process as a whole.</li>
 <li>New commands <a href="https://www.mongodb.com/docs/v7.0/reference/command/analyzeShardKey/#mongodb-dbcommand-dbcmd.analyzeShardKey"><code>analyzeShardKey</code></a> and <a href="https://www.mongodb.com/docs/v7.0/reference/command/configureQueryAnalyzer/#mongodb-dbcommand-dbcmd.configureQueryAnalyzer"><code>configureQueryAnalyzer</code></a> for sharded collections help you evaluate the shard key in terms of best read and write distribution.</li>
 <li>The <a href="https://www.mongodb.com/docs/v7.0/core/automerger-concept/#std-label-automerger-concept">AutoMerger</a> now merges contiguous chunks that reside on the same shard. This reduces the sharding table, avoids unnecessary chunk migrations and improves overall performance. The AutoMerger is enabled by default.</li>
 <li>The <code>findOne</code>, <code>updateOne</code> and <code>deleteOne</code> command behavior is now aligned for both sharded and unsharded collections. This allows you to run these commands without having to target a specific shard. This comes handy when you need to update documents on multiple shards and you don’t know exactly on what shard the data resides.</li>
 </ul>
-<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">¶</a></h3>
+<h3 id="security">Security<a data-markdown-ignore class="headerlink" href="#security" title="Permanent link">¶</a></h3>
 <ul>
 <li>Improve security and safety of your sensitive data with <a href="https://www.mongodb.com/docs/v7.0/core/queryable-encryption/#std-label-qe-manual-feature-qe">queryable encryption</a>. This mechanism enables you to encrypt/decrpyt the data on the client side, store it as encrypted on the database and run queries against the encrypted data. This way your data remains encrypted and secure throughout its whole lifecycle. The community edition supports explicit encryption only.</li>
 <li>SSL 3.0 is the default standard ensuring you to use the latest security standards</li>
@@ -4379,7 +4379,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><a href="https://jira.mongodb.org/browse/SERVER-78150">SERVER-78150</a> - Implemented the mongos <code>fsyncUnlock</code> command</li>
 <li><a href="https://jira.mongodb.org/browse/SERVER-79025">SERVER-79025</a> - Added the ability for mongos to unlock the locked shards using its fsync Unlock functionality.</li>
 </ul>
-<h2 id="packaging-changes">Packaging changes<a class="headerlink" href="#packaging-changes" title="Permanent link">¶</a></h2>
+<h2 id="packaging-changes">Packaging changes<a data-markdown-ignore class="headerlink" href="#packaging-changes" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB 7.0.2-1 is available on Debian 12 (bookworm) in addition to other <a href="https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb">supported platforms</a>.  </p>
 
 

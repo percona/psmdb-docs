@@ -132,7 +132,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4216,7 +4216,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="additional-text-search-algorithm-ngram">Additional text search algorithm - ngram<a class="headerlink" href="#additional-text-search-algorithm-ngram" title="Permanent link">¶</a></h1>
+<h1 id="additional-text-search-algorithm-ngram">Additional text search algorithm - ngram<a data-markdown-ignore class="headerlink" href="#additional-text-search-algorithm-ngram" title="Permanent link">¶</a></h1>
 <p>The <a href="https://en.wikipedia.org/wiki/N-gram">ngram</a> text search algorithm is useful for searching text for a specific string
 of characters in a field of a collection. This feature can be used to find exact sub-string matches, which provides an alternative to parsing text from languages other than the list of European languages already supported by MongoDB Community’s full text search engine. It
 may also turn out to be more convenient when working with the text where symbols
@@ -4231,7 +4231,7 @@ characters that do not count as word characters in human languages:</p>
 <li>Space</li>
 </ul>
 <p>The <em>ngram</em> text search is slower than MongoDB full text search.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¶</a></h2>
+<h2 id="usage">Usage<a data-markdown-ignore class="headerlink" href="#usage" title="Permanent link">¶</a></h2>
 <p>To use <em>ngram</em>, create a text index on
 a collection setting the <code>default_language</code> parameter to <strong>ngram</strong>:</p>
 <div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span><span class="s2">"text"</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">default_language</span><span class="o">:</span><span class="w"> </span><span class="s2">"ngram"</span><span class="p">})</span>

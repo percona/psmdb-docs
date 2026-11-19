@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4295,7 +4295,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="setting-up-aws-iam-authentication">Setting up <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication<a class="headerlink" href="#setting-up-aws-iam-authentication" title="Permanent link">¶</a></h1>
+<h1 id="setting-up-aws-iam-authentication">Setting up <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication<a data-markdown-ignore class="headerlink" href="#setting-up-aws-iam-authentication" title="Permanent link">¶</a></h1>
 <p>This document provides guidelines how to configure Percona Server for MongoDB to use <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication. The use of this authentication method enables you to natively integrate Percona Server for MongoDB with <abbr title="Amazon Web Service">AWS</abbr> services, increase security of your infrastructure by setting up password-less authentication and offload your DBAs from managing different sets of secrets. To learn more, see <a href="aws-iam.html"><abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication</a></p>
 <p>To configure <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr> authentication means to set up your <abbr title="Amazon Web Service">AWS</abbr> environment and configure Percona Server for MongoDB. The <abbr title="Amazon Web Service">AWS</abbr> environment setup is out of scope of this document. Consult the <abbr title="Amazon Web Service">AWS</abbr> documentation to perform the following setup steps: </p>
 <ol>
@@ -4313,15 +4313,15 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 </li>
 </ol>
-<h2 id="configure-percona-server-for-mongodb">Configure Percona Server for MongoDB<a class="headerlink" href="#configure-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
+<h2 id="configure-percona-server-for-mongodb">Configure Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#configure-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
 <p>The steps are the following:</p>
 <ol>
 <li>Create users in the <code>$external</code> database with the username as the <abbr title="Identity Access Management">IAM</abbr> user/role ARN</li>
 <li>Enable authentication and specify the authentication mechanism as <code>MONGODB-AWS</code>.</li>
 </ol>
-<h3 id="create-users-in-external-database">Create users in <code>$external</code> database<a class="headerlink" href="#create-users-in-external-database" title="Permanent link">¶</a></h3>
+<h3 id="create-users-in-external-database">Create users in <code>$external</code> database<a data-markdown-ignore class="headerlink" href="#create-users-in-external-database" title="Permanent link">¶</a></h3>
 <p>During the authentication, Percona Server for MongoDB matches the ARN of the <abbr title="Identity Access Management">IAM</abbr> user or role retrieved from <abbr title="Amazon Web Service">AWS</abbr> STS against the user created in the <code>$external</code> database. Thus, the username for this user must include their ARN  and have the following format:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">User authentication</label><label for="__tabbed_1_2">Role authentication</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">User authentication</label><label for="__tabbed_1_2">Role authentication</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>arn:aws:iam::&lt;ARN&gt;:user/&lt;user_name&gt;
@@ -4334,7 +4334,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 </div>
 <p>Create a user and assign the required roles to them. Specify the ARN and names in the following example commands:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">User authentication</label><label for="__tabbed_2_2">Role authentication</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">User authentication</label><label for="__tabbed_2_2">Role authentication</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">$external</span>
@@ -4358,7 +4358,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 </div>
 </div>
-<h3 id="enable-authentication">Enable authentication<a class="headerlink" href="#enable-authentication" title="Permanent link">¶</a></h3>
+<h3 id="enable-authentication">Enable authentication<a data-markdown-ignore class="headerlink" href="#enable-authentication" title="Permanent link">¶</a></h3>
 <p>Run the following commands as root or via <code>sudo</code></p>
 <ol>
 <li>
@@ -4381,7 +4381,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 </li>
 </ol>
-<h4 id="configure-aws-sts-endpoint">Configure <abbr title="Amazon Web Service">AWS</abbr> STS endpoint<a class="headerlink" href="#configure-aws-sts-endpoint" title="Permanent link">¶</a></h4>
+<h4 id="configure-aws-sts-endpoint">Configure <abbr title="Amazon Web Service">AWS</abbr> STS endpoint<a data-markdown-ignore class="headerlink" href="#configure-aws-sts-endpoint" title="Permanent link">¶</a></h4>
 <p>By default, all authentication requests are sent to the <code>sts.amazonaws.com</code> endpoint. If this endpoint is unavailable for some reason, you can override it and send <abbr title="Amazon Web Service">AWS</abbr> STS requests to the endpoints of your choice to ensure successful authentication. You must <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">enable the <abbr title="Amazon Web Service">AWS</abbr> region</a> to use it.</p>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file and specify the <abbr title="Amazon Web Service">AWS</abbr> endpoint for the <code>awsStsHost</code> parameter.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
@@ -4392,9 +4392,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="w">  </span><span class="nt">awsStsHost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;aws-endpoint&gt;</span>
 </code></pre></div>
 <p>See the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#id_credentials_region-endpoints">list of <abbr title="Amazon Web Service">AWS</abbr> endpoints</a>.</p>
-<h2 id="authenticate-in-percona-server-for-mongodb-using-aws-iam">Authenticate in Percona Server for MongoDB using <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr><a class="headerlink" href="#authenticate-in-percona-server-for-mongodb-using-aws-iam" title="Permanent link">¶</a></h2>
+<h2 id="authenticate-in-percona-server-for-mongodb-using-aws-iam">Authenticate in Percona Server for MongoDB using <abbr title="Amazon Web Service">AWS</abbr> <abbr title="Identity Access Management">IAM</abbr><a data-markdown-ignore class="headerlink" href="#authenticate-in-percona-server-for-mongodb-using-aws-iam" title="Permanent link">¶</a></h2>
 <p>To test the authentication, use either of the following methods:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">MongoDB connection string</label><label for="__tabbed_3_2">Environment variables</label><label for="__tabbed_3_3"><abbr title="Amazon Web Service">AWS</abbr> resource metadata</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_3_1">MongoDB connection string</label><label for="__tabbed_3_2">Environment variables</label><label for="__tabbed_3_3"><abbr title="Amazon Web Service">AWS</abbr> resource metadata</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Replace <code>&lt;aws_access_key_id&gt;</code>, <code>&lt;aws_secret_access_key&gt;</code> and <code>psmdb.example.com</code> with actual values in the following command:</p>

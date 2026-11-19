@@ -130,7 +130,7 @@ Upgrade from MongoDB Community">
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4326,7 +4326,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-server-for-mongodb-7031-17-2026-03-30">Percona Server for MongoDB 7.0.31-17 (2026-03-30)<a class="headerlink" href="#percona-server-for-mongodb-7031-17-2026-03-30" title="Permanent link">¶</a></h1>
+<h1 id="percona-server-for-mongodb-7031-17-2026-03-30">Percona Server for MongoDB 7.0.31-17 (2026-03-30)<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-7031-17-2026-03-30" title="Permanent link">¶</a></h1>
 <p><a class="md-button" href="../install/index.html">Installation</a>
 <a class="md-button" href="../install/upgrade-from-mongodb.html">Upgrade from MongoDB Community</a></p>
 <p>Percona Server for MongoDB 7.0.31-17 is an enhanced, source-available, and highly-scalable database that is a
@@ -4336,8 +4336,8 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <li><a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.31---mar-17--2026" target="_blank">MongoDB 7.0.31 Community Edition <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></li>
 </ul>
 <p>It supports protocols and drivers of MongoDB Community <strong>7.0.31</strong>.</p>
-<h2 id="release-highlights">Release highlights<a class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
-<h3 id="enhanced-ldap-authentication-caching">Enhanced LDAP authentication caching<a class="headerlink" href="#enhanced-ldap-authentication-caching" title="Permanent link">¶</a></h3>
+<h2 id="release-highlights">Release highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
+<h3 id="enhanced-ldap-authentication-caching">Enhanced LDAP authentication caching<a data-markdown-ignore class="headerlink" href="#enhanced-ldap-authentication-caching" title="Permanent link">¶</a></h3>
 <p>To provide better parity with MongoDB Enterprise and improve performance in high-scale environments, we have introduced two new configuration parameters for LDAP user caching. These options allow administrators to fine-tune how and when cached user information is refreshed, reducing unnecessary overhead on LDAP servers while ensuring security data remains current.</p>
 <p><strong>New parameters</strong></p>
 <p><strong>ldapUserCacheRefreshInterval:</strong> The <code>ldapUserCacheRefreshInterval</code> parameter sets the frequency (in seconds) at which the server proactively refreshes cached user information from the LDAP server. This allows the system to update permissions and group memberships in the background before the cache entry expires. For more detailed information, refer to <a href="https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.ldapUserCacheRefreshInterval">MongoDB server parameters</a>.</p>
@@ -4350,10 +4350,10 @@ fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
 <p>If set to false: The server will wait for the <code>ldapUserCacheInvalidationInterval</code> (already supported in PSMDB) to pass before clearing and refetching the entry on the next login attempt.</p>
 </li>
 </ul>
-<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
-<h3 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
+<h2 id="changelog">Changelog<a data-markdown-ignore class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
+<h3 id="improvements">Improvements<a data-markdown-ignore class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1947">PSMDB-1947</a>: To provide better parity with MongoDB Enterprise and improve performance in high-scale environments, we have introduced two new configuration parameters for LDAP user caching. These options allow administrators to fine-tune how and when cached user information is refreshed, reducing unnecessary overhead on LDAP servers while ensuring security data remains current.</p>
-<h3 id="bugs">Bugs<a class="headerlink" href="#bugs" title="Permanent link">¶</a></h3>
+<h3 id="bugs">Bugs<a data-markdown-ignore class="headerlink" href="#bugs" title="Permanent link">¶</a></h3>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1998">PSMDB-1998</a>: Resolved an issue where user authentication was stuck indefinitely when the LDAP server was unreachable. Timeouts are now applied to LDAP connections to avoid blocking and ensure more reliable authentication.</p>
 
 

@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4237,11 +4237,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="enable-scram-authentication">Enable SCRAM authentication<a class="headerlink" href="#enable-scram-authentication" title="Permanent link">¶</a></h1>
+<h1 id="enable-scram-authentication">Enable SCRAM authentication<a data-markdown-ignore class="headerlink" href="#enable-scram-authentication" title="Permanent link">¶</a></h1>
 <p>By default, Percona Server for MongoDB does not restrict access to data and configuration.</p>
 <p>Enabling authentication enforces users to identify themselves when accessing the database. This documents describes how to enable built-in <a href="authentication.html#scram">SCRAM</a> authentication mechanism. <em>Percona Server for MongoDB</em> also supports the number of external authentication mechanisms. To learn more, refer to <a href="authentication.html">Authentication</a>.</p>
 <p>You can enable authentication either automatically or manually.</p>
-<h2 id="automatic-setup">Automatic setup<a class="headerlink" href="#automatic-setup" title="Permanent link">¶</a></h2>
+<h2 id="automatic-setup">Automatic setup<a data-markdown-ignore class="headerlink" href="#automatic-setup" title="Permanent link">¶</a></h2>
 <p>To enable authentication and automatically set it up,
 run the <code>/usr/bin/percona-server-mongodb-enable-auth.sh</code> script
 as root or using <code>sudo</code>.</p>
@@ -4251,7 +4251,7 @@ Then the script restarts <em>Percona Server for MongoDB</em> with access control
 The <code>dba</code> user has full superuser privileges on the server.
 You can add other users with various roles depending on your needs.</p>
 <p>For usage information, run the script with the <code>-h</code> option.</p>
-<h2 id="manual-setup">Manual setup<a class="headerlink" href="#manual-setup" title="Permanent link">¶</a></h2>
+<h2 id="manual-setup">Manual setup<a data-markdown-ignore class="headerlink" href="#manual-setup" title="Permanent link">¶</a></h2>
 <p>To enable access control manually:</p>
 <ol>
 <li>

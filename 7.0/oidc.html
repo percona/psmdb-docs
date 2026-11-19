@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4317,14 +4317,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="oidc-authentication">OIDC authentication<a class="headerlink" href="#oidc-authentication" title="Permanent link">¶</a></h1>
+<h1 id="oidc-authentication">OIDC authentication<a data-markdown-ignore class="headerlink" href="#oidc-authentication" title="Permanent link">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Version added: <a href="release_notes/7.0.24-13.html">7.0.24-13</a></p>
 </div>
 <p>OpenID Connect (OIDC) is an identity authentication protocol built on top of the OAuth 2.0 framework. OIDC is designed to verify user identities and provide authentication, ensuring that users are who they claim to be. OAuth 2.0 is used for user authorization to access resources. </p>
 <p>The OIDC / OAuth 2.0 support enables Percona Server for MongoDB to authenticate and authorize users via tokens issued by an identity provider (IdP). The latter serves as a centralized storage of user credentials, which are not shared with either Percona Server for MongoDB or MongoDB clients.</p>
 <p>The IdP is a centralized place to authenticate and authorize humans and applications to access multiple resources in your infrastructure. User credentials, access policies and roles are managed centralized on the IdP side. You can configure different access policies and tailor permissions for a group of users of a specific user. </p>
-<h2 id="supported-external-identity-providers">Supported external identity providers<a class="headerlink" href="#supported-external-identity-providers" title="Permanent link">¶</a></h2>
+<h2 id="supported-external-identity-providers">Supported external identity providers<a data-markdown-ignore class="headerlink" href="#supported-external-identity-providers" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB supports the following external identity providers:</p>
 <ul>
 <li><a href="https://www.okta.com/">Okta <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></li>
@@ -4333,7 +4333,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><a href="https://www.keycloak.org/">Keycloak <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a></li>
 </ul>
 <p>Any other external identity provider that supports OIDC and OAuth 2.0 may also work. However, we haven’t tested them and cannot guarantee their compatibility.</p>
-<h2 id="authentication-workflow">Authentication workflow<a class="headerlink" href="#authentication-workflow" title="Permanent link">¶</a></h2>
+<h2 id="authentication-workflow">Authentication workflow<a data-markdown-ignore class="headerlink" href="#authentication-workflow" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB supports two authentication workflows with OIDC:</p>
 <ul>
 <li>
@@ -4361,7 +4361,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>You can use the IdP infrastructure to authenticate and authorize users. In this case, you store and manage users and their access rights on the IdP side. To use this flow, your IdP configuration in PSMDB must include the <code>useAuthorizationClaim</code> option set to true. This setting enforces the use of IdP groups to authorize users and grant them access to Percona Server for MongoDB resources. </p>
 <p>Alternatively, you can use OIDC to only authenticate users. Then you can authorize them either based on the roles defined in PSMDB or use an external solution like an LDAP server.
 In this case, the <code>useAuthorizationClaim</code> option must be set to false.  To learn more about OIDC authentication and LDAP authorization, see <a href="oidc-ldap.html">Setting up OIDC authentication and LDAP authorization</a></p>
-<h2 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">¶</a></h2>
+<h2 id="benefits">Benefits<a data-markdown-ignore class="headerlink" href="#benefits" title="Permanent link">¶</a></h2>
 <p>The use of OIDC and OAuth 2.0 provides the following benefits:</p>
 <ul>
 <li>streamlines authentication and authorization flow, </li>
@@ -4370,7 +4370,7 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 <li>improves security as credentials are not sent to nor stored in Percona Server for MongoDB. </li>
 <li>reduces cross-application risk - access tokens are granted for specific resources using audience claims. If a token is compromised, the token has a limited lifetime and scope to limit access.</li>
 </ul>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
+<h2 id="configuration">Configuration<a data-markdown-ignore class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
 <p>To configure OIDC /OAuth 2.0 authentication and authorization, you must do the following:</p>
 <ol>
 <li>Configure external identity provider</li>
@@ -4385,7 +4385,7 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 <li><a href="oidc-keycloak.html">Configure OIDC with Keycloak</a></li>
 <li><a href="oidc-ldap.html">Configure OIDC authentication and LDAP authorization</a></li>
 </ul>
-<h3 id="percona-server-for-mongodb-configuration-options">Percona Server for MongoDB configuration options<a class="headerlink" href="#percona-server-for-mongodb-configuration-options" title="Permanent link">¶</a></h3>
+<h3 id="percona-server-for-mongodb-configuration-options">Percona Server for MongoDB configuration options<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-configuration-options" title="Permanent link">¶</a></h3>
 <p>To configure OIDC authentication in Percona Server for MongoDB, specify the external identity provider configuration for the <code>oidcIdentityProviders</code> server parameter. You can set it only at startup. See the <a href="set-parameter.html">Parameter tuning guide</a> for how to set server parameters.</p>
 <p>You can use several IdPs for OIDC authentication with human flow, where a user is redirected to authentication portal. In this case, you must add a configuration for every provider to the <code>oidcIdentityProviders</code> server parameter. You must also specify a match pattern for each provider. Usernames are then matched against the match pattern to identify which IdP to authenticate a user with. The order in which IdPs are listed defines their priority. The first IdP that matches the username is used for authentication.</p>
 <p>The <code>oidcIdentityProviders</code> server parameter contains an array of JSON objects with the following parameters:</p>
@@ -4450,12 +4450,12 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 </tr>
 </tbody>
 </table>
-<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">¶</a></h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Single IdP</label><label for="__tabbed_1_2">Several IdPs</label></div>
+<h4 id="examples">Examples<a data-markdown-ignore class="headerlink" href="#examples" title="Permanent link">¶</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">Single IdP</label><label for="__tabbed_1_2">Several IdPs</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>This is the example configuration of Percona Server for MongoDB for Okta:    </p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Configuration file</label><label for="__tabbed_2_2">Command line</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">Configuration file</label><label for="__tabbed_2_2">Command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
@@ -4489,7 +4489,7 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 </div>
 <div class="tabbed-block">
 <p>For example, if you have two identity providers, Okta and Microsoft Entra, you can specify the following configuration:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Configuration file</label><label for="__tabbed_3_2">Command line</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_3_1">Configuration file</label><label for="__tabbed_3_2">Command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>

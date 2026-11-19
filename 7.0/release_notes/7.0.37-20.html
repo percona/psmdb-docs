@@ -130,7 +130,7 @@ Upgrade from MongoDB Community">
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4380,7 +4380,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-server-for-mongodb-7037-20-2026-06-23">Percona Server for MongoDB 7.0.37-20 (2026-06-23)<a class="headerlink" href="#percona-server-for-mongodb-7037-20-2026-06-23" title="Permanent link">¶</a></h1>
+<h1 id="percona-server-for-mongodb-7037-20-2026-06-23">Percona Server for MongoDB 7.0.37-20 (2026-06-23)<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-7037-20-2026-06-23" title="Permanent link">¶</a></h1>
 <p><a class="md-button" href="../install/index.html">Installation</a>
 <a class="md-button" href="../install/upgrade-from-mongodb.html">Upgrade from MongoDB Community</a></p>
 <p>Percona Server for MongoDB 7.0.37-20 is an enhanced, source-available, and highly-scalable database that is a fully-compatible, drop-in replacement for MongoDB Community Edition.</p>
@@ -4393,9 +4393,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Supports protocols and drivers of MongoDB Community <strong>7.0.37</strong>.</p>
 </li>
 </ul>
-<h2 id="upgrade-recommendation">Upgrade recommendation<a class="headerlink" href="#upgrade-recommendation" title="Permanent link">¶</a></h2>
+<h2 id="upgrade-recommendation">Upgrade recommendation<a data-markdown-ignore class="headerlink" href="#upgrade-recommendation" title="Permanent link">¶</a></h2>
 <p>This release contains multiple high-severity security fixes affecting all Percona Server for MongoDB 7.0.x versions. We strongly recommend <strong>upgrading to version 7.0.37-20</strong> as soon as possible.</p>
-<h2 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">¶</a></h2>
+<h2 id="improvements">Improvements<a data-markdown-ignore class="headerlink" href="#improvements" title="Permanent link">¶</a></h2>
 <ul>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-2038">PSMDB-2038</a>: Percona Server for MongoDB now exposes LDAP <code>userToDN</code> cache statistics through the serverStatus command. These metrics provide visibility into cache utilization and effectiveness, helping administrators troubleshoot LDAP authentication latency, validate cache behavior after configuration changes, and optimize cache sizing for their workloads. The new <code>ldap.userToDNCache</code> section reports runtime information such as cache usage, hits, misses, and invalidations, making LDAP authentication performance easier to monitor and tune.</p>
@@ -4404,7 +4404,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-2071">PSMDB-2071</a>: Enhanced oplog record parsing to better handle legacy oplog entries that may be present after upgrades from older major versions. This improvement increases compatibility with upgraded deployments by correctly processing oplog records that contain fields no longer used in current releases.</p>
 </li>
 </ul>
-<h2 id="bugs-fixed">Bugs fixed<a class="headerlink" href="#bugs-fixed" title="Permanent link">¶</a></h2>
+<h2 id="bugs-fixed">Bugs fixed<a data-markdown-ignore class="headerlink" href="#bugs-fixed" title="Permanent link">¶</a></h2>
 <ul>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1977">PSMDB-1977</a>: Resolved an issue where Docker-based MongoDB instances could fail to start when replication settings were defined in <code>mongod.conf</code>.</p>
@@ -4413,13 +4413,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-2039">PSMDB-2039</a>: Fixed an issue where PSMDB packages built on a newer Amazon Linux 2023 release failed to install on systems running older AL2023 updates. Package installation now works as expected across supported Amazon Linux 2023 versions.</p>
 </li>
 </ul>
-<h2 id="security-updates">Security updates<a class="headerlink" href="#security-updates" title="Permanent link">¶</a></h2>
-<h3 id="affected-versions">Affected versions<a class="headerlink" href="#affected-versions" title="Permanent link">¶</a></h3>
+<h2 id="security-updates">Security updates<a data-markdown-ignore class="headerlink" href="#security-updates" title="Permanent link">¶</a></h2>
+<h3 id="affected-versions">Affected versions<a data-markdown-ignore class="headerlink" href="#affected-versions" title="Permanent link">¶</a></h3>
 <p>These vulnerabilities affect the following versions:</p>
 <ul>
 <li>All Percona Server for MongoDB 7.0.x versions</li>
 </ul>
-<h3 id="high-severity">High severity<a class="headerlink" href="#high-severity" title="Permanent link">¶</a></h3>
+<h3 id="high-severity">High severity<a data-markdown-ignore class="headerlink" href="#high-severity" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p><a href="https://jira.mongodb.org/browse/SERVER-128125" target="_blank">SERVER-128125 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> <strong>(CVE-2026-11933):</strong> A <strong>use-after-free</strong> vulnerability was identified in MongoDB Server’s server-side JavaScript engine when converting <code>BSON</code> documents to JavaScript arrays. An authenticated user with read privileges who can execute server-side JavaScript (e.g., via <code>$where</code> or <code>$function</code>) may trigger access to freed memory, which could result in information disclosure from the <code>mongod</code> process memory or a denial of service through a server crash.</p>
@@ -4449,14 +4449,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p><a href="https://jira.mongodb.org/browse/SERVER-124190" target="_blank">SERVER-124190 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> <strong>(CVE-2026-9746):</strong> A vulnerability in the use of <code>$changeStream</code>, <code>$_requestReshardingResumeToken</code>, and the exchange option can cause the <code>mongod</code> process to terminate unexpectedly. An authenticated user can trigger this behavior without requiring any special privileges.</p>
 </li>
 </ul>
-<h3 id="medium-severity">Medium severity<a class="headerlink" href="#medium-severity" title="Permanent link">¶</a></h3>
+<h3 id="medium-severity">Medium severity<a data-markdown-ignore class="headerlink" href="#medium-severity" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p><a href="https://jira.mongodb.org/browse/SERVER-123370" target="_blank">SERVER-123370 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> <strong>(CVE-2026-9751):</strong> Percona Server for MongoDB no longer logs sensitive parameter values when they are modified using the runtime <code>setParameter</code> command. Previously, parameters such as <code>ldapQueryPassword</code> could be written to <code>mongod.log</code> in plain text, potentially exposing credentials.</p>
 <p>This applies to all <code>setParameter</code> operations. Parameters marked as sensitive are automatically redacted from log output, and values associated with unrecognized parameter names are also redacted to prevent accidental exposure caused by typographical errors.</p>
 </li>
 </ul>
-<h2 id="tools-packaged-with-this-release">Tools packaged with this release<a class="headerlink" href="#tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
+<h2 id="tools-packaged-with-this-release">Tools packaged with this release<a data-markdown-ignore class="headerlink" href="#tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
 <p>Percona repackages the upstream MongoDB Shell (<code>mongosh</code>) as <code>percona-mongodb-mongosh</code>, updating all copyright, authorship, and branding under the full product name “Percona MongoDB Shell.” </p>
 <p>Percona also repackages and patches Mongo Tools. In this release, we’ve updated embedded Go libraries in the <code>mongodump</code> binary to address 15 security (severity from medium to critical) vulnerabilities:</p>
 <ul>

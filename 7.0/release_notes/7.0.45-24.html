@@ -130,7 +130,7 @@ Upgrade from MongoDB Community">
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4482,7 +4482,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-server-for-mongodb-7045-24-2026-10-21">Percona Server for MongoDB 7.0.45-24 (2026-10-21)<a class="headerlink" href="#percona-server-for-mongodb-7045-24-2026-10-21" title="Permanent link">¶</a></h1>
+<h1 id="percona-server-for-mongodb-7045-24-2026-10-21">Percona Server for MongoDB 7.0.45-24 (2026-10-21)<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-7045-24-2026-10-21" title="Permanent link">¶</a></h1>
 <p><a class="md-button" href="../install/index.html">Installation</a>
 <a class="md-button" href="../install/upgrade-from-mongodb.html">Upgrade from MongoDB Community</a></p>
 <p>We are pleased to announce <strong>Percona Server for MongoDB 7.0.45-24</strong>, the drop-in replacement for MongoDB Community Edition. It supports MongoDB Community protocols and drivers and enhances it with <a href="../comparison.html">enterprise-grade features for free</a>, helping you meet your organization’s requirements for high availability, reliability, and data security.</p>
@@ -4504,15 +4504,15 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 <p>You can find details at the bottom of this page. </p>
 </div>
-<h2 id="release-highlights">Release highlights<a class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
-<h3 id="mongodb-database-tools-are-distributed-as-a-separate-tarball">MongoDB Database Tools are distributed as a separate tarball<a class="headerlink" href="#mongodb-database-tools-are-distributed-as-a-separate-tarball" title="Permanent link">¶</a></h3>
+<h2 id="release-highlights">Release highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
+<h3 id="mongodb-database-tools-are-distributed-as-a-separate-tarball">MongoDB Database Tools are distributed as a separate tarball<a data-markdown-ignore class="headerlink" href="#mongodb-database-tools-are-distributed-as-a-separate-tarball" title="Permanent link">¶</a></h3>
 <p>Starting with this release, MongoDB Database Tools (<code>mongodump</code>, <code>mongorestore</code>, <code>mongoexport</code>, <code>mongoimport</code>, and others) are no longer included in the Percona Server for MongoDB binary tarball. If you install Percona Server for MongoDB from tarballs, download the MongoDB Database Tools tarball separately from the <a href="https://www.percona.com/downloads/" target="_blank">Percona Downloads <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> website.</p>
 <p>This change aligns the distribution of MongoDB Database Tools with how MongoDB Shell (<code>mongosh</code>) is already distributed. It also allows us to deliver tool updates, including security fixes, independently of the server releases.</p>
 <p>If you install Percona Server for MongoDB from RPM or DEB packages, nothing changes for you: MongoDB Database Tools are installed as before.</p>
-<h2 id="upgrade-recommendation">Upgrade recommendation<a class="headerlink" href="#upgrade-recommendation" title="Permanent link">¶</a></h2>
+<h2 id="upgrade-recommendation">Upgrade recommendation<a data-markdown-ignore class="headerlink" href="#upgrade-recommendation" title="Permanent link">¶</a></h2>
 <p>This release fixes multiple security vulnerabilities inherited from upstream MongoDB. We strongly recommend <strong>upgrading to version 7.0.45-24</strong> as soon as possible.</p>
-<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
-<h3 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
+<h2 id="changelog">Changelog<a data-markdown-ignore class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
+<h3 id="improvements">Improvements<a data-markdown-ignore class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-1944">PSMDB-1944</a>: MongoDB Database Tools packages are now built independently of Percona Server for MongoDB packages. This allows tool updates, including security fixes, to be prepared without rebuilding the server packages.</p>
@@ -4521,13 +4521,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p><a href="https://perconadev.atlassian.net/browse/PSMDB-2182">PSMDB-2182</a>: Improved telemetry for x.509 certificate authentication. x.509 is used by default for internal authentication between members of replica sets and sharded clusters, so telemetry previously reported it as enabled on almost every instance. Telemetry now reports x.509 usage for client authentication separately from its use for internal cluster authentication.</p>
 </li>
 </ul>
-<h3 id="bugs-fixed">Bugs fixed<a class="headerlink" href="#bugs-fixed" title="Permanent link">¶</a></h3>
+<h3 id="bugs-fixed">Bugs fixed<a data-markdown-ignore class="headerlink" href="#bugs-fixed" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-2126">PSMDB-2126</a>: Fixed an issue where streaming a backup to Google Cloud Storage through its S3-compatible API failed. The issue was caused by the upgrade of the AWS SDK for C++ to version 1.11.471, which added empty checksum elements to multipart upload requests that Google Cloud Storage rejects.</li>
 </ul>
-<h2 id="improvements-and-bug-fixes-from-upstream-mongodb">Improvements and bug fixes from upstream MongoDB<a class="headerlink" href="#improvements-and-bug-fixes-from-upstream-mongodb" title="Permanent link">¶</a></h2>
+<h2 id="improvements-and-bug-fixes-from-upstream-mongodb">Improvements and bug fixes from upstream MongoDB<a data-markdown-ignore class="headerlink" href="#improvements-and-bug-fixes-from-upstream-mongodb" title="Permanent link">¶</a></h2>
 <p>The <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7045---oct-13-2026" target="_blank">MongoDB 7.0.45 patch release notes <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> include the following bug fixes. Security fixes are listed separately below.</p>
-<h3 id="bugs-fixed_1">Bugs fixed<a class="headerlink" href="#bugs-fixed_1" title="Permanent link">¶</a></h3>
+<h3 id="bugs-fixed_1">Bugs fixed<a data-markdown-ignore class="headerlink" href="#bugs-fixed_1" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p><a href="https://jira.mongodb.org/browse/SERVER-104343" target="_blank">SERVER-104343 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>: Fixed an assertion failure during initial sync when <code>unsupportedSyncSource</code> selected a primary despite a secondary-only read preference.</p>
@@ -4545,9 +4545,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p><a href="https://jira.mongodb.org/browse/SERVER-132246" target="_blank">SERVER-132246 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>: Fixed an issue where the default value of <code>minWaitForStreamingHelloMillis</code> prevented drivers from working with short heartbeat intervals and connection timeouts. The default is now 500 milliseconds.</p>
 </li>
 </ul>
-<h2 id="security-fixes-from-upstream-mongodb">Security fixes from upstream MongoDB<a class="headerlink" href="#security-fixes-from-upstream-mongodb" title="Permanent link">¶</a></h2>
+<h2 id="security-fixes-from-upstream-mongodb">Security fixes from upstream MongoDB<a data-markdown-ignore class="headerlink" href="#security-fixes-from-upstream-mongodb" title="Permanent link">¶</a></h2>
 <p>The severity categories below follow the upstream <a href="https://nvd.nist.gov/vuln-metrics/cvss" target="_blank">CVSS scores <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
-<h3 id="medium-severity">Medium severity<a class="headerlink" href="#medium-severity" title="Permanent link">¶</a></h3>
+<h3 id="medium-severity">Medium severity<a data-markdown-ignore class="headerlink" href="#medium-severity" title="Permanent link">¶</a></h3>
 <ul>
 <li>
 <p><a href="https://jira.mongodb.org/browse/SERVER-132946" target="_blank">SERVER-132946 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> (<a href="https://www.cve.org/CVERecord?id=CVE-2026-96297" target="_blank">CVE-2026-96297 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>): A use-after-free issue in the <code>$_internalApplyOplogUpdate</code> aggregation stage could expose unrelated data from server memory in query results. An authenticated user with read privileges could trigger the issue by combining the stage with a batch size of <code>0</code>. The server process could also terminate unexpectedly.</p>
@@ -4557,7 +4557,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ul>
 <p>For the complete upstream changelog, see <a href="https://www.mongodb.com/docs/manual/release-notes/7.0-changelog/#7045-changelog" target="_blank">MongoDB 7.0.45 Community Edition <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a>.</p>
-<h2 id="tools-packaged-with-this-release">Tools packaged with this release<a class="headerlink" href="#tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
+<h2 id="tools-packaged-with-this-release">Tools packaged with this release<a data-markdown-ignore class="headerlink" href="#tools-packaged-with-this-release" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>

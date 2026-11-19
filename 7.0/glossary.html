@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4433,33 +4433,33 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">¶</a></h1>
-<h2 id="acid">ACID<a class="headerlink" href="#acid" title="Permanent link">¶</a></h2>
+<h1 id="glossary">Glossary<a data-markdown-ignore class="headerlink" href="#glossary" title="Permanent link">¶</a></h1>
+<h2 id="acid">ACID<a data-markdown-ignore class="headerlink" href="#acid" title="Permanent link">¶</a></h2>
 <p>Set of properties that guarantee database transactions are processed reliably. Stands for <a href="#atomicity">Atomicity</a>, <a href="#consistency">Consistency</a>, <a href="#isolation">Isolation</a>, <a href="#durability">Durability</a>.</p>
-<h2 id="atomicity">Atomicity<a class="headerlink" href="#atomicity" title="Permanent link">¶</a></h2>
+<h2 id="atomicity">Atomicity<a data-markdown-ignore class="headerlink" href="#atomicity" title="Permanent link">¶</a></h2>
 <p>Atomicity means that database operations are applied following a “all or nothing” rule. A transaction is either fully applied or not at all.</p>
-<h2 id="consistency">Consistency<a class="headerlink" href="#consistency" title="Permanent link">¶</a></h2>
+<h2 id="consistency">Consistency<a data-markdown-ignore class="headerlink" href="#consistency" title="Permanent link">¶</a></h2>
 <p>Consistency means that each transaction that modifies the database takes it from one consistent state to another.</p>
-<h2 id="durability">Durability<a class="headerlink" href="#durability" title="Permanent link">¶</a></h2>
+<h2 id="durability">Durability<a data-markdown-ignore class="headerlink" href="#durability" title="Permanent link">¶</a></h2>
 <p>Once a transaction is committed, it will remain so.</p>
-<h2 id="foreign-key">Foreign Key<a class="headerlink" href="#foreign-key" title="Permanent link">¶</a></h2>
+<h2 id="foreign-key">Foreign Key<a data-markdown-ignore class="headerlink" href="#foreign-key" title="Permanent link">¶</a></h2>
 <p>A referential constraint between two tables. Example: A purchase order in the purchase_orders table must have been made by a customer that exists in the customers table.</p>
-<h2 id="horizons">Horizons<a class="headerlink" href="#horizons" title="Permanent link">¶</a></h2>
+<h2 id="horizons">Horizons<a data-markdown-ignore class="headerlink" href="#horizons" title="Permanent link">¶</a></h2>
 <p>Horizons is a feature that allows replica set members to advertise different hostnames depending on whether the request comes from an internal or external network. Its primary goal is to ensure that internal network users can resolve local resources with their internal IP addresses, while external users are directed to public IP addresses. Horizons is ideal for hybrid deployments, Kubernetes setups, and multi-cloud environments.</p>
-<h2 id="isolation">Isolation<a class="headerlink" href="#isolation" title="Permanent link">¶</a></h2>
+<h2 id="isolation">Isolation<a data-markdown-ignore class="headerlink" href="#isolation" title="Permanent link">¶</a></h2>
 <p>The Isolation requirement means that no transaction can interfere with another.</p>
-<h2 id="jenkins">Jenkins<a class="headerlink" href="#jenkins" title="Permanent link">¶</a></h2>
+<h2 id="jenkins">Jenkins<a data-markdown-ignore class="headerlink" href="#jenkins" title="Permanent link">¶</a></h2>
 <p><a href="http://www.jenkins-ci.org">Jenkins</a> is a continuous integration system that we use to help ensure the continued quality of the software we produce. It helps us achieve the aims of:</p>
 <ul>
 <li>no failed tests in trunk on any platform,</li>
 <li>aid developers in ensuring merge requests build and test on all platforms,</li>
 <li>no known performance regressions (without a damn good explanation).</li>
 </ul>
-<h2 id="kerberos">Kerberos<a class="headerlink" href="#kerberos" title="Permanent link">¶</a></h2>
+<h2 id="kerberos">Kerberos<a data-markdown-ignore class="headerlink" href="#kerberos" title="Permanent link">¶</a></h2>
 <p>Kerberos is an authentication protocol for client/server authentication without sending the passwords over an insecure network. Kerberos uses symmetric encryption in the form of tickets - small pieces of encrypted data used for authentication. A ticket is issued for the client and validated by the server.  </p>
-<h2 id="rolling-restart">Rolling restart<a class="headerlink" href="#rolling-restart" title="Permanent link">¶</a></h2>
+<h2 id="rolling-restart">Rolling restart<a data-markdown-ignore class="headerlink" href="#rolling-restart" title="Permanent link">¶</a></h2>
 <p>A rolling restart (rolling upgrade) is shutting down and upgrading nodes one by one. The whole cluster remains operational. There is no interruption to clients assuming the elections are short and all writes directed to the old primary use the retryWrite mechanism.# Glossary</p>
-<h2 id="technical-preview-feature">Technical preview feature<a class="headerlink" href="#technical-preview-feature" title="Permanent link">¶</a></h2>
+<h2 id="technical-preview-feature">Technical preview feature<a data-markdown-ignore class="headerlink" href="#technical-preview-feature" title="Permanent link">¶</a></h2>
 <p>Technical preview features are not yet ready for enterprise use and are not included in support via SLA. They are included in this release so that users can provide feedback on their experience with the feature prior to its full release in a future GA release (or removal of the feature if it is deemed not useful). This functionality can change (APIs, CLIs, etc.) from tech preview to GA.</p>
 
 

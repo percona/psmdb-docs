@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4369,19 +4369,19 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-server-for-mongodb-7014-8-2024-09-23">Percona Server for MongoDB 7.0.14-8 (2024-09-23)<a class="headerlink" href="#percona-server-for-mongodb-7014-8-2024-09-23" title="Permanent link">¶</a></h1>
+<h1 id="percona-server-for-mongodb-7014-8-2024-09-23">Percona Server for MongoDB 7.0.14-8 (2024-09-23)<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-7014-8-2024-09-23" title="Permanent link">¶</a></h1>
 <p><a class="md-button" href="../install/index.html">Installation</a></p>
 <p>Percona Server for MongoDB 7.0.14-8 is an enhanced, source-available, and highly-scalable database that is a
 fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.12.</p>
 <p>Percona Server for MongoDB 7.0.14-8 includes the improvements and bug fixes of <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.14---aug-26--2024">MongoDB 7.0.14 Community Edition</a> and supports its protocols and drivers.</p>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
 <p>This release of Percona Server for MongoDB includes the following features and improvements:</p>
-<h3 id="reduce-mean-time-to-resolve-mttr-compromised-encryption-key-incidents-in-kmip">Reduce mean time to resolve (MTTR) compromised encryption key incidents in KMIP<a class="headerlink" href="#reduce-mean-time-to-resolve-mttr-compromised-encryption-key-incidents-in-kmip" title="Permanent link">¶</a></h3>
+<h3 id="reduce-mean-time-to-resolve-mttr-compromised-encryption-key-incidents-in-kmip">Reduce mean time to resolve (MTTR) compromised encryption key incidents in KMIP<a data-markdown-ignore class="headerlink" href="#reduce-mean-time-to-resolve-mttr-compromised-encryption-key-incidents-in-kmip" title="Permanent link">¶</a></h3>
 <p>Starting with this release, Percona Server for MongoDB automatically activates all new master encryption keys at startup and periodically checks (polls) their status in a KMIP server. If a master encryption key for a node transitions to the state other than Active, the node reports an error and shuts down. This method allows security engineers to quickly identify which nodes require out-of-schedule master key rotation, such as in the case of compromised keys, without needing to rotate keys for the entire cluster. </p>
 <p>Learn more about key state polling from <a href="../kmip.html#key-state-polling">the documentation</a> </p>
-<h3 id="easier-dependency-management-with-thinner-tarballs">Easier dependency management with thinner tarballs<a class="headerlink" href="#easier-dependency-management-with-thinner-tarballs" title="Permanent link">¶</a></h3>
+<h3 id="easier-dependency-management-with-thinner-tarballs">Easier dependency management with thinner tarballs<a data-markdown-ignore class="headerlink" href="#easier-dependency-management-with-thinner-tarballs" title="Permanent link">¶</a></h3>
 <p>Tarballs are now available for each supported operating system individually and no longer include built-in libraries. This change reduces the tarball download size and increases their security by simplifying updates for required dependencies. </p>
-<h2 id="upstream-improvements">Upstream Improvements<a class="headerlink" href="#upstream-improvements" title="Permanent link">¶</a></h2>
+<h2 id="upstream-improvements">Upstream Improvements<a data-markdown-ignore class="headerlink" href="#upstream-improvements" title="Permanent link">¶</a></h2>
 <p>The bug fixes, provided by MongoDB and included in Percona Server for MongoDB, are the following:</p>
 <ul>
 <li><a href="https://jira.mongodb.org/browse/SERVER-82814">SERVER-82814</a> - Added support of internal expr comparison operators when determining clustered collection scan bounds</li>
@@ -4391,13 +4391,13 @@ fully-compatible, drop-in replacement for MongoDB Community Edition 7.0.12.</p>
 <li><a href="https://jira.mongodb.org/browse/WT-12643">WT-12643</a> - Fixed Eviction Server walk logic in WiredTiger so that it’s able to evict all pages</li>
 </ul>
 <p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.14---aug-26--2024">MongoDB 7.0.14 Community Edition release notes</a>.</p>
-<h2 id="packaging-changes">Packaging Changes<a class="headerlink" href="#packaging-changes" title="Permanent link">¶</a></h2>
+<h2 id="packaging-changes">Packaging Changes<a data-markdown-ignore class="headerlink" href="#packaging-changes" title="Permanent link">¶</a></h2>
 <ul>
 <li>Percona Server for MongoDB 7.0.14-8 is available on Ubuntu 24.04 (Noble Numbat)</li>
 <li>Percona Server for MongoDB 7.0.14-8 is no longer supported for Red Hat Enterprise 7 and derivatives as these operating systems reached End-Of-Life.</li>
 </ul>
-<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
-<h3 id="improvements">Improvements<a class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
+<h2 id="changelog">Changelog<a data-markdown-ignore class="headerlink" href="#changelog" title="Permanent link">¶</a></h2>
+<h3 id="improvements">Improvements<a data-markdown-ignore class="headerlink" href="#improvements" title="Permanent link">¶</a></h3>
 <ul>
 <li><a href="https://perconadev.atlassian.net/browse/PSMDB-1283">PSMDB-1283</a> - Add the ability to activate master encryption keys in KMIP server and check their state.</li>
 </ul>

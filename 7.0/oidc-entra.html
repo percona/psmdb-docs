@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4463,7 +4463,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="configure-oidc-authentication-and-authorization-with-microsoft-entra-id">Configure OIDC authentication and authorization with Microsoft Entra ID<a class="headerlink" href="#configure-oidc-authentication-and-authorization-with-microsoft-entra-id" title="Permanent link">¶</a></h1>
+<h1 id="configure-oidc-authentication-and-authorization-with-microsoft-entra-id">Configure OIDC authentication and authorization with Microsoft Entra ID<a data-markdown-ignore class="headerlink" href="#configure-oidc-authentication-and-authorization-with-microsoft-entra-id" title="Permanent link">¶</a></h1>
 <p>This document provides step-by-step instructions how to configure OIDC authentication and authorization the Percona Server for MongoDB using <a href="https://www.microsoft.com/en-gb/security/business/microsoft-entra">Microsoft Entra <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> as an external identity provider.</p>
 <p>The setup process consists of three main stages:</p>
 <ol>
@@ -4479,14 +4479,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>Connect to Percona Server for MongoDB using OIDC authentication</li>
 </ol>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<h2 id="prerequisites">Prerequisites<a data-markdown-ignore class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <p>Before you start, ensure you have the following:</p>
 <ol>
 <li>Percona Server for MongoDB 7.0.24-13 and higher</li>
 <li>Microsoft Entra tenant with admin access</li>
 </ol>
-<h2 id="identity-provider-setup">Identity provider setup<a class="headerlink" href="#identity-provider-setup" title="Permanent link">¶</a></h2>
-<h3 id="create-and-configure-an-oidc-application-with-microsoft-entra">Create and configure an OIDC application with Microsoft Entra<a class="headerlink" href="#create-and-configure-an-oidc-application-with-microsoft-entra" title="Permanent link">¶</a></h3>
+<h2 id="identity-provider-setup">Identity provider setup<a data-markdown-ignore class="headerlink" href="#identity-provider-setup" title="Permanent link">¶</a></h2>
+<h3 id="create-and-configure-an-oidc-application-with-microsoft-entra">Create and configure an OIDC application with Microsoft Entra<a data-markdown-ignore class="headerlink" href="#create-and-configure-an-oidc-application-with-microsoft-entra" title="Permanent link">¶</a></h3>
 <ol>
 <li>Sign in to the <a href="https://entra.microsoft.com/">Microsoft Entra admin center</a>.</li>
 <li>In the left navigation pane, select <strong>App Registrations</strong>.</li>
@@ -4517,7 +4517,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Click <strong>Save</strong> to add a groups claim.</p>
 </li>
 </ol>
-<h3 id="configure-the-access-token">Configure the access token<a class="headerlink" href="#configure-the-access-token" title="Permanent link">¶</a></h3>
+<h3 id="configure-the-access-token">Configure the access token<a data-markdown-ignore class="headerlink" href="#configure-the-access-token" title="Permanent link">¶</a></h3>
 <p>To authorize users, you need to ensure the access tokens are generated as JWT formatted. To make this happen:</p>
 <ul>
 <li>Change the token version from null to 2. </li>
@@ -4545,14 +4545,14 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ul>
 </li>
 </ul>
-<h3 id="configure-users-and-groups">Configure users and groups<a class="headerlink" href="#configure-users-and-groups" title="Permanent link">¶</a></h3>
+<h3 id="configure-users-and-groups">Configure users and groups<a data-markdown-ignore class="headerlink" href="#configure-users-and-groups" title="Permanent link">¶</a></h3>
 <p>Groups define user access rights to resources. Identity provider groups are then mapped to roles in Percona Server for MongoDB to authorize users to access the database.</p>
 <ol>
 <li>Create groups in Microsoft Entra ID. Check the <a href="https://learn.microsoft.com/en-us/entra/fundamentals/how-to-manage-groups">Create a basic group and add members <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> for exact steps. </li>
 <li>Add users. Specify the user email as the username. Check the <a href="https://learn.microsoft.com/en-us/entra/fundamentals/how-to-create-delete-users#create-a-new-user">Create a new user <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03 9.28 7.78a.75.75 0 0 1-1.042-.018.75.75 0 0 1-.018-1.042l3.75-3.75-1.543-1.543A.25.25 0 0 1 10.604 1"></path></svg></span></a> for exact steps. </li>
 <li>Assign the groups you created earlier to your users on the <strong>Assignments</strong> tab of the user profile. </li>
 </ol>
-<h3 id="collect-the-information-required-for-percona-server-for-mongodb-configuration">Collect the information required for Percona Server for MongoDB configuration<a class="headerlink" href="#collect-the-information-required-for-percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h3>
+<h3 id="collect-the-information-required-for-percona-server-for-mongodb-configuration">Collect the information required for Percona Server for MongoDB configuration<a data-markdown-ignore class="headerlink" href="#collect-the-information-required-for-percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open the application’s <strong>Overview</strong> page.</li>
 <li>Copy the <strong>Application (client) ID</strong> and save it for later use. You will use this value for the <code>clientID</code> and <code>audience</code> fields in Percona Server for MongoDB configuration.</li>
@@ -4568,7 +4568,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>Copy the groups’ Object IDs you created earlier. </li>
 </ol>
-<h2 id="configure-percona-server-for-mongodb">Configure Percona Server for MongoDB<a class="headerlink" href="#configure-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
+<h2 id="configure-percona-server-for-mongodb">Configure Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#configure-percona-server-for-mongodb" title="Permanent link">¶</a></h2>
 <p>Now you need to configure authentication in Percona Server for MongoDB. Specify the external identity provider configuration for the <code>oidcIdentityProviders</code> server parameter either via the configuration file or the command line. </p>
 <p>The following table maps the Microsoft Entra ID configuration parameters to the Percona Server for MongoDB configuration:</p>
 <table>
@@ -4594,7 +4594,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </tbody>
 </table>
 <p>To authorize users by identity provider groups, specify <code>authorizationClaim</code> value as <code>groups</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Configuration file</label><label for="__tabbed_1_2">Command line</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">Configuration file</label><label for="__tabbed_1_2">Command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -4639,7 +4639,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </div>
 </div>
 </div>
-<h2 id="create-user-roles">Create user roles<a class="headerlink" href="#create-user-roles" title="Permanent link">¶</a></h2>
+<h2 id="create-user-roles">Create user roles<a data-markdown-ignore class="headerlink" href="#create-user-roles" title="Permanent link">¶</a></h2>
 <p>To enable users to access Percona Server for MongoDB, you must create roles and define privileges for them. </p>
 <p>The role name must have the format </p>
 <div class="highlight"><pre><span></span><code>&lt;authNamePrefix&gt;/&lt;Group-ObjectID&gt;
@@ -4653,8 +4653,8 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <span class="p">})</span>
 </code></pre></div>
 <p>Create role for all groups you have defined in Microsoft Entra ID. You can also create roles with different privileges for different groups.</p>
-<h2 id="connect-to-percona-server-for-mongodb-using-oidc-authentication">Connect to Percona Server for MongoDB using OIDC authentication<a class="headerlink" href="#connect-to-percona-server-for-mongodb-using-oidc-authentication" title="Permanent link">¶</a></h2>
-<h3 id="authorization-code-flow">Authorization code flow<a class="headerlink" href="#authorization-code-flow" title="Permanent link">¶</a></h3>
+<h2 id="connect-to-percona-server-for-mongodb-using-oidc-authentication">Connect to Percona Server for MongoDB using OIDC authentication<a data-markdown-ignore class="headerlink" href="#connect-to-percona-server-for-mongodb-using-oidc-authentication" title="Permanent link">¶</a></h2>
+<h3 id="authorization-code-flow">Authorization code flow<a data-markdown-ignore class="headerlink" href="#authorization-code-flow" title="Permanent link">¶</a></h3>
 <p>To connect to Percona Server for MongoDB using OIDC authentication, you can use the <code>mongo</code> shell or any MongoDB client that supports OIDC.</p>
 <ol>
 <li>
@@ -4668,7 +4668,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>Confirm sign in. </li>
 <li>Upon successful authentication, your <code>mongosh</code> session is established, and you can start executing commands.</li>
 </ol>
-<h3 id="device-authentication-flow">Device authentication flow<a class="headerlink" href="#device-authentication-flow" title="Permanent link">¶</a></h3>
+<h3 id="device-authentication-flow">Device authentication flow<a data-markdown-ignore class="headerlink" href="#device-authentication-flow" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Connect to Percona Server for MongoDB:</p>

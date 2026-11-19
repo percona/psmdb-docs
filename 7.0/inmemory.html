@@ -132,7 +132,7 @@ memory to hold the data set, and ensure that the server does not shut down.">
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4374,13 +4374,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-memory-engine">Percona Memory Engine<a class="headerlink" href="#percona-memory-engine" title="Permanent link">¶</a></h1>
+<h1 id="percona-memory-engine">Percona Memory Engine<a data-markdown-ignore class="headerlink" href="#percona-memory-engine" title="Permanent link">¶</a></h1>
 <p>Percona Memory Engine is a special configuration of <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> that does
 not store user data on disk. Data fully resides in the main memory, making
 processing much faster and smoother. Keep in mind that you need to have enough
 memory to hold the data set, and ensure that the server does not shut down.</p>
 <p>The Percona Memory Engine is available in Percona Server for MongoDB along with the default MongoDB engine <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a>.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">¶</a></h2>
+<h2 id="usage">Usage<a data-markdown-ignore class="headerlink" href="#usage" title="Permanent link">¶</a></h2>
 <p>As of version 3.2, Percona Server for MongoDB runs with <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> by default. You can select a
 storage engine using the <code>--storageEngine</code> command-line option when you start
 <code>mongod</code>.  Alternatively, you can set the <code>storage.engine</code> variable in the
@@ -4389,10 +4389,10 @@ configuration file (by default, <code>/etc/mongod.conf</code>):</p>
 <span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;dataDir&gt;</span>
 <span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span>
 </code></pre></div>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
+<h2 id="configuration">Configuration<a data-markdown-ignore class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
 <p>You can configure Percona Memory Engine using either command-line options or
 corresponding parameters in the <code>/etc/mongod.conf</code> file. The following are the configuration examples:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3a2 2 0 0 1 2-2h9.982a2 2 0 0 1 1.414.586l4.018 4.018A2 2 0 0 1 21 7.018V21a2 2 0 0 1-2 2H4.75a.75.75 0 0 1 0-1.5H19a.5.5 0 0 0 .5-.5V8.5h-4a2 2 0 0 1-2-2v-4H5a.5.5 0 0 0-.5.5v6.25a.75.75 0 0 1-1.5 0Zm12-.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 0-.146-.336l-4.018-4.018A.5.5 0 0 0 15 2.5"></path><path d="M4.53 12.24a.75.75 0 0 1-.039 1.06l-2.639 2.45 2.64 2.45a.75.75 0 1 1-1.022 1.1l-3.23-3a.75.75 0 0 1 0-1.1l3.23-3a.75.75 0 0 1 1.06.04m3.979 1.06a.75.75 0 1 1 1.02-1.1l3.231 3a.75.75 0 0 1 0 1.1l-3.23 3a.75.75 0 1 1-1.021-1.1l2.639-2.45-2.64-2.45Z"></path></svg></span> Configuration file</label><label for="__tabbed_1_2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 19V7H4v12zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-7 14v-2h5v2zm-3.42-4L5.57 9H8.4l3.3 3.3c.39.39.39 1.03 0 1.42L8.42 17H5.59z"></path></svg></span> Command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>The configuration file is formatted in YAML</p>
@@ -4414,7 +4414,7 @@ corresponding parameters in the <code>/etc/mongod.conf</code> file. The followin
 </div>
 </div>
 </div>
-<h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">¶</a></h3>
+<h3 id="options">Options<a data-markdown-ignore class="headerlink" href="#options" title="Permanent link">¶</a></h3>
 <p>The following options are available (with corresponding YAML configuration file
 parameters):</p>
 <table>
@@ -4461,8 +4461,8 @@ parameters):</p>
 </tr>
 </tbody>
 </table>
-<h2 id="switching-storage-engines">Switching storage engines<a class="headerlink" href="#switching-storage-engines" title="Permanent link">¶</a></h2>
-<h3 id="considerations">Considerations<a class="headerlink" href="#considerations" title="Permanent link">¶</a></h3>
+<h2 id="switching-storage-engines">Switching storage engines<a data-markdown-ignore class="headerlink" href="#switching-storage-engines" title="Permanent link">¶</a></h2>
+<h3 id="considerations">Considerations<a data-markdown-ignore class="headerlink" href="#considerations" title="Permanent link">¶</a></h3>
 <p>If you have data files in your database and want to change to Percona Memory Engine, consider the following:</p>
 <ul>
 <li>
@@ -4473,9 +4473,9 @@ parameters):</p>
 </li>
 </ul>
 <p>Creating a new <code>dbPath</code> data directory for a different storage engine is the simplest solution. Yet when you switch between disk-using storage engines (e.g. from <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a> to Percona Memory Engine), you may have to delete the old data if there is not enough disk space for both. Double-check that your backups are solid and/or the replica set nodes are healthy before you switch to the new storage engine.</p>
-<h3 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">¶</a></h3>
+<h3 id="procedure">Procedure<a data-markdown-ignore class="headerlink" href="#procedure" title="Permanent link">¶</a></h3>
 <p>To change a storage engine, you have the following options:</p>
-<h4 id="temporarily-test-percona-memory-engine">Temporarily test Percona Memory Engine<a class="headerlink" href="#temporarily-test-percona-memory-engine" title="Permanent link">¶</a></h4>
+<h4 id="temporarily-test-percona-memory-engine">Temporarily test Percona Memory Engine<a data-markdown-ignore class="headerlink" href="#temporarily-test-percona-memory-engine" title="Permanent link">¶</a></h4>
 <p>Set a different data directory for the <code>dbPath</code> variable in the configuration file. Make sure that the user running <code>mongod</code> has read and write permissions for the new data directory.</p>
 <ol>
 <li>
@@ -4496,7 +4496,7 @@ parameters):</p>
 </code></pre></div>
 </li>
 </ol>
-<h4 id="permanent-switch-to-percona-memory-engine-without-any-valuable-data-in-your-database">Permanent switch to Percona Memory Engine without any valuable data in your database<a class="headerlink" href="#permanent-switch-to-percona-memory-engine-without-any-valuable-data-in-your-database" title="Permanent link">¶</a></h4>
+<h4 id="permanent-switch-to-percona-memory-engine-without-any-valuable-data-in-your-database">Permanent switch to Percona Memory Engine without any valuable data in your database<a data-markdown-ignore class="headerlink" href="#permanent-switch-to-percona-memory-engine-without-any-valuable-data-in-your-database" title="Permanent link">¶</a></h4>
 <p>Clean out the <code>dbPath</code> data directory (by default, <code>/var/lib/mongodb</code>) and edit the configuration file:</p>
 <ol>
 <li>
@@ -4522,8 +4522,8 @@ parameters):</p>
 </code></pre></div>
 </li>
 </ol>
-<h4 id="switch-to-percona-memory-engine-with-data-migration-and-compatibility">Switch to Percona Memory Engine with data migration and compatibility<a class="headerlink" href="#switch-to-percona-memory-engine-with-data-migration-and-compatibility" title="Permanent link">¶</a></h4>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Standalone instance</label><label for="__tabbed_2_2">Replica set</label></div>
+<h4 id="switch-to-percona-memory-engine-with-data-migration-and-compatibility">Switch to Percona Memory Engine with data migration and compatibility<a data-markdown-ignore class="headerlink" href="#switch-to-percona-memory-engine-with-data-migration-and-compatibility" title="Permanent link">¶</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">Standalone instance</label><label for="__tabbed_2_2">Replica set</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>For a standalone instance or a single-node replica set, use the <code>mongodump</code> and <code>mongorestore</code> utilities:</p>
@@ -4597,7 +4597,7 @@ value for the <code>storage.engine</code> variable. Set the engine-specific sett
 </div>
 </div>
 </div>
-<h3 id="data-at-rest-encryption">Data at rest encryption<a class="headerlink" href="#data-at-rest-encryption" title="Permanent link">¶</a></h3>
+<h3 id="data-at-rest-encryption">Data at rest encryption<a data-markdown-ignore class="headerlink" href="#data-at-rest-encryption" title="Permanent link">¶</a></h3>
 <p>Using <a href="data-at-rest-encryption.html">Data at Rest Encryption</a> means using the same <code>storage.\*</code>
 configuration options as for <a href="https://docs.mongodb.org/manual/core/wiredtiger/">WiredTiger</a>. To change from normal to <a href="data-at-rest-encryption.html">Data at Rest Encryption</a> mode or backward, you must clean up the <code>dbPath</code> data directory, just as if you change the storage engine. This is because
 <strong>mongod</strong> cannot convert the data files to an encrypted format ‘in place’. It

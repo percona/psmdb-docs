@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4257,12 +4257,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="percona-server-for-mongodb-704-2-2023-12-11">Percona Server for MongoDB 7.0.4-2 (2023-12-11)<a class="headerlink" href="#percona-server-for-mongodb-704-2-2023-12-11" title="Permanent link">¶</a></h1>
+<h1 id="percona-server-for-mongodb-704-2-2023-12-11">Percona Server for MongoDB 7.0.4-2 (2023-12-11)<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-704-2-2023-12-11" title="Permanent link">¶</a></h1>
 <p><a class="md-button" href="../install/index.html">Installation</a></p>
 <p>We are pleased to announce the general availability of Percona Server for MongoDB 7.0.4-2 – the drop in replacement for MongoDB Community Edition. Percona Server for MongoDB supports MongoDB community protocols and drivers and enhances it with the <a href="../comparison.html">enterprise-grade features for free</a>, enabling you to effectively meet the requirements of your organization in terms of high-availability, reliability and data security. </p>
 <p>Percona Server for MongoDB 7.0.4-2 includes the improvements and bug fixes of <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.3---nov-9--2023">MongoDB 7.0.3 Community Edition</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.4---nov-13--2023">MongoDB 7.0.4 Community Edition</a>.</p>
 <p>It supports protocols and drivers of both MongoDB 7.0.3 and MongoDB 7.0.4.</p>
-<h2 id="upgrade-considerations">Upgrade considerations<a class="headerlink" href="#upgrade-considerations" title="Permanent link">¶</a></h2>
+<h2 id="upgrade-considerations">Upgrade considerations<a data-markdown-ignore class="headerlink" href="#upgrade-considerations" title="Permanent link">¶</a></h2>
 <ul>
 <li>
 <p>Starting with version 7.0, Percona Server for MongoDB enables journaling by default. Both the <code>storage.journal.enabled</code> configuration option and the corresponding <code>--journal</code>, <code>--no-journal</code> command-line options are now ignored. You receive the corresponding warning during the server start after the upgrade. To get rid of this warning, change your configuration to remove the journaling options. See the <a href="../install/upgrade-from-60.html">upgrade guide</a> for exact procedure.</p>
@@ -4279,7 +4279,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Due to <a href="https://jira.mongodb.org/browse/SERVER-80203">time series sharded cluster operation routing issue</a> occurred in MongoDB version 7.0.1 - 7.0.3 and fixed in version 7.0.4, follow closely the upstream remediation recommendations to identify and recover orphanated collections.</p>
 </li>
 </ul>
-<h2 id="release-highlights">Release Highlights<a class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
+<h2 id="release-highlights">Release Highlights<a data-markdown-ignore class="headerlink" href="#release-highlights" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="../aws-iam.html">AWS IAM authentication</a> is now generally available, enabling you to use this functionality in production environments.</li>
 <li>You can now configure the retry behavior for Percona Server for MongoDB to connect to the KMIP server when using <a href="../kmip.html">data-at-rest encryption</a>. </li>
@@ -4303,7 +4303,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li><a href="https://jira.mongodb.org/browse/WT-11564">WT-11564</a> - Fixed the rollback-to-stable behavior to read the newest transaction value only when it exists in the checkpoint.</li>
 </ul>
 <p>Find the full list of changes in the <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.3---nov-9--2023">MongoDB 7.0.3 Community Edition release notes</a> and <a href="https://www.mongodb.com/docs/manual/release-notes/7.0/#7.0.4---nov-13--2023">MongoDB 7.0.4 Community Edition release notes</a>.</p>
-<h2 id="new-features">New Features<a class="headerlink" href="#new-features" title="Permanent link">¶</a></h2>
+<h2 id="new-features">New Features<a data-markdown-ignore class="headerlink" href="#new-features" title="Permanent link">¶</a></h2>
 <ul>
 <li><a href="https://jira.percona.com/browse/PSMDB-1241">PSMDB-1241</a> - Implement the <code>connectRetries</code> and the <code>connectTimeoutMS</code> configuration file options</li>
 </ul>

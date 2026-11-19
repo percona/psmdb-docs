@@ -129,7 +129,7 @@
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
         </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
 
 
 
@@ -4361,9 +4361,9 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   
 
 
-<h1 id="set-up-ldap-authentication-and-authorization-using-nativeldap">Set up LDAP authentication and authorization using NativeLDAP<a class="headerlink" href="#set-up-ldap-authentication-and-authorization-using-nativeldap" title="Permanent link">¶</a></h1>
+<h1 id="set-up-ldap-authentication-and-authorization-using-nativeldap">Set up LDAP authentication and authorization using NativeLDAP<a data-markdown-ignore class="headerlink" href="#set-up-ldap-authentication-and-authorization-using-nativeldap" title="Permanent link">¶</a></h1>
 <p>This document describes an example configuration of LDAP authentication and authorization using direct binding to an LDAP server (Native LDAP). We recommend testing this setup in a non-production environment first, before applying it in production.</p>
-<h2 id="assumptions">Assumptions<a class="headerlink" href="#assumptions" title="Permanent link">¶</a></h2>
+<h2 id="assumptions">Assumptions<a data-markdown-ignore class="headerlink" href="#assumptions" title="Permanent link">¶</a></h2>
 <ul>
 <li>The setup of an LDAP server is out of scope of this document. We assume that you are familiar with the LDAP server schema.</li>
 <li>If usernames contain special characters, they must be escaped as described in <a href="https://www.ietf.org/rfc/rfc4514.txt">RFC4514</a>, <a href="https://tools.ietf.org/html/rfc4515">RFC4515</a>, <a href="https://tools.ietf.org/html/rfc4516">RFC4516</a>. The usage of particular escaping rules depends on  the part of the LDAP query which will contain the substituted value. An explanation of escaping rules or LDAP queries is out of scope of this setup. Please review the RFC directly or use your preferred LDAP resource.</li>
@@ -4381,7 +4381,7 @@ objectClass: groupOfNames
 cn: otherusers
 member: cn=bob,dc=percona,dc=com
 </code></pre></div>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
+<h2 id="prerequisites">Prerequisites<a data-markdown-ignore class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <ul>
 <li>
 <p>To configure LDAP, you must have the <code>sudo</code> privilege to the server with the Percona Server for MongoDB installed.</p>
@@ -4394,8 +4394,8 @@ member: cn=bob,dc=percona,dc=com
 </ul>
 </li>
 </ul>
-<h2 id="setup-procedure">Setup procedure<a class="headerlink" href="#setup-procedure" title="Permanent link">¶</a></h2>
-<h3 id="configure-tlsssl-connection-for-percona-server-for-mongodb">Configure TLS/SSL connection for Percona Server for MongoDB<a class="headerlink" href="#configure-tlsssl-connection-for-percona-server-for-mongodb" title="Permanent link">¶</a></h3>
+<h2 id="setup-procedure">Setup procedure<a data-markdown-ignore class="headerlink" href="#setup-procedure" title="Permanent link">¶</a></h2>
+<h3 id="configure-tlsssl-connection-for-percona-server-for-mongodb">Configure TLS/SSL connection for Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#configure-tlsssl-connection-for-percona-server-for-mongodb" title="Permanent link">¶</a></h3>
 <p>By default, Percona Server for MongoDB establishes the TLS connection when binding to the LDAP server and thus, it requires access to the LDAP  certificates. To make Percona Server for MongoDB aware of the certificates, do the following:</p>
 <ol>
 <li>
@@ -4411,7 +4411,7 @@ member: cn=bob,dc=percona,dc=com
 </li>
 <li>
 <p>Specify the path to the certificates in the <code>ldap.conf</code> file:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Debian / Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">Debian / Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>tee -a /etc/openldap/ldap.conf &lt;&lt;EOF
@@ -4429,7 +4429,7 @@ EOF
 </div>
 </li>
 </ol>
-<h3 id="create-roles-for-ldap-groups-in-percona-server-for-mongodb">Create roles for LDAP groups in Percona Server for MongoDB<a class="headerlink" href="#create-roles-for-ldap-groups-in-percona-server-for-mongodb" title="Permanent link">¶</a></h3>
+<h3 id="create-roles-for-ldap-groups-in-percona-server-for-mongodb">Create roles for LDAP groups in Percona Server for MongoDB<a data-markdown-ignore class="headerlink" href="#create-roles-for-ldap-groups-in-percona-server-for-mongodb" title="Permanent link">¶</a></h3>
 <p>Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the <code>admin</code> database with the name that exactly matches the  of the LDAP group.</p>
 <p>Percona Server for MongoDB maps the user’s LDAP group to the roles and determines what role is assigned to the user. Percona Server for MongoDB then grants privileges defined by this role.</p>
 <p>To create the roles, use the following command:</p>
@@ -4450,8 +4450,8 @@ EOF
 <span class="w">   </span><span class="p">}</span>
 <span class="p">)</span>
 </code></pre></div>
-<h3 id="percona-server-for-mongodb-configuration">Percona Server for MongoDB configuration<a class="headerlink" href="#percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h3>
-<h4 id="access-without-username-transformation">Access without username transformation<a class="headerlink" href="#access-without-username-transformation" title="Permanent link">¶</a></h4>
+<h3 id="percona-server-for-mongodb-configuration">Percona Server for MongoDB configuration<a data-markdown-ignore class="headerlink" href="#percona-server-for-mongodb-configuration" title="Permanent link">¶</a></h3>
+<h4 id="access-without-username-transformation">Access without username transformation<a data-markdown-ignore class="headerlink" href="#access-without-username-transformation" title="Permanent link">¶</a></h4>
 <p>This section assumes that users connect to Percona Server for MongoDB by providing their LDAP <abbr title="Distinguished Name">DN</abbr> as the username and the LDAP DNs don’t contain special characters. Otherwise, you must escape them according to <a href="https://datatracker.ietf.org/doc/html/rfc4514">RFC 4514 | LDAP: Distinguished Names</a>.</p>
 <ol>
 <li>
@@ -4481,12 +4481,12 @@ EOF
 </code></pre></div>
 </li>
 </ol>
-<h4 id="access-with-username-transformation">Access with username transformation<a class="headerlink" href="#access-with-username-transformation" title="Permanent link">¶</a></h4>
+<h4 id="access-with-username-transformation">Access with username transformation<a data-markdown-ignore class="headerlink" href="#access-with-username-transformation" title="Permanent link">¶</a></h4>
 <p>If users connect to Percona Server for MongoDB with usernames that are not LDAP, you need to transform these usernames to be accepted by the LDAP server. If usernames contain special characters, these <a href="#escaping-special-characters">characters must be escaped</a>. </p>
 <p>Using the <code>--ldapUserToDNMapping</code> configuration parameter allows you to do this. You specify the match pattern as a regexp to capture a username. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.</p>
 <p>If you don’t know what the Substitution or LDAP query string should be, please consult with the LDAP administrators to figure this out.</p>
 <p>Note that you can use only the <code>LDAPquery</code> or the <code>Substitution</code> stage, and you cannot combine the two.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Substitution</label><label for="__tabbed_2_2">LDAP query</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">Substitution</label><label for="__tabbed_2_2">LDAP query</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -4564,7 +4564,7 @@ EOF
 </div>
 </div>
 </div>
-<h4 id="escaping-special-characters">Escaping special characters<a class="headerlink" href="#escaping-special-characters" title="Permanent link">¶</a></h4>
+<h4 id="escaping-special-characters">Escaping special characters<a data-markdown-ignore class="headerlink" href="#escaping-special-characters" title="Permanent link">¶</a></h4>
 <p>The <strong><code>substitution</code> parameter</strong></p>
 <p>The result of the substitution becomes the value of the <code>{USER}</code> placeholder, which is a <code>{USER}</code> value in the <code>security.ldap.authz.queryTemplate</code> parameter. Escaping requirements depend on the part of the query template that will be substituted. For example, the result of the substitution can be a full distinguished name or a part of it. In this case, according to <a href="https://www.ietf.org/rfc/rfc4514.txt">RFC4514</a>, you must escape special characters in the <code>substitution</code> parameter. Using other escaping mechanisms in this parameter is unnecessary because Percona Server for MongoDB applies the necessary escaping as outlined in <a href="https://tools.ietf.org/html/rfc4515">RFC4515</a> and <a href="https://tools.ietf.org/html/rfc4516">RFC4516</a> while substituting the <code>security.ldap.authz.queryTemplate</code> parameter.</p>
 <p>The <strong><code>ldapQuery</code> and <code>queryTemplate</code> parameters</strong></p>
@@ -4575,7 +4575,7 @@ EOF
 <li>Then, escape special characters in the query according to <a href="https://www.ietf.org/rfc/rfc4516.txt">RFC 4516</a>. Note that you do not need to escape question marks if they are being used to separate parts of the query.<br></li>
 <li>Finally, if you plan to use the result in a YAML configuration file, you may need to escape characters according to the <a href="https://yaml.org/spec/">YAML specification</a></li>
 </ol>
-<h3 id="active-directory-configuration">Active Directory configuration<a class="headerlink" href="#active-directory-configuration" title="Permanent link">¶</a></h3>
+<h3 id="active-directory-configuration">Active Directory configuration<a data-markdown-ignore class="headerlink" href="#active-directory-configuration" title="Permanent link">¶</a></h3>
 <p>Microsoft Active Directory uses a different schema for user and group definition. To illustrate Percona Server for MongoDB configuration, we will use the following <abbr title="Active Directory">AD</abbr> users:</p>
 <div class="highlight"><pre><span></span><code>dn:CN=alice,CN=Users,DC=testusers,DC=percona,DC=com
 userPrincipalName: alice@testusers.percona.com
@@ -4593,7 +4593,7 @@ dn:CN=otherusers,CN=Users,DC=percona,DC=com
 member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </code></pre></div>
 <p>Use one of the given Percona Server for MongoDB configurations for user authentication and authorization in Active Directory. Read about <a href="#escaping-special-characters">escaping special characters in usernames</a> to modify the configuration accordingly.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">No username transformation</label><label for="__tabbed_3_2">Username substitution</label><label for="__tabbed_3_3">LDAP query</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_3_1">No username transformation</label><label for="__tabbed_3_2">Username substitution</label><label for="__tabbed_3_3">LDAP query</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
