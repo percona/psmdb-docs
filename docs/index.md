@@ -33,7 +33,7 @@ Define who has access to the database and manage their permissions in a single p
 
 Use Percona Backup for MongoDB (PBM) for consistent backups and restores of replica sets and sharded clusters.
 
-[Get started with PBM :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/installation.html){ .md-button }
+[Get started with PBM :material-arrow-right:](https://docs.percona.com/percona-backup-mongodb/latest/installation.html){ .md-button }
 
 </div><div data-banner markdown>
 
