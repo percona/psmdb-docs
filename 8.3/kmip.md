@@ -14,9 +14,9 @@ Version changes
 
 The following table lists the changes in the KMIP implementation in Percona Server for MongoDB and the versions that introduced those changes:
 
-| Version                                                                                       | Description                              |
-| --------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| [7.0.14-8](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.14-8.md) | [Key state polling](#key-state-polling). |
+| Version                                                                                         | Description                              |
+| ----------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| [7.0.14-8](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.14-8.html) | [Key state polling](#key-state-polling). |
 
 ## Support for multiple KMIP servers
 

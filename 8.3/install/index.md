@@ -56,4 +56,4 @@ Note that for this scenario you must make sure that all dependencies are satisfi
 
 If you are already using MongoDB, see [Upgrading from MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-mongodb.html).
 
-If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 7.0](https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-70.md).
+If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 8.0](https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-80.html).

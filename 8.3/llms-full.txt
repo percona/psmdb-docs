@@ -140,7 +140,7 @@ Note that for this scenario you must make sure that all dependencies are satisfi
 
 If you are already using MongoDB, see [Upgrading from MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-mongodb.html).
 
-If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 7.0](https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-70.md).
+If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 8.0](https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-80.html).
 
 # System requirements
 
@@ -2547,7 +2547,7 @@ For either type of AWS IAM authentication, the flow is the following:
 
 1. Percona Server for MongoDB looks for the same username as the received ARN in the `$external` database and grants privileges to access Percona Server for MongoDB as defined for the respective user.
 
-Starting with version [6.0.8-6](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.8-6.md), you can [configure the AWS STS endpoint](https://docs.percona.com/percona-server-for-mongodb/8.3/aws-iam-setup.html#configure-aws-sts-endpoint) by specifying the `setParameter.awsStsHost` in the configuration file. This allows you to send requests to the AWS resources of your choice to meet security requirements of your organization and ensure successful authentication.
+Starting with version [6.0.8-6](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.8-6.html), you can [configure the AWS STS endpoint](https://docs.percona.com/percona-server-for-mongodb/8.3/aws-iam-setup.html#configure-aws-sts-endpoint) by specifying the `setParameter.awsStsHost` in the configuration file. This allows you to send requests to the AWS resources of your choice to meet security requirements of your organization and ensure successful authentication.
 
 See also
 
@@ -5527,7 +5527,7 @@ Rotating the master key process also re-encrypts the keystore using the new mast
 
 ### Key rotation in replica sets
 
-Starting with version [6.0.5-4](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.md), you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The `mongod` server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.
+Starting with version [6.0.5-4](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.5-4.html), you can store the master key at the same path on every replica set member in your entire deployment. Vault assigns different versions to the master keys stored at the same path. The path and the version serve as the unique identifier of a master key. The `mongod` server stores that identifier and uses it to retrieve the correct master key from the Vault server during the restart.
 
 The key rotation steps are the following:
 
@@ -5715,9 +5715,9 @@ Version changes
 
 The following table lists the changes in the KMIP implementation in Percona Server for MongoDB and the versions that introduced those changes:
 
-| Version                                                                                       | Description                              |
-| --------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| [7.0.14-8](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.14-8.md) | [Key state polling](#key-state-polling). |
+| Version                                                                                         | Description                              |
+| ----------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| [7.0.14-8](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.14-8.html) | [Key state polling](#key-state-polling). |
 
 ## Support for multiple KMIP servers
 
