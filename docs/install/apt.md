@@ -135,7 +135,7 @@ Congratulations! Your Percona Server for MongoDB is up and running.
 
 ## Download Mongosh testing packages for Ubuntu 26.04
 
-MongoDB Shell (`mongosh`) 2.14.1 testing packages are available for Ubuntu 26.04 LTS (Resolute Raccoon) in the [Percona Server for MongoDB 9.0 testing repository](https://repo.percona.com/psmdb-90/apt/pool/testing/p/percona-mongodb-mongosh/).
+MongoDB Shell (`mongosh`) 2.14.1 testing packages are available for Ubuntu 26.04 LTS (Resolute Raccoon). Download the packages from the [Percona Server for MongoDB 9.0 testing repository](https://repo.percona.com/psmdb-90/apt/pool/testing/p/percona-mongodb-mongosh/).
 
 Select the `percona-mongodb-mongosh` package that matches your system architecture:
 
@@ -144,7 +144,7 @@ Select the `percona-mongodb-mongosh` package that matches your system architectu
 | AMD64 (x86_64) | `percona-mongodb-mongosh_2.14.1.resolute_amd64.deb` |
 | ARM64 (AArch64) | `percona-mongodb-mongosh_2.14.1.resolute_arm64.deb` |
 
-These packages are for testing. Their availability does not indicate a production release or production support for Ubuntu 26.04. For supported production platforms, see the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb).
+These are testing packages. Their availability does not indicate a production release or production support for Ubuntu 26.04. For supported production platforms, see the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb).
 
 ## Next steps
 
