@@ -45,7 +45,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 3. Enable the repository:    
 
     ```bash
-    sudo percona-release enable psmdb-80 release
+    sudo percona-release enable psmdb-90 release
     ```    
 
 4. Remember to update the local cache:    
@@ -79,7 +79,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
          Sample output:
 
          ```{.bash .no-copy}
-         percona-server-mongodb | {{release}}.bullseye | http://repo.percona.com/psmdb-80/apt bullseye/main amd64 Packages
+         percona-server-mongodb | {{release}}.bullseye | http://repo.percona.com/psmdb-90/apt bullseye/main amd64 Packages
          ```
 
       2. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB {{release}}, run the following command:
@@ -93,7 +93,9 @@ and configuration parameters in `/etc/mongod.conf`.
 
 ## Enable Transparent Hugepages (THP)
 
-Enable Transparent Hugepages (THP) before starting Percona Server for MongoDB 8.0. THP is required to use the new TCMalloc version with MongoDB. For how to enable THP, see [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/upcoming/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-) section of documentation.
+Enable Transparent Hugepages (THP) before you start Percona Server for MongoDB 9.0.
+TCMalloc requires THP on supported Linux architectures.
+See [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/manual/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-).
 
 ## Run Percona Server for MongoDB
 

@@ -23,7 +23,7 @@ This document describes how to install Percona Server for MongoDB on RPM-based d
          ```{.bash .no-copy}
              Available Packages
          
-         percona-server-mongodb.x86_64    {{release}}.el9       psmdb-80-release-x86_64
+         percona-server-mongodb.x86_64    {{release}}.el9       psmdb-90-release-x86_64
          ```
 
      2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:

@@ -1,10 +1,10 @@
 # Percona Server for MongoDB feature comparison
 
-Percona Server for MongoDB 8.0 is based on [MongoDB Community Edition 8.0](https://docs.mongodb.com/manual/introduction/) and extends it with the functionality, that is otherwise only available in MongoDB Enterprise Edition.
+Percona Server for MongoDB 9.0 extends [MongoDB Community Edition 9.0](https://www.mongodb.com/docs/v9.0/introduction/) with enterprise features.
 
 |                        | PSMDB  | MongoDB  |
 |------------------------| ------ | -------- |
-| **Storage Engines**    | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br> - [Percona Memory Engine](inmemory.md) | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br>- [In-Memory](https://docs.mongodb.com/v6.0/core/inmemory/) (Enterprise only)|
+| **Storage Engines**    | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br> - [Percona Memory Engine](inmemory.md) | - [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) (default) <br>- [In-Memory](https://www.mongodb.com/docs/v9.0/core/inmemory/) (Enterprise only)|
 | **Encryption-at-Rest** | - Key servers = [Hashicorp Vault](vault.md), [KMIP](kmip.md) <br> - Fully open source | - Key server = KMIP <br> - Enterprise only |
 | **Hot Backup**         | [YES](hot-backup.md) (replica set) | NO  |
 | **LDAP Authentication**| (legacy) [LDAP authentication with SASL](authentication.md) | Enterprise only |

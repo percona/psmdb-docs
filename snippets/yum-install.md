@@ -34,7 +34,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 2. Enable the repository: 
         
     ```bash
-    sudo percona-release enable psmdb-80 release
+    sudo percona-release enable psmdb-90 release
     ```
 
 ### Install Percona Server for MongoDB packages
@@ -62,7 +62,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
          ```{.bash .no-copy}
              Available Packages
 
-         percona-server-mongodb.x86_64    {{release}}.el9       psmdb-80-release-x86_64
+         percona-server-mongodb.x86_64    {{release}}.el9       psmdb-90-release-x86_64
          ```
 
      2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
@@ -76,7 +76,9 @@ and configuration parameters in `/etc/mongod.conf`.
 
 ## Enable Transparent Hugepages (THP)
 
-Enable Transparent Hugepages (THP) before starting Percona Server for MongoDB 8.0. THP is required to use the new TCMalloc version with MongoDB. For how to enable THP, see [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/upcoming/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-) section of documentation.
+Enable Transparent Hugepages (THP) before you start Percona Server for MongoDB 9.0.
+TCMalloc requires THP on supported Linux architectures.
+See [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/manual/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-).
 
 ## Run Percona Server for MongoDB
 
@@ -84,7 +86,7 @@ Enable Transparent Hugepages (THP) before starting Percona Server for MongoDB 8.
 
     If you use SELinux in enforcing mode, you must customize your SELinux user policies to allow access to certain `/sys` and `/proc` files for OS-level statistics. Also, you must customize directory and port access policies if you are using non-default locations.
 
-    Please refer to [Configure SELinux](https://docs.mongodb.com/v8.0/tutorial/install-mongodb-on-red-hat/#configure-selinux) section of MongoDB Documentation for policy configuration guidelines.
+    See [Configure SELinux](https://www.mongodb.com/docs/v9.0/tutorial/install-mongodb-on-red-hat/#configure-selinux) for policy configuration guidelines.
 
 By default, Percona Server for MongoDB stores data files in `/var/lib/mongodb/`
 and configuration parameters in `/etc/mongod.conf`.
