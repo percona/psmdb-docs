@@ -30,7 +30,7 @@ We gather [Telemetry data](../telemetry.md) to understand the use of the softwar
         sudo yum install percona-server-mongodb-{{release}}.el9
         ```
 
-{{render_snippet('yum-install.md', 75, 134)}}
+{{render_snippet('yum-install.md', 74, 140)}}
 
 ## Next steps
 
