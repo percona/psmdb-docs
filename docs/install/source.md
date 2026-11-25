@@ -18,27 +18,44 @@ for compiler, Python, and operating system dependencies.
 
 ### Build steps {.power-number}
 
-1. Clone the {{psmdb_version}} source tree with submodules:
+1. Clone the {{psmdb_version}} source tree:
 
     ```bash
-    git clone --branch v{{psmdb_version}} --recurse-submodules https://github.com/percona/percona-server-mongodb.git
+    git clone --branch v{{psmdb_version}} https://github.com/percona/percona-server-mongodb.git
     cd percona-server-mongodb
     ```
 
-2. Install Bazel with the repository helper:
+2. Create and activate a Python virtual environment:
+
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate
+    ```
+
+    You can skip the virtual environment in a disposable container or other temporary build environment.
+
+3. Install the Python dependencies:
+
+    ```bash
+    buildscripts/poetry_sync.sh
+    ```
+
+    If you skipped the virtual environment, run `buildscripts/poetry_sync.sh -f` in the disposable environment.
+
+4. Install Bazel with the repository helper:
 
     ```bash
     python3 buildscripts/install_bazel.py
     export PATH="$HOME/.local/bin:$PATH"
     ```
 
-3. Build the server binaries:
+5. Build the server binaries:
 
     ```bash
     bazel build --config=psmdb_opt_release install-mongod install-mongos
     ```
 
-4. Check the built server version:
+6. Check the built server version:
 
     ```bash
     bazel-bin/install-mongod/bin/mongod --version
