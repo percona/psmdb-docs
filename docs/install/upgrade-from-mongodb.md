@@ -1,9 +1,9 @@
 # Upgrade from MongoDB Community Edition to Percona Server for MongoDB 
 
-Use this procedure to replace MongoDB Community Edition 9.0 with Percona Server for MongoDB 9.0.
+Use this procedure to replace MongoDB Community Edition {{psmdb_version}} with Percona Server for MongoDB {{psmdb_version}}.
 
 Upgrade earlier major versions before you migrate.
-See [Upgrade from 8.0 to 9.0](upgrade-from-80.md) for the major-version upgrade path.
+See [Upgrade from 8.0 to {{psmdb_version}}](upgrade-from-80.md) for the major-version upgrade path.
 
 An in-place upgrade is done by keeping the existing data in the server and replacing the MongoDB binaries. Afterwards, you restart the `mongod` service with the same `dbpath` data directory.
 
@@ -45,13 +45,13 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
         ??? example "Sample output"
 
             ```{.text .no-copy}
-            ii  mongodb-org                      9.0.8                       amd64        MongoDB open source document-oriented database system (metapackage)
-            ii  mongodb-org-database             9.0.8                       amd64        MongoDB open source document-oriented database system (metapackage)
-            ii  mongodb-org-database-tools-extra 9.0.8                       amd64        Extra MongoDB database tools
-            ii  mongodb-org-mongos               9.0.8                       amd64        MongoDB sharded cluster query router
-            ii  mongodb-org-server               9.0.8                       amd64        MongoDB database server
-            ii  mongodb-org-shell                9.0.8                       amd64        MongoDB shell client
-            ii  mongodb-org-tools                9.0.8                       amd64        MongoDB tools
+            ii  mongodb-org                      {{release.split('-')[0]}}                       amd64        MongoDB open source document-oriented database system (metapackage)
+            ii  mongodb-org-database             {{release.split('-')[0]}}                       amd64        MongoDB open source document-oriented database system (metapackage)
+            ii  mongodb-org-database-tools-extra {{release.split('-')[0]}}                       amd64        Extra MongoDB database tools
+            ii  mongodb-org-mongos               {{release.split('-')[0]}}                       amd64        MongoDB sharded cluster query router
+            ii  mongodb-org-server               {{release.split('-')[0]}}                       amd64        MongoDB database server
+            ii  mongodb-org-shell                {{release.split('-')[0]}}                       amd64        MongoDB shell client
+            ii  mongodb-org-tools                {{release.split('-')[0]}}                       amd64        MongoDB tools
             ```
 
      4. Remove the installed packages:
@@ -108,13 +108,13 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
         ??? example "Sample output"
 
             ```{.text .no-copy}
-            mongodb-org-shell-9.0.8-1.el9.x86_64
-            mongodb-org-database-9.0.8-1.el9.x86_64
-            mongodb-org-9.0.8-1.el9.x86_64
+            mongodb-org-shell-{{release.split('-')[0]}}-1.el9.x86_64
+            mongodb-org-database-{{release.split('-')[0]}}-1.el9.x86_64
+            mongodb-org-{{release.split('-')[0]}}-1.el9.x86_64
             mongodb-database-tools-100.4.1-1.x86_64
-            mongodb-org-server-9.0.8-1.el9.x86_64
-            mongodb-org-mongos-9.0.8-1.el9.x86_64
-            mongodb-org-tools-9.0.8-1.el9.x86_64
+            mongodb-org-server-{{release.split('-')[0]}}-1.el9.x86_64
+            mongodb-org-mongos-{{release.split('-')[0]}}-1.el9.x86_64
+            mongodb-org-tools-{{release.split('-')[0]}}-1.el9.x86_64
             ```
 
      3. Remove the installed packages:
@@ -164,9 +164,9 @@ To upgrade a replica set or a sharded cluster, use the [rolling restart](../glos
 
     MongoDB Documentation:
 
-    * [Upgrade a Replica Set](https://docs.mongodb.com/manual/release-notes/9.0-upgrade-replica-set/)
+    * [Upgrade a Replica Set](https://docs.mongodb.com/manual/release-notes/{{psmdb_version}}-upgrade-replica-set/)
 
-    * [Upgrade a Sharded Cluster](https://docs.mongodb.com/manual/release-notes/9.0-upgrade-sharded-cluster/)
+    * [Upgrade a Sharded Cluster](https://docs.mongodb.com/manual/release-notes/{{psmdb_version}}-upgrade-sharded-cluster/)
 
 ## Upgrading to Percona Server for MongoDB with data at rest encryption enabled
 

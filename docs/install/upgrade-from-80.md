@@ -1,22 +1,22 @@
-# Upgrade from Percona Server for MongoDB 8.0 to 9.0
+# Upgrade from Percona Server for MongoDB 8.0 to {{psmdb_version}}
 
 ## Considerations
 
 
-1. Upgrade Percona Server for MongoDB 8.0 deployments to 9.0.
+1. Upgrade Percona Server for MongoDB 8.0 deployments to {{psmdb_version}}.
    For earlier major versions, upgrade to 8.0 first.
 
-2. Test your applications with 9.0 before you upgrade production deployments.
-   Review [MongoDB 9.0 compatibility changes](https://www.mongodb.com/docs/v9.0/release-notes/9.0-compatibility/).
+2. Test your applications with {{psmdb_version}} before you upgrade production deployments.
+   Review [MongoDB {{psmdb_version}} compatibility changes](https://www.mongodb.com/docs/v{{psmdb_version}}/release-notes/{{psmdb_version}}-compatibility/).
 
-3. Enable Transparent Hugepages (THP) before you start Percona Server for MongoDB 9.0.
+3. Enable Transparent Hugepages (THP) before you start Percona Server for MongoDB {{psmdb_version}}.
    See [Enable THP](https://www.mongodb.com/docs/manual/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-).
 
 4. For data-at-rest encryption with a KMIP server, check the [upgrade considerations](../kmip.md#upgrade-considerations).
 
 5. If you run Amazon Linux 2023, consider the following:
 
-    --8<-- "al-compatibility.md"
+    {{render_snippet('al-compatibility.md') | indent(4)}}
 
 
 Use the official Percona repositories and your operating system package manager for the upgrade.
@@ -38,7 +38,7 @@ Before the upgrade, do the following:
     db.adminCommand({ getParameter: 1, featureCompatibilityVersion: 1 })
     ```
 
-    Resolve an incomplete 8.0 upgrade before you install 9.0 binaries.
+    Resolve an incomplete 8.0 upgrade before you install {{psmdb_version}} binaries.
 
 === ":material-debian: Upgrade on Debian and Ubuntu"
 
@@ -48,10 +48,10 @@ Before the upgrade, do the following:
           sudo systemctl stop mongod
           ```
 
-     2. Enable Percona repository for Percona Server for MongoDB 9.0:
+     2. Enable Percona repository for Percona Server for MongoDB {{psmdb_version}}:
 
          ```bash
-         sudo percona-release enable psmdb-90
+         sudo percona-release enable psmdb-{{psmdb_version | replace(".", "")}}
          ```
 
      3. Update the local cache:
@@ -68,7 +68,7 @@ Before the upgrade, do the following:
             pidFilePath: /var/run/mongod.pid
          ```
 
-     5. Install Percona Server for MongoDB 9.0 packages:
+     5. Install Percona Server for MongoDB {{psmdb_version}} packages:
 
          ```bash
          sudo apt install percona-server-mongodb
@@ -90,10 +90,10 @@ Before the upgrade, do the following:
           sudo systemctl stop mongod
           ```
 
-     2. Enable Percona repository for Percona Server for MongoDB 9.0:
+     2. Enable Percona repository for Percona Server for MongoDB {{psmdb_version}}:
 
          ```bash
-         sudo percona-release enable psmdb-90
+         sudo percona-release enable psmdb-{{psmdb_version | replace(".", "")}}
          ```
 
      3. Remove these `processManagement` options from your configuration file when present:
@@ -104,7 +104,7 @@ Before the upgrade, do the following:
             pidFilePath: /var/run/mongod.pid
          ```
 
-     4. Install Percona Server for MongoDB 9.0 packages:
+     4. Install Percona Server for MongoDB {{psmdb_version}} packages:
 
          ```bash
          sudo yum install percona-server-mongodb
@@ -117,18 +117,18 @@ Before the upgrade, do the following:
          ```
 
 Retain FCV `8.0` while you test the upgraded deployment.
-To enable 9.0 features after you finish the tests, run this command against the `admin` database:
+To enable {{psmdb_version}} features after you finish the tests, run this command against the `admin` database:
 
 ```javascript
-db.adminCommand( { setFeatureCompatibilityVersion: "9.0", confirm: true } )
+db.adminCommand( { setFeatureCompatibilityVersion: "{{psmdb_version}}", confirm: true } )
 ```
 
 ## See also
 
 MongoDB documentation:
 
-- [Upgrade a Standalone](https://www.mongodb.com/docs/v9.0/release-notes/9.0-upgrade-standalone/)
+- [Upgrade a Standalone](https://www.mongodb.com/docs/v{{psmdb_version}}/release-notes/{{psmdb_version}}-upgrade-standalone/)
 
-- [Upgrade a Replica Set](https://www.mongodb.com/docs/v9.0/release-notes/9.0-upgrade-replica-set/)
+- [Upgrade a Replica Set](https://www.mongodb.com/docs/v{{psmdb_version}}/release-notes/{{psmdb_version}}-upgrade-replica-set/)
 
-- [Upgrade a Sharded Cluster](https://www.mongodb.com/docs/v9.0/release-notes/9.0-upgrade-sharded-cluster/)
+- [Upgrade a Sharded Cluster](https://www.mongodb.com/docs/v{{psmdb_version}}/release-notes/{{psmdb_version}}-upgrade-sharded-cluster/)

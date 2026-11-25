@@ -4,7 +4,7 @@ This guide walks you through the installation of Percona Server for MongoDB on R
 
 We gather [Telemetry data](../telemetry.md) to understand the use of the software and improve our products.
 
---8<-- "yum-install.md:1:48"
+{{render_snippet('yum-install.md', 1, 48)}}
 
 === ":octicons-number-16: Install a specific version"
 
@@ -21,7 +21,7 @@ We gather [Telemetry data](../telemetry.md) to understand the use of the softwar
          ```{.bash .no-copy}
              Available Packages
          
-         percona-server-mongodb.x86_64    {{release}}.el9       psmdb-90-release-x86_64
+         percona-server-mongodb.x86_64    {{release}}.el9       psmdb-{{psmdb_version | replace(".", "")}}-release-x86_64
          ```
 
      2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
@@ -30,7 +30,7 @@ We gather [Telemetry data](../telemetry.md) to understand the use of the softwar
         sudo yum install percona-server-mongodb-{{release}}.el9
         ```
 
---8<-- "yum-install.md:75:134"
+{{render_snippet('yum-install.md', 75, 134)}}
 
 ## Next steps
 

@@ -6,7 +6,7 @@ This document describes how to install Percona Server for MongoDB on RPM-based d
 
     Percona Server for MongoDB should work on other RPM-based distributions (for example, Alma Linux), but it is tested only on platforms listed on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page. 
 
---8<-- "yum-install.md:1:48"
+{{render_snippet('yum-install.md', 1, 48)}}
 
 === ":octicons-number-16: Install a specific version"
 
@@ -23,7 +23,7 @@ This document describes how to install Percona Server for MongoDB on RPM-based d
          ```{.bash .no-copy}
              Available Packages
          
-         percona-server-mongodb.x86_64    {{release}}.el9       psmdb-90-release-x86_64
+         percona-server-mongodb.x86_64    {{release}}.el9       psmdb-{{psmdb_version | replace(".", "")}}-release-x86_64
          ```
 
      2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
@@ -32,7 +32,7 @@ This document describes how to install Percona Server for MongoDB on RPM-based d
         sudo yum install percona-server-mongodb-{{release}}.el9
         ```
 
---8<-- "yum-install.md:74:140"
+{{render_snippet('yum-install.md', 74, 140)}}
 
 ## Next steps
 
