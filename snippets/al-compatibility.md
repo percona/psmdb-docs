@@ -1,7 +1,7 @@
 We build and test Percona Server for MongoDB only on the latest versions of Amazon Linux 2023. Because of the way Amazon Linux updates their libraries, Percona Server for MongoDB works only on specific Amazon Linux versions. 
 
 The following table records compatibility for earlier 8.0 releases.
-Do not use these rows to select an Amazon Linux version for a 9.0 deployment.
+Do not use these rows to select an Amazon Linux version for a {{psmdb_version}} deployment.
 Check the [supported platforms](https://www.percona.com/services/policies/percona-software-platform-lifecycle) before you install or upgrade.
 
 | Percona Server for MongoDB version | Amazon Linux 2023 version |
