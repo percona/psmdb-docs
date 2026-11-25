@@ -25,14 +25,14 @@ for compiler, Python, and operating system dependencies.
     cd percona-server-mongodb
     ```
 
-2. Create and activate a Python virtual environment:
+2. (Recommended) Create and activate a Python virtual environment:
 
     ```bash
     python3 -m venv .venv
     source .venv/bin/activate
     ```
 
-    You can skip the virtual environment in a disposable container or other temporary build environment.
+    You can skip the virtual environment in a temporary container or other temporary build environment.
 
 3. Install the Python dependencies:
 
@@ -40,7 +40,7 @@ for compiler, Python, and operating system dependencies.
     buildscripts/poetry_sync.sh
     ```
 
-    If you skipped the virtual environment, run `buildscripts/poetry_sync.sh -f` in the disposable environment.
+    If you skipped the virtual environment, run `buildscripts/poetry_sync.sh -f` in the temporary environment.
 
 4. Install Bazel with the repository helper:
 
