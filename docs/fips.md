@@ -4,4 +4,4 @@ FIPS (Federal Information Processing Standard) is the US government computer sec
 
 The FIPS compliance in Percona Server for MongoDB is implemented in the same way, as in MongoDB Enterprise Advanced.
 
-See [Configure MongoDB for FIPS](https://www.mongodb.com/docs/v9.0/tutorial/configure-fips/) in MongoDB documentation for configuration guidelines.
+See [Configure MongoDB for FIPS](https://www.mongodb.com/docs/v{{psmdb_version}}/tutorial/configure-fips/) in MongoDB documentation for configuration guidelines.

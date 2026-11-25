@@ -63,14 +63,14 @@ var bkExtCsr = db.aggregate([{$backupCursorExtend: {backupId: bkCsrMetadata.back
 
 ### Loop the `$backupCursor`
 
-Use [`getMore`](https://www.mongodb.com/docs/v9.0/reference/command/getMore/#getmore) to keep the backup cursor open beyond the default 10-minute timeout.
+Use [`getMore`](https://www.mongodb.com/docs/v{{psmdb_version}}/reference/command/getMore/#getmore) to keep the backup cursor open beyond the default 10-minute timeout.
 The open cursor protects backup snapshot file blocks from overwrites while you copy the files.
 
 ### Copy the files to the storage
 
 Now you can copy the output of both aggregation stages to your backup storage.
 
-After you copy the backup to storage, terminate [`getMore`](https://www.mongodb.com/docs/v9.0/reference/command/getMore/#getmore).
+After you copy the backup to storage, terminate [`getMore`](https://www.mongodb.com/docs/v{{psmdb_version}}/reference/command/getMore/#getmore).
 Close the backup cursor.
 
 !!! note 

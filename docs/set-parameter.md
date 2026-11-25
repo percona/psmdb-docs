@@ -92,7 +92,7 @@ You can modify parameters in Percona Server for MongoDB using the following meth
         db.adminCommand({setParameter: 1, diagnosticDataCollectionEnableSystemMetricsMounts: false})
         ```
 
-See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v9.0/reference/parameters/#parameters).
+See what parameters you can define in the [parameters list](https://www.mongodb.com/docs/v{{psmdb_version}}/reference/parameters/#parameters).
 
 
 ## Comparison: Default vs. tuned FTDC behavior
