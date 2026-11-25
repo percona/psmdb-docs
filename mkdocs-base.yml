@@ -252,7 +252,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
-      - "Percona Server for MongoDB release notes version 9.0.8-1 (2026-12-03)": "release_notes/9.0.8-1.md"
+      - "Percona Server for MongoDB 9.0.8-1 (2026-12-03)": "release_notes/9.0.8-1.md"
 
   - faq.md
   - Reference:
