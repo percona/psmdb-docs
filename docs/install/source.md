@@ -32,7 +32,8 @@ for compiler, Python, and operating system dependencies.
     source .venv/bin/activate
     ```
 
-    You can skip the virtual environment in a temporary container or other temporary build environment.
+    You can skip the virtual environment in a temporary container or other temporary build environment. In that case, make sure `python3` points to Python 3.13 or later.
+
 
 3. Install the Python dependencies:
 
@@ -60,6 +61,8 @@ for compiler, Python, and operating system dependencies.
     ```bash
     bazel-bin/install-mongod/bin/mongod --version
     ```
+
+    The version comes from the Git metadata of your checkout. A release tag gives a release version, and a branch build shows a development version string.
 
 The build creates target-specific installation directories under `bazel-bin`.
 For other targets, see [Bazel targets](https://github.com/percona/percona-server-mongodb/blob/v{{psmdb_version}}/docs/building.md#bazel-targets).
