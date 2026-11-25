@@ -10,7 +10,7 @@ for MongoDB 9.0 Community Edition with [enterprise-grade features](comparison.md
     To see which version of Percona Server for MongoDB you are using check the value of the `psmdbVersion` key in the output of the [buildInfo](https://docs.mongodb.com/manual/reference/command/buildInfo/#dbcmd.buildInfo) database command. If this key does not exist, Percona Server for MongoDB is not installed on the server.
 
 
-[Release notes](release_notes/index.md){ .md-button .md-button }
+[What's new in Percona Server for MongoDB {{release}}](release_notes/index.md){ .md-button .md-button }
     
 <div data-grid markdown><div data-banner markdown>
 
