@@ -111,7 +111,7 @@ This procedure describes an in-place upgrade of a `mongod` instance. If you are 
             mongodb-org-shell-{{release.split('-')[0]}}-1.el9.x86_64
             mongodb-org-database-{{release.split('-')[0]}}-1.el9.x86_64
             mongodb-org-{{release.split('-')[0]}}-1.el9.x86_64
-            mongodb-database-tools-100.4.1-1.x86_64
+            mongodb-database-tools-{{mongo_tools}}-1.x86_64
             mongodb-org-server-{{release.split('-')[0]}}-1.el9.x86_64
             mongodb-org-mongos-{{release.split('-')[0]}}-1.el9.x86_64
             mongodb-org-tools-{{release.split('-')[0]}}-1.el9.x86_64
