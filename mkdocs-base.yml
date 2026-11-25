@@ -1,7 +1,7 @@
 # MkDocs configuration for builds with material theme
 
 site_name: Percona Server for MongoDB 7.0
-site_description: Documentation
+site_description: "Percona Server for MongoDB 7.0, a source available drop-in replacement for MongoDB 7.0 Community Edition with added features, with installation, upgrade, security, backup and operations guides"
 site_author: Percona LLC
 copyright: >
   <a href="https://www.percona.com/about">Percona LLC</a> and/or its affiliates © 2026 — <a href="#__consent">Cookie Consent</a>
