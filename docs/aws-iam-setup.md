@@ -26,7 +26,7 @@ The steps are the following:
 
 During the authentication, Percona Server for MongoDB matches the ARN of the IAM user or role retrieved from AWS STS against the user created in the `$external` database. Thus, the username for this user must include their ARN  and have the following format:
 
-Use the partition from the ARN returned by AWS. For example, GovCloud ARNs use `aws-us-gov` and China ARNs use `aws-cn`; do not replace these with `aws`.
+Use the partition from the ARN returned by AWS. GovCloud ARNs use `aws-us-gov`. China ARNs use `aws-cn`. Preserve these partition values.
 
 === "User authentication"
 
