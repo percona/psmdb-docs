@@ -1,8 +1,10 @@
 # PBM Variables set for HTML output
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
-release: '8.0.32-14'
-version: '8.0'
+release: '9.0.8-1'
+version: &psmdb_version '9.0'
+# Avoid the theme's extra.version namespace in Markdown macros.
+psmdb_version: *psmdb_version
 
 mongosh: '2.10.0'
 year: "2026"
