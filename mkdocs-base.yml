@@ -252,7 +252,7 @@ nav:
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
-      - "9.0.8-1 (2026-12-03)": "release_notes/9.0.8-1.md"
+      - release_notes/9.0.8-1.md
 
   - faq.md
   - Reference:
