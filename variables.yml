@@ -2,9 +2,12 @@
 # See also mkdocs.yml plugins.with-pdf.cover_subtitle and output_path
 
 release: '9.0.8-1'
-version: '9.0'
+version: &psmdb_version '9.0'
+# Avoid the theme's extra.version namespace in Markdown macros.
+psmdb_version: *psmdb_version
 
-mongosh: '2.10.0'
+mongosh: '2.14.1'
+mongo_tools: '100.20.1'
 year: "2026"
 
 product:

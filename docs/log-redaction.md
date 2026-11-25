@@ -57,7 +57,7 @@ This is an example of a log entry with redaction enabled:
     "isFromUserConnection": true,
     "ns": "admin.mytestcol",
     "collectionType": "admin",
-    "appName": "mongosh 2.3.2",
+    "appName": "mongosh {{mongosh}}",
     "command": {
       "insert": "###",
       "documents": [

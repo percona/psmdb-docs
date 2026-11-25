@@ -6,10 +6,10 @@ We gather [Telemetry data](../telemetry.md) to understand the use of the softwar
 
 ## Compatibility with Amazon Linux 2023
 
---8<-- "al-compatibility.md"
+{{render_snippet('al-compatibility.md')}}
 
 
---8<-- "yum-install.md:1:48"
+{{render_snippet('yum-install.md', 1, 48)}}
 
 === ":octicons-number-16: Install a specific version"
 
@@ -26,7 +26,7 @@ We gather [Telemetry data](../telemetry.md) to understand the use of the softwar
          ```{.bash .no-copy}
              Available Packages
          
-         percona-server-mongodb.aarch64    {{release}}.amzn2023       psmdb-80-release-aarch64
+         percona-server-mongodb.aarch64    {{release}}.amzn2023       psmdb-{{psmdb_version | replace(".", "")}}-release-aarch64
          ```
 
      2. Install a specific version packages. For example, to install *Percona Server for MongoDB* {{release}}, run the following command:
@@ -35,7 +35,7 @@ We gather [Telemetry data](../telemetry.md) to understand the use of the softwar
         sudo yum install percona-server-mongodb-{{release}}.amzn2023
         ```
 
---8<-- "yum-install.md:74:140"
+{{render_snippet('yum-install.md', 74, 140)}}
 
 ## Next steps
 

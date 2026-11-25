@@ -17,9 +17,9 @@ The steps are the following:
 
         ```{.text .no-copy}
         Current Mongosh Log ID:	6598270a3a0c418751550ded
-        Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.0
+        Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+{{mongosh}}
         Using MongoDB:		{{release}}
-        Using Mongosh:		2.0.0    
+        Using Mongosh:		{{mongosh}}
 
         For mongosh info see: https://docs.mongodb.com/mongodb-shell/    
 

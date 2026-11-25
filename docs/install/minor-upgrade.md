@@ -6,7 +6,7 @@
 
 2. If you run Amazon Linux 2023, consider the following:
 
-    --8<-- "al-compatibility.md"
+    {{render_snippet('al-compatibility.md') | indent(4)}}
 
 ## Procedure
 

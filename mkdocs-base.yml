@@ -246,13 +246,13 @@ nav:
         - "Configure Horizons in Percona Server for MongoDB": horizon-setup.md
       - mongos-config.md
       - Upgrade:
-        - "Upgrade from 7.0 to 8.0": "install/upgrade-from-70.md"
+        - install/upgrade-from-80.md
         - "Upgrade from MongoDB Community": "install/upgrade-from-mongodb.md"
         - install/minor-upgrade.md
       - install/uninstall.md
   - Release notes:
       - "Release notes index": "release_notes/index.md"
-
+      - "Percona Server for MongoDB 9.0.8-1 (2026-12-03)": "release_notes/9.0.8-1.md"
   - faq.md
   - Reference:
       - Software Bill of Materials (SBOM): sbom.md
