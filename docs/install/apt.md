@@ -26,7 +26,8 @@ Before you start, check the [system requirements](../system-requirements.md).
 
 ### Configure Percona repository
 
-Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.    
+Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.
+{.power-number}    
 
 1. Fetch `percona-release` packages from Percona web:
         
@@ -132,6 +133,45 @@ sudo systemctl restart mongod
 ```
 
 Congratulations! Your Percona Server for MongoDB is up and running. 
+
+## Install `mongosh` testing packages on Ubuntu 26.04
+
+MongoDB Shell (`mongosh`) 2.14.1 testing packages are available for Ubuntu 26.04 LTS (Resolute Raccoon). Download the packages from the [Percona Server for MongoDB 9.0 testing repository](https://repo.percona.com/psmdb-90/apt/pool/testing/p/percona-mongodb-mongosh/).
+
+!!! warning
+    These packages are for testing only and don't mean that Ubuntu 26.04 is supported in production. To see which platforms Percona supports, check the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb).
+
+Select the `percona-mongodb-mongosh` package that matches your system architecture:
+
+| **Architecture** | **Package** |
+| ------------ | ------- |
+|AMD64 (x86_64) |`percona-mongodb-mongosh_2.14.1.resolute_amd64.deb`|
+|ARM64 (AArch64)|`percona-mongodb-mongosh_2.14.1.resolute_arm64.deb`| 
+
+To install the package:
+{.power-number}
+
+1. Not sure which package fits your system? Check your architecture:
+
+    ```bash
+    dpkg --print-architecture
+    ```
+
+    The command returns `amd64` or `arm64`.
+
+
+2. Download and install the package. The following commands pick the right file for your architecture automatically:
+
+    ```bash
+    wget https://repo.percona.com/psmdb-90/apt/pool/testing/p/percona-mongodb-mongosh/percona-mongodb-mongosh_2.14.1.resolute_$(dpkg --print-architecture).deb
+    sudo apt install ./percona-mongodb-mongosh_2.14.1.resolute_$(dpkg --print-architecture).deb
+    ```
+
+3. Confirm the installation:
+
+    ```bash
+    mongosh --version
+    ```
 
 ## Next steps
 
