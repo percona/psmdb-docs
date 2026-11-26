@@ -2,7 +2,7 @@
 
 # Configure Horizons in Percona Server for MongoDB
 
-This document focuses on configuring [Horizons](https://docs.percona.com/percona-server-for-mongodb/8.0/glossary.html#horizons) in Percona Server for MongoDB deployed in Docker. To learn more about Horizons, how they work and when to use them, see [Split-DNS Horizons usage with Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon.html).
+This document focuses on configuring [Horizons](https://docs.percona.com/percona-server-for-mongodb/8.0/glossary.md#horizons) in Percona Server for MongoDB deployed in Docker. To learn more about Horizons, how they work and when to use them, see [Split-DNS Horizons usage with Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon.md).
 
 For using Horizons in Kubernetes environment with Percona Operator for MongoDB, see the [Expose replica set with split-Horizon DNS](https://docs.percona.com/percona-operator-for-mongodb/expose.html#exposing-replica-set-with-split-horizon-dns) chapter in Percona Operator for MongoDB documentation.
 
@@ -46,13 +46,13 @@ At this step you need to create CA and certificates where each server cert is va
 
 1. Create a directory to store your TLS certificates.
 
-   ```
+   ```bash
    mkdir certs && cd certs
    ```
 
 1. Create the Certificate Authority (CA) signing request file:
 
-   ```
+   ```bash
    tee ca-csr.json <<EOF
    {
      "CN": "MyTestCA",
@@ -66,13 +66,13 @@ At this step you need to create CA and certificates where each server cert is va
 
 1. Generate the self-signed CA certificate and key:
 
-   ```
+   ```bash
    cfssl gencert -initca ca-csr.json | cfssljson -bare ca
    ```
 
    Sample output
 
-   ```
+   ```text
    2025/10/10 14:08:35 [INFO] generating a new CA key and certificate from CSR
    2025/10/10 14:08:35 [INFO] generate received request
    2025/10/10 14:08:35 [INFO] received CSR
@@ -88,7 +88,7 @@ At this step you need to create CA and certificates where each server cert is va
 
 1. Now, create server certificate requests for each Percona Server for MongoDB server (psmdb1, psmdb2, psmdb3), including both internal and external names in the “hosts” array:
 
-   ```
+   ```bash
    public_ips=("52.45.100.201" "52.45.100.202" "52.45.100.203")
    for i in 1 2 3; do
        name="psmdb$i"
@@ -112,7 +112,7 @@ At this step you need to create CA and certificates where each server cert is va
 
 1. Generate and combine server certificates
 
-   ```
+   ```bash
    for i in 1 2 3; do
        name="psmdb$i"
 
@@ -143,7 +143,7 @@ At this step you need to create CA and certificates where each server cert is va
 
    Sample output
 
-   ```
+   ```text
    2025/10/10 14:11:44 [INFO] generate received request
    2025/10/10 14:11:44 [INFO] received CSR
    2025/10/10 14:11:44 [INFO] generating key: rsa-2048
@@ -165,7 +165,7 @@ At this step you need to create CA and certificates where each server cert is va
 
 1. To simplify deploying Percona Server for MongoDB in Docker, create a Docker compose file with all required configuration. For each container, we map an internal MongoDB port `27017` to external ports `27017`, `27018` and `27019`:
 
-   ```
+   ```bash
    tee test-horizons.yml <<EOF
    name: Horizons
    services:
@@ -213,7 +213,7 @@ At this step you need to create CA and certificates where each server cert is va
 
 1. Start Percona Server for MongoDB using this file:
 
-   ```
+   ```bash
    docker-compose -f test-horizons.yml up -d
    ```
 
@@ -228,19 +228,19 @@ With Percona Server for MongoDB up and running, initiate the replica set and spe
 
 1. Connect to one of the nodes and start the `bash` session:
 
-   ```
+   ```bash
    docker exec -it psmdb1 -- /bin/bash
    ```
 
 1. Authenticate in Percona Server for MongoDB with enabled TLS:
 
-   ```
+   ```bash
    mongosh --tls --tlsCertificateKeyFile /certs/psmdb1-combined.pem --tlsAllowInvalidCertificates
    ```
 
 1. Initialize the replica set with Horizons. Specify the internal hostname for the `host` field and the external hostname/port in the `horizons` field for the replica set configuration:
 
-   ```
+   ```javascript
    rs.initiate({
       _id: "rs0",
       members: [
@@ -265,7 +265,7 @@ With Percona Server for MongoDB up and running, initiate the replica set and spe
 
 1. Check the replica set configuration:
 
-   ```
+   ```javascript
    rs.status()
    ```
 
@@ -279,7 +279,7 @@ To check internal connection, you can spin up a new Docker container with the Mo
 
 1. To spin up a new container, you must mount the certificates directory into the container when you start it:
 
-```
+```bash
 docker run -d \
   --name mongo-test \
   --network Horizons_default \
@@ -291,7 +291,7 @@ docker run -d \
 
 1. Execute in the container and connect to the replica set:
 
-   ```
+   ```bash
    docker exec -it mongo-test mongosh \
      --host "rs0/psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017" \
      --tls \
@@ -301,7 +301,7 @@ docker run -d \
 
    Sample output
 
-   ```
+   ```text
    Current Mongosh Log ID: 68e90919857364d663248377
    Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&tls=true&tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&tlsCAFile=%2Fcerts%2Fca.pem&appName=mongosh+2.14.1
    Using MongoDB:      8.0.38-16
@@ -312,13 +312,13 @@ docker run -d \
 
 1. Check the replica set topology:
 
-   ```
+   ```javascript
    db.hello()
    ```
 
    Sample output
 
-   ```
+   ```text
    {
      topologyVersion: {
        processId: ObjectId('68e786bf0223ec7011474d9b'),
@@ -333,13 +333,13 @@ docker run -d \
 
 1. Connect to the replica set from the MongoDB client (Compass or `mongosh`) using the external hostnames you defined in Horizons:
 
-   ```
+   ```bash
    mongosh "mongodb://external.mycompany.com:27017,external.mycompany.com:27018,external.mycompany.com:27019/?replicaSet=rs0" --tls --tlsCertificateKeyFile /certs/mongo1-combined.pem --tlsCAFile /certs/ca.pem
    ```
 
    Sample output
 
-   ```
+   ```text
    Current Mongosh Log ID: 68e90919857364d663248377
    Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&tls=true&tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&tlsCAFile=%2Fcerts%2Fca.pem&appName=mongosh+2.14.1
    Using MongoDB:  8.0.38-16
@@ -350,13 +350,13 @@ docker run -d \
 
 1. Check the replica set topology:
 
-   ```
+   ```javascript
    db.hello()
    ```
 
    Sample output
 
-   ```
+   ```text
    {
      topologyVersion: {
        processId: ObjectId('68e786bf0223ec7011474d9b'),

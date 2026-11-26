@@ -12,12 +12,12 @@ You can use any of these authentication mechanisms supported in Percona Server f
 - [x.509 certificate authentication](#x509-certificate-authentication)
 - [LDAP authentication with SASL](#ldap-authentication-with-sasl)
 - [Kerberos Authentication](#kerberos-authentication)
-- [Authentication and authorization with direct binding to LDAP](https://docs.percona.com/percona-server-for-mongodb/8.0/authorization.html)
-- [AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/aws-iam.html)
+- [Authentication and authorization with direct binding to LDAP](https://docs.percona.com/percona-server-for-mongodb/8.0/authorization.md)
+- [AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/aws-iam.md)
 
 ## SCRAM
 
-SCRAM is the default authentication mechanism. Percona Server for MongoDB verifies the credentials against the user’s name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see [Enable authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/enable-auth.html).
+SCRAM is the default authentication mechanism. Percona Server for MongoDB verifies the credentials against the user’s name, password and the database where the user record is created for a client (authentication database). For how to enable this mechanism, see [Enable authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/enable-auth.md).
 
 ## x.509 certificate authentication
 
@@ -25,7 +25,7 @@ This authentication mechanism enables a client to authenticate in Percona Server
 
 For production use, we recommend using valid CA certificates. For testing purposes, you can generate and use self-signed certificates.
 
-x.509 authentication is compatible with [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/authorization.html) to enable you to control user access and operations in Percona Server for MongoDB. For configuration guidelines, refer to [Set up x.509 authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/x509-ldap.html).
+x.509 authentication is compatible with [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/authorization.md) to enable you to control user access and operations in Percona Server for MongoDB. For configuration guidelines, refer to [Set up x.509 authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/x509-ldap.md).
 
 See also
 
@@ -47,6 +47,8 @@ The following components are necessary for external authentication to work:
 
 The following image illustrates this architecture:
 
+*Image: image*
+
 An authentication session uses the following sequence:
 
 1. A `mongosh` client connects to a running `mongod` instance.
@@ -60,7 +62,7 @@ An authentication session uses the following sequence:
 1. The `mongod` server uses this YES/NO response to authenticate the client or reject the request.
 1. If successful, the client has authenticated and can proceed.
 
-For configuration instructions, refer to [Setting up LDAP authentication with SASL](https://docs.percona.com/percona-server-for-mongodb/8.0/sasl-auth.html).
+For configuration instructions, refer to [Setting up LDAP authentication with SASL](https://docs.percona.com/percona-server-for-mongodb/8.0/sasl-auth.md).
 
 ## Kerberos authentication
 
@@ -73,6 +75,8 @@ A realm is the logical network, similar to a domain, for all Kerberos nodes unde
 A principal is a user or a service which is known to Kerberos. A principal name is used for authentication in Kerberos. A service principal represents the service, e.g. `mongodb`. A user principal represents the user. The user principal name corresponds to the username in the `$external` database in Percona Server for MongoDB.
 
 The following diagram shows the authentication workflow:
+
+*Image: image*
 
 The sequence is the following:
 
@@ -92,4 +96,4 @@ MongoDB Documentation: [Kerberos Authentication](https://docs.mongodb.com/manual
 
 Percona Server for MongoDB supports OpenID Connect (OIDC) as an authentication mechanism which extends the OAuth 2.0 authorization framework. You can configure SSO for Percona Server for MongoDB using an external identity provider (IdP) so that users and applications are authenticated and authorized without sharing their credentials with MongoDB clients. As a result you streamline authentication and authorization flow and increase security within your system.
 
-Read more about OIDC in [OIDC / OAuth2.0](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc.html).
+Read more about OIDC in [OIDC / OAuth2.0](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc.md).

@@ -23,7 +23,7 @@ The steps are the following:
 
 1. Create a `mongos` user and a group. This user will own the `mongos` process. Use the following command:
 
-   ```
+   ```bash
    groupadd mongos && sudo useradd -r -s /bin/false -g mongos mongos
    ```
 
@@ -31,7 +31,7 @@ The steps are the following:
 
    /etc/sysconfig/mongos
 
-   ```
+   ```ini
    OPTIONS="-f /etc/mongos.conf"
    STDOUT="/var/log/mongo/mongos.stdout"
    STDERR="/var/log/mongo/mongos.stderr"
@@ -41,7 +41,7 @@ The steps are the following:
 
    /etc/mongos.conf
 
-   ```
+   ```yaml
    # where to write logging data.
    systemLog:
      destination: file
@@ -66,7 +66,7 @@ The steps are the following:
 
 1. Create the systemd unit file at the path `/usr/lib/systemd/system/mongos.service`. Specify the following configuration:
 
-   ```
+   ```bash
    tee /usr/lib/systemd/system/mongos.service <<EOF
    [Unit]
    Description=High-performance, schema-free document-oriented database
@@ -93,7 +93,7 @@ The steps are the following:
 
 1. Grant read/write access for the `mongos` user to the following directories and files:
 
-   ```
+   ```bash
    sudo chown -R mongos:mongos /var/log/mongo \
    /var/run/mongos.pid \
    /etc/mongos.conf \
@@ -103,12 +103,12 @@ The steps are the following:
 
 1. Reload the systemd daemon to apply the changes:
 
-   ```
+   ```bash
    sudo systemctl daemon-reload
    ```
 
 1. Start the `mongos` service:
 
-   ```
+   ```bash
    sudo systemctl start mongos
    ```

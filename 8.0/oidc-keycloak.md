@@ -121,7 +121,7 @@ The `issuer` URL has the format `https://hostname:8443/realms/realm-name`. So if
 
 1. Edit the `/etc/mongod.conf` configuration file:
 
-   ```
+   ```yaml
    security:
       authorization: enabled
    setParameter:
@@ -139,13 +139,13 @@ The `issuer` URL has the format `https://hostname:8443/realms/realm-name`. So if
 
 1. Start or restart Percona Server for MongoDB:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
 **Command line**
 
-```
+```bash
 mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
 'oidcIdentityProviders=[ {
    "issuer": "https://my.keycloak.org:8443/realms/mongodb",
@@ -171,7 +171,7 @@ The role name must match the identity provider group name and must have the pref
 
 For example, to create a role for the default group `Everyone` in Keycloak and with the `authNamePrefix` set to `keycloak`, use the following command:
 
-```
+```javascript
 db.getSiblingDB("admin").createRole({
   role: "keycloak/Everyone",
   privileges: [ ],
@@ -187,13 +187,13 @@ Create roles for all groups you have defined in Keycloak.
 
 Create users in the `$external` database. The username must consist of the `authNamePrefix` and the email that you specified when you created users in Keycloak. The username format is:
 
-```
+```text
 authNamePrefix/email
 ```
 
 If you set the `authNamePrefix` to `keycloak`, then the command to create a user is the following:
 
-```
+```javascript
 db.getSiblingDB("$external").createUser({
   user: "keycloak/john.doe@example.com",
   roles: [
@@ -208,7 +208,7 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows auth-code
    ```
 
@@ -218,7 +218,7 @@ db.getSiblingDB("$external").createUser({
 
 1. Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:
 
-   ```
+   ```text
    Using MongoDB:      8.0.38-16
    Using Mongosh:      2.14.1
 
@@ -231,13 +231,13 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows device-auth
    ```
 
    Sample output
 
-   ```
+   ```text
    Visit the following URL to complete authentication: https://my.keycloak.org:8443/realms/mongodb/device
    Enter the following code on that page: CSXP-ZTSJ
    Waiting...
@@ -249,7 +249,7 @@ db.getSiblingDB("$external").createUser({
 
 1. Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:
 
-   ```
+   ```text
    Using MongoDB:      8.0.38-16
    Using Mongosh:      2.14.1
 

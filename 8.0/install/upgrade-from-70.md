@@ -10,7 +10,7 @@
 
 1. Enable Transparent Hugepages (THP) before starting Percona Server forMongoDB 8.0. THP is required to use the new TCMalloc version with MongoDB. For how to enable THP, see [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/upcoming/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-) section of documentation.
 
-1. If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](https://docs.percona.com/percona-server-for-mongodb/8.0/kmip.html#upgrade-considerations)
+1. If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](https://docs.percona.com/percona-server-for-mongodb/8.0/kmip.md#upgrade-considerations)
 
 1. If you run Amazon Linux 2023, consider the following:
 
@@ -40,25 +40,25 @@ Before the upgrade, do the following:
 
 1. Stop the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. Enable Percona repository for Percona Server for MongoDB 8.0:
 
-   ```
+   ```bash
    sudo percona-release enable psmdb-80
    ```
 
 1. Update the local cache:
 
-   ```
+   ```bash
    sudo apt update
    ```
 
 1. Remove the following configuration from the configuration file, if you have it:
 
-   ```
+   ```yaml
    processManagement:
       fork: true
       pidFilePath: /var/run/mongod.pid
@@ -66,35 +66,35 @@ Before the upgrade, do the following:
 
 1. Install Percona Server for MongoDB 8.0 packages:
 
-   ```
+   ```bash
    sudo apt install percona-server-mongodb
    ```
 
 1. Start the `mongod` instance:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
-For more information, see [Installing Percona Server for MongoDB on Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/8.0/install/apt.html).
+For more information, see [Installing Percona Server for MongoDB on Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/8.0/install/apt.md).
 
 **Upgrade on Red Hat Enterprise Linux and derivatives**
 
 1. Stop the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. Enable Percona repository for Percona Server for MongoDB 8.0:
 
-   ```
+   ```bash
    sudo percona-release enable psmdb-80
    ```
 
 1. Remove the following configuration from the configuration file, if you have it:
 
-   ```
+   ```yaml
    processManagement:
       fork: true
       pidFilePath: /var/run/mongod.pid
@@ -102,19 +102,19 @@ For more information, see [Installing Percona Server for MongoDB on Debian and U
 
 1. Install Percona Server for MongoDB 8.0 packages:
 
-   ```
+   ```bash
    sudo yum install percona-server-mongodb
    ```
 
 1. Start the `mongod` instance:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
 After the upgrade, Percona Server for MongoDB is started with the feature set of 7.0 version. Assuming that your applications are compatible with the new version, enable 8.0 version features. Run the following command against the `admin` database:
 
-```
+```javascript
 db.adminCommand( { setFeatureCompatibilityVersion: "8.0", confirm: true } )
 ```
 

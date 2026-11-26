@@ -6,19 +6,19 @@ After you connected to Percona Server for MongoDB, let’s insert some data and 
 
 Note
 
-To secure the data, you may wish to use [data-at-rest encryption](https://docs.percona.com/percona-server-for-mongodb/8.0/data-at-rest-encryption.html). Note that you can only enable it on an empty database. Otherwise you must clean up the data directory first.
+To secure the data, you may wish to use [data-at-rest encryption](https://docs.percona.com/percona-server-for-mongodb/8.0/data-at-rest-encryption.md). Note that you can only enable it on an empty database. Otherwise you must clean up the data directory first.
 
 See the following documentation for data-at-rest encryption:
 
-- [Using HashiCorp Vault server](https://docs.percona.com/percona-server-for-mongodb/8.0/vault.html)
-- [Using KMIP server](https://docs.percona.com/percona-server-for-mongodb/8.0/kmip.html)
-- [Using a local keyfile](https://docs.percona.com/percona-server-for-mongodb/8.0/keyfile.html)
+- [Using HashiCorp Vault server](https://docs.percona.com/percona-server-for-mongodb/8.0/vault.md)
+- [Using KMIP server](https://docs.percona.com/percona-server-for-mongodb/8.0/kmip.md)
+- [Using a local keyfile](https://docs.percona.com/percona-server-for-mongodb/8.0/keyfile.md)
 
 ## Insert data
 
 1. For example, let’s add an item to the `fruits` collection. Use the `insertOne()` command for this purpose:
 
-   ```
+   ```javascript
    db.fruits.insertOne(
         {item: "apple", qty: 50}
         )
@@ -28,7 +28,7 @@ See the following documentation for data-at-rest encryption:
 
    Sample output
 
-   ```
+   ```json
    {
      acknowledged: true,
      insertedId: ObjectId('659c2b846252bfad93fc1578')
@@ -37,7 +37,7 @@ See the following documentation for data-at-rest encryption:
 
 1. Now, let’s add more fruits to the `fruits` collection using the `insertMany()` command:
 
-   ```
+   ```javascript
    db.fruits.insertMany([
         {item: "banana", weight: "kg", qty: 10 }, 
         {item: "peach", weight: "kg", qty: 30}
@@ -46,7 +46,7 @@ See the following documentation for data-at-rest encryption:
 
    Sample output
 
-   ```
+   ```json
    {
      acknowledged: true,
      insertedIds: {
@@ -62,13 +62,13 @@ See [Insert documents](https://www.mongodb.com/docs/manual/tutorial/insert-docum
 
 Run the following command to query data in MongoDB:
 
-```
+```javascript
 db.fruits.find()
 ```
 
 Sample output
 
-```
+```json
 [
   { _id: ObjectId('659c2b846252bfad93fc1578'), item: 'apple', qty: 50 },
   {
@@ -94,7 +94,7 @@ Let’s update the `apples` entry by adding weight to it.
 
 1. Use the `updateOne()` command for that:
 
-   ```
+   ```javascript
    db.fruits.updateOne(
        {"item": "apple" }, 
        {$set: {"weight": "kg"}}
@@ -103,7 +103,7 @@ Let’s update the `apples` entry by adding weight to it.
 
    Sample output
 
-   ```
+   ```json
    {
      acknowledged: true,
      insertedId: null,
@@ -115,13 +115,13 @@ Let’s update the `apples` entry by adding weight to it.
 
 1. Query the collection to check the updated document:
 
-   ```
+   ```javascript
    db.fruits.find({item: "apple"})
    ```
 
    Sample output
 
-   ```
+   ```json
    [
      {
        _id: ObjectId('659c2b846252bfad93fc1578'),
@@ -138,7 +138,7 @@ See [Update methods](https://www.mongodb.com/docs/manual/reference/update-method
 
 Run the following command to delete all documents where the quantity is less than 30 kg:
 
-```
+```javascript
 db.fruits.deleteMany(
 {"qty": {$lt: 30} }
     )
@@ -146,7 +146,7 @@ db.fruits.deleteMany(
 
 Sample output
 
-```
+```json
 { acknowledged: true, deletedCount: 1 }
 ```
 
@@ -156,4 +156,4 @@ Congratulations! You have used basic create, read, update and delete (CRUD) oper
 
 ## Next steps
 
-[What’s next?](https://docs.percona.com/percona-server-for-mongodb/8.0/what-next.html)
+[What’s next?](https://docs.percona.com/percona-server-for-mongodb/8.0/what-next.md)

@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -138,7 +138,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.0/oidc.md"></head>
   
   
     
@@ -148,7 +148,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/oidc.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.0/oidc.md</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4304,7 +4304,7 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">Configuration file</label><label for="__tabbed_2_2">Command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
 <span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MONGODB-OIDC</span>
@@ -4319,7 +4319,7 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
 <span class="s1">'oidcIdentityProviders=[ {</span>
 <span class="s1">   "issuer": "https://my-okta.okta.com",</span>
 <span class="s1">   "audience": "example@my-company.com",</span>
@@ -4338,7 +4338,7 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_3_1">Configuration file</label><label for="__tabbed_3_2">Command line</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
 <span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MONGODB-OIDC</span>
@@ -4362,7 +4362,7 @@ In this case, the <code>useAuthorizationClaim</code> option must be set to false
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="w"> </span>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code><span class="w"> </span>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>oidcIdentityProviders:<span class="w"> </span><span class="s1">'[ {</span>
 <span class="s1">    "issuer": "https://my-okta.okta.com",</span>
 <span class="s1">    "audience": "audience1",</span>

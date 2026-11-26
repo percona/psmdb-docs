@@ -38,6 +38,8 @@ Key state polling is enabled by default and is regulated by these configuration 
 
 The following diagram illustrates the master key lifecycle with key state polling:
 
+*Image: image*
+
 The master key state polling functionality is particularly useful in cluster deployments with hundreds of nodes. If some master keys are compromised, security engineers change their state from `Active` so that the nodes encrypted with these keys identify themselves. This approach allows the security engineers to rotate master keys only on the affected nodes instead of the entire cluster, thus reducing the mean time to resolve (MTTR) compromised encryption key incidents.
 
 See also
@@ -130,7 +132,7 @@ To enable data-at-rest encryption in Percona Server for MongoDB using KMIP, the 
 
 Edit the `/etc/mongod.conf` configuration file as follows:
 
-```
+```yaml
 security:
   enableEncryption: true
   kmip:
@@ -145,7 +147,7 @@ security:
 
 Start Percona Server for MongoDB using the command line as follows:
 
-```
+```bash
 mongod --enableEncryption \
   --kmipServerName <kmip_servername> \
   --kmipPort <kmip_port> \
@@ -158,13 +160,13 @@ mongod --enableEncryption \
 
 You can check the encryption status and the current configuration using the following command:
 
-```
+```javascript
 > db.serverStatus().encryptionAtRest
 ```
 
 Expected output
 
-```
+```text
 {
   encryptionEnabled: true,
   encryptionCipherMode: 'AES256-CBC',

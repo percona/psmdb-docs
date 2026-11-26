@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -138,7 +138,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.0/horizon.md"></head>
   
   
     
@@ -148,7 +148,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/horizon.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.0/horizon.md</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4159,7 +4159,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h3 id="how-horizons-work">How Horizons work<a data-markdown-ignore class="headerlink" href="#how-horizons-work" title="Permanent link">¶</a></h3>
 <p>Horizons let each replica set member advertise different hostnames and ports depending on how the client connects — whether from inside a container, across clouds, or from a remote data center. This ensures reliable discovery and connectivity across diverse environments.</p>
 <p>You configure Horizons in the replica set configuration under the horizons field:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">  </span><span class="err">hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="s2">"psmdb1.internal.net:27017"</span><span class="p">,</span>
 <span class="w">  </span><span class="err">horizo</span><span class="kc">ns</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>

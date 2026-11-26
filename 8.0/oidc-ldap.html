@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -138,7 +138,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.md"></head>
   
   
     
@@ -148,7 +148,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.md</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4197,7 +4197,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the <code>admin</code> database with the name that exactly matches the  of the LDAP group.</p>
 <p>Percona Server for MongoDB maps the user’s LDAP group to the roles and determines what role is assigned to the user. Percona Server for MongoDB then grants privileges defined by this role.</p>
 <p>To create the roles, use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">)</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">)</span>
 <span class="nx">admin</span><span class="p">.</span><span class="nx">createRole</span><span class="p">(</span>
 <span class="w">   </span><span class="p">{</span>
 <span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"cn=testusers,dc=percona,dc=com"</span><span class="p">,</span>
@@ -4227,7 +4227,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Edit the <code>etc/mongod.conf</code> configuration file and specify both the OIDC and LDAP configuration:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">transportSecurity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tls</span>
@@ -4250,7 +4250,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Restart Percona Server for MongoDB to apply the changes.</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 </ul>
@@ -4260,7 +4260,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>To authenticate users with OIDC, run the following command:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"testuser@perconatest.com"</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"testuser@perconatest.com"</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC
 </code></pre></div>
 </li>
 <li>
@@ -4268,11 +4268,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Upon successful authentication, check connection status:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">connectionStatus</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">connectionStatus</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">})</span>
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>{
+<div class="language-text no-copy highlight"><pre><span></span><code>{
   authInfo: {
     authenticatedUsers: [
       { user: 'okta/testuser@perconatest.com', db: '$external' }
@@ -4292,7 +4292,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 </ol>
 <p>To authenticate users in the LDAP server, run the following command:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"testuser@perconatest.com"</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"testuser@perconatest.com"</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN
 </code></pre></div>
 
 

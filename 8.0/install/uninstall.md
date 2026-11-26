@@ -17,7 +17,7 @@ Choose which command better suits you depending on your needs.
 
 1. Stop the `mongod` server:
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
@@ -25,13 +25,13 @@ Choose which command better suits you depending on your needs.
 
    **Keep the configuration and data files**
 
-   ```
+   ```bash
    sudo apt remove percona-server-mongodb*
    ```
 
    **Delete configuration and data files**
 
-   ```
+   ```bash
    sudo apt purge percona-server-mongodb*
    ```
 
@@ -39,19 +39,19 @@ Choose which command better suits you depending on your needs.
 
 1. Stop the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. Remove the packages:
 
-   ```
+   ```bash
    sudo yum remove percona-server-mongodb*
    ```
 
 1. Remove the data and configuration files:
 
-   ```
+   ```bash
    sudo rm -rf /var/lib/mongodb
    sudo rm -f /etc/mongod.conf
    ```

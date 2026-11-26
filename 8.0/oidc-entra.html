@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -138,7 +138,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-entra.md"></head>
   
   
     
@@ -148,7 +148,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-entra.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-entra.md</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4404,12 +4404,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>Copy the <strong>Application (client) ID</strong> and save it for later use. You will use this value for the <code>clientID</code> and <code>audience</code> fields in Percona Server for MongoDB configuration.</li>
 <li>Copy the issuer URL. From the top navigation, click <strong>Endpoints</strong> and copy the <strong>OpenID Connect metadata document</strong> URL up to <code>/.well-known/openid-configuration</code>. It should look like this:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>https://login.microsoftonline.com/{tenant-id}/v2.0
+<div class="language-text highlight"><pre><span></span><code>https://login.microsoftonline.com/{tenant-id}/v2.0
 </code></pre></div>
 <ol>
 <li>Copy the Application ID URI you defined earlier. It should look like this:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>api://&lt;application-client-id&gt;
+<div class="language-text highlight"><pre><span></span><code>api://&lt;application-client-id&gt;
 </code></pre></div>
 <ol>
 <li>Copy the groups’ Object IDs you created earlier. </li>
@@ -4446,7 +4446,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
 <span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MONGODB-OIDC</span>
@@ -4464,13 +4464,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Start or restart Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 </ol>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
 <span class="s1">'oidcIdentityProviders=[ {</span>
 <span class="s1">   "issuer": "https://login.microsoftonline.com/{tenant-id}/v2.0",</span>
 <span class="s1">   "clientId": "3ef1b836-6f12-4858-876b-35245110f6bc",</span>
@@ -4488,11 +4488,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h2 id="create-user-roles">Create user roles<a data-markdown-ignore class="headerlink" href="#create-user-roles" title="Permanent link">¶</a></h2>
 <p>To enable users to access Percona Server for MongoDB, you must create roles and define privileges for them. </p>
 <p>The role name must have the format </p>
-<div class="highlight"><pre><span></span><code>&lt;authNamePrefix&gt;/&lt;Group-ObjectID&gt;
+<div class="language-text highlight"><pre><span></span><code>&lt;authNamePrefix&gt;/&lt;Group-ObjectID&gt;
 </code></pre></div>
 <p>where <code>&lt;authNamePrefix&gt;</code> is the prefix you specified in the <code>oidcIdentityProviders</code> configuration, and <code>&lt;Group-ObjectID&gt;</code> is the Object ID of the group in Microsoft Entra ID.</p>
 <p>For example, if the <code>authNamePrefix</code> is set to <code>entra</code> and the group Object ID is <code>a3f2c1d4-8b9e-4f7a-a2c3-19d8e6f0b7a1</code>, the command to create a role is the following:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">).</span><span class="nx">createRole</span><span class="p">({</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">).</span><span class="nx">createRole</span><span class="p">({</span>
 <span class="w">  </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"entra/a3f2c1d4-8b9e-4f7a-a2c3-19d8e6f0b7a1"</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
 <span class="w">  </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"readWriteAnyDatabase"</span><span class="p">]</span>
@@ -4505,7 +4505,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Connect to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcFlows<span class="w"> </span>auth-code<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcFlows<span class="w"> </span>auth-code<span class="w"> </span>
 </code></pre></div>
 </li>
 <li>
@@ -4518,11 +4518,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Connect to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcFlows<span class="w"> </span>device-auth<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcFlows<span class="w"> </span>device-auth<span class="w"> </span>
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="highlight"><pre><span></span><code>Visit the following URL to complete authentication: https://microsoft.com/devicelogin
+<div class="language-text highlight"><pre><span></span><code>Visit the following URL to complete authentication: https://microsoft.com/devicelogin
 Enter the following code on that page: EKYE77DQZ
 Waiting....
 </code></pre></div>

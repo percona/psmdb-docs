@@ -1,83 +1,92 @@
 # Percona Server for MongoDB 8.0
 
-> Documentation
+> Percona Server for MongoDB 8.0, a source available drop-in replacement for MongoDB 8.0 Community Edition with added features, with installation, upgrade, security, backup and operations guides
 
 Each page below is also available as markdown. For the documentation of all Percona products, see https://docs.percona.com/llms.txt.
 
 ## Overview
 
-- [Home](https://docs.percona.com/percona-server-for-mongodb/8.0/index.md)
-- [Get help from Percona](https://docs.percona.com/percona-server-for-mongodb/8.0/get-help.md)
+- [Home](https://docs.percona.com/percona-server-for-mongodb/8.0/index.md): Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement for MongoDB 8.0 Community Edition with enterprise-grade features.
+- [Get help from Percona](https://docs.percona.com/percona-server-for-mongodb/8.0/get-help.md): Our documentation guides are packed with information, but they can’t cover everything you need to know about Percona Server for MongoDB. They also won’t cover every scenario you might come across.…
 - [FAQ](https://docs.percona.com/percona-server-for-mongodb/8.0/faq.md)
-- [Percona Software and Platform Lifecycle](https://docs.percona.com/percona-server-for-mongodb/8.0/lifecycle.md)
+- [Percona Software and Platform Lifecycle](https://docs.percona.com/percona-server-for-mongodb/8.0/lifecycle.md): See the Percona Release Lifecycle Overview for information about support and platform end-of-life dates
 
 ## Get started
 
-- [Quickstart guides](https://docs.percona.com/percona-server-for-mongodb/8.0/install/index.md)
-- [System requirements](https://docs.percona.com/percona-server-for-mongodb/8.0/system-requirements.md)
-- [Virtual hardware recommendations for cloud deployments](https://docs.percona.com/percona-server-for-mongodb/8.0/install/cloud-deployments.md)
-- [On Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/8.0/install/apt.md)
-- [On RHEL and derivatives](https://docs.percona.com/percona-server-for-mongodb/8.0/install/yum.md)
-- [On Rocky Linux](https://docs.percona.com/percona-server-for-mongodb/8.0/install/rocky-linux.md)
-- [On Amazon Linux 2023](https://docs.percona.com/percona-server-for-mongodb/8.0/install/amazon-linux.md)
-- [From tarballs](https://docs.percona.com/percona-server-for-mongodb/8.0/install/tarball.md)
-- [Build from source code](https://docs.percona.com/percona-server-for-mongodb/8.0/install/source.md)
-- [Run in Docker](https://docs.percona.com/percona-server-for-mongodb/8.0/install/docker.md)
-- [2. Connect to Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/connect.md)
-- [3. Manipulate data in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/crud.md)
-- [4. What's next?](https://docs.percona.com/percona-server-for-mongodb/8.0/what-next.md)
+- [Quickstart guides](https://docs.percona.com/percona-server-for-mongodb/8.0/install/index.md): Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement for MongoDB 8.0 Community Edition with enterprise-grade features.
+- [Infrastructure requirements: System requirements](https://docs.percona.com/percona-server-for-mongodb/8.0/system-requirements.md)
+- [Virtual hardware recommendations for cloud deployments](https://docs.percona.com/percona-server-for-mongodb/8.0/install/cloud-deployments.md): Percona Server for MongoDB runs reliably on cloud infrastructure and is supported for all cloud providers.
+- [1. Install: On Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/8.0/install/apt.md): This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu.
+- [1. Install: On RHEL and derivatives](https://docs.percona.com/percona-server-for-mongodb/8.0/install/yum.md): This document describes how to install Percona Server for MongoDB on RPM-based distributions such as Red Hat Enterprise Linux and compatible derivatives. We gather Telemetry data to understand the…
+- [1. Install: On Rocky Linux](https://docs.percona.com/percona-server-for-mongodb/8.0/install/rocky-linux.md): This guide walks you through the installation of Percona Server for MongoDB on Rocky Linux.
+- [1. Install: On Amazon Linux 2023](https://docs.percona.com/percona-server-for-mongodb/8.0/install/amazon-linux.md): This guide walks you through the installation of Percona Server for MongoDB on Amazon Linux 2023.
+- [1. Install: From tarballs](https://docs.percona.com/percona-server-for-mongodb/8.0/install/tarball.md): You can find links to the binary tarballs under the Generic Linux menu item on the Percona website
+- [Build from source code](https://docs.percona.com/percona-server-for-mongodb/8.0/install/source.md): This document guides you though the steps how to build Percona Server for MongoDB from source code.
+- [1. Install: Run in Docker](https://docs.percona.com/percona-server-for-mongodb/8.0/install/docker.md): Docker images of Percona Server for MongoDB are hosted publicly on Docker Hub.
+- [2. Connect to Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/connect.md): After you have successfully installed and started Percona Server for MongoDB, let’s connect to it.
+- [3. Manipulate data in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/crud.md): After you connected to Percona Server for MongoDB, let’s insert some data and operate with it.
+- [4. What's next?](https://docs.percona.com/percona-server-for-mongodb/8.0/what-next.md): Congratulations on completing your first hands-on experience with Percona Server for MongoDB.
 
 ## Features
 
-- [Feature comparison with MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/comparison.md)
-- [Percona Memory Engine](https://docs.percona.com/percona-server-for-mongodb/8.0/inmemory.md)
-- [Hot Backup](https://docs.percona.com/percona-server-for-mongodb/8.0/hot-backup.md)
-- [$backupCursor and $backupCursorExtend aggregation stages](https://docs.percona.com/percona-server-for-mongodb/8.0/backup-cursor.md)
-- [Authentication overview](https://docs.percona.com/percona-server-for-mongodb/8.0/authentication.md)
-- [AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/aws-iam.md)
-- [Setting up AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/aws-iam-setup.md)
-- [Setting up Kerberos authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/kerberos.md)
-- [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/authorization.md)
-- [Set up LDAP authentication with SASL](https://docs.percona.com/percona-server-for-mongodb/8.0/sasl-auth.md)
-- [Set up x.509 authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/x509-ldap.md)
-- [Set up LDAP authentication and authorization using NativeLDAP](https://docs.percona.com/percona-server-for-mongodb/8.0/ldap-setup.md)
-- [LDAP configuration parameters](https://docs.percona.com/percona-server-for-mongodb/8.0/ldap-parameters.md)
-- [OIDC authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc.md)
-- [With Okta](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-okta.md)
-- [With Microsoft Entra](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-entra.md)
-- [With Ping Identity](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ping.md)
-- [With Keycloak](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-keycloak.md)
-- [OIDC authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.md)
-- [Enable SCRAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/enable-auth.md)
-- [Data at rest encryption](https://docs.percona.com/percona-server-for-mongodb/8.0/data-at-rest-encryption.md)
-- [Use Vault](https://docs.percona.com/percona-server-for-mongodb/8.0/vault.md)
-- [Use OpenBao](https://docs.percona.com/percona-server-for-mongodb/8.0/openbao.md)
-- [Use KMIP](https://docs.percona.com/percona-server-for-mongodb/8.0/kmip.md)
-- [Use local keyfile](https://docs.percona.com/percona-server-for-mongodb/8.0/keyfile.md)
-- [Migrate from keyfile to Vault](https://docs.percona.com/percona-server-for-mongodb/8.0/encryption-mode-switch.md)
-- [FIPS compliance](https://docs.percona.com/percona-server-for-mongodb/8.0/fips.md)
-- [File copy based initial sync](https://docs.percona.com/percona-server-for-mongodb/8.0/fcbis.md)
-- [Auditing](https://docs.percona.com/percona-server-for-mongodb/8.0/audit-logging.md)
-- [Profiling rate limit](https://docs.percona.com/percona-server-for-mongodb/8.0/rate-limit.md)
-- [Log redaction](https://docs.percona.com/percona-server-for-mongodb/8.0/log-redaction.md)
-- [Additional text search algorithm - ngram](https://docs.percona.com/percona-server-for-mongodb/8.0/ngram-full-text-search.md)
+- [Feature comparison with MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/comparison.md): Percona Server for MongoDB 8.0 is based on MongoDB Community Edition 8.0 and extends it with the functionality, that is otherwise only available in MongoDB Enterprise Edition.
+- [Storage: Percona Memory Engine](https://docs.percona.com/percona-server-for-mongodb/8.0/inmemory.md): Percona Memory Engine is a special configuration of WiredTiger that does not store user data on disk. Data fully resides in the main memory, making processing much faster and smoother. Keep in mind…
+- [Backup: Hot Backup](https://docs.percona.com/percona-server-for-mongodb/8.0/hot-backup.md): Percona Server for MongoDB includes an integrated open source hot backup system for the default WiredTiger storage engine. It creates a physical data backup on a running server without notable…
+- [$backupCursor and $backupCursorExtend aggregation stages](https://docs.percona.com/percona-server-for-mongodb/8.0/backup-cursor.md): $backupCursor and $backupCursorExtend aggregation stages expose the WiredTiger API which allows making consistent backups. Running these stages allows listing and freezing the files so you can copy…
+- [Authentication: Authentication overview](https://docs.percona.com/percona-server-for-mongodb/8.0/authentication.md): Authentication is the process of verifying a client’s identity. Normally, a client needs to authenticate themselves against the MongoDB server user database before doing any work or reading any data…
+- [Authentication: AWS IAM: AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/aws-iam.md): IAM (Identity Access Management) is the AWS service that allows you to securely control access to AWS resources. Percona Server for MongoDB supports authentication with AWS IAM enabling you to use…
+- [Setting up AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/aws-iam-setup.md): This document provides guidelines how to configure Percona Server for MongoDB to use AWS IAM authentication. The use of this authentication method enables you to natively integrate Percona Server for…
+- [Setting up Kerberos authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/kerberos.md): This document provides configuration steps for setting up Kerberos Authentication in Percona Server for MongoDB.
+- [Authentication: LDAP: LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/authorization.md): LDAP authorization allows you to control user access and operations in your database environment using the centralized user management storage – an LDAP server. You create and manage user credentials…
+- [Set up LDAP authentication with SASL](https://docs.percona.com/percona-server-for-mongodb/8.0/sasl-auth.md): This document describes an example configuration suitable only to test out the external authentication functionality in a non-production environment. Use common sense to adapt these guidelines to…
+- [Set up x.509 authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/x509-ldap.md): x.509 certificate authentication is one of the supported authentication mechanisms in Percona Server for MongoDB. It is compatible with LDAP authorization to enable you to control user access and…
+- [Set up LDAP authentication and authorization using NativeLDAP](https://docs.percona.com/percona-server-for-mongodb/8.0/ldap-setup.md): This document describes an example configuration of LDAP authentication and authorization using direct binding to an LDAP server (Native LDAP). We recommend testing this setup in a non-production…
+- [LDAP configuration parameters](https://docs.percona.com/percona-server-for-mongodb/8.0/ldap-parameters.md): Percona Server for MongoDB provides a set of configuration parameters to enable and fine-tune LDAP authentication and authorization.
+- [Authentication: OIDC: OIDC authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc.md): OpenID Connect (OIDC) is an identity authentication protocol built on top of the OAuth 2.0 framework. OIDC is designed to verify user identities and provide authentication, ensuring that users are…
+- [Authentication: OIDC: Configure OIDC authentication: With Okta](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-okta.md): This document focuses on configuring OIDC authentication for Percona Server for MongoDB deployment using Okta as the identity provider.
+- [Authentication: OIDC: Configure OIDC authentication: With Microsoft Entra](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-entra.md): This document provides step-by-step instructions how to configure OIDC authentication and authorization the Percona Server for MongoDB using Microsoft Entra as an external identity provider.
+- [Authentication: OIDC: Configure OIDC authentication: With Ping Identity](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ping.md): This document provides step-by-step instructions how to configure OIDC authentication and authorization the Percona Server for MongoDB using Ping Identity as an external identity provider.
+- [Authentication: OIDC: Configure OIDC authentication: With Keycloak](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-keycloak.md): This document focuses on configuring OIDC authentication for Percona Server for MongoDB deployment using Keycloak as the identity provider.
+- [Authentication: OIDC: Configure OIDC authentication: OIDC authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.md): You can use OIDC authentication and LDAP authorization together. For example, in hybrid environments where modern applications are integrated with some legacy systems. Or, if your organization has…
+- [Enable SCRAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.0/enable-auth.md): By default, Percona Server for MongoDB does not restrict access to data and configuration.
+- [Encryption: Data at rest encryption](https://docs.percona.com/percona-server-for-mongodb/8.0/data-at-rest-encryption.md): Encryption at rest should be used together with data in transit encryption and policies that protect accounts, passwords, and encryption keys. When implemented well, encryption at rest helps…
+- [Encryption: Use Vault](https://docs.percona.com/percona-server-for-mongodb/8.0/vault.md): Percona Server for MongoDB is integrated with HashiCorp Vault. HashiCorp Vault supports different secrets engines. Percona Server for MongoDB only supports the HashiCorp Vault back end with KV…
+- [Encryption: Use OpenBao](https://docs.percona.com/percona-server-for-mongodb/8.0/openbao.md): OpenBao is an open-source alternative to HashiCorp Vault. Percona Server for MongoDB is integrated with OpenBao for encryption key management and supports only OpenBao back end with KV Secrets Engine…
+- [Encryption: Use KMIP](https://docs.percona.com/percona-server-for-mongodb/8.0/kmip.md): Percona Server for MongoDB adds support for secure transfer of keys using the OASIS Key Management Interoperability Protocol (KMIP). The KMIP implementation was tested with the PyKMIP server and the…
+- [Encryption: Use local keyfile](https://docs.percona.com/percona-server-for-mongodb/8.0/keyfile.md): The key file must contain a 32 character string encoded in base64. You can generate a random key and save it to a file by using the openssl command:
+- [Encryption: Migrate from keyfile to Vault](https://docs.percona.com/percona-server-for-mongodb/8.0/encryption-mode-switch.md): The steps below describe how to migrate from the key file encryption to using HashiCorp Vault. This guide also applies to migration to OpenBao - an open-source alternative to HashiCorp Vault.
+- [FIPS compliance](https://docs.percona.com/percona-server-for-mongodb/8.0/fips.md): FIPS (Federal Information Processing Standard) is the US government computer security standard for cryptography modules that include both hardware and software components. Percona Server for MongoDB…
+- [File copy based initial sync](https://docs.percona.com/percona-server-for-mongodb/8.0/fcbis.md): The file copy-based initial sync method is a physical copying of the data files from the source to the target. It is much faster than the default logical initial sync for big datasets (500GB+), which…
+- [Auditing](https://docs.percona.com/percona-server-for-mongodb/8.0/audit-logging.md): Auditing allows administrators to track and log user activity on a MongoDB server. With auditing enabled, the server generates an audit log file. This file contains information about different user…
+- [Profiling rate limit](https://docs.percona.com/percona-server-for-mongodb/8.0/rate-limit.md): Percona Server for MongoDB can limit the number of queries collected by the database profiler to decrease its impact on performance. Rate limit is an integer between 1 and 1000 and represents the…
+- [Log redaction](https://docs.percona.com/percona-server-for-mongodb/8.0/log-redaction.md): Percona Server for MongoDB can prevent writing sensitive data to the diagnostic log by redacting messages of events before they are logged.
+- [Additional text search algorithm - ngram](https://docs.percona.com/percona-server-for-mongodb/8.0/ngram-full-text-search.md): The ngram text search algorithm is useful for searching text for a specific string of characters in a field of a collection. This feature can be used to find exact sub-string matches, which provides…
 
 ## Administration
 
 - [Tune parameters](https://docs.percona.com/percona-server-for-mongodb/8.0/set-parameter.md)
-- [Log rotation in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/log-rotation.md)
-- [Split-DNS Horizons usage with Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon.md)
-- [Configure Horizons in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon-setup.md)
-- [Configure a systemd unit file for mongos](https://docs.percona.com/percona-server-for-mongodb/8.0/mongos-config.md)
-- [Upgrade from 7.0 to 8.0](https://docs.percona.com/percona-server-for-mongodb/8.0/install/upgrade-from-70.md)
-- [Upgrade from MongoDB Community](https://docs.percona.com/percona-server-for-mongodb/8.0/install/upgrade-from-mongodb.md)
+- [Log rotation in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/log-rotation.md): When you start Percona Server for MongoDB with a --logpath or systemLog.path setting, it writes logs to a file instead of standard output. These logs include detailed activity and operation…
+- [Connect from an external network: Split-DNS Horizons usage with Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon.md): This overview explains the Horizons feature in Percona Server for MongoDB. If you’re familiar with the concept and want to use it, switch to the Configure Horizons in Percona Server for MongoDB.
+- [Connect from an external network: Configure Horizons in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon-setup.md): This document focuses on configuring Horizons in Percona Server for MongoDB deployed in Docker. To learn more about Horizons, how they work and when to use them, see Split-DNS Horizons usage with…
+- [Configure a systemd unit file for mongos](https://docs.percona.com/percona-server-for-mongodb/8.0/mongos-config.md): mongos provides the entry point for an application to connect to a sharded cluster. To automate the mongos process management, you can use a system unit file. This file defines how the mongos service…
+- [Upgrade: Upgrade from 7.0 to 8.0](https://docs.percona.com/percona-server-for-mongodb/8.0/install/upgrade-from-70.md)
+- [Upgrade: Upgrade from MongoDB Community](https://docs.percona.com/percona-server-for-mongodb/8.0/install/upgrade-from-mongodb.md): This document provides instructions for an in-place upgrade from MongoDB Community Edition to Percona Server for MongoDB.
 - [Minor upgrade of Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/install/minor-upgrade.md)
-- [Uninstall Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/install/uninstall.md)
+- [Uninstall Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/install/uninstall.md): To completely remove Percona Server for MongoDB you need to remove all the installed packages, data and configuration files. If you need the data, consider making a backup before uninstalling Percona…
 
-## Release notes
+## Reference
 
-- [Release notes index](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/index.md)
-- [Percona Server for MongoDB 8.0.38-16 (2026-11-13)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.38-16.md)
+- [Software Bill of Materials (SBOM)](https://docs.percona.com/percona-server-for-mongodb/8.0/sbom.md): A Software Bill of Materials (SBOM) is a machine-readable inventory of the components and dependencies included in a software release. It helps you understand what is included in a build and assess…
+- [Glossary](https://docs.percona.com/percona-server-for-mongodb/8.0/glossary.md)
+- [Telemetry and data collection](https://docs.percona.com/percona-server-for-mongodb/8.0/telemetry.md): Percona collects usage data to improve its software. The telemetry feature helps us identify popular features, detect problems, and plan future improvements.
+- [Code of conduct](https://docs.percona.com/percona-server-for-mongodb/8.0/code-of-conduct.md): All Percona Products follow the Percona Community Code of Conduct.
+- [Copyright and licensing information](https://docs.percona.com/percona-server-for-mongodb/8.0/copyright.md)
+- [Trademark policy](https://docs.percona.com/percona-server-for-mongodb/8.0/trademark-policy.md): This Trademark Policy is to ensure that users of Percona-branded products or services know that what they receive has really been developed, approved, tested and maintained by Percona. Trademarks…
+
+## Optional
+
+- [Release notes: Release notes index](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/index.md): Percona Server for MongoDB 8.0.38-16 (2026-11-13)
+- [Percona Server for MongoDB 8.0.38-16 (2026-11-13)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.38-16.md): Installation Upgrade
 - [Percona Server for MongoDB 8.0.34-15 (2026-10-22)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.34-15.md)
 - [Percona Server for MongoDB 8.0.32-14 (2026-09-23)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.32-14.md)
 - [Percona Server for MongoDB 8.0.29-13 (2026-08-20)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.29-13.md)
@@ -92,18 +101,6 @@ Each page below is also available as markdown. For the documentation of all Perc
 - [Percona Server for MongoDB 8.0.12-4 (2025-08-21)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.12-4.md)
 - [Percona Server for MongoDB 8.0.8-3 (2025-05-01)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.8-3.md)
 - [Percona Server for MongoDB 8.0.4-2 (2025-02-19)](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.4-2.md)
-- [Percona Server for MongoDB release notes version 8.0.4-1](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.4-1.md)
-
-## Reference
-
-- [Software Bill of Materials (SBOM)](https://docs.percona.com/percona-server-for-mongodb/8.0/sbom.md)
-- [Glossary](https://docs.percona.com/percona-server-for-mongodb/8.0/glossary.md)
-- [Telemetry and data collection](https://docs.percona.com/percona-server-for-mongodb/8.0/telemetry.md)
-- [Code of conduct](https://docs.percona.com/percona-server-for-mongodb/8.0/code-of-conduct.md)
-- [Copyright and licensing information](https://docs.percona.com/percona-server-for-mongodb/8.0/copyright.md)
-- [Trademark policy](https://docs.percona.com/percona-server-for-mongodb/8.0/trademark-policy.md)
-
-## Optional
-
-- [Legal Notice](https://docs.percona.com/percona-server-for-mongodb/8.0/legal-notice.md)
+- [Percona Server for MongoDB release notes version 8.0.4-1](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.4-1.md): Installation Upgrade
+- [Legal Notice](https://docs.percona.com/percona-server-for-mongodb/8.0/legal-notice.md): You are interacting with an AI-powered chatbot that provides automated responses for general information about our IT services and software. Responses may be inaccurate or incomplete and do not…
 

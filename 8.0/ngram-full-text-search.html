@@ -26,7 +26,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -141,7 +141,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.0/ngram-full-text-search.md"></head>
   
   
     
@@ -151,7 +151,7 @@ like dash(‘-‘), underscore(‘_’), or slash(“/”) are not token delimit
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/ngram-full-text-search.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.0/ngram-full-text-search.md</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4080,10 +4080,10 @@ characters that do not count as word characters in human languages:</p>
 <h2 id="usage">Usage<a data-markdown-ignore class="headerlink" href="#usage" title="Permanent link">¶</a></h2>
 <p>To use <em>ngram</em>, create a text index on
 a collection setting the <code>default_language</code> parameter to <strong>ngram</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span><span class="s2">"text"</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">default_language</span><span class="o">:</span><span class="w"> </span><span class="s2">"ngram"</span><span class="p">})</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span><span class="s2">"text"</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nx">default_language</span><span class="o">:</span><span class="w"> </span><span class="s2">"ngram"</span><span class="p">})</span>
 </code></pre></div>
 <p><em>ngram</em> search algorithm treats special characters like individual terms. Therefore, you don’t have to enclose the search string in escaped double quotes (<code>\\"</code>) to query the text index. For example, to search for documents that contain the date <code>2021-02-12</code>, specify the following:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">$text</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$search</span><span class="o">:</span><span class="w"> </span><span class="s2">"2021-02-12"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">$text</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$search</span><span class="o">:</span><span class="w"> </span><span class="s2">"2021-02-12"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
 </code></pre></div>
 <p>However, both <em>ngram</em> and MongoDB full text search engine treat words with the hyphen-minus <code>-</code> sign  in front of them as negated (e.g. “-coffee”)  and exclude such words from the search results.</p>
 

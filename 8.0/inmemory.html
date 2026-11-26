@@ -26,7 +26,7 @@ memory to hold the data set, and ensure that the server does not shut down.">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -141,7 +141,7 @@ memory to hold the data set, and ensure that the server does not shut down.">
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.0/inmemory.md"></head>
   
   
     
@@ -151,7 +151,7 @@ memory to hold the data set, and ensure that the server does not shut down.">
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/inmemory.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.0/inmemory.md</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4232,7 +4232,7 @@ engine WiredTiger.</p>
 storage engine using the <code>--storageEngine</code> command-line option when you start
 <code>mongod</code>. Alternatively, you can set the <code>storage.engine</code> variable in the
 configuration file (by default, <code>/etc/mongod.conf</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;dataDir&gt;</span>
 <span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span>
 </code></pre></div>
@@ -4289,7 +4289,7 @@ configuration file (by default, <code>/etc/mongod.conf</code>):</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>The configuration file is formatted in YAML</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inMemory</span>
 <span class="w">  </span><span class="nt">inMemory</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">engineConfig</span><span class="p">:</span>
@@ -4300,7 +4300,7 @@ configuration file (by default, <code>/etc/mongod.conf</code>):</p>
 <div class="tabbed-block">
 <p>Setting parameters in the configuration file is the same as
  starting the <code>mongod</code> daemon with the following options:</p>
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--storageEngine<span class="o">=</span>inMemory<span class="w"> </span><span class="se">\</span>
+<div class="language-sh highlight"><pre><span></span><code>mongod<span class="w"> </span>--storageEngine<span class="o">=</span>inMemory<span class="w"> </span><span class="se">\</span>
 --inMemorySizeGB<span class="o">=</span><span class="m">140</span><span class="w"> </span><span class="se">\</span>
 --inMemoryStatisticsLogDelaySecs<span class="o">=</span><span class="m">0</span>
 </code></pre></div>
@@ -4329,19 +4329,19 @@ configuration file (by default, <code>/etc/mongod.conf</code>):</p>
 <ol>
 <li>
 <p>Stop <code>mongod</code></p>
-<div class="highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>stop
+<div class="language-bash highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>stop
 </code></pre></div>
 </li>
 <li>
 <p>Edit the configuration file</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;newDataDir&gt;</span>
 <span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inmemory</span>
 </code></pre></div>
 </li>
 <li>
 <p>Start <code>mongod</code></p>
-<div class="highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>start
+<div class="language-bash highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>start
 </code></pre></div>
 </li>
 </ol>
@@ -4350,24 +4350,24 @@ configuration file (by default, <code>/etc/mongod.conf</code>):</p>
 <ol>
 <li>
 <p>Stop <code>mongod</code></p>
-<div class="highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>stop
+<div class="language-bash highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>stop
 </code></pre></div>
 </li>
 <li>
 <p>Clean out the <code>dbPath</code> data directory</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
 </code></pre></div>
 </li>
 <li>
 <p>Edit the configuration file</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;newDataDir&gt;</span>
 <span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inmemory</span>
 </code></pre></div>
 </li>
 <li>
 <p>Start <code>mongod</code></p>
-<div class="highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>start
+<div class="language-bash highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>start
 </code></pre></div>
 </li>
 </ol>
@@ -4379,17 +4379,17 @@ configuration file (by default, <code>/etc/mongod.conf</code>):</p>
 <ol>
 <li>
 <p>Export the <code>dataDir</code> contents</p>
-<div class="highlight"><pre><span></span><code>mongodump<span class="w"> </span>--out<span class="w"> </span>&lt;dumpDir&gt;
+<div class="language-bash highlight"><pre><span></span><code>mongodump<span class="w"> </span>--out<span class="w"> </span>&lt;dumpDir&gt;
 </code></pre></div>
 </li>
 <li>
 <p>Stop <code>mongod</code></p>
-<div class="highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>stop
+<div class="language-bash highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>stop
 </code></pre></div>
 </li>
 <li>
 <p>Clean out the <code>dbPath</code> data directory</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
 </code></pre></div>
 </li>
 <li>
@@ -4398,12 +4398,12 @@ value for the <code>storage.engine</code> variable. Set the engine-specific sett
 </li>
 <li>
 <p>Start <code>mongod</code></p>
-<div class="highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>start
+<div class="language-bash highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>start
 </code></pre></div>
 </li>
 <li>
 <p>Restore the database</p>
-<div class="highlight"><pre><span></span><code>mongorestore<span class="w"> </span>&lt;dumpDir&gt;
+<div class="language-bash highlight"><pre><span></span><code>mongorestore<span class="w"> </span>&lt;dumpDir&gt;
 </code></pre></div>
 </li>
 </ol>
@@ -4416,24 +4416,24 @@ value for the <code>storage.engine</code> variable. Set the engine-specific sett
 </li>
 <li>
 <p>Stop <code>mongod</code></p>
-<div class="highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>stop
+<div class="language-bash highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>stop
 </code></pre></div>
 </li>
 <li>
 <p>Clean out the <code>dbPath</code> data directory</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;dbpathDataDir&gt;
 </code></pre></div>
 </li>
 <li>
 <p>Edit the configuration file</p>
-<div class="highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">storage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">dbPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;newDataDir&gt;</span>
 <span class="w">  </span><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">inmemory</span>
 </code></pre></div>
 </li>
 <li>
 <p>Start <code>mongod</code></p>
-<div class="highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>start
+<div class="language-bash highlight"><pre><span></span><code>service<span class="w"> </span>mongod<span class="w"> </span>start
 </code></pre></div>
 </li>
 <li>

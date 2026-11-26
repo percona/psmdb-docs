@@ -2,7 +2,7 @@
 
 # OIDC authentication
 
-Version added: [8.0.12-4](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.12-4.html)
+Version added: [8.0.12-4](https://docs.percona.com/percona-server-for-mongodb/8.0/release_notes/8.0.12-4.md)
 
 OpenID Connect (OIDC) is an identity authentication protocol built on top of the OAuth 2.0 framework. OIDC is designed to verify user identities and provide authentication, ensuring that users are who they claim to be. OAuth 2.0 is used for user authorization to access resources.
 
@@ -30,6 +30,8 @@ Percona Server for MongoDB supports two authentication workflows with OIDC:
 
 The following diagram illustrates the authentication flow.
 
+*Image: image*
+
 1. A user connects to Percona Server for MongoDB using a MongoDB client. The client must support OIDC.
 1. Percona Server for MongoDB redirects the MongoDB client to the IdP for authentication and provides the IdP information such as URL, requests scopes, clientID.
 1. The MongoDB client requests authentication from the IdP.
@@ -45,7 +47,7 @@ The access and ID tokens must be encoded as JSON Web Tokens (JWT). They contain 
 
 You can use the IdP infrastructure to authenticate and authorize users. In this case, you store and manage users and their access rights on the IdP side. To use this flow, your IdP configuration in PSMDB must include the `useAuthorizationClaim` option set to true. This setting enforces the use of IdP groups to authorize users and grant them access to Percona Server for MongoDB resources.
 
-Alternatively, you can use OIDC to only authenticate users. Then you can authorize them either based on the roles defined in PSMDB or use an external solution like an LDAP server. In this case, the `useAuthorizationClaim` option must be set to false. To learn more about OIDC authentication and LDAP authorization, see [Setting up OIDC authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.html)
+Alternatively, you can use OIDC to only authenticate users. Then you can authorize them either based on the roles defined in PSMDB or use an external solution like an LDAP server. In this case, the `useAuthorizationClaim` option must be set to false. To learn more about OIDC authentication and LDAP authorization, see [Setting up OIDC authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.md)
 
 ## Benefits
 
@@ -67,15 +69,15 @@ To configure OIDC /OAuth 2.0 authentication and authorization, you must do the f
 
 This section describes Percona Server for MongoDB configuration for OIDC authentication and the available configuration options. Refer to tutorials for detailed step-by-step instructions:
 
-- [Configure OIDC with Okta](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-okta.html)
-- [Configure OIDC with Microsoft Entra](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-entra.html)
-- [Configure OIDC with Ping Identity](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ping.html)
-- [Configure OIDC with Keycloak](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-keycloak.html)
-- [Configure OIDC authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.html)
+- [Configure OIDC with Okta](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-okta.md)
+- [Configure OIDC with Microsoft Entra](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-entra.md)
+- [Configure OIDC with Ping Identity](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ping.md)
+- [Configure OIDC with Keycloak](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-keycloak.md)
+- [Configure OIDC authentication and LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.0/oidc-ldap.md)
 
 ### Percona Server for MongoDB configuration options
 
-To configure OIDC authentication in Percona Server for MongoDB, specify the external identity provider configuration for the `oidcIdentityProviders` server parameter. You can set it only at startup. See the [Parameter tuning guide](https://docs.percona.com/percona-server-for-mongodb/8.0/set-parameter.html) for how to set server parameters.
+To configure OIDC authentication in Percona Server for MongoDB, specify the external identity provider configuration for the `oidcIdentityProviders` server parameter. You can set it only at startup. See the [Parameter tuning guide](https://docs.percona.com/percona-server-for-mongodb/8.0/set-parameter.md) for how to set server parameters.
 
 You can use several IdPs for OIDC authentication with human flow, where a user is redirected to authentication portal. In this case, you must add a configuration for every provider to the `oidcIdentityProviders` server parameter. You must also specify a match pattern for each provider. Usernames are then matched against the match pattern to identify which IdP to authenticate a user with. The order in which IdPs are listed defines their priority. The first IdP that matches the username is used for authentication.
 
@@ -102,7 +104,7 @@ This is the example configuration of Percona Server for MongoDB for Okta:
 
 **Configuration file**
 
-```
+```yaml
 security:
    authorization: enabled
 setParameter:
@@ -119,7 +121,7 @@ setParameter:
 
 **Command line**
 
-```
+```bash
 mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
 'oidcIdentityProviders=[ {
    "issuer": "https://my-okta.okta.com",
@@ -137,7 +139,7 @@ For example, if you have two identity providers, Okta and Microsoft Entra, you c
 
 **Configuration file**
 
-```
+```yaml
 security:
    authorization: enabled
 setParameter:
@@ -163,7 +165,7 @@ setParameter:
 
 **Command line**
 
-```
+```bash
  mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
  oidcIdentityProviders: '[ {
     "issuer": "https://my-okta.okta.com",

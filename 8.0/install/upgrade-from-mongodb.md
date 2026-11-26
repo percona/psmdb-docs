@@ -24,25 +24,25 @@ Before starting the upgrade, we recommend to perform a full backup of your data.
 
 1. Save the current configuration file as the backup:
 
-   ```
+   ```bash
    sudo mv /etc/mongod.conf /etc/mongod.conf.bkp
    ```
 
 1. Stop the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. Check for installed packages:
 
-   ```
+   ```bash
    sudo dpkg -l | grep mongod
    ```
 
    Sample output
 
-   ```
+   ```text
    ii  mongodb-org                      8.0.1                       amd64        MongoDB open source document-oriented database system (metapackage)
    ii  mongodb-org-database             8.0.1                       amd64        MongoDB open source document-oriented database system (metapackage)
    ii  mongodb-org-database-tools-extra 8.0.1                       amd64        Extra MongoDB database tools
@@ -54,7 +54,7 @@ Before starting the upgrade, we recommend to perform a full backup of your data.
 
 1. Remove the installed packages:
 
-   ```
+   ```bash
    sudo apt remove \
      mongodb-org \
      mongodb-org-mongos \
@@ -63,7 +63,7 @@ Before starting the upgrade, we recommend to perform a full backup of your data.
      mongodb-org-tools
    ```
 
-1. [Install Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/install/apt.html).
+1. [Install Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/install/apt.md).
 
 1. Verify that the configuration file includes correct options:
 
@@ -71,14 +71,14 @@ Before starting the upgrade, we recommend to perform a full backup of your data.
 
    - Make sure that the `mongod` user has access to your custom paths. If not, provide it as follows:
 
-     ```
+     ```bash
      sudo chown -R mongod:mongod <custom-dbPath>
      sudo chown -R mongod:mongod <custom-systemLog.path>
      ```
 
    - Remove the following configuration from the configuration file if you have it:
 
-     ```
+     ```yaml
      processManagement:
         fork: true
         pidFilePath: /var/run/mongod.pid
@@ -86,7 +86,7 @@ Before starting the upgrade, we recommend to perform a full backup of your data.
 
 1. Restart the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
@@ -94,19 +94,19 @@ Before starting the upgrade, we recommend to perform a full backup of your data.
 
 1. Stop the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. Check for installed packages:
 
-   ```
+   ```bash
    sudo rpm -qa | grep mongo
    ```
 
    Sample output
 
-   ```
+   ```text
    mongodb-org-shell-8.0.1-1.el9.x86_64
    mongodb-org-database-8.0.1-1.el9.x86_64
    mongodb-org-8.0.1-1.el8.x86_64
@@ -118,7 +118,7 @@ Before starting the upgrade, we recommend to perform a full backup of your data.
 
 1. Remove the installed packages:
 
-   ```
+   ```bash
    sudo yum remove \
    mongodb-org-shell-8.0.1-1.el9.x86_64
    mongodb-org-database-8.0.1-1.el9.x86_64
@@ -129,7 +129,7 @@ Before starting the upgrade, we recommend to perform a full backup of your data.
    mongodb-org-tools-8.0.1-1.el8.x86_64
    ```
 
-1. [Install Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/install/yum.html).
+1. [Install Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/install/yum.md).
 
 1. Verify that the configuration file includes correct options:
 
@@ -137,14 +137,14 @@ Before starting the upgrade, we recommend to perform a full backup of your data.
 
    - Make sure that the `mongod` user has access to your custom paths. If not, provide it as follows:
 
-     ```
+     ```bash
      sudo chown -R mongod:mongod <custom-dbPath>
      sudo chown -R mongod:mongod <custom-systemLog.path>
      ```
 
    - Make sure the configuration file includes the following configuration:
 
-     ```
+     ```yaml
      processManagement:
         fork: true
         pidFilePath: /var/run/mongod.pid
@@ -154,11 +154,11 @@ Before starting the upgrade, we recommend to perform a full backup of your data.
 
 1. Restart the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
-To upgrade a replica set or a sharded cluster, use the [rolling restart](https://docs.percona.com/percona-server-for-mongodb/8.0/glossary.html#rolling-restart) method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.
+To upgrade a replica set or a sharded cluster, use the [rolling restart](https://docs.percona.com/percona-server-for-mongodb/8.0/glossary.md#rolling-restart) method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.
 
 See also
 
@@ -169,4 +169,4 @@ MongoDB Documentation:
 
 ## Upgrading to Percona Server for MongoDB with data at rest encryption enabled
 
-Steps to upgrade from MongoDB 8.0 Community Edition with data encryption enabled to Percona Server for MongoDB are different. `mongod` requires an empty `dbPath` data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the [Switching storage engines](https://docs.percona.com/percona-server-for-mongodb/8.0/inmemory.html#switching-storage-engines) for more information on migration of encrypted data. [Contact us](https://www.percona.com/about-percona/contact#us) for working at the detailed migration steps, if further assistance is needed.
+Steps to upgrade from MongoDB 8.0 Community Edition with data encryption enabled to Percona Server for MongoDB are different. `mongod` requires an empty `dbPath` data directory because it cannot encrypt data files in place. It must receive data from other replica set members during the initial sync. Please refer to the [Switching storage engines](https://docs.percona.com/percona-server-for-mongodb/8.0/inmemory.md#switching-storage-engines) for more information on migration of encrypted data. [Contact us](https://www.percona.com/about-percona/contact#us) for working at the detailed migration steps, if further assistance is needed.

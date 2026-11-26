@@ -2,7 +2,7 @@
 
 # Split-DNS Horizons usage with Percona Server for MongoDB
 
-This overview explains the Horizons feature in Percona Server for MongoDB. If you’re familiar with the concept and want to use it, switch to the [Configure Horizons in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon-setup.html).
+This overview explains the Horizons feature in Percona Server for MongoDB. If you’re familiar with the concept and want to use it, switch to the [Configure Horizons in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon-setup.md).
 
 You can deploy Percona Server for MongoDB in different environments:
 
@@ -33,7 +33,7 @@ Horizons let each replica set member advertise different hostnames and ports dep
 
 You configure Horizons in the replica set configuration under the horizons field:
 
-```
+```json
 {
   _id: 0,
   host: "psmdb1.internal.net:27017",
@@ -49,6 +49,8 @@ With Horizons configured, a single MongoDB replica set can serve two distinct cl
 - **External access**: Using public DNS records, load balancer hostnames, or specific host-mapped ports (`mongo1.external.mycompany.com:32768`)
 
 The following diagram shows the use of Horizons work:
+
+*Image: Horizons workflow*
 
 Horizons rely on a crucial component of the TLS handshake: Server Name Indication (SNI).
 
@@ -73,4 +75,4 @@ Horizons are especially useful if you:
 
 ## Configuration
 
-[Configure Horizons in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon-setup.html)
+[Configure Horizons in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.0/horizon-setup.md)

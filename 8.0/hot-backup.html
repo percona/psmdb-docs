@@ -25,7 +25,7 @@ server without notable performance and operating degradation.">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -140,7 +140,7 @@ server without notable performance and operating degradation.">
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.0/hot-backup.md"></head>
   
   
     
@@ -150,7 +150,7 @@ server without notable performance and operating degradation.">
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/hot-backup.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.0/hot-backup.md</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4254,12 +4254,12 @@ server without notable performance and operating degradation.</p>
 <ol>
 <li>
 <p>Provide access to the backup directory for the <code>mongod</code> user:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;backupDir&gt;
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;backupDir&gt;
 </code></pre></div>
 </li>
 <li>
 <p>Run the <code>createBackup</code> command as administrator on the <code>admin</code> database and specify the backup directory.</p>
-<div class="highlight"><pre><span></span><code><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
 <span class="nx">switched</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">db</span><span class="w"> </span><span class="nx">admin</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">"&lt;backup_data_path&gt;"</span><span class="p">})</span>
 <span class="p">{</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
@@ -4270,13 +4270,13 @@ server without notable performance and operating degradation.</p>
 <p>If the backup was successful, you should receive an <code>{ "ok" : 1 }</code> object.
 If there was an error, you will receive a failing <code>ok</code> status
 with the error message, for example:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">""</span><span class="p">})</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">backupDir</span><span class="o">:</span><span class="w"> </span><span class="s2">""</span><span class="p">})</span>
 <span class="p">{</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="s2">"errmsg"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"Destination path must be absolute"</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <h2 id="save-a-backup-to-a-tar-archive">Save a backup to a TAR archive<a data-markdown-ignore class="headerlink" href="#save-a-backup-to-a-tar-archive" title="Permanent link">¶</a></h2>
 <p>To save a backup as a <em>tar</em> archive, use the <code>archive</code> field to
 specify the destination path:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
 <span class="p">...</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">archive</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">path_to_archive</span><span class="o">&gt;</span><span class="p">.</span><span class="nx">tar</span><span class="w"> </span><span class="p">})</span>
 </code></pre></div>
@@ -4284,7 +4284,7 @@ specify the destination path:</p>
 <p><em>Percona Server for MongoDB</em> enables uploading hot backups to an <a href="https://aws.amazon.com/s3/">Amazon S3</a> or a compatible storage service, such
 as <a href="https://min.io/">MinIO</a>.</p>
 <p>This method requires that you provide the <em>bucket</em> field in the <em>s3</em> object:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
 <span class="p">...</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">"backup20240510"</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">some_optional_path</span><span class="o">&gt;</span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
 </code></pre></div>
@@ -4351,7 +4351,7 @@ these are used as credentials.</p>
 <p>If the <em>access key id</em> parameter is not specified then the credentials are loaded from
 the credentials configuration file. By default, it is <code>~/.aws/credentials</code>.</p>
 <h4 id="example-credentials-file">Example credentials file<a data-markdown-ignore class="headerlink" href="#example-credentials-file" title="Permanent link">¶</a></h4>
-<div class="highlight"><span class="filename">~/.aws/credentials</span><pre><span></span><code>[default]
+<div class="language-text highlight"><span class="filename">~/.aws/credentials</span><pre><span></span><code>[default]
 aws_access_key_id = ABC123XYZ456QQQAAAFFF
 aws_secret_access_key = zuf+secretkey0secretkey1secretkey2
 [localminio]
@@ -4360,7 +4360,7 @@ aws_secret_access_key = secretaccesskey1secretaccesskey2secretaccesskey3
 </code></pre></div>
 <h3 id="examples">Examples<a data-markdown-ignore class="headerlink" href="#examples" title="Permanent link">¶</a></h3>
 <p><strong>Backup in root of bucket on local instance of MinIO server</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">"backup20190901500"</span><span class="p">,</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">"backup20190901500"</span><span class="p">,</span>
 <span class="nx">scheme</span><span class="o">:</span><span class="w"> </span><span class="s2">"HTTP"</span><span class="p">,</span>
 <span class="nx">endpoint</span><span class="o">:</span><span class="w"> </span><span class="s2">"127.0.0.1:9000"</span><span class="p">,</span>
 <span class="nx">useVirtualAddressing</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
@@ -4368,13 +4368,13 @@ aws_secret_access_key = secretaccesskey1secretaccesskey2secretaccesskey3
 </code></pre></div>
 <p><strong>Backup on MinIO testing server with the default credentials profile</strong></p>
 <p>The following command creates a backup under the virtual path  “year2019/day42” in the <code>backup</code> bucket:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">"backup"</span><span class="p">,</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">"backup"</span><span class="p">,</span>
 <span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">"year2019/day42"</span><span class="p">,</span>
 <span class="nx">endpoint</span><span class="o">:</span><span class="w"> </span><span class="s2">"sandbox.min.io:9000"</span><span class="p">,</span>
 <span class="nx">useVirtualAddressing</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}})</span>
 </code></pre></div>
 <p><strong>Backup on AWS S3 service using default settings</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">"backup"</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">"year2019/day42"</span><span class="p">}})</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="nx">createBackup</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w">  </span><span class="nx">s3</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">bucket</span><span class="o">:</span><span class="w"> </span><span class="s2">"backup"</span><span class="p">,</span><span class="w"> </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="s2">"year2019/day42"</span><span class="p">}})</span>
 </code></pre></div>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
@@ -4391,27 +4391,27 @@ aws_secret_access_key = secretaccesskey1secretaccesskey2secretaccesskey3
 <ol>
 <li>
 <p>Stop the <code>mongod</code> service</p>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Clean out the data directory</p>
-<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/mongodb/*
+<div class="language-bash highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/mongodb/*
 </code></pre></div>
 </li>
 <li>
 <p>Copy backup files</p>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-RT<span class="w"> </span>&lt;backup_data_path&gt;<span class="w"> </span>/var/lib/mongodb/
+<div class="language-bash highlight"><pre><span></span><code>cp<span class="w"> </span>-RT<span class="w"> </span>&lt;backup_data_path&gt;<span class="w"> </span>/var/lib/mongodb/
 </code></pre></div>
 </li>
 <li>
 <p>Grant permissions to data files for the <code>mongod</code> user</p>
-<div class="highlight"><pre><span></span><code>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>/var/lib/mongodb/
+<div class="language-bash highlight"><pre><span></span><code>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>/var/lib/mongodb/
 </code></pre></div>
 </li>
 <li>
 <p>Start the <code>mongod</code> service</p>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 </ol>
@@ -4425,28 +4425,28 @@ aws_secret_access_key = secretaccesskey1secretaccesskey2secretaccesskey3
 <ol>
 <li>
 <p>Stop the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Clean the data directory and then copy the files from the backup directory to your data directory. Assuming that the data directory is <code>/var/lib/mongodb/</code>, use the following commands:</p>
-<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/mongodb/*
+<div class="language-bash highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/mongodb/*
 cp<span class="w"> </span>-RT<span class="w"> </span>&lt;backup_data_path&gt;<span class="w"> </span>/var/lib/mongodb/
 </code></pre></div>
 </li>
 <li>
 <p>Grant permissions to the data files for the <code>mongod</code> user</p>
-<div class="highlight"><pre><span></span><code>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>/var/lib/mongodb/
+<div class="language-bash highlight"><pre><span></span><code>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>/var/lib/mongodb/
 </code></pre></div>
 </li>
 <li>
 <p>Make sure the replication is disabled in the config file and start the <code>mongod</code> service.</p>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Connect to your standalone node via the <code>mongo</code> shell and drop the local database</p>
-<div class="highlight"><pre><span></span><code><span class="nx">mongo</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">mongo</span>
 <span class="nx">use</span><span class="w"> </span><span class="nx">local</span>
 <span class="nx">db</span><span class="p">.</span><span class="nx">dropDatabase</span><span class="p">()</span>
 </code></pre></div>
@@ -4456,7 +4456,7 @@ cp<span class="w"> </span>-RT<span class="w"> </span>&lt;backup_data_path&gt;<sp
 <ul>
 <li>
 <p>Shut down the node.</p>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
@@ -4464,14 +4464,14 @@ cp<span class="w"> </span>-RT<span class="w"> </span>&lt;backup_data_path&gt;<sp
 </li>
 <li>
 <p>Start the <code>mongod</code> node:</p>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 </ul>
 </li>
 <li>
 <p>Initiate a new replica set</p>
-<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="nx">Start</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">mongosh</span><span class="w"> </span><span class="nx">shell</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="nx">Start</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">mongosh</span><span class="w"> </span><span class="nx">shell</span>
 <span class="nx">mongosh</span>
 <span class="err">#</span><span class="w"> </span><span class="nx">Initiate</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">replica</span><span class="w"> </span><span class="nx">set</span>
 <span class="nx">rs</span><span class="p">.</span><span class="nx">initiate</span><span class="p">()</span>

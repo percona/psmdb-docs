@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -138,7 +138,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.0/horizon-setup.md"></head>
   
   
     
@@ -148,7 +148,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.0/horizon-setup.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.0/horizon-setup.md</a>.</div>
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -4252,12 +4252,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Create a directory to store your TLS certificates. </p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>certs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>certs
+<div class="language-bash highlight"><pre><span></span><code>mkdir<span class="w"> </span>certs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>certs
 </code></pre></div>
 </li>
 <li>
 <p>Create the Certificate Authority (CA) signing request file:</p>
-<div class="highlight"><pre><span></span><code>tee<span class="w"> </span>ca-csr.json<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<div class="language-bash highlight"><pre><span></span><code>tee<span class="w"> </span>ca-csr.json<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
 <span class="s">{</span>
 <span class="s">  "CN": "MyTestCA",</span>
 <span class="s">  "key": { "algo": "rsa", "size": 2048 },</span>
@@ -4269,11 +4269,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Generate the self-signed CA certificate and key:</p>
-<div class="highlight"><pre><span></span><code>cfssl<span class="w"> </span>gencert<span class="w"> </span>-initca<span class="w"> </span>ca-csr.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>cfssljson<span class="w"> </span>-bare<span class="w"> </span>ca
+<div class="language-bash highlight"><pre><span></span><code>cfssl<span class="w"> </span>gencert<span class="w"> </span>-initca<span class="w"> </span>ca-csr.json<span class="w"> </span><span class="p">|</span><span class="w"> </span>cfssljson<span class="w"> </span>-bare<span class="w"> </span>ca
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>2025/10/10 14:08:35 [INFO] generating a new CA key and certificate from CSR
+<div class="language-text no-copy highlight"><pre><span></span><code>2025/10/10 14:08:35 [INFO] generating a new CA key and certificate from CSR
 2025/10/10 14:08:35 [INFO] generate received request
 2025/10/10 14:08:35 [INFO] received CSR
 2025/10/10 14:08:35 [INFO] generating key: rsa-2048
@@ -4289,7 +4289,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Now, create server certificate requests for each Percona Server for MongoDB server (psmdb1, psmdb2, psmdb3), including both internal and external names in the “hosts” array:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">public_ips</span><span class="o">=(</span><span class="s2">"52.45.100.201"</span><span class="w"> </span><span class="s2">"52.45.100.202"</span><span class="w"> </span><span class="s2">"52.45.100.203"</span><span class="o">)</span>
+<div class="language-bash highlight"><pre><span></span><code><span class="nv">public_ips</span><span class="o">=(</span><span class="s2">"52.45.100.201"</span><span class="w"> </span><span class="s2">"52.45.100.202"</span><span class="w"> </span><span class="s2">"52.45.100.203"</span><span class="o">)</span>
 <span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="nv">name</span><span class="o">=</span><span class="s2">"psmdb</span><span class="nv">$i</span><span class="s2">"</span>
 <span class="w">    </span><span class="nv">public_ip</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">public_ips</span><span class="p">[</span><span class="k">$((</span><span class="nv">i</span><span class="o">-</span><span class="m">1</span><span class="k">))</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="w">        </span>
@@ -4310,7 +4310,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Generate and combine server certificates</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<div class="language-bash highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="nv">name</span><span class="o">=</span><span class="s2">"psmdb</span><span class="nv">$i</span><span class="s2">"</span>
 
 <span class="w">    </span>cat<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">name</span><span class="si">}</span><span class="s2">-config.json"</span><span class="w"> </span><span class="s">&lt;&lt;EOF</span>
@@ -4339,7 +4339,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>2025/10/10 14:11:44 [INFO] generate received request
+<div class="language-text no-copy highlight"><pre><span></span><code>2025/10/10 14:11:44 [INFO] generate received request
 2025/10/10 14:11:44 [INFO] received CSR
 2025/10/10 14:11:44 [INFO] generating key: rsa-2048
 2025/10/10 14:11:45 [INFO] encoded CSR
@@ -4361,7 +4361,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>To simplify deploying Percona Server for MongoDB in Docker, create a Docker compose file with all required configuration. For each container, we map an internal MongoDB port <code>27017</code> to external ports <code>27017</code>, <code>27018</code> and <code>27019</code>:</p>
-<div class="highlight"><pre><span></span><code>tee<span class="w"> </span>test-horizons.yml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<div class="language-bash highlight"><pre><span></span><code>tee<span class="w"> </span>test-horizons.yml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
 <span class="s">name: Horizons</span>
 <span class="s">services:</span>
 <span class="s">    psmdb1:</span>
@@ -4408,7 +4408,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Start Percona Server for MongoDB using this file:</p>
-<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>-f<span class="w"> </span>test-horizons.yml<span class="w"> </span>up<span class="w"> </span>-d
+<div class="language-bash highlight"><pre><span></span><code>docker-compose<span class="w"> </span>-f<span class="w"> </span>test-horizons.yml<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
 <p>The command does the following:</p>
 <ul>
@@ -4422,17 +4422,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Connect to one of the nodes and start the <code>bash</code> session:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>psmdb1<span class="w"> </span>--<span class="w"> </span>/bin/bash
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>psmdb1<span class="w"> </span>--<span class="w"> </span>/bin/bash
 </code></pre></div>
 </li>
 <li>
 <p>Authenticate in Percona Server for MongoDB with enabled TLS:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>--tls<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/psmdb1-combined.pem<span class="w"> </span>--tlsAllowInvalidCertificates
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span>--tls<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/psmdb1-combined.pem<span class="w"> </span>--tlsAllowInvalidCertificates
 </code></pre></div>
 </li>
 <li>
 <p>Initialize the replica set with Horizons. Specify the internal hostname for the <code>host</code> field and the external hostname/port in the <code>horizons</code> field for the replica set configuration:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">rs</span><span class="p">.</span><span class="nx">initiate</span><span class="p">({</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">rs</span><span class="p">.</span><span class="nx">initiate</span><span class="p">({</span>
 <span class="w">   </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="s2">"rs0"</span><span class="p">,</span>
 <span class="w">   </span><span class="nx">members</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">     </span><span class="p">{</span>
@@ -4456,7 +4456,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Check the replica set configuration:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">rs</span><span class="p">.</span><span class="nx">status</span><span class="p">()</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">rs</span><span class="p">.</span><span class="nx">status</span><span class="p">()</span>
 </code></pre></div>
 </li>
 </ol>
@@ -4467,7 +4467,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>To spin up a new container, you must mount the certificates directory into the container when you start it:</li>
 </ol>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--name<span class="w"> </span>mongo-test<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--network<span class="w"> </span>Horizons_default<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span>&lt;path/to/certs&gt;:/certs<span class="w"> </span><span class="se">\</span>
@@ -4478,7 +4478,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Execute in the container and connect to the replica set:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mongo-test<span class="w"> </span>mongosh<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mongo-test<span class="w"> </span>mongosh<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--host<span class="w"> </span><span class="s2">"rs0/psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--tls<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/psmdb1-combined.pem<span class="w"> </span><span class="se">\</span>
@@ -4486,7 +4486,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
+<div class="language-text no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
 Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.14.1
 Using MongoDB:      8.0.38-16
 Using Mongosh:      2.14.1
@@ -4497,11 +4497,11 @@ rs0 [primary] test&gt;
 </li>
 <li>
 <p>Check the replica set topology:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">hello</span><span class="p">()</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">hello</span><span class="p">()</span>
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-edit highlight"><pre><span></span><code>{
+<div class="language-text no-edit highlight"><pre><span></span><code>{
   topologyVersion: {
     processId: ObjectId('68e786bf0223ec7011474d9b'),
     counter: Long('40')
@@ -4517,11 +4517,11 @@ rs0 [primary] test&gt;
 <ol>
 <li>
 <p>Connect to the replica set from the MongoDB client (Compass or <code>mongosh</code>) using the external hostnames you defined in Horizons:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span><span class="s2">"mongodb://external.mycompany.com:27017,external.mycompany.com:27018,external.mycompany.com:27019/?replicaSet=rs0"</span><span class="w"> </span>--tls<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/mongo1-combined.pem<span class="w"> </span>--tlsCAFile<span class="w"> </span>/certs/ca.pem
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span><span class="s2">"mongodb://external.mycompany.com:27017,external.mycompany.com:27018,external.mycompany.com:27019/?replicaSet=rs0"</span><span class="w"> </span>--tls<span class="w"> </span>--tlsCertificateKeyFile<span class="w"> </span>/certs/mongo1-combined.pem<span class="w"> </span>--tlsCAFile<span class="w"> </span>/certs/ca.pem
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
+<div class="language-text no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 68e90919857364d663248377
 Connecting to:  mongodb://psmdb1.internal.net:27017,psmdb2.internal.net:27017,psmdb3.internal.net:27017/?replicaSet=rs0&amp;tls=true&amp;tlsCertificateKeyFile=%2Fcerts%2Fmongo1-combined.pem&amp;tlsCAFile=%2Fcerts%2Fca.pem&amp;appName=mongosh+2.14.1
 Using MongoDB:  8.0.38-16
 Using Mongosh:  2.14.1
@@ -4532,11 +4532,11 @@ rs0 [primary] test&gt;
 </li>
 <li>
 <p>Check the replica set topology:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">hello</span><span class="p">()</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">hello</span><span class="p">()</span>
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-edit highlight"><pre><span></span><code>{
+<div class="language-text no-edit highlight"><pre><span></span><code>{
   topologyVersion: {
     processId: ObjectId('68e786bf0223ec7011474d9b'),
     counter: Long('40')
