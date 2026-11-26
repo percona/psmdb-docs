@@ -18,4 +18,4 @@ mkdocs-glightbox
 mkdocs-git-committers-plugin-2
 mkdocs-print-site-plugin
 mkdocs-llmstxt>=0.5.1,<0.6
-mkdocs-percona-llmstxt==0.3.2
+mkdocs-percona-llmstxt>=0.4.0,<0.5
