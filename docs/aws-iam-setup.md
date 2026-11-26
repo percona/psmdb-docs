@@ -60,7 +60,7 @@ Create a user and assign the required roles to them. Specify the ARN and names i
      use $external
      db.createUser(
          {
-             user: "arn:aws-us-gov:iam::111111111111:role/myRole",
+             user: "arn:aws:iam::111111111111:role/myRole",
              roles: [{role: "read", db: "admin"}]
          }
      )
