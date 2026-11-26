@@ -26,16 +26,18 @@ The steps are the following:
 
 During the authentication, Percona Server for MongoDB matches the ARN of the IAM user or role retrieved from AWS STS against the user created in the `$external` database. Thus, the username for this user must include their ARN  and have the following format:
 
+Use the partition from the ARN that AWS returns. GovCloud ARNs use `aws-us-gov`. China ARNs use `aws-cn`. Preserve these partition values.
+
 === "User authentication"
 
      ```
-     arn:aws:iam::<ARN>:user/<user_name>
+     arn:<partition>:iam::<account_id>:user/<user_name>
      ```
 
 === "Role authentication"
 
      ```
-     arn:aws:iam::<ARN>:role/<role_name>
+     arn:<partition>:iam::<account_id>:role/<role_name>
      ```
 
 Create a user and assign the required roles to them. Specify the ARN and names in the following example commands:
@@ -57,10 +59,10 @@ Create a user and assign the required roles to them. Specify the ARN and names i
      ```javascript
      use $external
      db.createUser(
-     	{
-     		user: "arn:aws:iam::111111111111:role/myRole",
-     		roles: [{role: "read", db: "admin"}]
-     	}
+         {
+             user: "arn:aws:iam::111111111111:role/myRole",
+             roles: [{role: "read", db: "admin"}]
+         }
      )
      ```
 
