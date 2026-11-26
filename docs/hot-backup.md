@@ -13,6 +13,7 @@ PBM does not support standalone MongoDB instances.
 For deployment requirements, see [Supported MongoDB deployments](https://docs.percona.com/percona-backup-mongodb/latest/details/deployments.html).
 
 To prepare your PBM backup workflow:
+{.power-number}
 
 1. Check the [PBM compatibility matrix](https://docs.percona.com/percona-backup-mongodb/latest/details/versions.html) for support for your server version and backup type.
 
