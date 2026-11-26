@@ -130,8 +130,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.3/connect.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/connect.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.3/connect.md</a>.</div>
 
 
 
@@ -3687,11 +3687,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Connect to Percona Server for MongoDB instance without authentication:</p>
-<div class="highlight"><pre><span></span><code>mongosh
+<div class="language-bash highlight"><pre><span></span><code>mongosh
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 6598270a3a0c418751550ded
+<div class="language-text no-copy highlight"><pre><span></span><code>Current Mongosh Log ID: 6598270a3a0c418751550ded
 Connecting to:      mongodb://127.0.0.1:27017/?directConnection=true&amp;serverSelectionTimeoutMS=2000&amp;appName=mongosh+2.0.0
 Using MongoDB:      8.3.17-5
 Using Mongosh:      2.0.0    
@@ -3707,17 +3707,17 @@ test&gt;
 <ol>
 <li>
 <p>Switch to the <code>admin</code> database</p>
-<div class="highlight"><pre><span></span><code><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">use</span><span class="w"> </span><span class="nx">admin</span>
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>switched to db admin
+<div class="language-text no-copy highlight"><pre><span></span><code>switched to db admin
 </code></pre></div>
 </details>
 </li>
 <li>
 <p>Create the user:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">(</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">createUser</span><span class="p">(</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span>
 <span class="w">      </span><span class="nx">pwd</span><span class="o">:</span><span class="w"> </span><span class="nx">passwordPrompt</span><span class="p">(),</span><span class="w"> </span><span class="c1">// or cleartext password</span>
@@ -3733,7 +3733,7 @@ test&gt;
 </li>
 <li>
 <p>Shutdown the <code>mongod</code> instance and exit <code>mongosh</code></p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">shutdown</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">shutdown</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
@@ -3742,20 +3742,20 @@ test&gt;
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Start the server with authentication enabled using the following command: </p>
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--auth<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>--dbpath<span class="w"> </span>/var/lib/mongodb<span class="w"> </span>--fork<span class="w"> </span>--syslog
+<div class="language-bash highlight"><pre><span></span><code>mongod<span class="w"> </span>--auth<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w"> </span>--dbpath<span class="w"> </span>/var/lib/mongodb<span class="w"> </span>--fork<span class="w"> </span>--syslog
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <ol>
 <li>
 <p>Edit the configuration file</p>
-<div class="highlight"><span class="filename">/etc/mongod.conf</span><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><span class="filename">/etc/mongod.conf</span><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
 </code></pre></div>
 </li>
 <li>
 <p>Start the <code>mongod</code> service</p>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 </ol>
@@ -3765,7 +3765,7 @@ test&gt;
 </li>
 <li>
 <p>Connect to Percona Server for MongoDB and authenticate.</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w">  </span>--authenticationDatabase<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span>--port<span class="w"> </span><span class="m">27017</span><span class="w">  </span>--authenticationDatabase<span class="w"> </span><span class="se">\</span>
 <span class="s2">"admin"</span><span class="w"> </span>-u<span class="w"> </span><span class="s2">"admin"</span><span class="w"> </span>-p
 </code></pre></div>
 </li>

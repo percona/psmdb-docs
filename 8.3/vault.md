@@ -26,7 +26,7 @@ HashiCorp Vault Documentation: [How to configure the KV Engine](https://www.vaul
 
 ### Config file example
 
-```
+```yaml
 security:
   enableEncryption: true
   vault:
@@ -42,7 +42,7 @@ Percona Server for MongoDB checks the number of the secrets on the Vault server 
 
 Find the sample policy configuration below:
 
-```
+```json
 path "secret/data/*" {
   capabilities = ["create","read","update","delete"]
 }
@@ -64,7 +64,7 @@ Namespaces are isolated environments in Vault that allow for separate secret key
 
 You can use Vault namespaces with Percona Server for MongoDB. Specify the namespace(s) for the `security.vault.secret` option value as follows:
 
-```
+```bash
 <namespace>/secret/data/<secret_path>
 ```
 
@@ -76,7 +76,7 @@ You have the following options of how to target a particular namespace when conf
 
 1. Set the `VAULT_NAMESPACE` environment variable so that all subsequent commands are executed against that namespace. Use the following command to set the environment variable for the namespace `test`:
 
-```
+```bash
 export VAULT_NAMESPACE=test
 ```
 
@@ -125,13 +125,13 @@ To continue, increase the maximum versions for the secret or the entire secrets 
 
 You can check the encryption status and the current configuration using the following command:
 
-```
+```javascript
 > db.serverStatus().encryptionAtRest
 ```
 
 Expected output
 
-```
+```text
 {
   encryptionEnabled: true,
   encryptionCipherMode: 'AES256-CBC',

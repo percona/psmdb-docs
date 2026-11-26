@@ -130,8 +130,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.3/install/docker.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/install/docker.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.3/install/docker.md</a>.</div>
 
 
 
@@ -3758,7 +3758,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>We gather <a href="../telemetry.html">Telemetry data</a> to understand the use of the software and improve our products.</p>
 </div>
 <p>To run the latest Percona Server for MongoDB 8.3 in a Docker container, run the following command as the root user or via <code>sudo</code>:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span>percona/percona-server-mongodb:&lt;TAG&gt;
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>psmdb<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span>percona/percona-server-mongodb:&lt;TAG&gt;
 </code></pre></div>
 <p>The command does the following:</p>
 <ul>
@@ -3796,11 +3796,11 @@ and restart it if the container exits.</p>
 </ul>
 <h2 id="access-container-shell">Access container shell<a data-markdown-ignore class="headerlink" href="#access-container-shell" title="Permanent link">¶</a></h2>
 <p>Run the following command to start the bash session and run commands inside the container:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container-name&gt;
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container-name&gt;
 </code></pre></div>
 <p>where <code>&lt;container-name&gt;</code> is the name of your database container.</p>
 <p>For example, to connect to Percona Server for MongoDB, run:</p>
-<div class="highlight"><pre><span></span><code>mongosh
+<div class="language-bash highlight"><pre><span></span><code>mongosh
 </code></pre></div>
 <h2 id="connecting-from-another-docker-container">Connecting from another Docker container<a data-markdown-ignore class="headerlink" href="#connecting-from-another-docker-container" title="Permanent link">¶</a></h2>
 <p>The Percona Server for MongoDB container exposes standard MongoDB port (27017),
@@ -3820,17 +3820,17 @@ running in another container.</p>
 <ol>
 <li>
 <p>Start the containers and expose different ports</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs101<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w">  </span>percona/percona-server-mongodb:8.3<span class="w"> </span>--port<span class="o">=</span><span class="m">27017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs101<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w">  </span>percona/percona-server-mongodb:8.3<span class="w"> </span>--port<span class="o">=</span><span class="m">27017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
 docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs102<span class="w"> </span>-p<span class="w"> </span><span class="m">28017</span>:28017<span class="w">  </span>percona/percona-server-mongodb:8.3<span class="w"> </span>--port<span class="o">=</span><span class="m">28017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
 docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs103<span class="w"> </span>-p<span class="w"> </span><span class="m">29017</span>:29017<span class="w">  </span>percona/percona-server-mongodb:8.3<span class="w"> </span>--port<span class="o">=</span><span class="m">29017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
 </code></pre></div>
 </li>
 <li>
 <p>Check that the containers are started</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>container<span class="w"> </span>ls
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>container<span class="w"> </span>ls
 </code></pre></div>
 <p>Output:</p>
-<div class="no-copy highlight"><pre><span></span><code>CONTAINER ID  IMAGE                                         COMMAND               CREATED         STATUS             PORTS                     NAMES
+<div class="language-text no-copy highlight"><pre><span></span><code>CONTAINER ID  IMAGE                                         COMMAND               CREATED         STATUS             PORTS                     NAMES
 3a4b70cd386b  percona/percona-server-mongodb:8.3  --port=27017 --re...  3 minutes ago   Up 3 minutes ago   0.0.0.0:27017-&gt;27017/tcp  rs101
 c9b40a00e32b  percona/percona-server-mongodb:8.3  --port=28017 --re...  11 seconds ago  Up 11 seconds ago  0.0.0.0:28017-&gt;28017/tcp  rs102
 b8aebc00309e  percona/percona-server-mongodb:8.3  --port=29017 --re...  3 seconds ago   Up 3 seconds ago   0.0.0.0:29017-&gt;29017/tcp  rs103
@@ -3838,19 +3838,19 @@ b8aebc00309e  percona/percona-server-mongodb:8.3  --port=29017 --re...  3 second
 </li>
 <li>
 <p>Get the IP addresses of each container</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>inspect<span class="w"> </span>--format<span class="o">=</span><span class="s1">'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'</span><span class="w"> </span>rs101
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>inspect<span class="w"> </span>--format<span class="o">=</span><span class="s1">'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'</span><span class="w"> </span>rs101
 docker<span class="w"> </span>inspect<span class="w"> </span>--format<span class="o">=</span><span class="s1">'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'</span><span class="w"> </span>rs102
 docker<span class="w"> </span>inspect<span class="w"> </span>--format<span class="o">=</span><span class="s1">'{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'</span><span class="w"> </span>rs103
 </code></pre></div>
 </li>
 <li>
 <p>Interconnect the containers and initiate the replica set. Replace <code>rs101SERVER</code>, <code>rs102SERVER</code> and <code>rs103SERVER</code> with the IP address of each respective container.</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">'config={"_id":"rs","members":[{"_id":0,"host":"rs101SERVER:27017"},{"_id":1,"host":"rs102SERVER:28017"},{"_id":2,"host":"rs103SERVER:29017"}]};rs.initiate(config);'</span>
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">'config={"_id":"rs","members":[{"_id":0,"host":"rs101SERVER:27017"},{"_id":1,"host":"rs102SERVER:28017"},{"_id":2,"host":"rs103SERVER:29017"}]};rs.initiate(config);'</span>
 </code></pre></div>
 </li>
 <li>
 <p>Check your setup</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">'rs.status()'</span>
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">'rs.status()'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -3860,27 +3860,27 @@ docker<span class="w"> </span>inspect<span class="w"> </span>--format<span class
 <ol>
 <li>
 <p>Create the network:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>my-network
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>my-network
 </code></pre></div>
 </li>
 <li>
 <p>Start the containers and connect them to your network, exposing different ports</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs101<span class="w"> </span>--net<span class="w"> </span>my-network<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w">  </span>percona/percona-server-mongodb:8.3<span class="w"> </span>--port<span class="o">=</span><span class="m">27017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs101<span class="w"> </span>--net<span class="w"> </span>my-network<span class="w"> </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w">  </span>percona/percona-server-mongodb:8.3<span class="w"> </span>--port<span class="o">=</span><span class="m">27017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
 docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs102<span class="w"> </span>--net<span class="w"> </span>my-network<span class="w"> </span>-p<span class="w"> </span><span class="m">28017</span>:28017<span class="w">  </span>percona/percona-server-mongodb:8.3<span class="w"> </span>--port<span class="o">=</span><span class="m">28017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
 docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>rs103<span class="w"> </span>--net<span class="w"> </span>my-network<span class="w"> </span>-p<span class="w"> </span><span class="m">29017</span>:29017<span class="w">  </span>percona/percona-server-mongodb:8.3<span class="w"> </span>--port<span class="o">=</span><span class="m">29017</span><span class="w"> </span>--replSet<span class="w"> </span>rs
 </code></pre></div>
 <p>Alternatively, you can connect the already running containers to your network:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>network<span class="w"> </span>connect<span class="w"> </span>my-network<span class="w"> </span>rs101<span class="w"> </span>rs102<span class="w"> </span>rs103
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>network<span class="w"> </span>connect<span class="w"> </span>my-network<span class="w"> </span>rs101<span class="w"> </span>rs102<span class="w"> </span>rs103
 </code></pre></div>
 </li>
 <li>
 <p>Interconnect the containers and initiate the replica set. </p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">'config={"_id":"rs","members":[{"_id":0,"host":"rs101:27017"},{"_id":1,"host":"rs102:28017"},{"_id":2,"host":"rs103:29017"}]};rs.initiate(config);'</span>
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">'config={"_id":"rs","members":[{"_id":0,"host":"rs101:27017"},{"_id":1,"host":"rs102:28017"},{"_id":2,"host":"rs103:29017"}]};rs.initiate(config);'</span>
 </code></pre></div>
 </li>
 <li>
 <p>Check your setup</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">'rs.status()'</span>
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">'rs.status()'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -3890,7 +3890,7 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <ol>
 <li>
 <p>Create a compose file and define the services in it.</p>
-<div class="highlight"><span class="filename">docker-compose.yaml</span><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">"3"</span>
+<div class="language-yaml highlight"><span class="filename">docker-compose.yaml</span><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">"3"</span>
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">rs101</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">percona/percona-server-mongodb:8.3</span>
@@ -3961,12 +3961,12 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 </li>
 <li>
 <p>Build and run the replica set with Compose </p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
 </li>
 <li>
 <p>Check your setup</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">'rs.status()'</span>
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-ti<span class="w"> </span>rs101<span class="w"> </span>mongosh<span class="w"> </span>--eval<span class="w"> </span><span class="s1">'rs.status()'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -3977,11 +3977,11 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <p>To start another container with the <code>mongosh</code> shell
 that connects to your Percona Server for MongoDB container,
 run the following command: </p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--link<span class="w"> </span>psmdb<span class="w"> </span>--rm<span class="w"> </span>percona/percona-server-mongodb:8.3<span class="w"> </span>mongosh<span class="w"> </span>mongodb://MONGODB_SERVER:PORT/DB_NAME
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--link<span class="w"> </span>psmdb<span class="w"> </span>--rm<span class="w"> </span>percona/percona-server-mongodb:8.3<span class="w"> </span>mongosh<span class="w"> </span>mongodb://MONGODB_SERVER:PORT/DB_NAME
 </code></pre></div>
 <p>Set <code>MONGODB_SERVER</code>, <code>PORT</code>, and <code>DB_NAME</code> with the IP address of the <code>psmdb</code> container, the port of your MongoDB Server (default value is 27017), and the name of the database you want to connect to.</p>
 <p>You can get the IP address by running this command:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>inspect<span class="w"> </span>-f<span class="w"> </span><span class="s1">'{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'</span><span class="w"> </span>psmdb
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>inspect<span class="w"> </span>-f<span class="w"> </span><span class="s1">'{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'</span><span class="w"> </span>psmdb
 </code></pre></div>
 <h2 id="next-steps">Next steps<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>
 <p><a class="md-button" href="../crud.html">Run simple queries <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg></span></a></p>

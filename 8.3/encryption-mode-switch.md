@@ -14,7 +14,7 @@ We assume that you have installed and configured the vault server and enabled th
 
 1. Stop `mongod`.
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
@@ -22,14 +22,14 @@ We assume that you have installed and configured the vault server and enabled th
 
    - Retrieve the key value from the keyfile
 
-   ```
+   ```bash
    sudo cat /data/key/mongodb.key
    d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw=
    ```
 
    - Insert the key into vault
 
-   ```
+   ```bash
    vault kv put secret/dc/psmongodb1 value=d0JTFcePmvROyLXwCbAH8fmiP/ZRm0nYbeJDMGaI7Zw=
    ```
 
@@ -39,7 +39,7 @@ We assume that you have installed and configured the vault server and enabled th
 
 1. Edit the configuration file to provision the HashiCorp Vault configuration options instead of the key file encryption options.
 
-   ```
+   ```yaml
    security:
       enableEncryption: true
       vault:
@@ -52,6 +52,6 @@ We assume that you have installed and configured the vault server and enabled th
 
 1. Start the `mongod` service
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```

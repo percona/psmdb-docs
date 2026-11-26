@@ -20,6 +20,8 @@ This type is typically used for applications / MongoDB clients. For instance, if
 
 For either type of AWS IAM authentication, the flow is the following:
 
+*Image: image*
+
 1. A MongoDB client (a Mongo shell or an application that talks to Percona Server for MongoDB via a driver) gets AWS credentials from either EC2/ECS instance metadata service, environmental variables or MongoDB URI connection string.
 
 1. The MongoDB client constructs the authentication request which includes the AWS access key ID, token and the signature and sends it to Percona Server for MongoDB
@@ -34,7 +36,7 @@ For either type of AWS IAM authentication, the flow is the following:
 
 1. Percona Server for MongoDB looks for the same username as the received ARN in the `$external` database and grants privileges to access Percona Server for MongoDB as defined for the respective user.
 
-Starting with version [6.0.8-6](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.8-6.html), you can [configure the AWS STS endpoint](https://docs.percona.com/percona-server-for-mongodb/8.3/aws-iam-setup.html#configure-aws-sts-endpoint) by specifying the `setParameter.awsStsHost` in the configuration file. This allows you to send requests to the AWS resources of your choice to meet security requirements of your organization and ensure successful authentication.
+Starting with version [6.0.8-6](https://docs.percona.com/percona-server-for-mongodb/6.0/release_notes/6.0.8-6.html), you can [configure the AWS STS endpoint](https://docs.percona.com/percona-server-for-mongodb/8.3/aws-iam-setup.md#configure-aws-sts-endpoint) by specifying the `setParameter.awsStsHost` in the configuration file. This allows you to send requests to the AWS resources of your choice to meet security requirements of your organization and ensure successful authentication.
 
 See also
 
@@ -49,4 +51,4 @@ See also
 
 ## Configuration
 
-For how to configure AWS IAM authentication, see [Setting up AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.3/aws-iam-setup.html).
+For how to configure AWS IAM authentication, see [Setting up AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/8.3/aws-iam-setup.md).

@@ -130,8 +130,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.3/install/apt.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/install/apt.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.3/install/apt.md</a>.</div>
 
 
 
@@ -3856,23 +3856,23 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 <ol>
 <li>
 <p>Fetch <code>percona-release</code> packages from Percona web:</p>
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
+<div class="language-bash highlight"><pre><span></span><code>wget<span class="w"> </span>https://repo.percona.com/apt/percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
 </code></pre></div>
 </li>
 <li>
 <p>Install the downloaded package with <strong>dpkg</strong>:    </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>percona-release_latest.<span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span>_all.deb
 </code></pre></div>
 <p>After you install this package, you have the access to Percona repositories. You can check the repository setup in the <code>/etc/apt/sources.list.d/percona-release.list</code> file.    </p>
 </li>
 <li>
 <p>Enable the repository:    </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-83<span class="w"> </span>release
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-83<span class="w"> </span>release
 </code></pre></div>
 </li>
 <li>
 <p>Remember to update the local cache:    </p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
 </code></pre></div>
 </li>
 </ol>
@@ -3881,7 +3881,7 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Run the following command to install the latest version of Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3889,15 +3889,15 @@ but it is tested only on platforms listed on the <a href="https://www.percona.co
 <ol>
 <li>
 <p>List available versions:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-cache<span class="w"> </span>madison<span class="w"> </span>percona-server-mongodb
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-cache<span class="w"> </span>madison<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 <p>Sample output:</p>
-<div class="no-copy highlight"><pre><span></span><code>percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">8</span>.3.17-5.bullseye<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-83/apt<span class="w"> </span>bullseye/main<span class="w"> </span>amd64<span class="w"> </span>Packages
+<div class="language-bash no-copy highlight"><pre><span></span><code>percona-server-mongodb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">8</span>.3.17-5.bullseye<span class="w"> </span><span class="p">|</span><span class="w"> </span>http://repo.percona.com/psmdb-83/apt<span class="w"> </span>bullseye/main<span class="w"> </span>amd64<span class="w"> </span>Packages
 </code></pre></div>
 </li>
 <li>
 <p>Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 8.3.17-5, run the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb<span class="o">=</span><span class="m">8</span>.3.17-5.bullseye<span class="w"> </span>percona-server-mongodb-mongos<span class="o">=</span><span class="m">8</span>.3.17-5.bullseye<span class="w"> </span>percona-server-mongodb-shell<span class="o">=</span><span class="m">8</span>.3.17-5.bullseye<span class="w"> </span>percona-server-mongodb-server<span class="o">=</span><span class="m">8</span>.3.17-5.bullseye<span class="w"> </span>percona-server-mongodb-tools<span class="o">=</span><span class="m">8</span>.3.17-5.bullseye
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb<span class="o">=</span><span class="m">8</span>.3.17-5.bullseye<span class="w"> </span>percona-server-mongodb-mongos<span class="o">=</span><span class="m">8</span>.3.17-5.bullseye<span class="w"> </span>percona-server-mongodb-shell<span class="o">=</span><span class="m">8</span>.3.17-5.bullseye<span class="w"> </span>percona-server-mongodb-server<span class="o">=</span><span class="m">8</span>.3.17-5.bullseye<span class="w"> </span>percona-server-mongodb-tools<span class="o">=</span><span class="m">8</span>.3.17-5.bullseye
 </code></pre></div>
 </li>
 </ol>
@@ -3912,19 +3912,19 @@ and configuration parameters in <code>/etc/mongod.conf</code>.</p>
 <p><strong>Start the service</strong></p>
 <p>Percona Server for MongoDB is started automatically after installation unless it encounters errors during the installation process.</p>
 <p>You can also manually start it using the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Confirm that the service is running</strong></p>
 <p>Check the service status using the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Stop the service</strong></p>
 <p>Stop the service using the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
 <p><strong>Restart the service</strong></p>
 <p>Restart the service using the following command:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
 <p>Congratulations! Your Percona Server for MongoDB is up and running. </p>
 <h2 id="next-steps">Next steps<a data-markdown-ignore class="headerlink" href="#next-steps" title="Permanent link">¶</a></h2>

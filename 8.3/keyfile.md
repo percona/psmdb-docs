@@ -4,7 +4,7 @@
 
 The key file must contain a 32 character string encoded in base64. You can generate a random key and save it to a file by using the `openssl` command:
 
-```
+```bash
 openssl rand -base64 32 > mongodb-keyfile
 ```
 
@@ -13,7 +13,7 @@ Then, as the owner of the `mongod` process, update the file permissions: only th
 - **600** - only the owner may read and modify the file
 - **400** - only the owner may read the file.
 
-```
+```bash
 chmod 600 mongodb-keyfile
 ```
 
@@ -22,7 +22,7 @@ Enable the data encryption at rest in Percona Server for MongoDB by setting thes
 - `--enableEncryption` to enable data at rest encryption
 - `--encryptionKeyFile` to specify the path to a file that contains the encryption key
 
-```
+```bash
 mongod ... --enableEncryption --encryptionKeyFile <fileName>
 ```
 
@@ -35,7 +35,7 @@ If `mongod` is started with the `--relaxPermChecks` option and the key file is o
 
 All these options can be specified in the configuration file:
 
-```
+```yaml
 security:
    enableEncryption: <boolean>
    encryptionCipherMode: <string>

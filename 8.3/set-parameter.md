@@ -36,21 +36,21 @@ You can modify parameters in Percona Server for MongoDB using the following meth
 
 Use the `setParameter` admonitions in the configuration file for persistent changes in production:
 
-```
+```yaml
 setParameter:
   <parameter>: <value>
 ```
 
 Example: diagnosticDataCollectionEnableSystemMetricsDisks set to true
 
-```
+```yaml
 setParameter:
   diagnosticDataCollectionEnableSystemMetricsDisks: true
 ```
 
 Example: diagnosticDataCollectionEnableSystemMetricsMounts set to false
 
-```
+```yaml
 setParameter:
   diagnosticDataCollectionEnableSystemMetricsMounts: false
 ```
@@ -59,21 +59,21 @@ setParameter:
 
 Use the `--setParameter` command line option arguments when running the `mongod` process for development or testing purposes:
 
-```
+```bash
 mongod \
   --setParameter <parameter>=<value>\
 ```
 
 Example: diagnosticDataCollectionEnableSystemMetricsDisks set to false
 
-```
+```bash
 mongod \
   --setParameter diagnosticDataCollectionEnableSystemMetricsDisks=false
 ```
 
 Example: diagnosticDataCollectionEnableSystemMetricsMounts set to true
 
-```
+```bash
 mongod \
   --setParameter diagnosticDataCollectionEnableSystemMetricsMounts=true
 ```
@@ -82,19 +82,19 @@ mongod \
 
 Use the `setParameter` command on the `admin` database to make changes at runtime:
 
-```
+```javascript
 db.adminCommand( { setParameter: 1, <parameter>: <value> } )
 ```
 
 Example: diagnosticDataCollectionEnableSystemMetricsDisks set to true
 
-```
+```javascript
 db.adminCommand({setParameter: 1, diagnosticDataCollectionEnableSystemMetricsDisks: true})
 ```
 
 Example: diagnosticDataCollectionEnableSystemMetricsMounts set to false
 
-```
+```javascript
 db.adminCommand({setParameter: 1, diagnosticDataCollectionEnableSystemMetricsMounts: false})
 ```
 

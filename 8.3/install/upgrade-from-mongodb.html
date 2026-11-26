@@ -130,8 +130,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-mongodb.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-mongodb.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-mongodb.md</a>.</div>
 
 
 
@@ -3724,21 +3724,21 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Save the current configuration file as the backup:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mv<span class="w"> </span>/etc/mongod.conf<span class="w"> </span>/etc/mongod.conf.bkp
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>mv<span class="w"> </span>/etc/mongod.conf<span class="w"> </span>/etc/mongod.conf.bkp
 </code></pre></div>
 </li>
 <li>
 <p>Stop the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Check for installed packages:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mongod
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>ii  mongodb-org                      8.3.7                       amd64        MongoDB open source document-oriented database system (metapackage)
+<div class="language-text no-copy highlight"><pre><span></span><code>ii  mongodb-org                      8.3.7                       amd64        MongoDB open source document-oriented database system (metapackage)
 ii  mongodb-org-database             8.3.7                       amd64        MongoDB open source document-oriented database system (metapackage)
 ii  mongodb-org-database-tools-extra 8.3.7                       amd64        Extra MongoDB database tools
 ii  mongodb-org-mongos               8.3.7                       amd64        MongoDB sharded cluster query router
@@ -3750,7 +3750,7 @@ ii  mongodb-org-tools                8.3.7                       amd64        Mo
 </li>
 <li>
 <p>Remove the installed packages:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>mongodb-org<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>mongodb-org-mongos<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>mongodb-org-server<span class="w"> </span><span class="se">\</span>
@@ -3767,13 +3767,13 @@ ii  mongodb-org-tools                8.3.7                       amd64        Mo
 <li>Copy the required configuration options like custom dbPath/system log path, additional security/replication or sharding options from the backup configuration file (<code>/etc/mongod.conf</code>) to the current one <code>/etc/mongodb.conf</code>. </li>
 <li>
 <p>Make sure that the <code>mongod</code> user has access to your custom paths. If not, provide it as follows:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;custom-dbPath&gt;
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;custom-dbPath&gt;
 sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;custom-systemLog.path&gt;
 </code></pre></div>
 </li>
 <li>
 <p>Remove the following configuration from the configuration file if you have it:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">processManagement</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">processManagement</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">fork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">   </span><span class="nt">pidFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/mongod.pid</span>
 </code></pre></div>
@@ -3782,7 +3782,7 @@ sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </sp
 </li>
 <li>
 <p>Restart the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 </ol>
@@ -3791,16 +3791,16 @@ sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </sp
 <ol>
 <li>
 <p>Stop the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Check for installed packages:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rpm<span class="w"> </span>-qa<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mongo
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>rpm<span class="w"> </span>-qa<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>mongo
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code> mongodb-org-shell-8.3.7-1.el9.x86_64
+<div class="language-text no-copy highlight"><pre><span></span><code> mongodb-org-shell-8.3.7-1.el9.x86_64
  mongodb-org-database-8.3.7-1.el9.x86_64
  mongodb-org-8.3.7-1.el9.x86_64
  mongodb-database-tools-100.17.0-1.x86_64
@@ -3812,7 +3812,7 @@ mongodb-org-tools-8.3.7-1.el9.x86_64
 </li>
 <li>
 <p>Remove the installed packages:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span><span class="se">\</span>
 mongodb-org-shell-8.3.7-1.el9.x86_64<span class="w"> </span><span class="se">\</span>
 mongodb-org-database-8.3.7-1.el9.x86_64<span class="w"> </span><span class="se">\</span>
 mongodb-org-8.3.7-1.el9.x86_64<span class="w"> </span><span class="se">\</span>
@@ -3831,13 +3831,13 @@ mongodb-org-tools-8.3.7-1.el9.x86_64
 <li>When you remove old packages, your existing configuration file is saved as <code>/etc/mongod.conf.rpmsave</code>. Copy the required configuration options like custom dbPath/system log path, additional security/replication or sharding options from the backup configuration file (<code>/etc/mongod.conf.rpmsave</code>) to the current one <code>/etc/mongodb.conf</code>.</li>
 <li>
 <p>Make sure that the <code>mongod</code> user has access to your custom paths. If not, provide it as follows:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;custom-dbPath&gt;
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;custom-dbPath&gt;
 sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongod:mongod<span class="w"> </span>&lt;custom-systemLog.path&gt;
 </code></pre></div>
 </li>
 <li>
 <p>Make sure the configuration file includes the following configuration:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">processManagement</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">processManagement</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">fork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">   </span><span class="nt">pidFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/mongod.pid</span>
 </code></pre></div>
@@ -3847,7 +3847,7 @@ sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </sp
 </li>
 <li>
 <p>Restart the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 </ol>

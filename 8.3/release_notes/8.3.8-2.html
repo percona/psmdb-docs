@@ -131,8 +131,8 @@ Upgrade">
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.3/release_notes/8.3.8-2.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/release_notes/8.3.8-2.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.3/release_notes/8.3.8-2.md</a>.</div>
 
 
 
@@ -3973,10 +3973,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>This release fixes one critical and several high-severity vulnerabilities inherited from upstream MongoDB. We recommend upgrading to version 8.3.8-2 as soon as possible.</p>
 <h2 id="upgrade-considerations">Upgrade considerations<a data-markdown-ignore class="headerlink" href="#upgrade-considerations" title="Permanent link">¶</a></h2>
 <p>To upgrade to Percona Server for MongoDB 8.3 from an 8.0 deployment, the deployment must have <code>featureCompatibilityVersion</code> set to 8.0.</p>
-<div class="highlight"><pre><span></span><code><span class="s1">'db.adminCommand({ setFeatureCompatibilityVersion: "8.0", confirm: true })'</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="s1">'db.adminCommand({ setFeatureCompatibilityVersion: "8.0", confirm: true })'</span>
 <span class="p">{</span><span class="w"> </span><span class="nx">ok</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="s1">'db.adminCommand({ getParameter: 1, featureCompatibilityVersion: 1 })'</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="s1">'db.adminCommand({ getParameter: 1, featureCompatibilityVersion: 1 })'</span>
 <span class="p">{</span><span class="w"> </span><span class="nx">featureCompatibilityVersion</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s1">'8.0'</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="nx">ok</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p>For detailed upgrade instructions, see <a href="../install/upgrade-from-80.html">Upgrade from Percona Server for MongoDB 8.0</a>.</p>

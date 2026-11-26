@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation">
+        <meta name="description" content="Percona Server for MongoDB 8.3, a source available drop-in replacement for MongoDB 8.3 Community Edition with added features, with installation, upgrade, security, backup and operations guides">
       
       
         <meta name="author" content="Percona LLC">
@@ -130,8 +130,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.3/set-parameter.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/set-parameter.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.3/set-parameter.md</a>.</div>
 
 
 
@@ -3814,18 +3814,18 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <div class="tabbed-block">
 <p>Use the <code>setParameter</code> admonitions in the configuration file
 for persistent changes in production:    </p>
-<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">&lt;parameter&gt;</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;value&gt;</span>
 </code></pre></div>
 <details class="example">
 <summary>Example: diagnosticDataCollectionEnableSystemMetricsDisks set to true</summary>
-<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">diagnosticDataCollectionEnableSystemMetricsDisks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Example: diagnosticDataCollectionEnableSystemMetricsMounts set to false</summary>
-<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">diagnosticDataCollectionEnableSystemMetricsMounts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 </details>
@@ -3833,18 +3833,18 @@ for persistent changes in production:    </p>
 <div class="tabbed-block">
 <p>Use the <code>--setParameter</code> command line option arguments when running the <code>mongod</code> process
 for development or testing purposes:    </p>
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>mongod<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--setParameter<span class="w"> </span>&lt;parameter&gt;<span class="o">=</span>&lt;value&gt;<span class="se">\</span>
 </code></pre></div>
 <details class="example">
 <summary>Example: diagnosticDataCollectionEnableSystemMetricsDisks set to false</summary>
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>mongod<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--setParameter<span class="w"> </span><span class="nv">diagnosticDataCollectionEnableSystemMetricsDisks</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Example: diagnosticDataCollectionEnableSystemMetricsMounts set to true</summary>
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>mongod<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--setParameter<span class="w"> </span><span class="nv">diagnosticDataCollectionEnableSystemMetricsMounts</span><span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
 </details>
@@ -3852,16 +3852,16 @@ for development or testing purposes:    </p>
 <div class="tabbed-block">
 <p>Use the <code>setParameter</code> command on the <code>admin</code> database
 to make changes at runtime:    </p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">parameter</span><span class="o">&gt;:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">value</span><span class="o">&gt;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">parameter</span><span class="o">&gt;:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">value</span><span class="o">&gt;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div>
 <details class="example">
 <summary>Example: diagnosticDataCollectionEnableSystemMetricsDisks set to true</summary>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">diagnosticDataCollectionEnableSystemMetricsDisks</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">})</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">diagnosticDataCollectionEnableSystemMetricsDisks</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">})</span>
 </code></pre></div>
 </details>
 <details class="example">
 <summary>Example: diagnosticDataCollectionEnableSystemMetricsMounts set to false</summary>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">diagnosticDataCollectionEnableSystemMetricsMounts</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">})</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">diagnosticDataCollectionEnableSystemMetricsMounts</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">})</span>
 </code></pre></div>
 </details>
 </div>

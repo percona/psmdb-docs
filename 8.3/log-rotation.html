@@ -130,8 +130,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.3/log-rotation.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/log-rotation.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.3/log-rotation.md</a>.</div>
 
 
 
@@ -3830,7 +3830,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Connect to the <code>admin</code> database on each replica set node except the arbiter node and run:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span><span class="w"> </span><span class="nx">logRotate</span><span class="o">:</span><span class="w"> </span><span class="s2">"server"</span><span class="w"> </span><span class="p">})</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span><span class="w"> </span><span class="nx">logRotate</span><span class="o">:</span><span class="w"> </span><span class="s2">"server"</span><span class="w"> </span><span class="p">})</span>
 </code></pre></div>
 <p>Supported options:</p>
 <ul>
@@ -3841,11 +3841,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Check log files:</p>
-<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/var/log/mongodb/server1.log*
+<div class="language-bash highlight"><pre><span></span><code>ls<span class="w"> </span>/var/log/mongodb/server1.log*
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="no-copy highlight"><pre><span></span><code>/var/log/mongodb/server1.log
+<div class="language-text no-copy highlight"><pre><span></span><code>/var/log/mongodb/server1.log
 /var/log/mongodb/server1.log.&lt;timestamp&gt;
 </code></pre></div>
 </details>
@@ -3853,7 +3853,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </ol>
 <h3 id="signal-based-rotation-unix-systems">Signal-Based Rotation (Unix Systems)<a data-markdown-ignore class="headerlink" href="#signal-based-rotation-unix-systems" title="Permanent link">¶</a></h3>
 <p>On Unix-based systems, you can trigger log rotation by sending a SIGUSR1 signal to the running <code>mongod</code> or <code>mongos</code> process:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span>-SIGUSR1<span class="w"> </span>&lt;PID&gt;
+<div class="language-bash highlight"><pre><span></span><code><span class="nb">kill</span><span class="w"> </span>-SIGUSR1<span class="w"> </span>&lt;PID&gt;
 </code></pre></div>
 <p>Replace <code>&lt;PID&gt;</code> with the process ID of the Percona Server for MongoDB instance.</p>
 <h3 id="integration-with-logrotate">Integration with <code>logrotate</code><a data-markdown-ignore class="headerlink" href="#integration-with-logrotate" title="Permanent link">¶</a></h3>
@@ -3862,7 +3862,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Create a <code>logrotate</code> configuration file at <code>/etc/logrotate.d/mongod</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="na">/var/log/mongodb/mongod.log {</span>
+<div class="language-ini highlight"><pre><span></span><code><span class="na">/var/log/mongodb/mongod.log {</span>
 <span class="w">   </span><span class="na">daily</span>
 <span class="w">   </span><span class="na">rotate 7</span>
 <span class="w">   </span><span class="na">compress</span>
@@ -3877,7 +3877,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Configure Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">systemLog</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">systemLog</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
 <span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log/percona/mongod.log</span>
 <span class="w">  </span><span class="nt">logAppend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>

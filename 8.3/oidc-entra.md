@@ -98,13 +98,13 @@ Groups define user access rights to resources. Identity provider groups are then
 1. Copy the **Application (client) ID** and save it for later use. You will use this value for the `clientID` and `audience` fields in Percona Server for MongoDB configuration.
 1. Copy the issuer URL. From the top navigation, click **Endpoints** and copy the **OpenID Connect metadata document** URL up to `/.well-known/openid-configuration`. It should look like this:
 
-```
+```text
 https://login.microsoftonline.com/{tenant-id}/v2.0
 ```
 
 1. Copy the Application ID URI you defined earlier. It should look like this:
 
-```
+```text
 api://<application-client-id>
 ```
 
@@ -128,7 +128,7 @@ To authorize users by identity provider groups, specify `authorizationClaim` val
 
 1. Edit the `/etc/mongod.conf` configuration file:
 
-   ```
+   ```yaml
    security:
       authorization: enabled
    setParameter:
@@ -147,13 +147,13 @@ To authorize users by identity provider groups, specify `authorizationClaim` val
 
 1. Start or restart Percona Server for MongoDB:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
 **Command line**
 
-```
+```bash
 mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
 'oidcIdentityProviders=[ {
    "issuer": "https://login.microsoftonline.com/{tenant-id}/v2.0",
@@ -173,7 +173,7 @@ To enable users to access Percona Server for MongoDB, you must create roles and 
 
 The role name must have the format
 
-```
+```text
 <authNamePrefix>/<Group-ObjectID>
 ```
 
@@ -181,7 +181,7 @@ where `<authNamePrefix>` is the prefix you specified in the `oidcIdentityProvide
 
 For example, if the `authNamePrefix` is set to `entra` and the group Object ID is `a3f2c1d4-8b9e-4f7a-a2c3-19d8e6f0b7a1`, the command to create a role is the following:
 
-```
+```javascript
 db.getSiblingDB("admin").createRole({
   role: "entra/a3f2c1d4-8b9e-4f7a-a2c3-19d8e6f0b7a1",
   privileges: [],
@@ -199,7 +199,7 @@ To connect to Percona Server for MongoDB using OIDC authentication, you can use 
 
 1. Connect to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows auth-code
    ```
 
@@ -213,13 +213,13 @@ To connect to Percona Server for MongoDB using OIDC authentication, you can use 
 
 1. Connect to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows device-auth
    ```
 
    Sample output
 
-   ```
+   ```text
    Visit the following URL to complete authentication: https://microsoft.com/devicelogin
    Enter the following code on that page: EKYE77DQZ
    Waiting....

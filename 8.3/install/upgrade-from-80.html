@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Documentation">
+        <meta name="description" content="Percona Server for MongoDB 8.3, a source available drop-in replacement for MongoDB 8.3 Community Edition with added features, with installation, upgrade, security, backup and operations guides">
       
       
         <meta name="author" content="Percona LLC">
@@ -130,8 +130,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-80.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-80.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.3/install/upgrade-from-80.md</a>.</div>
 
 
 
@@ -3752,34 +3752,34 @@ in a testing environment to make sure they are compatible with the new version.<
 <ol>
 <li>
 <p>Stop the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Enable Percona repository for Percona Server for MongoDB 8.3:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-83
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-83
 </code></pre></div>
 </li>
 <li>
 <p>Update the local cache:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
 </code></pre></div>
 </li>
 <li>
 <p>Remove the following configuration from the configuration file, if you have it:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">processManagement</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">processManagement</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">fork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">   </span><span class="nt">pidFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/mongod.pid</span>
 </code></pre></div>
 </li>
 <li>
 <p>Install Percona Server for MongoDB 8.3 packages:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 </li>
 <li>
 <p>Start the <code>mongod</code> instance:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 </ol>
@@ -3789,29 +3789,29 @@ in a testing environment to make sure they are compatible with the new version.<
 <ol>
 <li>
 <p>Stop the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Enable Percona repository for Percona Server for MongoDB 8.3:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-83
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>percona-release<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>psmdb-83
 </code></pre></div>
 </li>
 <li>
 <p>Remove the following configuration from the configuration file, if you have it:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">processManagement</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">processManagement</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">fork</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">   </span><span class="nt">pidFilePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/mongod.pid</span>
 </code></pre></div>
 </li>
 <li>
 <p>Install Percona Server for MongoDB 8.3 packages:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>percona-server-mongodb
 </code></pre></div>
 </li>
 <li>
 <p>Start the <code>mongod</code> instance:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 </ol>
@@ -3819,7 +3819,7 @@ in a testing environment to make sure they are compatible with the new version.<
 </div>
 </div>
 <p>After the upgrade, Percona Server for MongoDB is started with the feature set of 8.0 version. Assuming that your applications are compatible with the new version, enable 8.3 version features. Run the following command against the <code>admin</code> database:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setFeatureCompatibilityVersion</span><span class="o">:</span><span class="w"> </span><span class="s2">"8.3"</span><span class="p">,</span><span class="w"> </span><span class="nx">confirm</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setFeatureCompatibilityVersion</span><span class="o">:</span><span class="w"> </span><span class="s2">"8.3"</span><span class="p">,</span><span class="w"> </span><span class="nx">confirm</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>

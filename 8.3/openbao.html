@@ -130,8 +130,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.3/openbao.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/openbao.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.3/openbao.md</a>.</div>
 
 
 
@@ -3739,22 +3739,22 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Initialize OpenBao server. As a result, OpenBao generates the root token and the unseal key.</p>
-<div class="highlight"><pre><span></span><code>bao<span class="w"> </span>operator<span class="w"> </span>init
+<div class="language-bash highlight"><pre><span></span><code>bao<span class="w"> </span>operator<span class="w"> </span>init
 </code></pre></div>
 </li>
 <li>
 <p>OpenBao is started in a sealed state. In this state OpenBao can access the storage but it cannot decrypt data. In order to use OpenBao, you need to unseal it using the unseal key.</p>
-<div class="highlight"><pre><span></span><code>bao<span class="w"> </span>operator<span class="w"> </span>unseal<span class="w"> </span>&lt;your-unseal-key&gt;
+<div class="language-bash highlight"><pre><span></span><code>bao<span class="w"> </span>operator<span class="w"> </span>unseal<span class="w"> </span>&lt;your-unseal-key&gt;
 </code></pre></div>
 </li>
 <li>
 <p>Next, authenticate in OpenBao using the root token.</p>
-<div class="highlight"><pre><span></span><code>bao<span class="w"> </span>login<span class="w"> </span>&lt;root-token&gt;
+<div class="language-bash highlight"><pre><span></span><code>bao<span class="w"> </span>login<span class="w"> </span>&lt;root-token&gt;
 </code></pre></div>
 </li>
 <li>
 <p>Enable the KV Secrets Engine – Version 2. By default, the secrets engine is enabled at the <code>secrets/</code> path. You can specify your own path using the <code>-path</code> flag</p>
-<div class="highlight"><pre><span></span><code>bao<span class="w"> </span>secrets<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--version<span class="o">=</span><span class="m">2</span><span class="w"> </span>-path<span class="o">=</span>secret<span class="w"> </span>kv
+<div class="language-bash highlight"><pre><span></span><code>bao<span class="w"> </span>secrets<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--version<span class="o">=</span><span class="m">2</span><span class="w"> </span>-path<span class="o">=</span>secret<span class="w"> </span>kv
 </code></pre></div>
 </li>
 <li>
@@ -3762,7 +3762,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Create an access policy file:</p>
-<div class="highlight"><pre><span></span><code>cat<span class="w"> </span><span class="s">&lt;&lt;EOF &gt; psmdb-access.hcl</span>
+<div class="language-bash highlight"><pre><span></span><code>cat<span class="w"> </span><span class="s">&lt;&lt;EOF &gt; psmdb-access.hcl</span>
 <span class="s">path "secret/data/*" {</span>
 <span class="s">  capabilities = ["create","read","update","delete"]</span>
 <span class="s">}</span>
@@ -3777,12 +3777,12 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Upload the access policy to OpenBao:</p>
-<div class="highlight"><pre><span></span><code>bao<span class="w"> </span>policy<span class="w"> </span>write<span class="w"> </span>psmdb-policy<span class="w"> </span>psmdb-access.hcl
+<div class="language-bash highlight"><pre><span></span><code>bao<span class="w"> </span>policy<span class="w"> </span>write<span class="w"> </span>psmdb-policy<span class="w"> </span>psmdb-access.hcl
 </code></pre></div>
 </li>
 <li>
 <p>Create an access token that Percona Server for MongoDB will use. You need to create an access token for every instance of Percona Server for MongoDB in your deployment.</p>
-<div class="highlight"><pre><span></span><code>bao<span class="w"> </span>token<span class="w"> </span>create<span class="w"> </span>-policy<span class="o">=</span>psmdb-policy
+<div class="language-bash highlight"><pre><span></span><code>bao<span class="w"> </span>token<span class="w"> </span>create<span class="w"> </span>-policy<span class="o">=</span>psmdb-policy
 </code></pre></div>
 </li>
 <li>
@@ -3790,17 +3790,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ul>
 <li>Create a directory where you will store the token and SSL certificates if you <a href="https://openbao.org/docs/auth/cert/#configuration">configured OpenBao with TLS</a></li>
 </ul>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/openbao
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/openbao
 </code></pre></div>
 <ul>
 <li>Export the token into the token file. For TLS communication, copy the <code>.crt</code> file from OpenBao.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"your-access-token-here"</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/openbao/token
+<div class="language-bash highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"your-access-token-here"</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/openbao/token
 </code></pre></div>
 <ul>
 <li>Restrict access to the token and certificate files for the <code>mongod</code> user:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">400</span><span class="w"> </span>/etc/openbao/token
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">400</span><span class="w"> </span>/etc/openbao/token
 sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span class="w"> </span>/etc/openbao/token
 </code></pre></div>
 </li>
@@ -3827,7 +3827,7 @@ sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span clas
 <ol>
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file and specify the following configuration:    </p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">vault</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">serverName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
@@ -3838,14 +3838,14 @@ sudo<span class="w"> </span>chown<span class="w"> </span>mongod:mongod<span clas
 </li>
 <li>
 <p>Start Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 </ol>
 </div>
 <div class="tabbed-block">
 <p>Start Percona Server for MongoDB with the following parameters:</p>
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--enableEncryption<span class="w"> </span>--vaultServerName<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--vaultPort<span class="w"> </span><span class="m">8200</span><span class="w"> </span>--vaultTokenFile<span class="w"> </span>/etc/openbao/token<span class="w"> </span>--vaultSecret<span class="w"> </span>secret/data/<span class="w"> </span>--vaultDisableTLSForTesting
+<div class="language-bash highlight"><pre><span></span><code>mongod<span class="w"> </span>--enableEncryption<span class="w"> </span>--vaultServerName<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--vaultPort<span class="w"> </span><span class="m">8200</span><span class="w"> </span>--vaultTokenFile<span class="w"> </span>/etc/openbao/token<span class="w"> </span>--vaultSecret<span class="w"> </span>secret/data/<span class="w"> </span>--vaultDisableTLSForTesting
 </code></pre></div>
 </div>
 </div>

@@ -25,7 +25,7 @@ Install the following dependencies required to install Percona Server for MongoD
 
 **RHEL and derivatives**
 
-```
+```bash
 sudo yum install openldap cyrus-sasl-gssapi curl
 ```
 
@@ -33,7 +33,7 @@ sudo yum install openldap cyrus-sasl-gssapi curl
 
 Update the repositories and install the required packages:
 
-```
+```bash
 sudo apt update
 sudo apt install curl libsasl2-modules-gssapi-mit
 ```
@@ -42,7 +42,7 @@ sudo apt install curl libsasl2-modules-gssapi-mit
 
 Update the repositories and install the required packages:
 
-```
+```bash
 sudo apt update
 sudo apt curl libsasl2-modules-gssapi-mit
 ```
@@ -59,33 +59,33 @@ The following steps describe how to install Percona Server for MongoDB **on Orac
 
 1. Fetch the binary tarballs:
 
-   ```
+   ```bash
    curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.3/percona-server-mongodb-8.3.17-5/binary/tarball/percona-server-mongodb-8.3.17-5-x86_64.ol9.tar.gz
    curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.3/percona-server-mongodb-8.3.17-5/binary/tarball/percona-mongodb-mongosh-2.14.1-x86_64.tar.gz
    ```
 
 1. Extract the tarballs
 
-   ```
+   ```bash
    tar -xf percona-server-mongodb-8.3.17-5-x86_64.ol9.tar.gz
    tar -xf percona-mongodb-mongosh-2.14.1-x86_64.tar.gz
    ```
 
 1. Add the location of the binaries to the `PATH` variable:
 
-   ```
+   ```bash
    export PATH=~/percona-server-mongodb-8.3.17-5-x86_64.ol9/bin/:~/percona-mongodb-mongosh-2.14.1-x86_64/bin/:$PATH
    ```
 
 1. Create the default data directory:
 
-   ```
+   ```bash
    sudo mkdir -p /data/db
    ```
 
 1. The new TCMalloc requires [Restartable Sequences (rseq)](https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc) to implement [per-CPU caches](https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache) . To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:
 
-   ```
+   ```bash
    GLIBC_TUNABLES=glibc.pthread.rseq=0
    export GLIBC_TUNABLES
    ```
@@ -100,7 +100,7 @@ The following steps describe how to install Percona Server for MongoDB **on Ubun
 
 1. Fetch the binary tarballs:
 
-   ```
+   ```bash
    curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.3/percona-server-mongodb-8.3.17-5/binary/tarball/percona-server-mongodb-8.3.17-5-x86_64.jammy.tar.gz
 
    curl -O https://downloads.percona.com/downloads/percona-server-mongodb-8.3/percona-server-mongodb-8.3.17-5/binary/tarball/percona-mongodb-mongosh-2.14.1-x86_64.tar.gz
@@ -108,26 +108,26 @@ The following steps describe how to install Percona Server for MongoDB **on Ubun
 
 1. Extract the tarballs
 
-   ```
+   ```bash
    tar -xf percona-server-mongodb-8.3.17-5-x86_64.jammy.tar.gz
    tar -xf percona-mongodb-mongosh-2.14.1-x86_64.tar.gz
    ```
 
 1. Add the location of the binaries to the `PATH` variable:
 
-   ```
+   ```bash
    export PATH=~/percona-server-mongodb-8.3.17-5-x86_64.jammy/bin/:~/percona-mongodb-mongosh-2.14.1-x86_64/bin/:$PATH
    ```
 
 1. Create the default data directory:
 
-   ```
+   ```bash
    mkdir -p /data/db
    ```
 
 1. The new TCMalloc requires [Restartable Sequences (rseq)](https://github.com/google/tcmalloc/blob/master/docs/design.md#restartable-sequences-and-per-cpu-tcmalloc) to implement [per-CPU caches](https://www.mongodb.com/docs/upcoming/reference/glossary/#std-term-per-CPU-cache) . To ensure that TCMalloc can use rseq, prevent glibc from registering an rseq structure. To do this, set the following environment variable:
 
-   ```
+   ```bash
    GLIBC_TUNABLES=glibc.pthread.rseq=0
    export GLIBC_TUNABLES
    ```
@@ -136,4 +136,4 @@ The following steps describe how to install Percona Server for MongoDB **on Ubun
 
 ## Next steps
 
-[Connect to MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.3/connect.html)
+[Connect to MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.3/connect.md)

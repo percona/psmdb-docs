@@ -10,7 +10,7 @@ The Percona Memory Engine is available in Percona Server for MongoDB, along with
 
 Percona Server for MongoDB runs with WiredTiger by default. You can select a storage engine using the `--storageEngine` command-line option when you start `mongod`. Alternatively, you can set the `storage.engine` variable in the configuration file (by default, `/etc/mongod.conf`):
 
-```
+```yaml
 storage:
   dbPath: <dataDir>
   engine: inMemory
@@ -42,7 +42,7 @@ The following are the configuration examples:
 
 The configuration file is formatted in YAML
 
-```
+```yaml
 storage:
   engine: inMemory
   inMemory:
@@ -55,7 +55,7 @@ storage:
 
 Setting parameters in the configuration file is the same as starting the `mongod` daemon with the following options:
 
-```
+```sh
 mongod --storageEngine=inMemory \
 --inMemorySizeGB=140 \
 --inMemoryStatisticsLogDelaySecs=0
@@ -84,13 +84,13 @@ Set a different data directory for the `dbPath` variable in the configuration fi
 
 1. Stop `mongod`
 
-   ```
+   ```bash
    service mongod stop
    ```
 
 1. Edit the configuration file
 
-   ```
+   ```yaml
    storage:
      dbPath: <newDataDir>
      engine: inmemory
@@ -98,7 +98,7 @@ Set a different data directory for the `dbPath` variable in the configuration fi
 
 1. Start `mongod`
 
-   ```
+   ```bash
    service mongod start
    ```
 
@@ -108,19 +108,19 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
 
 1. Stop `mongod`
 
-   ```
+   ```bash
    service mongod stop
    ```
 
 1. Clean out the `dbPath` data directory
 
-   ```
+   ```bash
    sudo rm -rf <dbpathDataDir>
    ```
 
 1. Edit the configuration file
 
-   ```
+   ```yaml
    storage:
      dbPath: <newDataDir>
      engine: inmemory
@@ -128,7 +128,7 @@ Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit 
 
 1. Start `mongod`
 
-   ```
+   ```bash
    service mongod start
    ```
 
@@ -140,19 +140,19 @@ For a standalone instance or a single-node replica set, use the `mongodump` and 
 
 1. Export the `dataDir` contents
 
-   ```
+   ```bash
    mongodump --out <dumpDir>
    ```
 
 1. Stop `mongod`
 
-   ```
+   ```bash
    service mongod stop
    ```
 
 1. Clean out the `dbPath` data directory
 
-   ```
+   ```bash
    sudo rm -rf <dbpathDataDir>
    ```
 
@@ -160,13 +160,13 @@ For a standalone instance or a single-node replica set, use the `mongodump` and 
 
 1. Start `mongod`
 
-   ```
+   ```bash
    service mongod start
    ```
 
 1. Restore the database
 
-   ```
+   ```bash
    mongorestore <dumpDir>
    ```
 
@@ -178,19 +178,19 @@ Use the “rolling restart” process.
 
 1. Stop `mongod`
 
-   ```
+   ```bash
    service mongod stop
    ```
 
 1. Clean out the `dbPath` data directory
 
-   ```
+   ```bash
    sudo rm -rf <dbpathDataDir>
    ```
 
 1. Edit the configuration file
 
-   ```
+   ```yaml
    storage:
      dbPath: <newDataDir>
      engine: inmemory
@@ -198,7 +198,7 @@ Use the “rolling restart” process.
 
 1. Start `mongod`
 
-   ```
+   ```bash
    service mongod start
    ```
 
@@ -208,4 +208,4 @@ Use the “rolling restart” process.
 
 ## Data at rest encryption
 
-Using [Data at Rest Encryption](https://docs.percona.com/percona-server-for-mongodb/8.3/data-at-rest-encryption.html) means using the same `storage.\*` configuration options as for [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/). To change from normal to [Data at Rest Encryption](https://docs.percona.com/percona-server-for-mongodb/8.3/data-at-rest-encryption.html) mode or backward, you must clean up the `dbPath` data directory, just as if you change the storage engine. This is because `mongod` cannot convert the data files to an encrypted format **in place**. It must get the document data again, either via the initial sync from another replica set member or from an imported backup.
+Using [Data at Rest Encryption](https://docs.percona.com/percona-server-for-mongodb/8.3/data-at-rest-encryption.md) means using the same `storage.\*` configuration options as for [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/). To change from normal to [Data at Rest Encryption](https://docs.percona.com/percona-server-for-mongodb/8.3/data-at-rest-encryption.md) mode or backward, you must clean up the `dbPath` data directory, just as if you change the storage engine. This is because `mongod` cannot convert the data files to an encrypted format **in place**. It must get the document data again, either via the initial sync from another replica set member or from an imported backup.

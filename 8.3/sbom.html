@@ -130,8 +130,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.3/sbom.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/sbom.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.3/sbom.md</a>.</div>
 
 
 
@@ -3892,7 +3892,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>Trivy can, however, scan the SBOMs attached to Percona Server for MongoDB Docker images as OCI artifacts.</p>
 </div>
 <h3 id="binary-tarball">Binary tarball<a data-markdown-ignore class="headerlink" href="#binary-tarball" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Confirm the SBOM is bundled</span>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># Confirm the SBOM is bundled</span>
 tar<span class="w"> </span>tzf<span class="w"> </span>percona-server-mongodb-8.3.17-5-x86_64.&lt;os_codename&gt;.tar.gz<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>doc/sbom.cdx.json
 
@@ -3902,14 +3902,14 @@ tar<span class="w"> </span>xzf<span class="w"> </span>percona-server-mongodb-8.3
 grype<span class="w"> </span>sbom:/tmp/percona-server-mongodb-8.3.17-5-x86_64.&lt;os_codename&gt;/doc/sbom.cdx.json
 </code></pre></div>
 <h3 id="rpm-package">RPM package<a data-markdown-ignore class="headerlink" href="#rpm-package" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Confirm the package installs the SBOM</span>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># Confirm the package installs the SBOM</span>
 rpm<span class="w"> </span>-ql<span class="w"> </span>percona-server-mongodb-server<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sbom.cdx.json
 
 <span class="c1"># Scan it (replace `rhel:9.8` with your `&lt;os_name&gt;:&lt;os_version&gt;`)</span>
 grype<span class="w"> </span>--distro<span class="w"> </span>rhel:9.8<span class="w"> </span>sbom:/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json
 </code></pre></div>
 <h3 id="deb-package">DEB package<a data-markdown-ignore class="headerlink" href="#deb-package" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Confirm the package installs the SBOM</span>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># Confirm the package installs the SBOM</span>
 dpkg<span class="w"> </span>-L<span class="w"> </span>percona-server-mongodb-server<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>sbom.cdx.json
 
 <span class="c1"># Scan it (replace `ubuntu:24.04` with your `&lt;os_name&gt;:&lt;os_version&gt;`)</span>
@@ -3943,12 +3943,12 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 </table>
 <h4 id="scan-via-oci-referrers-api-recommended">Scan via OCI Referrers API (recommended)<a data-markdown-ignore class="headerlink" href="#scan-via-oci-referrers-api-recommended" title="Permanent link">¶</a></h4>
 <p><code>trivy image --sbom-sources oci</code> fetches the attached SBOM via the OCI Referrers API and scans it, without pulling the image:</p>
-<div class="highlight"><pre><span></span><code>trivy<span class="w"> </span>image<span class="w"> </span>--severity<span class="w"> </span>HIGH,CRITICAL<span class="w"> </span>--sbom-sources<span class="w"> </span>oci<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>trivy<span class="w"> </span>image<span class="w"> </span>--severity<span class="w"> </span>HIGH,CRITICAL<span class="w"> </span>--sbom-sources<span class="w"> </span>oci<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>docker.io/percona/percona-server-mongodb:8.3.17-5-amd64
 </code></pre></div>
 <h4 id="scan-the-embedded-sbom">Scan the embedded SBOM<a data-markdown-ignore class="headerlink" href="#scan-the-embedded-sbom" title="Permanent link">¶</a></h4>
 <p>Scan the embedded SBOM from inside the container image: <code>8.3.17-5-amd64</code>:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--entrypoint<span class="w"> </span>cat<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--entrypoint<span class="w"> </span>cat<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>docker.io/percona/percona-server-mongodb:8.3.17-5-amd64<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>/usr/share/doc/percona-server-mongodb-server/sbom.cdx.json<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span><span class="p">|</span><span class="w"> </span>grype<span class="w"> </span>--from<span class="w"> </span>sbom
@@ -3959,12 +3959,12 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 <ol>
 <li>
 <p>Use the per-architecture tag to resolve directly to the image manifest:</p>
-<div class="highlight"><pre><span></span><code>oras<span class="w"> </span>discover<span class="w"> </span>--format<span class="w"> </span>tree<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>oras<span class="w"> </span>discover<span class="w"> </span>--format<span class="w"> </span>tree<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>docker.io/percona/percona-server-mongodb:8.3.17-5-amd64
 </code></pre></div>
 <details class="example">
 <summary>Output</summary>
-<div class="highlight"><pre><span></span><code>docker.io/percona/percona-server-mongodb@sha256:&lt;image_manifest_digest&gt;
+<div class="language-text highlight"><pre><span></span><code>docker.io/percona/percona-server-mongodb@sha256:&lt;image_manifest_digest&gt;
 └── application/vnd.cyclonedx+json
     └── sha256:&lt;sbom_artifact_digest&gt;
         └── [annotations]
@@ -3975,16 +3975,16 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 </li>
 <li>
 <p>Copy the SBOM artifact digest from the output and use it to download the SBOM to the current directory. Replace <code>&lt;sbom_artifact_digest&gt;</code> with the value displayed after <code>sha256:</code>:</p>
-<div class="highlight"><pre><span></span><code>oras<span class="w"> </span>pull<span class="w"> </span>docker.io/percona/percona-server-mongodb@sha256:&lt;sbom_artifact_digest&gt;
+<div class="language-bash highlight"><pre><span></span><code>oras<span class="w"> </span>pull<span class="w"> </span>docker.io/percona/percona-server-mongodb@sha256:&lt;sbom_artifact_digest&gt;
 </code></pre></div>
 </li>
 <li>
 <p>Confirm that the SBOM file was downloaded:</p>
-<div class="highlight"><pre><span></span><code>ls
+<div class="language-bash highlight"><pre><span></span><code>ls
 </code></pre></div>
 <details class="example">
 <summary>Output</summary>
-<div class="highlight"><pre><span></span><code>percona-server-mongodb-8.3.17-5-amd64.cdx.json
+<div class="language-text highlight"><pre><span></span><code>percona-server-mongodb-8.3.17-5-amd64.cdx.json
 </code></pre></div>
 </details>
 </li>
@@ -4013,7 +4013,7 @@ grype<span class="w"> </span>--distro<span class="w"> </span>ubuntu:24.04<span c
 <p>For example, the document for version 8.3.17-5 is available at:</p>
 <p><code>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.3.17-5.openvex.json</code></p>
 <p>Pass the document to Grype’s <code>--vex</code> flag together with any SBOM scan on this page. For example, combined with the binary tarball scan:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Download the OpenVEX document for this release</span>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># Download the OpenVEX document for this release</span>
 curl<span class="w"> </span>-sLO<span class="w"> </span>https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-8.3.17-5.openvex.json
 
 <span class="c1"># Scan the SBOM and filter out vulnerabilities addressed in the VEX document</span>

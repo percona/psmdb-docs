@@ -18,7 +18,7 @@ This document primarily focuses on configuring OIDC to authenticate users and us
 
 To configure OIDC authentication and LDAP authorization, complete the following steps:
 
-1. Configure an IdP provider. Refer to the [OIDC Configuration](https://docs.percona.com/percona-server-for-mongodb/8.3/oidc.html#configuration) section and then use the corresponding tutorial for the IdP of your choice.
+1. Configure an IdP provider. Refer to the [OIDC Configuration](https://docs.percona.com/percona-server-for-mongodb/8.3/oidc.md#configuration) section and then use the corresponding tutorial for the IdP of your choice.
 
 1. Set up LDAP server and define users and roles there.
 
@@ -26,7 +26,7 @@ To configure OIDC authentication and LDAP authorization, complete the following 
 
    The LDAP server setup is out of scope of this document. We assume that you are familiar with the LDAP server schema.
 
-1. [Configure TLS/SSL connection for Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.3/ldap-setup.html#configure-tlsssl-connection-for-percona-server-for-mongodb)
+1. [Configure TLS/SSL connection for Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.3/ldap-setup.md#configure-tlsssl-connection-for-percona-server-for-mongodb)
 
 1. Create roles for LDAP groups in Percona Server for MongoDB
 
@@ -42,7 +42,7 @@ Percona Server for MongoDB maps the user’s LDAP group to the roles and determi
 
 To create the roles, use the following command:
 
-```
+```javascript
 var admin = db.getSiblingDB("admin")
 admin.createRole(
    {
@@ -63,7 +63,7 @@ admin.createRole(
 
 ### Percona Server for MongoDB configuration
 
-If your users connect to Percona Server for MongoDB with usernames that are not LDAP Distinguished Names (DN), you must transform the usernames so that LDAP server accepts them. Also, you must [escape special characters](https://docs.percona.com/percona-server-for-mongodb/8.3/ldap-setup.html#escaping-special-characters) if usernames contain them.
+If your users connect to Percona Server for MongoDB with usernames that are not LDAP Distinguished Names (DN), you must transform the usernames so that LDAP server accepts them. Also, you must [escape special characters](https://docs.percona.com/percona-server-for-mongodb/8.3/ldap-setup.md#escaping-special-characters) if usernames contain them.
 
 To transform usernames into LDAP DN, use the `userToDNMapping` configuration option. Specify the match pattern as a regexp to capture the name. Next, specify how to transform it - either to use a substitution value or to query the LDAP server for a username.
 
@@ -79,7 +79,7 @@ For this configuration example, we assume the following:
 
 - Edit the `etc/mongod.conf` configuration file and specify both the OIDC and LDAP configuration:
 
-  ```
+  ```yaml
   security:
     authorization: enabled
     ldap:
@@ -103,7 +103,7 @@ For this configuration example, we assume the following:
 
 - Restart Percona Server for MongoDB to apply the changes.
 
-  ```
+  ```bash
   sudo systemctl restart mongod
   ```
 
@@ -115,7 +115,7 @@ The `authenticationMechanisms` parameter contains authentication mechanisms to u
 
 1. To authenticate users with OIDC, run the following command:
 
-   ```
+   ```bash
    mongosh -u "testuser@perconatest.com" --authenticationMechanism MONGODB-OIDC
    ```
 
@@ -123,13 +123,13 @@ The `authenticationMechanisms` parameter contains authentication mechanisms to u
 
 1. Upon successful authentication, check connection status:
 
-   ```
+   ```javascript
    db.runCommand({connectionStatus : 1})
    ```
 
    Sample output
 
-   ```
+   ```text
    {
      authInfo: {
        authenticatedUsers: [
@@ -149,6 +149,6 @@ The `authenticationMechanisms` parameter contains authentication mechanisms to u
 
 To authenticate users in the LDAP server, run the following command:
 
-```
+```bash
 mongosh -u "testuser@perconatest.com" --authenticationMechanism PLAIN
 ```

@@ -132,8 +132,8 @@ with versioning enabled.">
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/8.3/vault.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/8.3/vault.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/8.3/vault.md</a>.</div>
 
 
 
@@ -3973,7 +3973,7 @@ with versioning enabled.</p>
 </tbody>
 </table>
 <h3 id="config-file-example">Config file example<a data-markdown-ignore class="headerlink" href="#config-file-example" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">vault</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">serverName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
@@ -3984,7 +3984,7 @@ with versioning enabled.</p>
 <h4 id="vault-access-policy-configuration">Vault access policy configuration<a data-markdown-ignore class="headerlink" href="#vault-access-policy-configuration" title="Permanent link">¶</a></h4>
 <p>Percona Server for MongoDB checks the number of the secrets on the Vault server before adding a new one thus <a href="#master-key-loss-prevention">preventing the loss of the old master key</a>. For these checks, Percona Server for MongoDB requires read permissions for the secret’s metadata and the secrets engine configuration. You configure these permissions within the access policy on the Vault server.</p>
 <p>Find the sample policy configuration below:</p>
-<div class="highlight"><pre><span></span><code><span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">"secret/data/*"</span><span class="w"> </span><span class="p">{</span>
+<div class="language-json highlight"><pre><span></span><code><span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">"secret/data/*"</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="err">capabili</span><span class="kc">t</span><span class="err">ies</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"create"</span><span class="p">,</span><span class="s2">"read"</span><span class="p">,</span><span class="s2">"update"</span><span class="p">,</span><span class="s2">"delete"</span><span class="p">]</span>
 <span class="p">}</span>
 <span class="err">pa</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="s2">"secret/metadata/*"</span><span class="w"> </span><span class="p">{</span>
@@ -3999,7 +3999,7 @@ with versioning enabled.</p>
 <h2 id="namespaces">Namespaces<a data-markdown-ignore class="headerlink" href="#namespaces" title="Permanent link">¶</a></h2>
 <p>Namespaces are isolated environments in Vault that allow for separate secret key and policy management.</p>
 <p>You can use Vault namespaces with Percona Server for MongoDB. Specify the namespace(s) for the <code>security.vault.secret</code> option value as follows:</p>
-<div class="highlight"><pre><span></span><code>&lt;namespace&gt;/secret/data/&lt;secret_path&gt;
+<div class="language-bash highlight"><pre><span></span><code>&lt;namespace&gt;/secret/data/&lt;secret_path&gt;
 </code></pre></div>
 <p>For example, the path to secret keys for namespace <code>test</code> on  the secrets engine <code>secret</code> will be <code>test/secret/&lt;my_secret_path&gt;</code>.</p>
 <h3 id="targeting-a-namespace-in-vault-configuration">Targeting a namespace in Vault configuration<a data-markdown-ignore class="headerlink" href="#targeting-a-namespace-in-vault-configuration" title="Permanent link">¶</a></h3>
@@ -4007,7 +4007,7 @@ with versioning enabled.</p>
 <ol>
 <li>Set the <code>VAULT_NAMESPACE</code> environment variable so that all subsequent commands are executed against that namespace. Use the following command to set the environment variable for the namespace <code>test</code>:</li>
 </ol>
-<p></p><div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">VAULT_NAMESPACE</span><span class="o">=</span><span class="nb">test</span>
+<p></p><div class="language-bash highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">VAULT_NAMESPACE</span><span class="o">=</span><span class="nb">test</span>
 </code></pre></div>
 2. Provide the namespace with the <code>--namespace</code> flag in commands<p></p>
 <div class="admonition admonition">
@@ -4057,11 +4057,11 @@ with versioning enabled.</p>
 <p>To continue, increase the maximum versions for the secret or the entire secrets engine on the Vault server, then restart Percona Server for MongoDB. To check the number of secrets on the Vault server, ensure Percona Server for MongoDB has <a href="#vault-access-policy-configuration">read permissions for the secret’s metadata and the secrets engine configuration</a>.</p>
 <h2 id="check-encryption-status">Check encryption status<a data-markdown-ignore class="headerlink" href="#check-encryption-status" title="Permanent link">¶</a></h2>
 <p>You can check the encryption status and the current configuration using the following command:</p>
-<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span>
+<div class="language-javascript highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span>
 </code></pre></div>
 <details class="example">
 <summary>Expected output</summary>
-<div class="no-copy highlight"><pre><span></span><code>{
+<div class="language-text no-copy highlight"><pre><span></span><code>{
   encryptionEnabled: true,
   encryptionCipherMode: 'AES256-CBC',
   encryptionKeyId: 'local'

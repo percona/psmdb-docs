@@ -65,19 +65,19 @@ The steps are the following:
 1. Fork this repository
 1. Clone the repository on your machine:
 
-```
+```sh
 git clone git@github.com:<your_name>/psmdb-docs.git
 ```
 
 1. Change the directory to `psmdb-docs` and add the remote upstream repository:
 
-```
+```sh
 git remote add upstream git@github.com:percona/psmdb-docs.git
 ```
 
 1. Pull the latest changes from upstream
 
-```
+```sh
 git fetch upstream
 git merge upstream/<branch>
 ```
@@ -86,7 +86,7 @@ Make sure that your local branch and the branch you merge changes from are the s
 
 1. Create a separate branch for your changes
 
-```
+```sh
 git checkout -b <my_changes>
 ```
 
@@ -108,7 +108,7 @@ Learn more about the documentation structure in the [Repository structure](#repo
 1. [Get Docker](https://docs.docker.com/get-docker/)
 1. We use [this Docker image](https://github.com/Percona-Lab/percona-doc-docker) to build documentation. Run the following command:
 
-```
+```sh
 docker run --rm -v $(pwd):/docs perconalab/pmm-doc-md mkdocs build
 ```
 
@@ -117,7 +117,7 @@ If Docker can’t find the image locally, it first downloads the image, and then
 1. Go to the `site` directory and open the `index.html` file to see the documentation.
 1. To view your changes as you make them, run the following command:
 
-```
+```sh
 docker run --rm -p 8000:8000 -v $(pwd):/docs perconalab/pmm-doc-md mkdocs serve -a 0.0.0.0:8000
 ```
 
@@ -135,20 +135,20 @@ In order not to break your running workflows, it’s recommended to install MkDo
 1. Install [MkDocs](https://www.mkdocs.org/getting-started/#installation).
 1. Install all required dependencies:
 
-```
+```sh
 pip install -r requirements.txt
 ```
 
 1. While in the root directory of the doc project, run the following command to build the documentation:
 
-```
+```sh
 mkdocs build
 ```
 
 1. Go to the `site` directory and open the `index.html` file in your web browser to see the documentation.
 1. To automatically rebuild the documentation and reload the browser as you make changes, run the following command:
 
-```
+```sh
 mkdocs serve
 ```
 

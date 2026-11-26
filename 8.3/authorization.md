@@ -8,9 +8,9 @@ LDAP authorization allows you to control user access and operations in your data
 
 LDAP authorization is compatible with the following authentication mechanisms:
 
-- [x.509 certificate authentication](https://docs.percona.com/percona-server-for-mongodb/8.3/authentication.html#x509-certificate-authentication)
-- [Kerberos authentication](https://docs.percona.com/percona-server-for-mongodb/8.3/authentication.html#kerberos-authentication)
-- [OIDC authentication](https://docs.percona.com/percona-server-for-mongodb/8.3/oidc.html)
+- [x.509 certificate authentication](https://docs.percona.com/percona-server-for-mongodb/8.3/authentication.md#x509-certificate-authentication)
+- [Kerberos authentication](https://docs.percona.com/percona-server-for-mongodb/8.3/authentication.md#kerberos-authentication)
+- [OIDC authentication](https://docs.percona.com/percona-server-for-mongodb/8.3/oidc.md)
 - [Authentication and authorization with direct binding to LDAP](#authentication-and-authorization-with-direct-binding-to-ldap)
 
 ## Authentication and authorization with direct binding to LDAP
@@ -21,11 +21,13 @@ The advantage of using this mechanism is that it is easy to setup and does not r
 
 The following example illustrates the connection to Percona Server for MongoDB from the `mongosh` shell:
 
-```
+```bash
 mongosh -u "CN=alice,CN=Users,DC=engineering,DC=example,DC=com" -p --authenticationDatabase '$external' --authenticationMechanism PLAIN
 ```
 
 The following diagram illustrates the authentication and authorization flow:
+
+*Image: image*
 
 1. A user connects to the database providing their credentials
 1. If required, Percona Server for MongoDB [transforms the username](#username-transformation) to match the user in the LDAP server according to the mapping rules specified for the `--ldapUserToDNMapping` parameter.
@@ -79,9 +81,9 @@ To summarize, username escaping happens in the following cases:
 
 As of version 6.0.2-1, Percona Server for MongoDB supports LDAP referrals as defined in [RFC 4511 4.1.10](https://www.rfc-editor.org/rfc/rfc4511.txt). For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.
 
-To enable LDAP referrals, set the `ldapFollowReferrals` server parameter to `true` using the [setParameter](https://docs.percona.com/percona-server-for-mongodb/8.3/set-parameter.html) command or by editing the configuration file.
+To enable LDAP referrals, set the `ldapFollowReferrals` server parameter to `true` using the [setParameter](https://docs.percona.com/percona-server-for-mongodb/8.3/set-parameter.md) command or by editing the configuration file.
 
-```
+```yaml
 setParameter:
    ldapFollowReferrals: true
 ```
@@ -111,7 +113,7 @@ As of version 8.0.20-8, Percona Server for MongoDB introduced parameters to opti
 
 **Runtime (setParameter)**
 
-```
+```javascript
 > db.adminCommand({
 ...   setParameter: 1,
 ...   ldapUserCacheRefreshInterval: 300
@@ -120,14 +122,14 @@ As of version 8.0.20-8, Percona Server for MongoDB introduced parameters to opti
 
 **Command line**
 
-```
+```bash
 mongod --setParameter "ldapUserCacheRefreshInterval=300" \
        --setParameter "ldapShouldRefreshUserCacheEntries=true"
 ```
 
 **Configuration file**
 
-```
+```yaml
 setParameter:
   ldapUserCacheRefreshInterval: 300
   ldapShouldRefreshUserCacheEntries: true
@@ -137,7 +139,7 @@ setParameter:
 
 **Runtime (setParameter)**
 
-```
+```javascript
 > db.adminCommand({
 ...   setParameter: 1,
 ...   ldapUserCacheInvalidationInterval: 30
@@ -146,14 +148,14 @@ setParameter:
 
 **Command line**
 
-```
+```bash
 mongod --setParameter "ldapUserCacheInvalidationInterval=30" \
        --setParameter "ldapShouldRefreshUserCacheEntries=false"
 ```
 
 **Configuration file**
 
-```
+```yaml
 setParameter:
   ldapUserCacheInvalidationInterval: 30
   ldapShouldRefreshUserCacheEntries: false
@@ -165,17 +167,17 @@ As of version 6.0.2-1, Percona Server for MongoDB always uses a connection pool 
 
 You can change the connection pool size either at the server startup or dynamically by specifying the value for the `ldapConnectionPoolSizePerHost` server parameter.
 
-For example, to set the number of connections in the pool to 5, use the [setParameter](https://docs.percona.com/percona-server-for-mongodb/8.3/set-parameter.html) command:
+For example, to set the number of connections in the pool to 5, use the [setParameter](https://docs.percona.com/percona-server-for-mongodb/8.3/set-parameter.md) command:
 
 **Command line**
 
-```
+```javascript
 db.adminCommand( { setParameter: 1, ldapConnectionPoolSizePerHost: 5  } )
 ```
 
 **Configuration file**
 
-```
+```yaml
 setParameter:
   ldapConnectionPoolSizePerHost: 5
 ```
@@ -188,16 +190,16 @@ Specify the LDAP servers as a comma-separated list in the format `<host>:<port>`
 
 You can define the option value at the server startup by editing the configuration file.
 
-```
+```yaml
 security:
   authorization: "enabled"
   ldap:
     servers: "ldap1.example.net,ldap2.example.net"
 ```
 
-You can change `ldapServers` dynamically at runtime using the [setParameter](https://docs.percona.com/percona-server-for-mongodb/8.3/set-parameter.html).
+You can change `ldapServers` dynamically at runtime using the [setParameter](https://docs.percona.com/percona-server-for-mongodb/8.3/set-parameter.md).
 
-```
+```javascript
 db.adminCommand( { setParameter: 1, ldapServers:"localhost,ldap1.example.net,ldap2.example.net"} )
 { "was" : "ldap1.example.net,ldap2.example.net", "ok" : 1 }
 ```
@@ -211,4 +213,4 @@ MongoDB Documentation:
 
 ## Configuration
 
-For how to configure LDAP authorization with the native LDAP authentication, see [Setting up LDAP authentication and authorization using NativeLDAP](https://docs.percona.com/percona-server-for-mongodb/8.3/ldap-setup.html).
+For how to configure LDAP authorization with the native LDAP authentication, see [Setting up LDAP authentication and authorization using NativeLDAP](https://docs.percona.com/percona-server-for-mongodb/8.3/ldap-setup.md).

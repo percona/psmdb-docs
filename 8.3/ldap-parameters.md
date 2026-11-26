@@ -8,7 +8,7 @@ Percona Server for MongoDB provides a set of configuration parameters to enable 
 
 To reduce the number of round trips to the LDAP server during authentication and authorization, Percona Server for MongoDB caches the results of LDAP user-to-DN mapping configured by `security.ldap.userToDNMapping` (exposed as `--ldapUserToDNMapping` at startup and `ldapUserToDNMapping` at runtime).
 
-For more details on configuring user-to-DN mapping, see [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.3/authorization.html#username-transformation) and [Set up LDAP authentication and authorization using NativeLDAP](https://docs.percona.com/percona-server-for-mongodb/8.3/ldap-setup.html).
+For more details on configuring user-to-DN mapping, see [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/8.3/authorization.md#username-transformation) and [Set up LDAP authentication and authorization using NativeLDAP](https://docs.percona.com/percona-server-for-mongodb/8.3/ldap-setup.md).
 
 The cache is controlled by the following server parameters:
 
@@ -44,13 +44,13 @@ The `ldap.userToDNCache` document reports the status and performance of the in-m
 
 Run the following command:
 
-```
+```javascript
 db.serverStatus().ldap.userToDNCache
 ```
 
 Output
 
-```
+```json
 {
   "enabled": true,
   "maxSize": 10000,
@@ -82,7 +82,7 @@ The `hits` and `misses` counters reset to `0` on each cache invalidation. `inval
 
 You can calculate the hit rate for the current cache generation using the following command:
 
-```
+```javascript
 var c = db.serverStatus().ldap.userToDNCache;
 var total = c.hits + c.misses;
 var hitRate = total > 0 ? c.hits / total : null;

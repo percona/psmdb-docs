@@ -1,0 +1,136 @@
+> For the complete documentation index, see [llms.txt](https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt).
+
+# Install Percona Server for MongoDB on Debian and Ubuntu
+
+This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu.
+
+We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/8.3/telemetry.md) to understand the use of the software and improve our products.
+
+Note
+
+Percona Server for MongoDB should work on other DEB-based distributions, but it is tested only on platforms listed on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-support-lifecycle#mongodb) page.
+
+Package contents
+
+| Package                         | Contains                                                                                                                        |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `percona-server-mongodb`        | The `mongosh` shell, import/export tools, other client utilities, server software, default configuration, and `init.d` scripts. |
+| `percona-server-mongodb-server` | The `mongod` server, default configuration files, and `init.d` scripts                                                          |
+| `percona-server-mongodb-shell`  | The `mongosh` shell                                                                                                             |
+| `percona-server-mongodb-mongos` | The `mongos` sharded cluster query router                                                                                       |
+| `percona-server-mongodb-tools`  | Mongo tools for high-performance MongoDB fork from Percona                                                                      |
+| `percona-server-mongodb-dbg`    | Debug symbols for the server                                                                                                    |
+
+## Procedure
+
+Before you start, check the [system requirements](https://docs.percona.com/percona-server-for-mongodb/8.3/system-requirements.md).
+
+### Configure Percona repository
+
+Percona provides the [`percona-release`](https://docs.percona.com/percona-software-repositories/index.html) configuration tool that simplifies operating repositories and enables to install and update both Percona Server for MongoDB packages and required dependencies smoothly.
+
+1. Fetch `percona-release` packages from Percona web:
+
+   ```bash
+   wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
+   ```
+
+1. Install the downloaded package with **dpkg**:
+
+   ```bash
+   sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
+   ```
+
+   After you install this package, you have the access to Percona repositories. You can check the repository setup in the `/etc/apt/sources.list.d/percona-release.list` file.
+
+1. Enable the repository:
+
+   ```bash
+   sudo percona-release enable psmdb-83 release
+   ```
+
+1. Remember to update the local cache:
+
+   ```bash
+   sudo apt update
+   ```
+
+### Install Percona Server for MongoDB
+
+**Install the latest version**
+
+Run the following command to install the latest version of Percona Server for MongoDB:
+
+```bash
+sudo apt install percona-server-mongodb
+```
+
+**Install a specific version**
+
+To install a specific version of Percona Server for MongoDB, do the following:
+
+1. List available versions:
+
+   ```bash
+   sudo apt-cache madison percona-server-mongodb
+   ```
+
+   Sample output:
+
+   ```bash
+   percona-server-mongodb | 8.3.17-5.bullseye | http://repo.percona.com/psmdb-83/apt bullseye/main amd64 Packages
+   ```
+
+1. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 8.3.17-5, run the following command:
+
+   ```bash
+   sudo apt install percona-server-mongodb=8.3.17-5.bullseye percona-server-mongodb-mongos=8.3.17-5.bullseye percona-server-mongodb-shell=8.3.17-5.bullseye percona-server-mongodb-server=8.3.17-5.bullseye percona-server-mongodb-tools=8.3.17-5.bullseye
+   ```
+
+By default, Percona Server for MongoDB stores data files in `/var/lib/mongodb/` and configuration parameters in `/etc/mongod.conf`.
+
+## Enable Transparent Hugepages (THP)
+
+Enable Transparent Hugepages (THP) before starting Percona Server for MongoDB 8.3. THP is required to use the new TCMalloc version with MongoDB. For how to enable THP, see [Enable Transparent Hugepages (THP)](https://www.mongodb.com/docs/upcoming/administration/tcmalloc-performance/#enable-transparent-hugepages--thp-) section of documentation.
+
+## Run Percona Server for MongoDB
+
+**Start the service**
+
+Percona Server for MongoDB is started automatically after installation unless it encounters errors during the installation process.
+
+You can also manually start it using the following command:
+
+```bash
+sudo systemctl start mongod
+```
+
+**Confirm that the service is running**
+
+Check the service status using the following command:
+
+```bash
+sudo systemctl status mongod
+```
+
+**Stop the service**
+
+Stop the service using the following command:
+
+```bash
+sudo systemctl stop mongod
+```
+
+**Restart the service**
+
+Restart the service using the following command:
+
+```bash
+sudo systemctl restart mongod
+```
+
+Congratulations! Your Percona Server for MongoDB is up and running.
+
+## Next steps
+
+[Connect to MongoDB](https://docs.percona.com/percona-server-for-mongodb/8.3/connect.md)

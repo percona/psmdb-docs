@@ -1,0 +1,211 @@
+> For the complete documentation index, see [llms.txt](https://docs.percona.com/percona-server-for-mongodb/8.3/llms.txt).
+
+# Percona Memory Engine
+
+Percona Memory Engine is a special configuration of [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) that does not store user data on disk. Data fully resides in the main memory, making processing much faster and smoother. Keep in mind that you need to have enough memory to hold the data set, and ensure that the server does not shut down.
+
+The Percona Memory Engine is available in Percona Server for MongoDB, along with the default MongoDB engine WiredTiger.
+
+## Usage
+
+Percona Server for MongoDB runs with WiredTiger by default. You can select a storage engine using the `--storageEngine` command-line option when you start `mongod`. Alternatively, you can set the `storage.engine` variable in the configuration file (by default, `/etc/mongod.conf`):
+
+```yaml
+storage:
+  dbPath: <dataDir>
+  engine: inMemory
+```
+
+## Configuration
+
+You can configure Percona Memory Engine using either command-line options or corresponding parameters in the `/etc/mongod.conf` file.
+
+The following options are available (with corresponding YAML configuration file parameters):
+
+| Configuration file | [storage.inMemory.engineConfig.inMemorySizeGB](#storage-inmemory-engineconfig-inmemorysizegb) |
+| ------------------ | --------------------------------------------------------------------------------------------- |
+| **Command line**   | `--inMemorySizeGB=<value>`                                                                    |
+| **Default**        | 50% of total memory minus 1024 MB, but not less than 256 MB                                   |
+| **Description**    | Specifies the maximum memory in gigabytes to use for data                                     |
+
+| Configuration file | [storage.inMemory.engineConfig.statisticsLogDelaySecs](#storage-inmemory-engineconfig-statisticslogdelaysecs)   |
+| ------------------ | --------------------------------------------------------------------------------------------------------------- |
+| **Command line**   | `--inMemoryStatisticsLogDelaySecs=<value>`                                                                      |
+| **Default**        | 0                                                                                                               |
+| **Description**    | Specifies the number of seconds between writes to the statistics log. A 0 value means statistics are not logged |
+
+### Examples
+
+The following are the configuration examples:
+
+**Configuration file**
+
+The configuration file is formatted in YAML
+
+```yaml
+storage:
+  engine: inMemory
+  inMemory:
+    engineConfig:
+      inMemorySizeGB: 140
+      statisticsLogDelaySecs: 0
+```
+
+**Command line**
+
+Setting parameters in the configuration file is the same as starting the `mongod` daemon with the following options:
+
+```sh
+mongod --storageEngine=inMemory \
+--inMemorySizeGB=140 \
+--inMemoryStatisticsLogDelaySecs=0
+```
+
+## Switching storage engines
+
+### Considerations
+
+If you have data files in your database and want to change to Percona Memory Engine, consider the following:
+
+- Data files created by one storage engine are not compatible with other engines, because each one has its own data model.
+- When changing the storage engine, the `mongod` node requires an empty `dbPath` data directory when it is restarted. Though Percona Memory Engine stores all data in memory, some metadata files, diagnostics logs, and statistics metrics are still written to disk. This is controlled with the `--inMemoryStatisticsLogDelaySecs` option.
+
+Creating a new `dbPath` data directory for a different storage engine is the simplest solution. Yet when you switch between disk-using storage engines (e.g. from [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/) to Percona Memory Engine), you may have to delete the old data if there is not enough disk space for both. Double-check that your backups are solid and/or the replica set nodes are healthy before you switch to the new storage engine.
+
+- In addition to running as standalones, `mongod` instances that use Percona Memory Engine storage can run as part of a Replica Set and be part of a sharded cluster.
+
+### Procedure
+
+To change a storage engine, you have the following options:
+
+#### Temporarily test Percona Memory Engine
+
+Set a different data directory for the `dbPath` variable in the configuration file. Make sure that the user running `mongod` has read and write permissions for the new data directory.
+
+1. Stop `mongod`
+
+   ```bash
+   service mongod stop
+   ```
+
+1. Edit the configuration file
+
+   ```yaml
+   storage:
+     dbPath: <newDataDir>
+     engine: inmemory
+   ```
+
+1. Start `mongod`
+
+   ```bash
+   service mongod start
+   ```
+
+#### Permanent switch to Percona Memory Engine without any valuable data in your database
+
+Clean out the `dbPath` data directory (by default, `/var/lib/mongodb`) and edit the configuration file:
+
+1. Stop `mongod`
+
+   ```bash
+   service mongod stop
+   ```
+
+1. Clean out the `dbPath` data directory
+
+   ```bash
+   sudo rm -rf <dbpathDataDir>
+   ```
+
+1. Edit the configuration file
+
+   ```yaml
+   storage:
+     dbPath: <newDataDir>
+     engine: inmemory
+   ```
+
+1. Start `mongod`
+
+   ```bash
+   service mongod start
+   ```
+
+#### Switch to Percona Memory Engine with data migration and compatibility
+
+**Standalone or single-node Replica Set**
+
+For a standalone instance or a single-node replica set, use the `mongodump` and `mongorestore` utilities:
+
+1. Export the `dataDir` contents
+
+   ```bash
+   mongodump --out <dumpDir>
+   ```
+
+1. Stop `mongod`
+
+   ```bash
+   service mongod stop
+   ```
+
+1. Clean out the `dbPath` data directory
+
+   ```bash
+   sudo rm -rf <dbpathDataDir>
+   ```
+
+1. Update the configuration file by setting the new value for the `storage.engine` variable. Set the engine-specific settings such as `storage.inMemory.engineConfig.inMemorySizeGB`
+
+1. Start `mongod`
+
+   ```bash
+   service mongod start
+   ```
+
+1. Restore the database
+
+   ```bash
+   mongorestore <dumpDir>
+   ```
+
+**Replica Set**
+
+Use the “rolling restart” process.
+
+1. Switch to the Percona Memory Engine on the secondary node. Clean out the `dbPath` data directory and edit the configuration file:
+
+1. Stop `mongod`
+
+   ```bash
+   service mongod stop
+   ```
+
+1. Clean out the `dbPath` data directory
+
+   ```bash
+   sudo rm -rf <dbpathDataDir>
+   ```
+
+1. Edit the configuration file
+
+   ```yaml
+   storage:
+     dbPath: <newDataDir>
+     engine: inmemory
+   ```
+
+1. Start `mongod`
+
+   ```bash
+   service mongod start
+   ```
+
+1. Wait for the node to rejoin with the other nodes and report the SECONDARY status.
+
+1. Repeat the procedure to switch the remaining nodes to Percona Memory Engine.
+
+## Data at rest encryption
+
+Using [Data at Rest Encryption](https://docs.percona.com/percona-server-for-mongodb/8.3/data-at-rest-encryption.md) means using the same `storage.\*` configuration options as for [WiredTiger](https://docs.mongodb.org/manual/core/wiredtiger/). To change from normal to [Data at Rest Encryption](https://docs.percona.com/percona-server-for-mongodb/8.3/data-at-rest-encryption.md) mode or backward, you must clean up the `dbPath` data directory, just as if you change the storage engine. This is because `mongod` cannot convert the data files to an encrypted format **in place**. It must get the document data again, either via the initial sync from another replica set member or from an imported backup.

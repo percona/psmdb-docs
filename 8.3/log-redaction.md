@@ -14,14 +14,14 @@ Log redaction is important for complying with security requirements, but it can 
 
 You can permanently enable log redaction by adding the following to the configuration file:
 
-```
+```yaml
 security:
   redactClientLogData: true
 ```
 
 To enable log redaction at runtime, use the `setParameter` command as follows:
 
-```
+```javascript
 db.adminCommand(
   { setParameter: 1, redactClientLogData : true }
 )
@@ -35,7 +35,7 @@ If you enable the profiler, the query is still logged to the `system.profile` co
 
 This is an example of a log entry with redaction enabled:
 
-```
+```text
 {
   "t": {
     "$date": "2025-02-11T15:37:16.902+00:00"

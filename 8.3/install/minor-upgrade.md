@@ -4,7 +4,7 @@
 
 ## Upgrade considerations
 
-1. If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](https://docs.percona.com/percona-server-for-mongodb/8.3/kmip.html#upgrade-considerations)
+1. If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](https://docs.percona.com/percona-server-for-mongodb/8.3/kmip.md#upgrade-considerations)
 
 1. If you run Amazon Linux 2023, consider the following:
 
@@ -24,16 +24,16 @@ To upgrade Percona Server for MongoDB to the latest version, follow these steps:
 
 1. Stop the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
-1. [Install the latest version packages](https://docs.percona.com/percona-server-for-mongodb/8.3/install/index.html). Use the command relevant to your operating system.
+1. [Install the latest version packages](https://docs.percona.com/percona-server-for-mongodb/8.3/install/index.md). Use the command relevant to your operating system.
 
 1. Start the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
-To upgrade a replica set or a sharded cluster, use the [rolling restart](https://docs.percona.com/percona-server-for-mongodb/8.3/glossary.html#rolling-restart) method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.
+To upgrade a replica set or a sharded cluster, use the [rolling restart](https://docs.percona.com/percona-server-for-mongodb/8.3/glossary.md#rolling-restart) method. It allows you to perform the upgrade with minimum downtime. You upgrade the nodes one by one, while the whole cluster / replica set remains operational.

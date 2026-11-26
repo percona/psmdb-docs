@@ -72,7 +72,7 @@ The setup process consists of three main stages:
 
 1. Find the issuer URL. Go to the **Settings** tab and copy the **Issuer Metadata URI** value up to the `/.well-known/oauth-authorization-server`. The URL must be in the following format:
 
-   ```
+   ```text
    https://<your-okta-domain>/oauth2/ausu08lpq4VQRntUz697
    ```
 
@@ -136,7 +136,7 @@ Now you need to configure authentication in Percona Server for MongoDB. Specify 
 
 1. Edit the `/etc/mongod.conf` configuration file:
 
-   ```
+   ```yaml
    security:
       authorization: enabled
    setParameter:
@@ -153,13 +153,13 @@ Now you need to configure authentication in Percona Server for MongoDB. Specify 
 
 1. Start or restart Percona Server for MongoDB:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
 **Command line**
 
-```
+```bash
 mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
 'oidcIdentityProviders=[ {
    "issuer": "https://my-okta.okta.com/oauth2/austxj66qrgAVPlAj697",
@@ -184,7 +184,7 @@ The role name must match the identity provider group name and must have the pref
 
 For example, to create a role for the default group `Everyone` in Okta and with the `authNamePrefix` set to `okta`, use the following command:
 
-```
+```javascript
 db.getSiblingDB("admin").createRole({
   role: "okta/Everyone",
   privileges: [ ],
@@ -200,13 +200,13 @@ Create roles for all groups you have defined in Okta.
 
 Create users in the `$external` database. The username must consist of the `authNamePrefix` and the email that you specified when you created users in Okta. The username format is:
 
-```
+```text
 authNamePrefix/email
 ```
 
 If you set the `authNamePrefix` to `okta`, then the command to create a user is the following:
 
-```
+```javascript
 db.getSiblingDB("$external").createUser({
   user: "okta/john.doe@example.com",
   roles: [
@@ -221,7 +221,7 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows auth-code
    ```
 
@@ -229,7 +229,7 @@ db.getSiblingDB("$external").createUser({
 
 1. Upon successful log in you must see the **Login successful** screen. In your MongoDB client, you should see the output as follows:
 
-   ```
+   ```text
    Using MongoDB:      8.3.17-5
    Using Mongosh:      2.14.1
 
@@ -242,13 +242,13 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh  --authenticationMechanism MONGODB-OIDC --oidcFlows device-auth
    ```
 
    Sample output
 
-   ```
+   ```text
    Visit the following URL to complete authentication: https://my-okta.okta.com/activate
    Enter the following code on that page: LRVCRLXP
    ```
@@ -259,7 +259,7 @@ db.getSiblingDB("$external").createUser({
 
 1. You should see the **Device Activated** message on the screen. In your MongoDB client, you should see the output as follows:
 
-   ```
+   ```text
    Using MongoDB:      8.3.17-5
    Using Mongosh:      2.14.1
 

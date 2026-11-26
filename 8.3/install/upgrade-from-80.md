@@ -33,25 +33,25 @@ Before the upgrade, do the following:
 
 1. Stop the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. Enable Percona repository for Percona Server for MongoDB 8.3:
 
-   ```
+   ```bash
    sudo percona-release enable psmdb-83
    ```
 
 1. Update the local cache:
 
-   ```
+   ```bash
    sudo apt update
    ```
 
 1. Remove the following configuration from the configuration file, if you have it:
 
-   ```
+   ```yaml
    processManagement:
       fork: true
       pidFilePath: /var/run/mongod.pid
@@ -59,35 +59,35 @@ Before the upgrade, do the following:
 
 1. Install Percona Server for MongoDB 8.3 packages:
 
-   ```
+   ```bash
    sudo apt install percona-server-mongodb
    ```
 
 1. Start the `mongod` instance:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
-For more information, see [Installing Percona Server for MongoDB on Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/8.3/install/apt.html).
+For more information, see [Installing Percona Server for MongoDB on Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/8.3/install/apt.md).
 
 **Upgrade on Red Hat Enterprise Linux and derivatives**
 
 1. Stop the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. Enable Percona repository for Percona Server for MongoDB 8.3:
 
-   ```
+   ```bash
    sudo percona-release enable psmdb-83
    ```
 
 1. Remove the following configuration from the configuration file, if you have it:
 
-   ```
+   ```yaml
    processManagement:
       fork: true
       pidFilePath: /var/run/mongod.pid
@@ -95,19 +95,19 @@ For more information, see [Installing Percona Server for MongoDB on Debian and U
 
 1. Install Percona Server for MongoDB 8.3 packages:
 
-   ```
+   ```bash
    sudo yum install percona-server-mongodb
    ```
 
 1. Start the `mongod` instance:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
 After the upgrade, Percona Server for MongoDB is started with the feature set of 8.0 version. Assuming that your applications are compatible with the new version, enable 8.3 version features. Run the following command against the `admin` database:
 
-```
+```javascript
 db.adminCommand( { setFeatureCompatibilityVersion: "8.3", confirm: true } )
 ```
 
