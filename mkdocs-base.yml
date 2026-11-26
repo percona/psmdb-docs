@@ -202,7 +202,7 @@ nav:
       - Storage:
         - "Percona Memory Engine": "inmemory.md"
       - Backup:
-        - "Hot Backup": "hot-backup.md"
+        - "Back up with Percona Backup for MongoDB": "hot-backup.md"
         - backup-cursor.md
       - Authentication:
         - "Authentication overview": "authentication.md"
