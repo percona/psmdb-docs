@@ -2,7 +2,7 @@
 
 # Setting up Kerberos authentication
 
-This document provides configuration steps for setting up [Kerberos Authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.html#kerberos-authentication) in Percona Server for MongoDB.
+This document provides configuration steps for setting up [Kerberos Authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.md#kerberos-authentication) in Percona Server for MongoDB.
 
 ## Assumptions
 
@@ -21,7 +21,7 @@ To authenticate, users must exist in the Kerberos and Percona Server for MongoDB
 
 After you have defined the user principals in the Kerberos server, add them to the `$external` database in Percona Server for MongoDB and assign required roles:
 
-```
+```javascript
 use $external
 db.createUser({user: "demo@PERCONATEST.COM",roles: [{role: "read", db: "admin"}]})
 ```
@@ -38,13 +38,13 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
 
 1. Stop the `mongod` service
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. [Generate the keytab file](https://web.mit.edu/kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-install/The-Keytab-File.html) or get a copy of it if you generated the `keytab` file on another host. Save the key file under a separate path (e.g. `/etc/mongodb.keytab`)
 
-   ```
+   ```bash
    cp /etc/krb5.keytab /etc/mongodb.keytab
    ```
 
@@ -52,13 +52,13 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
 
    **RPM/DEB packages or tarballs**
 
-   ```
+   ```bash
       sudo chown mongod:mongod /etc/mongodb.keytab
    ```
 
    **Percona Docker container images**
 
-   ```
+   ```bash
       sudo chown mongodb:mongodb /etc/mongodb.keytab
    ```
 
@@ -68,7 +68,7 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
 
    Edit the environment file at the path `/etc/default/mongod` and specify the `KRB5_KTNAME` variable:
 
-   ```
+   ```text
    KRB5_KTNAME=/etc/mongodb.keytab
    ```
 
@@ -78,7 +78,7 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
 
    Edit the environment file at the path `/etc/sysconfig/mongod` and specify the `KRB5_KTNAME` variable:
 
-   ```
+   ```text
    KRB5_KTNAME=/etc/mongodb.keytab
    ```
 
@@ -86,6 +86,6 @@ To authenticate, the `mongod` server must have access to the `keytab` file. To k
 
 1. Restart the `mongod` service
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```

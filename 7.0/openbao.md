@@ -16,25 +16,25 @@ OpenBao setup is similar to that of HashiCorp Vault. It consists of the followin
 
 1. Initialize OpenBao server. As a result, OpenBao generates the root token and the unseal key.
 
-   ```
+   ```bash
    bao operator init
    ```
 
 1. OpenBao is started in a sealed state. In this state OpenBao can access the storage but it cannot decrypt data. In order to use OpenBao, you need to unseal it using the unseal key.
 
-   ```
+   ```bash
    bao operator unseal <your-unseal-key>
    ```
 
 1. Next, authenticate in OpenBao using the root token.
 
-   ```
+   ```bash
    bao login <root-token>
    ```
 
 1. Enable the KV Secrets Engine – Version 2. By default, the secrets engine is enabled at the `secrets/` path. You can specify your own path using the `-path` flag
 
-   ```
+   ```bash
    bao secrets enable --version=2 -path=secret kv
    ```
 
@@ -42,7 +42,7 @@ OpenBao setup is similar to that of HashiCorp Vault. It consists of the followin
 
 1. Create an access policy file:
 
-   ```
+   ```bash
    cat <<EOF > psmdb-access.hcl
    path "secret/data/*" {
      capabilities = ["create","read","update","delete"]
@@ -58,13 +58,13 @@ OpenBao setup is similar to that of HashiCorp Vault. It consists of the followin
 
 1. Upload the access policy to OpenBao:
 
-   ```
+   ```bash
    bao policy write psmdb-policy psmdb-access.hcl
    ```
 
 1. Create an access token that Percona Server for MongoDB will use. You need to create an access token for every instance of Percona Server for MongoDB in your deployment.
 
-   ```
+   ```bash
    bao token create -policy=psmdb-policy
    ```
 
@@ -72,19 +72,19 @@ OpenBao setup is similar to that of HashiCorp Vault. It consists of the followin
 
    - Create a directory where you will store the token and SSL certificates if you [configured OpenBao with TLS](https://openbao.org/docs/auth/cert/#configuration)
 
-   ```
+   ```bash
    sudo mkdir -p /etc/openbao
    ```
 
    - Export the token into the token file. For TLS communication, copy the `.crt` file from OpenBao.
 
-   ```
+   ```bash
    echo "your-access-token-here" > /etc/openbao/token
    ```
 
    - Restrict access to the token and certificate files for the `mongod` user:
 
-   ```
+   ```bash
    sudo chmod 400 -p /etc/openbao/token
    sudo chown mongod:mongod /etc/openbao/token
    ```
@@ -94,11 +94,11 @@ See also
 To learn more about OpenBao configuration, see the following resources:
 
 - [How to configure KV secrets engine - version 2](https://openbao.org/docs/secrets/kv/kv-v2/)
-- [Master key loss prevention](https://docs.percona.com/percona-server-for-mongodb/7.0/vault.html#master-key-loss-prevention)
+- [Master key loss prevention](https://docs.percona.com/percona-server-for-mongodb/7.0/vault.md#master-key-loss-prevention)
 
 ## Percona Server for MongoDB configuration
 
-Percona Server for MongoDB configuration for OpenBao is the same as for HashCorp Vault. Refer to the [HashiCorp Vault parameters](https://docs.percona.com/percona-server-for-mongodb/7.0/vault.html#hashicorp-vault-parameters) for the description of available configuration options.
+Percona Server for MongoDB configuration for OpenBao is the same as for HashCorp Vault. Refer to the [HashiCorp Vault parameters](https://docs.percona.com/percona-server-for-mongodb/7.0/vault.md#hashicorp-vault-parameters) for the description of available configuration options.
 
 To enable data-at-rest encryption in Percona Server for MongoDB, you need the following information:
 
@@ -110,7 +110,7 @@ To enable data-at-rest encryption in Percona Server for MongoDB, you need the fo
 
 1. Edit the `/etc/mongod.conf` configuration file and specify the following configuration:
 
-   ```
+   ```yaml
    security:
      enableEncryption: true
      vault:
@@ -122,7 +122,7 @@ To enable data-at-rest encryption in Percona Server for MongoDB, you need the fo
 
 1. Start Percona Server for MongoDB:
 
-   ```
+   ```bash
    sudo systemctl start
    ```
 
@@ -130,6 +130,6 @@ To enable data-at-rest encryption in Percona Server for MongoDB, you need the fo
 
 Start Percona Server for MongoDB with the following parameters:
 
-```
+```bash
 mongod --enableEncryption --vaultServerName 127.0.0.1 --vaultPort 8200 --vaultTokenFile /etc/openbao/token --vaultSecret secret/data/ --vaultDisableTLSForTesting
 ```

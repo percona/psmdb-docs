@@ -113,7 +113,7 @@ The following table maps the Ping Identity configuration parameters to the Perco
 
 1. Edit the `/etc/mongod.conf` configuration file:
 
-   ```
+   ```yaml
    security:
       authorization: enabled
    setParameter:
@@ -130,13 +130,13 @@ The following table maps the Ping Identity configuration parameters to the Perco
 
 1. Start or restart Percona Server for MongoDB:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
 **Command line**
 
-```
+```bash
 mongod --auth --setParameter authenticationMechanisms=MONGODB-OIDC --setParameter \
 'oidcIdentityProviders=[ {
    "issuer": "https://auth.pingone.eu/9f1b3e82-7c45-4a1e-bd62-cc38f7a4e918/as",
@@ -161,7 +161,7 @@ The role name must match the identity provider group name and must have the pref
 
 For example, to create a role for the group named `admin` in Ping and with the `authNamePrefix` set to `ping`, use the following command:
 
-```
+```javascript
 db.getSiblingDB("admin").createRole({
   role: "ping/admin",
   privileges: [ ],
@@ -175,13 +175,13 @@ db.getSiblingDB("admin").createRole({
 
 Create users in the `$external` database. The username must consist of the `authNamePrefix` and the email that you specified when you created users in Ping Identity. The username format is:
 
-```
+```text
 authNamePrefix/email
 ```
 
 If you set the `authNamePrefix` to `ping`, then the command to create a user is the following:
 
-```
+```javascript
 db.getSiblingDB("$external").createUser({
   user: "ping/john.doe@example.com",
   roles: [
@@ -196,7 +196,7 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh  --authenticationMechanism MONGODB-OIDC --oidcIdTokenAsAccessToken
    ```
 
@@ -208,7 +208,7 @@ db.getSiblingDB("$external").createUser({
 
 1. Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:
 
-   ```
+   ```text
    Using MongoDB:      7.0.48-25
    Using Mongosh:      2.14.1
 
@@ -221,13 +221,13 @@ db.getSiblingDB("$external").createUser({
 
 1. Connect to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh  --authenticationMechanism MONGODB-OIDC --oidcIdTokenAsAccessToken --oidcFlows device-auth
    ```
 
    Sample output
 
-   ```
+   ```text
    Visit the following URL to complete authentication: https://auth.pingone.eu/9f1b3e82-7c45-4a1e-bd62-cc38f7a4e918/device
    Enter the following code on that page: ZDSC-KH7V
    Waiting...
@@ -239,7 +239,7 @@ db.getSiblingDB("$external").createUser({
 
 1. Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:
 
-   ```
+   ```text
    Using MongoDB:      7.0.48-25
    Using Mongosh:      2.14.1
 

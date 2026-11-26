@@ -1,6 +1,6 @@
 > For the complete documentation index, see [llms.txt](https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt).
 
-Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement for MongoDB 7.0 Community Edition with [enterprise-grade features](https://docs.percona.com/percona-server-for-mongodb/7.0/comparison.html).
+Percona Server for MongoDB is an enhanced, fully compatible, source available, drop-in replacement for MongoDB 7.0 Community Edition with [enterprise-grade features](https://docs.percona.com/percona-server-for-mongodb/7.0/comparison.md).
 
 Find the full list of supported platforms for Percona Server for MongoDB on the [Percona Software and Platform Lifecycle](https://www.percona.com/services/policies/percona-software-platform-lifecycle#mongodb) page.
 
@@ -12,9 +12,9 @@ You can use any of the easy-install guides. We recommend to use **the package ma
 
 Use the package manager of your operating system to install Percona Server for MongoDB:
 
-[on Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/7.0/install/apt.html) [on RHEL and derivatives](https://docs.percona.com/percona-server-for-mongodb/7.0/install/yum.html) [on Rocky Linux](https://docs.percona.com/percona-server-for-mongodb/7.0/install/rocky-linux.html) [on Amazon Linux 2023](https://docs.percona.com/percona-server-for-mongodb/7.0/install/amazon-linux.html)
+[on Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/7.0/install/apt.md) [on RHEL and derivatives](https://docs.percona.com/percona-server-for-mongodb/7.0/install/yum.md) [on Rocky Linux](https://docs.percona.com/percona-server-for-mongodb/7.0/install/rocky-linux.md) [on Amazon Linux 2023](https://docs.percona.com/percona-server-for-mongodb/7.0/install/amazon-linux.md)
 
-We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/7.0/telemetry.html) in Percona packages.
+We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/7.0/telemetry.md) in Percona packages.
 
 **Docker**
 
@@ -22,9 +22,9 @@ Get our Docker image and spin up Percona Server for MongoDB for a quick evaluati
 
 Check the Docker guide for step-by-step guidelines.
 
-[Run in Docker](https://docs.percona.com/percona-server-for-mongodb/7.0/install/docker.html)
+[Run in Docker](https://docs.percona.com/percona-server-for-mongodb/7.0/install/docker.md)
 
-We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/7.0/telemetry.html) in Docker images.
+We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/7.0/telemetry.md) in Docker images.
 
 **Kubernetes**
 
@@ -40,7 +40,7 @@ Have a full control over the installation by building Percona Server for MongoDB
 
 Check the guide below for step-by-step instructions.
 
-[Build from source](https://docs.percona.com/percona-server-for-mongodb/7.0/install/source.html)
+[Build from source](https://docs.percona.com/percona-server-for-mongodb/7.0/install/source.md)
 
 **Manual download**
 
@@ -48,10 +48,10 @@ If you need to install Percona Server for MongoDB offline or prefer a specific v
 
 Note that for this scenario you must make sure that all dependencies are satisfied.
 
-[Install from tarballs](https://docs.percona.com/percona-server-for-mongodb/7.0/install/tarball.html)
+[Install from tarballs](https://docs.percona.com/percona-server-for-mongodb/7.0/install/tarball.md)
 
 ## Upgrade instructions
 
-If you are already using MongoDB, see [Upgrading from MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/install/upgrade-from-mongodb.html).
+If you are already using MongoDB, see [Upgrading from MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/install/upgrade-from-mongodb.md).
 
-If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 6.0](https://docs.percona.com/percona-server-for-mongodb/7.0/install/upgrade-from-60.html).
+If you are running an earlier version of Percona Server for MongoDB, see [Upgrading from Version 6.0](https://docs.percona.com/percona-server-for-mongodb/7.0/install/upgrade-from-60.md).

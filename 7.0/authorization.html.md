@@ -1,0 +1,188 @@
+> For the complete documentation index, see [llms.txt](https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt).
+
+# LDAP authorization
+
+LDAP authorization allows you to control user access and operations in your database environment using the centralized user management storage – an LDAP server. You create and manage user credentials and permission information in the LDAP server. In addition, you create roles in the `admin` database with the names that exactly match the LDAP group Distinguished Name. These roles define what privileges the users who belong to the corresponding LDAP group.
+
+## Supported authentication mechanisms
+
+LDAP authorization is compatible with the following authentication mechanisms:
+
+- [x.509 certificate authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.md#x509-certificate-authentication)
+- [Kerberos authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.md#kerberos-authentication)
+- [OIDC authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/oidc.md)
+- [Authentication and authorization with direct binding to LDAP](#authentication-and-authorization-with-direct-binding-to-ldap)
+
+## Authentication and authorization with direct binding to LDAP
+
+You can configure Percona Server for MongoDB to communicate with the LDAP server directly to authenticate and authorize users.
+
+The advantage of using this mechanism is that it is easy to setup and does not require pre-creating users in the dummy `$external` database. Nevertheless, the `--authenticationDatabase` connection argument will still need to be specified as `$external`.
+
+The following example illustrates the connection to Percona Server for MongoDB from the `mongosh` shell:
+
+```bash
+mongosh -u "CN=alice,CN=Users,DC=engineering,DC=example,DC=com" -p --authenticationDatabase '$external' --authenticationMechanism PLAIN
+```
+
+The following diagram illustrates the authentication and authorization flow:
+
+*Image: image*
+
+1. A user connects to the database providing their credentials
+1. If required, Percona Server for MongoDB [transforms the username](#username-transformation) to match the user in the LDAP server according to the mapping rules specified for the `--ldapUserToDNMapping` parameter.
+1. Percona Server for MongoDB queries the LDAP server for the user identity and/or the LDAP groups this user belongs to.
+1. The LDAP server evaluates the query and if a user exists, returns their LDAP groups.
+1. Percona Server for MongoDB authorizes the user by mapping the DN of the returned groups against the roles assigned to the user in the `admin` database. If a user belongs to several groups they receive permissions associated with every group.
+
+### Username transformation
+
+If clients connect to Percona Server for MongoDB with usernames that are not LDAP DN, these usernames must be converted to the format acceptable by LDAP.
+
+To achieve this, the `--ldapUserToDNMapping` parameter is available in Percona Server for MongoDB configuration.
+
+The `--ldapUserToDNMapping` parameter is a JSON string representing an ordered array of rules expressed as JSON documents. Each document provides a regex pattern (`match` field) to match against a provided username. If that pattern matches, there are two ways to continue:
+
+- If there is the `substitution` value, then the matched pattern becomes the username of the user for further processing.
+- If there is the `ldapQuery` value, the matched pattern is sent to the LDAP server and the result of that LDAP query becomes the DN of the user for further processing.
+
+Both `substitution` and `ldapQuery` should contain placeholders to insert parts of the original username – those placeholders are replaced with regular expression submatches found on the `match` stage.
+
+So having an array of documents, Percona Server for MongoDB tries to match each document against the provided name and if it matches, the name is replaced either with the substitution string or with the result of the LDAP query.
+
+### Escaping special characters in usernames
+
+A username can contain special characters in any of its parts. A special character is any character which is not alphanumeric and not an ASCII character.
+
+These characters must be escaped to formulate the correct LDAP query on the following stages:
+
+- To transform a username to the LDAP DN, and the matched pattern of a username must be first queried in the LDAP server to become the DN.
+- To retrieve the groups a user is the member of.
+
+Additionally, the username pattern to match for the transformation can have special characters that must be escaped too.
+
+What exactly characters require escaping depends on the Percona Server for MongoDB configuration. Namely, on the configuration of the LDAP query template and the regular expressions inside the `--ldapUserToDNMapping` parameter.
+
+The escaping rules are described in the following documents:
+
+- [RFC 4514 | LDAP: Distinguished Names](https://datatracker.ietf.org/doc/html/rfc4514) - Escaping in Distinguished Names
+- [RFC 4515 | LDAP: String Representation of Search Filters](https://datatracker.ietf.org/doc/html/rfc4515) - LDAP search filters utilize its own escaping mechanism
+- [RFC 4516 | LDAP: Uniform Resource Locator](https://datatracker.ietf.org/doc/html/rfc4516) - General URL escaping rules.
+
+Their explanation is out of the scope of the Percona Server For MongoDB documentation. Please review the RFC directly or use your preferred LDAP resource.
+
+To summarize, username escaping happens in the following cases:
+
+- When a username is defined as the LDAP DN and has special characters in any of its parts.
+- When a username must be transformed to the LDAP DN and the username pattern for the transformation has special characters
+- When the transformed LDAP DN value contains special characters in any of its parts.
+
+### LDAP referrals
+
+As of version 6.0.2-1, Percona Server for MongoDB supports LDAP referrals as defined in [RFC 4511 4.1.10](https://www.rfc-editor.org/rfc/rfc4511.txt). For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.
+
+To enable LDAP referrals, set the `ldapFollowReferrals` server parameter to `true` using the [setParameter](https://docs.percona.com/percona-server-for-mongodb/7.0/set-parameter.md) command or by editing the configuration file.
+
+```yaml
+setParameter:
+   ldapFollowReferrals: true
+```
+
+### Connection pool
+
+As of version 6.0.2-1, Percona Server for MongoDB always uses a connection pool to LDAP server to process bind requests. The connection pool is enabled by default. The default connection pool size is 2 connections.
+
+You can change the connection pool size either at the server startup or dynamically by specifying the value for the `ldapConnectionPoolSizePerHost` server parameter.
+
+For example, to set the number of connections in the pool to 5, use the [setParameter](https://docs.percona.com/percona-server-for-mongodb/7.0/set-parameter.md) command:
+
+**Command line**
+
+```javascript
+> db.adminCommand( { setParameter: 1, ldapConnectionPoolSizePerHost: 5  } )
+```
+
+**Configuration file**
+
+```yaml
+setParameter:
+  ldapConnectionPoolSizePerHost: 5
+```
+
+### LDAP cache refresh parameters
+
+As of version 7.0.17-31, Percona Server for MongoDB introduces parameters to optimize authentication performance and reduce unnecessary load on the LDAP server. These settings control how cached user information is refreshed, allowing administrators to fine-tune the balance between maintaining up-to-date user data and minimizing LDAP query overhead—especially in high-scale environments with many concurrent users.
+
+- `ldapUserCacheRefreshInterval` defines how often (in seconds) the server refreshes cached user information from LDAP **when interval-based refresh is enabled** (see `ldapShouldRefreshUserCacheEntries` below).
+
+- `ldapUserCacheInvalidationInterval` controls how long (in seconds) cached LDAP user entries remain valid before they expire and are evicted from the cache. If you do not set this parameter explicitly, Percona Server for MongoDB uses the built-in default for your version. This parameter applies when `ldapShouldRefreshUserCacheEntries` is set to `false`.
+
+- `ldapShouldRefreshUserCacheEntries` selects the refresh strategy and has the following semantics:
+
+  - When set to `true`, each cached `$external` user is periodically re-fetched from the LDAP server at the interval defined by `ldapUserCacheRefreshInterval`. The cache is updated only if the user’s roles have changed; otherwise, existing entries remain untouched, ensuring no disruption. If a user no longer exists in LDAP, their cache entry is invalidated individually.
+  - When set to `false`, all `$external` users are evicted from the cache at intervals defined by `ldapUserCacheInvalidationInterval`. This preserves the behavior that existed prior to the introduction of `ldapUserCacheRefreshInterval` and `ldapShouldRefreshUserCacheEntries`.
+
+  The default value is `false` (expiration-based invalidation using `ldapUserCacheInvalidationInterval`), to maintain backward-compatible behavior unless interval-based refreshing is explicitly enabled.
+
+  `ldapShouldRefreshUserCacheEntries` can only be set at startup. Interval parameters may be configured both at startup and during runtime.
+
+  Warning
+
+  The default value will be changed to **true** in all major versions released after March 1, 2026.
+
+**Runtime (setParameter)**
+
+```javascript
+> db.adminCommand({
+...   setParameter: 1,
+...   ldapUserCacheRefreshInterval: 300
+... })
+```
+
+**Command line**
+
+```bash
+mongod --setParameter "ldapUserCacheRefreshInterval=300" \
+       --setParameter "ldapShouldRefreshUserCacheEntries=true"
+```
+
+**Configuration file**
+
+```yaml
+setParameter:
+  ldapUserCacheRefreshInterval: 300
+  ldapShouldRefreshUserCacheEntries: true
+```
+
+### Support for multiple LDAP servers
+
+As of version 6.0.2-1, you can specify multiple LDAP servers for failover. Percona Server for MongoDB sends bind requests to the first server defined in the list. When this server is down or unavailable, it sends requests to the next server and so on. Note that Percona Server for MongoDB keeps sending requests to this server even after the unavailable server recovers.
+
+Specify the LDAP servers as a comma-separated list in the format `<host>:<port>` for the [–ldapServers](https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-ldapservers) option.
+
+You can define the option value at the server startup by editing the configuration file.
+
+```yaml
+security:
+  authorization: "enabled"
+  ldap:
+    servers: "ldap1.example.net,ldap2.example.net"
+```
+
+You can change `ldapServers` dynamically at runtime using the [setParameter](https://docs.percona.com/percona-server-for-mongodb/7.0/set-parameter.md).
+
+```javascript
+> db.adminCommand( { setParameter: 1, ldapServers:"localhost,ldap1.example.net,ldap2.example.net"} )
+{ "was" : "ldap1.example.net,ldap2.example.net", "ok" : 1 }
+```
+
+See also
+
+MongoDB Documentation:
+
+- [Authenticate and Authorize Users Using Active Directory via Native LDAP](https://docs.mongodb.com/manual/tutorial/authenticate-nativeldap-activedirectory/)
+- [LDAP referrals](https://ldapwiki.com/wiki/LDAP%20Referral)
+
+## Configuration
+
+For how to configure LDAP authorization with the native LDAP authentication, see [Setting up LDAP authentication and authorization using NativeLDAP](https://docs.percona.com/percona-server-for-mongodb/7.0/ldap-setup.md).

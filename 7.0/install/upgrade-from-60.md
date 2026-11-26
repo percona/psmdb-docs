@@ -8,7 +8,7 @@
 
 1. Before upgrading your production Percona Server for MongoDB deployments, test all your applications in a testing environment to make sure they are compatible with the new version. For more information, see [Compatibility Changes in MongoDB 7.0](https://www.mongodb.com/docs/v7.0/release-notes/7.0-compatibility/)
 
-1. If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](https://docs.percona.com/percona-server-for-mongodb/7.0/kmip.html#upgrade-considerations)
+1. If you are using data-at-rest-encryption with KMIP server, check the [upgrade considerations](https://docs.percona.com/percona-server-for-mongodb/7.0/kmip.md#upgrade-considerations)
 
 1. If you run Amazon Linux 2023, consider the following:
 
@@ -38,65 +38,65 @@ Before the upgrade, do the following:
 
 1. Stop the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. Enable Percona repository for Percona Server for MongoDB 7.0:
 
-   ```
+   ```bash
    sudo percona-release enable psmdb-70
    ```
 
 1. Update the local cache:
 
-   ```
+   ```bash
    sudo apt update
    ```
 
 1. Install Percona Server for MongoDB 7.0 packages:
 
-   ```
+   ```bash
    sudo apt install percona-server-mongodb
    ```
 
 1. Start the `mongod` instance:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
-For more information, see [Installing Percona Server for MongoDB on Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/7.0/install/apt.html).
+For more information, see [Installing Percona Server for MongoDB on Debian and Ubuntu](https://docs.percona.com/percona-server-for-mongodb/7.0/install/apt.md).
 
 **Upgrade on Red Hat Enterprise Linux and derivatives**
 
 1. Stop the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. Enable Percona repository for Percona Server for MongoDB 7.0:
 
-   ```
+   ```bash
    sudo percona-release enable psmdb-70
    ```
 
 1. Install Percona Server for MongoDB 7.0 packages:
 
-   ```
+   ```bash
    sudo yum install percona-server-mongodb
    ```
 
 1. Start the `mongod` instance:
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
 After the upgrade, Percona Server for MongoDB is started with the feature set of 6.0 version. Assuming that your applications are compatible with the new version, enable 7.0 version features. Run the following command against the `admin` database:
 
-```
+```javascript
 > db.adminCommand( { setFeatureCompatibilityVersion: "7.0", confirm: true } )
 ```
 

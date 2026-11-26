@@ -12,7 +12,7 @@ To filter recorded events, use the [`--auditFilter`](#auditfilter) option or the
 
 For example, to log only events from a user named **tim** and write them to a JSON file `/var/log/psmdb/audit.json`, start the server with the following parameters:
 
-```
+```bash
 mongod \
  --dbpath data/db
  --auditDestination file \
@@ -23,7 +23,7 @@ mongod \
 
 The options in the previous example can be used as variables in the MongoDB configuration file:
 
-```
+```yaml
 storage:
   dbPath: data/db
 auditLog:
@@ -35,7 +35,7 @@ auditLog:
 
 This example shows how to send audit events to the `syslog`. Specify the following parameters:
 
-```
+```bash
 mongod \
 --dbpath data/db
 --auditDestination syslog \
@@ -43,7 +43,7 @@ mongod \
 
 Alternatively, you can edit the MongoDB configuration file:
 
-```
+```yaml
 storage:
  dbPath: data/db
 auditLog:
@@ -69,7 +69,7 @@ The following options control audit logging:
 
 Audit logging writes messages in JSON format with the following syntax:
 
-```
+```javascript
 {
   atype: <String>,
   ts : { "$date": <timestamp> },
@@ -97,7 +97,7 @@ Audit logging writes messages in JSON format with the following syntax:
 
 The following examples show the flexibility of audit log filters.
 
-```
+```yaml
 auditLog:
    destination: file
       filter: '{atype: {$in: [
@@ -122,13 +122,13 @@ For example, to log only the `dropCollection` and `dropDatabase` events:
 
 **Command line**
 
-```
+```bash
 --auditDestination file --auditFilter '{ atype: { $in: [ "dropCollection", "dropDatabase" ] } }'
 ```
 
 **Config file**
 
-```
+```yaml
 auditLog:
   destination: file
   filter: '{ atype: { $in: [ "dropCollection", "dropDatabase" ] } }'
@@ -142,13 +142,13 @@ For example, to filter all `drop` operations:
 
 **Command line**
 
-```
+```bash
 --auditDestination file --auditFilter '{ "atype" : /^drop.*/ }'
 ```
 
 **Config file**
 
-```
+```yaml
 auditLog:
   destination: file
   filter: '{ "atype" : /^drop.*/ }'
@@ -166,13 +166,13 @@ The dot (`.`) after the database name in the regular expression must be escaped 
 
 **Command line**
 
-```
+```bash
 --setParameter auditAuthorizationSuccess=true --auditDestination file --auditFilter '{ atype: "authCheck", "param.command": { $in: [ "find", "insert", "delete", "update", "findandmodify" ] }, "param.ns": /^test\\./ } }'
 ```
 
 **Config file**
 
-```
+```yaml
 auditLog:
   destination: file
   filter: '{ atype: "authCheck", "param.command": { $in: [ "find", "insert", "delete", "update", "findandmodify" ] }, "param.ns": /^test\\./ } }'
@@ -192,26 +192,26 @@ Enabling the `auditAuthorizationSuccess` parameter heavily impacts the performan
 
 You can enable it on a running server using the following command:
 
-```
+```javascript
 db.adminCommand( { setParameter: 1, auditAuthorizationSuccess: true } )
 ```
 
 To enable it on the command line, use the following option when running `mongod` or `mongos` process:
 
-```
+```javascript
 --setParameter auditAuthorizationSuccess=true
 ```
 
 You can also add it to the configuration file as follows:
 
-```
+```yaml
 setParameter:
   auditAuthorizationSuccess: true
 ```
 
 Example of the audit message
 
-```
+```json
 {
   "atype": "authCheck",
   "ts": {
@@ -274,4 +274,4 @@ If you restart Percona Server for MongoDB with auditing enabled or manually star
 - Closes this renamed file
 - Opens a new audit log file and starts writing auditing events to it.
 
-Read more about log rotation in [Log rotation in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/log-rotation.html)
+Read more about log rotation in [Log rotation in Percona Server for MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/log-rotation.md)

@@ -2,7 +2,7 @@
 
 # File copy based initial sync
 
-Version added: [7.0.22-12](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.22-12.html)
+Version added: [7.0.22-12](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.22-12.md)
 
 When a new member joins the replica set, it receives the data from the existing replica set node via the initial sync.
 
@@ -18,7 +18,7 @@ File copy-based initial sync implementation is compatible with that of MongoDB E
 
 To select the initial sync method, specify the `initialSyncMethod` parameter in the configuration file for the target node:
 
-```
+```yaml
 setParameter:
   initialSyncMethod: fileCopyBased
 ```
@@ -56,5 +56,5 @@ Using file copy-based initial sync has the following limitations:
 - Don’t write to the `local` database on the syncing node
 - You cannot use the same sync source for multiple target nodes simultaneously because only one backup cursor can exist at any moment.
 - If you’re using encrypted storage, Percona Server for MongoDB applies the encryption key from the sync source node to secure the data on the syncing node.
-- You must have WiredTiger defined as the storage engine to run file copy-based initial sync. [Percona memory engine](https://docs.percona.com/percona-server-for-mongodb/7.0/inmemory.html) engine is not supported.
+- You must have WiredTiger defined as the storage engine to run file copy-based initial sync. [Percona memory engine](https://docs.percona.com/percona-server-for-mongodb/7.0/inmemory.md) engine is not supported.
 - Both source and target nodes must run Percona Server for MongoDB version 7.0.22-12 or higher.

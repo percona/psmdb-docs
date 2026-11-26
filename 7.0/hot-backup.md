@@ -14,13 +14,13 @@ To take a hot backup of the database in your current `dbpath`, do the following:
 
 1. Provide access to the backup directory for the `mongod` user:
 
-   ```
+   ```bash
    sudo chown mongod:mongod <backupDir>
    ```
 
 1. Run the `createBackup` command as administrator on the `admin` database and specify the backup directory.
 
-   ```
+   ```javascript
    > use admin
    switched to db admin
    > db.runCommand({createBackup: 1, backupDir: "<backup_data_path>"})
@@ -31,7 +31,7 @@ The backup taken is the snapshot of the `mongod` server’s `dataDir` at the mom
 
 If the backup was successful, you should receive an `{ "ok" : 1 }` object. If there was an error, you will receive a failing `ok` status with the error message, for example:
 
-```
+```javascript
 > db.runCommand({createBackup: 1, backupDir: ""})
 { "ok" : 0, "errmsg" : "Destination path must be absolute" }
 ```
@@ -40,7 +40,7 @@ If the backup was successful, you should receive an `{ "ok" : 1 }` object. If th
 
 To save a backup as a *tar* archive, use the `archive` field to specify the destination path:
 
-```
+```javascript
 > use admin
 ...
 > db.runCommand({createBackup: 1, archive: <path_to_archive>.tar })
@@ -52,7 +52,7 @@ To save a backup as a *tar* archive, use the `archive` field to specify the dest
 
 This method requires that you provide the *bucket* field in the *s3* object:
 
-```
+```javascript
 > use admin
 ...
 > db.runCommand({createBackup: 1, s3: {bucket: "backup20190510", path: <some_optional_path>} })
@@ -82,7 +82,7 @@ If the *access key id* parameter is not specified then the credentials are loade
 
 ~/.aws/credentials
 
-```
+```text
 [default]
 aws_access_key_id = ABC123XYZ456QQQAAAFFF
 aws_secret_access_key = zuf+secretkey0secretkey1secretkey2
@@ -95,7 +95,7 @@ aws_secret_access_key = secretaccesskey1secretaccesskey2secretaccesskey3
 
 **Backup in root of bucket on local instance of MinIO server**
 
-```
+```javascript
 > db.runCommand({createBackup: 1,  s3: {bucket: "backup20190901500",
 scheme: "HTTP",
 endpoint: "127.0.0.1:9000",
@@ -107,7 +107,7 @@ profile: "localminio"}})
 
 The following command creates a backup under the virtual path “year2019/day42” in the `backup` bucket:
 
-```
+```javascript
 > db.runCommand({createBackup: 1,  s3: {bucket: "backup",
 path: "year2019/day42",
 endpoint: "sandbox.min.io:9000",
@@ -116,7 +116,7 @@ useVirtualAddressing: false}})
 
 **Backup on AWS S3 service using default settings**
 
-```
+```javascript
 > db.runCommand({createBackup: 1,  s3: {bucket: "backup", path: "year2019/day42"}})
 ```
 
@@ -138,31 +138,31 @@ Run the following commands as root or by using the `sudo` command
 
 1. Stop the `mongod` service
 
-   ```
+   ```bash
    systemctl stop mongod
    ```
 
 1. Clean out the data directory
 
-   ```
+   ```bash
    rm -rf /var/lib/mongodb/*
    ```
 
 1. Copy backup files
 
-   ```
+   ```bash
    cp -RT <backup_data_path> /var/lib/mongodb/
    ```
 
 1. Grant permissions to data files for the `mongod` user
 
-   ```
+   ```bash
    chown -R mongod:mongod /var/lib/mongodb/
    ```
 
 1. Start the `mongod` service
 
-   ```
+   ```bash
    systemctl start mongod
    ```
 
@@ -178,32 +178,32 @@ Run the following commands as root or by using the **sudo** command
 
 1. Stop the `mongod` service:
 
-   ```
+   ```bash
    systemctl stop mongod
    ```
 
 1. Clean the data directory and then copy the files from the backup directory to your data directory. Assuming that the data directory is `/var/lib/mongodb/`, use the following commands:
 
-   ```
+   ```bash
    rm -rf /var/lib/mongodb/*
    cp -RT <backup_data_path> /var/lib/mongodb/
    ```
 
 1. Grant permissions to the data files for the `mongod` user
 
-   ```
+   ```bash
    chown -R mongod:mongod /var/lib/mongodb/
    ```
 
 1. Make sure the replication is disabled in the config file and start the `mongod` service.
 
-   ```
+   ```bash
    systemctl start mongod
    ```
 
 1. Connect to your standalone node via the `mongo` shell and drop the local database
 
-   ```
+   ```javascript
    > mongo
    > use local
    > db.dropDatabase()
@@ -213,7 +213,7 @@ Run the following commands as root or by using the **sudo** command
 
    - Shut down the node.
 
-     ```
+     ```bash
      systemctl stop mongod
      ```
 
@@ -221,13 +221,13 @@ Run the following commands as root or by using the **sudo** command
 
    - Start the `mongod` node:
 
-     ```
+     ```bash
      systemctl start mongod
      ```
 
 1. Initiate a new replica set
 
-   ```
+   ```javascript
    # Start the mongosh shell
    > mongosh
    # Initiate a new replica set

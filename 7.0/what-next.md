@@ -24,11 +24,11 @@ Ensure your database handles the load as your data set grows without performance
 
 Protecting your data from unauthorized access is crucial. Introducing data-at-rest encryption helps protect sensitive information when it is stored on storage devices, such as hard drives, solid-state drives, or other types of persistent storage. Percona Server for MongoDB is integrated with several external key managers.
 
-[Data-at-rest encryption](https://docs.percona.com/percona-server-for-mongodb/7.0/data-at-rest-encryption.html)
+[Data-at-rest encryption](https://docs.percona.com/percona-server-for-mongodb/7.0/data-at-rest-encryption.md)
 
 ## Backup and restore
 
-Protect your database against data loss by implementing a backup strategy. You can either use the built-in [hot backup feature](https://docs.percona.com/percona-server-for-mongodb/7.0/hot-backup.html) or consider deploying Percona Backup for MongoDB - an open source solution for making consistent backups and restores in sharded clusters and replica sets.
+Protect your database against data loss by implementing a backup strategy. You can either use the built-in [hot backup feature](https://docs.percona.com/percona-server-for-mongodb/7.0/hot-backup.md) or consider deploying Percona Backup for MongoDB - an open source solution for making consistent backups and restores in sharded clusters and replica sets.
 
 [Percona Backup for MongoDB](https://docs.percona.com/percona-backup-mongodb/installation.html)
 

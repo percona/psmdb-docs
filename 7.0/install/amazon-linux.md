@@ -4,7 +4,7 @@
 
 This guide walks you through the installation of Percona Server for MongoDB on Amazon Linux 2023.
 
-We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/7.0/telemetry.html) to understand the use of the software and improve our products.
+We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/7.0/telemetry.md) to understand the use of the software and improve our products.
 
 ## Compatibility with Amazon Linux 2023
 
@@ -32,7 +32,7 @@ Package contents
 
 ## Procedure
 
-Before you start, check the [system requirements](https://docs.percona.com/percona-server-for-mongodb/7.0/system-requirements.html).
+Before you start, check the [system requirements](https://docs.percona.com/percona-server-for-mongodb/7.0/system-requirements.md).
 
 ### Configure Percona repository
 
@@ -40,13 +40,13 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
 1. Install **percona-release**:
 
-   ```
+   ```bash
    sudo yum install https://repo.percona.com/yum/percona-release-latest.noarch.rpm
    ```
 
    Example output
 
-   ```
+   ```bash
    Retrieving https://repo.percona.com/yum/percona-release-latest.noarch.rpm
    Preparing...                ########################################### [100%]
    1:percona-release        ########################################### [100%]
@@ -54,7 +54,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
 1. Enable the repository:
 
-   ```
+   ```bash
    sudo percona-release enable psmdb-70 release
    ```
 
@@ -64,7 +64,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
 To install the latest version of *Percona Server for MongoDB*, use the following command:
 
-```
+```bash
 sudo yum install percona-server-mongodb
 ```
 
@@ -74,13 +74,13 @@ To install a specific version of *Percona Server for MongoDB*, do the following:
 
 1. List available versions:
 
-   ```
+   ```bash
    sudo yum list percona-server-mongodb --showduplicates
    ```
 
    Sample output:
 
-   ```
+   ```bash
        Available Packages
 
    percona-server-mongodb.aarch64    7.0.48-25.amzn2023       psmdb-70-release-aarch64
@@ -88,7 +88,7 @@ To install a specific version of *Percona Server for MongoDB*, do the following:
 
 1. Install a specific version packages. For example, to install *Percona Server for MongoDB* 7.0.48-25, run the following command:
 
-   ```
+   ```bash
    sudo yum install percona-server-mongodb-7.0.48-25.amzn2023
    ```
 
@@ -106,7 +106,7 @@ Please refer to [Configure SELinux](https://docs.mongodb.com/v7.0/tutorial/insta
 
 Percona Server for MongoDB is not started automatically after installation. Start it manually using the following command:
 
-```
+```bash
 sudo systemctl start mongod
 ```
 
@@ -114,7 +114,7 @@ sudo systemctl start mongod
 
 Check the service status using the following command:
 
-```
+```bash
 sudo systemctl status mongod
 ```
 
@@ -122,7 +122,7 @@ sudo systemctl status mongod
 
 Stop the service using the following command:
 
-```
+```bash
 sudo systemctl stop mongod
 ```
 
@@ -130,7 +130,7 @@ sudo systemctl stop mongod
 
 Restart the service using the following command:
 
-```
+```bash
 sudo systemctl restart mongod
 ```
 
@@ -140,16 +140,16 @@ The `mongod` service is not automatically started after you reboot the system.
 
 To make it start automatically after reboot, enable it using the systemctl utility:
 
-```
+```bash
 sudo systemctl enable mongod
 ```
 
 Then start the `mongod` service:
 
-```
+```bash
 sudo systemctl start mongod
 ```
 
 ## Next steps
 
-[Connect to MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/connect.html)
+[Connect to MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/connect.md)

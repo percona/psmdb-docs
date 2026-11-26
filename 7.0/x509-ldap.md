@@ -2,7 +2,7 @@
 
 # Set up x.509 authentication and LDAP authorization
 
-[x.509 certificate authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.html#x509-certificate-authentication) is one of the supported authentication mechanisms in Percona Server for MongoDB. It is compatible with [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/7.0/authorization.html) to enable you to control user access and operations in your database environment.
+[x.509 certificate authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.md#x509-certificate-authentication) is one of the supported authentication mechanisms in Percona Server for MongoDB. It is compatible with [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/7.0/authorization.md) to enable you to control user access and operations in your database environment.
 
 This document provides the steps on how to configure and use x.509 certificates for authentication in Percona Server for MongoDB and authorize users in the LDAP server.
 
@@ -17,13 +17,13 @@ This document provides the steps on how to configure and use x.509 certificates 
 
 1. Create a directory to store the certificates. For example, `/var/lib/mongocerts`.
 
-   ```
+   ```bash
    sudo mkdir -p /var/lib/mongocerts
    ```
 
 1. Grant access to the `mongod` user to this directory:
 
-   ```
+   ```bash
    sudo chown mongod:mongod /var/lib/mongocerts
    ```
 
@@ -39,7 +39,7 @@ Run the following command and in the `-subj` flag, provide the details about you
 - O - Organization Name (company);
 - CN - Common Name (your name or your server’s hostname) .
 
-```
+```bash
 cd /var/lib/mongocerts
 sudo openssl req -nodes -x509 -newkey rsa:4096 -keyout ca.key -out ca.crt -subj "/C=US/ST=California/L=SanFrancisco/O=Percona/OU=root/CN=localhost"
 ```
@@ -54,19 +54,19 @@ sudo openssl req -nodes -x509 -newkey rsa:4096 -keyout ca.key -out ca.crt -subj 
    - O - Organization Name (company);
    - CN - Common Name (your name or your server’s hostname) .
 
-   ```
+   ```bash
    sudo openssl req -nodes -newkey rsa:4096 -keyout server.key -out server.csr -subj "/C=US/ST=California/L=SanFrancisco/O=Percona/OU=server/CN=localhost"
    ```
 
 1. Sign the server certificate request with the root CA certificate:
 
-   ```
+   ```bash
    sudo openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
    ```
 
 1. Combine the server certificate and key to create a certificate key file. Run this command as the `root` user:
 
-   ```
+   ```bash
    cat server.key server.crt > server.pem
    ```
 
@@ -74,19 +74,19 @@ sudo openssl req -nodes -x509 -newkey rsa:4096 -keyout ca.key -out ca.crt -subj 
 
 1. Generate client certificate request and key. In the `-subj` flag, specify the information about clients in the format.
 
-   ```
+   ```bash
    openssl req -nodes -newkey rsa:4096 -keyout client.key -out client.csr -subj "/DC=com/DC=percona/CN=John Doe"
    ```
 
 1. Sign the client certificate request with the root CA certificate.
 
-   ```
+   ```bash
    openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -set_serial 02 -out client.crt
    ```
 
 1. Combine the client certificate and key to create a certificate key file.
 
-   ```
+   ```bash
    cat client.key client.crt > client.pem
    ```
 
@@ -107,11 +107,11 @@ When you use x.509 authentication with LDAP authorization, you don’t need to c
 
 #### Create roles
 
-At this step, create the roles in the `admin` database with the names that exactly match the names of the user groups on the LDAP server. These roles are used for user [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/7.0/authorization.html) in Percona Server for MongoDB.
+At this step, create the roles in the `admin` database with the names that exactly match the names of the user groups on the LDAP server. These roles are used for user [LDAP authorization](https://docs.percona.com/percona-server-for-mongodb/7.0/authorization.md) in Percona Server for MongoDB.
 
 In our example, we create the role `cn=otherusers,dc=percona,dc=com` that has the corresponding LDAP group.
 
-```
+```javascript
 var admin = db.getSiblingDB("admin")
 db.createRole(
    {
@@ -129,7 +129,7 @@ db.createRole(
 
 Output:
 
-```
+```json
 {
      "role" : "cn=otherusers,dc=percona,dc=com",
      "privileges" : [ ],
@@ -146,13 +146,13 @@ Output:
 
 1. Stop the `mongod` service
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. Edit the `/etc/mongod.conf` configuration file.
 
-   ```
+   ```yaml
    net:
      port: 27017
      bindIp: 127.0.0.1
@@ -177,7 +177,7 @@ Output:
 
 1. Start the `mongod` service
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
@@ -185,13 +185,13 @@ Output:
 
 To test the authentication, connect to *Percona Server for MongoDB* using the following command:
 
-```
+```bash
 mongosh --host localhost --tls --tlsCAFile /var/lib/mongocerts/ca.crt --tlsCertificateKeyFile <path_to_client_certificate>/client.pem  --authenticationMechanism MONGODB-X509 --authenticationDatabase='$external'
 ```
 
 The result should look like the following:
 
-```
+```javascript
 > db.runCommand({connectionStatus : 1})
 {
      "authInfo" : {

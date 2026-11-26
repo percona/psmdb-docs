@@ -2,7 +2,7 @@
 
 # Setting up AWS IAM authentication
 
-This document provides guidelines how to configure Percona Server for MongoDB to use AWS IAM authentication. The use of this authentication method enables you to natively integrate Percona Server for MongoDB with AWS services, increase security of your infrastructure by setting up password-less authentication and offload your DBAs from managing different sets of secrets. To learn more, see [AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/aws-iam.html)
+This document provides guidelines how to configure Percona Server for MongoDB to use AWS IAM authentication. The use of this authentication method enables you to natively integrate Percona Server for MongoDB with AWS services, increase security of your infrastructure by setting up password-less authentication and offload your DBAs from managing different sets of secrets. To learn more, see [AWS IAM authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/aws-iam.md)
 
 To configure AWS IAM authentication means to set up your AWS environment and configure Percona Server for MongoDB. The AWS environment setup is out of scope of this document. Consult the AWS documentation to perform the following setup steps:
 
@@ -31,13 +31,13 @@ During the authentication, Percona Server for MongoDB matches the ARN of the IAM
 
 **User authentication**
 
-```
+```text
 arn:aws:iam::<ARN>:user/<user_name>
 ```
 
 **Role authentication**
 
-```
+```text
 arn:aws:iam::<ARN>:role/<role_name>
 ```
 
@@ -45,7 +45,7 @@ Create a user and assign the required roles to them. Specify the ARN and names i
 
 **User authentication**
 
-```
+```javascript
 > use $external
 > db.createUser(
    {
@@ -57,7 +57,7 @@ Create a user and assign the required roles to them. Specify the ARN and names i
 
 **Role authentication**
 
-```
+```javascript
 > use $external
 > db.createUser(
    {
@@ -73,13 +73,13 @@ Run the following commands as root or via `sudo`
 
 1. Stop the `mongod` service
 
-   ```
+   ```bash
    sudo systemctl stop mongod
    ```
 
 1. Edit the `/etc/mongod.conf` configuration file
 
-   ```
+   ```yaml
    security:
      authorization: enabled
 
@@ -89,7 +89,7 @@ Run the following commands as root or via `sudo`
 
 1. Start the `mongod` service
 
-   ```
+   ```bash
    sudo systemctl start mongod
    ```
 
@@ -99,7 +99,7 @@ By default, all authentication requests are sent to the `sts.amazonaws.com` endp
 
 Edit the `/etc/mongod.conf` configuration file and specify the AWS endpoint for the `awsStsHost` parameter.
 
-```
+```yaml
 security:
   authorization: enabled
 
@@ -118,13 +118,13 @@ To test the authentication, use either of the following methods:
 
 Replace `<aws_access_key_id>`, `<aws_secret_access_key>` and `psmdb.example.com` with actual values in the following command:
 
-```
+```bash
 mongosh 'mongodb://<aws_access_key_id>:<aws_secret_access_key>:@psmdb.example.com/admin?authSource=$external&authMechanism=MONGODB-AWS'
 ```
 
 To pass temporary credentials and AWS token, replace `<aws_access_key_id>`, `<aws_secret_access_key>`, `<aws_session_token>` and `psmdb.example.com` in the following command:
 
-```
+```bash
 mongosh 'mongodb://<aws_access_key_id>:<aws_secret_access_key>:@psmdb.example.com/admin?authSource=$external&authMechanism=MONGODB-AWS&authMechanismProperties=AWS_SESSION_TOKEN:<aws_session_token>'
 ```
 
@@ -132,7 +132,7 @@ mongosh 'mongodb://<aws_access_key_id>:<aws_secret_access_key>:@psmdb.example.co
 
 Set AWS environment variables:
 
-```
+```bash
 export AWS_ACCESS_KEY_ID='<aws_access_key_id>'
 export AWS_SECRET_ACCESS_KEY='<aws_secret_access_key>'
 export AWS_SESSION_TOKEN='<aws_session_token>'
@@ -140,7 +140,7 @@ export AWS_SESSION_TOKEN='<aws_session_token>'
 
 Connect to Percona Server for MongoDB:
 
-```
+```bash
 mongosh 'mongodb://psmdb.example.com/testdb?authSource=$external&authMechanism=MONGODB-AWS'
 ```
 
@@ -148,13 +148,13 @@ mongosh 'mongodb://psmdb.example.com/testdb?authSource=$external&authMechanism=M
 
 If your application is running on the AWS resource, it receives the credentials from the resource metadata. To connect to Percona Server for MongoDB, run the command as follows:
 
-```
+```bash
 mongosh --authenticationMechanism=MONGODB-AWS --authenticationDatabase='$external'
 ```
 
 Upon successful authentication, the result should look like the following:
 
-```
+```javascript
 > db.runCommand( { connectionStatus: 1 })
 {
   authInfo: {

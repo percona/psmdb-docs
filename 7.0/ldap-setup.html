@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -128,8 +128,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/7.0/ldap-setup.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/ldap-setup.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/7.0/ldap-setup.md</a>.</div>
 
 
 
@@ -4371,7 +4371,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>This document primarily focuses on OpenLDAP used as the LDAP server and the examples are given based on the OpenLDAP format. If you are using Active Directory, refer to the <a href="#active-directory-configuration">Active Directory configuration</a> section.</li>
 <li>In examples below, we use anonymous binds to the LDAP server and the following OpenLDAP groups:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>dn: cn=testusers,dc=percona,dc=com
+<div class="language-text highlight"><pre><span></span><code>dn: cn=testusers,dc=percona,dc=com
 objectClass: groupOfNames
 cn: testusers
 member: cn=alice,dc=percona,dc=com   
@@ -4414,13 +4414,13 @@ member: cn=bob,dc=percona,dc=com
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">Debian / Ubuntu</label><label for="__tabbed_1_2">RHEL and derivatives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>tee -a /etc/openldap/ldap.conf &lt;&lt;EOF
+<div class="language-text highlight"><pre><span></span><code>tee -a /etc/openldap/ldap.conf &lt;&lt;EOF
 TLS_CACERT /etc/ssl/certs/my_CA.crt
 EOF
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>tee -a /etc/openldap/ldap.conf &lt;&lt;EOF
+<div class="language-text highlight"><pre><span></span><code>tee -a /etc/openldap/ldap.conf &lt;&lt;EOF
 TLS_CACERT /etc/openldap/certs/my_CA.crt
 EOF
 </code></pre></div>
@@ -4433,7 +4433,7 @@ EOF
 <p>Percona Server for MongoDB authorizes users based on LDAP group membership. For every group, you must create the role in the <code>admin</code> database with the name that exactly matches the  of the LDAP group.</p>
 <p>Percona Server for MongoDB maps the user’s LDAP group to the roles and determines what role is assigned to the user. Percona Server for MongoDB then grants privileges defined by this role.</p>
 <p>To create the roles, use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">)</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">admin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">)</span>
 <span class="nx">admin</span><span class="p">.</span><span class="nx">createRole</span><span class="p">(</span>
 <span class="w">   </span><span class="p">{</span>
 <span class="w">     </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"cn=testusers,dc=percona,dc=com"</span><span class="p">,</span>
@@ -4456,7 +4456,7 @@ EOF
 <ol>
 <li>
 <p>Edit the Percona Server for MongoDB configuration file (by default, <code>/etc/mongod.conf</code>) and specify the following configuration:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
@@ -4472,12 +4472,12 @@ EOF
 </li>
 <li>
 <p>Restart the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"cn=alice,dc=percona,dc=com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"cn=alice,dc=percona,dc=com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -4492,7 +4492,7 @@ EOF
 <ol>
 <li>
 <p>Edit the Percona Server for MongoDB configuration file (by default, <code>/etc/mongod.conf</code>) and specify the <code>userToDNMapping</code> parameter:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
@@ -4515,12 +4515,12 @@ EOF
 </li>
 <li>
 <p>Restart the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice@percona.com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice@percona.com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -4529,7 +4529,7 @@ EOF
 <ol>
 <li>
 <p>Edit the Percona Server for MongoDB configuration file (by default, <code>/etc/mongod.conf</code>) and specify the <code>userToDNMapping</code> parameter:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
@@ -4552,12 +4552,12 @@ EOF
 </li>
 <li>
 <p>Restart the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -4577,7 +4577,7 @@ EOF
 </ol>
 <h3 id="active-directory-configuration">Active Directory configuration<a data-markdown-ignore class="headerlink" href="#active-directory-configuration" title="Permanent link">¶</a></h3>
 <p>Microsoft Active Directory uses a different schema for user and group definition. To illustrate Percona Server for MongoDB configuration, we will use the following <abbr title="Active Directory">AD</abbr> users:</p>
-<div class="highlight"><pre><span></span><code>dn:CN=alice,CN=Users,DC=testusers,DC=percona,DC=com
+<div class="language-text highlight"><pre><span></span><code>dn:CN=alice,CN=Users,DC=testusers,DC=percona,DC=com
 userPrincipalName: alice@testusers.percona.com
 memberOf: CN=testusers,CN=Users,DC=percona,DC=com
 
@@ -4586,7 +4586,7 @@ userPrincipalName: bob@otherusers.percona.com
 memberOf: CN=otherusers,CN=Users,DC=percona,DC=com
 </code></pre></div>
 <p>The following are respective  groups:</p>
-<div class="highlight"><pre><span></span><code>dn:CN=testusers,CN=Users,DC=percona,DC=com
+<div class="language-text highlight"><pre><span></span><code>dn:CN=testusers,CN=Users,DC=percona,DC=com
 member:CN=alice,CN=Users,DC=testusers,DC=example,DC=com
 
 dn:CN=otherusers,CN=Users,DC=percona,DC=com
@@ -4599,7 +4599,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 <ol>
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">  </span><span class="nt">authz</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={PROVIDED_USER}))"</span>
@@ -4610,12 +4610,12 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 <li>
 <p>Restart the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"CN=alice,CN=Users,DC=testusers,DC=percona,DC=com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"CN=alice,CN=Users,DC=testusers,DC=percona,DC=com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -4624,7 +4624,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 <ol>
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">  </span><span class="nt">authz</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))"</span>
@@ -4642,12 +4642,12 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 <li>
 <p>Restart the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice@percona.com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice@percona.com"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>
@@ -4656,7 +4656,7 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 <ol>
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">ldap</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap.example.com"</span>
 <span class="w">  </span><span class="nt">authz</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">queryTemplate</span><span class="p">:</span><span class="w"> </span><span class="s">"DC=percona,DC=com??sub?(&amp;(objectClass=group)(member:1.2.840.113556.1.4.1941:={USER}))"</span>
@@ -4674,12 +4674,12 @@ member:CN=bob,CN=Users,DC=otherusers,DC=example,DC=com
 </li>
 <li>
 <p>Restart the <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 <li>
 <p>Test the access to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"alice"</span><span class="w"> </span>-p<span class="w"> </span><span class="s2">"secretpwd"</span><span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span><span class="s1">'PLAIN'</span>
 </code></pre></div>
 </li>
 </ol>

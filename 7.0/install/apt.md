@@ -4,7 +4,7 @@
 
 This document describes how to install Percona Server for MongoDB from Percona repositories on DEB-based distributions such as Debian and Ubuntu.
 
-We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/7.0/telemetry.html) to understand the use of the software and improve our products.
+We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/7.0/telemetry.md) to understand the use of the software and improve our products.
 
 Note
 
@@ -23,7 +23,7 @@ Package contents
 
 ## Procedure
 
-Before you start, check the [system requirements](https://docs.percona.com/percona-server-for-mongodb/7.0/system-requirements.html).
+Before you start, check the [system requirements](https://docs.percona.com/percona-server-for-mongodb/7.0/system-requirements.md).
 
 ### Configure Percona repository
 
@@ -31,13 +31,13 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
 1. Fetch `percona-release` packages from Percona web:
 
-   ```
+   ```bash
    wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
    ```
 
 1. Install the downloaded package with **dpkg**:
 
-   ```
+   ```bash
    sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
    ```
 
@@ -45,13 +45,13 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
 1. Enable the repository:
 
-   ```
+   ```bash
    sudo percona-release enable psmdb-70 release
    ```
 
 1. Remember to update the local cache:
 
-   ```
+   ```bash
    sudo apt update
    ```
 
@@ -61,7 +61,7 @@ Percona provides the [`percona-release`](https://docs.percona.com/percona-softwa
 
 Run the following command to install the latest version of Percona Server for MongoDB:
 
-```
+```bash
 sudo apt install percona-server-mongodb
 ```
 
@@ -71,19 +71,19 @@ To install a specific version of Percona Server for MongoDB, do the following:
 
 1. List available versions:
 
-   ```
+   ```bash
    sudo apt-cache madison percona-server-mongodb
    ```
 
    Sample output:
 
-   ```
+   ```bash
    percona-server-mongodb | 7.0.2-1.bullseye | http://repo.percona.com/psmdb-70/apt bullseye/main amd64 Packages
    ```
 
 1. Install a specific version packages. You must specify each package with the version number. For example, to install Percona Server for MongoDB 7.0.2-1, run the following command:
 
-   ```
+   ```bash
    sudo apt install percona-server-mongodb=7.0.2-1.bullseye percona-server-mongodb-mongos=7.0.2-1.bullseye percona-server-mongodb-shell=7.0.2-1.bullseye percona-server-mongodb-server=7.0.2-1.bullseye percona-server-mongodb-tools=7.0.2-1.bullseye
    ```
 
@@ -97,7 +97,7 @@ Percona Server for MongoDB is started automatically after installation unless it
 
 You can also manually start it using the following command:
 
-```
+```bash
 sudo systemctl start mongod
 ```
 
@@ -105,7 +105,7 @@ sudo systemctl start mongod
 
 Check the service status using the following command:
 
-```
+```bash
 sudo systemctl status mongod
 ```
 
@@ -113,7 +113,7 @@ sudo systemctl status mongod
 
 Stop the service using the following command:
 
-```
+```bash
 sudo systemctl stop mongod
 ```
 
@@ -121,7 +121,7 @@ sudo systemctl stop mongod
 
 Restart the service using the following command:
 
-```
+```bash
 sudo systemctl restart mongod
 ```
 
@@ -129,4 +129,4 @@ Congratulations! Your Percona Server for MongoDB is up and running.
 
 ## Next steps
 
-[Connect to MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/connect.html)
+[Connect to MongoDB](https://docs.percona.com/percona-server-for-mongodb/7.0/connect.md)

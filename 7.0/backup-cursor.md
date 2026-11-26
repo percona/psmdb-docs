@@ -21,14 +21,14 @@ Note that for standalone MongoDB node with disabled oplogs, you can only run the
 
 ### Get a list of all files to copy with $backupCursor
 
-```
+```javascript
 var bkCsr = db.getSiblingDB("admin").aggregate([{$backupCursor: {}}])
 bkCsrMetadata = bkCsr.next().metadata
 ```
 
 Sample output:
 
-```
+```json
 [
   {
     metadata: {
@@ -51,13 +51,13 @@ Note that when running `$backupCursor` in a standalone node deployment, `oplogSt
 
 Pass the `backupId` from the metadata document as the first parameter. For the `timestamp` parameter, use the maximum (latest) value among the `oplogEnd` timestamps from all shards and config server replica set. This will be the target time to restore.
 
-```
+```javascript
 var bkExtCsr = db.aggregate([{$backupCursorExtend: {backupId: bkCsrMetadata.backupId, timestamp: new Timestamp(1666631418, 1)}}])
 ```
 
 Sample output:
 
-```
+```json
 { "filename" : "/data/plain_rs/n1/data/journal/WiredTigerLog.0000000042" }
 { "filename" : "/data/plain_rs/n1/data/journal/WiredTigerLog.0000000043" }
 { "filename" : "/data/plain_rs/n1/data/journal/WiredTigerLog.0000000044" }

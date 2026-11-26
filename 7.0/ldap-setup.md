@@ -12,7 +12,7 @@ This document describes an example configuration of LDAP authentication and auth
 - This document primarily focuses on OpenLDAP used as the LDAP server and the examples are given based on the OpenLDAP format. If you are using Active Directory, refer to the [Active Directory configuration](#active-directory-configuration) section.
 - In examples below, we use anonymous binds to the LDAP server and the following OpenLDAP groups:
 
-```
+```text
 dn: cn=testusers,dc=percona,dc=com
 objectClass: groupOfNames
 cn: testusers
@@ -48,7 +48,7 @@ By default, Percona Server for MongoDB establishes the TLS connection when bindi
 
    **Debian / Ubuntu**
 
-   ```
+   ```text
    tee -a /etc/openldap/ldap.conf <<EOF
    TLS_CACERT /etc/ssl/certs/my_CA.crt
    EOF
@@ -56,7 +56,7 @@ By default, Percona Server for MongoDB establishes the TLS connection when bindi
 
    **RHEL and derivatives**
 
-   ```
+   ```text
    tee -a /etc/openldap/ldap.conf <<EOF
    TLS_CACERT /etc/openldap/certs/my_CA.crt
    EOF
@@ -70,7 +70,7 @@ Percona Server for MongoDB maps the user’s LDAP group to the roles and determi
 
 To create the roles, use the following command:
 
-```
+```javascript
 var admin = db.getSiblingDB("admin")
 admin.createRole(
    {
@@ -97,7 +97,7 @@ This section assumes that users connect to Percona Server for MongoDB by providi
 
 1. Edit the Percona Server for MongoDB configuration file (by default, `/etc/mongod.conf`) and specify the following configuration:
 
-   ```
+   ```yaml
    security:
      authorization: "enabled"
      ldap:
@@ -116,13 +116,13 @@ This section assumes that users connect to Percona Server for MongoDB by providi
 
 1. Restart the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl restart mongod
    ```
 
 1. Test the access to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh -u "cn=alice,dc=percona,dc=com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
    ```
 
@@ -140,7 +140,7 @@ Note that you can use only the `LDAPquery` or the `Substitution` stage, and you 
 
 1. Edit the Percona Server for MongoDB configuration file (by default, `/etc/mongod.conf`) and specify the `userToDNMapping` parameter:
 
-   ```
+   ```yaml
    security:
      authorization: "enabled"
      ldap:
@@ -166,13 +166,13 @@ Note that you can use only the `LDAPquery` or the `Substitution` stage, and you 
 
 1. Restart the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl restart mongod
    ```
 
 1. Test the access to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
    ```
 
@@ -180,7 +180,7 @@ Note that you can use only the `LDAPquery` or the `Substitution` stage, and you 
 
 1. Edit the Percona Server for MongoDB configuration file (by default, `/etc/mongod.conf`) and specify the `userToDNMapping` parameter:
 
-   ```
+   ```yaml
    security:
      authorization: "enabled"
      ldap:
@@ -206,13 +206,13 @@ Note that you can use only the `LDAPquery` or the `Substitution` stage, and you 
 
 1. Restart the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl restart mongod
    ```
 
 1. Test the access to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh -u "alice" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
    ```
 
@@ -235,7 +235,7 @@ To properly escape special characters, follow these steps:
 
 Microsoft Active Directory uses a different schema for user and group definition. To illustrate Percona Server for MongoDB configuration, we will use the following AD users:
 
-```
+```text
 dn:CN=alice,CN=Users,DC=testusers,DC=percona,DC=com
 userPrincipalName: alice@testusers.percona.com
 memberOf: CN=testusers,CN=Users,DC=percona,DC=com
@@ -247,7 +247,7 @@ memberOf: CN=otherusers,CN=Users,DC=percona,DC=com
 
 The following are respective groups:
 
-```
+```text
 dn:CN=testusers,CN=Users,DC=percona,DC=com
 member:CN=alice,CN=Users,DC=testusers,DC=example,DC=com
 
@@ -261,7 +261,7 @@ Use one of the given Percona Server for MongoDB configurations for user authenti
 
 1. Edit the `/etc/mongod.conf` configuration file:
 
-   ```
+   ```yaml
    ldap:
      servers: "ldap.example.com"
      authz:
@@ -273,13 +273,13 @@ Use one of the given Percona Server for MongoDB configurations for user authenti
 
 1. Restart the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl restart mongod
    ```
 
 1. Test the access to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh -u "CN=alice,CN=Users,DC=testusers,DC=percona,DC=com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
    ```
 
@@ -287,7 +287,7 @@ Use one of the given Percona Server for MongoDB configurations for user authenti
 
 1. Edit the `/etc/mongod.conf` configuration file:
 
-   ```
+   ```yaml
    ldap:
      servers: "ldap.example.com"
      authz:
@@ -306,13 +306,13 @@ Use one of the given Percona Server for MongoDB configurations for user authenti
 
 1. Restart the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl restart mongod
    ```
 
 1. Test the access to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh -u "alice@percona.com" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
    ```
 
@@ -320,7 +320,7 @@ Use one of the given Percona Server for MongoDB configurations for user authenti
 
 1. Edit the `/etc/mongod.conf` configuration file:
 
-   ```
+   ```yaml
    ldap:
      servers: "ldap.example.com"
      authz:
@@ -339,13 +339,13 @@ Use one of the given Percona Server for MongoDB configurations for user authenti
 
 1. Restart the `mongod` service:
 
-   ```
+   ```bash
    sudo systemctl restart mongod
    ```
 
 1. Test the access to Percona Server for MongoDB:
 
-   ```
+   ```bash
    mongosh -u "alice" -p "secretpwd" --authenticationDatabase '$external' --authenticationMechanism 'PLAIN'
    ```
 

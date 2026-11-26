@@ -6,9 +6,9 @@ Encryption at rest should be used with data in transit encryption and policies t
 
 Data encryption at rest was introduced in Percona Server for MongoDB 3.6 and is fully compatible with MongoDB’s encryption interface. Percona Server for MongoDB supports the following Key Management System (KMS) integrations:
 
-- [HashiCorp Vault](https://docs.percona.com/percona-server-for-mongodb/7.0/vault.html)
-- [OpenBao](https://docs.percona.com/percona-server-for-mongodb/7.0/openbao.html)
-- [Key Management Interoperability Protocol (KMIP) Servers](https://docs.percona.com/percona-server-for-mongodb/7.0/kmip.html)
+- [HashiCorp Vault](https://docs.percona.com/percona-server-for-mongodb/7.0/vault.md)
+- [OpenBao](https://docs.percona.com/percona-server-for-mongodb/7.0/openbao.md)
+- [Key Management Interoperability Protocol (KMIP) Servers](https://docs.percona.com/percona-server-for-mongodb/7.0/kmip.md)
 
 ## Workflow
 
@@ -25,10 +25,10 @@ Thus, two types of keys are used for data at rest encryption:
 
 To manage the master encryption key, use one of the supported key management options:
 
-- Integration with an external key server (recommended). Percona Server for MongoDB is [integrated with HashiCorp Vault](https://docs.percona.com/percona-server-for-mongodb/7.0/vault.html) and [OpenBao](https://docs.percona.com/percona-server-for-mongodb/7.0/openbao.html) for this purpose. It also supports the secure transfer of keys using [Key Management Interoperability Protocol (KMIP)](https://docs.percona.com/percona-server-for-mongodb/7.0/kmip.html).
-- [Local key management using a keyfile](https://docs.percona.com/percona-server-for-mongodb/7.0/keyfile.html).
+- Integration with an external key server (recommended). Percona Server for MongoDB is [integrated with HashiCorp Vault](https://docs.percona.com/percona-server-for-mongodb/7.0/vault.md) and [OpenBao](https://docs.percona.com/percona-server-for-mongodb/7.0/openbao.md) for this purpose. It also supports the secure transfer of keys using [Key Management Interoperability Protocol (KMIP)](https://docs.percona.com/percona-server-for-mongodb/7.0/kmip.md).
+- [Local key management using a keyfile](https://docs.percona.com/percona-server-for-mongodb/7.0/keyfile.md).
 
-Note that you can use only one of the key management options at a time. However, you can switch from one management option to another (e.g. from a keyfile to HashiCorp Vault). Refer to [Migrating from Key File Encryption to HashiCorp Vault Encryption](https://docs.percona.com/percona-server-for-mongodb/7.0/encryption-mode-switch.html) section for details.
+Note that you can use only one of the key management options at a time. However, you can switch from one management option to another (e.g. from a keyfile to HashiCorp Vault). Refer to [Migrating from Key File Encryption to HashiCorp Vault Encryption](https://docs.percona.com/percona-server-for-mongodb/7.0/encryption-mode-switch.md) section for details.
 
 ## Important configuration options
 
@@ -39,7 +39,7 @@ Percona Server for MongoDB supports the `encryptionCipherMode` option where you 
 
 By default, the `AES256-CBC` cipher mode is applied. The following example demonstrates how to apply the AES256-GCM cipher mode when starting the `mongod` service:
 
-```
+```bash
 mongod ... --encryptionCipherMode AES256-GCM
 ```
 
@@ -51,7 +51,7 @@ MongoDB Documentation: [encryptionCipherMode Option](https://docs.mongodb.com/ma
 
 Percona Server for MongoDB encrypts rollback files when data at rest encryption is enabled. To inspect the contents of these files, use **perconadecrypt**. This is a tool that you run from the command line as follows:
 
-```
+```bash
 perconadecrypt --encryptionKeyFile FILE  --inputPath FILE --outputPath FILE [--encryptionCipherMode MODE]
 ```
 
@@ -70,13 +70,13 @@ When decrypting, the cipher mode must match the cipher mode which was used for t
 
 You can check the encryption status and the current configuration using the following command:
 
-```
+```javascript
 > db.serverStatus().encryptionAtRest
 ```
 
 Expected output
 
-```
+```text
 {
   encryptionEnabled: true,
   encryptionCipherMode: 'AES256-CBC',

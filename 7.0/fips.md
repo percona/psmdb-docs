@@ -2,7 +2,7 @@
 
 # FIPS compliance
 
-Version added: [7.0.4-2](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.4-2.html)
+Version added: [7.0.4-2](https://docs.percona.com/percona-server-for-mongodb/7.0/release_notes/7.0.4-2.md)
 
 FIPS (Federal Information Processing Standard) is the US government computer security standard for cryptography modules that include both hardware and software components. Percona Server for MongoDB supports FIPS certified module for OpenSSL, enabling US organizations to introduce FIPS-compliant encryption and thus meet the requirements towards data security.
 

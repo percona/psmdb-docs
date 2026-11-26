@@ -24,7 +24,7 @@ key and save it to a file by using the openssl command:">
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -129,8 +129,8 @@ key and save it to a file by using the openssl command:">
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/7.0/keyfile.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/keyfile.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/7.0/keyfile.md</a>.</div>
 
 
 
@@ -4150,7 +4150,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h1 id="local-key-management-using-a-keyfile">Local key management using a keyfile<a data-markdown-ignore class="headerlink" href="#local-key-management-using-a-keyfile" title="Permanent link">¶</a></h1>
 <p>The key file must contain a 32 character string encoded in base64. You can generate a random
 key and save it to a file by using the <code>openssl</code> command:</p>
-<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">32</span><span class="w"> </span>&gt;<span class="w"> </span>mongodb-keyfile
+<div class="language-bash highlight"><pre><span></span><code>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">32</span><span class="w"> </span>&gt;<span class="w"> </span>mongodb-keyfile
 </code></pre></div>
 <p>Then, as the owner of the <code>mongod</code> process, update the file permissions: only
 the owner should be able to read and modify this file. The effective permissions
@@ -4159,7 +4159,7 @@ specified with the <code>chmod</code> command can be:</p>
 <li><strong>600</strong> - only the owner may read and modify the file</li>
 <li><strong>400</strong> - only the owner may read the file.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>mongodb-keyfile
+<div class="language-bash highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>mongodb-keyfile
 </code></pre></div>
 <p>Enable the data encryption at rest in Percona Server for MongoDB by setting these options:</p>
 <ul>
@@ -4170,7 +4170,7 @@ specified with the <code>chmod</code> command can be:</p>
 <p><code>--encryptionKeyFile</code> to specify the path to a file that contains the encryption key</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>...<span class="w"> </span>--enableEncryption<span class="w"> </span>--encryptionKeyFile<span class="w"> </span>&lt;fileName&gt;
+<div class="language-bash highlight"><pre><span></span><code>mongod<span class="w"> </span>...<span class="w"> </span>--enableEncryption<span class="w"> </span>--encryptionKeyFile<span class="w"> </span>&lt;fileName&gt;
 </code></pre></div>
 <p>By default, Percona Server for MongoDB uses the <code>AES256-CBC</code> cipher mode. If you want to use the <code>AES256-GCM</code> cipher mode, then use the <code>--encryptionCipherMode</code> parameter to change it.</p>
 <p>If <code>mongod</code> is started with the <code>--relaxPermChecks</code> option and the key file
@@ -4182,7 +4182,7 @@ case are:</p>
 <li><strong>640</strong> - only the owner can read and the change the file, the group can only read the file.</li>
 </ul>
 <p>All these options can be specified in the configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">enableEncryption</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;boolean&gt;</span>
 <span class="w">   </span><span class="nt">encryptionCipherMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span>
 <span class="w">   </span><span class="nt">encryptionKeyFile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span>

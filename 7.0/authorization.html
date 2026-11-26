@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -128,8 +128,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/7.0/authorization.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/authorization.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/7.0/authorization.md</a>.</div>
 
 
 
@@ -4427,7 +4427,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>You can configure Percona Server for MongoDB to communicate with the LDAP server directly to authenticate and authorize users.</p>
 <p>The advantage of using this mechanism is that it is easy to setup and does not require pre-creating users  in the dummy <code>$external</code> database. Nevertheless, the <code>--authenticationDatabase</code> connection argument will still need to be specified as <code>$external</code>.</p>
 <p>The following example illustrates the connection to Percona Server for MongoDB from the <code>mongosh</code> shell:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"CN=alice,CN=Users,DC=engineering,DC=example,DC=com"</span><span class="w"> </span>-p<span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w"> </span>-u<span class="w"> </span><span class="s2">"CN=alice,CN=Users,DC=engineering,DC=example,DC=com"</span><span class="w"> </span>-p<span class="w"> </span>--authenticationDatabase<span class="w"> </span><span class="s1">'$external'</span><span class="w"> </span>--authenticationMechanism<span class="w"> </span>PLAIN
 </code></pre></div>
 <p>The following diagram illustrates the authentication and authorization flow:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="_images/NativeLDAP-auth.png" data-desc-position="bottom"><img alt="image" src="_images/NativeLDAP-auth.png"></a></p>
@@ -4487,7 +4487,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h3 id="ldap-referrals">LDAP referrals<a data-markdown-ignore class="headerlink" href="#ldap-referrals" title="Permanent link">¶</a></h3>
 <p>As of version 6.0.2-1, Percona Server for MongoDB supports LDAP referrals as defined in <a href="https://www.rfc-editor.org/rfc/rfc4511.txt">RFC 4511 4.1.10</a>. For security reasons, referrals are disabled by default. Double-check that using referrals is safe before enabling them.</p>
 <p>To enable LDAP referrals, set the <code>ldapFollowReferrals</code> server parameter to <code>true</code> using the <a href="set-parameter.html">setParameter</a> command or by editing the configuration file.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">ldapFollowReferrals</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <h3 id="connection-pool">Connection pool<a data-markdown-ignore class="headerlink" href="#connection-pool" title="Permanent link">¶</a></h3>
@@ -4497,11 +4497,11 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_1_1">Command line</label><label for="__tabbed_1_2">Configuration file</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapConnectionPoolSizePerHost</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+<div class="language-javascript highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapConnectionPoolSizePerHost</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ldapConnectionPoolSizePerHost</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 </code></pre></div>
 </div>
@@ -4537,19 +4537,19 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div data-markdown-ignore class="tabbed-labels"><label for="__tabbed_2_1">Runtime (setParameter)</label><label for="__tabbed_2_2">Command line</label><label for="__tabbed_2_3">Configuration file</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span>
+<div class="language-javascript highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">({</span>
 <span class="p">...</span><span class="w">   </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
 <span class="p">...</span><span class="w">   </span><span class="nx">ldapUserCacheRefreshInterval</span><span class="o">:</span><span class="w"> </span><span class="mf">300</span>
 <span class="p">...</span><span class="w"> </span><span class="p">})</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--setParameter<span class="w"> </span><span class="s2">"ldapUserCacheRefreshInterval=300"</span><span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>mongod<span class="w"> </span>--setParameter<span class="w"> </span><span class="s2">"ldapUserCacheRefreshInterval=300"</span><span class="w"> </span><span class="se">\</span>
 <span class="w">       </span>--setParameter<span class="w"> </span><span class="s2">"ldapShouldRefreshUserCacheEntries=true"</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">ldapUserCacheRefreshInterval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
 <span class="w">  </span><span class="nt">ldapShouldRefreshUserCacheEntries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
@@ -4560,13 +4560,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>As of version 6.0.2-1, you can specify multiple LDAP servers for failover. Percona Server for MongoDB sends bind requests to the first server defined in the list. When this server is down or unavailable, it sends requests to the next server  and so on. Note that Percona Server for MongoDB keeps sending requests to this server even after the unavailable server recovers.</p>
 <p>Specify the LDAP servers as a comma-separated list in the format <code>&lt;host&gt;:&lt;port&gt;</code> for the <a href="https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-ldapservers">–ldapServers</a> option.</p>
 <p>You can define the option value at the server startup by editing the configuration file.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="s">"enabled"</span>
 <span class="w">  </span><span class="nt">ldap</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="s">"ldap1.example.net,ldap2.example.net"</span>
 </code></pre></div>
 <p>You can change <code>ldapServers</code> dynamically at runtime using the <a href="set-parameter.html">setParameter</a>.</p>
-<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapServers</span><span class="o">:</span><span class="s2">"localhost,ldap1.example.net,ldap2.example.net"</span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
+<div class="language-javascript highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">adminCommand</span><span class="p">(</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">setParameter</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">ldapServers</span><span class="o">:</span><span class="s2">"localhost,ldap1.example.net,ldap2.example.net"</span><span class="p">}</span><span class="w"> </span><span class="p">)</span>
 <span class="p">{</span><span class="w"> </span><span class="s2">"was"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"ldap1.example.net,ldap2.example.net"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <div class="admonition admonition">

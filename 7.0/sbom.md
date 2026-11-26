@@ -36,7 +36,7 @@ Trivy can, however, scan the SBOMs attached to Percona Server for MongoDB Docker
 
 ### Binary tarball
 
-```
+```bash
 # Confirm the SBOM is bundled
 tar tzf percona-server-mongodb-7.0.48-25-x86_64.<os_codename>.tar.gz \
     | grep doc/sbom.cdx.json
@@ -49,7 +49,7 @@ grype sbom:/tmp/percona-server-mongodb-7.0.48-25-x86_64.<os_codename>/doc/sbom.c
 
 ### RPM package
 
-```
+```bash
 # Confirm the package installs the SBOM
 rpm -ql percona-server-mongodb-server | grep sbom.cdx.json
 
@@ -59,7 +59,7 @@ grype --distro rhel:9.8 sbom:/usr/share/doc/percona-server-mongodb-server/sbom.c
 
 ### DEB package
 
-```
+```bash
 # Confirm the package installs the SBOM
 dpkg -L percona-server-mongodb-server | grep sbom.cdx.json
 
@@ -80,7 +80,7 @@ Each PSMDB Docker image (Docker Hub `docker.io/percona/percona-server-mongodb`, 
 
 `trivy image --sbom-sources oci` fetches the attached SBOM via the OCI Referrers API and scans it, without pulling the image:
 
-```
+```bash
 trivy image --severity HIGH,CRITICAL --sbom-sources oci \
     docker.io/percona/percona-server-mongodb:7.0.48-25-amd64
 ```
@@ -89,7 +89,7 @@ trivy image --severity HIGH,CRITICAL --sbom-sources oci \
 
 Scan the embedded SBOM from inside the container image: `7.0.48-25-amd64`:
 
-```
+```bash
 docker run --rm -it --entrypoint cat \
     docker.io/percona/percona-server-mongodb:7.0.48-25-amd64 \
     /usr/share/doc/percona-server-mongodb-server/sbom.cdx.json \
@@ -104,14 +104,14 @@ Follow these steps:
 
 1. Use the per-architecture tag to resolve directly to the image manifest:
 
-   ```
+   ```bash
    oras discover --format tree \
        docker.io/percona/percona-server-mongodb:7.0.48-25-amd64
    ```
 
    Output
 
-   ```
+   ```text
    docker.io/percona/percona-server-mongodb@sha256:<image_manifest_digest>
    └── application/vnd.cyclonedx+json
        └── sha256:<sbom_artifact_digest>
@@ -123,19 +123,19 @@ Follow these steps:
 
 1. Copy the SBOM artifact digest from the output and use it to download the SBOM to the current directory. Replace `<sbom_artifact_digest>` with the value displayed after `sha256:`:
 
-   ```
+   ```bash
    oras pull docker.io/percona/percona-server-mongodb@sha256:<sbom_artifact_digest>
    ```
 
 1. Confirm that the SBOM file was downloaded:
 
-   ```
+   ```bash
    ls
    ```
 
    Output
 
-   ```
+   ```text
    percona-server-mongodb-7.0.48-25-amd64.cdx.json
    ```
 
@@ -151,7 +151,7 @@ The `VEX` file for version 7.0.48-25 is available at:
 
 Pass the document to Grype’s `--vex` flag along with any SBOM scan on this page. For example, when scanning the SBOM of an RPM package:
 
-```
+```bash
 # Download the OpenVEX document for this release
 curl -fsSLO https://percona.github.io/percona-server-mongodb/vex/percona-server-mongodb-7.0.48-25.vex.json
 

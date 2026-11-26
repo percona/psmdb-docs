@@ -4,7 +4,7 @@
 
 By default, Percona Server for MongoDB does not restrict access to data and configuration.
 
-Enabling authentication enforces users to identify themselves when accessing the database. This documents describes how to enable built-in [SCRAM](https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.html#scram) authentication mechanism. *Percona Server for MongoDB* also supports the number of external authentication mechanisms. To learn more, refer to [Authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.html).
+Enabling authentication enforces users to identify themselves when accessing the database. This documents describes how to enable built-in [SCRAM](https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.md#scram) authentication mechanism. *Percona Server for MongoDB* also supports the number of external authentication mechanisms. To learn more, refer to [Authentication](https://docs.percona.com/percona-server-for-mongodb/7.0/authentication.md).
 
 You can enable authentication either automatically or manually.
 
@@ -22,26 +22,26 @@ To enable access control manually:
 
 1. Add the following lines to the configuration file:
 
-   ```
+   ```yaml
    security:
      authorization: enabled
    ```
 
 1. Run the following command on the `admin` database:
 
-   ```
+   ```javascript
    > db.createUser({user: 'USER', pwd: 'PASSWORD', roles: ['dbAdmin'] });
    ```
 
 1. Restart the `mongod` service:
 
-   ```
+   ```bash
    service mongod restart
    ```
 
 1. Connect to the database as the newly created user:
 
-   ```
+   ```bash
    mongosh --port 27017 -u 'USER' -p 'PASSWORD'  --authenticationDatabase "admin"
    ```
 

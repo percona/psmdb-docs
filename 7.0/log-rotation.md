@@ -4,7 +4,7 @@
 
 When you start Percona Server for MongoDB with a `--logpath` or `systemLog.path` setting, it writes logs to a file instead of standard output. These logs include detailed activity and operation information.
 
-Percona Server for MongoDB has server and [audit logs](https://docs.percona.com/percona-server-for-mongodb/7.0/audit-logging.html). To maintain system performance, manage disk space, and meet audit and compliance requirements, you must effectively manage these logs.
+Percona Server for MongoDB has server and [audit logs](https://docs.percona.com/percona-server-for-mongodb/7.0/audit-logging.md). To maintain system performance, manage disk space, and meet audit and compliance requirements, you must effectively manage these logs.
 
 Percona Server for MongoDB supports several methods for rotating server and audit logs. You can:
 
@@ -34,7 +34,7 @@ To rotate log files, do the following:
 
 1. Connect to the `admin` database on each replica set node except the arbiter node and run:
 
-   ```
+   ```javascript
    db.adminCommand({ logRotate: "server" })
    ```
 
@@ -46,13 +46,13 @@ To rotate log files, do the following:
 
 1. Check log files:
 
-   ```
+   ```bash
    ls /var/log/mongodb/server1.log*
    ```
 
    Sample output
 
-   ```
+   ```text
    /var/log/mongodb/server1.log
    /var/log/mongodb/server1.log.<timestamp>
    ```
@@ -61,7 +61,7 @@ To rotate log files, do the following:
 
 On Unix-based systems, you can trigger log rotation by sending a SIGUSR1 signal to the running `mongod` or `mongos` process:
 
-```
+```bash
 kill -SIGUSR1 <PID>
 ```
 
@@ -75,7 +75,7 @@ Here’s how to do it:
 
 1. Create a `logrotate` configuration file at `/etc/logrotate.d/mongod`.
 
-   ```
+   ```ini
    /var/log/mongodb/mongod.log {
       daily
       rotate 7
@@ -91,7 +91,7 @@ Here’s how to do it:
 
 1. Configure Percona Server for MongoDB:
 
-   ```
+   ```yaml
    systemLog:
      destination: file
      path: /var/log/percona/mongod.log

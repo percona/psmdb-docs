@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -128,8 +128,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/7.0/oidc-ping.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/oidc-ping.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/7.0/oidc-ping.md</a>.</div>
 
 
 
@@ -4595,7 +4595,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Edit the <code>/etc/mongod.conf</code> configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">security</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">authorization</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enabled</span>
 <span class="nt">setParameter</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">authenticationMechanisms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MONGODB-OIDC</span>
@@ -4611,13 +4611,13 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Start or restart Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongod
 </code></pre></div>
 </li>
 </ol>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code>mongod<span class="w"> </span>--auth<span class="w"> </span>--setParameter<span class="w"> </span><span class="nv">authenticationMechanisms</span><span class="o">=</span>MONGODB-OIDC<span class="w"> </span>--setParameter<span class="w"> </span><span class="se">\</span>
 <span class="s1">'oidcIdentityProviders=[ {</span>
 <span class="s1">   "issuer": "https://auth.pingone.eu/9f1b3e82-7c45-4a1e-bd62-cc38f7a4e918/as",</span>
 <span class="s1">   "audience": "01660c90-f988-4220-ad9d-32b60370d32c",</span>
@@ -4639,7 +4639,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>To enable users to access Percona Server for MongoDB, you must create roles and define privileges for them. </p>
 <p>The role name must match the identity provider group name and must have the prefix that matches the <code>authNamePrefix</code> in Percona Server for MongoDB configuration.</p>
 <p>For example, to create a role for the group named <code>admin</code> in Ping and with the <code>authNamePrefix</code> set to <code>ping</code>, use the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">).</span><span class="nx">createRole</span><span class="p">({</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"admin"</span><span class="p">).</span><span class="nx">createRole</span><span class="p">({</span>
 <span class="w">  </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"ping/admin"</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">privileges</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">],</span>
 <span class="w">  </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"readWriteAnyDatabase"</span><span class="w"> </span><span class="p">]</span>
@@ -4648,10 +4648,10 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <h3 id="create-users">Create users<a data-markdown-ignore class="headerlink" href="#create-users" title="Permanent link">¶</a></h3>
 <p><strong>Complete this step if you set <code>useAuthorizationClaim</code> to <code>false</code></strong></p>
 <p>Create users in the <code>$external</code> database. The username must consist of the <code>authNamePrefix</code> and the email that you specified when you created users in Ping Identity. The username format is:</p>
-<div class="highlight"><pre><span></span><code>authNamePrefix/email
+<div class="language-text highlight"><pre><span></span><code>authNamePrefix/email
 </code></pre></div>
 <p>If you set the <code>authNamePrefix</code> to <code>ping</code>, then the command to create a user is the following:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">createUser</span><span class="p">({</span>
+<div class="language-javascript highlight"><pre><span></span><code><span class="nx">db</span><span class="p">.</span><span class="nx">getSiblingDB</span><span class="p">(</span><span class="s2">"$external"</span><span class="p">).</span><span class="nx">createUser</span><span class="p">({</span>
 <span class="w">  </span><span class="nx">user</span><span class="o">:</span><span class="w"> </span><span class="s2">"ping/john.doe@example.com"</span><span class="p">,</span>
 <span class="w">  </span><span class="nx">roles</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">role</span><span class="o">:</span><span class="w"> </span><span class="s2">"ping/admin"</span><span class="p">,</span><span class="w"> </span><span class="nx">db</span><span class="o">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span>
@@ -4663,7 +4663,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Connect to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcIdTokenAsAccessToken
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcIdTokenAsAccessToken
 </code></pre></div>
 </li>
 <li>
@@ -4673,7 +4673,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.48-25
+<div class="language-text no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.48-25
 Using Mongosh:      2.14.1
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
@@ -4686,11 +4686,11 @@ test&gt;
 <ol>
 <li>
 <p>Connect to Percona Server for MongoDB:</p>
-<div class="highlight"><pre><span></span><code>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcIdTokenAsAccessToken<span class="w"> </span>--oidcFlows<span class="w"> </span>device-auth
+<div class="language-bash highlight"><pre><span></span><code>mongosh<span class="w">  </span>--authenticationMechanism<span class="w"> </span>MONGODB-OIDC<span class="w"> </span>--oidcIdTokenAsAccessToken<span class="w"> </span>--oidcFlows<span class="w"> </span>device-auth
 </code></pre></div>
 <details class="example">
 <summary>Sample output</summary>
-<div class="highlight"><pre><span></span><code>Visit the following URL to complete authentication: https://auth.pingone.eu/9f1b3e82-7c45-4a1e-bd62-cc38f7a4e918/device
+<div class="language-text highlight"><pre><span></span><code>Visit the following URL to complete authentication: https://auth.pingone.eu/9f1b3e82-7c45-4a1e-bd62-cc38f7a4e918/device
 Enter the following code on that page: ZDSC-KH7V
 Waiting...
 </code></pre></div>
@@ -4702,7 +4702,7 @@ Waiting...
 <li>Approve the sign in request.</li>
 <li>
 <p>Upon successful authentication, you will see a confirmation message. In your MongoDB client, you should see the output as follows:</p>
-<div class="no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.48-25
+<div class="language-text no-copy highlight"><pre><span></span><code>Using MongoDB:      7.0.48-25
 Using Mongosh:      2.14.1
 
 For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/

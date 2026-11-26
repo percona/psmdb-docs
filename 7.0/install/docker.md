@@ -12,11 +12,11 @@ Make sure that you are using the latest version of Docker. The ones provided via
 
 By default, Docker will pull the image from Docker Hub if it is not available locally.
 
-We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/7.0/telemetry.html) to understand the use of the software and improve our products.
+We gather [Telemetry data](https://docs.percona.com/percona-server-for-mongodb/7.0/telemetry.md) to understand the use of the software and improve our products.
 
 To run the latest Percona Server for MongoDB 7.0 in a Docker container, run the following command as the root user or via `sudo`:
 
-```
+```bash
 docker run -d --name psmdb -p 27017:27017 --restart always percona/percona-server-mongodb:<TAG>
 ```
 
@@ -37,7 +37,7 @@ Note that if you plan to run physical backups and restores with Percona Backup f
 
 Run the following command to start the bash session and run commands inside the container:
 
-```
+```bash
 docker exec -it <container-name>
 ```
 
@@ -45,7 +45,7 @@ where `<container-name>` is the name of your database container.
 
 For example, to connect to Percona Server for MongoDB, run:
 
-```
+```bash
 mongosh
 ```
 
@@ -67,7 +67,7 @@ When you start Docker, a default `bridge` network is created and all containers 
 
 1. Start the containers and expose different ports
 
-   ```
+   ```bash
    docker run --rm -d --name rs101 -p 27017:27017  percona/percona-server-mongodb:7.0 --port=27017 --replSet rs
    docker run --rm -d --name rs102 -p 28017:28017  percona/percona-server-mongodb:7.0 --port=28017 --replSet rs
    docker run --rm -d --name rs103 -p 29017:29017  percona/percona-server-mongodb:7.0 --port=29017 --replSet rs
@@ -75,13 +75,13 @@ When you start Docker, a default `bridge` network is created and all containers 
 
 1. Check that the containers are started
 
-   ```
+   ```bash
    docker container ls
    ```
 
    Output:
 
-   ```
+   ```text
    CONTAINER ID  IMAGE                                         COMMAND               CREATED         STATUS             PORTS                     NAMES
    3a4b70cd386b  percona/percona-server-mongodb:7.0  --port=27017 --re...  3 minutes ago   Up 3 minutes ago   0.0.0.0:27017->27017/tcp  rs101
    c9b40a00e32b  percona/percona-server-mongodb:7.0  --port=28017 --re...  11 seconds ago  Up 11 seconds ago  0.0.0.0:28017->28017/tcp  rs102
@@ -90,7 +90,7 @@ When you start Docker, a default `bridge` network is created and all containers 
 
 1. Get the IP addresses of each container
 
-   ```
+   ```bash
    docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs101
    docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs102
    docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' rs103
@@ -98,13 +98,13 @@ When you start Docker, a default `bridge` network is created and all containers 
 
 1. Interconnect the containers and initiate the replica set. Replace `rs101SERVER`, `rs102SERVER` and `rs103SERVER` with the IP address of each respective container.
 
-   ```
+   ```bash
    docker exec -ti rs101 mongosh --eval 'config={"_id":"rs","members":[{"_id":0,"host":"rs101SERVER:27017"},{"_id":1,"host":"rs102SERVER:28017"},{"_id":2,"host":"rs103SERVER:29017"}]};rs.initiate(config);'
    ```
 
 1. Check your setup
 
-   ```
+   ```bash
    docker exec -it rs101 mongosh --eval 'rs.status()'
    ```
 
@@ -114,13 +114,13 @@ You can isolate desired containers in a user-defined network and provide DNS res
 
 1. Create the network:
 
-   ```
+   ```bash
    docker network create my-network
    ```
 
 1. Start the containers and connect them to your network, exposing different ports
 
-   ```
+   ```bash
    docker run --rm -d --name rs101 --net my-network -p 27017:27017  percona/percona-server-mongodb:7.0 --port=27017 --replSet rs
    docker run --rm -d --name rs102 --net my-network -p 28017:28017  percona/percona-server-mongodb:7.0 --port=28017 --replSet rs
    docker run --rm -d --name rs103 --net my-network -p 29017:29017  percona/percona-server-mongodb:7.0 --port=29017 --replSet rs
@@ -128,19 +128,19 @@ You can isolate desired containers in a user-defined network and provide DNS res
 
    Alternatively, you can connect the already running containers to your network:
 
-   ```
+   ```bash
    docker network connect my-network rs101 rs102 rs103
    ```
 
 1. Interconnect the containers and initiate the replica set.
 
-   ```
+   ```bash
    docker exec -ti rs101 mongosh --eval 'config={"_id":"rs","members":[{"_id":0,"host":"rs101:27017"},{"_id":1,"host":"rs102:28017"},{"_id":2,"host":"rs103:29017"}]};rs.initiate(config);'
    ```
 
 1. Check your setup
 
-   ```
+   ```bash
    docker exec -it rs101 mongosh --eval 'rs.status()'
    ```
 
@@ -152,7 +152,7 @@ As the precondition, you need to have Docker Engine and Docker Compose on your m
 
    docker-compose.yaml
 
-   ```
+   ```yaml
    version: "3"
    services:
      rs101:
@@ -224,13 +224,13 @@ As the precondition, you need to have Docker Engine and Docker Compose on your m
 
 1. Build and run the replica set with Compose
 
-   ```
+   ```bash
    docker compose up -d
    ```
 
 1. Check your setup
 
-   ```
+   ```bash
    docker exec -it rs101 mongosh --eval 'rs.status()'
    ```
 
@@ -238,7 +238,7 @@ As the precondition, you need to have Docker Engine and Docker Compose on your m
 
 To start another container with the `mongosh` shell that connects to your Percona Server for MongoDB container, run the following command:
 
-```
+```bash
 docker run -it --link psmdb --rm percona/percona-server-mongodb:7.0 mongosh mongodb://MONGODB_SERVER:PORT/DB_NAME
 ```
 
@@ -246,10 +246,10 @@ Set `MONGODB_SERVER`, `PORT`, and `DB_NAME` with the IP address of the `psmdb` c
 
 You can get the IP address by running this command:
 
-```
+```bash
 docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' psmdb
 ```
 
 ## Next steps
 
-[Run simple queries](https://docs.percona.com/percona-server-for-mongodb/7.0/crud.html)
+[Run simple queries](https://docs.percona.com/percona-server-for-mongodb/7.0/crud.md)

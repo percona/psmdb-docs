@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -128,8 +128,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/7.0/mongos-config.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/mongos-config.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/7.0/mongos-config.md</a>.</div>
 
 
 
@@ -4259,19 +4259,19 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <ol>
 <li>
 <p>Create a <code>mongos</code> user and a group. This user will own the <code>mongos</code> process. Use the following command:</p>
-<div class="highlight"><pre><span></span><code>groupadd<span class="w"> </span>mongos<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>-r<span class="w"> </span>-s<span class="w"> </span>/bin/false<span class="w"> </span>-g<span class="w"> </span>mongos<span class="w"> </span>mongos
+<div class="language-bash highlight"><pre><span></span><code>groupadd<span class="w"> </span>mongos<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>useradd<span class="w"> </span>-r<span class="w"> </span>-s<span class="w"> </span>/bin/false<span class="w"> </span>-g<span class="w"> </span>mongos<span class="w"> </span>mongos
 </code></pre></div>
 </li>
 <li>
 <p>Create the environment file at the path <code>/etc/sysconfig/mongos</code> and specify the following environment variables within:</p>
-<div class="highlight"><span class="filename">/etc/sysconfig/mongos</span><pre><span></span><code><span class="na">OPTIONS</span><span class="o">=</span><span class="s">"-f /etc/mongos.conf"</span>
+<div class="language-ini highlight"><span class="filename">/etc/sysconfig/mongos</span><pre><span></span><code><span class="na">OPTIONS</span><span class="o">=</span><span class="s">"-f /etc/mongos.conf"</span>
 <span class="na">STDOUT</span><span class="o">=</span><span class="s">"/var/log/mongo/mongos.stdout"</span>
 <span class="na">STDERR</span><span class="o">=</span><span class="s">"/var/log/mongo/mongos.stderr"</span>
 </code></pre></div>
 </li>
 <li>
 <p>Create a <code>mongos</code> configuration file at the path <code>/etc/mongos.conf</code>. In the following example configuration, replace the <code>security.keyfile</code> with the path to your keyfile and specify the name of the config server replica set and its members in the format <code>hostname:port</code>:</p>
-<div class="highlight"><span class="filename">/etc/mongos.conf</span><pre><span></span><code><span class="c1"># where to write logging data.</span>
+<div class="language-yaml highlight"><span class="filename">/etc/mongos.conf</span><pre><span></span><code><span class="c1"># where to write logging data.</span>
 <span class="nt">systemLog</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file</span>
 <span class="w">  </span><span class="nt">logAppend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -4295,7 +4295,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Create the systemd unit file at the path <code>/usr/lib/systemd/system/mongos.service</code>. Specify the following configuration:</p>
-<div class="highlight"><pre><span></span><code>tee<span class="w"> </span>/usr/lib/systemd/system/mongos.service<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<div class="language-bash highlight"><pre><span></span><code>tee<span class="w"> </span>/usr/lib/systemd/system/mongos.service<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
 <span class="s">[Unit]</span>
 <span class="s">Description=High-performance, schema-free document-oriented database</span>
 <span class="s">After=time-sync.target network.target    </span>
@@ -4321,19 +4321,19 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 </li>
 <li>
 <p>Grant read/write access for the <code>mongos</code> user to the following directories and files:</p>
-<p></p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongos:mongos<span class="w"> </span>/var/log/mongo<span class="w"> </span><span class="se">\</span>
+<p></p><div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>mongos:mongos<span class="w"> </span>/var/log/mongo<span class="w"> </span><span class="se">\</span>
 /var/run/mongos.pid<span class="w"> </span><span class="se">\</span>
 /etc/mongos.conf<span class="w"> </span><span class="se">\</span>
 /etc/sysconfig/mongos<span class="w"> </span><span class="se">\</span>
 &lt;path-to-keyfile&gt;
 </code></pre></div>
 6. Reload the systemd daemon to apply the changes:<p></p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
 </code></pre></div>
 </li>
 <li>
 <p>Start the <code>mongos</code> service:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongos
+<div class="language-bash highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>mongos
 </code></pre></div>
 </li>
 </ol>

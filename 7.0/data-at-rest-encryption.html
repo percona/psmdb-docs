@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="_images/mongodb-fav.svg">
-      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.8.2">
     
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -128,8 +128,8 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
-        </style></head>
-<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>.</div>
+        </style><link rel="alternate" type="text/markdown" href="https://docs.percona.com/percona-server-for-mongodb/7.0/data-at-rest-encryption.md"></head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"><div class="agent-hint" aria-hidden="true" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">For AI agents: an index of this documentation is at <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/llms.txt" tabindex="-1">llms.txt</a>. This page as markdown: <a href="https://docs.percona.com/percona-server-for-mongodb/7.0/data-at-rest-encryption.md" tabindex="-1">https://docs.percona.com/percona-server-for-mongodb/7.0/data-at-rest-encryption.md</a>.</div>
 
 
 
@@ -4361,7 +4361,7 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 <p>By default, the <code>AES256-CBC</code> cipher mode is applied. The following example
 demonstrates how to apply the AES256-GCM cipher mode when starting the
 <code>mongod</code> service:</p>
-<div class="highlight"><pre><span></span><code>mongod<span class="w"> </span>...<span class="w"> </span>--encryptionCipherMode<span class="w"> </span>AES256-GCM
+<div class="language-bash highlight"><pre><span></span><code>mongod<span class="w"> </span>...<span class="w"> </span>--encryptionCipherMode<span class="w"> </span>AES256-GCM
 </code></pre></div>
 <div class="admonition admonition">
 <p class="admonition-title">See also</p>
@@ -4369,7 +4369,7 @@ demonstrates how to apply the AES256-GCM cipher mode when starting the
 </div>
 <h2 id="encryption-of-rollback-files">Encryption of rollback files<a data-markdown-ignore class="headerlink" href="#encryption-of-rollback-files" title="Permanent link">¶</a></h2>
 <p>Percona Server for MongoDB encrypts rollback files when data at rest encryption is enabled. To inspect the contents of these files, use <strong>perconadecrypt</strong>. This is a tool that you run from the command line as follows:</p>
-<div class="highlight"><pre><span></span><code>perconadecrypt<span class="w"> </span>--encryptionKeyFile<span class="w"> </span>FILE<span class="w">  </span>--inputPath<span class="w"> </span>FILE<span class="w"> </span>--outputPath<span class="w"> </span>FILE<span class="w"> </span><span class="o">[</span>--encryptionCipherMode<span class="w"> </span>MODE<span class="o">]</span>
+<div class="language-bash highlight"><pre><span></span><code>perconadecrypt<span class="w"> </span>--encryptionKeyFile<span class="w"> </span>FILE<span class="w">  </span>--inputPath<span class="w"> </span>FILE<span class="w"> </span>--outputPath<span class="w"> </span>FILE<span class="w"> </span><span class="o">[</span>--encryptionCipherMode<span class="w"> </span>MODE<span class="o">]</span>
 </code></pre></div>
 <p>When decrypting, the cipher mode must match the cipher mode which was used for
 the encryption. By default, the <code>--encryptionCipherMode</code> option uses the
@@ -4403,11 +4403,11 @@ the encryption. By default, the <code>--encryptionCipherMode</code> option uses 
 </table>
 <h2 id="check-encryption-status">Check encryption status<a data-markdown-ignore class="headerlink" href="#check-encryption-status" title="Permanent link">¶</a></h2>
 <p>You can check the encryption status and the current configuration using the following command:</p>
-<div class="highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span><span class="w"> </span>
+<div class="language-javascript highlight" data-prompt="&gt;"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">encryptionAtRest</span><span class="w"> </span>
 </code></pre></div>
 <details class="example">
 <summary>Expected output</summary>
-<div class="no-copy highlight"><pre><span></span><code>{
+<div class="language-text no-copy highlight"><pre><span></span><code>{
   encryptionEnabled: true,
   encryptionCipherMode: 'AES256-CBC',
   encryptionKeyId: 'local'
